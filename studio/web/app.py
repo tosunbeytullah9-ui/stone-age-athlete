@@ -79,6 +79,19 @@ def _providers(cfg) -> dict:
             "planner": cfg.get_path("planner.provider")}
 
 
+@app.get("/api/ping")
+def ping() -> dict:
+    return {"app": "video-fabrikasi", "pid": os.getpid()}
+
+
+@app.post("/api/shutdown")
+def shutdown() -> dict:
+    """Used by a newly started panel to replace an old one still running in another window."""
+    import threading
+    threading.Timer(0.3, lambda: os._exit(0)).start()
+    return {"ok": True}
+
+
 @app.get("/api/overview")
 def overview():
     chans = []
@@ -427,11 +440,44 @@ def cancel(jid: int):
     return {"ok": manager.cancel(jid)}
 
 
+def _port_free(host: str, port: int) -> bool:
+    """True when nothing is listening on host:port (connect test; immune to TIME_WAIT leftovers)."""
+    import socket
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.settimeout(0.5)
+        return sock.connect_ex((host, port)) != 0
+
+
+def _replace_running_panel(host: str, port: int) -> bool:
+    """If an older panel already holds the port (e.g. start.bat opened twice), shut it down. True = port now free."""
+    import json
+    import time
+    import urllib.request
+    base = f"http://{host}:{port}"
+    try:
+        with urllib.request.urlopen(base + "/api/ping", timeout=2) as r:
+            if json.loads(r.read()).get("app") != "video-fabrikasi":
+                return False
+        print("  Açık kalmış eski bir panel bulundu, kapatılıp yenisi başlatılıyor...")
+        urllib.request.urlopen(urllib.request.Request(base + "/api/shutdown", method="POST"), timeout=2).read()
+    except Exception:
+        return False
+    for _ in range(30):
+        time.sleep(0.2)
+        if _port_free(host, port):
+            return True
+    return False
+
+
 def serve() -> None:
     import uvicorn
     cfg = load_global()
     host, port = cfg.get_path("factory.host", "127.0.0.1"), int(cfg.get_path("factory.port", 8765))
     url = f"http://{host}:{port}"
+    if not _port_free(host, port) and not _replace_running_panel(host, port):
+        print(f"\n  [!] {port} numaralı bağlantı noktası başka bir program tarafından kullanılıyor.\n"
+              f"      Açık kalmış bir panel penceresi varsa kapat ya da config.yaml → factory.port değerini değiştir.\n")
+        raise SystemExit(1)
     print(f"\n  Video Fabrikası çalışıyor → {url}\n  (kapatmak için bu pencerede Ctrl+C)\n")
     if os.environ.get("STUDIO_NO_BROWSER") != "1":
         try:
