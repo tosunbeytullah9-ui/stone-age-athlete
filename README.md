@@ -1,97 +1,78 @@
-# Stone Age Athlete — Video Stüdyosu
+# Video Fabrikası
 
-Senaryodan YouTube videosuna giden üretim hattı: **senaryo → görsel planı → seslendirme → zamanlama → görseller → kurgu**.
-Her aşama değiştirilebilir bir parça. Başlangıçta hepsi **ücretsiz** çalışır; iş büyüdüğünde `config.yaml`'da
-tek satır değiştirip ücretli servise geçersin, kod değişmez.
+Birden çok YouTube kanalını tek bir üretim hattından çalıştıran, **senin bilgisayarında** çalışan bir video fabrikası.
+Web panelinden yönetilir: fikir havuzu → senaryo → storyboard → seslendirme → görseller → video, Shorts ve derleme.
+Başlangıçta her şey **ücretsiz** çalışır. İş büyüdüğünde her aşama tek ayarla ücretli servise geçer, kodda değişiklik gerekmez.
 
-| Aşama | Ücretsiz (varsayılan) | Ücretli (hazır, tek satırla açılır) |
+![Üretim ekranı](docs/img/production.png)
+
+## Başlatma
+
+1. Bir kez kur: **Python 3.10+** ve **FFmpeg**
+   - Windows: `winget install Python.Python.3.12 Gyan.FFmpeg Git.Git`
+   - Mac: `brew install python ffmpeg git`
+2. Repoyu indir: `git clone https://github.com/tosunbeytullah9-ui/stone-age-athlete.git`
+3. **Windows:** `start.bat` dosyasına çift tıkla. **Mac:** `./start.sh`
+   - İlk açılışta kurulum birkaç dakika sürer.
+   - Sonra panel tarayıcıda kendiliğinden açılır: http://127.0.0.1:8765
+
+Panel sadece senin bilgisayarında çalışır, internete açılmaz.
+
+## Bir video nasıl üretilir (panelden)
+
+| Adım | Nerede | Ne olur |
 | --- | --- | --- |
-| Görsel planı | `planner.provider: manual` — Claude sohbetinde | `anthropic` — Anthropic API, otomatik |
-| Seslendirme | `tts.provider: kokoro` — bilgisayarında çalışır | `elevenlabs` — daha doğal ses, kelime-kelime zamanlama |
-| Görseller | `images.default_engine: svg` — kodla çizim | `gemini` — Nano Banana AI görselleri (shot bazında da seçilebilir) |
-| Kurgu | FFmpeg | — |
+| 1. Fikri seç | Kanal → **Fikir havuzu** | 152 araştırılmış fikir, öncelik ve sütuna göre filtrelenir. "Projeye dönüştür" |
+| 2. Senaryo ve kaynaklar | Proje → **1 · Senaryo** | Anlatım metni + kaynak listesi. Kalite kapısı eksikleri gösterir |
+| 3. Böl | "Kaydet & böl" | Metin ~2,5 sn'lik shot'lara bölünür |
+| 4. Planla | **2 · Storyboard** → "Plan istemini kopyala" | claude.ai'ye yapıştır, gelen cevabı "Planı uygula"ya yapıştır (ücretsiz). Her shot'a tıklayıp canlı önizlemeyle düzenlenebilir |
+| 5. Üret | **3 · Üretim** → "Tümünü üret" | Ses, zamanlama, görseller, video. İlerleme canlı izlenir |
+| 6. Diğer diller | 3 · Üretim → Türkçe satırı | "Çeviri istemini kopyala" → Claude → "Çeviriyi uygula" → "Tümünü üret". **Aynı görseller** kullanılır |
+| 7. Çıktılar | **4 · Çıktılar** | Video, Shorts, bölüm zaman damgaları ve kaynaklarla hazır YouTube açıklaması |
 
-## Kurulum (bir kez)
+Uzun "uyku için" derlemeler: Kanal → **Derleme**. Bitmiş videoları seç, tek tuşla birleştir.
 
-Gerekenler: **Python 3.10+**, **FFmpeg**, **Git**.
+![Sahne düzenleyici](docs/img/shot-editor.png)
 
-- Windows: `winget install Python.Python.3.12 Gyan.FFmpeg Git.Git` (sonra terminali kapatıp aç)
-- Mac: `brew install python ffmpeg git`
+## Ücretsizden ücretliye
 
-```bash
-git clone https://github.com/tosunbeytullah9-ui/stone-age-athlete.git
-cd stone-age-athlete
-python -m venv .venv
-# Windows:  .venv\Scripts\activate      Mac/Linux:  source .venv/bin/activate
-pip install -r requirements.txt -r requirements-voice.txt
-python -m playwright install chromium
-copy .env.example .env        # Mac/Linux: cp .env.example .env   (anahtarlar sadece ücretli servisler için)
-```
+Panel → **Ayarlar**: anahtarı yapıştır, ilgili satırı değiştir. Anahtarlar sadece bilgisayarındaki `.env` dosyasında durur.
 
-İlk seslendirmede Kokoro ses modeli (~350 MB) `models/` klasörüne kendiliğinden iner.
+| Aşama | Ücretsiz (varsayılan) | Ücretli |
+| --- | --- | --- |
+| Görsel planı ve çeviri | `planner.provider: manual` (Claude sohbeti) | `anthropic` (otomatik) |
+| Ses (İngilizce) | `kokoro` (yerel) | `elevenlabs` |
+| Ses (Türkçe) | `edge` (çevrimiçi) | `elevenlabs` |
+| Görseller | `svg` (kodla çizim) | `gemini` (Nano Banana). Tek shot için de seçilebilir |
 
-Kurulumu denemek için: `python -m studio all 001-tougher-than-athletes` → `projects/001-tougher-than-athletes/build/video.mp4`
+Her kanal bu ayarları kendi `channel.yaml → overrides` bölümünde ezebilir. Örneğin bir kanal ücretli ses kullanırken diğeri ücretsiz kalır.
 
-## Yeni video üretmek
+## Yeni kanal
 
-```bash
-python -m studio new 002-born-to-run --title "Were Humans Really Born to Run?"
-```
+Panel → **+ Yeni kanal**. Her kanalın kendi adı, dilleri, maskotu, renk paleti, sesi ve fikir havuzu olur.
+Üretim hattı ve çizim kütüphanesi ortaktır. Genişleme önerileri (Tıp Tarihi, Paranın Tarihi …) ve gerekçeleri
+[docs/FACTORY.md](docs/FACTORY.md) içinde.
 
-1. **Senaryo:** `projects/002-born-to-run/script.md` dosyasına İngilizce anlatım metnini yaz. Paragrafları boş satırla ayır.
-   `#` ile başlayan satırlar okunmaz. Kaynakları `sources.md` içine not et.
-2. **Böl:** `python -m studio split 002-born-to-run`. Metin ~2 saniyelik parçalara (shot) bölünür → `storyboard.yaml`.
-3. **Görselleri planla:** `python -m studio plan 002-born-to-run`
-   - *manual (ücretsiz):* `build/planner_prompt.md` dosyası oluşur. İçeriğini Claude'a yapıştır, gelen YAML cevabı
-     `plan.yaml` olarak kaydet: `python -m studio apply-plan 002-born-to-run plan.yaml`
-   - Daha kolayı: repoyu Claude'a bağla ve "002'yi planla" de. Talimatlar `CLAUDE.md` içinde.
-4. **Üret:** `python -m studio all 002-born-to-run` (ses → zamanlama → görseller → video)
-5. **Kontrol:** `python -m studio sheet 002-born-to-run` bütün sahneleri tek resimde gösterir.
-   Beğenmediğin shot'un `visual` kısmını `storyboard.yaml`'da düzelt ve `all`'u tekrar çalıştır.
-   Sadece değişen shot'lar yeniden üretilir, değişmeyen ses ve görseller önbellekten gelir.
+## YouTube politikasına karşı koruma
 
-Diğer komutlar: `voice`, `align`, `images [--only s001,s002] [--force]`, `render`, `status`, `catalog`, `refs`.
+YouTube Temmuz 2026'dan beri şablonla seri üretilen içeriği para kazanmadan çıkarıyor. Fabrikadaki **kalite kapısı**
+bir projeyi şu durumlarda "hazır" saymaz:
 
-## Görsel sistemi
+- senaryo 150 kelimenin altındaysa,
+- 3'ten az kaynak varsa,
+- planlanmamış shot varsa.
 
-Bir sahne birkaç satırlık bir tariftir. Tam biçim: [docs/STORYBOARD.md](docs/STORYBOARD.md)
-
-```yaml
-visual:
-  bg: savanna                      # 11 arka plan
-  bg_opts: {sun: low, hut: true}
-  figures:                         # 20 poz, yüz ifadeleri, aksesuarlar, ellerde nesneler
-    - {pose: kneel_grind, x: 780, wear: [hair_bun, hide], face: focused, sweat: true}
-  props:                           # 40 nesne
-    - {type: quern, x: 1115}
-```
-
-Neler çizilebildiğini görmek için: `docs/catalog/poses.png`, `props.png`, `backgrounds.png`.
-
-**Karma kullanım:** Kodla çizilemeyecek bir sahne (kalabalık, detaylı manzara) için sadece o shot'a
-`engine: gemini` ve `visual: {prompt: "..."}` yaz. Videonun geri kalanı ücretsiz kalır.
-Maskot koçun AI görsellerinde de aynı görünmesi için bir kez `python -m studio refs` çalıştır ve
-`visual.characters: [coach]` ekle.
-
-## Ücretli servise geçiş
-
-1. `.env` dosyasına ilgili anahtarı yaz (`GEMINI_API_KEY`, `ELEVENLABS_API_KEY`, `ANTHROPIC_API_KEY`).
-   `.env` GitHub'a gönderilmez.
-2. `config.yaml`'da ilgili satırı değiştir. Örneğin `tts.provider: elevenlabs` ve `tts.elevenlabs.voice_id`.
-3. Aynı komutları çalıştır.
-
-Yaklaşık maliyet, 12 dakikalık ve ~300 görselli bir video için: kodla çizim 0 $; tamamen Gemini ile
-fiyatlar modele göre değişir, güncel fiyatlar Google AI Studio'da. ElevenLabs'te ~12.000 karakter.
+Aynı sahnenin art arda tekrarlanmasına ve düşük sahne çeşitliliğine de uyarı verir.
 
 ## Klasörler
 
 ```
-config.yaml            tüm ayarlar
-studio/                kod (tts/, align/, images/, svgkit/, planner/)
-docs/STORYBOARD.md     sahne tarifi biçimi (planlayıcının talimatı)
-docs/catalog/          çizilebilen her şeyin görsel kataloğu
-projects/<video>/      script.md, storyboard.yaml, sources.md; build/ = üretilen dosyalar (Git'e girmez)
-assets/music/          fon müzikleri (Git'e girmez; config: audio.music)
+config.yaml                     genel ayarlar (panel → Ayarlar)
+channels/<kanal>/channel.yaml   kanal kimliği + kanala özel ayarlar
+channels/<kanal>/ideas.yaml     fikir havuzu
+channels/<kanal>/projects/<video>/   script.md, sources.md, storyboard.yaml, project.yaml, build/ (üretilenler)
+studio/                         üretim hattı (tts, align, images, svgkit, planner, render, web)
+docs/STORYBOARD.md              sahne tarifi biçimi · docs/catalog/ çizim kataloğu · docs/FACTORY.md mimari ve yol haritası
 ```
 
-Testler: `python -m pytest -q`
+Komut satırı da var (panel aynı komutları kullanıyor): `python -m studio --help`. Testler: `python -m pytest -q`

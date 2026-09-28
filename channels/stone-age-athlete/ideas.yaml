@@ -1,0 +1,187 @@
+# Idea bank — "The human body through time" (working channel id: stone-age-athlete)
+# pillar: P1 ancient bodies | P2 warriors & training | P3 extreme humans | P4 human vs nature |
+#         P5 body design | P6 hidden history of fitness | P7 mismatch & myths | P8 what if
+# priority: A = strong demand signal + gap, B = solid, C = experimental
+# demand: notes from YouTube search scans (Sept 2026): max / median views of top results
+# Every video ends with a 60-90 s "coach's lesson" (how to use this today).
+
+pillars:
+  P1: {name: Ancient Bodies, promise: "What our ancestors' bodies did all day — and what that means for yours"}
+  P2: {name: Warriors & Training, promise: "How history's toughest people actually trained, ate and recovered"}
+  P3: {name: Extreme Humans, promise: "Living peoples whose bodies adapted to the impossible"}
+  P4: {name: Human vs Nature, promise: "How the human body stacks up against animals and other humans"}
+  P5: {name: Body Design, promise: "Why your body is built the way it is — evolution's wins and bugs"}
+  P6: {name: Hidden History of Fitness, promise: "The strange origins of the things you do at the gym"}
+  P7: {name: Mismatch & Myths, promise: "Modern habits vs an ancient body — what science actually says"}
+  P8: {name: What If, promise: "Body thought experiments grounded in real research"}
+
+ideas:
+# ---------------- P1 Ancient Bodies ----------------
+- {title: "What Did Ancient Humans Do When They Got Injured?", pillar: P1, priority: A, angle: "Healed fractures in fossils: who cared for the injured, how long recovery took"}
+- {title: "How Did Ancient Humans Stay Strong Without Gyms?", pillar: P1, priority: A, angle: "Carrying, digging, climbing, grinding — load variety across the whole day"}
+- {title: "How Far Did Ancient Humans Walk Every Day?", pillar: P1, priority: A, angle: "Hadza step and distance data vs modern step counts"}
+- {title: "What Did Ancient Humans Do Instead of Sitting in Chairs?", pillar: P1, priority: A, angle: "Squatting and kneeling rest keep muscles active (Raichlen 2020)"}
+- {title: "Why Ancient Humans Never Had Back Pain (And Why That's Only Half True)", pillar: P1, priority: B, angle: "Low back pain prevalence in foragers vs vertebral fractures in active groups"}
+- {title: "How Did Ancient Women Carry Babies, Water and Firewood All Day?", pillar: P1, priority: B, angle: "Load carriage by women: head carrying, efficiency studies"}
+- {title: "What Did Ancient Humans Do When They Couldn't Sleep?", pillar: P1, priority: B, angle: "Segmented sleep, sleep in forager groups, sentinel hypothesis"}
+- {title: "How Did Ancient Humans Survive the Heat Without Air Conditioning?", pillar: P1, priority: B, angle: "Sweat, hairlessness, timing of activity"}
+- {title: "What Did Ancient Children Do All Day?", pillar: P1, priority: B, angle: "Play as training: forager children's physical activity"}
+- {title: "How Old Did Ancient Humans Actually Live?", pillar: P1, priority: A, angle: "Life expectancy myth: infant mortality vs modal age at death ~68-78 in foragers"}
+- {title: "What Did Ancient Humans' Feet Look Like?", pillar: P1, priority: B, angle: "Barefoot calluses, arch strength, footprints at Ileret and Laetoli"}
+- {title: "How Did Ancient Humans Treat Toothache?", pillar: P1, priority: C, angle: "Earliest dentistry (drilled teeth, beeswax filling)"}
+- {title: "What Did Ancient Humans Do When They Got Sick? (Part 2: Plants, Rest, Fever)", pillar: P1, priority: C, angle: "Self-medication, Neanderthal dental calculus evidence"}
+- {title: "How Did Ancient Humans Stay Warm in the Ice Age?", pillar: P1, priority: B, angle: "Brown fat, clothing, fire; energy cost of cold"}
+- {title: "Were Ancient Humans Taller or Shorter Than Us?", pillar: P1, priority: B, angle: "Height dropped with farming, recovered only recently"}
+- {title: "What Happened to Human Bodies When We Started Farming?", pillar: P1, priority: A, angle: "Bone density, height, teeth, workload changes after agriculture"}
+- {title: "How Did Ancient Humans Build Muscle Without Protein Shakes?", pillar: P1, priority: B, angle: "Protein sources, seasonal feast/famine"}
+- {title: "What Did Ancient Humans Do on Rest Days?", pillar: P1, priority: B, angle: "Hunter-gatherers rest a lot: Lieberman's 'energy savers'"}
+- {title: "How Did Ancient Humans Cross Rivers and Seas?", pillar: P1, priority: C, angle: "Swimming ability, rafts, the peopling of Australia"}
+- {title: "How Strong Were Ancient Women?", pillar: P1, priority: A, angle: "Macintosh 2017 arm bone strength vs rowers"}
+
+# ---------------- P2 Warriors & Training ----------------
+- {title: "How Did Ottoman Janissaries Train?", pillar: P2, priority: A, angle: "Devshirme, archery, wrestling, discipline; Turkish-audience hook", demand: "low English supply"}
+- {title: "Kırkpınar: The 660-Year-Old Oil Wrestling Tournament", pillar: P2, priority: A, angle: "Oldest continuously run sporting event claim; how pehlivans train", demand: "max 1.2M / median 177K"}
+- {title: "The House of Strength: Iran's Zurkhaneh Warriors", pillar: P2, priority: A, angle: "Meels, shena, spinning; ancestor of Indian clubs", demand: "max 382K, little explainer content"}
+- {title: "How Did Roman Gladiators Actually Train and Eat?", pillar: P2, priority: B, angle: "Barley diet, plant ash drink (Ephesus bones)", demand: "max 1.7M (food angle)"}
+- {title: "How Did Spartans Actually Train? (Myth vs Evidence)", pillar: P2, priority: B, angle: "Agoge sources are late and romanticised", demand: "crowded: 42K-1M"}
+- {title: "How Did Samurai Train Their Bodies?", pillar: P2, priority: B, angle: "Hojo undo, archery, horseback, kata"}
+- {title: "How Strong Were Medieval Knights in Armor?", pillar: P2, priority: B, angle: "Energy cost of walking in armor (Askew 2011)"}
+- {title: "How Did Mongol Warriors Ride 100 km a Day?", pillar: P2, priority: A, angle: "Horseback endurance, diet (airag, dried meat), relay stations"}
+- {title: "How Did Viking Warriors Train?", pillar: P2, priority: C, angle: "Glima wrestling, stone lifting (lifting stones tradition)", demand: "saturated by AI channels"}
+- {title: "How Did Roman Legionaries March 30 km With 30 kg?", pillar: P2, priority: A, angle: "Marching pace, load, fitness standards (Vegetius)"}
+- {title: "How Did Aztec Eagle Warriors Train?", pillar: P2, priority: C, angle: "Military schools (telpochcalli)"}
+- {title: "Inca Chasquis: The Relay Runners Who Delivered Fish From the Sea to the Mountains", pillar: P2, priority: A, angle: "Relay messenger system on the Inca road", demand: "almost no supply (median <1K)"}
+- {title: "How Did Shaolin Monks Build Iron Bodies?", pillar: P2, priority: B, angle: "Conditioning methods; myth vs physiology", demand: "max 27M (travel vlogs), explainers rare"}
+- {title: "How Did Ancient Greek Athletes Train? (The First Sports Science Book)", pillar: P2, priority: A, angle: "Philostratus 'Gymnasticus', tetrad training cycle"}
+- {title: "What Did Ancient Olympians Eat?", pillar: P2, priority: B, angle: "Milo of Croton legend, meat diets, figs"}
+- {title: "Milo of Croton: The Legend of Progressive Overload", pillar: P2, priority: A, angle: "The calf story and what progressive overload really is"}
+- {title: "How Did Persian Pahlavans Become Legends?", pillar: P2, priority: B, angle: "Pahlavani code, Pouriya-ye Vali"}
+- {title: "How Did Indian Wrestlers (Pehlwani) Train in the Akhara?", pillar: P2, priority: A, angle: "Gada, joris, hindu squats, the Great Gama"}
+- {title: "The Great Gama: The Wrestler Who Was Never Defeated", pillar: P2, priority: A, angle: "Training volume legends vs records"}
+- {title: "How Did Sumo Wrestlers Get So Big — And Stay So Fast?", pillar: P2, priority: A, angle: "Chanko diet, sleep, shiko", demand: "max 49M / median 1.9M"}
+- {title: "How Did Mongolian Bökh Wrestlers Train?", pillar: P2, priority: B, angle: "Naadam, eagle dance", demand: "max 2.6M"}
+- {title: "How Did Zulu Warriors Run Down Their Enemies?", pillar: P2, priority: C, angle: "Shaka's barefoot conditioning (sources vary)"}
+- {title: "How Did Pirates Stay Fit at Sea?", pillar: P2, priority: C, angle: "Scurvy, rigging climbs, rations"}
+- {title: "How Did Knights Train as Children?", pillar: P2, priority: C, angle: "Page → squire; training by age"}
+- {title: "What Did Roman Soldiers Eat on a March?", pillar: P2, priority: B, angle: "Grain ration, buccellatum, posca"}
+- {title: "How Did Ninjas Really Train? (Almost Everything You Know Is Wrong)", pillar: P2, priority: C, angle: "Shinobi sources vs pop culture"}
+- {title: "How Did Maori Warriors Prepare for Battle?", pillar: P2, priority: C, angle: "Haka as arousal regulation (link to Pulse app)"}
+- {title: "How Did Egyptian Pyramid Workers Stay Strong?", pillar: P2, priority: B, angle: "Workers' diet, injuries treated, bread and beer", demand: "max 7.5M"}
+- {title: "How Did Ancient Archers Build Their Bodies?", pillar: P2, priority: B, angle: "Mary Rose archers' asymmetric skeletons"}
+
+# ---------------- P3 Extreme Humans ----------------
+- {title: "The Bajau: Humans Who Evolved Bigger Spleens to Dive", pillar: P3, priority: A, angle: "Ilardo 2018 Cell: spleen size genetics", demand: "max 30M / median 1.1M"}
+- {title: "Why Sherpas Don't Need Oxygen on Everest", pillar: P3, priority: A, angle: "Efficient mitochondria, nitric oxide (Horscroft 2017)", demand: "max 14M / median 605K"}
+- {title: "The Rarámuri: How a Tribe Runs 100 Miles in Sandals", pillar: P3, priority: A, angle: "Rarájipari ball race, culture of running", demand: "max 3.2M"}
+- {title: "How Maasai Warriors Jump So High", pillar: P3, priority: B, angle: "Adumu dance, reactive strength", demand: "max 7.5M"}
+- {title: "Why Kenyan Runners Win Almost Every Marathon", pillar: P3, priority: A, angle: "Kalenjin: altitude, body shape, culture, economics"}
+- {title: "How the Inuit Survived on Almost No Plants", pillar: P3, priority: B, angle: "Fat adaptation genetics (CPT1A, FADS)"}
+- {title: "The Ama: Japan's Women Who Free-Dive Into Their 80s", pillar: P3, priority: B, angle: "Cold tolerance, breath-hold training"}
+- {title: "How Andean Highlanders Live Where Others Get Sick", pillar: P3, priority: B, angle: "Different adaptation route than Tibetans"}
+- {title: "The Hadza: What the Most Active People on Earth Can Teach Us", pillar: P3, priority: A, angle: "135 min/day MVPA, same calories as office workers"}
+- {title: "How Mongolian Herders Ride Before They Can Walk", pillar: P3, priority: C, angle: "Horse culture and child development"}
+- {title: "The Moken: Sea Children With Underwater Vision", pillar: P3, priority: A, angle: "Pupil constriction training (Gislén 2003)"}
+- {title: "Why Tibetans Have 'Super' Blood", pillar: P3, priority: B, angle: "EPAS1 gene from Denisovans"}
+- {title: "The Tsimane: Healthiest Hearts Ever Measured", pillar: P3, priority: A, angle: "Lowest coronary calcium recorded (Kaplan 2017 Lancet)"}
+- {title: "How Okinawans Stay Strong Past 100", pillar: P3, priority: B, angle: "Floor-sitting, ikigai, diet — with myth check"}
+- {title: "The Sentinelese: Life Without Contact (What We Actually Know)", pillar: P3, priority: C, angle: "Careful, respectful; mostly unknowns"}
+
+# ---------------- P4 Human vs Nature ----------------
+- {title: "How Strong Is a Chimpanzee Compared to a Human? (Real Numbers)", pillar: P4, priority: A, angle: "~1.35x not 5x (O'Neill 2017 PNAS)", demand: "max 6M / median 280K"}
+- {title: "Humans vs Neanderthals: Who Wins the Olympics?", pillar: P4, priority: A, angle: "Event by event from anatomy", demand: "ExtinctZoo 722K"}
+- {title: "Can a Human Outrun a Horse?", pillar: P4, priority: A, angle: "Man vs Horse Marathon results in heat"}
+- {title: "Why Humans Are the Best Throwers on Earth", pillar: P4, priority: A, angle: "Elastic energy in the shoulder (Roach 2013 Nature)"}
+- {title: "Why Are Humans So Weak? (And Why It Was Worth It)", pillar: P4, priority: A, angle: "Muscle fibre trade-off: endurance and fine control", demand: "Donno 1M in 2 months"}
+- {title: "The Only Animal That Can Run a Marathon in the Heat", pillar: P4, priority: A, angle: "Sweat + endurance vs other mammals"}
+- {title: "Could an Olympic Sprinter Escape a Bear?", pillar: P4, priority: B, angle: "Speeds, acceleration, why you shouldn't run"}
+- {title: "Humans vs Gorillas: Strength, Speed, Endurance", pillar: P4, priority: B, angle: "Comparative anatomy"}
+- {title: "Why Can't Humans Breathe Underwater — But Can Hold Breath 24 Minutes?", pillar: P4, priority: B, angle: "Mammalian dive reflex, record holders"}
+- {title: "How High Could a Human Jump With Kangaroo Legs?", pillar: P4, priority: C, angle: "Tendon elasticity explained"}
+- {title: "Homo Erectus vs Modern Humans: Who's the Better Athlete?", pillar: P4, priority: B, angle: "Body proportions for running"}
+- {title: "Are Humans Actually Terrifying Predators?", pillar: P4, priority: B, angle: "Persistence, throwing, cooperation", demand: "Spds 5.5M (crowded)"}
+
+# ---------------- P5 Body Design ----------------
+- {title: "Why Do Humans Have Chins? (No Other Animal Does)", pillar: P5, priority: A, angle: "Competing hypotheses", demand: "median <1K beyond top 2"}
+- {title: "Why Do We Get Sore After Exercise?", pillar: P5, priority: A, angle: "DOMS mechanisms, lactic acid myth"}
+- {title: "Why Is Your Achilles Tendon So Big?", pillar: P5, priority: B, angle: "Running spring; chimps barely have one"}
+- {title: "Why Do Knees Fail?", pillar: P5, priority: A, angle: "Bipedal loading, why running doesn't ruin them"}
+- {title: "Why Can't You Lose Fat Where You Want?", pillar: P5, priority: A, angle: "Spot reduction myth + evolutionary fat storage"}
+- {title: "Why Do Humans Have Such Big Butts?", pillar: P5, priority: A, angle: "Gluteus maximus is a running muscle (Lieberman 2006)"}
+- {title: "Why Do We Get Weaker As We Age?", pillar: P5, priority: A, angle: "Sarcopenia, grandmother hypothesis, strength training"}
+- {title: "Why Do Humans Sweat So Much?", pillar: P5, priority: B, angle: "2-4 million eccrine glands; losing fur", demand: "max 1.5M TED-Ed"}
+- {title: "Why Is Your Brain So Hungry?", pillar: P5, priority: B, angle: "20% of energy; expensive tissue hypothesis"}
+- {title: "Why Do We Have Wisdom Teeth?", pillar: P5, priority: B, angle: "Jaw shrinking with soft food"}
+- {title: "Why Is Human Childbirth So Dangerous?", pillar: P5, priority: C, angle: "Obstetric dilemma (debated)"}
+- {title: "Why Can't Humans Sprint Like Cheetahs?", pillar: P5, priority: B, angle: "Fast vs slow twitch, energy trade-offs"}
+- {title: "Why Do We Have Arches in Our Feet?", pillar: P5, priority: B, angle: "Windlass mechanism; barefoot vs shoes"}
+- {title: "Why Do Humans Have Such Weak Grip Compared to Apes?", pillar: P5, priority: C, angle: "Precision vs power grip"}
+- {title: "Why Do We Yawn, Shiver and Get Goosebumps?", pillar: P5, priority: C, angle: "Evolutionary leftovers"}
+- {title: "Why Does Your Heart Rate Slow Down When You Get Fit?", pillar: P5, priority: B, angle: "Athlete's heart, stroke volume"}
+- {title: "Why Do Muscles Grow? (What Actually Happens Inside)", pillar: P5, priority: A, angle: "Hypertrophy basics, visualised"}
+- {title: "Why Do Humans Get Motion Sick?", pillar: P5, priority: C, angle: "Sensory conflict theory"}
+
+# ---------------- P6 Hidden History of Fitness ----------------
+- {title: "The Treadmill Was Invented as a Prison Punishment", pillar: P6, priority: A, angle: "Cubitt's 1818 treadwheel", demand: "TED-Ed 4.9M, few others"}
+- {title: "Where Did 10,000 Steps Come From? (A Marketing Slogan)", pillar: P6, priority: A, angle: "1965 Japanese 'manpo-kei' pedometer; Lee 2019 study", demand: "max 9.9M"}
+- {title: "Pilates Was Invented in a WWI Internment Camp", pillar: P6, priority: A, angle: "Joseph Pilates on the Isle of Man"}
+- {title: "The Surprising History of the Dumbbell", pillar: P6, priority: B, angle: "Halteres in ancient Greece → church bell practice"}
+- {title: "The History of Steroids: From Testicle Extracts to the Olympics", pillar: P6, priority: A, angle: "Brown-Séquard 1889, East Germany", demand: "median 1.6M"}
+- {title: "The First Gym in History", pillar: P6, priority: B, angle: "Greek gymnasium (gymnos = naked)"}
+- {title: "Indian Clubs: The Forgotten Workout That Built the British Army", pillar: P6, priority: B, angle: "From Indian gada to Victorian drill"}
+- {title: "Eugen Sandow and the Invention of Bodybuilding", pillar: P6, priority: A, angle: "1901 Great Competition; the Olympia statue"}
+- {title: "Why the First Marathon Is (Probably) a Myth", pillar: P6, priority: A, angle: "Pheidippides story sources", demand: "low supply"}
+- {title: "When Tug of War Was an Olympic Sport (And Other Lost Events)", pillar: P6, priority: B, angle: "1900-1920 events, art competitions"}
+- {title: "The Strange History of Protein Powder", pillar: P6, priority: B, angle: "Bob Hoffman, York Barbell"}
+- {title: "Who Invented Push-Ups?", pillar: P6, priority: C, angle: "Dands in Indian wrestling, military drill"}
+- {title: "How Running Became a Sport for Everyone (The 1970s Jogging Boom)", pillar: P6, priority: C, angle: "Bill Bowerman, 'Jogging' 1966"}
+- {title: "The History of the Sports Bra", pillar: P6, priority: C, angle: "1977 'Jockbra' from jockstraps"}
+- {title: "Why Do We Count Reps in 10s? (The History of Sets and Reps)", pillar: P6, priority: A, angle: "Thomas DeLorme's 1940s rehab protocols"}
+- {title: "The History of Stretching Before Exercise (And Why We Got It Wrong)", pillar: P6, priority: B, angle: "Static stretching and performance evidence"}
+- {title: "Muscle Beach: The Place That Invented Modern Fitness", pillar: P6, priority: C, angle: "Santa Monica 1930s-50s"}
+- {title: "How Yoga Became a Workout", pillar: P6, priority: C, angle: "Modern postural yoga history (careful, respectful)"}
+- {title: "The Oldest Workout Video Ever Made", pillar: P6, priority: C, angle: "Early fitness films, radio calisthenics (Japan 1928 Rajio Taiso)"}
+- {title: "Radio Taiso: How Japan Made a Whole Nation Exercise Every Morning", pillar: P6, priority: B, angle: "Since 1928, still broadcast"}
+
+# ---------------- P7 Mismatch & Myths ----------------
+- {title: "Is Sitting Really the New Smoking?", pillar: P7, priority: A, angle: "Leisure vs work sitting; breaks matter (Lieberman)"}
+- {title: "Does Running Ruin Your Knees? What 50 Years of Data Say", pillar: P7, priority: A, angle: "Runners not at higher OA risk"}
+- {title: "Did Our Ancestors Do Cardio or Weights?", pillar: P7, priority: A, angle: "Both, mixed, low intensity, high volume"}
+- {title: "Why You Burn the Same Calories as a Hunter-Gatherer", pillar: P7, priority: A, angle: "Pontzer's constrained energy model"}
+- {title: "Is Breakfast Really the Most Important Meal? (A History)", pillar: P7, priority: B, angle: "Kellogg marketing, fasting research"}
+- {title: "Does Lactic Acid Make Your Muscles Burn?", pillar: P7, priority: A, angle: "Lactate as fuel; burning sensation causes"}
+- {title: "How Much Exercise Did Humans Evolve to Do?", pillar: P7, priority: A, angle: "~135 min/day MVPA vs 150 min/week guideline"}
+- {title: "Why Modern Humans Are Getting Weaker Grips", pillar: P7, priority: B, angle: "Grip strength decline in millennials study"}
+- {title: "Why Are So Many People Nearsighted Now?", pillar: P7, priority: B, angle: "Time outdoors, myopia epidemic"}
+- {title: "Why Flat Feet Are Becoming Common", pillar: P7, priority: C, angle: "Footwear and foot muscle strength"}
+- {title: "Is 'No Pain, No Gain' True?", pillar: P7, priority: B, angle: "Soreness vs adaptation"}
+- {title: "Why Do We Crave Junk Food? (Blame Your Ancestors)", pillar: P7, priority: A, angle: "Food reward, scarcity environment"}
+- {title: "Is Walking Enough Exercise?", pillar: P7, priority: B, angle: "Steps and mortality curves"}
+- {title: "Why Kids Today Are Slower Than Their Parents Were", pillar: P7, priority: A, angle: "Tomkinson 2013: aerobic fitness decline"}
+- {title: "Do You Really Need 8 Hours of Sleep?", pillar: P7, priority: B, angle: "Forager sleep studies (Yetish 2015)"}
+- {title: "Are Humans Meant to Be Barefoot?", pillar: P7, priority: B, angle: "Foot strength, calluses don't reduce sensation (Holowka 2019)"}
+- {title: "Why Can't Modern Humans Squat Anymore?", pillar: P7, priority: B, angle: "Chairs, ankle mobility"}
+- {title: "Does Stretching Prevent Injuries?", pillar: P7, priority: B, angle: "Evidence review, visualised"}
+
+# ---------------- P8 What If ----------------
+- {title: "What If You Lived Like a Hunter-Gatherer for 30 Days?", pillar: P8, priority: A, angle: "Day by day body changes grounded in studies"}
+- {title: "What If You Trained Like a Spartan for a Year?", pillar: P8, priority: B, angle: "Realistic adaptations vs legend"}
+- {title: "What If Humans Never Invented Chairs?", pillar: P8, priority: A, angle: "Squatting, back, hip mobility"}
+- {title: "What If You Only Walked for a Month (No Car, No Bus)?", pillar: P8, priority: B, angle: "Steps, calories, adaptation"}
+- {title: "What If You Never Stopped Moving? (Ultra-Endurance Limits)", pillar: P8, priority: C, angle: "Human energy ceiling ~2.5x BMR (Thurber 2019)"}
+- {title: "What Happens to Your Body in the First Week of Training?", pillar: P8, priority: A, angle: "Neural adaptation before muscle growth"}
+- {title: "What If You Ate Like a Roman Gladiator?", pillar: P8, priority: B, angle: "Barley, beans, ash drink"}
+- {title: "What If You Did 100 Squats a Day Like an Indian Wrestler?", pillar: P8, priority: B, angle: "Hindu squats, adaptation"}
+- {title: "What If You Carried Everything Like Ancient Humans?", pillar: P8, priority: B, angle: "Loaded carries, bone and grip"}
+- {title: "What If Humans Could Sweat Like Horses?", pillar: P8, priority: C, angle: "Thermoregulation comparison"}
+
+# ---------------- cross-over / Turkish audience ----------------
+- {title: "How Did Ottoman Soldiers March to Vienna?", pillar: P2, priority: B, angle: "Logistics, distance, food; Turkish angle"}
+- {title: "Why Turkish Oil Wrestlers Cover Themselves in Olive Oil", pillar: P2, priority: B, angle: "Kırkpınar rules, grip, tradition"}
+- {title: "Göbekli Tepe Builders: How Strong Were the People Who Moved 10-Ton Pillars?", pillar: P1, priority: A, angle: "Oldest monumental site; labour estimates"}
+- {title: "Çatalhöyük: What 9,000-Year-Old Skeletons Reveal About Hard Work", pillar: P1, priority: A, angle: "Larsen 2019 PNAS: workload, violence, disease"}
+- {title: "How Did Anatolian Farmers Change Europe's Bodies?", pillar: P1, priority: B, angle: "Neolithic migration genetics, height, lactose"}
+- {title: "How Did Ancient Humans Hunt Mammoths Without Getting Killed?", pillar: P1, priority: A, angle: "Cooperation, spears, trapping; injury patterns (Berger & Trinkaus rodeo rider comparison)"}
+- {title: "Neanderthal Injuries Look Like Rodeo Riders' — Here's Why", pillar: P4, priority: A, angle: "Berger & Trinkaus 1995 trauma pattern study"}
+- {title: "How Did Ancient Humans Prepare for Winter? (The Body Side)", pillar: P1, priority: B, angle: "Fat storage, cold adaptation, seasonal weight"}
+- {title: "Why Do Humans Love to Dance? (It Might Be Training)", pillar: P5, priority: C, angle: "Rhythm, synchrony, social bonding"}
+- {title: "The Science of the Haka: Why War Dances Work", pillar: P2, priority: B, angle: "Arousal, intimidation, group synchrony"}

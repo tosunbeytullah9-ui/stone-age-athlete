@@ -34,9 +34,11 @@ def _engine_name(shot: dict, cfg: Config) -> str:
 
 def _key(shot: dict, engine: str, cfg: Config) -> str:
     payload = {"engine": engine, "visual": shot.get("visual")}
+    if engine == "svg":
+        payload["palette"] = cfg.get_path("channel.style.palette") or {}
     if engine == "gemini":
         payload["model"] = cfg.get_path("images.gemini.model")
-        payload["prompt"] = build_prompt(shot.get("visual"))
+        payload["prompt"] = build_prompt(shot.get("visual"), cfg.get_path("channel.prompt_style", ""))
     return hashlib.sha1(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()[:12]
 
 

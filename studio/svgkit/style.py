@@ -21,6 +21,26 @@ PALETTE = {
 }
 
 
+_BASE = dict(PALETTE)
+
+
+class use_palette:
+    """Temporarily apply a channel's palette overrides: with use_palette({"sky_warm": "#..."}): ..."""
+
+    def __init__(self, overrides: dict | None):
+        self.overrides = overrides or {}
+
+    def __enter__(self):
+        PALETTE.clear()
+        PALETTE.update(_BASE)
+        PALETTE.update(self.overrides)
+        return self
+
+    def __exit__(self, *exc):
+        PALETTE.clear()
+        PALETTE.update(_BASE)
+
+
 def c(name_or_hex: str) -> str:
     return PALETTE.get(name_or_hex, name_or_hex)
 

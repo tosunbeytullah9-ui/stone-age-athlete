@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Fabrikası</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='28' r='18' fill='white' stroke='black' stroke-width='7'/><path d='M50 46v28M50 56l-22 14M50 56l22 -14M50 74l-16 22M50 74l16 22' stroke='black' stroke-width='7' fill='none' stroke-linecap='round'/></svg>">
+</head>
+<body>
+  <aside id="sidebar">
+    <a class="brand" href="#/">
+      <svg viewBox="0 0 100 100" width="34" height="34"><circle cx="50" cy="26" r="17" fill="#fff" stroke="#1b1b1b" stroke-width="7"/><rect x="31" y="15" width="38" height="8" fill="#d8342c"/><circle cx="50" cy="26" r="17" fill="none" stroke="#1b1b1b" stroke-width="7"/><path d="M50 43v30M50 54l-20 12M50 54l24-18M50 73l-15 22M50 73l15 22" stroke="#f6eedc" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+      <span>Video<br><b>Fabrikası</b></span>
+    </a>
+    <nav>
+      <a href="#/" data-nav="home">Genel bakış</a>
+      <div class="nav-title">Kanallar</div>
+      <div id="nav-channels"></div>
+      <a href="#/new-channel" class="nav-add">+ Yeni kanal</a>
+      <div class="nav-title">Sistem</div>
+      <a href="#/settings" data-nav="settings">Ayarlar</a>
+      <a href="#/catalog" data-nav="catalog">Çizim kataloğu</a>
+      <a href="#/jobs" data-nav="jobs">İşler <span id="nav-jobs-badge" class="badge hidden">0</span></a>
+    </nav>
+    <div class="sidebar-foot" id="provider-foot"></div>
+  </aside>
+  <main id="app"><div class="loading">Yükleniyor…</div></main>
+  <div id="toast"></div>
+  <div id="drawer" class="hidden"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

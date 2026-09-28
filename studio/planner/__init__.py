@@ -16,8 +16,8 @@ from ..storyboard import unplanned
 
 SPEC = ROOT / "docs" / "STORYBOARD.md"
 
-INSTRUCTIONS = """You are the visual planner for a YouTube explainer channel ("Stone Age Athlete") that tells
-stories about ancient humans, the human body and sports science with simple stick-figure drawings.
+INSTRUCTIONS = """You are the visual planner for a YouTube explainer channel ("{channel}": {tagline}) that tells
+stories with simple stick-figure drawings. The channel mascot is: {mascot}.
 Plan ONE visual per shot, following the spec below exactly. Reply with ONLY a YAML mapping from shot id to
 its visual (and optional engine/camera), like:
 
@@ -43,7 +43,10 @@ def build_prompt(project: Project, only: list[dict] | None = None) -> str:
     sb = project.load_storyboard()
     shots = sb["shots"]
     todo = only if only is not None else unplanned(shots)
-    return f"{INSTRUCTIONS}\n\n{SPEC.read_text(encoding='utf-8')}\n\n{_context(shots, todo, sb.get('title', project.slug))}"
+    ch = project.ch.data if project.ch.exists() else {}
+    head = (INSTRUCTIONS.replace("{channel}", str(ch.get("name", project.channel)))
+            .replace("{tagline}", str(ch.get("tagline", ""))).replace("{mascot}", str(ch.get("mascot", {}))))
+    return f"{head}\n\n{SPEC.read_text(encoding='utf-8')}\n\n{_context(shots, todo, sb.get('title', project.slug))}"
 
 
 def apply_plan(project: Project, plan: dict) -> int:
@@ -86,9 +89,8 @@ def plan(project: Project, cfg: Config) -> None:
     if provider == "manual":
         out = project.build / "planner_prompt.md"
         out.write_text(build_prompt(project), encoding="utf-8")
-        print(f"  {len(todo)} shot planlanacak. Bu dosyanın içeriğini Claude'a yapıştır:\n    {out}\n"
-              f"  Gelen YAML cevabı bir dosyaya kaydet (örn. plan.yaml), sonra:\n"
-              f"    python -m studio apply-plan {project.slug} plan.yaml")
+        print(f"  {len(todo)} shot planlanacak. İstem hazır: {out}\n"
+              f"  Panelde 'İstemi kopyala' → Claude'a yapıştır → gelen YAML'ı 'Planı uygula' kutusuna yapıştır.")
         return
     if provider == "anthropic":
         from .anthropic_planner import run

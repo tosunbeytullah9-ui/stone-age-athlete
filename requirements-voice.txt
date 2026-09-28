@@ -1,6 +1,6 @@
-# Ücretsiz yerel seslendirme (tts.provider: kokoro)
-# Model dosyaları (~350 MB) ilk çalıştırmada models/ klasörüne otomatik iner.
-kokoro-onnx>=0.4.9
+# Ücretsiz seslendirme
+kokoro-onnx>=0.4.9     # yerel, İngilizce (+ es, fr, it, pt, hi, ja, zh). Model ~350 MB ilk kullanımda iner.
+edge-tts>=7.0          # çevrimiçi, Türkçe dahil çok dilli (resmi olmayan istemci)
 
 # İsteğe bağlı: kelime düzeyinde hassas zamanlama (align.provider: whisper)
 # faster-whisper>=1.0

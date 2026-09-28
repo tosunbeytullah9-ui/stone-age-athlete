@@ -20,15 +20,25 @@ class Speech:
     char_starts: list[float] | None = None
 
 
-def get_provider(cfg):
-    name = cfg.get_path("tts.provider", "kokoro")
+def get_provider(cfg, lang: str = "en"):
+    """Provider for a language: tts.provider_by_lang.<lang> wins over tts.provider."""
+    name = (cfg.get_path("tts.provider_by_lang") or {}).get(lang) or cfg.get_path("tts.provider", "kokoro")
+    if name == "kokoro" and lang not in KOKORO_LANGS:
+        raise SystemExit(f"Kokoro '{lang}' dilini desteklemiyor. config → tts.provider_by_lang.{lang}: "
+                         f"edge (ücretsiz, çevrimiçi) ya da elevenlabs (ücretli) seç.")
     if name == "kokoro":
         from .kokoro_tts import KokoroTTS
-        return KokoroTTS(cfg)
+        return KokoroTTS(cfg, lang)
     if name == "elevenlabs":
         from .elevenlabs_tts import ElevenLabsTTS
         return ElevenLabsTTS(cfg)
     if name == "estimate":
         from .estimate_tts import EstimateTTS
         return EstimateTTS(cfg)
-    raise SystemExit(f"Bilinmeyen tts.provider: {name} (kokoro | elevenlabs | estimate)")
+    if name == "edge":
+        from .edge_tts_provider import EdgeTTS
+        return EdgeTTS(cfg, lang)
+    raise SystemExit(f"Bilinmeyen tts.provider: {name} (kokoro | edge | elevenlabs | estimate)")
+
+
+KOKORO_LANGS = {"en", "es", "fr", "it", "pt", "hi", "ja", "zh"}

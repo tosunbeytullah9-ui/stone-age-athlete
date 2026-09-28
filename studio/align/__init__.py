@@ -1,4 +1,4 @@
-"""Turns the audio manifest into start/end seconds for every shot (build/timing.json).
+"""Turns the audio manifest into start/end seconds for every shot (build/<lang>/timing.json).
 
 Strategy per unit, best first:
   1. exact     — the voice provider returned per-character times (ElevenLabs, estimate)
@@ -33,8 +33,12 @@ def _exact(u: dict) -> list[float]:
     return [u["offset"] + cs[min(s["start"], len(cs) - 1)] for s in u["spans"]]
 
 
-def align(project: Project, cfg: Config) -> list[dict]:
-    manifest = project.read_json(project.audio_manifest_path)
+def align(project: Project, cfg: Config, lang: str | None = None) -> list[dict]:
+    lang = lang or project.primary_lang()
+    mpath = project.audio_manifest_path(lang)
+    if not mpath.exists():
+        raise SystemExit(f"[{lang}] seslendirme yok. Önce 'voice' adımını çalıştır.")
+    manifest = project.read_json(mpath)
     mode = cfg.get_path("align.provider", "auto")
     whisper = None
     if mode == "whisper" or (mode == "auto" and manifest["unit"] == "paragraph"):
@@ -46,7 +50,7 @@ def align(project: Project, cfg: Config) -> list[dict]:
         if u.get("char_starts") and mode != "whisper":
             starts, how = _exact(u), "exact"
         elif whisper is not None:
-            starts, how = whisper.align_unit(project, u), "whisper"
+            starts, how = whisper.align_unit(project, u, lang), "whisper"
         else:
             starts, how = _proportional(u), "proportional"
         for s, t in zip(u["spans"], starts):
@@ -59,7 +63,7 @@ def align(project: Project, cfg: Config) -> list[dict]:
     for i, r in enumerate(timeline):
         r["end"] = timeline[i + 1]["start"] if i + 1 < len(timeline) else round(end_of_audio, 3)
         r["duration"] = round(r["end"] - r["start"], 3)
-    project.write_json(project.timing_path, timeline)
+    project.write_json(project.timing_path(lang), timeline)
     avg = sum(r["duration"] for r in timeline) / max(1, len(timeline))
-    print(f"  zamanlama hazır: {len(timeline)} shot, ortalama {avg:.2f} sn/görsel")
+    print(f"  zamanlama hazır [{lang}]: {len(timeline)} shot, ortalama {avg:.2f} sn/görsel")
     return timeline

@@ -1,0 +1,14 @@
+# Channel identity + overrides of config.yaml (edit in the panel: Kanal → Ayarlar)
+name: Stone Age Athlete          # working name; research suggests "The Human Engine" / "Body Through Time"
+tagline: The story of the human body through time — what our ancestors did, why your body is built this way, and what you can take from it
+category: Education
+languages: [en, tr]              # first = primary; tr = dubbed version using the same drawings
+description: >
+  Built by a strength & conditioning coach who works with national-team athletes. Every claim sourced.
+mascot: {pose: point, wear: [headband, whistle], hold: pointer, face: smile}
+style:
+  palette: {}                    # e.g. {sky_warm: "#f3e3c3"} to recolour this channel's drawings
+prompt_style: ""                 # extra sentence for AI (Gemini) image prompts
+overrides:
+  tts:
+    kokoro: {voice: am_michael}

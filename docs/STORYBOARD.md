@@ -1,6 +1,6 @@
 # Storyboard format (visual planning spec)
 
-`projects/<slug>/storyboard.yaml` has one entry per shot. `python -m studio split` creates the
+`channels/<channel>/projects/<slug>/storyboard.yaml` has one entry per shot. `python -m studio split` creates the
 entries (id, para, sent, text); the **planner** fills `visual` for each one. This file is also the
 instruction sheet given to the planner (Claude in chat, or the Anthropic API).
 

@@ -2,9 +2,10 @@
 # Ücretsizden ücretliye geçiş: sadece ilgili "provider" satırını değiştir,
 # gerekli API anahtarını .env dosyasına ekle. Kodda değişiklik gerekmez.
 
-channel:
-  name: Stone Age Athlete
-  language: en
+factory:
+  default_channel: stone-age-athlete
+  host: 127.0.0.1
+  port: 8765
 
 video:
   width: 1920
@@ -26,13 +27,18 @@ planner:
 
 # 2) Seslendirme
 tts:
-  provider: kokoro    # kokoro (ücretsiz, yerel) | elevenlabs (ücretli) | estimate (sessiz deneme)
+  provider: kokoro    # kokoro (ücretsiz, yerel) | edge (ücretsiz, çevrimiçi) | elevenlabs (ücretli) | estimate (sessiz deneme)
+  provider_by_lang:   # dile özel seçim (Kokoro Türkçe bilmiyor)
+    tr: edge
   kokoro:
     voice: am_michael # am_michael, am_fenrir, bm_george, af_heart ...
     speed: 1.0
     lang_code: a      # a = Amerikan İngilizcesi, b = İngiliz İngilizcesi
+  edge:
+    voice_by_lang: {en: en-US-GuyNeural, tr: tr-TR-AhmetNeural}
+    rate: "+0%"
   elevenlabs:
-    voice_id: ""      # ElevenLabs panelinden
+    voice_id: ""      # ElevenLabs panelinden (Türkçe dahil çok dilli)
     model: eleven_multilingual_v2
   paragraph_pause: 0.35   # paragraflar arası sessizlik (sn)
 

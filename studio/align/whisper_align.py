@@ -28,9 +28,9 @@ class WhisperAligner:
                 raise SystemExit("faster-whisper kurulu değil: pip install faster-whisper")
             return None
 
-    def align_unit(self, project: Project, u: dict) -> list[float]:
+    def align_unit(self, project: Project, u: dict, lang: str = "en") -> list[float]:
         segments, _ = self.model.transcribe(str(project.dir / u["file"]), word_timestamps=True,
-                                            language="en", vad_filter=False)
+                                            language=lang, vad_filter=False)
         heard: list[tuple[str, float]] = []
         for seg in segments:
             for w in seg.words or []:

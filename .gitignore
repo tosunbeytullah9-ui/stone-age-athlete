@@ -3,8 +3,11 @@ __pycache__/
 *.pyc
 .venv/
 venv/
-projects/*/build/
+.pytest_cache/
+models/
+channels/*/projects/*/build/
+channels/*/compilations/
 assets/music/*
 !assets/music/.gitkeep
+assets/refs/
 .DS_Store
-models/

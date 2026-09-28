@@ -1,13 +1,15 @@
-"""A project = one video. Folder layout:
+"""A project = one video inside a channel. Folder layout:
 
-projects/<slug>/
-  script.md          narration (paragraphs separated by a blank line)
-  storyboard.yaml    one entry per shot: text + visual spec (edited by hand or by the planner)
-  build/             generated files (git-ignored)
-    audio/           narration chunks + narration.wav
-    shots/           one PNG per shot
-    timing.json      start/end seconds per shot
-    video.mp4        final render
+channels/<channel>/projects/<slug>/
+  project.yaml       title, idea id, status, notes
+  script.md          narration in the channel's primary language
+  sources.md         every factual claim's source (required before production)
+  storyboard.yaml    one entry per shot: text (+ translations in i18n) + visual recipe
+  build/
+    shots/           one PNG per shot (shared by all languages — images contain no text)
+    <lang>/audio/    narration units + narration.wav + manifest.json
+    <lang>/timing.json
+    <lang>/video.mp4, <lang>/shorts/*.mp4, <lang>/description.txt
 """
 from __future__ import annotations
 
@@ -18,20 +20,33 @@ from typing import Any
 
 import yaml
 
-from .config import PROJECTS
+from .channel import Channel
 
 
 @dataclass
 class Project:
+    channel: str
     slug: str
 
     @property
+    def ch(self) -> Channel:
+        return Channel(self.channel)
+
+    @property
     def dir(self) -> Path:
-        return PROJECTS / self.slug
+        return self.ch.projects_dir / self.slug
+
+    @property
+    def meta_path(self) -> Path:
+        return self.dir / "project.yaml"
 
     @property
     def script_path(self) -> Path:
         return self.dir / "script.md"
+
+    @property
+    def sources_path(self) -> Path:
+        return self.dir / "sources.md"
 
     @property
     def storyboard_path(self) -> Path:
@@ -44,32 +59,56 @@ class Project:
         return p
 
     @property
-    def audio_dir(self) -> Path:
-        p = self.build / "audio"
-        p.mkdir(parents=True, exist_ok=True)
-        return p
-
-    @property
     def shots_dir(self) -> Path:
         p = self.build / "shots"
         p.mkdir(parents=True, exist_ok=True)
         return p
 
-    @property
-    def timing_path(self) -> Path:
-        return self.build / "timing.json"
+    def primary_lang(self) -> str:
+        try:
+            return self.ch.languages[0]
+        except Exception:
+            return "en"
 
-    @property
-    def audio_manifest_path(self) -> Path:
-        return self.audio_dir / "manifest.json"
+    def lang_dir(self, lang: str | None = None) -> Path:
+        p = self.build / (lang or self.primary_lang())
+        p.mkdir(parents=True, exist_ok=True)
+        return p
 
-    # ---- storyboard -------------------------------------------------------
+    def audio_dir(self, lang: str | None = None) -> Path:
+        p = self.lang_dir(lang) / "audio"
+        p.mkdir(parents=True, exist_ok=True)
+        return p
+
+    def audio_manifest_path(self, lang: str | None = None) -> Path:
+        return self.audio_dir(lang) / "manifest.json"
+
+    def timing_path(self, lang: str | None = None) -> Path:
+        return self.lang_dir(lang) / "timing.json"
+
+    def video_path(self, lang: str | None = None) -> Path:
+        return self.lang_dir(lang) / "video.mp4"
+
+    # ---- meta --------------------------------------------------------------
     def exists(self) -> bool:
-        return self.dir.exists()
+        return self.script_path.exists()
 
+    @property
+    def meta(self) -> dict[str, Any]:
+        if not self.meta_path.exists():
+            return {"title": self.slug, "status": "scripting"}
+        with open(self.meta_path, encoding="utf-8") as f:
+            return yaml.safe_load(f) or {}
+
+    def save_meta(self, data: dict[str, Any]) -> None:
+        self.dir.mkdir(parents=True, exist_ok=True)
+        with open(self.meta_path, "w", encoding="utf-8") as f:
+            yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False)
+
+    # ---- storyboard --------------------------------------------------------
     def load_storyboard(self) -> dict[str, Any]:
         if not self.storyboard_path.exists():
-            raise SystemExit(f"storyboard.yaml yok. Önce: python -m studio split {self.slug}")
+            raise SystemExit(f"storyboard.yaml yok. Önce 'split' adımını çalıştır ({self.channel}/{self.slug}).")
         with open(self.storyboard_path, encoding="utf-8") as f:
             return yaml.safe_load(f) or {}
 
@@ -77,7 +116,7 @@ class Project:
         with open(self.storyboard_path, "w", encoding="utf-8") as f:
             yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False, width=110)
 
-    # ---- json helpers -----------------------------------------------------
+    # ---- json helpers ------------------------------------------------------
     @staticmethod
     def read_json(path: Path) -> Any:
         with open(path, encoding="utf-8") as f:
@@ -88,3 +127,39 @@ class Project:
         path.parent.mkdir(parents=True, exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def shot_text(shot: dict, lang: str, primary: str) -> str:
+    """Text of a shot in a language (primary = shot['text'], others from shot['i18n'][lang])."""
+    if lang == primary:
+        return shot["text"]
+    t = (shot.get("i18n") or {}).get(lang)
+    if not t:
+        raise SystemExit(f"{shot['id']}: '{lang}' çevirisi yok (storyboard → i18n.{lang}). Önce çeviri adımını çalıştır.")
+    return t
+
+
+SCRIPT_TEMPLATE = """# {title}
+<!-- Narration. Paragraphs are separated by a blank line. Lines starting with # are ignored. -->
+
+Write the first paragraph of narration here.
+
+Write the second paragraph here.
+"""
+
+SOURCES_TEMPLATE = """# Sources — {title}
+<!-- One line per source: what it supports + link. Production is blocked until at least 3 sources are listed. -->
+
+"""
+
+
+def create_project(channel: str, title: str, idea_id: str | None = None, slug: str | None = None) -> Project:
+    ch = Channel(channel)
+    p = Project(channel, slug or ch.next_project_slug(title))
+    if p.exists():
+        raise ValueError(f"project exists: {p.slug}")
+    p.dir.mkdir(parents=True, exist_ok=True)
+    p.script_path.write_text(SCRIPT_TEMPLATE.format(title=title), encoding="utf-8")
+    p.sources_path.write_text(SOURCES_TEMPLATE.format(title=title), encoding="utf-8")
+    p.save_meta({"title": title, "idea": idea_id, "status": "scripting"})
+    return p

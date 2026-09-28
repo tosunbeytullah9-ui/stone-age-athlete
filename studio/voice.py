@@ -1,5 +1,5 @@
 """Narration: synthesizes each unit (sentence or paragraph), trims its silence,
-joins them with controlled pauses into build/audio/narration.wav and writes a manifest.
+joins them with controlled pauses into build/<lang>/audio/narration.wav and writes a manifest.
 Units whose text did not change are reused from cache (no re-synthesis, no cost)."""
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ import numpy as np
 import soundfile as sf
 
 from .config import Config
-from .project import Project
+from .project import Project, shot_text
 from .tts import get_provider
 
 OUT_SR = 44100
@@ -39,25 +39,27 @@ def _trim(x: np.ndarray, sr: int, thresh: float = 0.012, margin: float = 0.04) -
     return x[a:b], a / sr
 
 
-def build_units(shots: list[dict], unit: str) -> list[dict]:
+def build_units(shots: list[dict], unit: str, lang: str | None = None, primary: str | None = None) -> list[dict]:
     key = "sent" if unit == "sentence" else "para"
     units: list[dict] = []
     for s in shots:
+        text = shot_text(s, lang, primary) if lang and primary else s["text"]
         if not units or units[-1]["key"] != s.get(key):
             units.append({"key": s.get(key), "para": s["para"], "text": "", "spans": []})
         u = units[-1]
         start = len(u["text"]) + (1 if u["text"] else 0)
-        u["text"] = f"{u['text']} {s['text']}" if u["text"] else s["text"]
-        u["spans"].append({"id": s["id"], "start": start, "end": start + len(s["text"])})
+        u["text"] = f"{u['text']} {text}" if u["text"] else text
+        u["spans"].append({"id": s["id"], "start": start, "end": start + len(text)})
     return units
 
 
-def make_voice(project: Project, cfg: Config) -> dict:
+def make_voice(project: Project, cfg: Config, lang: str | None = None) -> dict:
+    lang = lang or project.primary_lang()
     shots = project.load_storyboard()["shots"]
-    tts = get_provider(cfg)
-    units = build_units(shots, tts.unit)
+    tts = get_provider(cfg, lang)
+    units = build_units(shots, tts.unit, lang, project.primary_lang())
     para_pause = float(cfg.get_path("tts.paragraph_pause", 0.35))
-    cache = project.audio_dir / "units"
+    cache = project.audio_dir(lang) / "units"
     cache.mkdir(exist_ok=True)
 
     pieces: list[np.ndarray] = []
@@ -88,10 +90,10 @@ def make_voice(project: Project, cfg: Config) -> dict:
         cursor += dur
 
     narration = np.concatenate(pieces) if pieces else np.zeros(1, dtype="float32")
-    out = project.audio_dir / "narration.wav"
+    out = project.audio_dir(lang) / "narration.wav"
     sf.write(out, narration, OUT_SR, subtype="PCM_16")
-    manifest = {"provider": tts.cache_key(), "unit": tts.unit, "sample_rate": OUT_SR,
+    manifest = {"provider": tts.cache_key(), "lang": lang, "unit": tts.unit, "sample_rate": OUT_SR,
                 "duration": round(len(narration) / OUT_SR, 3), "units": units}
-    project.write_json(project.audio_manifest_path, manifest)
-    print(f"  seslendirme hazır: {manifest['duration']:.1f} sn, {len(units)} parça")
+    project.write_json(project.audio_manifest_path(lang), manifest)
+    print(f"  seslendirme hazır [{lang}]: {manifest['duration']:.1f} sn, {len(units)} parça")
     return manifest

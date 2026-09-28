@@ -16,7 +16,7 @@ CHARACTERS = {
 }
 
 
-def build_prompt(visual) -> str:
+def build_prompt(visual, extra_style: str = "") -> str:
     if visual is None:
         return ""
     if isinstance(visual, str):
@@ -24,4 +24,5 @@ def build_prompt(visual) -> str:
     else:
         scene, chars = visual.get("prompt", ""), visual.get("characters", []) or []
     lock = " ".join(CHARACTERS[c] for c in chars if c in CHARACTERS)
-    return f"{STYLE}\n\nScene: {scene.strip()}" + (f"\n\n{lock}" if lock else "")
+    style = f"{STYLE} {extra_style.strip()}".strip()
+    return f"{style}\n\nScene: {scene.strip()}" + (f"\n\n{lock}" if lock else "")

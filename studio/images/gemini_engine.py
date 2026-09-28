@@ -26,9 +26,10 @@ class GeminiEngine:
         self.aspect = cfg.get_path("images.gemini.aspect_ratio", "16:9")
         self.retries = int(cfg.get_path("images.gemini.retries", 3))
         self.size = (int(cfg.get_path("video.width", 1920)), int(cfg.get_path("video.height", 1080)))
+        self.extra_style = cfg.get_path("channel.prompt_style", "") or ""
 
     def _parts(self, visual) -> list[dict]:
-        parts: list[dict] = [{"text": build_prompt(visual)}]
+        parts: list[dict] = [{"text": build_prompt(visual, self.extra_style)}]
         chars = visual.get("characters", []) if isinstance(visual, dict) else []
         for name in chars or []:
             ref = ASSETS / "refs" / f"{name}.png"
