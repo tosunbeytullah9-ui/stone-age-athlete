@@ -318,10 +318,21 @@ function projScript(cid, slug, el) {
       <div class="card" style="margin-top:14px"><h3>Kalite kapısı</h3>${checklist(P.readiness)}</div></div></div>`;
   const upd = () => ($("#wc").textContent = `· ${words($("#sc").value)} kelime ≈ ${(words($("#sc").value) / 150).toFixed(1)} dk`);
   $("#sc").oninput = upd; upd();
-  const save = async () => { await api(`/api/projects/${cid}/${slug}/script`, { method: "PUT", body: { text: $("#sc").value } }); toast("Senaryo kaydedildi"); };
-  $("#sc-save").onclick = save;
-  $("#sc-split").onclick = async () => { await save(); const r = await api(`/api/projects/${cid}/${slug}/run`, { method: "POST", body: { step: "split" } }); toast("Bölünüyor…"); state.onJobsDone = () => (location.hash = `#/p/${cid}/${slug}/board`); };
-  $("#so-save").onclick = async () => { await api(`/api/projects/${cid}/${slug}/sources`, { method: "PUT", body: { text: $("#so").value } }); toast("Kaynaklar kaydedildi"); };
+  // Every button saves BOTH boxes, so pasted sources are never lost, and the quality gate is refreshed afterwards.
+  const saved = { sc: $("#sc").value, so: $("#so").value };
+  const dirty = () => !!$("#sc") && ($("#sc").value !== saved.sc || $("#so").value !== saved.so);
+  const mark = () => $$("#sc-save, #so-save").forEach((b) => (b.textContent = dirty() ? "Kaydet •" : "Kaydet"));
+  $("#sc").addEventListener("input", mark); $("#so").addEventListener("input", mark);
+  const saveAll = async () => {
+    await api(`/api/projects/${cid}/${slug}/script`, { method: "PUT", body: { text: $("#sc").value } });
+    await api(`/api/projects/${cid}/${slug}/sources`, { method: "PUT", body: { text: $("#so").value } });
+    saved.sc = $("#sc").value; saved.so = $("#so").value; mark();
+  };
+  const saveAndRefresh = async () => { await saveAll(); toast("Senaryo ve kaynaklar kaydedildi"); await viewProject(cid, slug, "script"); };
+  $("#sc-save").onclick = saveAndRefresh;
+  $("#so-save").onclick = saveAndRefresh;
+  $("#sc-split").onclick = async () => { await saveAll(); await api(`/api/projects/${cid}/${slug}/run`, { method: "POST", body: { step: "split" } }); toast("Kaydedildi, bölünüyor…"); state.onJobsDone = () => (location.hash = `#/p/${cid}/${slug}/board`); };
+  window.onbeforeunload = () => (dirty() ? "Kaydedilmemiş değişiklik var" : undefined);
 }
 
 function projBoard(cid, slug, el) {
