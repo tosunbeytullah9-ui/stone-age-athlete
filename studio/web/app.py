@@ -364,6 +364,11 @@ def put_shot(cid: str, slug: str, sid: str, body: dict = Body(...)):
                 shot[k] = body[k]
             else:
                 shot.pop(k, None)
+    if "overlay" in body:
+        if isinstance(body["overlay"], dict) and body["overlay"].get("text"):
+            shot["overlay"] = body["overlay"]
+        else:
+            shot.pop("overlay", None)
     if "i18n" in body and isinstance(body["i18n"], dict):
         shot.setdefault("i18n", {}).update({k: v for k, v in body["i18n"].items() if v})
     p.save_storyboard(sb)

@@ -51,5 +51,14 @@ def crop_svg(svg: str, cx: float, cy: float, zoom: float, out_w: int = W, out_h:
     return svg.replace(head, f'width="{out_w}" height="{out_h}" viewBox="{x0:.1f} {y0:.1f} {vw:.1f} {vh:.1f}"', 1)
 
 
+def crop_vertical(svg: str, cx: float, out_w: int = 1080, out_h: int = 1920) -> str:
+    """9:16 window of the full-height drawing around x = cx (for Shorts): still vector, so sharp at 1080×1920."""
+    vh = H
+    vw = H * out_w / out_h
+    x0 = min(max(cx - vw / 2, 0), W - vw)
+    head = f'width="{W}" height="{H}" viewBox="0 0 {W} {H}"'
+    return svg.replace(head, f'width="{out_w}" height="{out_h}" viewBox="{x0:.1f} 0 {vw:.1f} {vh:.1f}"', 1)
+
+
 def catalog() -> dict:
     return {"backgrounds": sorted(backgrounds.BACKGROUNDS), "poses": sorted(POSES), "props": sorted(PROPS)}

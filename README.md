@@ -40,7 +40,7 @@ senin sürümün `<dosya>.senin-surumun` adıyla yanına bırakılır. `git pull
 | 2. Senaryo | Proje → **1 · Senaryo & kaynaklar** | Şablon yapıyı gösterir: kanca, kanıt, dönüş, coach's lesson |
 | 3. İddialar | Aynı sekme → **İddialar** | İstemi Claude'a ver. Her iddia bir kaynağa ve cümleye bağlanır; kaynaklar ortak kütüphaneye girer. Doğrulayınca işaretle |
 | 4. Planla | **2 · Storyboard** | Plan istemi → Claude → "Planı uygula". Yakın çekim için `frame` |
-| 5. Üret | **3 · Üretim** | Ses, zamanlama, görseller, video, altyazı (.srt). Türkçe için "Ek ses izi" |
+| 5. Üret | **3 · Üretim** | Ses, zamanlama, görseller, video, altyazı (.srt). Videoda: aynı sahnede yumuşak geçiş, büyüyen grafikler, ekran yazıları (dile göre), ses efektleri, konuşurken kısılan müzik, 18 sn kapanış sahnesi. Shorts dikey çizilir, altyazılıdır. Türkçe için "Ek ses izi" |
 | 6. Paketle | **4 · Kapak & başlık** | Paket istemi: 10 başlık, 3 kapak konsepti, açılış ve Shorts önerileri. Kapakları üret, telefon boyutunda karşılaştır |
 | 7. Çıktılar | **5 · Çıktılar** | Video, Shorts, altyazı, ek ses izi ve kaynaklı YouTube açıklaması |
 | 8. Yayınla | **6 · Yayın & performans** | Seri, açılış tipi, tahmin, YouTube id. 2., 7. ve 28. günde ölçümler. İzlenme eğrisini yapıştır: izleyicinin hangi cümlede ve hangi çizimde gittiği görünür |

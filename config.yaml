@@ -13,6 +13,8 @@ video:
   fps: 30
   zoom: 0.06          # her shot boyunca yakınlaşma oranı (0 = sabit)
   crf: 20             # kalite (düşük = daha kaliteli, daha büyük dosya)
+  transitions: true   # aynı sahnede art arda gelen shot'lar arasında yumuşak geçiş
+  xfade_frames: 6     # geçiş uzunluğu (kare)
 
 split:
   min_chars: 20       # bir görselin anlattığı en kısa metin
@@ -66,5 +68,8 @@ dub:
 # 5) Kurgu ve ses miksajı
 audio:
   music: ""           # assets/music/ altındaki dosya adı (boş = müziksiz)
-  music_volume: 0.07
+  music_volume: 0.07  # konuşma yokken ~2 katı; konuşurken otomatik kısılır (duck)
+  duck: true
+  sfx: true           # sahne değişiminde "whoosh", yeni nesnede "pop" (assets/sfx/whoosh.wav, pop.wav ile değiştirilebilir)
+  sfx_volume: 0.35
   target_lufs: -14

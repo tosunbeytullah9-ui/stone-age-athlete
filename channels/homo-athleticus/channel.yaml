@@ -26,6 +26,10 @@ schedule:                        # publishing rhythm (Kanal → Takvim)
   days: [Mon, Wed, Fri]          # Mon Tue Wed Thu Fri Sat Sun
   slot_types: [long, long, long] # long | short (a purpose-written Short)
   hours_per_video: 6.5           # your measured hours per long video (update after the first 10)
+outro:                           # end-screen scene after the narration (YouTube end-screen elements go on the boxes)
+  seconds: 18
+  text: {en: "Watch next", tr: "Sıradaki video"}
+  sub: {en: "Homo Athleticus · every claim sourced", tr: "Homo Athleticus · her iddia kaynaklı"}
 style:
   palette: {}                    # e.g. {sky_warm: "#f3e3c3"} to recolour this channel's drawings
 prompt_style: ""                 # extra sentence for AI (Gemini) image prompts

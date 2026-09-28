@@ -45,6 +45,13 @@ shots:
    full-frame figure is tiny. Do not stay on one background for more than ~5 shots in a row, and keep any single
    background under ~35% of the video (the whiteboard/classroom included).
 
+## On-screen text (`overlay`, drawn per language at render time — the image itself stays text-free)
+Use sparingly (the 2–4 key numbers of a video, a label that removes confusion):
+`overlay: {kind: stat, text: "+11–16%", i18n: {tr: "%11–16"}}` big number · `kind: label` caption band ·
+`kind: cite` small source line (added automatically for claims marked `on_screen`). Optional `pos: top|center|bottom`.
+Charts (`bar_chart`, `line_chart`, `meter`, `gauge`, `battery`, `pie`) grow in automatically (`animate: false` stops it).
+Consecutive shots on the same background cross-fade, so a newly added prop fades in: keep continuity.
+
 ## Canvas
 1920 × 1080. `x` is horizontal position (0 left → 1920 right). Floor height depends on background
 (≈770–960); figures and floor props stand on it automatically, so `y` is usually omitted for them.

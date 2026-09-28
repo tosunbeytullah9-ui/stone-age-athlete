@@ -93,7 +93,8 @@ releases. Never invent a source, DOI or quote: if you cannot name a real source,
 confidence: low — the owner will research it. `quote` = the source's own words that support the claim, only if
 you are sure of them (otherwise leave it empty). `caveat` = what the evidence does NOT show (sample, population,
 proxy measure, estimate) when the script could be misunderstood. If the script says more than the source supports,
-set overclaim: true and put a safer wording in `suggest`.
+set overclaim: true and put a safer wording in `suggest`. Mark on_screen: true for the 1–3 central claims whose
+source should appear as a small citation line on screen.
 
 Reply with ONLY this YAML:
 
@@ -102,7 +103,7 @@ sources:
       url: "https://...", type: primary, population: "...", method: "...", limits: "..."}}
 claims:
   - {{id: c01, text: "...", source: ilardo2018, quote: "", shots: [s021, s022], confidence: high,
-      caveat: "", overclaim: false, suggest: ""}}
+      caveat: "", overclaim: false, suggest: "", on_screen: false}}
 
 Source types: {types}
 

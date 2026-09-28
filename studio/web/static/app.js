@@ -422,6 +422,9 @@ function shotEditor(cid, slug, idx) {
     <div class="row" style="margin-top:8px">
       <label>Motor <select id="se-eng"><option value="">otomatik</option><option value="svg" ${s.engine === "svg" ? "selected" : ""}>svg (ücretsiz)</option><option value="gemini" ${s.engine === "gemini" ? "selected" : ""}>gemini (ücretli)</option></select></label>
       <label>Kamera <select id="se-cam"><option value="">otomatik</option>${["in", "out", "none"].map((c) => `<option ${s.camera === c ? "selected" : ""}>${c}</option>`).join("")}</select></label></div>
+    <label class="f">Ekran yazısı (videonun üstüne, dile göre basılır; görsel yazısız kalır)</label>
+    <div class="row"><select id="se-ovk"><option value="">yok</option>${["stat", "label", "cite"].map((k) => `<option value="${k}" ${(s.overlay || {}).kind === k ? "selected" : ""}>${{ stat: "büyük sayı", label: "etiket", cite: "kaynak satırı" }[k]}</option>`).join("")}</select>
+      <input id="se-ovt" placeholder="+11–16%" style="flex:1" value="${esc((s.overlay || {}).text || "")}">${others.map((l) => `<input class="se-ovi" data-l="${l}" placeholder="${l}" style="width:140px" value="${esc(((s.overlay || {}).i18n || {})[l] || "")}">`).join("")}</div>
     ${others.map((l) => `<label class="f">${LANG_TR[l] || l} metni</label><input class="se-i18n" data-l="${l}" style="width:100%" value="${esc((s.i18n || {})[l] || "")}">`).join("")}
     <div class="row" style="margin-top:14px"><button class="primary" id="se-save">Kaydet</button><button class="accent" id="se-render">Kaydet ve görseli üret</button></div>
     <div class="help small" style="margin-top:16px">İpucu: AI görseli için tarifin yerine <span class="kbd">prompt: "..."</span> yaz ve motoru gemini seç. Görsellere asla yazı/rakam koyma: diller arasında aynı görseller kullanılıyor.</div>`;
@@ -439,7 +442,9 @@ function shotEditor(cid, slug, idx) {
   const save = async (render) => {
     const i18n = {}; $$(".se-i18n").forEach((i) => (i18n[i.dataset.l] = i.value));
     try {
-      const r = await api(`/api/projects/${cid}/${slug}/shots/${s.id}`, { method: "PUT", body: { visual_yaml: $("#se-v").value, engine: $("#se-eng").value, camera: $("#se-cam").value, i18n, render } });
+      const ovi = {}; $$(".se-ovi").forEach((i) => i.value && (ovi[i.dataset.l] = i.value));
+      const overlay = $("#se-ovk").value && $("#se-ovt").value ? { kind: $("#se-ovk").value, text: $("#se-ovt").value, ...(Object.keys(ovi).length ? { i18n: ovi } : {}) } : null;
+      const r = await api(`/api/projects/${cid}/${slug}/shots/${s.id}`, { method: "PUT", body: { visual_yaml: $("#se-v").value, engine: $("#se-eng").value, camera: $("#se-cam").value, i18n, overlay, render } });
       toast(render ? "Kaydedildi, görsel üretiliyor…" : "Kaydedildi");
       await loadProject(cid, slug);
       if (render) state.onJobsDone = async () => { await loadProject(cid, slug); shotEditor(cid, slug, idx); projBoard(cid, slug, $("#tab")); };

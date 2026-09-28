@@ -81,7 +81,8 @@ def make_dub(project: Project, cfg: Config, lang: str) -> Path:
         worst = max(worst, over)
         report.append({"para": para, "tempo": round(factor, 3), "late_start": round(start - ps, 2),
                        "overrun": over if over > 0 else 0.0})
-    end = max(cursor_end, total) + 0.6
+    outro = float(cfg.get_path("channel.outro.seconds", 18) or 0) if (cfg.get_path("channel.outro") or {}).get("enabled", True) else 0
+    end = max(cursor_end, total) + 0.6 + outro         # same length as the video (outro included)
     out = out[: int(end * sr)]
     path = project.lang_dir(lang) / "dub_track.wav"
     sf.write(path, np.clip(out, -1, 1), sr, subtype="PCM_16")

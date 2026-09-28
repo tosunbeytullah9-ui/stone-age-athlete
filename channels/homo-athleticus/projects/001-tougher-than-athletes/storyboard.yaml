@@ -465,6 +465,11 @@ shots:
       - whistle
   i18n:
     tr: Yüzde on bir ile on altı arasında daha güçlü.
+  overlay:
+    kind: stat
+    text: +11–16%
+    i18n:
+      tr: '%11–16 daha güçlü'
 - id: s019
   para: 2
   sent: 15
@@ -495,6 +500,11 @@ shots:
       - whistle
   i18n:
     tr: Sıradan öğrencilerle kıyaslandığında ise neredeyse yüzde otuz.
+  overlay:
+    kind: stat
+    text: ≈ +30%
+    i18n:
+      tr: ≈ %30
 - id: s020
   para: 3
   sent: 16
@@ -549,6 +559,11 @@ shots:
       - cap
   i18n:
     tr: haftada yaklaşık yüz yirmi kilometre kürek çekiyorlardı.
+  overlay:
+    kind: label
+    text: ~120 km a week
+    i18n:
+      tr: haftada ~120 km
 - id: s022
   para: 3
   sent: 17
