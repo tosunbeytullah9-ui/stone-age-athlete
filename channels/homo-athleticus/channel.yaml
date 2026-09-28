@@ -1,0 +1,34 @@
+# Channel identity + overrides of config.yaml (edit in the panel: Kanal → Kanal ayarları)
+# Brand architecture: docs/BRAND.md
+name: Homo Athleticus
+handle: "@HomoAthleticus"
+aliases: [stone-age-athlete]     # old channel id; projects from the old folder are moved here automatically
+tagline: "Your body has a 2-million-year training log. Let's read it."
+category: Education
+languages: [en, tr]              # first = primary; tr = dubbed audio track on the same video
+description: >
+  The story of the human body, told by a strength coach. How our ancestors moved, how warriors trained,
+  why your body is built the way it is, and which fitness "facts" are myths. Every claim sourced.
+  Every video ends with a coach's lesson you can use today.
+pronunciation: "HOH-moh ath-LET-ih-kus"
+mascot: {pose: point, wear: [headband, whistle], hold: pointer, face: smile}
+mascot_name: The Coach
+series:                          # recurring formats = playlists; each maps to idea pillars
+  ancestor-mode:    {name: "Ancestor Mode",    pillars: [P1],     promise: "What our ancestors' bodies did all day, and what that means for yours", color: "#e3a447"}
+  warrior-workouts: {name: "Warrior Workouts", pillars: [P2],     promise: "How history's toughest people really trained, ate and recovered", color: "#d8342c"}
+  human-limits:     {name: "Human Limits",     pillars: [P3],     promise: "Living peoples whose bodies adapted to the impossible", color: "#3f7fa6"}
+  human-vs:         {name: "Human vs.",        pillars: [P4],     promise: "How the human body stacks up against animals and other humans", color: "#6f9a52"}
+  body-blueprints:  {name: "Body Blueprints",  pillars: [P5],     promise: "Why your body is built the way it is: evolution's wins and bugs", color: "#8a6fb3"}
+  myth-autopsy:     {name: "Myth Autopsy",     pillars: [P6, P7], promise: "Fitness facts, traced to where they came from and tested", color: "#37474f"}
+  what-if-coach:    {name: "What If, Coach?",  pillars: [P8],     promise: "Body thought experiments grounded in real research", color: "#b98b52"}
+schedule:                        # publishing rhythm (Kanal → Takvim)
+  per_week: 3
+  days: [Mon, Wed, Fri]          # Mon Tue Wed Thu Fri Sat Sun
+  slot_types: [long, long, long] # long | short (a purpose-written Short)
+  hours_per_video: 6.5           # your measured hours per long video (update after the first 10)
+style:
+  palette: {}                    # e.g. {sky_warm: "#f3e3c3"} to recolour this channel's drawings
+prompt_style: ""                 # extra sentence for AI (Gemini) image prompts
+overrides:
+  tts:
+    kokoro: {voice: am_michael}

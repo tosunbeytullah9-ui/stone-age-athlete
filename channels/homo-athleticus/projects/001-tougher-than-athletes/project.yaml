@@ -1,0 +1,43 @@
+title: Why Ancient Humans Were Tougher Than Today's Athletes (And Where They Weren't)
+idea: null
+status: production
+note: Demo intro. Research (Sept 2026) shows this title is saturated — keep as pipeline demo, pick a gap topic for
+  launch.
+chapters: {0: Intro, 1: Seven thousand years ago, 2: The bone scans, 3: 'How is that possible?', 4: What comes next}
+shorts:
+- {title: She was stronger than elite rowers, from: s007, to: s019}
+thumbnails:
+- visual:
+    bg: savanna
+    bg_opts: {sun: low, trees: false}
+    figures:
+    - pose: kneel_grind
+      x: 820
+      wear: [hair_bun, hide]
+      face: strain
+      sweat: true
+    props:
+    - {type: quern, x: 1130}
+    - {type: grain, x: 1370, y: 790}
+  frame: {x: 1060, y: 640, zoom: 1.9}
+  text: {en: 'STRONGER THAN ROWERS?', tr: 'KÜREKÇİDEN GÜÇLÜ?'}
+  text_pos: left
+  highlight: {x: 930, y: 610, r: 100}
+- visual:
+    bg: split
+    props:
+    - {type: bone, x: 480, y: 470, thick: 1.35}
+    - {type: bone, x: 1440, y: 470, thick: 0.8}
+  text: {en: '7,000 YEARS APART', tr: 7.000 YIL ARAYLA}
+  text_pos: bottom
+- visual:
+    bg: split
+    figures:
+    - pose: kneel_grind
+      x: 250
+      wear: [hair_bun, hide]
+      face: focused
+    - {pose: row, x: 1350, face: strain, sweat: true}
+  frame: {x: 960, y: 650, zoom: 1.3}
+  text: {en: 'WHO WINS?', tr: 'KİM KAZANIR?'}
+  text_pos: top

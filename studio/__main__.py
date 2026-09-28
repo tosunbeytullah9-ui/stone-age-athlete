@@ -12,13 +12,19 @@ steps:
   images       render shot images (shared by all languages)
   render       final 16:9 video for --lang
   shorts       vertical cut-downs listed in project.yaml → shorts
-  describe     description.txt (chapters + sources) for --lang
+  describe     description.txt (chapters + sources) + captions.<lang>.srt for --lang
+  thumbnails   thumbnail variants from project.yaml → thumbnails (all languages, or --lang)
+  captions     captions.<lang>.srt only
+  dub          --lang tr: audio track fitted to the primary video (upload as an extra YouTube audio track)
   sheet        contact sheet of all shot images
   check        quality gate (research, sources, variety)
   all          split → voice → align → images → render (+ describe) for --lang
   status       short summary
 
 other:
+  update                                                  safe update from GitHub (keeps local changes)
+  signals [--channel C] [--limit N] [--only i001,i002] [--force]   YouTube demand/competition for ideas
+  check-links                                             check every URL in library/sources.yaml
   new-channel <id> --name "Name" [--langs en,tr]
   new <title> [--channel C]                               create a project
   apply-plan <project> FILE / apply-translation <project> FILE --lang L
@@ -49,11 +55,20 @@ def main(argv=None) -> None:
     ap.add_argument("--name", default=None)
     ap.add_argument("--langs", default="en")
     ap.add_argument("--title", default=None)
+    ap.add_argument("--stash", default=None)
+    ap.add_argument("--limit", type=int, default=None)
     a = ap.parse_args(argv)
     t0 = time.time()
     cmd = a.command
-    channel = a.channel or default_channel()
+    from .channel import resolve_channel_id
+    channel = resolve_channel_id(a.channel) if a.channel else default_channel()
 
+    if cmd == "update":
+        from .updater import update
+        sys.exit(update())
+    if cmd == "update-restore":
+        from .updater import restore
+        sys.exit(restore(a.stash))
     if cmd == "web":
         from .web.app import serve
         serve()
@@ -73,6 +88,15 @@ def main(argv=None) -> None:
         with SvgEngine(cfg) as eng:
             eng.svg_to_png(render_svg({"bg": "plain_warm", "figures": [mascot]}), ASSETS / "refs" / "coach.png")
         print("  assets/refs/coach.png hazır")
+        return
+    if cmd == "signals":
+        from .signals import update_signals
+        update_signals(channel, limit=a.limit, ids=[x for x in (a.only or "").split(",") if x] or None, force=a.force)
+        return
+    if cmd == "check-links":
+        from .claims import check_links
+        for ln in check_links():
+            print(f"  {ln}")
         return
     if cmd == "new-channel":
         from .channel import create_channel
@@ -146,6 +170,15 @@ def main(argv=None) -> None:
     elif cmd == "shorts":
         from .render import render_shorts
         render_shorts(p, cfg, lang)
+    elif cmd == "thumbnails":
+        from .thumbnails import render_thumbnails
+        render_thumbnails(p, cfg, a.lang)
+    elif cmd == "dub":
+        from .dub import make_dub
+        make_dub(p, cfg, lang)
+    elif cmd == "captions":
+        from .render import write_srt
+        print(f"  {write_srt(p, lang)}")
     elif cmd == "describe":
         from .render import describe
         print(f"  {describe(p, cfg, lang)}")

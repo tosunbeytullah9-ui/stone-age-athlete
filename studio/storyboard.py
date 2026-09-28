@@ -30,13 +30,17 @@ def build_storyboard(project: Project, cfg: Config) -> dict[str, Any]:
                 keep[j1 + k] = old_shots[i1 + k]
 
     shots = []
+    id_map: dict[str, str] = {}
     for idx, b in enumerate(beats):
         prev = keep.get(idx, {})
         shot = {"id": f"s{idx + 1:03d}", "para": b["para"], "sent": b["sent"], "text": b["text"]}
-        for key in ("engine", "visual", "camera"):
-            if prev.get(key) is not None:
-                shot[key] = prev[key]
+        # everything planned for an unchanged sentence survives: visual, engine, camera, translations, overlay ...
+        for key, val in prev.items():
+            if key not in ("id", "para", "sent", "text") and val is not None:
+                shot[key] = val
         shot.setdefault("visual", None)
+        if prev.get("id"):
+            id_map[prev["id"]] = shot["id"]
         shots.append(shot)
 
     data = {
@@ -45,7 +49,29 @@ def build_storyboard(project: Project, cfg: Config) -> dict[str, Any]:
         "shots": shots,
     }
     project.save_storyboard(data)
+    if any(k != v for k, v in id_map.items()):
+        remap_shot_refs(project, id_map)
     return data
+
+
+def remap_shot_refs(project: Project, id_map: dict[str, str]) -> None:
+    """Shot ids are renumbered when the script changes; keep Shorts ranges and claim links pointing at the same
+    sentences."""
+    meta = project.meta
+    changed = False
+    for cut in meta.get("shorts") or []:
+        for k in ("from", "to"):
+            if cut.get(k) in id_map and id_map[cut[k]] != cut[k]:
+                cut[k] = id_map[cut[k]]
+                changed = True
+    if changed:
+        project.save_meta(meta)
+    from .claims import load_claims, save_claims
+    data = load_claims(project)
+    if data.get("claims"):
+        for c in data["claims"]:
+            c["shots"] = [id_map.get(x, x) for x in c.get("shots") or []]
+        save_claims(project, data)
 
 
 def unplanned(shots: list[dict]) -> list[dict]:

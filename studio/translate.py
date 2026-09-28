@@ -17,7 +17,9 @@ INSTRUCTIONS = """Translate the narration of a YouTube explainer video into {nam
 Each shot is shown on screen while its words are spoken, so:
 - translate every shot separately and keep the same order; never move words between shots,
 - sound like natural spoken {name} narration (not literal), keep numbers and facts exact,
-- keep each translation about as long as the original (±30%).
+- the translation becomes an extra audio track on the SAME video, so each sentence must fit the time of the
+  original: aim for about the same spoken length (within ±10%). Where {name} naturally runs longer, choose the
+  shorter natural wording rather than a literal one.
 Reply with ONLY a YAML mapping of shot id to translated text, e.g.
 s001: "..."
 s002: "..."

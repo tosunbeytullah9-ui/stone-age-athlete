@@ -15,7 +15,7 @@ from fastapi import Body, FastAPI, HTTPException
 from fastapi.responses import FileResponse, HTMLResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 
-from ..channel import IDEA_STATUSES, Channel, create_channel, list_channels
+from ..channel import IDEA_STATUSES, Channel, create_channel, list_channels, resolve_channel_id
 from ..config import CHANNELS, ROOT, load_config, load_global, secrets_status, set_secret
 from ..project import Project, create_project
 from .jobs import STEP_LABELS, manager
@@ -28,13 +28,15 @@ SAFE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
 
 
 def _ch(cid: str) -> Channel:
+    if SAFE.match(cid):
+        cid = resolve_channel_id(cid)
     if not SAFE.match(cid) or not Channel(cid).exists():
         raise HTTPException(404, f"kanal yok: {cid}")
     return Channel(cid)
 
 
 def _pr(cid: str, slug: str) -> Project:
-    _ch(cid)
+    cid = _ch(cid).id
     p = Project(cid, slug)
     if not SAFE.match(slug) or not p.exists():
         raise HTTPException(404, f"proje yok: {slug}")
@@ -216,7 +218,7 @@ def patch_idea(cid: str, iid: str, body: dict = Body(...)):
     data = ch.load_ideas()
     for idea in data["ideas"]:
         if idea["id"] == iid:
-            for k in ("title", "pillar", "priority", "angle", "status", "notes", "project"):
+            for k in ("title", "pillar", "priority", "angle", "status", "notes", "project", "gut", "query"):
                 if k in body:
                     idea[k] = body[k]
             ch.save_ideas(data)
@@ -300,7 +302,24 @@ def get_project(cid: str, slug: str):
         outputs[lg] = {"video": _file_url(p.video_path(lg)), "shorts": [_file_url(x) for x in shorts],
                        "description": desc.read_text(encoding="utf-8") if desc.exists() else "",
                        "narration": _file_url(p.audio_dir(lg) / "narration.wav")}
-    return {"channel": cid, "slug": slug, "meta": p.meta, "meta_yaml": p.meta_path.read_text(encoding="utf-8")
+    from ..claims import library_index, load_claims
+    from ..publish import HOOK_TYPES, get_publish
+    from ..retention import analyze
+    lib = library_index()
+    claims = [{**c, "src": lib.get(c.get("source")) or None} for c in load_claims(p)["claims"]]
+    thumbs = {lg: [_file_url(x) for x in sorted((p.build / "thumbnails" / lg).glob("thumb[0-9].png"))]
+              for lg in langs}
+    for lg in langs:
+        outputs[lg]["captions"] = _file_url(p.lang_dir(lg) / f"captions.{lg}.srt")
+        outputs[lg]["dub"] = _file_url(p.lang_dir(lg) / f"dub_track.{lg}.wav")
+        outputs[lg]["thumb_preview"] = _file_url(p.build / "thumbnails" / lg / "preview.png")
+    ch_data = p.ch.data
+    extra = {"claims": claims, "library_size": len(lib), "publish": get_publish(p), "hook_types": HOOK_TYPES,
+             "series": ch_data.get("series") or {}, "thumbs": thumbs,
+             "thumbnails_yaml": yaml.safe_dump(p.meta.get("thumbnails") or [], allow_unicode=True, sort_keys=False,
+                                               default_flow_style=None, width=110) if p.meta.get("thumbnails") else "",
+             "retention": {lg: analyze(p, lg) for lg in langs}}
+    return {**extra, "channel": cid, "slug": slug, "meta": p.meta, "meta_yaml": p.meta_path.read_text(encoding="utf-8")
             if p.meta_path.exists() else "", "script": p.script_path.read_text(encoding="utf-8"),
             "sources": p.sources_path.read_text(encoding="utf-8") if p.sources_path.exists() else "",
             "languages": langs, "shots": shots, "readiness": check(p), "outputs": outputs,
@@ -364,6 +383,12 @@ def get_prompt(cid: str, slug: str, kind: str, lang: str = "tr"):
     if kind == "translate":
         from ..translate import build_prompt as tprompt
         return tprompt(p, lang)
+    if kind == "claims":
+        from ..claims import build_prompt as cprompt
+        return cprompt(p)
+    if kind == "package":
+        from ..thumbnails import build_package_prompt
+        return build_package_prompt(p)
     raise HTTPException(404)
 
 
@@ -380,7 +405,135 @@ def apply(cid: str, slug: str, kind: str, body: dict = Body(...)):
     if kind == "translation":
         from ..translate import apply_translation
         return {"updated": apply_translation(p, body.get("lang", "tr"), data)}
+    if kind == "claims":
+        from ..claims import apply_reply
+        return apply_reply(p, data)
+    if kind == "package":
+        from ..thumbnails import apply_package
+        return apply_package(p, data)
     raise HTTPException(404)
+
+
+@app.put("/api/projects/{cid}/{slug}/claims")
+def put_claims(cid: str, slug: str, body: dict = Body(...)):
+    """Toggle verified / edit fields of one claim: {id, verified?, quote?, caveat?, shots?}"""
+    from ..claims import load_claims, save_claims
+    p = _pr(cid, slug)
+    data = load_claims(p)
+    for c in data["claims"]:
+        if c.get("id") == body.get("id"):
+            for k in ("verified", "quote", "caveat", "shots", "text", "source", "on_screen"):
+                if k in body:
+                    c[k] = body[k]
+            save_claims(p, data)
+            return c
+    raise HTTPException(404, "iddia yok")
+
+
+@app.put("/api/projects/{cid}/{slug}/thumbnails")
+def put_thumbnails(cid: str, slug: str, body: dict = Body(...)):
+    p = _pr(cid, slug)
+    data = _yaml(body.get("yaml", "")) if body.get("yaml", "").strip() else []
+    if not isinstance(data, list):
+        raise HTTPException(400, "kapaklar bir liste olmalı (- visual: ...)")
+    meta = p.meta
+    meta["thumbnails"] = data[:3]
+    p.save_meta(meta)
+    job = manager.submit(["thumbnails", slug, "--channel", p.channel], "Kapak görselleri", p.channel, slug).id \
+        if body.get("render") else None
+    return {"ok": True, "job": job}
+
+
+@app.get("/api/projects/{cid}/{slug}/publish")
+def get_pub(cid: str, slug: str):
+    from ..publish import get_publish
+    return get_publish(_pr(cid, slug))
+
+
+@app.put("/api/projects/{cid}/{slug}/publish")
+def put_pub(cid: str, slug: str, body: dict = Body(...)):
+    from ..publish import save_publish
+    return save_publish(_pr(cid, slug), body)
+
+
+@app.post("/api/projects/{cid}/{slug}/metrics")
+def post_metrics(cid: str, slug: str, body: dict = Body(...)):
+    from ..publish import add_metrics
+    return add_metrics(_pr(cid, slug), body)
+
+
+@app.post("/api/projects/{cid}/{slug}/retention")
+def post_retention(cid: str, slug: str, body: dict = Body(...)):
+    from ..retention import import_retention
+    p = _pr(cid, slug)
+    lang = body.get("lang") or p.primary_lang()
+    if not p.timing_path(lang).exists():
+        raise HTTPException(400, f"[{lang}] zamanlama yok: önce videoyu üret (zamanlama adımı)")
+    try:
+        return import_retention(p, lang, body.get("text", ""))
+    except ValueError as e:
+        raise HTTPException(400, f"Veri okunamadı: {e}")
+
+
+# ------------------------------------------------------------------ calendar & library
+@app.get("/api/channels/{cid}/calendar")
+def get_calendar(cid: str, weeks: int = 8, offset: int = 0):
+    from datetime import date, timedelta
+
+    from ..schedule import calendar
+    ch = _ch(cid)
+    return calendar(ch.id, weeks=max(1, min(weeks, 26)), start=date.today() + timedelta(weeks=offset))
+
+
+@app.post("/api/channels/{cid}/calendar/assign")
+def assign_slot(cid: str, body: dict = Body(...)):
+    from ..schedule import assign
+    ch = _ch(cid)
+    slug = body.get("slug", "")
+    if not SAFE.match(slug) or not Project(ch.id, slug).exists():
+        raise HTTPException(404, "proje yok")
+    assign(ch.id, slug, body.get("date") or None)
+    return {"ok": True}
+
+
+@app.post("/api/channels/{cid}/signals")
+def run_signals(cid: str, body: dict = Body(default={})):
+    ch = _ch(cid)
+    args = ["signals", "--channel", ch.id]
+    if body.get("limit"):
+        args += ["--limit", str(int(body["limit"]))]
+    if body.get("ids"):
+        args += ["--only", ",".join(i for i in body["ids"] if re.match(r"^i\d+$", i))]
+    if body.get("force"):
+        args.append("--force")
+    return {"job": manager.submit(args, STEP_LABELS["signals"], ch.id, None).id}
+
+
+@app.get("/api/library")
+def get_library():
+    from ..claims import load_library
+    used: dict[str, list[str]] = {}
+    from ..claims import load_claims
+    for ch in list_channels():
+        for s in ch.project_slugs():
+            for c in load_claims(Project(ch.id, s))["claims"]:
+                used.setdefault(c.get("source") or "", []).append(f"{ch.id}/{s}")
+    lib = load_library()
+    return {"sources": [{**s, "used_by": sorted(set(used.get(s.get("id"), [])))} for s in lib["sources"]],
+            "yaml": (ROOT / "library" / "sources.yaml").read_text(encoding="utf-8") if (ROOT / "library" / "sources.yaml").exists() else ""}
+
+
+@app.put("/api/library")
+def put_library(body: dict = Body(...)):
+    data = _yaml(body.get("yaml", ""))
+    if not isinstance(data, dict) or not isinstance(data.get("sources"), list):
+        raise HTTPException(400, "sources: listesi gerekli")
+    ids = [s.get("id") for s in data["sources"] if isinstance(s, dict)]
+    if len(ids) != len(set(ids)) or not all(ids):
+        raise HTTPException(400, "her kaynağın benzersiz bir id'si olmalı")
+    (ROOT / "library").mkdir(exist_ok=True)
+    (ROOT / "library" / "sources.yaml").write_text(body["yaml"], encoding="utf-8")
+    return {"ok": True}
 
 
 @app.post("/api/projects/{cid}/{slug}/run")
@@ -415,7 +568,7 @@ def compile_(body: dict = Body(...)):
 
 @app.post("/api/tools/{tool}")
 def tools(tool: str, body: dict = Body(default={})):
-    if tool not in ("catalog", "refs"):
+    if tool not in ("catalog", "refs", "check-links"):
         raise HTTPException(404)
     args = [tool] + (["--channel", body["channel"]] if body.get("channel") else [])
     return {"job": manager.submit(args, STEP_LABELS[tool]).id}
@@ -474,6 +627,11 @@ def serve() -> None:
     cfg = load_global()
     host, port = cfg.get_path("factory.host", "127.0.0.1"), int(cfg.get_path("factory.port", 8765))
     url = f"http://{host}:{port}"
+    try:
+        from ..migrate import migrate_renamed_channels
+        migrate_renamed_channels()
+    except Exception as e:  # never block the panel
+        print(f"  [taşıma] atlandı: {e}")
     if not _port_free(host, port) and not _replace_running_panel(host, port):
         print(f"\n  [!] {port} numaralı bağlantı noktası başka bir program tarafından kullanılıyor.\n"
               f"      Açık kalmış bir panel penceresi varsa kapat ya da config.yaml → factory.port değerini değiştir.\n")

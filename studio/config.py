@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CHANNELS = ROOT / "channels"
 ASSETS = ROOT / "assets"
 ENV_PATH = ROOT / ".env"
-SECRET_NAMES = ["GEMINI_API_KEY", "ELEVENLABS_API_KEY", "ANTHROPIC_API_KEY"]
+SECRET_NAMES = ["GEMINI_API_KEY", "ELEVENLABS_API_KEY", "ANTHROPIC_API_KEY", "YOUTUBE_API_KEY"]
 
 
 def _load_env() -> None:
@@ -58,8 +58,8 @@ def load_config(channel: str | None = None) -> Config:
     """Effective config for a channel (or the global one when channel is None)."""
     cfg = load_global()
     if channel:
-        from .channel import Channel
-        ch = Channel(channel)
+        from .channel import Channel, resolve_channel_id
+        ch = Channel(resolve_channel_id(channel))
         if ch.exists():
             merged = deep_merge(cfg, ch.data.get("overrides") or {})
             merged["channel"] = {**(cfg.get("channel") or {}), **{k: v for k, v in ch.data.items() if k != "overrides"}}
@@ -68,7 +68,8 @@ def load_config(channel: str | None = None) -> Config:
 
 
 def default_channel() -> str:
-    return load_global().get_path("factory.default_channel", "stone-age-athlete")
+    from .channel import resolve_channel_id
+    return resolve_channel_id(load_global().get_path("factory.default_channel", "homo-athleticus"))
 
 
 def secret(name: str) -> str:

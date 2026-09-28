@@ -1,5 +1,6 @@
 # Çekirdek (her kurulumda gerekli)
 pyyaml>=6.0
+ruamel.yaml>=0.18    # güncellemede ayar dosyalarının yorumlarını korur
 python-dotenv>=1.0
 requests>=2.31
 pillow>=10.0

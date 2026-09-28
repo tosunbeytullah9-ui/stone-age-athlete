@@ -21,6 +21,7 @@ PUNCT_BREAK = re.compile(r"(?<=[,;:—])\s+|\s+(?=[—–-]\s)")
 def paragraphs(script: str) -> list[str]:
     """Blank-line separated paragraphs; markdown headings and comments are ignored."""
     out = []
+    script = re.sub(r"<!--[\s\S]*?-->", "", script)       # comments may span several lines
     for block in re.split(r"\n\s*\n", script.strip()):
         lines = [ln for ln in block.splitlines()
                  if ln.strip() and not ln.lstrip().startswith(("#", "<!--", "//"))]

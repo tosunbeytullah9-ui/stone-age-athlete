@@ -39,6 +39,7 @@ const routes = [
   [/^#\/p\/([^/]+)\/([^/]+)(?:\/(\w+))?$/, viewProject],
   [/^#\/settings$/, viewSettings],
   [/^#\/catalog$/, viewCatalog],
+  [/^#\/library$/, () => viewLibrary()],
   [/^#\/jobs$/, viewJobs],
   [/^#\/new-channel$/, viewNewChannel],
 ];
@@ -167,6 +168,7 @@ async function viewChannel(cid, tab = "ideas") {
     <p class="sub">${esc(d.tagline || "")}</p>
     <div class="tabs">
       <a href="#/c/${cid}/ideas" class="${tab === "ideas" ? "active" : ""}">Fikir havuzu</a>
+      <a href="#/c/${cid}/calendar" class="${tab === "calendar" ? "active" : ""}">Takvim</a>
       <a href="#/c/${cid}/projects" class="${tab === "projects" ? "active" : ""}">Projeler</a>
       <a href="#/c/${cid}/compile" class="${tab === "compile" ? "active" : ""}">Derleme</a>
       <a href="#/c/${cid}/settings" class="${tab === "settings" ? "active" : ""}">Kanal ayarları</a>
@@ -175,6 +177,7 @@ async function viewChannel(cid, tab = "ideas") {
   if (tab === "ideas") return channelIdeas(cid, el);
   if (tab === "projects") return channelProjects(cid, el);
   if (tab === "compile") return channelCompile(cid, el, d);
+  if (tab === "calendar") return channelCalendar(cid, el, d);
   if (tab === "settings") return channelSettings(cid, el, ch);
 }
 
@@ -189,9 +192,12 @@ async function channelIdeas(cid, el) {
         <select id="fi-pillar"><option value="">Tüm sütunlar</option>${Object.entries(pillars).map(([k, v]) => `<option value="${k}">${k} · ${esc(v.name)}</option>`).join("")}</select>
         <select id="fi-pri"><option value="">Tüm öncelikler</option><option>A</option><option>B</option><option>C</option></select>
         <select id="fi-status"><option value="">Tüm durumlar</option>${data.statuses.map((s) => `<option value="${s}">${STATUS_TR[s]}</option>`).join("")}</select>
+        <select id="fi-sort"><option value="priority">Sıra: öncelik</option><option value="demand">Sıra: talep</option><option value="gap">Sıra: boşluk (küçük kanal kazanıyor)</option><option value="competition">Sıra: en az rekabet</option><option value="gut">Sıra: sezgi puanım</option></select>
       </div>
-      <button id="fi-add">+ Fikir ekle</button>
+      <div class="row"><button id="fi-sig" title="YouTube Data API ile arama sonuçlarını ölçer (ücretsiz anahtar, günlük ~95 fikir)">Sinyalleri güncelle</button><button id="fi-add">+ Fikir ekle</button></div>
     </div>
+    <div class="help small">Sinyaller YouTube'da o konuyu aratınca çıkan ilk 25 videodan hesaplanır. <b>Talep</b>: tipik izlenme. <b>Rekabet</b>: son 12 ayda çıkan video ve büyük kanal sayısı. <b>Boşluk</b>: küçük kanalların aboneden çok izlenme aldığı konu. Bunlar karar vermez, sana bilgi verir: son söz <b>sezgi</b> puanın (1–5).</div>
+    <div id="live-box" class="hidden" style="margin-bottom:12px"><div id="live-status" class="small muted"></div><div class="log" id="live-log" style="height:140px"></div></div>
     <div id="fi-form" class="card hidden" style="margin-bottom:12px">
       <div class="grid g2"><div><label class="f">Başlık</label><input id="nf-title" style="width:100%"></div>
       <div class="row"><div><label class="f">Sütun</label><select id="nf-pillar">${Object.keys(pillars).map((k) => `<option>${k}</option>`).join("")}<option value="">—</option></select></div>
@@ -199,24 +205,41 @@ async function channelIdeas(cid, el) {
       <label class="f">Açı / kanca</label><input id="nf-angle" style="width:100%">
       <div class="row" style="margin-top:10px"><button class="primary" id="nf-save">Kaydet</button></div></div>
     <div id="fi-count" class="small muted" style="margin-bottom:6px"></div>
-    <table><thead><tr><th style="width:44px"></th><th>Fikir</th><th style="width:150px">Sütun</th><th style="width:140px">Durum</th><th style="width:150px"></th></tr></thead><tbody id="fi-body"></tbody></table>`;
+    <table><thead><tr><th style="width:44px"></th><th>Fikir</th><th style="width:130px">Sütun</th><th style="width:170px">Sinyal</th><th style="width:70px">Sezgi</th><th style="width:130px">Durum</th><th style="width:150px"></th></tr></thead><tbody id="fi-body"></tbody></table>`;
   const render = () => {
     const rank = { A: 0, B: 1, C: 2 };
-    const rows = data.ideas.slice().sort((a, b) => (rank[a.priority] ?? 1) - (rank[b.priority] ?? 1)).filter((i) => (!f.q || (i.title + " " + (i.angle || "")).toLowerCase().includes(f.q)) && (!f.pillar || i.pillar === f.pillar) && (!f.priority || i.priority === f.priority) && (!f.status || i.status === f.status));
+    const sg = (i, k) => ((i.signals || {})[k] ?? -1);
+    const sorters = {
+      priority: (a, b) => (rank[a.priority] ?? 1) - (rank[b.priority] ?? 1),
+      demand: (a, b) => sg(b, "median_views") - sg(a, "median_views"),
+      gap: (a, b) => sg(b, "outlier") - sg(a, "outlier"),
+      competition: (a, b) => (sg(a, "competition") < 0 ? 99 : sg(a, "competition")) - (sg(b, "competition") < 0 ? 99 : sg(b, "competition")),
+      gut: (a, b) => (b.gut || 0) - (a.gut || 0),
+    };
+    const rows = data.ideas.slice().sort(sorters[f.sort || "priority"]).filter((i) => (!f.q || (i.title + " " + (i.angle || "")).toLowerCase().includes(f.q)) && (!f.pillar || i.pillar === f.pillar) && (!f.priority || i.priority === f.priority) && (!f.status || i.status === f.status));
     $("#fi-count").textContent = `${rows.length} / ${data.ideas.length} fikir`;
     $("#fi-body").innerHTML = rows.map((i) => `<tr>
       <td>${pill(i.priority || "B", i.priority || "B")}</td>
       <td><div class="t">${esc(i.title)}</div><div class="a">${esc(i.angle || "")}${i.demand ? ` <span class="pill info">talep: ${esc(i.demand)}</span>` : ""}</div></td>
       <td class="small">${esc(i.pillar)} ${pillars[i.pillar] ? `<div class="muted">${esc(pillars[i.pillar].name)}</div>` : ""}</td>
+      <td class="small">${signalCell(i.signals)}</td>
+      <td><select class="fi-gut" data-id="${i.id}"><option value="">–</option>${[1, 2, 3, 4, 5].map((n) => `<option ${i.gut == n ? "selected" : ""}>${n}</option>`).join("")}</select></td>
       <td><select data-id="${i.id}" class="fi-st">${data.statuses.map((s) => `<option value="${s}" ${i.status === s ? "selected" : ""}>${STATUS_TR[s]}</option>`).join("")}</select></td>
       <td>${i.project ? `<a class="btn sm" href="#/p/${cid}/${i.project}">Projeyi aç →</a>` : `<button class="sm fi-go" data-id="${i.id}">Projeye dönüştür</button>`}</td></tr>`).join("");
     $$(".fi-st").forEach((s) => (s.onchange = async () => { const r = await api(`/api/channels/${cid}/ideas/${s.dataset.id}`, { method: "PATCH", body: { status: s.value } }); Object.assign(data.ideas.find((x) => x.id === r.id), r); toast("Durum güncellendi"); }));
+    $$(".fi-gut").forEach((s) => (s.onchange = async () => { const r = await api(`/api/channels/${cid}/ideas/${s.dataset.id}`, { method: "PATCH", body: { gut: s.value ? +s.value : null } }); Object.assign(data.ideas.find((x) => x.id === r.id), r); toast("Sezgi puanı kaydedildi"); }));
     $$(".fi-go").forEach((b) => (b.onclick = async () => { const r = await api(`/api/channels/${cid}/ideas/${b.dataset.id}/project`, { method: "POST" }); location.hash = `#/p/${cid}/${r.slug}`; toast("Proje oluşturuldu"); }));
   };
   $("#fi-q").oninput = (e) => { f.q = e.target.value.toLowerCase(); render(); };
   $("#fi-pillar").onchange = (e) => { f.pillar = e.target.value; render(); };
   $("#fi-pri").onchange = (e) => { f.priority = e.target.value; render(); };
   $("#fi-status").onchange = (e) => { f.status = e.target.value; render(); };
+  $("#fi-sort").onchange = (e) => { f.sort = e.target.value; render(); };
+  $("#fi-sig").onclick = async () => {
+    const ids = f.pillar || f.priority || f.q ? $$(".fi-gut").map((s) => s.dataset.id).slice(0, 90) : null;
+    try { const r = await api(`/api/channels/${cid}/signals`, { method: "POST", body: ids ? { ids } : { limit: 90 } }); watch(r.job, "Fikir sinyalleri"); state.onJobsDone = () => viewChannel(cid, "ideas"); toast("Sinyaller ölçülüyor…"); }
+    catch (e) { toast(e.message, true); }
+  };
   $("#fi-add").onclick = () => $("#fi-form").classList.toggle("hidden");
   $("#nf-save").onclick = async () => {
     try { const i = await api(`/api/channels/${cid}/ideas`, { method: "POST", body: { title: $("#nf-title").value, pillar: $("#nf-pillar").value, priority: $("#nf-pri").value, angle: $("#nf-angle").value } }); data.ideas.push(i); $("#fi-form").classList.add("hidden"); render(); toast("Fikir eklendi"); }
@@ -290,7 +313,9 @@ async function viewProject(cid, slug, tab = "script") {
       <a href="#/p/${cid}/${slug}/script" class="${tab === "script" ? "active" : ""}">1 · Senaryo & kaynaklar</a>
       <a href="#/p/${cid}/${slug}/board" class="${tab === "board" ? "active" : ""}">2 · Storyboard <span class="n">${P.shots.length}</span></a>
       <a href="#/p/${cid}/${slug}/make" class="${tab === "make" ? "active" : ""}">3 · Üretim</a>
-      <a href="#/p/${cid}/${slug}/out" class="${tab === "out" ? "active" : ""}">4 · Çıktılar</a>
+      <a href="#/p/${cid}/${slug}/pack" class="${tab === "pack" ? "active" : ""}">4 · Kapak & başlık</a>
+      <a href="#/p/${cid}/${slug}/out" class="${tab === "out" ? "active" : ""}">5 · Çıktılar</a>
+      <a href="#/p/${cid}/${slug}/pub" class="${tab === "pub" ? "active" : ""}">6 · Yayın & performans</a>
       <a href="#/p/${cid}/${slug}/meta" class="${tab === "meta" ? "active" : ""}">Proje ayarları</a>
     </div><div id="tab"></div>`;
   const el = $("#tab");
@@ -299,6 +324,8 @@ async function viewProject(cid, slug, tab = "script") {
   if (tab === "board") return projBoard(cid, slug, el);
   if (tab === "make") return projMake(cid, slug, el);
   if (tab === "out") return projOut(cid, slug, el);
+  if (tab === "pack") return projPackage(cid, slug, el);
+  if (tab === "pub") return projPublish(cid, slug, el);
   if (tab === "meta") return projMeta(cid, slug, el);
 }
 
@@ -313,8 +340,9 @@ function projScript(cid, slug, el) {
       <p class="small muted" style="margin:0 0 8px">Paragrafları boş satırla ayır. ~150 kelime ≈ 1 dakika. Kısa cümleler görsel temposunu artırır.</p>
       <textarea id="sc" rows="26">${esc(P.script)}</textarea></div>
     <div><div class="card"><div class="spread"><h3>Kaynaklar</h3><button id="so-save" class="primary sm">Kaydet</button></div>
-      <p class="small muted" style="margin:0 0 8px">Her satır: iddia + bağlantı. En az 3 kaynak olmadan proje "hazır" sayılmaz. Açıklamaya kendiliğinden eklenir.</p>
-      <textarea id="so" rows="12" class="code">${esc(P.sources)}</textarea></div>
+      <p class="small muted" style="margin:0 0 8px">Serbest notlar: iddia + bağlantı. İddialar bölümü bunları ortak kütüphaneye ve cümlelere bağlar; açıklamaya sadece iddiaların kaynakları girer.</p>
+      <textarea id="so" rows="8" class="code">${esc(P.sources)}</textarea></div>
+      <div class="card" style="margin-top:14px" id="claims-card"></div>
       <div class="card" style="margin-top:14px"><h3>Kalite kapısı</h3>${checklist(P.readiness)}</div></div></div>`;
   const upd = () => ($("#wc").textContent = `· ${words($("#sc").value)} kelime ≈ ${(words($("#sc").value) / 150).toFixed(1)} dk`);
   $("#sc").oninput = upd; upd();
@@ -333,6 +361,7 @@ function projScript(cid, slug, el) {
   $("#so-save").onclick = saveAndRefresh;
   $("#sc-split").onclick = async () => { await saveAll(); await api(`/api/projects/${cid}/${slug}/run`, { method: "POST", body: { step: "split" } }); toast("Kaydedildi, bölünüyor…"); state.onJobsDone = () => (location.hash = `#/p/${cid}/${slug}/board`); };
   window.onbeforeunload = () => (dirty() ? "Kaydedilmemiş değişiklik var" : undefined);
+  renderClaims(cid, slug, $("#claims-card"));
 }
 
 function projBoard(cid, slug, el) {
@@ -434,11 +463,13 @@ function projMake(cid, slug, el) {
         <button data-step="align" data-lang="${lg}">Zamanlama</button><span class="arrow">→</span>
         <button data-step="render" data-lang="${lg}">Video</button><span class="arrow">·</span>
         <button data-step="shorts" data-lang="${lg}">Shorts</button>
+        ${isPrimary ? "" : `<button data-step="dub" data-lang="${lg}" title="Bu dilin sesini ana videonun zamanına oturtur: YouTube'a aynı videoya ek ses parçası olarak yüklenir">Ek ses izi</button>`}
         <button class="primary" data-step="all" data-lang="${lg}" style="margin-left:auto">Tümünü üret</button></div>
       <div class="tr-box hidden" data-trbox="${lg}" style="margin-top:10px"><textarea class="code" rows="8" placeholder="Claude'un verdiği çeviri YAML'ı"></textarea><button class="sm primary" data-trgo="${lg}" style="margin-top:6px">Uygula</button></div></div>`;
   };
   el.innerHTML = `<div class="grid" style="grid-template-columns: minmax(0,2fr) minmax(260px,1fr)">
     <div>${P.languages.map(row).join("")}
+      <div class="help small"><b>İkinci dil nasıl yayınlanır?</b> Ayrı video değil: Türkçe satırında "Tümünü üret" sonra "Ek ses izi". Çıkan dosyayı YouTube Studio → videonun <i>Diller</i> bölümü → <i>Ses parçası ekle</i> ile İngilizce videoya yükle; izlenmeler tek videoda toplanır. Türkçe başlık ve kapağı da aynı yerden ekle.</div>
       <div class="help small">"Tümünü üret" sırasıyla: böl → seslendirme → zamanlama → görseller → video. Değişmeyen ses ve görseller önbellekten gelir, yeniden ücret ödenmez. Shorts kesitleri Proje ayarları'ndaki <span class="kbd">shorts</span> listesinden üretilir.</div>
       <div id="live-box" class="${P.jobs.length ? "" : "hidden"}"><div id="live-status" class="small muted"></div><div class="log" id="live-log"></div></div></div>
     <div><div class="card"><h3>Kalite kapısı</h3>${checklist(P.readiness)}</div></div></div>`;
@@ -462,7 +493,7 @@ function projOut(cid, slug, el) {
   el.innerHTML = P.languages.map((lg) => {
     const o = P.outputs[lg];
     return `<div class="card" style="margin-bottom:14px"><div class="spread"><h3 style="margin:0">${LANG_TR[lg] || lg}</h3>
-      <div class="row">${o.video ? `<a class="btn sm" href="${o.video}" download>Videoyu indir</a>` : ""}${o.narration ? `<a class="btn sm" href="${o.narration}" download>Sesi indir</a>` : ""}</div></div>
+      <div class="row">${o.video ? `<a class="btn sm" href="${o.video}" download>Videoyu indir</a>` : ""}${o.narration ? `<a class="btn sm" href="${o.narration}" download>Sesi indir</a>` : ""}${o.captions ? `<a class="btn sm" href="${o.captions}" download>Altyazı (.srt)</a>` : ""}${o.dub ? `<a class="btn sm" href="${o.dub}" download>Ek ses izi (.wav)</a>` : ""}</div></div>
       ${o.video ? `<div class="grid g2" style="margin-top:12px"><video controls preload="metadata" poster="${(P.shots.find((x) => x.image) || {}).image || ""}" src="${o.video}"></video>
         <div><div class="spread"><span class="small muted">YouTube açıklaması (bölümler + kaynaklar)</span><button class="sm" data-desc="${lg}">Kopyala</button></div>
         <textarea class="code" rows="14" readonly>${esc(o.description)}</textarea></div></div>` : `<p class="muted">Henüz video yok. Üretim sekmesinden üret.</p>`}
@@ -481,7 +512,9 @@ chapters:            # paragraf numarası → bölüm adı
   0: Intro
   1: "The bone scans"
 shorts:              # dikey kesitler (shot aralığı)
-  - {title: "Kanca metni", from: s007, to: s019}</pre></div></div>`;
+  - {title: "Kanca metni", from: s007, to: s019}
+thumbnails: [...]    # Kapak & başlık sekmesinde düzenlenir
+publish: {...}       # Yayın & performans sekmesinde düzenlenir</pre></div></div>`;
   $("#my-save").onclick = async () => { try { await api(`/api/projects/${cid}/${slug}/meta`, { method: "PUT", body: { yaml: $("#my").value } }); toast("Kaydedildi"); } catch (e) { toast(e.message, true); } };
 }
 
@@ -496,7 +529,7 @@ async function viewSettings() {
       <div class="card"><h3>Görseller</h3><p class="small muted">Şu an: <b>${esc(s.providers.images)}</b> · Gemini modeli: ${esc(s.providers.gemini_model)}</p><p class="small">svg = kodla çizim, ücretsiz · gemini = Nano Banana, görsel başına ücret (shot bazında da seçilebilir)</p></div>
       <div class="card"><h3>Planlama & çeviri</h3><p class="small muted">Şu an: <b>${esc(s.providers.planner)}</b></p><p class="small">manual = istemi Claude sohbetine yapıştır (ücretsiz) · anthropic = otomatik (API ücreti)</p></div></div>
     <div class="card" style="margin-top:14px"><h3>API anahtarları</h3><p class="small muted" style="margin-top:0">Sadece bu bilgisayardaki <span class="kbd">.env</span> dosyasına yazılır, GitHub'a gitmez. Sadece ücretli servisler için gerekir.</p>
-      ${keyRow("GEMINI_API_KEY", "Google Gemini", "AI görseller (Nano Banana)")}${keyRow("ELEVENLABS_API_KEY", "ElevenLabs", "Ücretli, çok dilli ses")}${keyRow("ANTHROPIC_API_KEY", "Anthropic", "Otomatik storyboard planlama ve çeviri")}</div>
+      ${keyRow("GEMINI_API_KEY", "Google Gemini", "AI görseller (Nano Banana)")}${keyRow("ELEVENLABS_API_KEY", "ElevenLabs", "Ücretli, çok dilli ses")}${keyRow("ANTHROPIC_API_KEY", "Anthropic", "Otomatik storyboard planlama ve çeviri")}${keyRow("YOUTUBE_API_KEY", "YouTube Data API", "Fikir havuzu talep/rekabet sinyalleri (ücretsiz, Google Cloud Console → YouTube Data API v3)")}</div>
     <div class="card" style="margin-top:14px"><div class="spread"><h3>config.yaml</h3><button class="primary sm" id="cfg-save">Kaydet</button></div><textarea id="cfg" class="code" rows="28">${esc(s.config_yaml)}</textarea></div>`;
   $$("[data-save-key]").forEach((b) => (b.onclick = async () => { const k = b.dataset.saveKey; await api("/api/secrets", { method: "PUT", body: { name: k, value: $(`[data-key="${k}"]`).value } }); toast("Anahtar kaydedildi"); viewSettings(); refreshSidebar(); }));
   $$("[data-del-key]").forEach((b) => (b.onclick = async () => { if (!confirm("Anahtar silinsin mi?")) return; await api("/api/secrets", { method: "PUT", body: { name: b.dataset.delKey, value: "" } }); viewSettings(); }));

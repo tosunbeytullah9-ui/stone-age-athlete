@@ -243,7 +243,7 @@ shots:
 - id: s011
   para: 1
   sent: 9
-  text: For up to five hours.
+  text: Possibly for up to five hours.
   visual:
     bg: savanna
     bg_opts:
@@ -267,11 +267,11 @@ shots:
       face: tired
       sweat: true
   i18n:
-    tr: Günde beş saate kadar.
+    tr: Belki de günde beş saate kadar.
 - id: s012
   para: 1
   sent: 10
-  text: Every single day.
+  text: Day after day.
   visual:
     bg: plain_warm
     props:
@@ -293,11 +293,11 @@ shots:
       - hide
       face: focused
   i18n:
-    tr: Her gün.
+    tr: Her gün, yeniden.
 - id: s013
   para: 2
   sent: 11
-  text: When scientists scanned her arm bones,
+  text: When scientists scanned arm bones like hers,
   visual:
     bg: classroom
     props:
@@ -314,7 +314,7 @@ shots:
       - headband
       - whistle
   i18n:
-    tr: Bilim insanları onun kol kemiklerini taradığında,
+    tr: Bilim insanları onunki gibi kol kemiklerini taradığında,
 - id: s014
   para: 2
   sent: 11
@@ -344,7 +344,7 @@ shots:
 - id: s015
   para: 2
   sent: 12
-  text: Her bones were stronger than the arms
+  text: Her arm bones were stronger than those
   visual:
     bg: classroom
     props:
@@ -364,11 +364,11 @@ shots:
       - headband
       - whistle
   i18n:
-    tr: Kemikleri, günümüzün elit üniversite
+    tr: Kol kemikleri, bugünün
 - id: s016
   para: 2
   sent: 12
-  text: of today's elite university rowers.
+  text: of today's elite women rowers.
   visual:
     bg: classroom
     props:
@@ -395,7 +395,7 @@ shots:
       - headband
       - whistle
   i18n:
-    tr: kürekçilerinin kollarından daha güçlüydü.
+    tr: elit kadın kürekçilerininkinden daha güçlüydü.
 - id: s017
   para: 2
   sent: 13
@@ -552,7 +552,7 @@ shots:
 - id: s022
   para: 3
   sent: 17
-  text: She had never trained a day in her life.
+  text: And she never trained for sport at all.
   visual:
     bg: savanna
     bg_opts:
@@ -570,7 +570,7 @@ shots:
       - hide
   camera: out
   i18n:
-    tr: Bu kadın hayatında bir gün bile antrenman yapmamıştı.
+    tr: Üstelik hiç spor antrenmanı yapmamıştı.
 - id: s023
   para: 3
   sent: 18

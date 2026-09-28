@@ -1,9 +1,9 @@
-# Stone Age Athlete — üretim ayarları
+# Video Fabrikası — üretim ayarları (tüm kanallar için varsayılanlar)
 # Ücretsizden ücretliye geçiş: sadece ilgili "provider" satırını değiştir,
 # gerekli API anahtarını .env dosyasına ekle. Kodda değişiklik gerekmez.
 
 factory:
-  default_channel: stone-age-athlete
+  default_channel: homo-athleticus
   host: 127.0.0.1
   port: 8765
 
@@ -58,6 +58,10 @@ images:
     model: gemini-3.1-flash-image
     aspect_ratio: "16:9"
     retries: 3
+
+# 4b) İkinci dil: aynı videoya ek ses izi (YouTube → Diller → Ses parçası ekle)
+dub:
+  max_tempo: 1.15     # uzun kalan çeviri paragrafı en fazla bu kadar hızlandırılır
 
 # 5) Kurgu ve ses miksajı
 audio:

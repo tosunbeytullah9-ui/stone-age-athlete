@@ -260,20 +260,26 @@ def describe(project: Project, cfg: Config, lang: str | None = None) -> Path:
     lines = [meta.get("title", project.slug), ""]
     if (meta.get("description") or "").strip():
         lines += [meta["description"].strip(), ""]
-    seen, chap = set(), []
+    seen, chap, last = set(), [], -99.0
     for s in sb["shots"]:
         if s["para"] in seen or s["id"] not in timing:
             continue
         seen.add(s["para"])
         label = chapters.get(s["para"]) or chapters.get(str(s["para"]))
-        if label:
-            chap.append(f"{_ts(timing[s['id']]['start'])} {label}")
+        if isinstance(label, dict):                    # {en: "...", tr: "..."}
+            label = label.get(lang) or next(iter(label.values()), "")
+        start = timing[s["id"]]["start"]
+        if label and (start - last >= 10 or not chap):  # YouTube rejects chapters shorter than 10 s
+            chap.append(f"{_ts(start)} {label}")
+            last = start
     if len(chap) >= 3:
         if not chap[0].startswith("0:00 "):
             chap.insert(0, "0:00 Intro")
         lines += ["Chapters:", *chap, ""]
-    src = project.sources_path.read_text(encoding="utf-8") if project.sources_path.exists() else ""
-    links, head = [], ""
+    from .claims import cited_sources, format_source
+    cited = cited_sources(project)
+    src = "" if cited else (project.sources_path.read_text(encoding="utf-8") if project.sources_path.exists() else "")
+    links, head = [format_source(s) for s in cited], ""
     for ln in src.splitlines():
         raw = ln.strip()
         if not raw or raw.startswith(("#", "<!--")):
@@ -291,6 +297,53 @@ def describe(project: Project, cfg: Config, lang: str | None = None) -> Path:
         lines += ["Sources:", *[f"- {ln}" for ln in links], ""]
     out = project.lang_dir(lang) / "description.txt"
     out.write_text("\n".join(lines).strip() + "\n", encoding="utf-8")
+    write_srt(project, lang)
+    return out
+
+
+def _srt_ts(sec: float) -> str:
+    ms = int(round(sec * 1000))
+    h, ms = divmod(ms, 3600000)
+    m, ms = divmod(ms, 60000)
+    s, ms = divmod(ms, 1000)
+    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
+
+
+def write_srt(project: Project, lang: str | None = None, max_chars: int = 84, max_dur: float = 6.0) -> Path:
+    """captions.<lang>.srt from shot timing: upload to YouTube (accessibility + search), burn into Shorts."""
+    from .project import shot_text
+    lang = lang or project.primary_lang()
+    shots = {s["id"]: s for s in project.load_storyboard()["shots"]}
+    timing = project.read_json(project.timing_path(lang))
+    cues, cur = [], None
+    for t in timing:
+        text = shot_text(shots[t["id"]], lang, project.primary_lang()).strip()
+        if cur and (len(cur["text"]) + 1 + len(text) <= max_chars and t["end"] - cur["start"] <= max_dur
+                    and not cur["text"].endswith((".", "!", "?"))):
+            cur["text"] += " " + text
+            cur["end"] = t["end"]
+        else:
+            if cur:
+                cues.append(cur)
+            cur = {"start": t["start"], "end": t["end"], "text": text}
+    if cur:
+        cues.append(cur)
+    audio_end = timing[-1]["end"] - 0.6 if timing else 0
+    blocks = []
+    for i, c in enumerate(cues, 1):
+        text = c["text"]
+        if len(text) > 42:                              # two balanced lines
+            words, best = text.split(), None
+            for k in range(1, len(words)):
+                a, b = " ".join(words[:k]), " ".join(words[k:])
+                score = max(len(a), len(b))
+                if best is None or score < best[0]:
+                    best = (score, f"{a}\n{b}")
+            text = best[1] if best else text
+        end = min(c["end"], max(audio_end, c["start"] + 0.5)) if i == len(cues) else c["end"]
+        blocks.append(f"{i}\n{_srt_ts(c['start'])} --> {_srt_ts(end)}\n{text}\n")
+    out = project.lang_dir(lang) / f"captions.{lang}.srt"
+    out.write_text("\n".join(blocks), encoding="utf-8")
     return out
 
 

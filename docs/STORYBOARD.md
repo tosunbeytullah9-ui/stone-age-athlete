@@ -40,11 +40,16 @@ shots:
    narration explains, compares or gives advice (usually `classroom` background).
 7. Prefer the svg recipe. Use `engine: gemini` + `prompt` only for scenes the recipe cannot draw
    (crowds, big battles, city streets, animals not in the props list, close-up faces).
+8. **Close-ups and variety.** Add `frame: {x, y, zoom}` (zoom 1.3–2.2, centre of interest in drawing coordinates)
+   when a face, hand or object matters: the drawing is vector, so a close-up is free and sharp. On phones a
+   full-frame figure is tiny. Do not stay on one background for more than ~5 shots in a row, and keep any single
+   background under ~35% of the video (the whiteboard/classroom included).
 
 ## Canvas
 1920 × 1080. `x` is horizontal position (0 left → 1920 right). Floor height depends on background
 (≈770–960); figures and floor props stand on it automatically, so `y` is usually omitted for them.
 A standing figure at scale 1 is ~450 px tall. Keep main figures between x = 350 and 1570.
+`frame: {x: 900, y: 600, zoom: 1.8}` on a visual shows only that part of the canvas (a close-up).
 
 ## Backgrounds (`bg`, options in `bg_opts`)
 | name | options | floor y |

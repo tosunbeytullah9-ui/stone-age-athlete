@@ -22,15 +22,20 @@ def check(project: Project, lang: str | None = None) -> dict:
         out.append({"key": key, "ok": bool(ok), "level": level, "message": message})
 
     script = project.script_path.read_text(encoding="utf-8") if project.script_path.exists() else ""
-    body = "\n".join(ln for ln in script.splitlines() if not ln.lstrip().startswith(("#", "<!--")))
+    body = "\n".join(ln for ln in re.sub(r"<!--[\s\S]*?-->", "", script).splitlines() if not ln.lstrip().startswith("#"))
     words = len(re.findall(r"\b\w+\b", body))
     templ = "Write the first paragraph" in script
     add("script", words >= 150 and not templ, "block",
         f"Senaryo: {words} kelime" + (" (şablon metni duruyor)" if templ else "") + " — en az 150 kelime gerekli")
 
-    src = project.sources_path.read_text(encoding="utf-8") if project.sources_path.exists() else ""
-    links = len(re.findall(r"https?://", src))
-    add("sources", links >= 3, "block", f"Kaynaklar: {links} bağlantı — en az 3 gerekli (her iddiaya bir kaynak)")
+    from .claims import claim_checks, load_claims
+    if load_claims(project)["claims"]:
+        out.extend(claim_checks(project))
+    else:
+        src = project.sources_path.read_text(encoding="utf-8") if project.sources_path.exists() else ""
+        links = len(re.findall(r"https?://", src))
+        add("sources", links >= 3, "block", f"Kaynaklar: {links} bağlantı — en az 3 gerekli (her iddiaya bir kaynak)")
+        out.extend(claim_checks(project))
 
     if not project.storyboard_path.exists():
         add("storyboard", False, "block", "Storyboard yok — 'Böl' adımını çalıştır")
@@ -50,6 +55,19 @@ def check(project: Project, lang: str | None = None) -> dict:
             run = 1
     add("variety", worst <= 3, "warn",
         f"Çeşitlilik: aynı sahne en fazla {worst} kez art arda" + (f" ({worst_at} civarı)" if worst > 3 else ""))
+    bgs = [(s.get("visual") or {}).get("bg") if isinstance(s.get("visual"), dict) else None for s in shots]
+    named = [b for b in bgs if b]
+    if named:
+        top = max(set(named), key=named.count)
+        share = named.count(top) / len(shots)
+        add("bg_share", share <= 0.35, "warn", f"En çok kullanılan arka plan: {top} (%{share * 100:.0f}; en fazla %35 önerilir)")
+        run, worst_bg, where = 1, 1, None
+        for a, b, sh in zip(bgs, bgs[1:], shots[1:]):
+            run = run + 1 if a and a == b else 1
+            if run > worst_bg:
+                worst_bg, where = run, sh["id"]
+        add("bg_run", worst_bg <= 6, "warn", f"Aynı arka planda en uzun seri: {worst_bg} shot"
+            + (f" ({where} civarı; yakın çekim/farklı sahne ekle)" if worst_bg > 6 else ""))
     distinct = len({_visual_key(s) for s in shots if s.get("visual")})
     if shots:
         add("distinct", distinct >= 0.6 * len(shots), "warn", f"Farklı sahne sayısı: {distinct}/{len(shots)}")

@@ -88,8 +88,18 @@ class Channel:
         return data
 
     def save_ideas(self, data: dict[str, Any]) -> None:
-        with open(self.ideas_path, "w", encoding="utf-8") as f:
-            yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False, width=140)
+        """Keeps the file readable: the comment header survives, pillars and ideas are one line each."""
+        header = []
+        if self.ideas_path.exists():
+            for ln in self.ideas_path.read_text(encoding="utf-8").splitlines():
+                if not ln.startswith("#"):
+                    break
+                header.append(ln)
+        self.ideas_path.write_text(dump_ideas(data, header), encoding="utf-8")
+
+    @property
+    def aliases(self) -> list[str]:
+        return list(self.data.get("aliases") or [])
 
     # ---- projects --------------------------------------------------------
     def project_slugs(self) -> list[str]:
@@ -101,6 +111,42 @@ class Channel:
         nums = [int(s.split("-")[0]) for s in self.project_slugs() if s.split("-")[0].isdigit()]
         n = (max(nums) + 1) if nums else 1
         return f"{n:03d}-{slugify(title)[:40].rstrip('-')}"
+
+
+def _flow(value: Any) -> str:
+    return yaml.safe_dump(value, allow_unicode=True, default_flow_style=True, sort_keys=False,
+                          width=100000).strip()
+
+
+def dump_ideas(data: dict[str, Any], header: list[str] | None = None) -> str:
+    out = list(header or [])
+    extra = {k: v for k, v in data.items() if k not in ("pillars", "ideas")}
+    if extra:
+        out.append(yaml.safe_dump(extra, allow_unicode=True, sort_keys=False).rstrip())
+    out.append("pillars:")
+    for k, v in (data.get("pillars") or {}).items():
+        out.append(f"  {k}: {_flow(v)}")
+    out.append("")
+    out.append("ideas:")
+    pillar = None
+    for idea in data.get("ideas") or []:
+        if idea.get("pillar") != pillar:
+            pillar = idea.get("pillar")
+            out.append(f"# ---- {pillar} ----")
+        if "id" in idea:
+            idea = {"id": idea["id"], **{k: v for k, v in idea.items() if k != "id"}}
+        out.append(f"- {_flow(idea)}")
+    return "\n".join(out) + "\n"
+
+
+def resolve_channel_id(cid: str) -> str:
+    """Old channel ids (listed under `aliases` in a channel.yaml) keep working."""
+    if (CHANNELS / cid / "channel.yaml").exists():
+        return cid
+    for ch in list_channels():
+        if cid in ch.aliases:
+            return ch.id
+    return cid
 
 
 def list_channels() -> list[Channel]:

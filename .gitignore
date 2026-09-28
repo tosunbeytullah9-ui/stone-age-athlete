@@ -11,3 +11,7 @@ assets/music/*
 !assets/music/.gitkeep
 assets/refs/
 .DS_Store
+.claude/
+backups/
+.fabrika/
+*.senin-surumun

@@ -103,7 +103,7 @@ class Project:
     def save_meta(self, data: dict[str, Any]) -> None:
         self.dir.mkdir(parents=True, exist_ok=True)
         with open(self.meta_path, "w", encoding="utf-8") as f:
-            yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False)
+            yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=None, width=110)
 
     # ---- storyboard --------------------------------------------------------
     def load_storyboard(self) -> dict[str, Any]:
@@ -140,7 +140,14 @@ def shot_text(shot: dict, lang: str, primary: str) -> str:
 
 
 SCRIPT_TEMPLATE = """# {title}
-<!-- Narration. Paragraphs are separated by a blank line. Lines starting with # are ignored. -->
+<!-- Narration in English. Paragraphs are separated by a blank line; lines starting with # are ignored.
+     Structure that holds viewers (~1,300-1,600 words ≈ 9-11 min):
+     1. HOOK (0-8 s): the most surprising SOURCED fact or stake, second person ("Take a deep breath...").
+     2. SETUP: who / where / why it matters, short sentences.
+     3. EVIDENCE: one study at a time: who was measured, what was found (group, not "all humans").
+     4. TURN: "But here is where the story gets complicated..." what the evidence cannot tell us.
+     5. COACH'S LESSON (60-90 s): what the viewer can safely use today.
+     Every number and "scientists found" needs a claim (İddialar). -->
 
 Write the first paragraph of narration here.
 

@@ -9,13 +9,14 @@ visual:
     - {type: quern, x: 1120, y: 790}
     - {type: motion, x: 1120, y: 700}
   order: props_first          # props_first (default) | figures_first
+  frame: {x: 900, y: 600, zoom: 1.8}   # optional close-up: centre of interest + zoom (1 = full frame)
 """
 from __future__ import annotations
 
 from . import backgrounds
 from .figure import POSES, draw_figure
 from .props import PROPS
-from .style import document
+from .style import H, W, document
 
 
 def render_svg(visual: dict, seed: int = 7) -> str:
@@ -33,7 +34,21 @@ def render_svg(visual: dict, seed: int = 7) -> str:
         props_svg.append(fn(x, y, s, **p))
     figs_svg = [draw_figure(f, ground) for f in visual.get("figures", []) or []]
     layers = props_svg + figs_svg if visual.get("order", "props_first") == "props_first" else figs_svg + props_svg
-    return document(bg_body + "".join(layers), bg=bg_fill, seed=seed)
+    svg = document(bg_body + "".join(layers), bg=bg_fill, seed=seed)
+    fr = visual.get("frame")
+    if isinstance(fr, dict) and float(fr.get("zoom", 1)) > 1:
+        svg = crop_svg(svg, float(fr.get("x", W / 2)), float(fr.get("y", H / 2)), float(fr["zoom"]))
+    return svg
+
+
+def crop_svg(svg: str, cx: float, cy: float, zoom: float, out_w: int = W, out_h: int = H) -> str:
+    """Close-up without quality loss: the drawing is vector, so only the viewBox changes."""
+    zoom = max(1.0, min(zoom, 4.0))
+    vw, vh = W / zoom, H / zoom
+    x0 = min(max(cx - vw / 2, 0), W - vw)
+    y0 = min(max(cy - vh / 2, 0), H - vh)
+    head = f'width="{W}" height="{H}" viewBox="0 0 {W} {H}"'
+    return svg.replace(head, f'width="{out_w}" height="{out_h}" viewBox="{x0:.1f} {y0:.1f} {vw:.1f} {vh:.1f}"', 1)
 
 
 def catalog() -> dict:
