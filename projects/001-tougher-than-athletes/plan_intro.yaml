@@ -1,0 +1,102 @@
+# Visual plan for the intro (s001–s028), written by the planner (Claude, manual mode).
+s001:
+  visual: {bg: gym, bg_opts: {clock: "7:00"}, props: [{type: mat, x: 960}],
+           figures: [{pose: overhead_lift, x: 960, hold: barbell, face: strain, sweat: true, wear: [cap]}]}
+s002:
+  camera: none
+  visual: {bg: gym, bg_opts: {clock: "9:00"}, props: [{type: mat, x: 960}, {type: effort, x: 960, y: 300}],
+           figures: [{pose: overhead_lift, x: 960, hold: barbell, face: strain, sweat: true, wear: [cap]}]}
+s003:
+  visual: {bg: gym, bg_opts: {clock: "9:00", rack: false}, props: [{type: treadmill, x: 1000}, {type: motion, x: 820, y: 560, direction: speed}],
+           figures: [{pose: run, x: 930, ground: 800, face: strain, sweat: true, wear: [cap]}]}
+s004:
+  visual: {bg: living_room, bg_opts: {clock: "10:00"}, props: [{type: sofa, x: 960}],
+           figures: [{pose: sit_slouch, x: 880, face: tired, look: 8, hold: phone, wear: [cap]}]}
+s005:
+  visual: {bg: office, bg_opts: {clock: "1:00"}, props: [{type: chair, x: 820}, {type: desk, x: 1130}],
+           figures: [{pose: sit, x: 830, face: tired, look: 8, wear: [cap]}]}
+s006:
+  camera: out
+  visual: {bg: living_room, bg_opts: {night: true, clock: "8:00"}, props: [{type: sofa, x: 960}, {type: zzz, x: 760, y: 360}],
+           figures: [{pose: sit_slouch, x: 880, face: tired, look: 8, hold: phone, wear: [cap]}]}
+s007:
+  camera: out
+  visual: {bg: savanna, bg_opts: {sun: low, hut: true}, props: [{type: footprints, x: 700, y: 900, n: 6}]}
+s008:
+  visual: {bg: savanna, bg_opts: {sun: low, hut: true},
+           props: [{type: quern, x: 1115}, {type: grain, x: 1370, y: 815}],
+           figures: [{pose: kneel_grind, x: 780, wear: [hair_bun, hide], face: focused}]}
+s009:
+  camera: in
+  visual: {bg: savanna, bg_opts: {sun: low, hut: true},
+           props: [{type: quern, x: 1115}, {type: grain, x: 1370, y: 815}, {type: effort, x: 1112, y: 690, scale: 0.8}],
+           figures: [{pose: kneel_grind, x: 780, wear: [hair_bun, hide], face: strain}]}
+s010:
+  visual: {bg: savanna, bg_opts: {sun: low, hut: true},
+           props: [{type: quern, x: 1115}, {type: grain, x: 1370, y: 815}, {type: motion, x: 1112, y: 640}],
+           figures: [{pose: kneel_grind, x: 780, wear: [hair_bun, hide], face: strain, sweat: true}]}
+s011:
+  visual: {bg: savanna, bg_opts: {sun: high, hut: true},
+           props: [{type: quern, x: 1115}, {type: grain, x: 1370, y: 815}, {type: motion, x: 1112, y: 640}],
+           figures: [{pose: kneel_grind, x: 780, wear: [hair_bun, hide], face: tired, sweat: true}]}
+s012:
+  visual: {bg: plain_warm, props: [{type: calendar, x: 960, y: 380, scale: 1.8}, {type: quern, x: 1080, y: 930, scale: 0.6}],
+           figures: [{pose: kneel_grind, x: 870, ground: 930, scale: 0.6, wear: [hair_bun, hide], face: focused}]}
+s013:
+  visual: {bg: classroom, props: [{type: bone, x: 1000, y: 500, thick: 1.35}],
+           figures: [{pose: point, x: 420, hold: pointer, face: smile, wear: [headband, whistle]}]}
+s014:
+  camera: in
+  visual: {bg: classroom, props: [{type: bone, x: 1000, y: 500, thick: 1.35}, {type: question, x: 1470, y: 480, scale: 1.8}],
+           figures: [{pose: stand, x: 420, face: surprised, look: 8, wear: [headband, whistle]}]}
+s015:
+  visual: {bg: classroom, props: [{type: icon_quern, x: 1000, y: 250}, {type: bone, x: 1000, y: 540, thick: 1.35}],
+           figures: [{pose: point, x: 420, hold: pointer, face: smile, wear: [headband, whistle]}]}
+s016:
+  visual: {bg: classroom, props: [{type: icon_quern, x: 1000, y: 250}, {type: bone, x: 1000, y: 540, thick: 1.35},
+                                  {type: icon_oar, x: 1460, y: 245}, {type: bone, x: 1470, y: 540, thick: 1.0}],
+           figures: [{pose: point, x: 420, hold: pointer, face: smile, wear: [headband, whistle]}]}
+s017:
+  camera: in
+  visual: {bg: classroom, props: [{type: icon_quern, x: 1000, y: 250}, {type: bone, x: 1000, y: 540, thick: 1.35},
+                                  {type: effort, x: 1000, y: 330}, {type: icon_oar, x: 1460, y: 245},
+                                  {type: bone, x: 1470, y: 540, thick: 1.0}],
+           figures: [{pose: stand, x: 420, face: focused, look: 8, wear: [headband, whistle]}]}
+s018:
+  visual: {bg: classroom, props: [{type: icon_quern, x: 1060, y: 250}, {type: icon_oar, x: 1400, y: 250},
+                                  {type: bar_chart, x: 1240, y: 760, w: 620, h: 420, values: [1.0, 0.87], colors: [ochre, water]}],
+           figures: [{pose: point, x: 420, hold: pointer, face: smile, wear: [headband, whistle]}]}
+s019:
+  visual: {bg: classroom, props: [{type: bar_chart, x: 1240, y: 760, w: 760, h: 420, values: [1.0, 0.87, 0.77], colors: [ochre, water, metal]}],
+           figures: [{pose: point, x: 420, hold: pointer, face: surprised, wear: [headband, whistle]}]}
+s020:
+  visual: {bg: plain_cool, props: [{type: sun, x: 560, y: 260}, {type: moon, x: 1360, y: 260}, {type: motion, x: 860, y: 640, direction: speed}],
+           figures: [{pose: run, x: 960, face: strain, sweat: true, wear: [cap]}]}
+s021:
+  visual: {bg: plain_cool, props: [{type: footprints, x: 300, y: 930, n: 14}, {type: calendar, x: 1500, y: 330, scale: 1.2},
+                                  {type: motion, x: 600, y: 640, direction: speed}],
+           figures: [{pose: run, x: 700, face: strain, sweat: true, wear: [cap]}]}
+s022:
+  camera: out
+  visual: {bg: savanna, bg_opts: {sun: low, hut: true}, props: [{type: quern, x: 1250}],
+           figures: [{pose: stand, x: 960, face: smile, wear: [hair_bun, hide]}]}
+s023:
+  camera: in
+  visual: {bg: classroom, props: [{type: question, x: 1240, y: 470, scale: 2.4}],
+           figures: [{pose: think, x: 420, face: focused, wear: [headband, whistle]}]}
+s024:
+  visual: {bg: split, props: [{type: question, x: 960, y: 260, scale: 1.4}],
+           figures: [{pose: stand, x: 480, face: smile, wear: [hair_bun, hide]},
+                     {pose: stand, x: 1440, face: smile, flip: true, wear: [cap]}]}
+s025:
+  visual: {bg: classroom, props: [{type: check, x: 1000, y: 480, scale: 2.2}, {type: question, x: 1470, y: 470, scale: 1.8}],
+           figures: [{pose: point, x: 420, hold: pointer, face: smile, wear: [headband, whistle]}]}
+s026:
+  visual: {bg: savanna, bg_opts: {sun: low}, props: [{type: effort, x: 960, y: 330}],
+           figures: [{pose: celebrate, x: 960, face: smile, wear: [hide, beard], hold: none}]}
+s027:
+  visual: {bg: savanna, bg_opts: {sun: low}, figures: [{pose: tired_bent, x: 920, face: tired, sweat: true, wear: [hide, beard]}]}
+s028:
+  camera: in
+  visual: {bg: classroom, props: [{type: check, x: 1240, y: 480, scale: 3}],
+           figures: [{pose: point, x: 420, hold: pointer, face: smile, wear: [headband, whistle]}]}

@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+projects/*/build/
+assets/music/*
+!assets/music/.gitkeep
+.DS_Store
+models/

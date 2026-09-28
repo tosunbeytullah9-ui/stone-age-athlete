@@ -1,0 +1,60 @@
+# Stone Age Athlete — üretim ayarları
+# Ücretsizden ücretliye geçiş: sadece ilgili "provider" satırını değiştir,
+# gerekli API anahtarını .env dosyasına ekle. Kodda değişiklik gerekmez.
+
+channel:
+  name: Stone Age Athlete
+  language: en
+
+video:
+  width: 1920
+  height: 1080
+  fps: 30
+  zoom: 0.06          # her shot boyunca yakınlaşma oranı (0 = sabit)
+  crf: 20             # kalite (düşük = daha kaliteli, daha büyük dosya)
+
+split:
+  min_chars: 20       # bir görselin anlattığı en kısa metin
+  max_chars: 65       # bir görselin anlattığı en uzun metin
+
+# 1) Senaryo → görsel planı (storyboard)
+planner:
+  provider: manual    # manual (ücretsiz: Claude sohbetinde) | anthropic (ücretli API)
+  anthropic:
+    model: claude-sonnet-5
+    batch_size: 40    # bir istekte planlanacak shot sayısı
+
+# 2) Seslendirme
+tts:
+  provider: kokoro    # kokoro (ücretsiz, yerel) | elevenlabs (ücretli) | estimate (sessiz deneme)
+  kokoro:
+    voice: am_michael # am_michael, am_fenrir, bm_george, af_heart ...
+    speed: 1.0
+    lang_code: a      # a = Amerikan İngilizcesi, b = İngiliz İngilizcesi
+  elevenlabs:
+    voice_id: ""      # ElevenLabs panelinden
+    model: eleven_multilingual_v2
+  paragraph_pause: 0.35   # paragraflar arası sessizlik (sn)
+
+# 3) Ses ↔ metin zamanlaması
+align:
+  provider: auto      # auto | whisper | proportional
+  whisper:
+    model: base.en    # tiny.en (hızlı) | base.en | small.en (daha doğru)
+
+# 4) Görseller
+images:
+  default_engine: svg # svg (ücretsiz, kodla çizim) | gemini (ücretli AI) — shot bazında da seçilebilir
+  concurrency: 4
+  gemini:
+    # gemini-3.1-flash-lite-image (en ucuz) | gemini-3.1-flash-image (Nano Banana 2, önerilen)
+    # gemini-3-pro-image (Nano Banana Pro, en kaliteli, en pahalı)
+    model: gemini-3.1-flash-image
+    aspect_ratio: "16:9"
+    retries: 3
+
+# 5) Kurgu ve ses miksajı
+audio:
+  music: ""           # assets/music/ altındaki dosya adı (boş = müziksiz)
+  music_volume: 0.07
+  target_lufs: -14

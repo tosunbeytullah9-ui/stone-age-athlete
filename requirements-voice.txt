@@ -1,0 +1,6 @@
+# Ücretsiz yerel seslendirme (tts.provider: kokoro)
+# Model dosyaları (~350 MB) ilk çalıştırmada models/ klasörüne otomatik iner.
+kokoro-onnx>=0.4.9
+
+# İsteğe bağlı: kelime düzeyinde hassas zamanlama (align.provider: whisper)
+# faster-whisper>=1.0
