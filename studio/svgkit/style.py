@@ -18,6 +18,11 @@ PALETTE = {
     # neutral
     "paper": "#f6eedc", "bone": "#fbf3df", "white": "#ffffff", "water": "#8fb3c9", "sweat": "#9ec9e2",
     "good": "#6f9a52", "bad": RED,
+    # added for the extended kit (water, snow, anatomy, metals)
+    "sea": "#6f9fc0", "deep": "#3f6f94", "foam": "#e6f2f7", "snow": "#f4f6f4", "ice": "#cfe4ee",
+    "rock_cool": "#8e979c", "grass": "#93a95c", "track": "#c4613f",
+    "flesh": "#e0685c", "organ": "#c9423b", "vein": "#4f7fb3", "pink": "#f0a7a8", "fat": "#f2d27a",
+    "bronze": "#c9a24a", "steel": "#aeb6bb", "cloth": "#e8dcc0", "fur": "#6b4a2e",
 }
 
 
@@ -86,3 +91,23 @@ def document(body: str, bg: str = "#f0dfb8", seed: int = 7, wobble: float = 5.0)
 <g filter="url(#rough)">{body}</g>
 <rect width="{W}" height="{H}" filter="url(#paper)" opacity="0.07" style="mix-blend-mode:multiply"/>
 </svg>'''
+
+
+def ellipse(cx, cy, rx, ry, fill="#fff", w=7, rot=0, stroke=INK, extra="") -> str:
+    t = f' transform="rotate({rot:.1f} {cx:.1f} {cy:.1f})"' if rot else ""
+    return (f'<ellipse cx="{cx:.1f}" cy="{cy:.1f}" rx="{rx:.1f}" ry="{ry:.1f}" fill="{c(fill)}" '
+            f'stroke="{stroke}" stroke-width="{w:.1f}"{t}{extra}/>')
+
+
+def band(pts, width, fill, outline=5.0) -> str:
+    """Thick stroke with an ink outline (animal legs, tubes, sleeves)."""
+    return line(pts, width + 2 * outline, color=INK) + line(pts, width, color=c(fill))
+
+
+def poly(pts, fill="none", w=7) -> str:
+    d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts) + " Z"
+    return path(d, fill=fill, w=w)
+
+
+def dot(x, y, r, color=INK) -> str:
+    return f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.1f}" fill="{c(color)}"/>'

@@ -9,11 +9,14 @@ import math
 from .style import INK, RED, c, circle, line, path, polar, rect
 
 PROPS = {}
+FLOATING: set[str] = set()   # props whose (x, y) is the centre (everything else stands on y)
 
 
-def prop(name):
+def prop(name, floating=False):
     def deco(fn):
         PROPS[name] = fn
+        if floating:
+            FLOATING.add(name)
         return fn
     return deco
 
@@ -401,3 +404,11 @@ def stars(x, y, s=1.0, n=14, **_):
     rnd = random.Random(3)
     return "".join(circle(rnd.uniform(40, 1880), rnd.uniform(40, 420), rnd.uniform(3, 6), fill="#f3ecc8", w=0)
                    for _ in range(n))
+
+
+FLOATING.update({"clock", "sun", "moon", "icon_quern", "icon_oar", "check", "cross", "question", "heart", "calendar",
+                 "zzz", "sweat", "motion", "effort", "bone", "bone_section", "window", "board", "stars", "arrow",
+                 "rain"})
+
+# extended kit (each module registers more props with @prop)
+from . import props_animals, props_body, props_gear, props_nature, props_charts  # noqa: E402,F401
