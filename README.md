@@ -8,7 +8,7 @@ Başlangıçta her şey **ücretsiz** çalışır. İş büyüdüğünde her aş
 
 ## Başlatma
 
-1. Bir kez kur: **Python 3.10+** ve **FFmpeg**
+1. Bir kez kur: **Python 3.12** (3.10–3.13 arası; 3.14 henüz desteklenmiyor) ve **FFmpeg**
    - Windows: `winget install Python.Python.3.12 Gyan.FFmpeg Git.Git`
    - Mac: `brew install python ffmpeg git`
 2. Repoyu indir: `git clone https://github.com/tosunbeytullah9-ui/stone-age-athlete.git`
