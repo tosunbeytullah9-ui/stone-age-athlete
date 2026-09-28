@@ -475,7 +475,7 @@ function projMake(cid, slug, el) {
   el.innerHTML = `<div class="grid" style="grid-template-columns: minmax(0,2fr) minmax(260px,1fr)">
     <div>${P.languages.map(row).join("")}
       <div class="help small"><b>İkinci dil nasıl yayınlanır?</b> Ayrı video değil: Türkçe satırında "Tümünü üret" sonra "Ek ses izi". Çıkan dosyayı YouTube Studio → videonun <i>Diller</i> bölümü → <i>Ses parçası ekle</i> ile İngilizce videoya yükle; izlenmeler tek videoda toplanır. Türkçe başlık ve kapağı da aynı yerden ekle.</div>
-      <div class="help small">"Tümünü üret" sırasıyla: böl → seslendirme → zamanlama → görseller → video. Değişmeyen ses ve görseller önbellekten gelir, yeniden ücret ödenmez. Shorts kesitleri Proje ayarları'ndaki <span class="kbd">shorts</span> listesinden üretilir.</div>
+      <div class="help small">"Tümünü üret" sırasıyla: böl → seslendirme → zamanlama → görseller → video → (Proje ayarlarında shorts listesi varsa) Shorts. Değişmeyen ses ve görseller önbellekten gelir, yeniden ücret ödenmez. Shorts kesitleri Proje ayarları'ndaki <span class="kbd">shorts</span> listesinden üretilir.</div>
       <div id="live-box" class="${P.jobs.length ? "" : "hidden"}"><div id="live-status" class="small muted"></div><div class="log" id="live-log"></div></div></div>
     <div><div class="card"><h3>Kalite kapısı</h3>${checklist(P.readiness)}</div></div></div>`;
   $$("[data-step]").forEach((b) => (b.onclick = async () => {

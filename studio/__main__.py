@@ -153,6 +153,10 @@ def main(argv=None) -> None:
         for name in ("split", "voice", "align", "images", "render"):
             print(f"[{name}]")
             steps[name]()
+        if p.meta.get("shorts"):
+            from .render import render_shorts
+            print("[shorts]")
+            render_shorts(p, cfg, lang)
     elif cmd == "plan":
         from .planner import plan
         plan(p, cfg)
