@@ -13,11 +13,33 @@ def _words(text: str) -> list[str]:
     return [w for w in _norm.sub(" ", text.lower()).split() if w]
 
 
+GPU_ERRORS = ("cublas", "cudnn", "cuda", "libcu")
+
+
 class WhisperAligner:
     def __init__(self, cfg):
         from faster_whisper import WhisperModel
-        name = cfg.get_path("align.whisper.model", "base.en")
-        self.model = WhisperModel(name, device="auto", compute_type="int8")
+        self.name = cfg.get_path("align.whisper.model", "base.en")
+        device = cfg.get_path("align.whisper.device", "cpu")    # cpu (works everywhere) | cuda | auto
+        self.model = WhisperModel(self.name, device=device, compute_type="int8")
+
+    def _to_cpu(self) -> None:
+        """A GPU was found but its CUDA libraries are missing (e.g. cublas64_12.dll): continue on the CPU."""
+        from faster_whisper import WhisperModel
+        print("  uyarı: ekran kartı kütüphaneleri eksik (CUDA), zamanlama işlemciyle (CPU) devam ediyor")
+        self.model = WhisperModel(self.name, device="cpu", compute_type="int8")
+
+    def _transcribe(self, path: str, lang: str) -> list:
+        """The model loads lazily, so a missing CUDA library only shows up while decoding: retry once on the CPU."""
+        try:
+            segments, _ = self.model.transcribe(path, word_timestamps=True, language=lang, vad_filter=False)
+            return list(segments)
+        except RuntimeError as e:
+            if not any(k in str(e).lower() for k in GPU_ERRORS):
+                raise
+            self._to_cpu()
+            segments, _ = self.model.transcribe(path, word_timestamps=True, language=lang, vad_filter=False)
+            return list(segments)
 
     @classmethod
     def try_create(cls, cfg, required: bool = False):
@@ -29,10 +51,8 @@ class WhisperAligner:
             return None
 
     def align_unit(self, project: Project, u: dict, lang: str = "en") -> list[float]:
-        segments, _ = self.model.transcribe(str(project.dir / u["file"]), word_timestamps=True,
-                                            language=lang, vad_filter=False)
         heard: list[tuple[str, float]] = []
-        for seg in segments:
+        for seg in self._transcribe(str(project.dir / u["file"]), lang):
             for w in seg.words or []:
                 for token in _words(w.word):
                     heard.append((token, w.start))

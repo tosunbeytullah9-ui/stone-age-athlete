@@ -69,6 +69,7 @@ align:
   provider: auto      # auto | whisper | proportional
   whisper:
     model: base.en    # tiny.en (hızlı) | base.en | small.en (daha doğru)
+    device: cpu       # cpu (her bilgisayarda çalışır) | cuda (NVIDIA + CUDA 12 kütüphaneleri kuruluysa daha hızlı)
 
 # 4) Görseller: her sahne bir AI resmi (stil ve karakterler channel.yaml'da). Grafikler kodla çizilir (ücretsiz)
 images:
