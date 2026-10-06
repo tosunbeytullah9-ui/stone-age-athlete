@@ -18,7 +18,7 @@ STEP_LABELS = {
     "split": "Böl", "plan": "Sahne planı", "translate": "Çeviri", "voice": "Seslendirme", "align": "Zamanlama",
     "images": "Resimler", "render": "Video", "shorts": "Shorts", "describe": "Açıklama", "sheet": "Kontak sayfası", "captions": "Altyazı", "dub": "Dublaj izi",
     "check": "Kalite kontrol", "all": "Tümünü üret",
-    "thumbnails": "Kapak görselleri", "signals": "Fikir sinyalleri", "check-links": "Bağlantı kontrolü",
+    "thumbnails": "Kapak görselleri", "package": "Başlık & kapak paketi", "signals": "Fikir sinyalleri", "check-links": "Bağlantı kontrolü",
     "branding": "Marka görselleri", "knowledge": "Bilgi paketi",
 }
 

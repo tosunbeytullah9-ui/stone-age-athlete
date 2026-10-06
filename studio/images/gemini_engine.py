@@ -18,6 +18,13 @@ from ..config import CHANNELS, secret
 from .style_prompt import build_prompt
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+BILLING = ("Gemini kredisi bitti ya da faturalandırma kapalı (HTTP {code}). Google AI Studio → "
+           "https://ai.studio/projects → projen → Billing'den kredi yükle, sonra aynı adımı tekrar çalıştır "
+           "(hazır olanlar korunur, tekrar ödenmez).")
+
+
+class OutOfCredits(SystemExit):
+    """Retrying cannot help: stop the whole step instead of failing scene after scene."""
 
 
 class GeminiEngine:
@@ -81,6 +88,8 @@ class GeminiEngine:
                     return
                 last = "yanıtta görsel yok (güvenlik filtresi olabilir; istemi yumuşat)"
             else:
+                if r.status_code == 402 or (r.status_code == 429 and "prepay" in r.text.lower()):
+                    raise OutOfCredits(BILLING.format(code=r.status_code))
                 last = f"HTTP {r.status_code}: {r.text[:200]}"
                 if r.status_code in (400, 401, 403):
                     break

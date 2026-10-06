@@ -147,3 +147,43 @@ def test_srt_from_timing(proj):
     srt = write_srt(proj, "en").read_text(encoding="utf-8")
     assert srt.startswith("1\n00:00:00,000 --> ") and "percent" in srt
     assert json.dumps(srt)  # plain text
+
+
+def test_one_click_package(proj, monkeypatch):
+    """Package prompt → Gemini (faked) → titles, thumbnail concepts, hooks applied → thumbnails painted (faked)."""
+    import studio.llm as llm
+    from studio.images import gemini_engine
+    from studio.thumbnails import make_package
+    reply = """```yaml
+titles: ["Why the Bajau Have Bigger Spleens", "Built to Dive"]
+thumbnails:
+  - visual: {prompt: "close-up of a Bajau diver gliding over a reef"}
+    text: {en: BIGGER SPLEENS, tr: DEV DALAK}
+    text_pos: left
+hooks:
+  - {type: question, text: "How long can you hold your breath?"}
+description: "Sea nomads and their spleens."
+shorts_ideas:
+  - {hook: "Hold your breath", shows: "a diver", loop: "back to the start"}
+```"""
+    asked = []
+    monkeypatch.setattr(llm, "complete", lambda prompt, model, max_tokens=16000, provider="anthropic":
+                        asked.append((model, provider)) or reply)
+    painted = []
+
+    def fake_generate(self, prompt, out, refs=None, aspect=None, size=None):
+        painted.append(prompt)
+        Image.new("RGB", (1920, 1080), "teal").save(out)
+
+    monkeypatch.setattr(gemini_engine, "secret", lambda name: "k")
+    monkeypatch.setattr(gemini_engine.GeminiEngine, "generate", fake_generate)
+    cfg = config_mod.load_config("demo")
+    cfg["planner"]["provider"] = "gemini"
+    n = make_package(proj, cfg)
+    assert n == {"titles": 2, "thumbnails": 1} and asked == [("gemini-3.8-flash", "gemini")]
+    meta = proj.meta
+    assert meta["publish"]["title_variants"][0] == "Why the Bajau Have Bigger Spleens"
+    assert meta["publish"]["hook_options"][0]["type"] == "question" and meta["description"] == "Sea nomads and their spleens."
+    assert len(painted) == 1 and "close-up of a Bajau diver" in painted[0] and "empty space on the left" in painted[0]
+    for lg in ("en", "tr"):
+        assert Image.open(proj.build / "thumbnails" / lg / "thumb1.png").size == (1280, 720)

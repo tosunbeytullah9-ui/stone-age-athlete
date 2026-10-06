@@ -13,6 +13,7 @@ steps:
   render       final 16:9 video for --lang
   shorts       vertical cut-downs listed in project.yaml → shorts
   describe     description.txt (chapters + sources) + captions.<lang>.srt for --lang
+  package      titles, 3 thumbnail concepts, hooks and Shorts ideas from Gemini, then paints the thumbnails
   thumbnails   thumbnail variants from project.yaml → thumbnails (all languages, or --lang)
   captions     captions.<lang>.srt only
   dub          --lang tr: audio track fitted to the primary video (upload as an extra YouTube audio track)
@@ -165,6 +166,9 @@ def main(argv=None) -> None:
     elif cmd == "thumbnails":
         from .thumbnails import render_thumbnails
         render_thumbnails(p, cfg, a.lang)
+    elif cmd == "package":
+        from .thumbnails import make_package
+        make_package(p, cfg)
     elif cmd == "dub":
         from .dub import make_dub
         make_dub(p, cfg, lang)

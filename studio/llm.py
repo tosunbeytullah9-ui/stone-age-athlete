@@ -26,6 +26,9 @@ def _gemini(prompt: str, model: str, max_tokens: int) -> str:
                       headers={"x-goog-api-key": secret("GEMINI_API_KEY"), "Content-Type": "application/json"},
                       json={"contents": [{"role": "user", "parts": [{"text": prompt}]}],
                             "generationConfig": {"maxOutputTokens": max_tokens, "temperature": 0.7}})
+    if r.status_code == 402 or (r.status_code == 429 and "prepay" in r.text.lower()):
+        from .images.gemini_engine import BILLING
+        raise SystemExit(BILLING.format(code=r.status_code))
     if r.status_code != 200:
         raise SystemExit(f"Gemini API hatası {r.status_code}: {r.text[:300]}")
     parts = [p for c in r.json().get("candidates", []) for p in c.get("content", {}).get("parts", [])]

@@ -83,6 +83,9 @@ class GeminiTTS:
                     return Speech(audio, SR, None)
                 last = "yanıtta ses yok"
             else:
+                if r.status_code == 402 or (r.status_code == 429 and "prepay" in r.text.lower()):
+                    from ..images.gemini_engine import BILLING
+                    raise SystemExit(BILLING.format(code=r.status_code))
                 last = f"HTTP {r.status_code}: {r.text[:300]}"
                 if not self._use_fallback and r.status_code in (400, 404):
                     print(f"  gemini-tts: {self.model} reddedildi ({r.status_code}), {self.fallback} deneniyor")

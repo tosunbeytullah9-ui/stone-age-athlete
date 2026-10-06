@@ -39,10 +39,14 @@ function renderClaims(cid, slug, el) {
 function projPackage(cid, slug, el) {
   const pub = P.publish;
   const langs = P.languages;
+  const manual = (state.overview && state.overview.providers.planner) === "manual";
+  const hasThumbs = langs.some((lg) => (P.thumbs[lg] || []).length);
   el.innerHTML = `<div class="grid" style="grid-template-columns:minmax(0,3fr) minmax(280px,2fr)">
     <div>
       <div class="card"><div class="spread"><h3 style="margin:0">Kapak görselleri (A/B/C)</h3>
-        <div class="row"><button class="sm" id="pk-copy">Paket istemini kopyala</button><button class="sm" id="pk-apply">Cevabı uygula</button><button class="sm primary" id="pk-render">Kapakları üret</button></div></div>
+        <div class="row">${manual ? `<button class="sm" id="pk-copy">Paket istemini kopyala</button><button class="sm" id="pk-apply">Cevabı uygula</button>`
+          : `<button class="sm ${hasThumbs ? "" : "primary"}" id="pk-make" title="Gemini: 10 başlık, 3 kapak fikri, açılış ve Shorts önerileri; sonra 3 kapağı boyar (~0,15 $)">${hasThumbs ? "Yeni paket üret" : "Başlık ve kapakları üret"}</button>`}
+          <button class="sm ${hasThumbs || manual ? "primary" : ""}" id="pk-render" title="Aşağıdaki kapak tariflerinden yeniden boyar; sadece yazı değiştiyse ücret çıkmaz">Kapakları yeniden çiz</button></div></div>
         <p class="small muted">Üç farklı fikir üret, YouTube Studio'da "Test & Compare" ile dene (kazananı izlenme süresi belirler). Kapakta yazı olabilir (en fazla 4 kelime); tek büyük konu, telefonda okunacak kadar yakın.</p>
         <div id="pk-box" class="hidden" style="margin-bottom:10px"><textarea id="pk-text" class="code" rows="8" placeholder="Claude'un paket YAML cevabı (titles, thumbnails, hooks...)"></textarea><div class="row" style="margin-top:6px"><button class="sm primary" id="pk-go">Uygula</button></div></div>
         ${langs.map((lg) => `<div style="margin-top:8px"><div class="small muted">${LANG_TR[lg] || lg}</div>
@@ -56,14 +60,22 @@ function projPackage(cid, slug, el) {
     <div>
       <div class="card"><h3>Başlık adayları</h3>
         <p class="small muted" style="margin-top:0">Birini seç: videonun başlığı ve açıklaması onu kullanır. En fazla 60 karakter, iddialardan büyük söz vermeden.</p>
-        <div id="titles">${(pub.title_variants || []).map((t, i) => `<label class="check title-opt"><input type="radio" name="title" value="${i}" ${t === P.meta.title ? "checked" : ""}> <span>${esc(t)} <span class="muted small">${t.length}</span></span></label>`).join("") || '<p class="muted small">Paket istemiyle 10 başlık üret.</p>'}</div>
+        <div id="titles">${(pub.title_variants || []).map((t, i) => `<label class="check title-opt"><input type="radio" name="title" value="${i}" ${t === P.meta.title ? "checked" : ""}> <span>${esc(t)} <span class="muted small">${t.length}</span></span></label>`).join("") || '<p class="muted small">"Başlık ve kapakları üret" ile 10 başlık adayı gelir.</p>'}</div>
         <div class="row" style="margin-top:8px"><input id="t-new" placeholder="Kendi başlığın" style="flex:1"><button class="sm" id="t-add">Ekle</button></div></div>
       ${(pub.hook_options || []).length ? `<div class="card" style="margin-top:14px"><h3>Açılış (ilk 8 sn) önerileri</h3>${pub.hook_options.map((h) => `<div class="hook"><span class="pill">${esc((P.hook_types || {})[h.type] || h.type || "")}</span> ${esc(h.text || "")}</div>`).join("")}
         <p class="small muted">Beğendiğini senaryonun ilk paragrafına al ve Yayın sekmesinde açılış tipini işaretle.</p></div>` : ""}
       ${(pub.shorts_ideas || []).length ? `<div class="card" style="margin-top:14px"><h3>Shorts fikirleri</h3>${pub.shorts_ideas.map((s) => `<div class="hook"><b>${esc(s.hook || "")}</b><div class="small muted">${esc(s.shows || "")} · döngü: ${esc(s.loop || "")}</div></div>`).join("")}</div>` : ""}
     </div></div>`;
-  $("#pk-copy").onclick = async () => copyText(await api(`/api/projects/${cid}/${slug}/prompt/package`));
-  $("#pk-apply").onclick = () => $("#pk-box").classList.toggle("hidden");
+  if (manual) {
+    $("#pk-copy").onclick = async () => copyText(await api(`/api/projects/${cid}/${slug}/prompt/package`));
+    $("#pk-apply").onclick = () => $("#pk-box").classList.toggle("hidden");
+  } else {
+    $("#pk-make").onclick = async () => {
+      if (hasThumbs && !confirm("Yeni paket mevcut başlık adaylarını ve kapak tariflerini değiştirir. Devam edilsin mi?")) return;
+      const r = await api(`/api/projects/${cid}/${slug}/run`, { method: "POST", body: { step: "package" } });
+      watch(r.job, "Başlık & kapak paketi"); state.onJobsDone = () => viewProject(cid, slug, "pack");
+    };
+  }
   $("#pk-go").onclick = async () => {
     try { const r = await api(`/api/projects/${cid}/${slug}/apply/package`, { method: "POST", body: { text: $("#pk-text").value } }); toast(`${r.titles} başlık, ${r.thumbnails} kapak tarifi`); viewProject(cid, slug, "pack"); }
     catch (e) { toast(e.message, true); }

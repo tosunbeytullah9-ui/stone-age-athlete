@@ -277,5 +277,39 @@ def apply_package(project: Project, data: dict) -> dict:
     return n
 
 
+def make_package(project: Project, cfg: Config, render: bool = True) -> dict:
+    """One click: the package prompt goes to the planner model (Gemini by default), its YAML answer is applied
+    (titles, thumbnail concepts, hooks, Shorts ideas) and the thumbnails are painted.
+    planner.provider: manual only writes the prompt for claude.ai, as before."""
+    import yaml
+
+    from .llm import complete
+    from .planner import parse_yaml_reply
+    provider = cfg.get_path("planner.provider", "gemini")
+    if provider == "manual":
+        out = project.build / "package_prompt.md"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(build_package_prompt(project), encoding="utf-8")
+        print(f"  paket istemi hazır: {out}\n  Panelde 'Paket istemini kopyala' → Claude → 'Cevabı uygula'.")
+        return {"titles": 0, "thumbnails": 0}
+    model = cfg.get_path(f"planner.{provider}.model", {"gemini": "gemini-3.8-flash"}.get(provider, "claude-sonnet-5"))
+    print(f"  paket hazırlanıyor ({provider}: {model})...")
+    data = None
+    for attempt in (1, 2):                 # a reply that is not valid YAML gets one more try
+        try:
+            data = parse_yaml_reply(complete(build_package_prompt(project), model, provider=provider))
+            break
+        except (ValueError, yaml.YAMLError) as e:
+            if attempt == 2:
+                raise SystemExit(f"Paket cevabı okunamadı ({e}). Tekrar dene.")
+            print("  cevap YAML değildi, tekrar deneniyor...")
+    n = apply_package(project, data)
+    print(f"  {n['titles']} başlık, {n['thumbnails']} kapak fikri, "
+          f"{len(data.get('hooks') or [])} açılış, {len(data.get('shorts_ideas') or [])} Shorts fikri kaydedildi")
+    if render and n["thumbnails"]:
+        render_thumbnails(project, cfg)
+    return n
+
+
 if __name__ == "__main__":  # pragma: no cover
     sys.exit("use: python -m studio thumbnails <project>")
