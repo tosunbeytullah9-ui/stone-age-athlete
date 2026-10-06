@@ -29,7 +29,7 @@ planner:
 
 # 2) Seslendirme
 tts:
-  provider: kokoro    # kokoro (ücretsiz, yerel) | edge (ücretsiz, çevrimiçi) | elevenlabs (ücretli) | estimate (sessiz deneme)
+  provider: kokoro    # kokoro (ücretsiz, yerel) | edge (ücretsiz, çevrimiçi) | elevenlabs (ücretli) | gemini (ucuz, yönetilebilir) | estimate (sessiz deneme)
   provider_by_lang:   # dile özel seçim (Kokoro Türkçe bilmiyor)
     tr: edge
   kokoro:
@@ -41,8 +41,25 @@ tts:
     rate: "+0%"
   elevenlabs:
     voice_id: ""      # ElevenLabs panelinden (Türkçe dahil çok dilli)
-    model: eleven_multilingual_v2
+    model: eleven_multilingual_v2   # eleven_v3 = duygu etiketleri: script.md'de "[curious] Why...?", "[excited]", "[whispers]", "[pause]"
+    tags: true          # eleven_v3 ile etiketleri sese gönder (false = yok say). Altyazıya/görsele hiç girmezler
+    settings:           # anlatım tarzı: düşük stability + style = daha canlı, vurgulu okuma
+      stability: 0.35   # 0.3–0.5 arası; düştükçe daha duygulu ama daha az tutarlı
+      similarity_boost: 0.8
+      style: 0.4        # 0 = düz, 0.5+ = abartılı olabilir
+      use_speaker_boost: true
+      speed: 1.05       # enerjik tempo (0.7–1.2)
+  gemini:              # GEMINI_API_KEY ile; ~0,25 $ / 7-8 dk video
+    model: gemini-3.8-flash-tts
+    fallback_model: gemini-3.1-flash-tts-preview
+    voice: Leda         # kadın: Leda (genç), Zephyr (parlak), Laomedeia (neşeli), Autonoe, Aoede, Kore
+    voice_by_lang: {}   # ör. {tr: Leda}
+    style: >-           # söylenmez, sadece okumayı yönetir
+      An energetic young woman presenting a popular science YouTube channel. Warm, curious and confident.
+      Let questions rise with genuine curiosity, lean into surprising numbers, and take a short pause before
+      each reveal. Natural conversational pace, never shouting, never robotic.
   paragraph_pause: 0.35   # paragraflar arası sessizlik (sn)
+  question_tag: curious   # etiketli sesle (eleven_v3): kendi etiketi olmayan her soru cümlesine bu ton ("" = kapalı)
 
 # 3) Ses ↔ metin zamanlaması
 align:

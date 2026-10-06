@@ -44,6 +44,7 @@ senin sürümün `<dosya>.senin-surumun` adıyla yanına bırakılır. `git pull
 | 6. Paketle | **4 · Kapak & başlık** | Paket istemi: 10 başlık, 3 kapak konsepti, açılış ve Shorts önerileri. Kapakları üret, telefon boyutunda karşılaştır |
 | 7. Çıktılar | **5 · Çıktılar** | Video, Shorts, altyazı, ek ses izi ve kaynaklı YouTube açıklaması |
 | 8. Yayınla | **6 · Yayın & performans** | Seri, açılış tipi, tahmin, YouTube id. 2., 7. ve 28. günde ölçümler. İzlenme eğrisini yapıştır: izleyicinin hangi cümlede ve hangi çizimde gittiği görünür |
+| Marka | Kanal → **Kanal ayarları** | "Marka görsellerini üret": profil resmi, banner (güvenli alan kılavuzlu), filigran. "Bilgi paketini üret": kanalın tamamını tek dosyada toplayan `knowledge.md`; Claude Project / ChatGPT / DeepSeek'e bilgi olarak yüklenir |
 | Takvim | Kanal → **Takvim** | Haftalık yayın günleri (varsayılan Pzt/Çar/Cum), boş slotlara proje yerleştirme, geciken projeler kırmızı |
 
 Kaynak kütüphanesi (sol menü) tüm kanalların ortak kaynaklarını gösterir ve bağlantıları kontrol eder.
@@ -59,6 +60,7 @@ Panel → **Ayarlar**: anahtarı yapıştır, ilgili satırı değiştir. Anahta
 | Görsel planı, çeviri, iddialar, paket | `planner.provider: manual` (Claude sohbeti) | `anthropic` (otomatik plan ve çeviri) |
 | Ses (İngilizce) | `kokoro` (yerel) | `elevenlabs` |
 | Ses (Türkçe) | `edge` (çevrimiçi) | `elevenlabs` |
+| Sesli duygu (etiket) | – | `elevenlabs` + `model: eleven_v3`: script.md'de `[curious]`, `[excited]`, `[whispers]`, `[pause]` |
 | Görseller | `svg` (kodla çizim) | `gemini` (Nano Banana). Tek shot için de seçilebilir |
 | Fikir sinyalleri | YouTube Data API anahtarı (ücretsiz, günde ~95 fikir) | – |
 

@@ -1,7 +1,40 @@
-# Claims in this video → shared library (library/sources.yaml). Set verified: true after you have
-# checked the quote against the source yourself. Panel: 1 · Senaryo & kaynaklar → İddialar.
 claims:
-- {id: c01, text: Neolithic women's arm bones were 11-16% stronger (more rigid) than those of the Cambridge University women's rowing crew, source: macintosh2017, shots: [s013, s015, s016, s017, s018], confidence: high, caveat: 'Group comparison; bending rigidity of the humerus, not athletic ability', verified: false, on_screen: true}
-- {id: c02, text: 'Compared with ordinary (non-athlete) women students, the difference was almost 30%', source: macintosh2017, shots: [s019], confidence: high, verified: false}
-- {id: c03, text: Grinding grain may have taken up to five hours a day, source: macintosh2017, shots: [s010, s011], confidence: medium, caveat: 'Estimate from ethnographic analogy, not measured from the bones', verified: false}
-- {id: c04, text: 'The rowers trained twice a day, about 120 km a week', source: macintosh2017, shots: [s020, s021], confidence: medium, caveat: From the Cambridge press release, verified: false}
+- id: c01
+  text: Neolithic women's arm bones were 11-16% stronger (more rigid) than those of the Cambridge University women's
+    rowing crew
+  source: macintosh2017
+  shots:
+  - s013
+  - s015
+  - s016
+  - s017
+  - s018
+  confidence: high
+  caveat: Group comparison; bending rigidity of the humerus, not athletic ability
+  verified: true
+  on_screen: true
+- id: c02
+  text: Compared with ordinary (non-athlete) women students, the difference was almost 30%
+  source: macintosh2017
+  shots:
+  - s019
+  confidence: high
+  verified: true
+- id: c03
+  text: Grinding grain may have taken up to five hours a day
+  source: macintosh2017
+  shots:
+  - s010
+  - s011
+  confidence: medium
+  caveat: Estimate from ethnographic analogy, not measured from the bones
+  verified: true
+- id: c04
+  text: The rowers trained twice a day, about 120 km a week
+  source: macintosh2017
+  shots:
+  - s020
+  - s021
+  confidence: medium
+  caveat: From the Cambridge press release
+  verified: true

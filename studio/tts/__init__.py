@@ -32,13 +32,16 @@ def get_provider(cfg, lang: str = "en"):
     if name == "elevenlabs":
         from .elevenlabs_tts import ElevenLabsTTS
         return ElevenLabsTTS(cfg)
+    if name == "gemini":
+        from .gemini_tts import GeminiTTS
+        return GeminiTTS(cfg, lang)
     if name == "estimate":
         from .estimate_tts import EstimateTTS
         return EstimateTTS(cfg)
     if name == "edge":
         from .edge_tts_provider import EdgeTTS
         return EdgeTTS(cfg, lang)
-    raise SystemExit(f"Bilinmeyen tts.provider: {name} (kokoro | edge | elevenlabs | estimate)")
+    raise SystemExit(f"Bilinmeyen tts.provider: {name} (kokoro | edge | elevenlabs | gemini | estimate)")
 
 
 KOKORO_LANGS = {"en", "es", "fr", "it", "pt", "hi", "ja", "zh"}

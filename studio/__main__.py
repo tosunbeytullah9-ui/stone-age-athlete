@@ -30,6 +30,8 @@ other:
   apply-plan <project> FILE / apply-translation <project> FILE --lang L
   compile <project,project,...> --title T [--lang L]      long compilation of finished videos
   catalog | refs
+  branding [--channel C]                                  profile picture, banner, watermark (build/branding/)
+  knowledge [--channel C]                                 channel bible for any chatbot (build/knowledge.md)
 """
 from __future__ import annotations
 
@@ -88,6 +90,14 @@ def main(argv=None) -> None:
         with SvgEngine(cfg) as eng:
             eng.svg_to_png(render_svg({"bg": "plain_warm", "figures": [mascot]}), ASSETS / "refs" / "coach.png")
         print("  assets/refs/coach.png hazır")
+        return
+    if cmd == "branding":
+        from .branding import render_branding
+        render_branding(channel, load_config(channel))
+        return
+    if cmd == "knowledge":
+        from .knowledge import write_knowledge
+        print(f"  {write_knowledge(channel, load_config(channel))}")
         return
     if cmd == "signals":
         from .signals import update_signals

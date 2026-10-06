@@ -20,7 +20,7 @@ from .project import Project
 
 
 def _run(args: list[str]) -> None:
-    r = subprocess.run(["ffmpeg", "-loglevel", "error", "-y", *args], capture_output=True, text=True)
+    r = subprocess.run(["ffmpeg", "-loglevel", "error", "-y", *args], capture_output=True, text=True, encoding="utf-8", errors="replace")
     if r.returncode != 0:
         raise RuntimeError(r.stderr[-800:])
 
@@ -36,7 +36,7 @@ def _font(size: int):
 
 def _measure_lufs(path: Path) -> float:
     r = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(path), "-af", "ebur128", "-f", "null", "-"],
-                       capture_output=True, text=True)
+                       capture_output=True, text=True, encoding="utf-8", errors="replace")
     vals = [ln for ln in r.stderr.splitlines() if ln.strip().startswith("I:")]
     return float(vals[-1].split()[1]) if vals else -23.0
 
@@ -107,7 +107,7 @@ def _clip(img: Path, out: Path, frames: int, fps: int, zoom: float, mode: str, w
     if anim and frames > len(anim) + 2:
         lst = out.with_suffix(".anim.txt")
         lst.write_text("".join(f"file '{a.resolve().as_posix()}'\nduration {1 / fps:.5f}\n" for a in anim)
-                       + f"file '{anim[-1].resolve().as_posix()}'\n")
+                       + f"file '{anim[-1].resolve().as_posix()}'\n", encoding="utf-8")
         args.extend(["-f", "concat", "-safe", "0", "-i", str(lst)])
         i = inputs
         inputs += 1
@@ -258,7 +258,7 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
             if done % 25 == 0 or done == len(jobs):
                 print(f"  klip {done}/{len(jobs)}")
     lst = work / "list.txt"
-    lst.write_text("".join(f"file '{j['out'].name}'\n" for j in jobs))
+    lst.write_text("".join(f"file '{j['out'].name}'\n" for j in jobs), encoding="utf-8")
     silent = work / "video_silent.mp4"
     _run(["-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(silent)])
     total = sum(_frames(timing, fps)) / fps + outro_frames / fps
@@ -354,7 +354,7 @@ def render_shorts(project: Project, cfg: Config, lang: str | None = None) -> lis
                 clip = work / f"{i:04d}.mp4"
                 _clip(frame, clip, frames, fps, float(cfg.get_path("video.zoom", 0.06)), "in", 1080, 1920, 21)
                 clips.append(clip)
-            (work / "list.txt").write_text("".join(f"file '{c.name}'\n" for c in clips))
+            (work / "list.txt").write_text("".join(f"file '{c.name}'\n" for c in clips), encoding="utf-8")
             silent = work / "silent.mp4"
             _run(["-f", "concat", "-safe", "0", "-i", str(work / "list.txt"), "-c", "copy", str(silent)])
             out = out_dir / f"short{n:02d}.mp4"
@@ -377,7 +377,7 @@ def compile_videos(channel: str, slugs: list[str], cfg: Config, lang: str, title
         raise SystemExit(f"Önce bu videoları üret: {missing}")
     safe = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-") or "compilation"
     lst = out_dir / f"{safe}.txt"
-    lst.write_text("".join(f"file '{v.resolve().as_posix()}'\n" for v in vids))
+    lst.write_text("".join(f"file '{v.resolve().as_posix()}'\n" for v in vids), encoding="utf-8")
     out = out_dir / f"{safe}.{lang}.mp4"
     _run(["-f", "concat", "-safe", "0", "-i", str(lst), "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", str(out)])
     t, lines = 0.0, []
@@ -391,7 +391,7 @@ def compile_videos(channel: str, slugs: list[str], cfg: Config, lang: str, title
 
 def _duration(path: Path) -> float:
     r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
-                       capture_output=True, text=True)
+                       capture_output=True, text=True, encoding="utf-8", errors="replace")
     return float(r.stdout.strip() or 0)
 
 

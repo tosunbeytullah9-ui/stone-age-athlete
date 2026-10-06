@@ -36,8 +36,10 @@ def build_storyboard(project: Project, cfg: Config) -> dict[str, Any]:
         shot = {"id": f"s{idx + 1:03d}", "para": b["para"], "sent": b["sent"], "text": b["text"]}
         # everything planned for an unchanged sentence survives: visual, engine, camera, translations, overlay ...
         for key, val in prev.items():
-            if key not in ("id", "para", "sent", "text") and val is not None:
+            if key not in ("id", "para", "sent", "text", "tone") and val is not None:
                 shot[key] = val
+        if b.get("tone"):              # delivery tags always follow script.md ([curious] ...)
+            shot["tone"] = b["tone"]
         shot.setdefault("visual", None)
         if prev.get("id"):
             id_map[prev["id"]] = shot["id"]

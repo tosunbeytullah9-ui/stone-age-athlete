@@ -20,8 +20,6 @@ shots:
       sweat: true
       wear:
       - cap
-  i18n:
-    tr: Şu anda bir yerlerde,
 - id: s002
   para: 0
   sent: 0
@@ -45,8 +43,6 @@ shots:
       wear:
       - cap
   camera: none
-  i18n:
-    tr: elit bir sporcu iki saatlik antrenmanını bitiriyor.
 - id: s003
   para: 0
   sent: 1
@@ -71,8 +67,6 @@ shots:
       sweat: true
       wear:
       - cap
-  i18n:
-    tr: Ağırlık kaldırdı, depar attı, sınırlarını zorladı.
 - id: s004
   para: 0
   sent: 2
@@ -92,8 +86,6 @@ shots:
       hold: phone
       wear:
       - cap
-  i18n:
-    tr: Ve bir saat sonra oturuyor olacak.
 - id: s005
   para: 0
   sent: 3
@@ -114,8 +106,6 @@ shots:
       look: 8
       wear:
       - cap
-  i18n:
-    tr: Bir kanepede, bir arabada, bir masada.
 - id: s006
   para: 0
   sent: 4
@@ -140,8 +130,6 @@ shots:
       wear:
       - cap
   camera: out
-  i18n:
-    tr: Önümüzdeki on saat boyunca.
 - id: s007
   para: 1
   sent: 5
@@ -157,8 +145,6 @@ shots:
       y: 900
       n: 6
   camera: out
-  i18n:
-    tr: Şimdi yedi bin yıl geriye gidelim.
 - id: s008
   para: 1
   sent: 6
@@ -181,8 +167,6 @@ shots:
       - hair_bun
       - hide
       face: focused
-  i18n:
-    tr: Bir kadın düz bir taşın başında diz çökmüş.
 - id: s009
   para: 1
   sent: 7
@@ -210,8 +194,6 @@ shots:
       - hide
       face: strain
   camera: in
-  i18n:
-    tr: Ellerinde daha ağır bir taş var.
 - id: s010
   para: 1
   sent: 8
@@ -238,8 +220,6 @@ shots:
       - hide
       face: strain
       sweat: true
-  i18n:
-    tr: Taşı ileri itiyor, geri çekiyor ve tahılı una çeviriyor.
 - id: s011
   para: 1
   sent: 9
@@ -339,8 +319,6 @@ shots:
       - headband
       - whistle
   camera: in
-  i18n:
-    tr: mümkün olmaması gereken bir şey buldular.
 - id: s015
   para: 2
   sent: 12
@@ -429,8 +407,6 @@ shots:
       - headband
       - whistle
   camera: in
-  i18n:
-    tr: Biraz değil.
 - id: s018
   para: 2
   sent: 14
@@ -463,8 +439,6 @@ shots:
       wear:
       - headband
       - whistle
-  i18n:
-    tr: Yüzde on bir ile on altı arasında daha güçlü.
   overlay:
     kind: stat
     text: +11–16%
@@ -498,8 +472,6 @@ shots:
       wear:
       - headband
       - whistle
-  i18n:
-    tr: Sıradan öğrencilerle kıyaslandığında ise neredeyse yüzde otuz.
   overlay:
     kind: stat
     text: ≈ +30%
@@ -529,8 +501,6 @@ shots:
       sweat: true
       wear:
       - cap
-  i18n:
-    tr: O kürekçiler günde iki kez antrenman yapıyordu,
 - id: s021
   para: 3
   sent: 16
@@ -557,8 +527,6 @@ shots:
       sweat: true
       wear:
       - cap
-  i18n:
-    tr: haftada yaklaşık yüz yirmi kilometre kürek çekiyorlardı.
   overlay:
     kind: label
     text: ~120 km a week
@@ -605,8 +573,6 @@ shots:
       - headband
       - whistle
   camera: in
-  i18n:
-    tr: Peki bu nasıl mümkün olabilir?
 - id: s024
   para: 3
   sent: 19
@@ -631,8 +597,6 @@ shots:
       flip: true
       wear:
       - cap
-  i18n:
-    tr: Ve bu, atalarımızın bizden daha iyi sporcular olduğu anlamına mı geliyor?
 - id: s025
   para: 4
   sent: 20
@@ -656,8 +620,6 @@ shots:
       wear:
       - headband
       - whistle
-  i18n:
-    tr: Cevap basit bir evetten çok daha şaşırtıcı.
 - id: s026
   para: 4
   sent: 21
@@ -678,8 +640,6 @@ shots:
       - hide
       - beard
       hold: none
-  i18n:
-    tr: Çünkü atalarımızı insanüstü gösteren aynı kemikler,
 - id: s027
   para: 4
   sent: 21
@@ -696,8 +656,6 @@ shots:
       wear:
       - hide
       - beard
-  i18n:
-    tr: tam olarak nerede yetersiz kaldıklarını da ortaya koyuyor.
 - id: s028
   para: 4
   sent: 22
@@ -718,5 +676,3 @@ shots:
       - headband
       - whistle
   camera: in
-  i18n:
-    tr: Önce doğru yaptıklarıyla başlayalım.

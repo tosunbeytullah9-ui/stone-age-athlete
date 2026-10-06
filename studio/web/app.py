@@ -176,8 +176,11 @@ def new_channel(body: dict = Body(...)):
 @app.get("/api/channels/{cid}")
 def get_channel(cid: str):
     ch = _ch(cid)
+    out = ch.dir / "build"
+    art = {n: _file_url(out / "branding" / f"{n}.png") for n in ("profile", "banner", "banner_guides", "watermark")}
     return {"id": ch.id, "data": ch.data, "yaml": ch.path.read_text(encoding="utf-8"),
-            "pillars": ch.load_ideas().get("pillars", {}), "statuses": IDEA_STATUSES}
+            "pillars": ch.load_ideas().get("pillars", {}), "statuses": IDEA_STATUSES,
+            "branding": art, "knowledge": _file_url(out / "knowledge.md")}
 
 
 @app.put("/api/channels/{cid}")
@@ -573,7 +576,7 @@ def compile_(body: dict = Body(...)):
 
 @app.post("/api/tools/{tool}")
 def tools(tool: str, body: dict = Body(default={})):
-    if tool not in ("catalog", "refs", "check-links"):
+    if tool not in ("catalog", "refs", "check-links", "branding", "knowledge"):
         raise HTTPException(404)
     args = [tool] + (["--channel", body["channel"]] if body.get("channel") else [])
     return {"job": manager.submit(args, STEP_LABELS[tool]).id}

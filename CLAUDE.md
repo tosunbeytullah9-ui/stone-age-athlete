@@ -29,6 +29,9 @@ When asked to "plan" a project (e.g. "002'yi planla"):
 - Every factual claim goes into `claims.yaml` (panel: İddialar) linked to a `library/sources.yaml` id and the shot
   ids that state it. Never invent a source, DOI or quote; never round a number into a claim the source does not make
   ("university women rowers", not "Olympic rowers"; "a group of Neolithic women", not "ancient humans").
+- Delivery tags for the expressive voice (ElevenLabs `eleven_v3`): `[curious]`, `[excited]`, `[whispers]`, `[pause]`,
+  `[serious]`, `[warm]` before the words in script.md, sparingly. `split` moves them to shot `tone` (captions never
+  see them); other voices ignore them. Untagged questions get `tts.question_tag`.
 - Short sentences, second-person hook. Use the idea bank (`ideas.yaml`: priority, signals, gut score) and avoid
   saturated titles.
 
@@ -37,6 +40,12 @@ When asked to "plan" a project (e.g. "002'yi planla"):
   never in shots). Titles/thumbnail concepts come from the package prompt (panel: Kapak & başlık).
 - `publish:` in project.yaml is the publish record (series, hook_type, prediction, youtube_id, metrics).
 - Second languages are uploaded as an extra audio track on the same video: `python -m studio dub <slug> --lang tr`.
+
+## Channel artwork and the channel bible
+- `python -m studio branding --channel <c>` → `channels/<c>/build/branding/` (profile 800², banner 2560×1440 with
+  text in the 1546×423 safe area, watermark 150²). Check `banner_guides.png`.
+- `python -m studio knowledge --channel <c>` → `channels/<c>/build/knowledge.md`: identity, rules, drawing kit,
+  ideas, results, sources, a reference script. Upload it to the chatbot (Claude Project) after changes.
 
 ## Translating
 `python -m studio translate <slug> --lang tr` writes a prompt; answer it as YAML `sNNN: "..."` (natural spoken

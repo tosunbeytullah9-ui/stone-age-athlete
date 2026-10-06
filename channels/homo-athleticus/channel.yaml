@@ -35,4 +35,6 @@ style:
 prompt_style: ""                 # extra sentence for AI (Gemini) image prompts
 overrides:
   tts:
-    kokoro: {voice: am_michael}
+    provider: gemini             # pilot 003'ten itibaren: enerjik genç kadın anlatıcı (ses: config → tts.gemini.voice)
+    elevenlabs: {voice_id: qTRV75fy2dUja4REMifv}   # ücretli plana geçersen provider: elevenlabs
+    kokoro: {voice: am_michael}  # ElevenLabs'ten vazgeçersen provider: kokoro yap

@@ -15,3 +15,5 @@ assets/refs/
 backups/
 .fabrika/
 *.senin-surumun
+channels/*/build/
+/build/

@@ -1,0 +1,81 @@
+# Hybrid pilot: 16 paid AI shots (hook, scene openers, scenes the svg kit cannot draw). Everything else stays svg.
+s001:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "a stick-figure athlete at the exact moment of release of a hard overhand throw, ball leaving the hand, body fully twisted, seen from a low dramatic angle on a modern running track at dusk, strong sense of speed"
+s004:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "an adult chimpanzee standing in a forest clearing awkwardly throwing a small stick overhand, arm stiff, the stick tumbling weakly through the air"
+s008:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "a stick-figure baseball pitcher at full extension on the mound of a big stadium under floodlights, crowd as simple silhouettes, the ball a streak of motion toward home plate"
+s017:
+  engine: gemini
+  camera: out
+  visual:
+    prompt: "a small group of early human stick figures standing upright on two legs at the edge of an African savanna at dawn, acacia trees, hands empty and free at their sides"
+s020:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "a stick-figure hunter in tall savanna grass throwing a stone at a distant antelope, a safe gap of open ground between them"
+s025:
+  engine: gemini
+  camera: out
+  visual:
+    prompt: "a modern motion-capture laboratory, many cameras on tripods in a ring around a small pitching area, a stick-figure baseball player with small reflective dot markers on every joint winding up to throw"
+s076:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "a chimpanzee hanging from a high tree branch by both long arms in a dense green forest, shoulders pointing upward"
+s087:
+  engine: gemini
+  camera: out
+  visual:
+    prompt: "a Homo erectus family of tall long-legged stick figures walking across a wide open savanna, a distant volcano and herds of animals on the horizon, early morning light"
+s091:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "a group of stick-figure hunters throwing stones and sharpened sticks together at a herd of wildebeest running across a dusty plain"
+s101:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "an archaeological excavation in a layered brown open-pit mine, long slender wooden spears lying half exposed in the dug soil, stick-figure archaeologists kneeling with small brushes"
+s107:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "sturdy thick-set stick figures with heavy brows carving long wooden spears with stone tools beside a reedy lakeshore in a cool European forest"
+s117:
+  engine: gemini
+  camera: out
+  visual:
+    prompt: "six stick-figure javelin athletes in modern sports kit standing in a row on a green grass field, each holding a long plain wooden spear"
+s118:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "a long wooden spear in mid-flight across a grass field toward a hay bale target far away"
+s138:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "a lone stick-figure hunter crouched in savanna grass at sunset, carefully aiming a single throw at a zebra, calm and patient"
+s140:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "a stick-figure pitcher throwing in a packed night stadium, many ghosted copies of the throwing arm overlapping to show pitch after pitch, a pile of used baseballs by the mound"
+s172:
+  engine: gemini
+  camera: in
+  visual:
+    prompt: "a single stick figure standing on a savanna ridge at golden sunset holding a smooth stone, a long shadow stretching behind, epic calm mood"

@@ -1,0 +1,9 @@
+# Sources — Why Humans Are the Best Throwers on Earth
+Roach et al. 2013, Nature — 20 men (16 college baseball players) in motion capture; humeral internal rotation >9,000°/s ("fastest motion the human body produces"); elastic energy ≈54% of rotation work (model, if 90% stored); braces: −8% ball speed, −39% shoulder work in arm-cocking; waist + low lateral shoulders + low humeral torsion; features appear together ~2 Mya in Homo erectus; shoulder/elbow ligaments "not well adapted" → laxity and tearing; Darwin's idea. https://www.nature.com/articles/nature12267 · full text: https://dash.harvard.edu/server/api/core/bitstreams/7312037d-06e9-6bd4-e053-0100007fdf3b/content
+Harvard Human Evolutionary Biology press release, June 2013 — trained adult male chimp ≈20 mph; Little League (12–13 y) 60–70 mph; pros >90 mph; pitchers >100 fast pitches in 2–3 h. https://heb.fas.harvard.edu/press5
+Fleisig et al. 1995, Am J Sports Med 23:233–239 — 26 skilled adult pitchers; 64 N·m elbow varus torque shortly before max external rotation. https://journals.sagepub.com/doi/abs/10.1177/036354659502300218
+Milks et al. 2019, Scientific Reports — Schöningen spear replicas (760 g, 800 g), 6 javelin athletes, hits up to 20 m. Paper: https://centaur.reading.ac.uk/102639/ · press: https://www.ucl.ac.uk/news/2019/jan/neanderthal-hunting-spears-could-kill-distance
+Schöningen redating 2025, Science Advances — spears ≈200,000 years (was ≈300,000), amino acid dating, Neanderthal period. https://www.science.org/doi/10.1126/sciadv.adv0752 · press: https://www.york.ac.uk/news-and-events/news/2025/research/age-schoningen-spears/
+Little League / Pitch Smart, year-round play — fatigue as top risk; ≥2 months/year no overhead sport, preferably 3–4. https://www.littleleague.org/partnerships/pitch-smart/year-round-play/
+MLB Pitch Smart guidelines — daily pitch limits and rest days by age. https://www.mlb.com/pitch-smart/pitching-guidelines
+

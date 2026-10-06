@@ -293,7 +293,18 @@ async function channelSettings(cid, el, ch) {
     default_engine: gemini        # bu kanal AI görselleri kullanıyor
 style:
   palette: {sky_warm: "#e9e4d4", ochre: "#7aa0a8"}   # kanalın renk kimliği
-prompt_style: "Muted blue-grey palette, clinical feel."</pre></div></div>`;
+prompt_style: "Muted blue-grey palette, clinical feel."</pre></div></div>
+    <div class="grid g2" style="margin-top:16px"><div class="card"><h3>Marka görselleri</h3>
+    <p class="small muted">YouTube Studio → Özelleştirme → Markalama: profil resmi (800×800), banner (2560×1440, yazı her cihazda görünen 1546×423 alanda) ve video filigranı (150×150). Maskotla, videolardaki çizim kitiyle çizilir. İsteğe bağlı <span class="kbd">branding:</span> ayarları için <span class="kbd">studio/branding.py</span>.</p>
+    <div class="row"><button class="primary" id="br-make">Marka görsellerini üret</button></div>
+    ${ch.branding && ch.branding.banner ? `<div style="margin-top:12px"><a href="${ch.branding.banner_guides}" target="_blank"><img src="${ch.branding.banner_guides}" style="width:100%;border-radius:8px" alt="banner"></a>
+      <div class="row" style="margin-top:8px;align-items:center;gap:12px"><img src="${ch.branding.profile}" style="width:96px;height:96px;border-radius:50%" alt="profil"><img src="${ch.branding.watermark}" style="width:48px;height:48px" alt="filigran">
+      <span class="small"><a href="${ch.branding.profile}" download>profile.png</a> · <a href="${ch.branding.banner}" download>banner.png</a> · <a href="${ch.branding.watermark}" download>watermark.png</a></span></div></div>` : ""}</div>
+    <div class="card"><h3>Bilgi paketi (sohbet botu için)</h3>
+    <p class="small muted">Kanalın tamamını tek dosyada toplar: kimlik, seriler, yazım kuralları, ses etiketleri, çizim kiti, fikir havuzu, yayın sonuçları, kaynak kütüphanesi ve örnek senaryo. Claude Project / ChatGPT / Gemini / DeepSeek'e "bilgi" olarak yükle; yayın ya da marka değişikliğinden sonra yeniden üretip değiştir.</p>
+    <div class="row"><button class="primary" id="kn-make">Bilgi paketini üret</button>${ch.knowledge ? ` <a class="small" href="${ch.knowledge}" download="knowledge.md">knowledge.md indir</a>` : ""}</div></div></div>`;
+  $("#br-make").onclick = async () => { const r = await api("/api/tools/branding", { method: "POST", body: { channel: cid } }); watch(r.job, "Marka görselleri"); state.onJobsDone = () => viewChannel(cid, "settings"); };
+  $("#kn-make").onclick = async () => { const r = await api("/api/tools/knowledge", { method: "POST", body: { channel: cid } }); watch(r.job, "Bilgi paketi"); state.onJobsDone = () => viewChannel(cid, "settings"); };
   $("#cy-save").onclick = async () => { try { await api(`/api/channels/${cid}`, { method: "PUT", body: { yaml: $("#cy").value } }); toast("Kaydedildi"); refreshSidebar(); } catch (e) { toast(e.message, true); } };
 }
 

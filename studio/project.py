@@ -147,7 +147,9 @@ SCRIPT_TEMPLATE = """# {title}
      3. EVIDENCE: one study at a time: who was measured, what was found (group, not "all humans").
      4. TURN: "But here is where the story gets complicated..." what the evidence cannot tell us.
      5. COACH'S LESSON (60-90 s): what the viewer can safely use today.
-     Every number and "scientists found" needs a claim (İddialar). -->
+     Every number and "scientists found" needs a claim (İddialar).
+     Delivery (ElevenLabs eleven_v3 only, ignored otherwise): a tag before the words, sparingly, e.g.
+     "[curious] So why can't a chimp throw?", "[excited]", "[whispers]", "[pause]". Never in captions. -->
 
 Write the first paragraph of narration here.
 

@@ -19,6 +19,7 @@ STEP_LABELS = {
     "images": "Görseller", "render": "Video", "shorts": "Shorts", "describe": "Açıklama", "sheet": "Kontak sayfası", "captions": "Altyazı", "dub": "Dublaj izi",
     "check": "Kalite kontrol", "all": "Tümünü üret", "compile": "Derleme", "catalog": "Katalog", "refs": "Maskot referansı",
     "thumbnails": "Kapak görselleri", "signals": "Fikir sinyalleri", "check-links": "Bağlantı kontrolü",
+    "branding": "Marka görselleri", "knowledge": "Bilgi paketi",
 }
 
 

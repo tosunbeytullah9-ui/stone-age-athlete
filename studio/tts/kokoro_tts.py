@@ -37,6 +37,35 @@ def ensure_models() -> tuple[Path, Path]:
     return MODEL_DIR / "kokoro-v1.0.onnx", MODEL_DIR / "voices-v1.0.bin"
 
 
+def _espeak_config():
+    """eSpeak (used by Kokoro for pronunciation) cannot open a data folder whose path has non-ASCII
+    characters on Windows (e.g. C:\\Projects\\Video-Fabrikası). In that case copy its data (~18 MB) once to an
+    ASCII-only folder and point Kokoro there."""
+    try:
+        import espeakng_loader
+        from kokoro_onnx import EspeakConfig
+    except ImportError:
+        return None
+    data = espeakng_loader.get_data_path()
+    if data.isascii():
+        return None
+    import os
+    import shutil
+    for base in (os.environ.get("PROGRAMDATA"), os.environ.get("PUBLIC"), "C:\\"):
+        if not base or not base.isascii():
+            continue
+        dst = Path(base) / "VideoFabrikasi" / "espeak-ng-data"
+        try:
+            if not (dst / "phontab").exists():
+                print(f"  eSpeak verisi ASCII bir klasöre kopyalanıyor (tek seferlik): {dst}")
+                shutil.copytree(data, dst, dirs_exist_ok=True)
+            return EspeakConfig(data_path=str(dst))
+        except OSError:
+            continue
+    raise SystemExit("eSpeak verisi için ASCII karakterli bir klasör bulunamadı. Proje klasörünün adını "
+                     "Türkçe karakter içermeyecek şekilde değiştir (örn. Video-Fabrikasi).")
+
+
 class KokoroTTS:
     unit = "sentence"
 
@@ -46,7 +75,7 @@ class KokoroTTS:
         except ImportError as e:
             raise SystemExit("kokoro-onnx kurulu değil: pip install -r requirements-voice.txt") from e
         model, voices = ensure_models()
-        self.engine = Kokoro(str(model), str(voices))
+        self.engine = Kokoro(str(model), str(voices), espeak_config=_espeak_config())
         self.speed = float(cfg.get_path("tts.kokoro.speed", 1.0))
         if lang == "en":
             self.voice = cfg.get_path("tts.kokoro.voice", "am_michael")

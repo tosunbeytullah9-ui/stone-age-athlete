@@ -50,14 +50,37 @@ def build_units(shots: list[dict], unit: str, lang: str | None = None, primary: 
         start = len(u["text"]) + (1 if u["text"] else 0)
         u["text"] = f"{u['text']} {text}" if u["text"] else text
         u["spans"].append({"id": s["id"], "start": start, "end": start + len(text)})
+        for tag in s.get("tone") or []:
+            u.setdefault("cues", []).append([start, str(tag)])
     return units
+
+
+def with_question_tone(shots: list[dict], tag: str) -> list[dict]:
+    """Every question sentence without its own tag gets `tag` on its first beat (e.g. 'curious'), so the
+    narrator lifts the curiosity questions that hold viewers."""
+    if not tag:
+        return shots
+    out = [dict(s) for s in shots]
+    by_sent: dict = {}
+    for s in out:
+        by_sent.setdefault(s.get("sent"), []).append(s)
+    for beats in by_sent.values():
+        if beats[-1]["text"].rstrip().endswith("?") and not any(b.get("tone") for b in beats):
+            beats[0]["tone"] = [tag]
+    return out
 
 
 def make_voice(project: Project, cfg: Config, lang: str | None = None) -> dict:
     lang = lang or project.primary_lang()
     shots = project.load_storyboard()["shots"]
     tts = get_provider(cfg, lang)
+    tags_ok = bool(getattr(tts, "supports_tags", False))
+    if tags_ok:
+        shots = with_question_tone(shots, cfg.get_path("tts.question_tag", "") or "")
     units = build_units(shots, tts.unit, lang, project.primary_lang())
+    if not tags_ok:
+        for u in units:
+            u.pop("cues", None)
     para_pause = float(cfg.get_path("tts.paragraph_pause", 0.35))
     cache = project.audio_dir(lang) / "units"
     cache.mkdir(exist_ok=True)
@@ -65,14 +88,16 @@ def make_voice(project: Project, cfg: Config, lang: str | None = None) -> dict:
     pieces: list[np.ndarray] = []
     cursor = 0.0
     for i, u in enumerate(units):
-        h = hashlib.sha1(f"{tts.cache_key()}|{u['text']}".encode()).hexdigest()[:16]
+        cues = u.get("cues")
+        tagged = "|" + json.dumps(cues) if cues else ""
+        h = hashlib.sha1(f"{tts.cache_key()}|{u['text']}{tagged}".encode()).hexdigest()[:16]
         wav, meta = cache / f"{h}.wav", cache / f"{h}.json"
         if wav.exists() and meta.exists():
             audio, _ = sf.read(wav, dtype="float32")
             char_starts = json.loads(meta.read_text())["char_starts"]
         else:
             print(f"  ses {i + 1}/{len(units)}: {u['text'][:60]}")
-            sp = tts.synthesize(u["text"])
+            sp = tts.synthesize(u["text"], cues) if cues else tts.synthesize(u["text"])
             audio = _resample(sp.samples, sp.sample_rate)
             audio, cut = _trim(audio, OUT_SR)
             char_starts = [max(0.0, t - cut) for t in sp.char_starts] if sp.char_starts else None

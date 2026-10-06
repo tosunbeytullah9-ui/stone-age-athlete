@@ -4,6 +4,8 @@ Rules
 - Never cut inside a word; prefer cutting at punctuation, then before a joining word.
 - Pieces stay between min_chars and max_chars where the sentence allows it.
 - Decimals ("99.9%"), money ("$3.50") and common abbreviations do not end a sentence.
+- Delivery tags for expressive voices (ElevenLabs v3), e.g. "[curious] Why do we sweat?", are taken out of the
+  text (captions, translation and claims never see them) and kept on the beat as `tone: [curious]`.
 """
 from __future__ import annotations
 
@@ -15,6 +17,7 @@ JOINERS = {
     "so", "yet", "than", "until", "unless", "although", "though", "where", "if", "as",
     "with", "without", "for", "to", "into", "from", "of", "in", "on", "by", "about", "also", "then",
 }
+TONE_TAG = re.compile(r"\[([a-z][a-z \-]{0,30})\]", re.I)
 PUNCT_BREAK = re.compile(r"(?<=[,;:—])\s+|\s+(?=[—–-]\s)")
 
 
@@ -96,13 +99,40 @@ def beats_for_sentence(sentence: str, min_chars: int = 20, max_chars: int = 65) 
     return merged
 
 
+def strip_tones(text: str) -> tuple[str, list[tuple[int, str]]]:
+    """'[curious] Why do we sweat?' → ('Why do we sweat?', [(0, 'curious')]). Offsets point into the clean text."""
+    clean, tags, pos = "", [], 0
+    for m in TONE_TAG.finditer(text):
+        clean += text[pos:m.start()]
+        clean = re.sub(r"\s+", " ", clean.lstrip()) if not clean.strip() else re.sub(r"\s+", " ", clean)
+        tags.append((len(clean.rstrip()) + (1 if clean.rstrip() else 0), m.group(1).strip().lower()))
+        pos = m.end()
+    clean += text[pos:]
+    clean = re.sub(r"\s+", " ", clean).strip()
+    return clean, [(min(o, len(clean)), t) for o, t in tags]
+
+
 def split_script(script: str, min_chars: int = 20, max_chars: int = 65) -> list[dict]:
-    """Returns [{'para': i, 'sent': j, 'text': beat}, ...] in reading order."""
+    """Returns [{'para': i, 'sent': j, 'text': beat, 'tone'?: [tags]}, ...] in reading order."""
     shots = []
     si = 0
     for pi, para in enumerate(paragraphs(script)):
         for sent in sentences(para):
-            for beat in beats_for_sentence(sent, min_chars, max_chars):
-                shots.append({"para": pi, "sent": si, "text": beat})
+            sent, tags = strip_tones(sent)
+            if not sent:
+                continue
+            cursor = 0
+            beats = beats_for_sentence(sent, min_chars, max_chars)
+            for bi, beat in enumerate(beats):
+                start = sent.find(beat, cursor)
+                start = cursor if start < 0 else start
+                end = start + len(beat)
+                cursor = end
+                shot = {"para": pi, "sent": si, "text": beat}
+                last = bi == len(beats) - 1
+                tone = [t for o, t in tags if start <= o < end or (last and o >= end)]
+                if tone:
+                    shot["tone"] = tone
+                shots.append(shot)
             si += 1
     return shots

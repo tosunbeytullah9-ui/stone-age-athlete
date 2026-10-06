@@ -1,0 +1,74 @@
+title: Why Humans Are the Best Throwers on Earth
+idea: i068
+status: production
+thumbnails:
+- visual:
+    bg: savanna
+    bg_opts: {sun: null, trees: false}
+    figures:
+    - pose: throw
+      face: focused
+      wear: [cap, shoes]
+      x: 1260
+      scale: 1.2
+    props:
+    - {type: chimp, x: 620, scale: 1.3, flip: false}
+    - {type: motion, direction: right, scale: 1.2, x: 1480, y: 360}
+  frame: {x: 1000, y: 520, zoom: 1.5}
+  text: {en: 3× FASTER, tr: 3 KAT HIZLI}
+  text_pos: bottom
+- visual:
+    bg: plain_cool
+    figures:
+    - pose: throw
+      face: strain
+      wear: [cap, shoes]
+      x: 1250
+      scale: 1.3
+    props: []
+  frame: {x: 1080, y: 470, zoom: 2.0}
+  text: {en: '9,000° PER SECOND', tr: SANİYEDE 9.000°}
+  text_pos: left
+- visual:
+    bg: split
+    figures:
+    - pose: throw
+      face: focused
+      hold: spear
+      wear: [hide, beard]
+      x: 520
+      scale: 0.95
+    - pose: throw
+      face: focused
+      wear: [cap, shoes]
+      x: 1420
+      scale: 0.95
+  frame: {x: 960, y: 490, zoom: 1.1}
+  text: {en: 2 MILLION YEARS, tr: 2 MİLYON YIL}
+  text_pos: top
+description: A trained chimp throws about 20 mph; a Little League kid throws 60. A Harvard motion-capture study
+  found the reason in your shoulder, and it may be 2 million years old.
+publish:
+  title_variants: [Why Humans Are the Best Throwers on Earth, Your Shoulder Is a 2-Million-Year-Old Slingshot, 'Why
+      Can''t Chimps Throw Like Us?', The Fastest Motion Your Body Makes, Why a Kid Throws 3× Faster Than a Chimp,
+    The Hidden Slingshot Inside Your Shoulder, '9,000° per Second: The Science of Throwing', 'Built to Throw: 2
+      Million Years in Your Shoulder', How Throwing May Have Shaped Human Evolution, 'Built to Throw, Not to Pitch
+      100 Times a Night']
+  hook_options:
+  - {type: cold_open_stat, text: 'A trained chimpanzee throws about twenty miles an hour. A twelve-year-old throws
+      sixty. Same body plan. So what changed?'}
+  - {type: you, text: Pick up a ball and throw it as hard as you can. No other animal on Earth can really copy that
+      move.}
+  - {type: mystery, text: 'Your upper arm can spin faster than nine thousand degrees per second. Your muscles alone
+      can''t do that. So where does the speed come from?'}
+  shorts_ideas:
+  - {hook: A chimp throws 20 mph. A 12-year-old throws 60., shows: 'chimp vs kid vs pro pitcher gauges, same body
+      plan', loop: 'ends on ''three times faster'', cuts back to the first throw'}
+  - {hook: The fastest motion your body makes, shows: '9,000°/s arm spin, then the slingshot: stretch, store, snap',
+    loop: 'ends on the snap, first frame is the throw'}
+  series: human-vs
+  hook_type: you
+  slot: long
+shorts:
+- {title: A chimp throws 20 mph. A kid throws 60., from: s001, to: s015, hook: 'Chimp vs. kid: who throws faster?'}
+- {title: The fastest motion your body makes, from: s036, to: s056, hook: '9,000° per second'}
