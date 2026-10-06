@@ -62,7 +62,7 @@ def test_resplit_keeps_translations_and_remaps(proj):
     assert all("multi" not in s["text"] and "comment" not in s["text"] for s in sb["shots"])
     for s in sb["shots"]:
         s["i18n"] = {"tr": "çeviri " + s["id"]}
-        s["visual"] = {"bg": "sea"}
+        s["visual"] = {"prompt": "the sea"}
     proj.save_storyboard(sb)
     last = sb["shots"][-1]["id"]
     meta = proj.meta

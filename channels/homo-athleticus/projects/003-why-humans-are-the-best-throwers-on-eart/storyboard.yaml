@@ -6,1866 +6,720 @@ shots:
   sent: 0
   text: Pick up a ball and throw it as hard as you can.
   visual:
-    prompt: a stick-figure athlete at the exact moment of release of a hard overhand throw, ball leaving the hand,
-      body fully twisted, seen from a low dramatic angle on a modern running track at dusk, strong sense of speed
+    prompt: Medium shot of The Coach standing on a sunlit running track, holding a baseball in her right hand and
+      demonstrating an athletic throwing posture, body angled, warm morning sunlight, athletic field in soft background
+    characters:
+    - coach
   camera: in
-  engine: gemini
 - id: s002
   para: 0
   sent: 1
   text: That simple move is something no other animal
   visual:
-    bg: savanna
-    bg_opts:
-      sun: high
-      trees: true
-    figures:
-    - pose: throw
-      x: 700
-      face: focused
-      wear: &id001
-      - hide
-      - beard
-      hold: rock
-    props:
-    - type: chimp
-      x: 1350
-      flip: true
+    same: true
 - id: s003
   para: 0
   sent: 1
   text: on Earth can really copy.
   visual:
-    bg: savanna
-    bg_opts:
-      sun: high
-      trees: true
-    figures:
-    - pose: throw
-      x: 700
-      face: focused
-      wear: *id001
-      hold: rock
-    props:
-    - type: chimp
-      x: 1350
-      flip: true
-    - type: cross
-      x: 1350
-      y: 420
+    same: true
 - id: s004
   para: 0
   sent: 2
   text: An adult male chimpanzee, trained to throw,
   visual:
-    prompt: an adult chimpanzee standing in a forest clearing awkwardly throwing a small stick overhand, arm stiff,
-      the stick tumbling weakly through the air
-  camera: in
-  engine: gemini
+    prompt: A male chimpanzee in a sunlit grassy forest clearing, awkwardly hurling a small fruit forward with a
+      stiff elbow and restricted shoulder rotation, warm natural light, lush green foliage
+  camera: right
 - id: s005
   para: 0
   sent: 2
   text: manages about twenty miles an hour.
   visual:
-    bg: forest
-    props:
-    - type: chimp
-      x: 760
-      flip: false
-    - type: moon
-      x: 1200
-      y: 600
-      scale: 0.7
-    - type: gauge
-      x: 1450
-      y: 330
-      value: 0.2
+    same: true
 - id: s006
   para: 0
   sent: 3
   text: A twelve-year-old in Little League
   visual:
-    bg: track
-    figures:
-    - pose: throw
-      x: 760
-      face: smile
-      wear:
-      - cap
-      scale: 0.7
-    props:
-    - type: moon
-      x: 1080
-      y: 610
-      scale: 0.55
+    prompt: Medium shot of a twelve-year-old Little League baseball player in uniform on a dirt diamond, arm cocked
+      back in a fluid and coordinated windup, dusty afternoon sunlight
+  camera: in
 - id: s007
   para: 0
   sent: 3
   text: routinely throws sixty to seventy.
   visual:
-    bg: track
-    figures:
-    - pose: throw
-      x: 760
-      face: smile
-      wear:
-      - cap
-      scale: 0.7
-    props:
-    - type: moon
-      x: 1180
-      y: 610
-      scale: 0.55
-    - type: motion
-      x: 1350
-      y: 610
-      direction: right
-      scale: 1.6
-    - type: gauge
-      x: 1500
-      y: 330
-      value: 0.65
+    same: true
 - id: s008
   para: 0
   sent: 4
   text: A professional pitcher throws more than ninety.
   visual:
-    prompt: a stick-figure baseball pitcher at full extension on the mound of a big stadium under floodlights, crowd
-      as simple silhouettes, the ball a streak of motion toward home plate
-  engine: gemini
-  camera: in
+    prompt: Low-angle dramatic shot of a professional baseball pitcher on the mound at dusk, mid-stride, arm whipping
+      forward in powerful fluid motion as the ball leaves his fingertips, stadium lights softly glowing
+  camera: left
 - id: s009
   para: 1
   sent: 5
   text: Think about that for a second.
   visual:
-    bg: classroom
-    figures:
-    - pose: think
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: surprised
+    same: true
 - id: s010
   para: 1
   sent: 6
   text: The chimpanzee is one of our closest living relatives.
   visual:
-    bg: plain_warm
-    figures: &id002
-    - pose: stand
-      x: 1250
-      face: smile
-    props:
-    - &id003
-      type: chimp
-      x: 700
-      flip: false
-    - type: heart
-      x: 960
-      y: 380
+    prompt: Natural history museum comparative anatomy plate showing chimpanzee and human skeletons standing side
+      by side, detailed view of torsos, clavicles, shoulder joints, and arm bones, warm parchment backdrop
+  camera: in
 - id: s011
   para: 1
   sent: 7
   text: Two arms.
   visual:
-    bg: plain_warm
-    figures: *id002
-    props: &id004
-    - *id003
-    frame:
-      x: 1250
-      y: 640
-      zoom: 1.7
+    same: true
 - id: s012
   para: 1
   sent: 8
   text: Two hands.
   visual:
-    bg: plain_warm
-    figures: *id002
-    props: *id004
-    frame:
-      x: 1250
-      y: 700
-      zoom: 2.0
+    same: true
 - id: s013
   para: 1
   sent: 9
   text: A shoulder, an elbow, a wrist.
   visual:
-    bg: plain_warm
-    figures: *id002
-    props: *id004
-    frame:
-      x: 1250
-      y: 600
-      zoom: 1.6
+    same: true
 - id: s014
   para: 1
   sent: 10
   text: The same basic body plan.
   visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 1450
-      face: smile
-    props:
-    - type: chimp
-      x: 470
-      flip: false
-    - type: balance
-      x: 960
-      tilt: 0
+    same: true
 - id: s015
   para: 1
   sent: 11
   text: And yet a child throws about three times faster.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
+    bg: plain_warm
     props:
     - type: bar_chart
-      x: 1240
-      y: 760
+      x: 960
+      y: 860
       values:
-      - 0.25
-      - 0.8
+      - 0.21
+      - 0.68
+      - 1.0
       colors:
-      - clay
+      - earth
       - ochre
-  camera: in
+      - water
 - id: s016
   para: 2
   sent: 12
   text: Charles Darwin noticed this too.
   visual:
-    bg: plain_warm
-    figures:
-    - pose: think
-      x: 800
-      wear:
-      - beard
-      face: focused
-    props:
-    - type: book
-      x: 1250
-      y: 500
+    prompt: Charles Darwin as a Victorian naturalist in his sunlit study at Down House, seated at a dark mahogany
+      desk examining animal bones beside open sketchbooks and handwritten notes, warm window light
+  camera: right
 - id: s017
   para: 2
   sent: 13
   text: He thought that once our ancestors stood up on two legs,
   visual:
-    prompt: a small group of early human stick figures standing upright on two legs at the edge of an African savanna
-      at dawn, acacia trees, hands empty and free at their sides
-  engine: gemini
-  camera: out
+    same: true
 - id: s018
   para: 2
   sent: 13
   text: their hands were free.
   visual:
-    bg: savanna
-    bg_opts:
-      sun: low
-      trees: true
-    figures:
-    - pose: wave
-      x: 960
-      wear: *id001
-      face: smile
-    frame:
-      x: 960
-      y: 520
-      zoom: 1.6
+    same: true
 - id: s019
   para: 2
   sent: 14
   text: And a free hand could throw.
   visual:
-    bg: savanna
-    bg_opts:
-      sun: low
-      trees: true
-    figures:
-    - pose: throw
-      x: 820
-      face: focused
-      wear: *id001
-      hold: rock
+    same: true
 - id: s020
   para: 2
   sent: 15
   text: Throwing let a hunter hurt an animal from a distance,
   visual:
-    prompt: a stick-figure hunter in tall savanna grass throwing a stone at a distant antelope, a safe gap of open
-      ground between them
-  engine: gemini
+    prompt: Wide shot of an early human hunter in tall golden savanna grass during golden hour, body coiled, throwing
+      arm cocked far back with a smooth river stone, a herd of antelope grazing in the distance
   camera: in
 - id: s021
   para: 2
   sent: 15
   text: without getting close to its horns or teeth.
   visual:
-    bg: savanna
-    bg_opts:
-      sun: low
-      trees: true
-    figures:
-    - pose: throw
-      x: 600
-      face: focused
-      wear: *id001
-      hold: spear
-    props:
-    - type: deer
-      x: 1500
-      flip: true
-    - type: footprints
-      x: 1050
-      n: 6
-    - type: check
-      x: 600
-      y: 230
+    same: true
 - id: s022
   para: 3
   sent: 16
   text: But for a long time,
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: focused
-      hold: pointer
-    props:
-    - type: question
-      x: 1240
-      y: 485
-      scale: 1.4
+    prompt: Medium shot of The Coach in a brightly lit training gym, holding a replica prehistoric throwing stone
+      in one hand, looking directly at the camera with a curious expression, training equipment behind her
+    characters:
+    - coach
+  camera: left
 - id: s023
   para: 3
   sent: 16
   text: nobody could explain how we became such good throwers.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: focused
-      hold: pointer
-    props:
-    - type: question
-      x: 1100
-      y: 485
-    - type: question
-      x: 1380
-      y: 485
+    same: true
 - id: s024
   para: 3
   sent: 17
   text: Or when.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: focused
-      hold: pointer
-    props:
-    - type: timeline
-      x: 1240
-      y: 560
-      n: 6
-    - type: question
-      x: 1240
-      y: 380
+    same: true
 - id: s025
   para: 3
   sent: 18
   text: The answer came from a motion-capture lab at Harvard,
   visual:
-    prompt: a modern motion-capture laboratory, many cameras on tripods in a ring around a small pitching area,
-      a stick-figure baseball player with small reflective dot markers on every joint winding up to throw
-  engine: gemini
-  camera: out
+    prompt: Wide shot of the Harvard biomechanics motion-capture laboratory, high-speed infrared cameras on black
+      tripods surrounding an indoor pitching lane, glowing computer monitors in the background
+  camera: in
 - id: s026
   para: 3
   sent: 18
   text: a group of college baseball players,
   visual:
-    bg: lab
-    figures:
-    - pose: throw
-      x: 800
-      face: focused
-      wear: &id005
-      - cap
-      - shoes
-    - pose: stand
-      x: 1500
-      wear:
-      - goggles
-      face: focused
-    props:
-    - type: moon
-      x: 1150
-      y: 470
-      scale: 0.7
+    same: true
 - id: s027
   para: 3
   sent: 18
   text: and some very fast cameras.
   visual:
-    bg: lab
-    figures:
-    - pose: throw
-      x: 800
-      face: focused
-      wear: *id005
-    - pose: stand
-      x: 1500
-      wear:
-      - goggles
-      face: focused
-    props:
-    - type: moon
-      x: 1150
-      y: 470
-      scale: 0.7
-    - type: stopwatch
-      x: 1500
-      y: 250
-      value: 0.1
-    - type: eye
-      x: 1250
-      y: 250
+    same: true
 - id: s028
   para: 4
   sent: 19
   text: In 2013, a team led by Neil Roach,
   visual:
-    bg: lab
-    figures:
-    - pose: point
-      x: 800
-      wear:
-      - goggles
-      face: focused
-    - pose: think
-      x: 1300
-      face: focused
+    prompt: Two scientists in modern laboratory attire standing beside computer workstations, analyzing multi-angle
+      wireframe motion captures and speed graphs of a throwing athlete, soft interior lab lighting
+  camera: right
 - id: s029
   para: 4
   sent: 19
   text: working with Daniel Lieberman,
   visual:
-    bg: lab
-    figures:
-    - pose: point
-      x: 800
-      wear:
-      - goggles
-      face: smile
-    - pose: think
-      x: 1300
-      wear:
-      - beard
-      face: smile
+    same: true
 - id: s030
   para: 4
   sent: 19
   text: published a study in the journal Nature.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: book
-      x: 1240
-      y: 485
-      scale: 1.3
+    same: true
 - id: s031
   para: 4
   sent: 20
   text: They brought twenty young men into the lab.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: people
-      x: 1240
-      y: 485
-      n: 20
-      k: 0
-      cols: 10
+    prompt: Medium shot of a college baseball player in athletic shorts standing on the lab mound, reflective motion-capture
+      markers attached across his shoulder, elbow, wrist, and torso, focused expression
+  camera: in
 - id: s032
   para: 4
   sent: 21
   text: Sixteen of them were college baseball players.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: people
-      x: 1240
-      y: 485
-      n: 20
-      k: 16
-      cols: 10
-      color: ochre
-  camera: in
+    same: true
 - id: s033
   para: 4
   sent: 22
   text: Markers on every joint.
   visual:
-    bg: lab
-    figures:
-    - pose: throw
-      x: 900
-      face: focused
-      wear: *id005
-    props:
-    - type: check
-      x: 1150
-      y: 330
-    frame:
-      x: 950
-      y: 560
-      zoom: 1.5
+    same: true
 - id: s034
   para: 4
   sent: 23
   text: Cameras tracking every movement of every throw.
   visual:
-    bg: lab
-    figures:
-    - pose: throw
-      x: 900
-      face: focused
-      wear: *id005
-    props:
-    - type: eye
-      x: 1450
-      y: 300
-    - type: arrow
-      x: 1350
-      y: 330
-      to:
-      - 1050
-      - 460
-      color: ochre
+    same: true
 - id: s035
   para: 5
   sent: 24
   text: What they saw at the shoulder was extraordinary.
   visual:
-    bg: plain_cool
-    figures:
-    - pose: throw
-      x: 820
-      face: focused
-      wear: *id005
-    frame: &id006
-      x: 830
-      y: 480
-      zoom: 1.9
-  camera: in
+    prompt: Close-up anatomical illustration of a human shoulder joint during extreme internal rotation, upper arm
+      bone spinning rapidly inward within the glenoid socket, subtle painted motion blur and rotation curves
+  camera: left
 - id: s036
   para: 5
   sent: 25
   text: Just before the ball leaves the hand, the upper arm spins inward.
   visual:
-    bg: plain_cool
-    figures:
-    - pose: throw
-      x: 820
-      face: strain
-      wear: *id005
-    props:
-    - type: motion
-      x: 900
-      y: 420
-      direction: right
-      scale: 1.6
-    frame: *id006
+    same: true
 - id: s037
   para: 5
   sent: 26
   text: That spin can go faster than nine thousand degrees per second.
   visual:
-    bg: plain_cool
-    figures:
-    - pose: throw
-      x: 700
-      face: strain
-      wear: *id005
-    props:
-    - type: gauge
-      x: 1350
-      y: 420
-      value: 1.0
-      scale: 1.4
+    same: true
 - id: s038
   para: 5
   sent: 27
   text: If it could keep going,
   visual:
-    bg: plain_cool
-    props:
-    - type: stopwatch
-      x: 960
-      y: 480
-      value: 1.0
-      scale: 1.4
+    prompt: Stroboscopic sequence painting of an arm spinning around its axis, overlapping translucent ghost frames
+      showing rapid full rotation against a deep ochre background, painterly scientific study
+  camera: out
 - id: s039
   para: 5
   sent: 27
   text: that would be twenty-five full turns in one second.
   visual:
-    bg: plain_cool
-    props:
-    - type: stopwatch
-      x: 700
-      y: 480
-      value: 1.0
-      scale: 1.2
-    - type: motion
-      x: 1250
-      y: 480
-      direction: both
-      scale: 1.6
-    - type: arrow
-      x: 1000
-      y: 480
-      to:
-      - 1500
-      - 480
-      color: ochre
+    same: true
 - id: s040
   para: 5
   sent: 28
   text: The researchers called it the fastest
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: medal
-      x: 1240
-      y: 485
-      scale: 1.3
+    same: true
 - id: s041
   para: 5
   sent: 28
   text: motion the human body produces.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: medal
-      x: 1240
-      y: 485
-      scale: 1.3
-    - type: check
-      x: 1450
-      y: 300
+    same: true
 - id: s042
   para: 6
   sent: 29
   text: And here is the puzzle.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: focused
-      hold: pointer
-    props:
-    - type: question
-      x: 1240
-      y: 485
-      scale: 1.4
+    prompt: Medium shot of The Coach in the gym standing next to an anatomical model of a human skeleton, gesturing
+      thoughtfully to the rotator cuff and shoulder socket, engaging the viewer, warm indoor light
+    characters:
+    - coach
+  camera: in
 - id: s043
   para: 6
   sent: 30
   text: Your shoulder muscles are not powerful enough
   visual:
-    bg: plain_cool
-    figures:
-    - pose: throw
-      x: 700
-      face: strain
-      wear: *id005
-    props:
-    - type: muscle
-      x: 1350
-      y: 450
-      size: 0.8
-      scale: 1.3
+    same: true
 - id: s044
   para: 6
   sent: 30
   text: to spin your arm that fast on their own.
   visual:
-    bg: plain_cool
-    figures:
-    - pose: throw
-      x: 700
-      face: strain
-      wear: *id005
-    props:
-    - type: muscle
-      x: 1350
-      y: 450
-      size: 0.8
-      scale: 1.3
-    - type: cross
-      x: 1600
-      y: 300
+    same: true
 - id: s045
   para: 6
   sent: 31
   text: So where does the speed come from?
   visual:
-    bg: classroom
-    figures:
-    - pose: think
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: surprised
-    props:
-    - type: question
-      x: 1240
-      y: 485
-      scale: 1.4
-    - type: motion
-      x: 1500
-      y: 300
-      direction: right
-      scale: 1.6
+    same: true
 - id: s046
   para: 7
   sent: 32
   text: Think of a slingshot.
   visual:
-    bg: forest
-    figures: &id007
-    - pose: draw_bow
-      x: 820
-      wear: *id001
-      hold: bow
-      face: focused
+    prompt: Close-up shot of strong weathered hands drawing back a wooden Y-shaped slingshot, thick rubber band
+      stretched under heavy tension with a stone seated in the leather pocket, warm natural light
+  camera: right
 - id: s047
   para: 7
   sent: 33
   text: You pull the band back slowly.
   visual:
-    bg: forest
-    figures: *id007
-    frame:
-      x: 950
-      y: 520
-      zoom: 1.8
-  camera: in
+    same: true
 - id: s048
   para: 7
   sent: 34
   text: It stores energy.
   visual:
-    bg: forest
-    figures: *id007
-    props:
-    - type: battery
-      x: 1450
-      y: 330
-      value: 1.0
+    same: true
 - id: s049
   para: 7
   sent: 35
   text: And when you let go,
   visual:
-    bg: forest
-    figures:
-    - pose: stand
-      x: 820
-      wear: *id001
-      hold: bow
-      face: smile
-    props:
-    - type: arrow
-      x: 1050
-      y: 520
-      to:
-      - 1650
-      - 480
-      color: ochre
+    same: true
 - id: s050
   para: 7
   sent: 35
   text: the stone flies faster than your hand could ever push it.
   visual:
-    bg: forest
-    figures:
-    - pose: stand
-      x: 820
-      wear: *id001
-      hold: bow
-      face: smile
-    props:
-    - type: arrow
-      x: 1250
-      y: 500
-      to:
-      - 1750
-      - 470
-      color: ochre
-    - type: motion
-      x: 1450
-      y: 560
-      direction: right
-      scale: 1.6
+    same: true
 - id: s051
   para: 7
   sent: 36
   text: Your shoulder works in a similar way.
   visual:
-    bg: split
-    figures:
-    - pose: draw_bow
-      x: 420
-      wear: *id001
-      hold: bow
-      face: focused
-    - pose: throw
-      x: 1330
-      face: focused
-      wear: *id005
+    prompt: Over-the-shoulder view of a throwing athlete at maximum cocking phase, the upper arm rotated extremely
+      far backward, pectoralis and shoulder muscles stretched taut, dramatic warm side light
+  camera: in
 - id: s052
   para: 8
   sent: 37
   text: When you cock your arm back before a throw,
   visual:
-    bg: plain_cool
-    figures: &id008
-    - pose: throw
-      x: 900
-      face: focused
-      wear: *id005
+    same: true
 - id: s053
   para: 8
   sent: 37
   text: the upper arm rotates far backwards.
   visual:
-    bg: plain_cool
-    figures: *id008
-    props:
-    - type: arrow
-      x: 1000
-      y: 380
-      to:
-      - 1250
-      - 380
-      color: ochre
-    frame:
-      x: 950
-      y: 480
-      zoom: 1.6
+    same: true
 - id: s054
   para: 8
   sent: 38
   text: The ligaments,
   visual:
-    bg: plain_cool
-    props:
-    - type: muscle
-      x: 960
-      y: 520
-      size: 1.0
-      scale: 1.3
-  camera: in
+    prompt: Detailed cut-away anatomical illustration of the human shoulder joint capsule, showing coracohumeral
+      ligaments, subscapularis tendon, and muscle fibers stretched like elastic bands across the joint
+  camera: left
 - id: s055
   para: 8
   sent: 38
   text: tendons and muscles across the front of the shoulder stretch, like that band.
   visual:
-    bg: plain_cool
-    props:
-    - type: muscle
-      x: 760
-      y: 520
-      size: 1.0
-      scale: 1.3
-    - type: muscle
-      x: 1250
-      y: 520
-      size: 1.0
-    - type: arrow
-      x: 1000
-      y: 800
-      to:
-      - 1500
-      - 800
-      color: ochre
+    same: true
 - id: s056
   para: 8
   sent: 39
   text: Then, in a few thousandths of a second, they snap back.
   visual:
-    bg: plain_cool
-    props:
-    - type: muscle
-      x: 760
-      y: 520
-      size: 1.0
-      scale: 1.3
-    - type: muscle
-      x: 1250
-      y: 520
-      size: 1.0
-    - type: motion
-      x: 1000
-      y: 800
-      direction: left
-      scale: 1.6
-    - type: effort
-      x: 1000
-      y: 300
+    same: true
 - id: s057
   para: 8
   sent: 40
   text: In the team's model,
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
+    bg: plain_warm
     props:
     - type: pie
-      x: 1240
-      y: 485
-      value: 0.0
-      colors:
-      - ochre
-      - stone
+      x: 960
+      y: 540
+      value: 0.5
 - id: s058
   para: 8
   sent: 40
   text: this stored elastic energy could account for about half
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: pie
-      x: 1240
-      y: 485
-      value: 0.5
-      colors:
-      - ochre
-      - stone
-  camera: in
+    same: true
 - id: s059
   para: 8
   sent: 40
   text: of the work that spins the arm forward in a typical throw.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: pie
-      x: 1100
-      y: 485
-      value: 0.5
-      colors:
-      - ochre
-      - stone
-    - type: arrow
-      x: 1330
-      y: 485
-      to:
-      - 1600
-      - 485
-      color: ochre
+    same: true
 - id: s060
   para: 9
   sent: 41
   text: To test the idea, they did something clever.
   visual:
-    bg: lab
-    figures:
-    - pose: think
-      x: 1400
-      wear:
-      - goggles
-      face: smile
-    props:
-    - type: check
-      x: 1400
-      y: 260
+    prompt: Medium shot in the motion-capture lab of a collegiate baseball player fitted with an adjustable mechanical
+      brace on his shoulder, limiting backward rotation, scientists observing from the side
+  camera: in
 - id: s061
   para: 9
   sent: 42
   text: They put braces on the throwers' shoulders.
   visual:
-    bg: lab
-    figures: &id009
-    - pose: throw
-      x: 900
-      face: focused
-      wear: *id005
-    props:
-    - type: cross
-      x: 830
-      y: 470
-      scale: 0.8
-    frame:
-      x: 900
-      y: 540
-      zoom: 1.5
-  camera: in
+    same: true
 - id: s062
   para: 9
   sent: 43
   text: The braces limited how far the arm could cock back.
   visual:
-    bg: lab
-    figures: *id009
-    props:
-    - type: cross
-      x: 830
-      y: 470
-      scale: 0.8
-    - type: arrow
-      x: 1000
-      y: 380
-      to:
-      - 1100
-      - 380
-      color: bad
+    same: true
 - id: s063
   para: 9
   sent: 44
   text: Less stretch, less snap.
   visual:
-    bg: lab
-    props:
-    - type: muscle
-      x: 960
-      y: 520
-      size: 0.6
-      scale: 1.3
-    - type: battery
-      x: 1450
-      y: 330
-      value: 0.4
+    same: true
 - id: s064
   para: 9
   sent: 45
   text: And that is exactly what happened.
   visual:
-    bg: lab
-    figures: *id009
-    props:
-    - type: check
-      x: 1450
-      y: 300
+    same: true
 - id: s065
   para: 9
   sent: 46
   text: The throwers lost about eight percent
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
+    bg: plain_warm
     props:
     - type: bar_chart
-      x: 1240
-      y: 760
+      x: 960
+      y: 860
       values:
       - 1.0
       - 0.92
       colors:
       - ochre
-      - stone
+      - water
 - id: s066
   para: 9
   sent: 46
   text: of their ball speed on average.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 0.92
-      colors:
-      - ochre
-      - stone
-    - type: moon
-      x: 1500
-      y: 300
-      scale: 0.7
+    same: true
 - id: s067
   para: 9
   sent: 47
   text: And the work done at the shoulder during the
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
+    bg: plain_warm
     props:
     - type: bar_chart
-      x: 1240
-      y: 760
+      x: 960
+      y: 860
       values:
       - 1.0
       - 0.6
       colors:
+      - earth
       - ochre
-      - stone
 - id: s068
   para: 9
   sent: 47
   text: cocking phase dropped by about forty percent.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 0.6
-      colors:
-      - ochre
-      - stone
-  camera: in
+    same: true
 - id: s069
   para: 10
   sent: 48
   text: So why can you do this, and a chimpanzee can't?
   visual:
-    bg: split
-    figures:
-    - pose: throw
-      x: 1400
-      face: focused
-      wear: *id005
-    props:
-    - type: chimp
-      x: 480
-      flip: false
-    - type: question
-      x: 960
-      y: 260
+    prompt: Medium shot of the Coach in a sunlit university biomechanics lab, standing beside side-by-side skeletal
+      displays of a human and a chimpanzee torso, gesturing between their frames to compare their structures, warm
+      natural lighting
+    characters:
+    - coach
+  camera: in
 - id: s070
   para: 10
   sent: 49
   text: The team pointed to three features of the human body.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: spine
-      x: 1020
-      y: 485
-    - type: bone
-      x: 1240
-      y: 485
-    - type: motion
-      x: 1460
-      y: 485
-      direction: both
-      scale: 1.6
+    same: true
 - id: s071
   para: 11
   sent: 50
   text: First, a tall, mobile waist.
   visual:
-    bg: plain_warm
-    figures: &id010
-    - pose: throw
-      x: 900
-      face: focused
-      wear: *id005
-    props:
-    - type: motion
-      x: 900
-      y: 640
-      direction: both
-      scale: 1.6
+    prompt: Anatomical gouache plate of a human torso viewed from a three-quarter angle, highlighting the elongated,
+      flexible waist and lumbar spine between the ribcage and pelvis, showing rotational torsion lines around the
+      midsection against a warm museum background
+  camera: right
 - id: s072
   para: 11
   sent: 51
   text: Your hips and your chest can twist separately.
   visual:
-    bg: plain_warm
-    figures: *id010
-    props:
-    - type: motion
-      x: 900
-      y: 640
-      direction: both
-      scale: 1.6
-    frame:
-      x: 900
-      y: 620
-      zoom: 1.8
+    same: true
 - id: s073
   para: 11
   sent: 52
   text: That lets you rotate your hips first, then your torso,
   visual:
-    bg: plain_warm
-    figures: *id010
-    props:
-    - type: arrow
-      x: 900
-      y: 700
-      to:
-      - 900
-      - 520
-      color: ochre
+    same: true
 - id: s074
   para: 11
   sent: 52
   text: and whip that energy up into the arm.
   visual:
-    bg: plain_warm
-    figures: *id010
-    props:
-    - type: arrow
-      x: 900
-      y: 700
-      to:
-      - 900
-      - 520
-      color: ochre
-    - type: arrow
-      x: 920
-      y: 500
-      to:
-      - 1150
-      - 420
-      color: ochre
-    - type: motion
-      x: 1300
-      y: 420
-      direction: right
-      scale: 1.6
+    same: true
 - id: s075
   para: 12
   sent: 53
   text: Second, shoulders that sit low and face out to the sides.
   visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 960
-      face: smile
-    frame:
-      x: 960
-      y: 560
-      zoom: 1.8
-  camera: in
+    prompt: 'Comparative museum anatomical study of two shoulder joints side by side: on the left, an ape shoulder
+      with the glenoid cavity angled upward for climbing; on the right, a human shoulder facing outward horizontally
+      for throwing, painted with fine bone texture'
+  camera: out
 - id: s076
   para: 12
   sent: 54
   text: In an ape, the shoulder joint points more upward,
   visual:
-    prompt: a chimpanzee hanging from a high tree branch by both long arms in a dense green forest, shoulders pointing
-      upward
-  engine: gemini
-  camera: in
+    same: true
 - id: s077
   para: 12
   sent: 54
   text: which is great for climbing and hanging from branches.
   visual:
-    bg: forest
-    figures:
-    - pose: climb
-      x: 900
-      wear:
-      - hide
-      face: focused
-    props:
-    - type: tree
-      x: 1000
-      scale: 1.3
-    - type: chimp
-      x: 1500
-      flip: true
+    same: true
 - id: s078
   para: 12
   sent: 55
   text: In you, the arm is lined up to swing.
   visual:
-    bg: plain_warm
-    figures:
-    - pose: throw
-      x: 900
-      face: focused
-      wear: *id005
-    props:
-    - type: check
-      x: 1400
-      y: 300
+    same: true
 - id: s079
   para: 13
   sent: 56
   text: Third, a twist in the upper arm bone itself.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: bone
-      x: 1240
-      y: 485
-      scale: 1.3
-    - type: motion
-      x: 1450
-      y: 485
-      direction: both
-      scale: 1.6
+    prompt: Close-up anatomical illustration of a human humerus bone, focusing on the subtle axial twist along the
+      shaft from the humeral head down to the elbow joint, depicted with rich bone texture and translucent rotational
+      arrows in muted ochre
+  camera: in
 - id: s080
   para: 13
   sent: 57
   text: Throwing athletes keep a lower,
   visual:
-    bg: track
-    figures:
-    - pose: throw
-      x: 700
-      face: smile
-      wear:
-      - cap
-      scale: 0.7
-    - pose: throw
-      x: 1250
-      face: focused
-      wear: *id005
+    same: true
 - id: s081
   para: 13
   sent: 57
   text: more juvenile level of that twist into adulthood.
   visual:
-    bg: track
-    figures:
-    - pose: throw
-      x: 700
-      face: smile
-      wear:
-      - cap
-      scale: 0.7
-    - pose: throw
-      x: 1250
-      face: focused
-      wear: *id005
-    props:
-    - type: arrow
-      x: 850
-      y: 350
-      to:
-      - 1100
-      - 300
-      color: ochre
+    same: true
 - id: s082
   para: 13
   sent: 58
   text: That lets the arm rotate further back, and store more energy.
   visual:
-    bg: track
-    figures:
-    - pose: throw
-      x: 900
-      face: strain
-      wear: *id005
-    props:
-    - type: battery
-      x: 1450
-      y: 330
-      value: 1.0
+    same: true
 - id: s083
   para: 14
   sent: 59
   text: Now here is the part that makes this a story about evolution.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: dna
-      x: 1240
-      y: 485
-      n: 3
+    prompt: Wide shot of a paleoanthropology museum laboratory at dusk, fossil bones of Homo erectus including a
+      skull, clavicle, and pelvic fragments carefully arranged on dark felt under warm directional task lamps
+  camera: left
 - id: s084
   para: 14
   sent: 60
   text: According to the team,
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: book
-      x: 1240
-      y: 485
-      scale: 1.3
+    same: true
 - id: s085
   para: 14
   sent: 60
   text: these three features first appear together
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: spine
-      x: 1020
-      y: 485
-    - type: bone
-      x: 1240
-      y: 485
-    - type: motion
-      x: 1460
-      y: 485
-      direction: both
-      scale: 1.6
-    - type: check
-      x: 1240
-      y: 250
+    same: true
 - id: s086
   para: 14
   sent: 60
   text: in fossils from about two million years ago,
   visual:
-    bg: plain_warm
-    props:
-    - type: timeline
-      x: 960
-      y: 600
-      n: 8
-      highlight: 1
-    - type: skull
-      x: 560
-      y: 420
-      brow: true
+    same: true
 - id: s087
   para: 14
   sent: 60
   text: in a species called Homo erectus.
   visual:
-    prompt: a Homo erectus family of tall long-legged stick figures walking across a wide open savanna, a distant
-      volcano and herds of animals on the horizon, early morning light
-  engine: gemini
-  camera: out
+    same: true
 - id: s088
   para: 14
   sent: 61
   text: And that is around the time the archaeological
   visual:
-    bg: savanna
-    bg_opts: &id011
-      sun: high
-      trees: true
-    figures:
-    - pose: walk
-      x: 700
-      wear: *id001
-      hold: spear
-      face: focused
-    - pose: walk
-      x: 1000
-      wear:
-      - hide
-      - hair_bun
-      hold: stick
-      face: focused
-    props:
-    - type: footprints
-      x: 1350
-      n: 5
+    prompt: Wide atmospheric landscape of an East African savanna two million years ago, two Homo erectus hunters
+      with lean, muscular builds crouching in golden waist-high grass, holding smooth river stones while tracking
+      distant antelopes under low sunset light
+  camera: in
 - id: s089
   para: 14
   sent: 61
   text: record suggests hunting was becoming more important.
   visual:
-    bg: savanna
-    bg_opts: *id011
-    figures:
-    - pose: walk
-      x: 700
-      wear: *id001
-      hold: spear
-      face: focused
-    props:
-    - type: deer
-      x: 1450
-      flip: true
+    same: true
 - id: s090
   para: 14
   sent: 62
   text: 'Their conclusion:'
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: check
-      x: 1240
-      y: 485
-      scale: 1.3
+    same: true
 - id: s091
   para: 14
   sent: 62
   text: throwing to hunt probably played an important role
   visual:
-    prompt: a group of stick-figure hunters throwing stones and sharpened sticks together at a herd of wildebeest
-      running across a dusty plain
-  engine: gemini
-  camera: in
+    same: true
 - id: s092
   para: 14
   sent: 62
   text: in the evolution of our genus, Homo.
   visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 450
-      scale: 0.6
-      wear:
-      - hide
-      - beard
-      face: smile
-    - pose: stand
-      x: 800
-      scale: 0.75
-      wear:
-      - hide
-      hold: spear
-      face: smile
-    - pose: throw
-      x: 1300
-      face: smile
-      wear: *id005
-    props:
-    - type: arrow
-      x: 450
-      y: 250
-      to:
-      - 1350
-      - 250
-      color: ochre
+    same: true
 - id: s093
   para: 15
   sent: 63
   text: So when you throw a ball in the park,
   visual:
-    bg: track
-    figures:
-    - pose: throw
-      x: 820
-      face: smile
-      wear:
-      - cap
-    props:
-    - type: moon
-      x: 1180
-      y: 470
-      scale: 0.7
+    prompt: Medium wide shot of the Coach in a sunny public park in late afternoon, demonstrating an easy, fluid
+      throwing motion to an adult trainee, her arm extended in a relaxed cocking pose, golden light filtering through
+      park trees
+    characters:
+    - coach
+  camera: out
 - id: s094
   para: 15
   sent: 63
   text: you may be using a design that is about two million years old.
   visual:
-    bg: split
-    figures:
-    - pose: throw
-      x: 480
-      face: focused
-      wear: *id001
-      hold: spear
-    - pose: throw
-      x: 1400
-      face: smile
-      wear:
-      - cap
+    same: true
 - id: s095
   para: 15
   sent: 64
   text: Your body carries a very long training log.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: book
-      x: 1240
-      y: 485
-      scale: 1.3
+    same: true
 - id: s096
   para: 15
   sent: 65
   text: Throwing could be one of its oldest entries.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: book
-      x: 1140
-      y: 485
-      scale: 1.1
-    - type: check
-      x: 1420
-      y: 400
+    same: true
 - id: s097
   para: 16
   sent: 66
   text: But here is where the story gets complicated.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: focused
-      hold: pointer
-    props:
-    - type: question
-      x: 1240
-      y: 485
-      scale: 1.5
+    prompt: Close-up low-angle view of early hominin shoulder fossils embedded in dry pale sedimentary rock, illuminated
+      by sharp raking desert sunlight, showing delicate bone sutures and mineralized surfaces
   camera: in
 - id: s098
   para: 17
   sent: 67
   text: First, bones tell us what a body could do.
   visual:
-    bg: plain_warm
-    props:
-    - type: bone
-      x: 960
-      y: 520
-      scale: 1.3
-    - type: check
-      x: 1300
-      y: 380
+    same: true
 - id: s099
   para: 17
   sent: 68
   text: They do not tell us what it actually did.
   visual:
-    bg: plain_warm
-    props:
-    - type: bone
-      x: 760
-      y: 520
-      scale: 1.3
-    - type: question
-      x: 1250
-      y: 480
-      scale: 1.3
+    same: true
 - id: s100
   para: 17
   sent: 69
   text: The oldest throwing weapons ever found
   visual:
-    bg: forest
-    props:
-    - type: spear_ground
-      x: 820
-    - type: spear_ground
-      x: 960
-    - type: spear_ground
-      x: 1100
+    prompt: Historical excavation site in Schöningen, Germany, showing an archaeologist kneeling in dark waterlogged
+      soil, carefully brushing away peat sediment to reveal an intact, dark wooden throwing spear resting in mud
+  camera: left
 - id: s101
   para: 17
   sent: 69
   text: are wooden spears from Schöningen, in Germany.
   visual:
-    prompt: an archaeological excavation in a layered brown open-pit mine, long slender wooden spears lying half
-      exposed in the dug soil, stick-figure archaeologists kneeling with small brushes
-  engine: gemini
-  camera: in
+    same: true
 - id: s102
   para: 17
   sent: 70
   text: They were dug up in the 1990s.
   visual:
-    bg: forest
-    figures:
-    - pose: bend_dig
-      x: 700
-      wear:
-      - cap
-      face: focused
-    props:
-    - type: spear_ground
-      x: 1150
-    - type: calendar
-      x: 1450
-      y: 300
+    same: true
 - id: s103
   para: 17
   sent: 71
@@ -1873,1309 +727,542 @@ shots:
   visual:
     bg: plain_warm
     props:
-    - type: timeline
+    - type: bar_chart
       x: 960
-      y: 600
-      n: 8
-    - type: spear_ground
-      x: 1500
-      scale: 0.6
+      y: 860
+      values:
+      - 1.0
+      - 0.67
+      colors:
+      - ochre
+      - water
 - id: s104
   para: 17
   sent: 71
   text: they were described as about three hundred thousand years old.
   visual:
-    bg: plain_warm
-    props:
-    - type: timeline
-      x: 960
-      y: 600
-      n: 8
-      highlight: 5
-    - type: spear_ground
-      x: 1500
-      scale: 0.6
+    same: true
 - id: s105
   para: 17
   sent: 72
   text: In 2025,
   visual:
-    bg: plain_warm
-    props:
-    - type: timeline
-      x: 960
-      y: 600
-      n: 8
-      highlight: 5
-    - type: calendar
-      x: 960
-      y: 300
+    same: true
 - id: s106
   para: 17
   sent: 72
   text: a new dating study put them at around two hundred thousand.
   visual:
-    bg: plain_warm
-    props:
-    - type: timeline
-      x: 960
-      y: 600
-      n: 8
-      highlight: 6
-    - type: arrow
-      x: 1250
-      y: 500
-      to:
-      - 1450
-      - 500
-      color: ochre
+    same: true
 - id: s107
   para: 17
   sent: 73
   text: And by then, the likely makers were Neanderthals, not Homo erectus.
   visual:
-    prompt: sturdy thick-set stick figures with heavy brows carving long wooden spears with stone tools beside a
-      reedy lakeshore in a cool European forest
-  engine: gemini
+    prompt: Medium shot of a Neanderthal hunter seated beside a small fire at the edge of a cold northern European
+      pine forest, using a sharp flint flake tool to carefully whittle and shape the tapered tip of a long spruce
+      wooden spear
   camera: in
 - id: s108
   para: 18
   sent: 74
   text: That leaves a gap of well over a million years between
   visual:
-    bg: plain_warm
-    props:
-    - type: timeline
-      x: 960
-      y: 600
-      n: 8
-      highlight: 1
-    - type: bone
-      x: 560
-      y: 420
-      scale: 0.8
-    - type: spear_ground
-      x: 1450
-      scale: 0.6
+    same: true
 - id: s109
   para: 18
   sent: 74
   text: the first throwing shoulder and the first surviving spear.
   visual:
-    bg: plain_warm
-    props:
-    - type: timeline
-      x: 960
-      y: 600
-      n: 8
-    - type: bone
-      x: 560
-      y: 420
-      scale: 0.8
-    - type: spear_ground
-      x: 1450
-      scale: 0.6
-    - type: arrow
-      x: 700
-      y: 420
-      to:
-      - 1300
-      - 420
-      color: ochre
-    - type: question
-      x: 1000
-      y: 300
+    same: true
 - id: s110
   para: 18
   sent: 75
   text: Wood rots.
   visual:
-    bg: forest
-    props:
-    - type: spear_ground
-      x: 960
-      scale: 0.8
-    - type: cross
-      x: 960
-      y: 380
+    prompt: 'Still-life museum illustration comparing decay and preservation: on the left, weathered wooden spear
+      fragments crumbling into dark damp soil; on the right, smooth unshaped river cobbles resting in a dry prehistoric
+      creek bed'
+  camera: right
 - id: s111
   para: 18
   sent: 76
   text: A thrown stone looks like any other stone.
   visual:
-    bg: savanna
-    bg_opts:
-      sun: high
-    props:
-    - type: rock
-      x: 700
-      scale: 0.4
-    - type: rock
-      x: 960
-      scale: 0.4
-    - type: rock
-      x: 1220
-      scale: 0.4
-    - type: question
-      x: 960
-      y: 450
+    same: true
 - id: s112
   para: 18
   sent: 77
   text: So the early chapters of this story are read from anatomy, not from weapons.
   visual:
-    bg: plain_warm
-    props:
-    - type: bone
-      x: 700
-      y: 520
-      scale: 1.2
-    - type: check
-      x: 700
-      y: 250
-    - type: spear_ground
-      x: 1250
-      scale: 0.8
-    - type: question
-      x: 1250
-      y: 250
+    same: true
 - id: s113
   para: 19
   sent: 78
   text: Could those spears really be thrown at an animal?
   visual:
-    bg: forest
-    figures:
-    - pose: think
-      x: 800
-      face: focused
-    props:
-    - type: spear_ground
-      x: 1200
-    - type: question
-      x: 1000
-      y: 280
+    prompt: An experimental archaeology workshop filled with woodworking tools, where a female researcher holds
+      a carved replica of the Schöningen wooden spear horizontally, checking its balance and center of mass under
+      clear window daylight
+  camera: in
 - id: s114
   para: 19
   sent: 79
   text: In 2019,
   visual:
-    bg: plain_warm
-    props:
-    - type: calendar
-      x: 960
-      y: 480
-      scale: 1.3
+    same: true
 - id: s115
   para: 19
   sent: 79
   text: archaeologist Annemieke Milks and her team made replicas,
   visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 750
-      wear:
-      - hair_bun
-      hold: spear
-      face: smile
-    - pose: bend_dig
-      x: 1300
-      face: focused
-    props:
-    - type: spear_ground
-      x: 1550
-      scale: 0.8
+    same: true
 - id: s116
   para: 19
   sent: 79
   text: weighing about seven hundred and sixty and eight hundred grams.
   visual:
-    bg: plain_warm
-    props:
-    - type: balance
-      x: 960
-      tilt: 0
-    - type: spear_ground
-      x: 600
-      scale: 0.7
-    - type: spear_ground
-      x: 1320
-      scale: 0.7
+    same: true
 - id: s117
   para: 19
   sent: 80
   text: They gave them to six trained javelin athletes.
   visual:
-    prompt: six stick-figure javelin athletes in modern sports kit standing in a row on a green grass field, each
-      holding a long plain wooden spear
-  engine: gemini
+    prompt: Wide dynamic shot on a modern grassy sports field, showing a female javelin athlete in full throwing
+      motion hurling a replica wooden spear toward distant archery-style targets, late afternoon sunlight casting
+      long shadows
   camera: out
 - id: s118
   para: 19
   sent: 81
   text: The athletes hit targets at up to twenty metres.
   visual:
-    prompt: a long wooden spear in mid-flight across a grass field toward a hay bale target far away
-  engine: gemini
-  camera: in
+    same: true
 - id: s119
   para: 19
   sent: 82
   text: That was about double the distance
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.5
-      - 1.0
-      colors:
-      - stone
-      - ochre
+    same: true
 - id: s120
   para: 19
   sent: 82
   text: scientists had previously thought possible.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.5
-      - 1.0
-      colors:
-      - stone
-      - ochre
+    same: true
 - id: s121
   para: 19
   sent: 83
   text: But remember who was throwing.
   visual:
-    bg: track
-    figures:
-    - pose: throw
-      x: 820
-      face: focused
-      wear:
-      - shoes
-      hold: spear
+    prompt: Medium shot of the Coach standing beside an outdoor running track, arms loosely folded, looking directly
+      toward the viewer with a thoughtful, serious expression, running hurdles and grass field softly blurred behind
+      her
+    characters:
+    - coach
+  camera: in
 - id: s122
   para: 19
   sent: 84
   text: Trained modern athletes, not ancient hunters.
   visual:
-    bg: split
-    figures:
-    - pose: throw
-      x: 480
-      face: focused
-      wear: *id001
-      hold: spear
-    - pose: throw
-      x: 1400
-      face: focused
-      wear:
-      - shoes
-      hold: spear
-    props:
-    - type: cross
-      x: 480
-      y: 250
-    - type: check
-      x: 1400
-      y: 250
+    same: true
 - id: s123
   para: 20
   sent: 85
   text: The second complication matters for you directly.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: focused
-      hold: pointer
-  camera: in
+    same: true
 - id: s124
   para: 20
   sent: 86
   text: The same snap that makes the throw
   visual:
-    bg: plain_cool
-    figures:
-    - pose: throw
-      x: 900
-      face: strain
-      wear: *id005
-    props:
-    - type: motion
-      x: 1150
-      y: 420
-      direction: right
-      scale: 1.6
+    prompt: Close-up action study of an athlete's upper body frozen at maximum arm cocking position during a throw,
+      the chest open wide and shoulder internally strained, dramatic side lighting emphasizing the extreme stretch
+      of tissue
+  camera: right
 - id: s125
   para: 20
   sent: 86
   text: so fast puts enormous stress on the joint.
   visual:
-    bg: plain_cool
-    figures:
-    - pose: throw
-      x: 900
-      face: strain
-      wear: *id005
-    props:
-    - type: effort
-      x: 870
-      y: 440
-    frame:
-      x: 900
-      y: 500
-      zoom: 1.8
+    same: true
 - id: s126
   para: 20
   sent: 87
   text: Roach and his team wrote it plainly.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: book
-      x: 1240
-      y: 485
-      scale: 1.3
+    same: true
 - id: s127
   para: 20
   sent: 88
   text: The ligaments and tendons of the human shoulder
   visual:
-    bg: plain_cool
-    props:
-    - type: muscle
-      x: 960
-      y: 520
-      size: 1.0
-      scale: 1.3
+    prompt: Anatomical cut-away gouache illustration of an arm during a throw, showing the anterior shoulder capsule
+      and the ulnar collateral ligament at the inner elbow highlighted in warm amber, revealing internal stretching
+      and mechanical load
+  camera: in
 - id: s128
   para: 20
   sent: 88
   text: and elbow are not well adapted
   visual:
-    bg: plain_cool
-    props:
-    - type: muscle
-      x: 960
-      y: 520
-      size: 1.0
-      scale: 1.3
-    - type: cross
-      x: 1400
-      y: 380
+    same: true
 - id: s129
   para: 20
   sent: 88
   text: to withstand that repeated stretching.
   visual:
-    bg: plain_cool
-    props:
-    - type: muscle
-      x: 960
-      y: 520
-      size: 0.8
-      scale: 1.3
-    - type: arrow
-      x: 1200
-      y: 700
-      to:
-      - 1500
-      - 700
-      color: bad
-    - type: arrow
-      x: 720
-      y: 700
-      to:
-      - 420
-      - 700
-      color: bad
+    same: true
 - id: s130
   para: 20
   sent: 89
   text: And they frequently suffer from laxity and tearing.
   visual:
-    bg: plain_cool
-    props:
-    - type: muscle
-      x: 960
-      y: 520
-      size: 0.6
-      scale: 1.3
-    - type: effort
-      x: 960
-      y: 300
-    - type: cross
-      x: 1400
-      y: 380
-  camera: in
+    same: true
 - id: s131
   para: 21
   sent: 90
   text: Other researchers measured the loads in skilled adult pitchers.
   visual:
-    bg: track
-    figures: &id012
-    - pose: throw
-      x: 820
-      face: strain
-      wear: *id005
-    props:
-    - type: moon
-      x: 1200
-      y: 470
-      scale: 0.7
+    prompt: A slow-motion biomechanical study of an adult pitcher on a regulation mound under bright stadium floodlights,
+      captured at maximum external rotation with the arm cocked far behind the torso, muscular tension visible across
+      chest and shoulder.
+    characters: []
+  camera: in
 - id: s132
   para: 21
   sent: 91
   text: Just before the arm reaches full cock,
   visual:
-    bg: track
-    figures: *id012
-    frame:
-      x: 800
-      y: 480
-      zoom: 1.9
+    same: true
 - id: s133
   para: 21
   sent: 91
   text: the elbow has to resist a twisting load
   visual:
-    bg: track
-    figures: *id012
-    props:
-    - type: effort
-      x: 760
-      y: 470
-    frame:
-      x: 800
-      y: 480
-      zoom: 1.9
+    same: true
 - id: s134
   para: 21
   sent: 91
   text: of about sixty-four newton-metres.
   visual:
-    bg: track
-    figures: *id012
-    props:
-    - type: gauge
-      x: 1450
-      y: 330
-      value: 0.9
+    prompt: Detailed anatomical cut-away painting of a human elbow joint during extreme valgus extension, showing
+      the ulnar collateral ligament stretched taut like a steel cable between the humerus and ulna, museum plate
+      style in warm earthy amber light.
+    characters: []
+  camera: left
 - id: s135
   para: 21
   sent: 92
   text: Pitch after pitch.
   visual:
-    bg: track
-    figures: *id012
-    props:
-    - type: moon
-      x: 1200
-      y: 470
-      scale: 0.7
-    - type: motion
-      x: 1400
-      y: 470
-      direction: right
-      scale: 1.6
-    - type: effort
-      x: 760
-      y: 470
+    same: true
 - id: s136
   para: 22
   sent: 93
   text: And our ancestors probably did not
   visual:
-    bg: savanna
-    bg_opts: &id013
-      sun: low
-      trees: true
-    figures:
-    - pose: stand
-      x: 700
-      wear: *id001
-      hold: spear
-      face: focused
-    props:
-    - type: deer
-      x: 1450
-      flip: true
+    prompt: An early human hunter crouched in golden savanna grass under a pale morning sun, holding a balanced
+      wooden spear loosely in one calloused hand, observing grazing game in the distance with calm and economical
+      readiness.
+    characters: []
+  camera: out
 - id: s137
   para: 22
   sent: 93
   text: throw the way a modern pitcher does.
   visual:
-    bg: savanna
-    bg_opts: *id013
-    figures:
-    - pose: stand
-      x: 700
-      wear: *id001
-      hold: spear
-      face: focused
-    props:
-    - type: deer
-      x: 1450
-      flip: true
-    - type: question
-      x: 700
-      y: 230
+    same: true
 - id: s138
   para: 22
   sent: 94
   text: A hunter might make a few important throws in a day.
   visual:
-    prompt: a lone stick-figure hunter crouched in savanna grass at sunset, carefully aiming a single throw at a
-      zebra, calm and patient
-  engine: gemini
-  camera: in
+    same: true
 - id: s139
   para: 22
   sent: 95
   text: A professional pitcher can easily throw more
   visual:
-    bg: track
-    figures: *id012
-    props:
-    - type: clock
-      x: 1450
-      y: 280
-      time: '9:00'
+    prompt: A modern professional baseball pitcher standing on the dirt mound under towering stadium lights, uniform
+      soaked in sweat, fingers rubbing red clay dust into the ball as misty night air hangs over the outfield.
+    characters: []
+  camera: in
 - id: s140
   para: 22
   sent: 95
   text: than a hundred very fast pitches in two or three hours.
   visual:
-    prompt: a stick-figure pitcher throwing in a packed night stadium, many ghosted copies of the throwing arm overlapping
-      to show pitch after pitch, a pile of used baseballs by the mound
-  engine: gemini
-  camera: in
+    same: true
 - id: s141
   para: 22
   sent: 96
   text: The design is old.
   visual:
-    bg: savanna
-    bg_opts:
-      sun: low
-      trees: true
-    figures:
-    - pose: stand
-      x: 960
-      wear: *id001
-      hold: spear
-      face: smile
-    frame:
-      x: 960
-      y: 560
-      zoom: 1.5
+    prompt: 'A split gouache composition: on the left, a prehistoric hunter''s weathered bare arm gripping a fire-hardened
+      wooden javelin in warm sunlight; on the right, a modern pitcher''s taped arm under cool stadium floodlights.'
+    characters: []
+  camera: none
 - id: s142
   para: 22
   sent: 97
   text: The workload is new.
   visual:
-    bg: split
-    figures:
-    - pose: stand
-      x: 480
-      wear: *id001
-      hold: spear
-      face: smile
-    - pose: tired_bent
-      x: 1400
-      wear: *id005
-      face: tired
-      sweat: true
+    same: true
 - id: s143
   para: 23
   sent: 98
   text: So here is my lesson, as a strength coach.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
+    prompt: The Coach standing in a sunlit training facility, looking directly at the viewer with an earnest expression,
+      right foot firmly braced on the rubber turf to demonstrate a solid athletic base.
+    characters:
+    - coach
   camera: in
 - id: s144
   para: 24
   sent: 99
   text: Your throw does not start in your arm.
   visual:
-    bg: plain_warm
-    figures: &id014
-    - pose: throw
-      x: 900
-      face: focused
-      wear:
-      - shoes
-    props:
-    - type: cross
-      x: 1150
-      y: 400
+    same: true
 - id: s145
   para: 24
   sent: 100
   text: It starts at the ground.
   visual:
-    bg: plain_warm
-    figures: *id014
-    props:
-    - type: arrow
-      x: 700
-      y: 880
-      to:
-      - 860
-      - 880
-      color: ochre
-    frame:
-      x: 900
-      y: 780
-      zoom: 1.8
+    same: true
 - id: s146
   para: 24
   sent: 101
   text: It travels up through your legs,
   visual:
-    bg: plain_warm
-    figures: *id014
-    props:
-    - type: arrow
-      x: 850
-      y: 880
-      to:
-      - 880
-      - 680
-      color: ochre
+    prompt: Full-body kinetic chain illustration of an athletic thrower painted like a natural-history museum plate,
+      glowing painterly arcs tracing force rising from the planted back foot, through the pelvis and torso, up into
+      the cocked shoulder.
+    characters: []
+  camera: left
 - id: s147
   para: 24
   sent: 101
   text: your hips and your waist,
   visual:
-    bg: plain_warm
-    figures: *id014
-    props:
-    - type: arrow
-      x: 850
-      y: 880
-      to:
-      - 880
-      - 680
-      color: ochre
-    - type: motion
-      x: 900
-      y: 640
-      direction: both
-      scale: 1.6
+    same: true
 - id: s148
   para: 24
   sent: 101
   text: and only then does it whip through the shoulder.
   visual:
-    bg: plain_warm
-    figures: *id014
-    props:
-    - type: arrow
-      x: 850
-      y: 880
-      to:
-      - 880
-      - 680
-      color: ochre
-    - type: arrow
-      x: 890
-      y: 650
-      to:
-      - 1120
-      - 420
-      color: ochre
-    - type: motion
-      x: 1300
-      y: 420
-      direction: right
-      scale: 1.6
+    same: true
 - id: s149
   para: 24
   sent: 102
   text: That is how the body is built.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: check
-      x: 1240
-      y: 485
-      scale: 1.3
+    prompt: The Coach in the gym actively guiding a young athlete through a heavy rotational cable drive, placing
+      a hand near the athlete's hip to emphasize power transfer from the legs and pelvis.
+    characters:
+    - coach
+  camera: right
 - id: s150
   para: 24
   sent: 103
   text: So train it that way.
   visual:
-    bg: gym
-    bg_opts: &id015
-      clock: '7:00'
-      rack: true
-    figures:
-    - pose: stand
-      x: 960
-      wear:
-      - shoes
-      face: smile
+    same: true
 - id: s151
   para: 24
   sent: 104
   text: Strong legs and hips.
   visual:
-    bg: gym
-    bg_opts: *id015
-    figures:
-    - pose: deep_squat
-      x: 960
-      hold: barbell
-      wear:
-      - shoes
-      face: strain
-      sweat: true
+    same: true
 - id: s152
   para: 24
   sent: 105
   text: A trunk that can rotate with control.
   visual:
-    bg: gym
-    bg_opts: *id015
-    figures:
-    - pose: lunge
-      x: 960
-      hold: kettlebell
-      wear:
-      - shoes
-      face: focused
-    props:
-    - type: motion
-      x: 960
-      y: 520
-      direction: both
-      scale: 1.6
+    prompt: Medium shot in a sunlit gym of the Coach supervising a trainee performing controlled torso rotations
+      with a heavy resistance band, ensuring stable posture and deliberate abdominal control.
+    characters:
+    - coach
+  camera: in
 - id: s153
   para: 24
   sent: 106
   text: And a shoulder that you prepare, not just use.
   visual:
-    bg: gym
-    bg_opts: *id015
-    figures:
-    - pose: stretch
-      x: 960
-      wear:
-      - shoes
-      face: smile
-    props:
-    - type: check
-      x: 1350
-      y: 330
+    same: true
 - id: s154
   para: 25
   sent: 107
   text: Second, respect the snap.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: focused
-      hold: pointer
-    props:
-    - type: muscle
-      x: 1240
-      y: 485
-      size: 1.0
-      scale: 1.3
+    prompt: Anatomical cut-away illustration of the human shoulder capsule during extreme cocking, showing the subscapularis
+      tendon and anterior glenohumeral ligaments stretched tightly like elastic cords, warm gouache lighting.
+    characters: []
+  camera: out
 - id: s155
   para: 25
   sent: 108
   text: The stretch that powers your throw is
   visual:
-    bg: plain_cool
-    props:
-    - type: muscle
-      x: 760
-      y: 520
-      size: 1.0
-      scale: 1.3
-    - type: battery
-      x: 1250
-      y: 520
-      value: 1.0
+    same: true
 - id: s156
   para: 25
   sent: 108
   text: the same stretch that loads the tissue.
   visual:
-    bg: plain_cool
-    props:
-    - type: muscle
-      x: 760
-      y: 520
-      size: 1.0
-      scale: 1.3
-    - type: heat
-      x: 760
-      y: 300
-    - type: effort
-      x: 1250
-      y: 520
+    same: true
 - id: s157
   para: 25
   sent: 109
   text: If you, or your kids,
   visual:
-    bg: track
-    figures:
-    - pose: stand
-      x: 750
-      wear:
-      - cap
-      face: smile
-    - pose: stand
-      x: 1100
-      scale: 0.7
-      wear:
-      - cap
-      face: smile
+    prompt: Medium wide shot of an open community ballfield in late afternoon sunlight, a young player playing relaxed
+      catch with a teammate, throwing smoothly from a short distance across green grass.
+    characters: []
+  camera: in
 - id: s158
   para: 25
   sent: 109
   text: play a throwing sport,
   visual:
-    bg: track
-    figures:
-    - pose: throw
-      x: 700
-      face: smile
-      wear:
-      - cap
-    - pose: throw
-      x: 1200
-      face: smile
-      wear:
-      - cap
-      scale: 0.7
+    same: true
 - id: s159
   para: 25
   sent: 109
   text: build up the number of hard throws gradually.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.2
-      - 0.4
-      - 0.6
-      - 0.8
-      colors:
-      - ochre
-      - ochre
-      - ochre
-      - ochre
+    same: true
 - id: s160
   para: 25
   sent: 110
   text: Warm up before you throw hard.
   visual:
-    bg: track
-    figures:
-    - pose: stretch
-      x: 800
-      wear:
-      - cap
-      - shoes
-      face: smile
-    props:
-    - type: thermometer
-      x: 1350
-      y: 450
-      value: 0.7
+    prompt: Close-up of a ballplayer's hands and upper torso performing warm-up shoulder rotations using a green
+      elastic resistance band anchored to a dugout chain-link fence, warm golden backlight.
+    characters: []
+  camera: right
 - id: s161
   para: 25
   sent: 111
   text: And do not go from zero to full effort after weeks of rest.
   visual:
-    bg: living_room
-    figures:
-    - pose: sit_slouch
-      x: 700
-      ground: 660
-      face: neutral
-    props:
-    - type: sofa
-      x: 700
-    - type: battery
-      x: 1200
-      y: 380
-      value: 0.1
-    - type: arrow
-      x: 1300
-      y: 380
-      to:
-      - 1500
-      - 380
-      color: bad
-    - type: gauge
-      x: 1650
-      y: 380
-      value: 1.0
-    - type: cross
-      x: 1450
-      y: 230
+    same: true
 - id: s162
   para: 26
   sent: 112
   text: Third, a tired arm is a warning.
   visual:
-    bg: track
-    figures:
-    - pose: tired_bent
-      x: 800
-      wear:
-      - cap
-      face: tired
-      sweat: true
-    props:
-    - type: battery
-      x: 1350
-      y: 350
-      value: 0.1
+    prompt: A tired young baseball player sitting alone on a shaded wooden dugout bench, head slightly bowed, resting
+      a fatigued throwing arm across the knees while a worn leather glove lies beside them.
+    characters: []
   camera: in
 - id: s163
   para: 26
   sent: 113
   text: Youth baseball safety guidelines put pitching
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: focused
-      hold: pointer
-    props:
-    - type: battery
-      x: 1240
-      y: 485
-      value: 0.1
+    same: true
 - id: s164
   para: 26
   sent: 113
   text: while tired at the top of their list of injury risks.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: focused
-      hold: pointer
-    props:
-    - type: battery
-      x: 1140
-      y: 485
-      value: 0.1
-    - type: effort
-      x: 1420
-      y: 485
+    same: true
 - id: s165
   para: 26
   sent: 114
   text: They set daily pitch limits and rest days by age.
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
-    props:
-    - type: calendar
-      x: 1080
-      y: 485
-    - type: stopwatch
-      x: 1420
-      y: 485
-      value: 0.5
+    prompt: A quiet locker room bench in soft winter light, where an oiled baseball glove and ball rest neatly on
+      a shelf beside a pair of running shoes and a soccer ball, signaling a complete seasonal break.
+    characters: []
+  camera: out
 - id: s166
   para: 26
   sent: 115
   text: And they recommend at least two months a year
   visual:
-    bg: plain_warm
-    props:
-    - type: calendar
-      x: 700
-      y: 480
-      scale: 1.2
-    - type: pie
-      x: 1250
-      y: 480
-      value: 0.17
-      colors:
-      - good
-      - stone
+    same: true
 - id: s167
   para: 26
   sent: 115
   text: with no overhead sport at all.
   visual:
-    bg: plain_warm
-    props:
-    - type: calendar
-      x: 700
-      y: 480
-      scale: 1.2
-    - type: pie
-      x: 1250
-      y: 480
-      value: 0.17
-      colors:
-      - good
-      - stone
-    - type: cross
-      x: 1550
-      y: 300
+    same: true
 - id: s168
   para: 26
   sent: 116
   text: Three to four months is better.
   visual:
-    bg: plain_warm
-    props:
-    - type: calendar
-      x: 700
-      y: 480
-      scale: 1.2
-    - type: pie
-      x: 1250
-      y: 480
-      value: 0.3
-      colors:
-      - good
-      - stone
-    - type: check
-      x: 1550
-      y: 300
+    same: true
 - id: s169
   para: 27
   sent: 117
   text: And if your shoulder or elbow hurts when you throw,
   visual:
-    bg: track
-    figures:
-    - pose: throw
-      x: 820
-      face: sad
-      wear:
-      - cap
-    props:
-    - type: effort
-      x: 790
-      y: 460
+    prompt: A warm sports medicine examination room, where a clinician gently palpates the medial elbow joint of
+      a seated athlete while the Coach looks on attentively with arms crossed.
+    characters:
+    - coach
+  camera: left
 - id: s170
   para: 27
   sent: 117
   text: do not push through it.
   visual:
-    bg: track
-    figures:
-    - pose: stand
-      x: 820
-      wear:
-      - cap
-      face: sad
-    props:
-    - type: cross
-      x: 1250
-      y: 380
+    same: true
 - id: s171
   para: 27
   sent: 118
   text: Get it checked.
   visual:
-    bg: lab
-    figures:
-    - pose: stand
-      x: 700
-      wear:
-      - cap
-      face: neutral
-    - pose: point
-      x: 1250
-      flip: true
-      wear:
-      - goggles
-      face: smile
-    props:
-    - type: check
-      x: 960
-      y: 280
+    same: true
 - id: s172
   para: 28
   sent: 119
   text: You carry a two-million-year-old slingshot
   visual:
-    prompt: a single stick figure standing on a savanna ridge at golden sunset holding a smooth stone, a long shadow
-      stretching behind, epic calm mood
-  engine: gemini
-  camera: in
+    prompt: Wide panoramic landscape painting of a human figure standing atop a rocky ridge at golden hour, silhouetted
+      against a vast Pleistocene valley, arm paused in a timeless throwing stance.
+    characters: []
+  camera: out
 - id: s173
   para: 28
   sent: 119
   text: on each side of your body.
   visual:
-    bg: savanna
-    bg_opts: &id016
-      sun: low
-      trees: true
-    figures:
-    - pose: throw
-      x: 820
-      face: smile
-      wear: *id001
-      hold: spear
-    frame:
-      x: 830
-      y: 520
-      zoom: 1.7
-  camera: in
+    same: true
 - id: s174
   para: 28
   sent: 120
   text: It is one of the best designs evolution ever made.
   visual:
-    bg: savanna
-    bg_opts: *id016
-    figures:
-    - pose: celebrate
-      x: 900
-      wear: *id001
-      face: smile
-    props:
-    - type: medal
-      x: 1350
-      y: 350
+    prompt: Close-up shot of a pitcher's calloused hand gripping the raised red stitches of a scuffed baseball,
+      chalk dust clinging to fingers, soft stadium glow reflecting off the blurred background.
+    characters: []
+  camera: in
 - id: s175
   para: 28
   sent: 121
   text: Just remember, it was not built for a hundred fastballs a night.
   visual:
-    bg: track
-    figures:
-    - pose: tired_bent
-      x: 820
-      wear: *id005
-      face: tired
-      sweat: true
-    props:
-    - type: moon
-      x: 1500
-      y: 200
-    - type: cross
-      x: 1200
-      y: 330
+    same: true
 - id: s176
   para: 28
   sent: 122
   text: I am a strength and conditioning coach,
   visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
-      hold: pointer
+    prompt: The Coach standing at the edge of an outdoor red running track in warm morning light, silver whistle
+      hanging on its black cord, hands on hips, looking directly into the lens with a quiet, knowing smile.
+    characters:
+    - coach
+  camera: in
 - id: s177
   para: 28
   sent: 122
   text: and this is Homo Athleticus.
   visual:
-    bg: classroom
-    figures:
-    - pose: wave
-      x: 440
-      wear:
-      - headband
-      - whistle
-      face: smile
+    same: true

@@ -46,8 +46,16 @@ class use_palette:
         PALETTE.update(_BASE)
 
 
+CSS_NAMES = {"white", "black", "none", "transparent", "red", "green", "blue", "orange", "grey", "gray"}
+
+
 def c(name_or_hex: str) -> str:
-    return PALETTE.get(name_or_hex, name_or_hex)
+    """Palette name or #hex; an unknown name (e.g. a planner's 'earth') falls back to ochre instead of black."""
+    v = PALETTE.get(name_or_hex)
+    if v:
+        return v
+    s = str(name_or_hex)
+    return s if s.startswith(("#", "url(", "rgb")) or s in CSS_NAMES else PALETTE["ochre"]
 
 
 def line(pts, w=8, color=INK, dash=None) -> str:

@@ -11,21 +11,24 @@ video:
   width: 1920
   height: 1080
   fps: 30
-  zoom: 0.06          # her shot boyunca yakınlaşma oranı (0 = sabit)
+  zoom: 0.08          # her sahne boyunca kamera hareketi (yakınlaşma/kaydırma oranı; 0 = sabit)
   crf: 20             # kalite (düşük = daha kaliteli, daha büyük dosya)
-  transitions: true   # aynı sahnede art arda gelen shot'lar arasında yumuşak geçiş
-  xfade_frames: 6     # geçiş uzunluğu (kare)
+  transitions: true   # sahneler arasında yumuşak geçiş
+  xfade_frames: 10    # geçiş uzunluğu (kare)
 
-split:
-  min_chars: 20       # bir görselin anlattığı en kısa metin
-  max_chars: 65       # bir görselin anlattığı en uzun metin
+split:                # altyazı/çeviri birimi (shot). Görsel sahne başına: bir resim 2–4 shot boyunca kalır
+  min_chars: 20
+  max_chars: 65
 
-# 1) Senaryo → görsel planı (storyboard)
+# 1) Senaryo → sahne planı ve çeviri
 planner:
-  provider: manual    # manual (ücretsiz: Claude sohbetinde) | anthropic (ücretli API)
+  provider: gemini    # gemini (tek tık, görsellerle aynı anahtar, ~0,05 $/video) | anthropic (ücretli API) | manual (Claude sohbetinde kopyala-yapıştır)
+  gemini:
+    model: gemini-3.8-flash
+    batch_size: 60    # bir istekte planlanacak shot sayısı
   anthropic:
     model: claude-sonnet-5
-    batch_size: 40    # bir istekte planlanacak shot sayısı
+    batch_size: 60
 
 # 2) Seslendirme
 tts:
@@ -67,15 +70,14 @@ align:
   whisper:
     model: base.en    # tiny.en (hızlı) | base.en | small.en (daha doğru)
 
-# 4) Görseller
+# 4) Görseller: her sahne bir AI resmi (stil ve karakterler channel.yaml'da). Grafikler kodla çizilir (ücretsiz)
 images:
-  default_engine: svg # svg (ücretsiz, kodla çizim) | gemini (ücretli AI) — shot bazında da seçilebilir
   concurrency: 4
   gemini:
-    # gemini-3.1-flash-lite-image (en ucuz) | gemini-3.1-flash-image (Nano Banana 2, önerilen)
-    # gemini-3-pro-image (Nano Banana Pro, en kaliteli, en pahalı)
+    # gemini-3.1-flash-image (Nano Banana 2, önerilen, ~0,05 $/resim) | gemini-3-pro-image (Pro: en tutarlı, ~3 kat pahalı)
     model: gemini-3.1-flash-image
     aspect_ratio: "16:9"
+    image_size: ""    # "" = 1K (varsayılan) | "2K" daha keskin, daha pahalı
     retries: 3
 
 # 4b) İkinci dil: aynı videoya ek ses izi (YouTube → Diller → Ses parçası ekle)

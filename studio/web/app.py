@@ -77,8 +77,8 @@ def files(path: str):
 # ------------------------------------------------------------------ overview & settings
 def _providers(cfg) -> dict:
     return {"tts": cfg.get_path("tts.provider"), "tts_by_lang": cfg.get_path("tts.provider_by_lang") or {},
-            "images": cfg.get_path("images.default_engine"), "gemini_model": cfg.get_path("images.gemini.model"),
-            "planner": cfg.get_path("planner.provider")}
+            "images": "gemini", "gemini_model": cfg.get_path("images.gemini.model"),
+            "planner": cfg.get_path("planner.provider", "gemini")}
 
 
 @app.get("/api/ping")
@@ -135,23 +135,16 @@ def put_secret(body: dict = Body(...)):
     return {"secrets": secrets_status()}
 
 
-@app.get("/api/catalog")
-def catalog():
-    from ..svgkit import catalog as cat
-    imgs = {n: _file_url(ROOT / "docs" / "catalog" / f"{n}.png") for n in ("poses", "props", "backgrounds")}
-    return {**cat(), "images": imgs}
-
-
 @app.post("/api/preview-svg", response_class=PlainTextResponse)
 def preview_svg(body: dict = Body(...)):
-    """Instant scene preview for the shot editor (no rasterising)."""
+    """Instant chart preview for the scene editor (no rasterising)."""
     from ..svgkit import render_svg
     from ..svgkit.style import use_palette
     visual = body.get("visual")
     if isinstance(visual, str):
         visual = _yaml(visual)
-    if not isinstance(visual, dict) or "prompt" in visual and "bg" not in visual:
-        raise HTTPException(400, "Önizleme sadece kodla çizilen sahneler (bg/figures/props) için.")
+    if not isinstance(visual, dict) or "prompt" in visual or not visual.get("props"):
+        raise HTTPException(400, "Önizleme sadece grafik sahneleri (bg + props) için.")
     palette = {}
     if body.get("channel"):
         palette = load_config(body["channel"]).get_path("channel.style.palette") or {}
@@ -257,9 +250,11 @@ def _project_summary(p: Project) -> dict:
     shots = []
     if p.storyboard_path.exists():
         shots = p.load_storyboard().get("shots", [])
-    first = next((p.shots_dir / f"{s['id']}.png" for s in shots if (p.shots_dir / f"{s['id']}.png").exists()), None)
+    first = next((p.shots_dir / f"{s['id']}.png" for s in shots
+                  if s.get("visual") and not (s["visual"] or {}).get("same") and (p.shots_dir / f"{s['id']}.png").exists()), None)
+    from ..images import scenes
     return {"slug": p.slug, "title": p.meta.get("title", p.slug), "status": p.meta.get("status", ""),
-            "shots": len(shots), "ready": r["ready"],
+            "shots": len(shots), "scenes": len(scenes(shots)) if shots else 0, "ready": r["ready"],
             "blocks": [c["message"] for c in r["checks"] if c["level"] == "block" and not c["ok"]],
             "thumb": _file_url(first) if first else None,
             "videos": {lg: _file_url(p.video_path(lg)) for lg in p.ch.languages}}
@@ -290,11 +285,16 @@ def get_project(cid: str, slug: str):
     for lg in langs:
         if p.timing_path(lg).exists():
             timings[lg] = {t["id"]: t for t in p.read_json(p.timing_path(lg))}
+    from ..images import engine_name, scene_map
+    heads = scene_map(sb.get("shots", []))
     shots = []
     for s in sb.get("shots", []):
-        img = p.shots_dir / f"{s['id']}.png"
+        head = heads[s["id"]]
+        img = p.shots_dir / f"{head}.png"
         t = timings.get(langs[0], {}).get(s["id"])
-        shots.append({**s, "image": _file_url(img), "start": t["start"] if t else None,
+        v = s.get("visual")
+        kind = "none" if not v else "same" if head != s["id"] else ("chart" if engine_name(s, {}) == "svg" else "ai")
+        shots.append({**s, "scene": head, "kind": kind, "image": _file_url(img) if kind != "none" else None, "start": t["start"] if t else None,
                       "visual_yaml": yaml.safe_dump(s.get("visual"), allow_unicode=True, sort_keys=False,
                                                     default_flow_style=None, width=100) if s.get("visual") else ""})
     outputs = {}
@@ -380,6 +380,90 @@ def put_shot(cid: str, slug: str, sid: str, body: dict = Body(...)):
         job = manager.submit(["images", slug, "--channel", cid, "--only", sid, "--force"],
                              f"Görsel {sid}", cid, slug).id
     return {"ok": True, "job": job}
+
+
+def _shot_index(sb: dict, sid: str) -> int:
+    for i, s in enumerate(sb["shots"]):
+        if s["id"] == sid:
+            return i
+    raise HTTPException(404, "shot yok")
+
+
+@app.put("/api/projects/{cid}/{slug}/scenes/{sid}")
+def put_scene(cid: str, slug: str, sid: str, body: dict = Body(...)):
+    """Edit a scene's picture: a painting prompt (+ coach, + 'next moment of the previous scene') or a chart."""
+    p = _pr(cid, slug)
+    sb = p.load_storyboard()
+    i = _shot_index(sb, sid)
+    shot = sb["shots"][i]
+    old = shot.get("visual")
+    if body.get("chart_yaml", "").strip():
+        v = _yaml(body["chart_yaml"])
+        if not isinstance(v, dict) or not v.get("props"):
+            raise HTTPException(400, "Grafik tarifi bg + props içermeli")
+        shot["visual"] = v
+    else:
+        prompt = " ".join(str(body.get("prompt", "")).split())
+        if not prompt:
+            raise HTTPException(400, "Resim istemi boş olamaz")
+        v = {"prompt": prompt}
+        if body.get("characters"):
+            v["characters"] = [c for c in body["characters"] if isinstance(c, str)]
+        if body.get("ref"):
+            v["ref"] = str(body["ref"])
+        shot["visual"] = v
+    if body.get("camera"):
+        shot["camera"] = body["camera"]
+    else:
+        shot.pop("camera", None)
+    shot.pop("engine", None)
+    p.save_storyboard(sb)
+    if shot["visual"] != old:
+        from ..images import forget_image
+        forget_image(p, sid)
+    job = None
+    if body.get("render"):
+        job = manager.submit(["images", slug, "--channel", cid, "--only", sid, "--force"],
+                             f"Resim {sid}", cid, slug).id
+    return {"ok": True, "job": job}
+
+
+@app.post("/api/projects/{cid}/{slug}/scenes/{sid}/merge")
+def merge_scene(cid: str, slug: str, sid: str):
+    """The scene starting at `sid` continues the previous picture instead (one picture less)."""
+    p = _pr(cid, slug)
+    sb = p.load_storyboard()
+    i = _shot_index(sb, sid)
+    if i == 0:
+        raise HTTPException(400, "İlk sahne birleştirilemez")
+    sb["shots"][i]["visual"] = {"same": True}
+    sb["shots"][i].pop("camera", None)
+    p.save_storyboard(sb)
+    from ..images import forget_image
+    forget_image(p, sid)
+    return {"ok": True}
+
+
+@app.post("/api/projects/{cid}/{slug}/scenes/{sid}/split")
+def split_scene(cid: str, slug: str, sid: str):
+    """A new scene starts at shot `sid`: it gets its own picture, drafted as the next moment of the current one."""
+    from ..images import scene_map
+    p = _pr(cid, slug)
+    sb = p.load_storyboard()
+    i = _shot_index(sb, sid)
+    head_id = scene_map(sb["shots"])[sid]
+    if head_id == sid:
+        raise HTTPException(400, "Bu shot zaten bir sahnenin başı")
+    head = next(s for s in sb["shots"] if s["id"] == head_id)
+    hv = head.get("visual") if isinstance(head.get("visual"), dict) else {}
+    v = {"prompt": f"The same scene a moment later: {hv.get('prompt', '')}".strip()}
+    if hv.get("characters"):
+        v["characters"] = hv["characters"]
+    if hv.get("prompt"):
+        v["ref"] = head_id
+    sb["shots"][i]["visual"] = v
+    p.save_storyboard(sb)
+    return {"ok": True}
 
 
 @app.get("/api/projects/{cid}/{slug}/prompt/{kind}", response_class=PlainTextResponse)
@@ -561,22 +645,9 @@ def run_step(cid: str, slug: str, body: dict = Body(...)):
     return {"job": manager.submit(args, label, cid, slug).id}
 
 
-@app.post("/api/compile")
-def compile_(body: dict = Body(...)):
-    cid = body["channel"]
-    _ch(cid)
-    slugs = [s for s in body.get("slugs", []) if SAFE.match(s)]
-    if len(slugs) < 2:
-        raise HTTPException(400, "en az 2 video seç")
-    args = ["compile", ",".join(slugs), "--channel", cid, "--title", body.get("title") or "compilation"]
-    if body.get("lang"):
-        args += ["--lang", body["lang"]]
-    return {"job": manager.submit(args, "Derleme", cid, None).id}
-
-
 @app.post("/api/tools/{tool}")
 def tools(tool: str, body: dict = Body(default={})):
-    if tool not in ("catalog", "refs", "check-links", "branding", "knowledge"):
+    if tool not in ("check-links", "branding", "knowledge"):
         raise HTTPException(404)
     args = [tool] + (["--channel", body["channel"]] if body.get("channel") else [])
     return {"job": manager.submit(args, STEP_LABELS[tool]).id}

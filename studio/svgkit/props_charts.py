@@ -15,7 +15,7 @@ def _clamp(v):
 
 @prop("line_chart")
 def line_chart(x, y, s=1.0, values=(0.2, 0.4, 0.35, 0.7, 0.9), values2=None, color=RED, color2="water",
-               w=520, h=340, **_):
+               w=760, h=480, **_):
     """Axes + line through `values` (0..1, left→right). Optional second line `values2`. y = baseline."""
     x0, x1 = x - w * s / 2, x + w * s / 2
     out = [line([(x0, y - h * s - 20 * s), (x0, y), (x1 + 20 * s, y)], 7 * s)]

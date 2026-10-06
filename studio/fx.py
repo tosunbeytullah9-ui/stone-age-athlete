@@ -1,4 +1,4 @@
-"""Finishing layer: on-screen text per language, chart animation, sound effects, outro, vertical framing.
+"""Finishing layer: on-screen text per language, chart animation, sound effects, end screen, vertical framing.
 
 Images stay text-free (shared by every language). Text is drawn at render time, per language:
 
@@ -174,22 +174,21 @@ def _load_sfx(name: str, assets: Path) -> np.ndarray:
     return _whoosh() if name == "whoosh" else _pop()
 
 
-def _bg(shot: dict):
-    v = shot.get("visual")
-    return v.get("bg") if isinstance(v, dict) else None
-
-
-def sfx_events(shots_in_order: list[dict], timing: list[dict]) -> list[tuple[float, str]]:
-    """whoosh on a change of scene, pop when a new object appears in the same scene."""
-    events = []
-    for i in range(1, len(timing)):
-        a, b = shots_in_order[i - 1], shots_in_order[i]
-        if _bg(a) and _bg(b) and _bg(a) != _bg(b):
-            events.append((max(0.0, timing[i]["start"] - 0.18), "whoosh"))
-        elif _bg(b) and isinstance(b.get("visual"), dict) and isinstance(a.get("visual"), dict):
-            na, nb = len(a["visual"].get("props") or []), len(b["visual"].get("props") or [])
-            if nb > na:
-                events.append((timing[i]["start"] + 0.04, "pop"))
+def sfx_events(groups: list[list[dict]], timing: list[dict], min_gap: float = 20.0) -> list[tuple[float, str]]:
+    """Sparse, documentary-style: a soft whoosh when a new paragraph opens on a new picture (at most every
+    `min_gap` seconds) and a pop when a chart appears."""
+    start = {t["id"]: t["start"] for t in timing}
+    events, last_whoosh = [], -min_gap
+    for i, g in enumerate(groups[1:], 1):
+        head, prev = g[0], groups[i - 1][-1]
+        t = start.get(head["id"])
+        if t is None:
+            continue
+        if animated_visuals(head.get("visual")):
+            events.append((t + 0.04, "pop"))
+        elif head.get("para") != prev.get("para") and t - last_whoosh >= min_gap:
+            events.append((max(0.0, t - 0.18), "whoosh"))
+            last_whoosh = t
     return events
 
 
@@ -210,12 +209,6 @@ def build_sfx_track(events: list[tuple[float, str]], total: float, assets: Path,
 
 
 # ------------------------------------------------------------------ outro
-def outro_visual(mascot: dict) -> dict:
-    m = dict(mascot or {"pose": "point"})
-    m.update({"x": 520, "flip": False})
-    return {"bg": "plain_warm", "figures": [m]}
-
-
 def draw_outro(base: Image.Image, text: str, sub: str) -> Image.Image:
     """End-screen layout: two video slots and a subscribe circle where YouTube's end-screen elements go."""
     img = base.convert("RGB").copy()
@@ -238,7 +231,7 @@ def focus_x(visual) -> float:
     fr = visual.get("frame")
     if isinstance(fr, dict) and "x" in fr:
         return float(fr["x"])
-    xs = [float(f.get("x", 960)) for f in visual.get("figures") or [] if isinstance(f, dict)]
+    xs = [float(f.get("x", 960)) for f in (visual.get("figures") or visual.get("props") or []) if isinstance(f, dict)]
     return sum(xs) / len(xs) if xs else 960.0
 
 

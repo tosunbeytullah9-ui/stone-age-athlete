@@ -62,7 +62,8 @@ def load_config(channel: str | None = None) -> Config:
         ch = Channel(resolve_channel_id(channel))
         if ch.exists():
             merged = deep_merge(cfg, ch.data.get("overrides") or {})
-            merged["channel"] = {**(cfg.get("channel") or {}), **{k: v for k, v in ch.data.items() if k != "overrides"}}
+            merged["channel"] = {**(cfg.get("channel") or {}), **{k: v for k, v in ch.data.items() if k != "overrides"},
+                                 "id": ch.id}
             return Config(merged)
     return cfg
 

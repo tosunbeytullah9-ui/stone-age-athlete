@@ -25,21 +25,26 @@ def test_animated_visuals_grow():
 
 def test_sfx_events_and_track(tmp_path):
     from studio.fx import build_sfx_track, sfx_events
-    shots = [{"visual": {"bg": "gym", "props": []}}, {"visual": {"bg": "gym", "props": [{"type": "clock"}]}},
-             {"visual": {"bg": "savanna"}}]
-    timing = [{"start": 0, "end": 2}, {"start": 2, "end": 4}, {"start": 4, "end": 6}]
-    ev = sfx_events(shots, timing)
-    assert [n for _, n in ev] == ["pop", "whoosh"]
-    out = build_sfx_track(ev, 6.0, tmp_path, tmp_path / "fx.wav")
+    chart = {"bg": "plain_warm", "props": [{"type": "bar_chart", "values": [1.0, 0.4]}]}
+    groups = [[{"id": "s001", "para": 0, "visual": {"prompt": "a"}}],
+              [{"id": "s002", "para": 0, "visual": chart}],
+              [{"id": "s003", "para": 1, "visual": {"prompt": "b"}}],
+              [{"id": "s004", "para": 2, "visual": {"prompt": "c"}}]]
+    timing = [{"id": f"s00{i}", "start": 30.0 * (i - 1), "end": 30.0 * i} for i in range(1, 5)]
+    ev = sfx_events(groups, timing)
+    assert [n for _, n in ev] == ["pop", "whoosh", "whoosh"]
+    out = build_sfx_track(ev, 120.0, tmp_path, tmp_path / "fx.wav")
     assert out.exists() and out.stat().st_size > 1000
 
 
-def test_camera_runs_and_vertical_crop():
-    from studio.config import load_global
-    from studio.render import _camera_modes
+def test_scene_camera_moves_and_vertical_crop():
+    from studio.render import _cam_expr, _scene_modes
     from studio.svgkit import crop_vertical, render_svg
-    shots = [{"visual": {"bg": "gym"}}, {"visual": {"bg": "gym"}}, {"visual": {"bg": "sea"}},
-             {"visual": {"bg": "sea"}, "camera": "none"}, {"visual": {"bg": "classroom", "props": [{"type": "pie", "value": 0.4}]}}]
-    assert _camera_modes(shots, load_global()) == ["in", "in", "out", "none", "none"]
-    svg = crop_vertical(render_svg({"bg": "gym", "figures": [{"pose": "run", "x": 1800}]}), 1800)
+    pic = lambda p: {"visual": {"prompt": p}}
+    groups = [[pic("a"), {"visual": {"same": True}}], [pic("b")], [pic("c")], [{**pic("d"), "camera": "none"}],
+              [{"visual": {"bg": "plain_warm", "props": [{"type": "pie", "value": 0.4}]}}], [pic("e")]]
+    assert _scene_modes(groups) == ["in", "right", "out", "none", "none", "left"]
+    z, x, _ = _cam_expr("right", 0.08, 30, 91)     # one continuous move across all shots of a scene
+    assert z == "1.08" and "min(1,(30+on)/90)" in x
+    svg = crop_vertical(render_svg({"bg": "plain_warm", "props": [{"type": "pie", "x": 1800, "y": 500}]}), 1800)
     assert 'width="1080" height="1920"' in svg and 'viewBox="1312.5 0 607.5 1080.0"' in svg

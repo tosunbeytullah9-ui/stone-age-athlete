@@ -1,17 +1,16 @@
-"""Channel artwork for YouTube Studio → Customisation → Branding, drawn with the same kit as the videos.
+"""Channel artwork for YouTube Studio → Customisation → Branding, painted in the channel's style.
 
-  python -m studio branding [--channel C]   →  channels/<C>/build/branding/
-    profile.png       800×800   profile picture (shown as a circle: the mascot's face sits in the middle)
+  python -m studio branding [--channel C] [--force]   →  channels/<C>/build/branding/
+    profile.png       800×800   profile picture: the coach's portrait (shown as a circle)
     banner.png        2560×1440 banner; name + tagline inside the 1546×423 area every device shows
     banner_guides.png the banner with TV / desktop / phone crop lines, for checking before upload
     watermark.png     150×150   video watermark (transparent round badge)
 
-Optional channel.yaml → branding (all keys optional):
+The two paintings (raw/profile_art.png, raw/banner_art.png) are made once with Gemini and reused; --force repaints.
+Optional channel.yaml → branding:
   branding:
-    profile_bg: plain_warm        # any background from docs/STORYBOARD.md
-    banner_bg: split              # "then vs now": fits a channel about the body through history
-    banner_props: [{type: spear, x: 300}]
-  mascot_pose: wave               # pose for the artwork (default wave; the video mascot pose points)
+    profile_prompt: "..."         # replaces the default portrait description
+    banner_prompt: "..."          # replaces the default banner scene
     name_color: "#ffffff"
     accent: "#e3a447"             # tagline colour
 Text is allowed here (not in shots): it is channel artwork, not a video frame.
@@ -30,25 +29,13 @@ BANNER = (2560, 1440)
 SAFE = (1546, 423)            # always visible (phone); desktop shows 2560×423, TV the whole banner
 DESKTOP_H = 423
 WATERMARK = 150
-SVG_W, SVG_H = 1920, 1080
 
-
-def _view(svg: str, x0: float, y0: float, vw: float, vh: float, out_w: int, out_h: int) -> str:
-    head = f'width="{SVG_W}" height="{SVG_H}" viewBox="0 0 {SVG_W} {SVG_H}"'
-    return svg.replace(head, f'width="{out_w}" height="{out_h}" viewBox="{x0:.1f} {y0:.1f} {vw:.1f} {vh:.1f}"', 1)
-
-
-def _mascot(cfg: Config, **extra) -> dict:
-    m = dict(cfg.get_path("channel.mascot") or {})
-    m.update({"pose": "wave", "hold": "none"})      # friendly and compact: no pointer crossing the name
-    m.update({k: v for k, v in extra.items() if v is not None})
-    return m
-
-
-def _head_box(mascot: dict, ground: float) -> tuple[float, float]:
-    """Centre of the mascot's head+shoulders in drawing coordinates (figure ~450 px tall at scale 1)."""
-    s = float(mascot.get("scale", 1))
-    return float(mascot.get("x", 960)), ground - 355 * s
+PROFILE_SCENE = ("Head-and-shoulders portrait of the coach, centred, looking at the viewer with a confident warm "
+                 "smile, plain soft warm background, the face filling the middle third of the square.")
+BANNER_SCENE = ("Wide panoramic scene: on the left, the coach stands confidently; behind and across the frame a "
+                "painted journey of human movement from an ancient savanna with early humans running and throwing "
+                "on the far left to a modern training ground on the right. The middle band of the picture is calm "
+                "and uncluttered so a title can sit on it.")
 
 
 def safe_box() -> tuple[int, int, int, int]:
@@ -97,60 +84,57 @@ def guides(banner: Path, out: Path) -> Path:
     return out
 
 
-def render_branding(channel: str, cfg: Config) -> list[Path]:
-    from .images.svg_engine import SvgEngine
-    from .svgkit import backgrounds, render_svg
-    from .svgkit.style import use_palette
+def _paint(eng, prompt: str, out: Path, aspect: str, size: tuple[int, int], refs: list[Path], force: bool) -> Path:
+    if force or not out.exists():
+        eng.generate(prompt, out, refs, aspect=aspect, size=size)
+    return out
+
+
+def render_branding(channel: str, cfg: Config, force: bool = False) -> list[Path]:
+    from .images.gemini_engine import GeminiEngine
+    from .images.style_prompt import build_prompt
     ch = Channel(channel)
     data = ch.data
     b = data.get("branding") or {}
     out = ch.dir / "build" / "branding"
-    out.mkdir(parents=True, exist_ok=True)
-    palette = cfg.get_path("channel.style.palette") or {}
+    raw_dir = out / "raw"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    eng = GeminiEngine(cfg)
+    chars = cfg.get_path("channel.characters") or {}
+    who = [n for n in ("coach",) if n in chars] or list(chars)[:1]
+    refs = eng.char_refs(who)
     made: list[Path] = []
 
-    with SvgEngine(cfg) as eng, use_palette(palette):
-        # profile picture: head and shoulders, centred for YouTube's circle crop
-        pbg = b.get("profile_bg", "plain_warm")
-        ground = backgrounds.get(pbg)[2]
-        m = _mascot(cfg, x=960, scale=1.6, pose=b.get("mascot_pose"))
-        cx, cy = _head_box(m, ground)
-        side = 540
-        svg = _view(render_svg({"bg": pbg, "figures": [m]}), cx - side / 2, cy - side / 2, side, side,
-                    PROFILE, PROFILE)
-        raw = out / "profile.png"
-        eng.svg_to_png(svg, raw, size=(PROFILE, PROFILE))
-        made.append(raw)
+    def prompt(scene: str) -> str:
+        return build_prompt({"prompt": scene, "characters": who}, eng.style, chars)
 
-        # watermark: same drawing, round and transparent outside the circle
-        wm = Image.open(raw).convert("RGBA").crop((170, 150, 630, 610)).resize((WATERMARK, WATERMARK), Image.LANCZOS)
-        mask = Image.new("L", (WATERMARK, WATERMARK), 0)
-        ImageDraw.Draw(mask).ellipse([2, 2, WATERMARK - 3, WATERMARK - 3], fill=255)
-        wm.putalpha(mask)
-        ImageDraw.Draw(wm).ellipse([2, 2, WATERMARK - 3, WATERMARK - 3], outline="#ffffff", width=5)
-        wpath = out / "watermark.png"
-        wm.save(wpath)
-        made.append(wpath)
+    art = _paint(eng, prompt(b.get("profile_prompt") or PROFILE_SCENE), raw_dir / "profile_art.png", "1:1",
+                 (PROFILE, PROFILE), refs, force)
+    raw = out / "profile.png"
+    Image.open(art).convert("RGB").resize((PROFILE, PROFILE), Image.LANCZOS).save(raw)
+    made.append(raw)
 
-        # banner: scene across the full width, mascot at the left edge of the safe area, text beside him
-        bbg = b.get("banner_bg", "split")
-        ground = backgrounds.get(bbg)[2]
-        sx = BANNER[0] / SVG_W                       # 2560 / 1920
-        x0, y0, x1, y1 = safe_box()
-        mascot_x = (x0 + 190) / sx
-        # stand him so head+torso fill the safe area's height
-        scale = 0.95
-        m = _mascot(cfg, x=mascot_x, scale=scale, ground=(y1 / sx) + 150 * scale, pose=b.get("mascot_pose"))
-        svg = render_svg({"bg": bbg, "figures": [m], "props": b.get("banner_props") or []})
-        svg = _view(svg, 0, 0, SVG_W, SVG_H, *BANNER)
-        bpath = out / "banner.png"
-        eng.svg_to_png(svg, bpath, size=BANNER)
-    img = Image.open(bpath).convert("RGB")
+    # watermark: the same portrait, round and transparent outside the circle
+    wm = Image.open(raw).convert("RGBA").crop((120, 80, 680, 640)).resize((WATERMARK, WATERMARK), Image.LANCZOS)
+    mask = Image.new("L", (WATERMARK, WATERMARK), 0)
+    ImageDraw.Draw(mask).ellipse([2, 2, WATERMARK - 3, WATERMARK - 3], fill=255)
+    wm.putalpha(mask)
+    ImageDraw.Draw(wm).ellipse([2, 2, WATERMARK - 3, WATERMARK - 3], outline="#ffffff", width=5)
+    wpath = out / "watermark.png"
+    wm.save(wpath)
+    made.append(wpath)
+
+    # banner: painting across the full width, name + tagline on a soft band inside the safe area
+    bart = _paint(eng, prompt(b.get("banner_prompt") or BANNER_SCENE), raw_dir / "banner_art.png", "16:9",
+                  BANNER, refs, force)
+    x0, y0, x1, y1 = safe_box()
+    img = Image.open(bart).convert("RGBA").resize(BANNER, Image.LANCZOS)
     band = Image.new("RGBA", BANNER, (0, 0, 0, 0))
     ImageDraw.Draw(band).rounded_rectangle([x0 + 360, y0 + 20, x1, y1 - 20], radius=28, fill=(15, 15, 15, 150))
-    img = Image.alpha_composite(img.convert("RGBA"), band).convert("RGB")
+    img = Image.alpha_composite(img, band).convert("RGB")
     _banner_text(img, data.get("name") or channel, data.get("tagline") or "", x0 + 400,
                  b.get("name_color", "#ffffff"), b.get("accent", "#ffd84d"))
+    bpath = out / "banner.png"
     img.save(bpath, optimize=True)
     made.append(bpath)
     made.append(guides(bpath, out / "banner_guides.png"))

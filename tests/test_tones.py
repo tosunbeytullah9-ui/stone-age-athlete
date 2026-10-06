@@ -100,9 +100,9 @@ def test_resplit_follows_script_tags(cfg):
     p = create_project("demo", "Throw")
     p.script_path.write_text("[curious] Why can we throw?\n\nBecause of the shoulder.\n", encoding="utf-8")
     sb = build_storyboard(p, cfg)
-    sb["shots"][0]["visual"] = {"bg": "savanna"}
+    sb["shots"][0]["visual"] = {"prompt": "savanna"}
     p.save_storyboard(sb)
     p.script_path.write_text("Why can we throw?\n\n[excited] Because of the shoulder.\n", encoding="utf-8")
     shots = build_storyboard(p, cfg)["shots"]
-    assert shots[0]["visual"] == {"bg": "savanna"} and "tone" not in shots[0]   # visual kept, removed tag gone
+    assert shots[0]["visual"] == {"prompt": "savanna"} and "tone" not in shots[0]   # visual kept, removed tag gone
     assert shots[1]["tone"] == ["excited"]

@@ -43,7 +43,7 @@ function projPackage(cid, slug, el) {
     <div>
       <div class="card"><div class="spread"><h3 style="margin:0">Kapak görselleri (A/B/C)</h3>
         <div class="row"><button class="sm" id="pk-copy">Paket istemini kopyala</button><button class="sm" id="pk-apply">Cevabı uygula</button><button class="sm primary" id="pk-render">Kapakları üret</button></div></div>
-        <p class="small muted">Üç farklı fikir üret, YouTube Studio'da "Test & Compare" ile dene (kazananı izlenme süresi belirler). Kapakta yazı olabilir (en fazla 4 kelime); karakterler telefonda okunacak kadar büyük olmalı: <span class="kbd">frame</span> ile yakın çekim.</p>
+        <p class="small muted">Üç farklı fikir üret, YouTube Studio'da "Test & Compare" ile dene (kazananı izlenme süresi belirler). Kapakta yazı olabilir (en fazla 4 kelime); tek büyük konu, telefonda okunacak kadar yakın.</p>
         <div id="pk-box" class="hidden" style="margin-bottom:10px"><textarea id="pk-text" class="code" rows="8" placeholder="Claude'un paket YAML cevabı (titles, thumbnails, hooks...)"></textarea><div class="row" style="margin-top:6px"><button class="sm primary" id="pk-go">Uygula</button></div></div>
         ${langs.map((lg) => `<div style="margin-top:8px"><div class="small muted">${LANG_TR[lg] || lg}</div>
           <div class="thumbs">${(P.thumbs[lg] || []).map((u, i) => `<figure><img src="${u}"><figcaption>${String.fromCharCode(65 + i)}</figcaption></figure>`).join("") || '<span class="muted small">henüz kapak yok</span>'}</div>
@@ -51,7 +51,7 @@ function projPackage(cid, slug, el) {
         <div id="live-box" class="hidden" style="margin-top:10px"><div id="live-status" class="small muted"></div><div class="log" id="live-log" style="height:120px"></div></div>
       </div>
       <div class="card" style="margin-top:14px"><div class="spread"><h3 style="margin:0">Kapak tarifleri (YAML)</h3><button class="sm" id="th-save">Kaydet</button></div>
-        <textarea id="th-yaml" class="code" rows="16" spellcheck="false" placeholder="- visual: {bg: underwater, figures: [...]}\n  frame: {x: 900, y: 560, zoom: 1.8}\n  text: {en: BIGGER SPLEENS, tr: DEV DALAK}\n  text_pos: left">${esc(P.thumbnails_yaml)}</textarea></div>
+        <textarea id="th-yaml" class="code" rows="16" spellcheck="false" placeholder="- visual: {prompt: 'close-up of a Bajau diver gliding over a reef, calm eyes', characters: []}\n  text: {en: BIGGER SPLEENS, tr: DEV DALAK}\n  text_pos: left">${esc(P.thumbnails_yaml)}</textarea></div>
     </div>
     <div>
       <div class="card"><h3>Başlık adayları</h3>

@@ -5,14 +5,9 @@ Each check: {key, ok, level: block|warn|info, message}. A project is 'ready' whe
 """
 from __future__ import annotations
 
-import json
 import re
 
 from .project import Project
-
-
-def _visual_key(shot: dict) -> str:
-    return json.dumps(shot.get("visual"), sort_keys=True, default=str)
 
 
 def check(project: Project, lang: str | None = None) -> dict:
@@ -41,43 +36,36 @@ def check(project: Project, lang: str | None = None) -> dict:
         add("storyboard", False, "block", "Storyboard yok — 'Böl' adımını çalıştır")
         return _summary(out)
     shots = project.load_storyboard().get("shots", [])
-    planned = sum(1 for s in shots if s.get("visual"))
-    add("plan", planned == len(shots) and shots, "block", f"Görsel planı: {planned}/{len(shots)} shot")
+    from .images import engine_name, scenes
+    groups = scenes(shots)
+    planned = sum(1 for g in groups if g[0].get("visual"))
+    unplanned_ids = [g[0]["id"] for g in groups if not g[0].get("visual")]
+    add("plan", not unplanned_ids and shots, "block", f"Sahne planı: {planned}/{len(groups)} sahne"
+        + (f" (plansız: {unplanned_ids[0]}…)" if unplanned_ids else ""))
 
-    # repetition: the same recipe many times in a row looks mass-produced
-    run, worst, worst_at = 1, 1, None
-    for a, b in zip(shots, shots[1:]):
-        if a.get("visual") and _visual_key(a) == _visual_key(b):
-            run += 1
-            if run > worst:
-                worst, worst_at = run, b["id"]
-        else:
-            run = 1
-    add("variety", worst <= 3, "warn",
-        f"Çeşitlilik: aynı sahne en fazla {worst} kez art arda" + (f" ({worst_at} civarı)" if worst > 3 else ""))
-    bgs = [(s.get("visual") or {}).get("bg") if isinstance(s.get("visual"), dict) else None for s in shots]
-    named = [b for b in bgs if b]
-    if named:
-        top = max(set(named), key=named.count)
-        share = named.count(top) / len(shots)
-        add("bg_share", share <= 0.35, "warn", f"En çok kullanılan arka plan: {top} (%{share * 100:.0f}; en fazla %35 önerilir)")
-        run, worst_bg, where = 1, 1, None
-        for a, b, sh in zip(bgs, bgs[1:], shots[1:]):
-            run = run + 1 if a and a == b else 1
-            if run > worst_bg:
-                worst_bg, where = run, sh["id"]
-        add("bg_run", worst_bg <= 6, "warn", f"Aynı arka planda en uzun seri: {worst_bg} shot"
-            + (f" ({where} civarı; yakın çekim/farklı sahne ekle)" if worst_bg > 6 else ""))
-    distinct = len({_visual_key(s) for s in shots if s.get("visual")})
-    if shots:
-        add("distinct", distinct >= 0.6 * len(shots), "warn", f"Farklı sahne sayısı: {distinct}/{len(shots)}")
+    # pacing: a picture should stay 5-9 s (2-4 shots); long holds bore, 1-shot scenes flicker
+    if groups:
+        longest = max(groups, key=len)
+        add("scene_len", len(longest) <= 5, "warn", f"En uzun sahne: {len(longest)} shot ({longest[0]['id']})"
+            + (" — 5'ten fazlası sıkıcı; böl" if len(longest) > 5 else ""))
+        singles = sum(1 for g in groups if len(g) == 1)
+        add("scene_count", len(groups) <= 0.6 * len(shots) or len(shots) < 20, "warn",
+            f"Sahne sayısı: {len(groups)} ({len(shots)} shot; tek shotluk sahne: {singles})")
+    prompts = [g[0]["visual"].get("prompt") for g in groups if isinstance(g[0].get("visual"), dict)
+               and g[0]["visual"].get("prompt")]
+    dup = len(prompts) - len(set(prompts))
+    add("variety", dup == 0, "warn", "Tekrarlanan resim istemi yok" if not dup else f"{dup} sahne aynı istemi tekrarlıyor")
+    coach = sum(1 for g in groups if "coach" in ((g[0].get("visual") or {}).get("characters") or [])
+                if isinstance(g[0].get("visual"), dict))
+    if groups:
+        add("coach", coach <= 0.3 * len(groups), "warn", f"Koçlu sahne: {coach}/{len(groups)} (en fazla %30 önerilir)")
 
-    gem = sum(1 for s in shots if s.get("engine") == "gemini" or isinstance(s.get("visual"), str)
-              or (isinstance(s.get("visual"), dict) and "prompt" in s["visual"] and "bg" not in s["visual"]))
-    add("cost", True, "info", f"Ücretli AI görseli: {gem} shot" if gem else "Tüm görseller ücretsiz (kodla çizim)")
+    paid = sum(1 for g in groups if g[0].get("visual") and engine_name(g[0], {}) == "gemini")
+    add("cost", True, "info", f"AI resmi: {paid} sahne (yaklaşık {paid * 0.05:.2f} $; değişmeyen sahne tekrar ödenmez)")
 
-    imgs = sum(1 for s in shots if (project.shots_dir / f"{s['id']}.png").exists())
-    add("images", imgs == len(shots) and shots, "warn", f"Görseller: {imgs}/{len(shots)} üretildi")
+    heads = [g[0] for g in groups if g[0].get("visual")]
+    imgs = sum(1 for s in heads if (project.shots_dir / f"{s['id']}.png").exists())
+    add("images", imgs == len(heads) and heads, "warn", f"Resimler: {imgs}/{len(heads)} sahne çizildi")
 
     for lg in project.ch.languages:
         prefix = f"[{lg}] "

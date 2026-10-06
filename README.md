@@ -39,17 +39,16 @@ senin sürümün `<dosya>.senin-surumun` adıyla yanına bırakılır. `git pull
 | 1. Fikri seç | Kanal → **Fikir havuzu** | 152 fikir. "Sinyalleri güncelle" YouTube'daki talep, rekabet ve boşluğu ölçer. Sezgi puanını ver, "Projeye dönüştür" |
 | 2. Senaryo | Proje → **1 · Senaryo & kaynaklar** | Şablon yapıyı gösterir: kanca, kanıt, dönüş, coach's lesson |
 | 3. İddialar | Aynı sekme → **İddialar** | İstemi Claude'a ver. Her iddia bir kaynağa ve cümleye bağlanır; kaynaklar ortak kütüphaneye girer. Doğrulayınca işaretle |
-| 4. Planla | **2 · Storyboard** | Plan istemi → Claude → "Planı uygula". Yakın çekim için `frame` |
-| 5. Üret | **3 · Üretim** | Ses, zamanlama, görseller, video, altyazı (.srt). Videoda: aynı sahnede yumuşak geçiş, büyüyen grafikler, ekran yazıları (dile göre), ses efektleri, konuşurken kısılan müzik, 18 sn kapanış sahnesi. Shorts dikey çizilir, altyazılıdır. Türkçe için "Ek ses izi" |
-| 6. Paketle | **4 · Kapak & başlık** | Paket istemi: 10 başlık, 3 kapak konsepti, açılış ve Shorts önerileri. Kapakları üret, telefon boyutunda karşılaştır |
-| 7. Çıktılar | **5 · Çıktılar** | Video, Shorts, altyazı, ek ses izi ve kaynaklı YouTube açıklaması |
-| 8. Yayınla | **6 · Yayın & performans** | Seri, açılış tipi, tahmin, YouTube id. 2., 7. ve 28. günde ölçümler. İzlenme eğrisini yapıştır: izleyicinin hangi cümlede ve hangi çizimde gittiği görünür |
-| Marka | Kanal → **Kanal ayarları** | "Marka görsellerini üret": profil resmi, banner (güvenli alan kılavuzlu), filigran. "Bilgi paketini üret": kanalın tamamını tek dosyada toplayan `knowledge.md`; Claude Project / ChatGPT / DeepSeek'e bilgi olarak yüklenir |
+| 4. Sahneler | **2 · Sahneler** | "Planla": Gemini senaryoyu 5–9 saniyelik sahnelere böler ve her sahne için bir resim tarif eder. "Resimleri çiz": her sahne kanalın stilinde boyanır, koç her seferinde aynı kişidir. Beğenmediğin sahneye tıkla, tarifi düzelt, "Kaydet ve yeniden çiz". Sahneleri birleştir/böl |
+| 5. Video | **3 · Video** | "Videoyu üret": ses, zamanlama, eksik resimler, kurgu, altyazı (.srt), açıklama. Her resim üzerinde yavaş kamera hareketi, sahneler arası geçiş, büyüyen grafikler, ekran yazıları (dile göre), konuşurken kısılan müzik, kapanış ekranı. Video, Shorts ve indirmeler aynı sayfada. Türkçe için "Çevir" → "Videoyu üret" → "Ek ses izi" |
+| 6. Paketle | **4 · Kapak & başlık** | Paket istemi: 10 başlık, 3 kapak konsepti, açılış ve Shorts önerileri. Kapaklar kanalın stilinde boyanır, telefon boyutunda karşılaştırılır |
+| 7. Yayınla | **5 · Yayın** | Seri, açılış tipi, tahmin, YouTube id. 2., 7. ve 28. günde ölçümler. İzlenme eğrisini yapıştır: izleyicinin hangi cümlede ve hangi sahnede gittiği görünür |
+| Marka | Kanal → **Kanal ayarları** | Görsel stil ve koç karakteri (`visual_style`, `characters`). "Marka görsellerini üret": koçun portresiyle profil resmi, boyanmış banner (güvenli alan kılavuzlu), filigran. "Bilgi paketini üret": kanalın tamamını tek dosyada toplayan `knowledge.md`; Claude Project / ChatGPT / DeepSeek'e bilgi olarak yüklenir |
 | Takvim | Kanal → **Takvim** | Haftalık yayın günleri (varsayılan Pzt/Çar/Cum), boş slotlara proje yerleştirme, geciken projeler kırmızı |
 
 Kaynak kütüphanesi (sol menü) tüm kanalların ortak kaynaklarını gösterir ve bağlantıları kontrol eder.
 
-![Sahne düzenleyici](docs/img/shot-editor.png)
+![Sahne düzenleyici](docs/img/scene-editor.png)
 
 ## Ücretsizden ücretliye
 
@@ -57,11 +56,11 @@ Panel → **Ayarlar**: anahtarı yapıştır, ilgili satırı değiştir. Anahta
 
 | Aşama | Ücretsiz (varsayılan) | Ücretli |
 | --- | --- | --- |
-| Görsel planı, çeviri, iddialar, paket | `planner.provider: manual` (Claude sohbeti) | `anthropic` (otomatik plan ve çeviri) |
+| Sahne planı ve çeviri | `manual` (Claude sohbetinde kopyala-yapıştır) | `gemini` (varsayılan, tek tık, ~0,05 $) · `anthropic` |
 | Ses (İngilizce) | `kokoro` (yerel) | `elevenlabs` |
 | Ses (Türkçe) | `edge` (çevrimiçi) | `elevenlabs` |
 | Sesli duygu (etiket) | – | `elevenlabs` + `model: eleven_v3`: script.md'de `[curious]`, `[excited]`, `[whispers]`, `[pause]` |
-| Görseller | `svg` (kodla çizim) | `gemini` (Nano Banana). Tek shot için de seçilebilir |
+| Resimler | grafikler (kodla, ücretsiz) | sahne resimleri: `gemini` Nano Banana 2, ~0,05 $/sahne, ~3 $/video |
 | Fikir sinyalleri | YouTube Data API anahtarı (ücretsiz, günde ~95 fikir) | – |
 
 Her kanal bu ayarları kendi `channel.yaml → overrides` bölümünde ezebilir.
@@ -81,8 +80,8 @@ YouTube şablonla seri üretilen içeriği para kazanmadan çıkarıyor. **Kalit
 - doğrulanmamış iddia,
 - iddiaya bağlanmamış sayı,
 - kaynağın söylediğinden fazlasını söyleyen cümle,
-- tek arka plana aşırı yaslanma,
-- art arda tekrar eden sahne.
+- 5 shot'tan uzun sahne (sıkıcı),
+- tekrarlanan resim tarifi, koçun sahnelerin %30'undan fazlasında olması.
 
 ## Klasörler
 
@@ -93,9 +92,10 @@ channels/<kanal>/channel.yaml        kimlik, seriler, yayın takvimi, kanala öz
 channels/<kanal>/ideas.yaml          fikir havuzu (+ sinyaller, sezgi puanı)
 channels/<kanal>/projects/<video>/   script.md, sources.md, claims.yaml, storyboard.yaml, project.yaml (kapaklar,
                                      yayın kaydı), analytics/ (izlenme eğrisi), build/ (üretilenler, Git dışı)
-studio/                              üretim hattı (tts, align, images, svgkit, planner, render, claims, thumbnails,
+channels/<kanal>/refs/               karakter referansları (coach.png) ve grafik kâğıdı (paper.png)
+studio/                              üretim hattı (tts, align, images, svgkit = grafikler, planner, render, claims, thumbnails,
                                      dub, publish, schedule, retention, signals, updater, web)
-docs/BRAND.md · docs/STORYBOARD.md · docs/FACTORY.md · docs/catalog/
+docs/BRAND.md · docs/STORYBOARD.md (sahne planı biçimi) · docs/FACTORY.md
 ```
 
 Komut satırı da var (panel aynı komutları kullanıyor): `python -m studio --help`. Testler: `python -m pytest -q`

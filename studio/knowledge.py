@@ -109,7 +109,8 @@ def _sources() -> str:
 def build_knowledge(channel: str, cfg: Config) -> str:
     ch = Channel(channel)
     d = ch.data
-    mascot = d.get("mascot") or {}
+    chars = "; ".join(f"{k}: {' '.join(str((v or {}).get('description', '')).split())}"
+                      for k, v in (d.get("characters") or {}).items()) or "none"
     series = "\n".join(f"| {s.get('name', sid)} | {', '.join(s.get('pillars') or [])} | {s.get('promise', '')} |"
                        for sid, s in (d.get("series") or {}).items())
     projects, ref = _projects(ch)
@@ -127,7 +128,7 @@ def build_knowledge(channel: str, cfg: Config) -> str:
         f"the chatbot you work with (Claude Project, ChatGPT, Gemini, DeepSeek) and replace it after each change._",
         "## How to use this file\n"
         "You are the writing and planning partner of this YouTube channel. Use it for: video ideas and angles, "
-        "scripts, claim lists, storyboard (shot) plans, titles, thumbnails, Shorts, translations. When the Video "
+        "scripts, claim lists, scene plans, titles, thumbnails, Shorts, translations. When the Video "
         "Fabrikası panel gives you a prompt, the prompt's output format wins; this file gives you the context. The "
         "owner speaks Turkish; narration, plans and titles are written in English unless asked otherwise.",
         "## 1. Identity\n"
@@ -136,7 +137,8 @@ def build_knowledge(channel: str, cfg: Config) -> str:
         f"- **Tagline:** {d.get('tagline', '')}\n"
         f"- **About:** {' '.join(str(d.get('description', '')).split())}\n"
         f"- **Languages:** {', '.join(d.get('languages') or [])} (first = primary; others are extra audio tracks)\n"
-        f"- **Mascot:** {d.get('mascot_name', 'mascot')}: `{mascot}`",
+        f"- **Look:** {' '.join(str(d.get('visual_style', '')).split())}\n"
+        f"- **Recurring characters:** {chars}",
         f"## 2. Series (playlists)\n| series | pillars | promise |\n| --- | --- | --- |\n{series}",
         f"## 3. Writing rules\n{WRITING_RULES}",
         f"## 4. Voice delivery tags\n{DELIVERY_TAGS}",

@@ -1,8 +1,9 @@
-"""Fills storyboard `visual` fields.
+"""Fills storyboard `visual` fields: one painting per scene (docs/STORYBOARD.md).
 
-manual     (free)  writes build/planner_prompt.md — paste it into Claude (claude.ai), save the YAML answer
-                   as a file, then run: python -m studio apply-plan <slug> <file>
-anthropic  (paid)  calls the Anthropic API in batches and writes the visuals directly
+gemini     (cheap)  calls Gemini with the same key as the images and writes the plan directly (one click)
+anthropic  (paid)   the same with the Anthropic API
+manual     (free)   writes build/planner_prompt.md — paste it into Claude (claude.ai), save the YAML answer
+                    as a file, then run: python -m studio apply-plan <slug> <file>
 """
 from __future__ import annotations
 
@@ -16,18 +17,12 @@ from ..storyboard import unplanned
 
 SPEC = ROOT / "docs" / "STORYBOARD.md"
 
-INSTRUCTIONS = """You are the visual planner for a YouTube explainer channel ("{channel}": {tagline}) that tells
-stories with simple stick-figure drawings. The channel mascot is: {mascot}.
-Plan ONE visual per shot, following the spec below exactly. Reply with ONLY a YAML mapping from shot id to
-its visual (and optional engine/camera), like:
-
-s001:
-  visual: {bg: gym, bg_opts: {clock: "7:00"}, figures: [{pose: overhead_lift, x: 960, hold: barbell, face: strain, sweat: true}]}
-s002:
-  camera: out
-  visual: {...}
-
-Keep continuity between consecutive shots. Do not include any text or numbers inside images.
+INSTRUCTIONS = """You are the director of a YouTube documentary channel ("{channel}": {tagline}).
+Every picture is a painting in the channel's style: {style}
+Recurring characters: {characters}
+Plan the pictures for the shots listed at the end, following the spec below exactly: one painting per scene of
+5-9 seconds, `{same: true}` for the shots that continue a scene, charts for numbers, the coach when the narration
+speaks to the viewer. Reply with ONLY the YAML mapping.
 """
 
 
@@ -44,18 +39,23 @@ def build_prompt(project: Project, only: list[dict] | None = None) -> str:
     shots = sb["shots"]
     todo = only if only is not None else unplanned(shots)
     ch = project.ch.data if project.ch.exists() else {}
+    chars = "; ".join(f"{k} = {(v or {}).get('description', '')}" for k, v in (ch.get("characters") or {}).items())
     head = (INSTRUCTIONS.replace("{channel}", str(ch.get("name", project.channel)))
-            .replace("{tagline}", str(ch.get("tagline", ""))).replace("{mascot}", str(ch.get("mascot", {}))))
+            .replace("{tagline}", str(ch.get("tagline", "")))
+            .replace("{style}", str(ch.get("visual_style") or "painterly documentary illustration"))
+            .replace("{characters}", chars or "none"))
     return f"{head}\n\n{SPEC.read_text(encoding='utf-8')}\n\n{_context(shots, todo, sb.get('title', project.slug))}"
 
 
 def apply_plan(project: Project, plan: dict) -> int:
+    from ..images import forget_image
     sb = project.load_storyboard()
     n = 0
     for s in sb["shots"]:
         entry = plan.get(s["id"])
         if not entry:
             continue
+        old = s.get("visual")
         if isinstance(entry, dict) and "visual" in entry:
             s["visual"] = entry["visual"]
             for k in ("engine", "camera"):
@@ -63,7 +63,11 @@ def apply_plan(project: Project, plan: dict) -> int:
                     s[k] = entry[k]
         else:
             s["visual"] = entry
+        if s["visual"] != old:
+            forget_image(project, s["id"])
         n += 1
+    from ..images import drop_orphans
+    drop_orphans(sb["shots"])
     project.save_storyboard(sb)
     return n
 
@@ -81,7 +85,7 @@ def parse_yaml_reply(text: str) -> dict:
 
 
 def plan(project: Project, cfg: Config) -> None:
-    provider = cfg.get_path("planner.provider", "manual")
+    provider = cfg.get_path("planner.provider", "gemini")
     todo = unplanned(project.load_storyboard()["shots"])
     if not todo:
         print("  tüm shot'ların görsel planı zaten var.")
@@ -92,9 +96,9 @@ def plan(project: Project, cfg: Config) -> None:
         print(f"  {len(todo)} shot planlanacak. İstem hazır: {out}\n"
               f"  Panelde 'İstemi kopyala' → Claude'a yapıştır → gelen YAML'ı 'Planı uygula' kutusuna yapıştır.")
         return
-    if provider == "anthropic":
-        from .anthropic_planner import run
-        run(project, cfg, todo)
+    if provider in ("gemini", "anthropic"):
+        from .api_planner import run
+        run(project, cfg, todo, provider)
         return
     raise SystemExit(f"Bilinmeyen planner.provider: {provider}")
 

@@ -13,7 +13,8 @@ tüm sütunları kapsıyor ve eğitim/bilim konumlandırmasına uyuyor.
 | **Handle** | @HomoAthleticus (Eylül 2026'da boş görünüyordu). Yedek: @HomoAthleticusTV, @HomoAthleticusCoach |
 | **Slogan** | Your body has a 2-million-year training log. Let's read it. |
 | **Kategori** | Education (fitness değil) |
-| **Maskot** | The Coach: kırmızı bantlı, düdüklü çöp adam. Anlatır, karşılaştırır, "coach's lesson"ı verir |
+| **Görsel dil** | Elle boyanmış guaş illüstrasyon, doğa tarihi müzesi duvar resmi havası (channel.yaml → `visual_style`) |
+| **Karakter** | The Coach: 30'larının başında atletik bir kadın, yüksek at kuyruğu, kırmızı ter bandı, antrasit tişört, düdük (referans: `channels/homo-athleticus/refs/coach.png`). Anlatır, gösterir, "coach's lesson"ı verir; anlatıcı sesle aynı kişi |
 | **Diller** | İngilizce ana dil. Türkçe, aynı videoya **ek ses izi** olarak eklenir (ayrı kanal değil) |
 
 **Kanal açıklaması (YouTube "Hakkında", ≤300 karakter):**

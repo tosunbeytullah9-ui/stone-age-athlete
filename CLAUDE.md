@@ -8,19 +8,21 @@ Layout: `channels/<channel>/{channel.yaml, ideas.yaml, projects/<slug>/}` + the 
 Every CLI step takes `<slug> --channel <channel> [--lang xx]`; the default channel is `factory.default_channel`
 (`homo-athleticus`, brand: docs/BRAND.md; old id `stone-age-athlete` still resolves via `aliases`).
 
-## Planning a video's visuals (most common task)
+## Planning a video's pictures (most common task)
+Pictures are AI paintings in the channel's look (`channel.yaml → visual_style`), one per **scene** of 5–9 s
+(2–4 shots); the following shots of a scene are `visual: {same: true}` and the camera keeps moving over the picture.
+Numbers are vector charts printed on the channel's paper (`chart_paper`). The recurring character is the coach
+(`characters.coach`, reference sheet `channels/<c>/refs/coach.png`, attached to every picture she is in).
 When asked to "plan" a project (e.g. "002'yi planla"):
 1. `python -m studio split <slug> --channel <c>` (safe to re-run; keeps visuals, translations and remaps Shorts/claims).
-2. Read `docs/STORYBOARD.md` fully and look at `docs/catalog/*.png` before writing anything.
-3. Read the storyboard. Write `channels/<c>/projects/<slug>/plan.yaml` mapping every unplanned shot id →
-   `{visual: {...}, camera?: in|out|none, engine?: gemini}`. Rules: one idea per shot, continuity between
-   consecutive shots, era colour code, numbers as pictures, no text in images, mascot for explanations, close-ups
-   with `frame`, no background for more than ~5 shots in a row or ~35% of the video.
-4. `python -m studio apply-plan <slug> <plan.yaml> --channel <c>`, then `images` and `sheet`. **Look at
-   `build/contact_sheet.png`** and single shots; fix overlaps, floating figures, hands missing props, images that
-   don't match the words; re-render with `--only`.
-5. Default to the free svg engine; propose `engine: gemini` only where the recipe can't express the scene and say
-   how many such (paid) shots there are.
+2. Either `python -m studio plan <slug>` (Gemini plans it, `planner.provider: gemini`), or write
+   `channels/<c>/projects/<slug>/plan.yaml` yourself following `docs/STORYBOARD.md` exactly (read it fully first)
+   and run `apply-plan <slug> <plan.yaml>`.
+3. `python -m studio check <slug>`: plan complete, no scene longer than 5 shots, coach in ≤30% of scenes.
+4. `images` (paid: ~0.05 $ per scene; say how many scenes will be painted before running it on a whole video),
+   then `sheet` and **look at `build/contact_sheet.png`**: pictures that don't match the words, wrong anatomy,
+   text that slipped into a painting, the coach looking different. Fix the prompt and re-paint with `--only sNNN`.
+   Unchanged scenes are cached and never paid twice.
 
 ## Writing narration
 - Structure (the script template shows it): hook in the first 8 s with the most surprising sourced fact, setup,
@@ -44,7 +46,7 @@ When asked to "plan" a project (e.g. "002'yi planla"):
 ## Channel artwork and the channel bible
 - `python -m studio branding --channel <c>` → `channels/<c>/build/branding/` (profile 800², banner 2560×1440 with
   text in the 1546×423 safe area, watermark 150²). Check `banner_guides.png`.
-- `python -m studio knowledge --channel <c>` → `channels/<c>/build/knowledge.md`: identity, rules, drawing kit,
+- `python -m studio knowledge --channel <c>` → `channels/<c>/build/knowledge.md`: identity, rules, scene format,
   ideas, results, sources, a reference script. Upload it to the chatbot (Claude Project) after changes.
 
 ## Translating
@@ -52,9 +54,11 @@ When asked to "plan" a project (e.g. "002'yi planla"):
 language, same shot boundaries, about the same spoken length ±10% because it must fit the primary timeline),
 then `apply-translation <slug> <file> --lang tr`.
 
-## Extending the drawing kit
-Poses: `studio/svgkit/figure.py` (joints relative to hip). Props: `props*.py`. Backgrounds: `backgrounds.py`.
-After adding: update `docs/STORYBOARD.md`, run `python -m studio catalog`, check the images, run `python -m pytest -q`.
+## Changing the look
+- Style and characters: `channel.yaml → visual_style, characters`. A new character needs a reference sheet in
+  `channels/<c>/refs/` (full body, front + three-quarter view, plain background, painted in the channel style).
+- Charts: `studio/svgkit/props.py` and `props_charts.py` (values 0..1). After adding: update `docs/STORYBOARD.md`
+  (Charts) and run `python -m pytest -q`.
 
 ## Updates on the owner's machine
 He updates with `guncelle.bat` (`python -m studio update`): stashes local changes, fast-forwards, merges YAML value

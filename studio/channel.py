@@ -24,9 +24,9 @@ TEMPLATE = {
     "category": "Education",
     "languages": ["en"],          # first = primary language; others are dubbed versions
     "description": "",
-    "mascot": {"pose": "point", "wear": ["headband", "whistle"], "hold": "pointer", "face": "smile"},
-    "style": {"palette": {}},     # palette overrides, e.g. {sky_warm: "#f3e3c3"}
-    "prompt_style": "",           # extra style sentence appended to every AI image prompt
+    "visual_style": "",           # the look of every AI picture ("" = painterly documentary default)
+    "characters": {},             # {coach: {description: "...", ref: refs/coach.png}}
+    "style": {"palette": {}},     # chart colours
     "overrides": {},              # any config.yaml key, e.g. {tts: {kokoro: {voice: bm_george}}}
 }
 

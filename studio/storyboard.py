@@ -45,6 +45,8 @@ def build_storyboard(project: Project, cfg: Config) -> dict[str, Any]:
             id_map[prev["id"]] = shot["id"]
         shots.append(shot)
 
+    from .images import drop_orphans
+    drop_orphans(shots)
     data = {
         "title": title,
         "paragraphs": len(paragraphs(script)),

@@ -5,3148 +5,909 @@ shots:
   para: 0
   sent: 0
   text: 'The Bajau: Humans Who Evolved Bigger Spleens to Dive'
-  engine: gemini
-  visual:
-    prompt: a sea nomad stick figure diving underwater holding a wooden spear, small wooden goggles, sunlight rays
-      from the surface, coral and fish below, simple hand-drawn stick-figure style, warm and sea-blue palette, no
-      text
+  visual: null
 - id: s002
   para: 1
   sent: 1
   text: Take a deep breath and hold it.
-  visual:
-    bg: living_room
-    bg_opts:
-      clock: '9:00'
-    figures:
-    - pose: sit
-      x: 960
-      ground: 660
-      face: focused
-    props:
-    - type: sofa
-      x: 960
+  visual: null
 - id: s003
   para: 1
   sent: 2
   text: Right now.
-  visual:
-    bg: living_room
-    bg_opts:
-      clock: '9:00'
-    figures:
-    - pose: sit
-      x: 960
-      ground: 660
-      face: strain
-    props:
-    - type: sofa
-      x: 960
-    - type: clock
-      x: 1500
-      y: 300
-      time: '9:00'
-  camera: in
+  visual: null
 - id: s004
   para: 1
   sent: 3
   text: Most of you will want to breathe again in under a minute.
-  visual:
-    bg: living_room
-    bg_opts:
-      clock: '9:01'
-    figures:
-    - pose: sit
-      x: 960
-      ground: 660
-      face: tired
-      sweat: true
-    props:
-    - type: sofa
-      x: 960
-    - type: clock
-      x: 1500
-      y: 300
-      time: '9:01'
+  visual: null
 - id: s005
   para: 1
   sent: 4
   text: Now imagine doing that over and over, all day,
-  engine: gemini
-  visual:
-    prompt: a stick-figure diver surfacing for one breath and diving again, shown as a looping path with curved
-      arrows between sea surface and sea floor, bright daylight, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s006
   para: 1
   sent: 4
   text: while you hunt fish on the sea floor.
-  engine: gemini
-  visual:
-    prompt: a stick-figure diver walking along a sandy sea floor chasing a fish with a wooden spear, coral and seaweed,
-      sunlight from above, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s007
   para: 1
   sent: 5
   text: For the Bajau people, that is not a stunt.
-  engine: gemini
-  visual:
-    prompt: a calm smiling stick-figure diver on the sea floor holding a speared fish, relaxed body, simple hand-drawn
-      stick-figure style, no text
+  visual: null
 - id: s008
   para: 1
   sent: 6
   text: It is a working day.
-  engine: gemini
-  visual:
-    prompt: a stick-figure diver climbing back into a small wooden canoe with a basket full of fish, calm tropical
-      sea, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s009
   para: 2
   sent: 7
   text: The Bajau are often called the sea nomads of Southeast Asia.
-  engine: gemini
-  visual:
-    prompt: several wooden houseboats floating on a turquoise sea, stick-figure families on the decks, cooking smoke,
-      simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s010
   para: 2
   sent: 8
   text: They live in the waters around Indonesia,
-  engine: gemini
-  visual:
-    prompt: a few green tropical islands in a wide turquoise sea seen from above like a simple map, one tiny wooden
-      boat, simple hand-drawn style, no text, no labels
+  visual: null
 - id: s011
   para: 2
   sent: 8
   text: Malaysia and the Philippines.
-  engine: gemini
-  visual:
-    prompt: a wider view of many green tropical islands scattered across a turquoise sea seen from above like a
-      simple map, tiny wooden boats between them, simple hand-drawn style, no text, no labels
-  camera: out
+  visual: null
 - id: s012
   para: 2
   sent: 9
   text: For generations,
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 600
-      wear:
-      - beard
-      face: smile
-    - pose: stand
-      x: 960
-      face: smile
-    - pose: stand
-      x: 1280
-      scale: 0.6
-      face: smile
+  visual: null
 - id: s013
   para: 2
   sent: 9
   text: many of them lived on houseboats and came to land only to trade.
-  engine: gemini
-  visual:
-    prompt: a wooden houseboat pulled up at a beach, a stick-figure sea nomad handing fish to a trader on land who
-      gives a sack of rice, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s014
   para: 2
   sent: 10
   text: Linguistic studies suggest they have lived this way
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: calendar
-      x: 1240
-      y: 485
+  visual: null
 - id: s015
   para: 2
   sent: 10
   text: for more than a thousand years.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: calendar
-      x: 960
-      y: 485
-    - type: arrow
-      x: 1060
-      y: 485
-      to:
-      - 1560
-      - 485
-      color: ochre
-    - type: calendar
-      x: 1640
-      y: 485
+  visual: null
 - id: s016
   para: 2
   sent: 11
   text: And when Magellan's expedition crossed these waters in 1521,
-  engine: gemini
-  visual:
-    prompt: an old wooden sailing ship with large sails on a tropical sea, small wooden houseboats nearby, simple
-      hand-drawn stick-figure style, no text
+  visual: null
 - id: s017
   para: 2
   sent: 11
   text: European sailors wrote about them.
-  engine: gemini
-  visual:
-    prompt: a stick-figure sailor on the deck of an old sailing ship writing in a journal with a quill, looking
-      at small houseboats on the sea, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s018
   para: 3
   sent: 12
   text: So what does their working day look like?
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: question
-      x: 1240
-      y: 485
+  visual: null
 - id: s019
   para: 3
   sent: 13
   text: In one field study,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: clock
-      x: 1240
-      y: 485
-      time: '12:00'
+  visual: null
 - id: s020
   para: 3
   sent: 13
   text: Bajau divers spent more than five hours a day underwater.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: clock
-      x: 960
-      y: 300
-      time: '5:00'
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.8
-      colors:
-      - water
+  visual: null
 - id: s021
   para: 3
   sent: 14
   text: That was about sixty percent of their working time.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.6
-      - 0.4
-      colors:
-      - water
-      - sand
+  visual: null
 - id: s022
   para: 3
   sent: 15
   text: For comparison, the Japanese Ama divers,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1100
-      y: 760
-      values:
-      - 0.8
-      colors:
-      - water
-    - type: question
-      x: 1450
-      y: 550
+  visual: null
 - id: s023
   para: 3
   sent: 15
   text: famous for their own breath-hold tradition,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1100
-      y: 760
-      values:
-      - 0.8
-      colors:
-      - water
-    - type: question
-      x: 1450
-      y: 550
-    - type: heart
-      x: 1450
-      y: 350
+  visual: null
 - id: s024
   para: 3
   sent: 15
   text: spent about two hours a day underwater in the same study.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: surprised
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.8
-      - 0.3
-      colors:
-      - water
-      - stone
+  visual: null
 - id: s025
   para: 3
   sent: 16
   text: The Bajau dive, rise, rest for a few breaths, and dive again.
-  engine: gemini
-  visual:
-    prompt: 'a sequence of the same stick-figure diver: diving down, rising to the surface, floating and breathing,
-      diving down again, connected by curved arrows, tropical sea, simple hand-drawn stick-figure style, no text'
+  visual: null
 - id: s026
   para: 3
   sent: 17
   text: A single dive usually lasts around half a minute.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: clock
-      x: 1240
-      y: 485
-      time: 0:30
+  visual: null
 - id: s027
   para: 3
   sent: 18
   text: But they repeat it hundreds of times.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.3
-      - 0.3
-      - 0.3
-      - 0.3
-      - 0.3
-      - 0.3
-      - 0.3
-      - 0.3
-      - 0.3
-      - 0.3
-      colors:
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
+  visual: null
 - id: s028
   para: 4
   sent: 19
   text: They do it with almost no equipment.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 960
-      face: smile
+  visual: null
 - id: s029
   para: 4
   sent: 20
   text: A spear.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 960
-      hold: spear
-      face: smile
+  visual: null
 - id: s030
   para: 4
   sent: 21
   text: A pair of hand-made wooden goggles.
-  engine: gemini
-  visual:
-    prompt: close-up of a pair of simple hand-carved wooden diving goggles with small glass lenses on a wooden plank,
-      simple hand-drawn style, no text
+  visual: null
 - id: s031
   para: 4
   sent: 22
   text: No fins, no wetsuit, no air tank.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 800
-      hold: spear
-      face: smile
-    props:
-    - type: cross
-      x: 1350
-      y: 380
-    - type: cross
-      x: 1350
-      y: 560
-    - type: cross
-      x: 1350
-      y: 740
+  visual: null
 - id: s032
   para: 4
   sent: 23
   text: Some reports describe Bajau divers reaching depths
-  engine: gemini
-  visual:
-    prompt: a tiny stick-figure diver very deep underwater, the sea getting darker blue toward the bottom, faint
-      light far above, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s033
   para: 4
   sent: 23
   text: of more than seventy metres.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: surprised
-    props:
-    - type: arrow
-      x: 1040
-      y: 180
-      to:
-      - 1040
-      - 800
-      color: water
+  visual: null
 - id: s034
   para: 4
   sent: 24
   text: Others, looking at ordinary village divers,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: arrow
-      x: 1040
-      y: 180
-      to:
-      - 1040
-      - 800
-      color: water
-    - type: question
-      x: 1440
-      y: 350
+  visual: null
 - id: s035
   para: 4
   sent: 24
   text: saw much shallower work, around ten metres.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: arrow
-      x: 1040
-      y: 180
-      to:
-      - 1040
-      - 800
-      color: water
-    - type: arrow
-      x: 1440
-      y: 180
-      to:
-      - 1440
-      - 330
-      color: water
+  visual: null
 - id: s036
   para: 4
   sent: 25
   text: The honest answer is that it varies.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: arrow
-      x: 1040
-      y: 180
-      to:
-      - 1040
-      - 800
-      color: water
-    - type: arrow
-      x: 1440
-      y: 180
-      to:
-      - 1440
-      - 330
-      color: water
-    - type: question
-      x: 1240
-      y: 600
+  visual: null
 - id: s037
   para: 4
   sent: 26
   text: But even the shallow version, repeated all day,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.2
-      - 0.2
-      - 0.2
-      - 0.2
-      - 0.2
-      - 0.2
-      - 0.2
-      - 0.2
-      - 0.2
-      - 0.2
-      colors:
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
-      - water
+  visual: null
 - id: s038
   para: 4
   sent: 26
   text: is something your body is not built for.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: tired_bent
-      x: 960
-      face: tired
-      sweat: true
+  visual: null
 - id: s039
   para: 4
   sent: 27
   text: Or is it?
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: think
-      x: 960
-      face: surprised
-    props:
-    - type: question
-      x: 1250
-      y: 300
-  camera: in
+  visual: null
 - id: s040
   para: 5
   sent: 28
   text: Here is the question that pulled scientists in.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: question
-      x: 1240
-      y: 485
+  visual: null
 - id: s041
   para: 5
   sent: 29
   text: Is this skill, or is it biology?
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: board
-      x: 1240
-      y: 485
-      w: 960
-      h: 690
-      divider: true
-    - type: effort
-      x: 1000
-      y: 485
-    - type: heart
-      x: 1480
-      y: 485
+  visual: null
 - id: s042
   para: 5
   sent: 30
   text: Can anyone who grows up in the water learn to do this?
-  engine: gemini
-  visual:
-    prompt: a small stick-figure child learning to swim in shallow clear sea water next to a wooden stilt house,
-      simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s043
   para: 5
   sent: 31
   text: Or has the sea changed the Bajau themselves?
-  engine: gemini
-  visual:
-    prompt: a stick-figure diver underwater surrounded by gentle swirling waves that wrap around the body as if
-      the sea is shaping it, soft glow, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s044
   para: 6
   sent: 32
   text: To answer that, you first need to know about a small
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: question
-      x: 1240
-      y: 485
+  visual: null
 - id: s045
   para: 6
   sent: 32
   text: organ you probably never think about.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: question
-      x: 1240
-      y: 485
-      scale: 0.6
-  camera: in
+  visual: null
 - id: s046
   para: 6
   sent: 33
   text: Your spleen.
-  engine: gemini
-  visual:
-    prompt: a simple friendly drawing of a human spleen organ, dark red, bean-shaped, on a plain warm background,
-      simple hand-drawn style, no text, no labels
+  visual: null
 - id: s047
   para: 6
   sent: 34
   text: It sits under your left ribs, about the size of your fist.
-  engine: gemini
-  visual:
-    prompt: a simple stick-figure torso outline with ribs drawn, a small dark red spleen highlighted under the lower
-      left ribs, a fist drawn next to it for size, simple hand-drawn style, no text, no labels
+  visual: null
 - id: s048
   para: 6
   sent: 35
   text: Most people know it as a filter for the blood.
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a spleen acting like a sieve, blood cells flowing in and cleaner blood flowing out,
-      simple hand-drawn style, no text, no labels
+  visual: null
 - id: s049
   para: 6
   sent: 36
   text: But it also works as a reserve tank.
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a spleen shaped like a small storage tank with a valve, dark red, simple hand-drawn
-      style, no text, no labels
+  visual: null
 - id: s050
   para: 6
   sent: 37
   text: It stores red blood cells, the cells that carry oxygen.
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a spleen full of round red blood cells packed inside it like a storage room, simple
-      hand-drawn style, no text, no labels
+  visual: null
 - id: s051
   para: 7
   sent: 38
   text: When you hold your breath and put your face in cold water,
-  engine: gemini
-  visual:
-    prompt: a stick figure holding breath with face dipped into a bowl of cold water with ice cubes, simple hand-drawn
-      stick-figure style, no text
+  visual: null
 - id: s052
   para: 7
   sent: 38
   text: your body switches into a special mode.
-  engine: gemini
-  visual:
-    prompt: the same stick figure with face in a bowl of cold water, a soft blue glow spreading over the body like
-      a switch turning on, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s053
   para: 7
   sent: 39
   text: Scientists call it the diving response.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: heart
-      x: 1240
-      y: 485
-    - type: effort
-      x: 1440
-      y: 350
+  visual: null
 - id: s054
   para: 7
   sent: 40
   text: Your heart slows down.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: heart
-      x: 1240
-      y: 485
-    - type: arrow
-      x: 1440
-      y: 330
-      to:
-      - 1440
-      - 640
-      color: water
+  visual: null
 - id: s055
   para: 7
   sent: 41
   text: The blood vessels in your arms and legs tighten,
-  engine: gemini
-  visual:
-    prompt: a simple stick-figure body outline with blood vessels in the arms and legs drawn narrower and tightening,
-      simple hand-drawn style, no text, no labels
+  visual: null
 - id: s056
   para: 7
   sent: 41
   text: so blood stays around your heart and brain.
-  engine: gemini
-  visual:
-    prompt: a simple stick-figure body outline with red blood gathered around the heart and head, arms and legs
-      pale, arrows pointing toward the chest, simple hand-drawn style, no text, no labels
+  visual: null
 - id: s057
   para: 7
   sent: 42
   text: And your spleen squeezes.
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a dark red spleen being squeezed smaller, motion lines around it, simple hand-drawn
-      style, no text, no labels
+  visual: null
 - id: s058
   para: 7
   sent: 43
   text: It pushes its stored red blood cells into the bloodstream.
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a squeezed spleen pushing a stream of round red blood cells into a blood vessel,
-      simple hand-drawn style, no text, no labels
+  visual: null
 - id: s059
   para: 7
   sent: 44
   text: It is like a scuba diver opening a spare oxygen bottle.
-  engine: gemini
-  visual:
-    prompt: a stick-figure scuba diver underwater opening the valve of a small spare oxygen bottle, bubbles rising,
-      simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s060
   para: 8
   sent: 45
   text: You have this response too.
-  visual:
-    bg: living_room
-    bg_opts:
-      clock: '9:05'
-    figures:
-    - pose: sit
-      x: 960
-      ground: 660
-      face: surprised
-    props:
-    - type: sofa
-      x: 960
-    - type: heart
-      x: 1300
-      y: 400
+  visual: null
 - id: s061
   para: 8
   sent: 46
   text: Every human does.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: stand
-      x: 500
-      scale: 0.8
-      face: smile
-    - pose: stand
-      x: 800
-      scale: 0.8
-      wear:
-      - hair_bun
-      face: smile
-    - pose: stand
-      x: 1100
-      scale: 0.8
-      wear:
-      - cap
-      face: smile
-    - pose: stand
-      x: 1400
-      scale: 0.8
-      wear:
-      - beard
-      face: smile
+  visual: null
 - id: s062
   para: 8
   sent: 47
   text: In trained breath-hold divers,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      colors:
-      - clay
+  visual: null
 - id: s063
   para: 8
   sent: 47
   text: researchers measured the spleen shrinking by
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 0.75
-      colors:
-      - clay
-      - clay
+  visual: null
 - id: s064
   para: 8
   sent: 47
   text: about a quarter after a series of breath-holds.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 0.75
-      colors:
-      - clay
-      - clay
-  camera: in
+  visual: null
 - id: s065
   para: 8
   sent: 48
   text: That is the spleen emptying its reserve.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 0.75
-      colors:
-      - clay
-      - clay
-    - type: arrow
-      x: 1560
-      y: 300
-      to:
-      - 1560
-      - 500
-      color: bad
+  visual: null
 - id: s066
   para: 9
   sent: 49
   text: Now think about seals.
-  engine: gemini
-  visual:
-    prompt: a big grey seal lying on white sea ice next to a hole in the ice, simple hand-drawn style, no text
+  visual: null
 - id: s067
   para: 9
   sent: 50
   text: Deep-diving seals, like the Weddell seal,
-  engine: gemini
-  visual:
-    prompt: a big grey seal diving deep under a sheet of sea ice into dark blue water, simple hand-drawn style,
-      no text
+  visual: null
 - id: s068
   para: 9
   sent: 50
   text: have enormous spleens compared to their body size.
-  engine: gemini
-  visual:
-    prompt: a simple outline drawing of a seal body with a very large dark red spleen highlighted inside, simple
-      hand-drawn style, no text, no labels
+  visual: null
 - id: s069
   para: 9
   sent: 51
   text: A bigger tank means more oxygen on demand.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.35
-      - 1.0
-      colors:
-      - clay
-      - water
+  visual: null
 - id: s070
   para: 9
   sent: 52
   text: A young geneticist named Melissa Ilardo noticed this
-  visual:
-    bg: office
-    bg_opts:
-      clock: '10:00'
-    figures:
-    - pose: think
-      x: 760
-      wear:
-      - hair_bun
-      face: focused
-    props:
-    - type: desk
-      x: 1200
-      laptop: true
+  visual: null
 - id: s071
   para: 9
   sent: 52
   text: and asked a simple question.
-  visual:
-    bg: office
-    bg_opts:
-      clock: '10:00'
-    figures:
-    - pose: think
-      x: 760
-      wear:
-      - hair_bun
-      face: focused
-    props:
-    - type: desk
-      x: 1200
-      laptop: true
-    - type: question
-      x: 960
-      y: 250
+  visual: null
 - id: s072
   para: 9
   sent: 53
   text: If seals evolved bigger spleens for diving,
-  visual:
-    bg: office
-    bg_opts:
-      clock: '10:00'
-    figures:
-    - pose: point
-      x: 760
-      wear:
-      - hair_bun
-      face: smile
-    props:
-    - type: desk
-      x: 1200
-      laptop: true
-    - type: question
-      x: 960
-      y: 250
-    - type: heart
-      x: 1200
-      y: 300
+  visual: null
 - id: s073
   para: 9
   sent: 53
   text: could humans do the same?
-  visual:
-    bg: office
-    bg_opts:
-      clock: '10:00'
-    figures:
-    - pose: think
-      x: 760
-      wear:
-      - hair_bun
-      face: surprised
-    props:
-    - type: desk
-      x: 1200
-      laptop: true
-    - type: question
-      x: 960
-      y: 250
-    - type: question
-      x: 1100
-      y: 200
+  visual: null
 - id: s074
   para: 10
   sent: 54
   text: So she went to Indonesia.
-  engine: gemini
-  visual:
-    prompt: a stick-figure woman scientist with a hair bun and a backpack arriving by small wooden boat at a village
-      of houses on stilts over the sea, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s075
   para: 10
   sent: 55
   text: She lived in a Bajau village
-  engine: gemini
-  visual:
-    prompt: the same stick-figure woman scientist with a hair bun sitting on a wooden walkway in a stilt village
-      over the sea, villagers around her, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s076
   para: 10
   sent: 55
   text: and brought a portable ultrasound machine.
-  engine: gemini
-  visual:
-    prompt: close-up of hands holding a small portable ultrasound machine with a probe and a small screen, simple
-      hand-drawn style, no text
+  visual: null
 - id: s077
   para: 10
   sent: 56
   text: She measured the spleens of fifty-nine Bajau people.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: kneel
-      x: 650
-      wear:
-      - hair_bun
-      hold: phone
-      face: focused
-    - pose: lie
-      x: 1100
-      face: smile
+  visual: null
 - id: s078
   para: 10
   sent: 57
   text: Then she measured thirty-four people from the Saluan,
-  visual:
-    bg: savanna
-    bg_opts:
-      sun: high
-      trees: true
-    figures:
-    - pose: kneel
-      x: 650
-      wear:
-      - hair_bun
-      hold: phone
-      face: focused
-    - pose: lie
-      x: 1100
-      face: smile
+  visual: null
 - id: s079
   para: 10
   sent: 57
   text: a neighbouring group that lives on land and does not dive.
-  visual:
-    bg: savanna
-    bg_opts:
-      sun: high
-      hut: true
-      trees: true
-    figures:
-    - pose: walk
-      x: 700
-      hold: stick
-      face: smile
-    - pose: bend_dig
-      x: 1150
-      face: focused
+  visual: null
 - id: s080
   para: 10
   sent: 58
   text: Same region.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 650
-      hold: spear
-      face: smile
-    - pose: stand
-      x: 1270
-      flip: true
-      hold: stick
-      face: smile
+  visual: null
 - id: s081
   para: 10
   sent: 59
   text: Same kind of food.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 650
-      hold: bowl
-      face: smile
-    - pose: stand
-      x: 1270
-      flip: true
-      hold: bowl
-      face: smile
+  visual: null
 - id: s082
   para: 10
   sent: 60
   text: Different life.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 650
-      hold: spear
-      face: focused
-    - pose: stand
-      x: 1270
-      flip: true
-      hold: stick
-      face: focused
-    props:
-    - type: arrow
-      x: 850
-      y: 400
-      to:
-      - 1070
-      - 400
-      color: stone
+  visual: null
 - id: s083
   para: 11
   sent: 61
   text: The result was striking.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: surprised
-    props:
-    - type: question
-      x: 1240
-      y: 485
+  visual: null
 - id: s084
   para: 11
   sent: 62
   text: The Bajau spleens were about fifty percent larger
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: surprised
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 0.66
-      colors:
-      - water
-      - sand
+  visual: null
 - id: s085
   para: 11
   sent: 62
   text: than the Saluan spleens.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 0.66
-      colors:
-      - water
-      - sand
-  camera: in
+  visual: null
 - id: s086
   para: 11
   sent: 63
   text: By the researchers' estimate,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.8
-      - 0.8
-      colors:
-      - clay
-      - clay
+  visual: null
 - id: s087
   para: 11
   sent: 63
   text: that could mean around ten percent more
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.8
-      - 0.9
-      colors:
-      - clay
-      - good
+  visual: null
 - id: s088
   para: 11
   sent: 63
   text: red blood cells released during a dive.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.8
-      - 0.9
-      colors:
-      - clay
-      - good
-    - type: arrow
-      x: 1560
-      y: 560
-      to:
-      - 1560
-      - 360
-      color: good
+  visual: null
 - id: s089
   para: 12
   sent: 64
   text: But here is the part that really matters.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: question
-      x: 1240
-      y: 485
+  visual: null
 - id: s090
   para: 12
   sent: 65
   text: A bigger spleen could simply come from training.
-  visual:
-    bg: gym
-    bg_opts:
-      clock: '7:00'
-      rack: true
-    figures:
-    - pose: overhead_lift
-      x: 960
-      hold: barbell
-      face: strain
-      sweat: true
+  visual: null
 - id: s091
   para: 12
   sent: 66
   text: Muscles grow when you use them.
-  visual:
-    bg: gym
-    bg_opts:
-      clock: '7:00'
-      rack: true
-    figures:
-    - pose: stand
-      x: 960
-      hold: dumbbell
-      face: strain
-      sweat: true
-    props:
-    - type: effort
-      x: 1200
-      y: 400
+  visual: null
 - id: s092
   para: 12
   sent: 67
   text: Maybe spleens do too.
-  visual:
-    bg: gym
-    bg_opts:
-      clock: '7:00'
-      rack: true
-    figures:
-    - pose: think
-      x: 960
-      face: surprised
-    props:
-    - type: question
-      x: 1200
-      y: 350
+  visual: null
 - id: s093
   para: 12
   sent: 68
   text: So the team checked Bajau people who did not dive.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 650
-      hold: spear
-      face: smile
-    - pose: stand
-      x: 1270
-      flip: true
-      face: smile
+  visual: null
 - id: s094
   para: 12
   sent: 69
   text: And their spleens were just as large
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 1.0
-      colors:
-      - water
-      - sand
+  visual: null
 - id: s095
   para: 12
   sent: 69
   text: as those of the Bajau divers.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 1.0
-      colors:
-      - water
-      - sand
-  camera: in
+  visual: null
 - id: s096
   para: 12
   sent: 70
   text: There was no difference.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: surprised
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 1.0
-      colors:
-      - water
-      - sand
-    - type: check
-      x: 1240
-      y: 250
+  visual: null
 - id: s097
   para: 13
   sent: 71
   text: That points away from training and toward inheritance.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 650
-      wear:
-      - beard
-      face: smile
-    - pose: stand
-      x: 1200
-      scale: 0.6
-      face: smile
-    props:
-    - type: arrow
-      x: 800
-      y: 450
-      to:
-      - 1080
-      - 600
-      color: ochre
-    - type: heart
-      x: 940
-      y: 350
+  visual: null
 - id: s098
   para: 13
   sent: 72
   text: The team then looked at Bajau DNA.
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a DNA double helix, warm ochre and blue colours, plain background, simple hand-drawn
-      style, no text, no labels
+  visual: null
 - id: s099
   para: 13
   sent: 73
   text: They found signs of natural selection on a gene called PDE10A.
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a DNA double helix with one short segment glowing gold, plain background, simple
-      hand-drawn style, no text, no labels
+  visual: null
 - id: s100
   para: 13
   sent: 74
   text: In the study, this gene was linked to spleen size,
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a DNA helix with one gold glowing segment and an arrow pointing to a dark red spleen,
-      simple hand-drawn style, no text, no labels
+  visual: null
 - id: s101
   para: 13
   sent: 74
   text: possibly through thyroid hormone.
-  engine: gemini
-  visual:
-    prompt: a simple stick-figure neck outline with a small butterfly-shaped thyroid gland highlighted, simple hand-drawn
-      style, no text, no labels
+  visual: null
 - id: s102
   para: 13
   sent: 75
   text: They also found signs of selection on a gene called BDKRB2,
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a DNA double helix with two segments glowing, one gold and one blue, plain background,
-      simple hand-drawn style, no text, no labels
+  visual: null
 - id: s103
   para: 13
   sent: 75
   text: which is linked to the diving response itself,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: heart
-      x: 1240
-      y: 485
-    - type: effort
-      x: 1440
-      y: 350
+  visual: null
 - id: s104
   para: 13
   sent: 75
   text: the tightening of blood vessels.
-  engine: gemini
-  visual:
-    prompt: a simple drawing of a blood vessel tube narrowing in the middle as its walls tighten, red blood inside,
-      simple hand-drawn style, no text, no labels
+  visual: null
 - id: s105
   para: 13
   sent: 76
   text: In other words,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
+  visual: null
 - id: s106
   para: 13
   sent: 76
   text: the sea may have shaped the Bajau body over many generations.
-  engine: gemini
-  visual:
-    prompt: a row of stick-figure divers underwater, each one fainter as the row goes back into the distance like
-      generations of ancestors, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s107
   para: 13
   sent: 77
   text: People with a slightly better diving body brought home more food,
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: carry
-      x: 750
-      hold: bowl
-      face: smile
-    - pose: stand
-      x: 1150
-      wear:
-      - hair_bun
-      face: smile
-    - pose: stand
-      x: 1400
-      scale: 0.6
-      face: smile
+  visual: null
 - id: s108
   para: 13
   sent: 77
   text: and passed on their genes.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 550
-      wear:
-      - beard
-      face: smile
-    - pose: stand
-      x: 950
-      face: smile
-    - pose: stand
-      x: 1350
-      scale: 0.6
-      face: smile
-    props:
-    - type: arrow
-      x: 690
-      y: 450
-      to:
-      - 830
-      - 450
-      color: ochre
-    - type: arrow
-      x: 1090
-      y: 450
-      to:
-      - 1250
-      - 550
-      color: ochre
+  visual: null
 - id: s109
   para: 14
   sent: 78
   text: This was published in 2018 in the journal Cell.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: calendar
-      x: 1240
-      y: 485
+  visual: null
 - id: s110
   para: 14
   sent: 79
   text: It became one of the clearest examples
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: check
-      x: 1240
-      y: 485
+  visual: null
 - id: s111
   para: 14
   sent: 79
   text: of recent human adaptation to a way of life.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: check
-      x: 1000
-      y: 485
-    - type: heart
-      x: 1480
-      y: 485
+  visual: null
 - id: s112
   para: 14
   sent: 80
   text: Not to a climate.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: stand
-      x: 700
-      face: neutral
-    props:
-    - type: sun
-      x: 1200
-      y: 350
-    - type: rain
-      x: 1450
-      y: 350
-    - type: cross
-      x: 1320
-      y: 600
+  visual: null
 - id: s113
   para: 14
   sent: 81
   text: Not to altitude.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: stand
-      x: 700
-      face: neutral
-    props:
-    - type: rock
-      x: 1300
-      scale: 3
-    - type: cross
-      x: 1300
-      y: 350
+  visual: null
 - id: s114
   para: 14
   sent: 82
   text: To a job.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 800
-      hold: spear
-      face: smile
-    props:
-    - type: check
-      x: 1250
-      y: 400
-  camera: in
+  visual: null
 - id: s115
   para: 15
   sent: 83
   text: And this is where we have to slow down.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
+  visual: null
 - id: s116
   para: 15
   sent: 84
   text: Because the story is great, but the evidence has limits.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: heart
-      x: 1000
-      y: 485
-    - type: question
-      x: 1480
-      y: 485
+  visual: null
 - id: s117
   para: 16
   sent: 85
   text: First, this is one study,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: calendar
-      x: 1240
-      y: 485
+  visual: null
 - id: s118
   para: 16
   sent: 85
   text: in one Bajau community,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: calendar
-      x: 1240
-      y: 400
-    - type: hut
-      x: 1600
-      scale: 0.6
+  visual: null
 - id: s119
   para: 16
   sent: 85
   text: with fewer than one hundred people measured.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    - pose: stand
-      x: 1050
-      scale: 0.4
-    - pose: stand
-      x: 1200
-      scale: 0.4
-    - pose: stand
-      x: 1350
-      scale: 0.4
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 600
-      values:
-      - 0.2
-      colors:
-      - stone
+  visual: null
 - id: s120
   para: 16
   sent: 86
   text: It is a strong start, not the final word.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: check
-      x: 1000
-      y: 485
-    - type: arrow
-      x: 1080
-      y: 485
-      to:
-      - 1380
-      - 485
-      color: ochre
-    - type: question
-      x: 1480
-      y: 485
+  visual: null
 - id: s121
   para: 17
   sent: 87
   text: Second, the researchers themselves said almost nothing is known
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: question
-      x: 1240
-      y: 485
-      scale: 1.5
+  visual: null
 - id: s122
   para: 17
   sent: 87
   text: about the genetics of human spleen size.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: question
-      x: 1240
-      y: 485
-      scale: 1.5
-  camera: in
+  visual: null
 - id: s123
   para: 17
   sent: 88
   text: The gene link is a clue, not a finished explanation.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: question
-      x: 1100
-      y: 485
-    - type: check
-      x: 1400
-      y: 485
-      scale: 0.6
+  visual: null
 - id: s124
   para: 18
   sent: 89
   text: Third, a bigger spleen is only one piece.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: heart
-      x: 1000
-      y: 485
-    - type: question
-      x: 1480
-      y: 485
+  visual: null
 - id: s125
   para: 18
   sent: 90
   text: The Bajau also grow up in the water.
-  engine: gemini
-  visual:
-    prompt: stick-figure children playing and splashing in shallow turquoise sea water next to wooden stilt houses,
-      simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s126
   para: 18
   sent: 91
   text: In one village,
-  engine: gemini
-  visual:
-    prompt: a village of wooden houses on stilts over a calm turquoise sea, small boats tied below, simple hand-drawn
-      stick-figure style, no text
+  visual: null
 - id: s127
   para: 18
   sent: 91
   text: children learned to swim at around three or four years old,
-  engine: gemini
-  visual:
-    prompt: a very small stick-figure child swimming happily in clear water below a wooden stilt house, simple hand-drawn
-      stick-figure style, no text
+  visual: null
 - id: s128
   para: 18
   sent: 91
   text: simply by watching and copying.
-  engine: gemini
-  visual:
-    prompt: a small stick-figure child in the water copying the swimming movements of an adult stick-figure swimming
-      next to them, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s129
   para: 18
   sent: 92
   text: They learn how to move calmly, how to equalise,
-  engine: gemini
-  visual:
-    prompt: a calm stick-figure diver underwater pinching the nose with one hand to equalise, relaxed posture, bubbles,
-      simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s130
   para: 18
   sent: 92
   text: how to stay relaxed.
-  engine: gemini
-  visual:
-    prompt: a stick-figure diver floating relaxed underwater with eyes half closed, arms loose, peaceful blue light,
-      simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s131
   para: 18
   sent: 93
   text: That skill matters as much as any gene.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 1.0
-      colors:
-      - water
-      - clay
+  visual: null
 - id: s132
   para: 18
   sent: 94
   text: So the honest picture is not "genes instead
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: board
-      x: 1240
-      y: 485
-      w: 960
-      h: 690
-      divider: true
-    - type: heart
-      x: 1000
-      y: 485
-    - type: effort
-      x: 1480
-      y: 485
-    - type: cross
-      x: 1240
-      y: 485
+  visual: null
 - id: s133
   para: 18
   sent: 94
   text: of training." It is genes and training, together, over a lifetime.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: heart
-      x: 1100
-      y: 485
-    - type: effort
-      x: 1380
-      y: 485
-    - type: check
-      x: 1240
-      y: 250
+  visual: null
 - id: s134
   para: 19
   sent: 95
   text: And fourth, the diving life has a cost.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: sad
-    props:
-    - type: cross
-      x: 1240
-      y: 485
+  visual: null
 - id: s135
   para: 19
   sent: 96
   text: Ear damage is common among Bajau divers.
-  engine: gemini
-  visual:
-    prompt: a stick-figure diver underwater holding one ear with a pained face, small bubbles, simple hand-drawn
-      stick-figure style, no text
+  visual: null
 - id: s136
   para: 19
   sent: 97
   text: Some people online claim they burst their eardrums on purpose.
-  visual:
-    bg: living_room
-    bg_opts:
-      night: true
-    figures:
-    - pose: sit
-      x: 960
-      ground: 660
-      hold: phone
-      face: surprised
-    props:
-    - type: sofa
-      x: 960
-    - type: question
-      x: 1250
-      y: 300
+  visual: null
 - id: s137
   para: 19
   sent: 98
   text: When a journalist asked,
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 650
-      hold: phone
-      wear:
-      - cap
-      face: focused
-    - pose: stand
-      x: 1270
-      flip: true
-      face: neutral
+  visual: null
 - id: s138
   para: 19
   sent: 98
   text: a Bajau diver said they do not do it on purpose.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 650
-      hold: phone
-      wear:
-      - cap
-      face: focused
-    - pose: stand
-      x: 1270
-      flip: true
-      face: neutral
-    props:
-    - type: cross
-      x: 1270
-      y: 280
+  visual: null
 - id: s139
   para: 19
   sent: 99
   text: It happens.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 650
-      hold: phone
-      wear:
-      - cap
-      face: neutral
-    - pose: stand
-      x: 1270
-      flip: true
-      face: sad
+  visual: null
 - id: s140
   para: 19
   sent: 100
   text: Their way of life is also changing.
-  engine: gemini
-  visual:
-    prompt: a wooden houseboat on the left and a row of wooden houses on stilts on the right over the same calm
-      sea, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s141
   para: 19
   sent: 101
   text: Many families have moved from boats to houses on stilts,
-  engine: gemini
-  visual:
-    prompt: stick-figure families carrying belongings from a houseboat onto a wooden house on stilts over the sea,
-      simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s142
   para: 19
   sent: 101
   text: and fewer children grow up diving every day.
-  engine: gemini
-  visual:
-    prompt: a stick-figure child sitting on the porch of a stilt house looking at a phone, the calm sea below empty
-      of swimmers, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s143
   para: 20
   sent: 102
   text: So what can you take from the Bajau?
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: question
-      x: 1240
-      y: 485
+  visual: null
 - id: s144
   para: 20
   sent: 103
   text: You will not grow a Bajau spleen by watching this video.
-  visual:
-    bg: living_room
-    bg_opts:
-      night: true
-    figures:
-    - pose: sit
-      x: 800
-      ground: 660
-      face: smile
-    props:
-    - type: sofa
-      x: 800
-    - type: tv
-      x: 1450
-    - type: cross
-      x: 1100
-      y: 300
+  visual: null
 - id: s145
   para: 20
   sent: 104
   text: But the diving response is in you,
-  visual:
-    bg: living_room
-    figures:
-    - pose: stand
-      x: 960
-      face: surprised
-    props:
-    - type: heart
-      x: 960
-      y: 520
-      scale: 0.6
+  visual: null
 - id: s146
   para: 20
   sent: 104
   text: and parts of it respond to training.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: lie
-      x: 960
-      face: focused
-    props:
-    - type: mat
-      x: 960
+  visual: null
 - id: s147
   para: 21
   sent: 105
   text: In one study, people did eight weeks of breath-hold training.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: lie
-      x: 960
-      face: focused
-    props:
-    - type: mat
-      x: 960
-    - type: calendar
-      x: 1450
-      y: 350
+  visual: null
 - id: s148
   para: 21
   sent: 106
   text: Their resting spleen size went up,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.8
-      - 1.0
-      colors:
-      - clay
-      - good
+  visual: null
 - id: s149
   para: 21
   sent: 106
   text: from about two hundred and forty to three hundred millilitres.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.8
-      - 1.0
-      colors:
-      - clay
-      - good
-    - type: arrow
-      x: 1560
-      y: 560
-      to:
-      - 1560
-      - 380
-      color: good
-  camera: in
+  visual: null
 - id: s150
   para: 21
   sent: 107
   text: Interesting.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: surprised
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.8
-      - 1.0
-      colors:
-      - clay
-      - good
+  visual: null
 - id: s151
   para: 21
   sent: 108
   text: But the amount the spleen squeezed
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.5
-      - 0.5
-      colors:
-      - clay
-      - clay
+  visual: null
 - id: s152
   para: 21
   sent: 108
   text: during a breath-hold did not change.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.5
-      - 0.5
-      colors:
-      - clay
-      - clay
-    - type: cross
-      x: 1560
-      y: 400
+  visual: null
 - id: s153
   para: 21
   sent: 109
   text: So training changed something,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 0.8
-      - 1.0
-      colors:
-      - clay
-      - good
-    - type: check
-      x: 1560
-      y: 350
+  visual: null
 - id: s154
   para: 21
   sent: 109
   text: but it did not turn them into Bajau.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1100
-      y: 760
-      values:
-      - 1.0
-      colors:
-      - good
-    - type: cross
-      x: 1480
-      y: 485
+  visual: null
 - id: s155
   para: 22
   sent: 110
   text: Here is the coach's lesson.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-  camera: in
+  visual: null
 - id: s156
   para: 23
   sent: 111
   text: One.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 600
-      values:
-      - 0.3
-      colors:
-      - ochre
+  visual: null
 - id: s157
   para: 23
   sent: 112
   text: Your body has systems you never use.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: sit_slouch
-      x: 960
-      ground: 700
-      face: neutral
-    props:
-    - type: chair
-      x: 960
-    - type: question
-      x: 1250
-      y: 300
+  visual: null
 - id: s158
   para: 23
   sent: 113
   text: The diving response is one of them.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: sit_slouch
-      x: 960
-      ground: 700
-      face: neutral
-    props:
-    - type: chair
-      x: 960
-    - type: heart
-      x: 1250
-      y: 350
-    - type: zzz
-      x: 1380
-      y: 250
+  visual: null
 - id: s159
   para: 23
   sent: 114
   text: The Bajau show how far a human body can go
-  engine: gemini
-  visual:
-    prompt: a stick-figure sea nomad diving strongly down toward a deep reef with a wooden spear, sunlight rays
-      above, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s160
   para: 23
   sent: 114
   text: when a life depends on it,
-  engine: gemini
-  visual:
-    prompt: a stick-figure diver handing fish up to a family waiting in a small wooden boat, calm sea, simple hand-drawn
-      stick-figure style, no text
+  visual: null
 - id: s161
   para: 23
   sent: 114
   text: and when that life is repeated for a thousand years.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 450
-      scale: 0.6
-      wear:
-      - beard
-      face: smile
-    - pose: stand
-      x: 750
-      scale: 0.7
-      face: smile
-    - pose: stand
-      x: 1050
-      scale: 0.8
-      wear:
-      - hair_bun
-      face: smile
-    - pose: stand
-      x: 1400
-      hold: spear
-      face: smile
+  visual: null
 - id: s162
   para: 24
   sent: 115
   text: Two.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 600
-      values:
-      - 0.3
-      - 0.3
-      colors:
-      - ochre
-      - ochre
+  visual: null
 - id: s163
   para: 24
   sent: 116
   text: Genes set the ceiling.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      colors:
-      - stone
+  visual: null
 - id: s164
   para: 24
   sent: 117
   text: Practice decides how close you get to it.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 0.7
-      colors:
-      - stone
-      - good
-    - type: arrow
-      x: 1560
-      y: 520
-      to:
-      - 1560
-      - 320
-      color: good
+  visual: null
 - id: s165
   para: 24
   sent: 118
   text: The Bajau have both.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: smile
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 760
-      values:
-      - 1.0
-      - 1.0
-      colors:
-      - water
-      - good
-    - type: check
-      x: 1240
-      y: 250
+  visual: null
 - id: s166
   para: 24
   sent: 119
   text: Most of us only control the second one,
-  visual:
-    bg: gym
-    bg_opts:
-      clock: '7:00'
-      rack: true
-    figures:
-    - pose: overhead_lift
-      x: 960
-      hold: barbell
-      face: focused
-      sweat: true
+  visual: null
 - id: s167
   para: 24
   sent: 119
   text: and that is enough to make real progress.
-  visual:
-    bg: gym
-    bg_opts:
-      clock: '7:00'
-      rack: true
-    figures:
-    - pose: celebrate
-      x: 960
-      face: smile
-    props:
-    - type: check
-      x: 1300
-      y: 300
+  visual: null
 - id: s168
   para: 25
   sent: 120
   text: Three.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: bar_chart
-      x: 1240
-      y: 600
-      values:
-      - 0.3
-      - 0.3
-      - 0.3
-      colors:
-      - ochre
-      - ochre
-      - ochre
+  visual: null
 - id: s169
   para: 25
   sent: 121
   text: And this one is not optional.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: effort
-      x: 1240
-      y: 485
-  camera: in
+  visual: null
 - id: s170
   para: 25
   sent: 122
   text: Never practise breath-holding in water on your own.
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: cross
-      x: 1240
-      y: 485
-      scale: 1.5
+  visual: null
 - id: s171
   para: 25
   sent: 123
   text: Not in a pool, not in the sea, not in a bath.
-  engine: gemini
-  visual:
-    prompt: 'three small side-by-side scenes: a swimming pool, the open sea, and a bathtub, each with a large red
-      X symbol over it, simple hand-drawn style, no text'
+  visual: null
 - id: s172
   para: 25
   sent: 124
   text: When you hold your breath for long,
-  engine: gemini
-  visual:
-    prompt: a lone stick figure holding breath underwater in an empty swimming pool, simple hand-drawn stick-figure
-      style, calm but serious mood, no text
+  visual: null
 - id: s173
   para: 25
   sent: 124
   text: you can lose consciousness without any warning.
-  engine: gemini
-  visual:
-    prompt: a lone stick figure drifting limp underwater in a swimming pool with eyes closed, no one around, dim
-      blue light, non-graphic, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s174
   para: 25
   sent: 125
   text: It is called shallow water blackout,
-  visual:
-    bg: classroom
-    figures:
-    - pose: point
-      x: 440
-      wear:
-      - headband
-      - whistle
-      hold: pointer
-      face: focused
-    props:
-    - type: cross
-      x: 1240
-      y: 485
-    - type: zzz
-      x: 1450
-      y: 350
+  visual: null
 - id: s175
   para: 25
   sent: 125
   text: and it has killed strong, fit swimmers.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: stand
-      x: 800
-      wear:
-      - cap
-      face: sad
-    props:
-    - type: cross
-      x: 1250
-      y: 400
+  visual: null
 - id: s176
   para: 25
   sent: 126
   text: Breathing fast before you go under makes it more dangerous, not less.
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: stand
-      x: 800
-      face: strain
-      sweat: true
-    props:
-    - type: motion
-      x: 950
-      y: 350
-      direction: speed
-    - type: cross
-      x: 1300
-      y: 400
+  visual: null
 - id: s177
   para: 25
   sent: 127
   text: If you want to train your breath-hold, do it on dry land,
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: lie
-      x: 960
-      face: focused
-    props:
-    - type: mat
-      x: 960
-    - type: check
-      x: 1400
-      y: 400
+  visual: null
 - id: s178
   para: 25
   sent: 127
   text: sitting or lying down,
-  visual:
-    bg: plain_cool
-    figures:
-    - pose: sit
-      x: 650
-      ground: 700
-      face: focused
-    - pose: lie
-      x: 1250
-      face: focused
-    props:
-    - type: chair
-      x: 650
-    - type: mat
-      x: 1250
-    - type: check
-      x: 950
-      y: 300
+  visual: null
 - id: s179
   para: 25
   sent: 127
   text: and freedive only with a trained buddy watching you.
-  engine: gemini
-  visual:
-    prompt: a stick-figure freediver holding breath just under the water surface while a buddy stick figure floats
-      at the surface right beside them watching closely, simple hand-drawn stick-figure style, no text
+  visual: null
 - id: s180
   para: 26
   sent: 128
   text: The Bajau did not become sea people in one lifetime.
-  engine: gemini
-  visual:
-    prompt: several wooden houseboats on a calm sea at sunset, simple hand-drawn stick-figure style, warm colours,
-      no text
+  visual: null
 - id: s181
   para: 26
   sent: 129
   text: They became sea people over a thousand years.
-  visual:
-    bg: plain_warm
-    figures:
-    - pose: stand
-      x: 450
-      scale: 0.6
-      wear:
-      - beard
-      face: smile
-    - pose: stand
-      x: 750
-      scale: 0.7
-      face: smile
-    - pose: stand
-      x: 1050
-      scale: 0.8
-      wear:
-      - hair_bun
-      face: smile
-    - pose: stand
-      x: 1400
-      hold: spear
-      face: smile
-    props:
-    - type: arrow
-      x: 450
-      y: 250
-      to:
-      - 1400
-      - 250
-      color: ochre
+  visual: null
 - id: s182
   para: 26
   sent: 130
   text: Respect the water the way they do.
-  engine: gemini
-  visual:
-    prompt: a calm stick-figure sea nomad sitting in a small wooden boat at sunset looking respectfully at the wide
-      sea, simple hand-drawn stick-figure style, warm colours, no text
-  camera: out
+  visual: null

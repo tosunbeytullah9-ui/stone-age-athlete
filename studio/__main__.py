@@ -5,18 +5,18 @@
 
 steps:
   split        script.md → storyboard.yaml (keeps planned visuals)
-  plan         plan visuals (manual prompt file, or Anthropic API)
-  translate    shot-level translation for --lang (manual prompt, or Anthropic API)
+  plan         plan the scenes' pictures (Gemini or Anthropic API, or a manual prompt file)
+  translate    shot-level translation for --lang (Gemini or Anthropic API, or a manual prompt)
   voice        narration for --lang
   align        timing of every shot for --lang
-  images       render shot images (shared by all languages)
+  images       paint the scene pictures (shared by all languages; unchanged scenes are never repainted)
   render       final 16:9 video for --lang
   shorts       vertical cut-downs listed in project.yaml → shorts
   describe     description.txt (chapters + sources) + captions.<lang>.srt for --lang
   thumbnails   thumbnail variants from project.yaml → thumbnails (all languages, or --lang)
   captions     captions.<lang>.srt only
   dub          --lang tr: audio track fitted to the primary video (upload as an extra YouTube audio track)
-  sheet        contact sheet of all shot images
+  sheet        contact sheet: one tile per scene
   check        quality gate (research, sources, variety)
   all          split → voice → align → images → render (+ describe) for --lang
   status       short summary
@@ -28,9 +28,7 @@ other:
   new-channel <id> --name "Name" [--langs en,tr]
   new <title> [--channel C]                               create a project
   apply-plan <project> FILE / apply-translation <project> FILE --lang L
-  compile <project,project,...> --title T [--lang L]      long compilation of finished videos
-  catalog | refs
-  branding [--channel C]                                  profile picture, banner, watermark (build/branding/)
+  branding [--channel C] [--force]                        profile picture, banner, watermark (build/branding/)
   knowledge [--channel C]                                 channel bible for any chatbot (build/knowledge.md)
 """
 from __future__ import annotations
@@ -41,7 +39,7 @@ import sys
 import time
 from pathlib import Path
 
-from .config import ASSETS, default_channel, load_config
+from .config import default_channel, load_config
 from .project import Project, create_project
 
 
@@ -75,25 +73,9 @@ def main(argv=None) -> None:
         from .web.app import serve
         serve()
         return
-    if cmd == "catalog":
-        from .catalog import build_catalog
-        for p in build_catalog():
-            print(f"  {p}")
-        return
-    if cmd == "refs":
-        from .images.svg_engine import SvgEngine
-        from .svgkit import render_svg
-        cfg = load_config(channel)
-        (ASSETS / "refs").mkdir(parents=True, exist_ok=True)
-        mascot = dict(cfg.get_path("channel.mascot") or {"pose": "point"})
-        mascot.update({"x": 800, "scale": 1.4})
-        with SvgEngine(cfg) as eng:
-            eng.svg_to_png(render_svg({"bg": "plain_warm", "figures": [mascot]}), ASSETS / "refs" / "coach.png")
-        print("  assets/refs/coach.png hazır")
-        return
     if cmd == "branding":
         from .branding import render_branding
-        render_branding(channel, load_config(channel))
+        render_branding(channel, load_config(channel), force=a.force)
         return
     if cmd == "knowledge":
         from .knowledge import write_knowledge
@@ -117,12 +99,6 @@ def main(argv=None) -> None:
         p = create_project(channel, a.title or a.target or "Untitled")
         print(f"  proje oluşturuldu: {p.dir}")
         return
-    if cmd == "compile":
-        from .render import compile_videos
-        cfg = load_config(channel)
-        compile_videos(channel, [s for s in (a.target or "").split(",") if s], cfg,
-                       a.lang or Project(channel, a.target.split(",")[0]).primary_lang(), a.title or "compilation")
-        return
 
     if not a.target:
         sys.exit(__doc__)
@@ -136,8 +112,10 @@ def main(argv=None) -> None:
     def step_split():
         from .storyboard import build_storyboard
         sb = build_storyboard(p, cfg)
-        planned = sum(1 for s in sb["shots"] if s.get("visual"))
-        print(f"  storyboard: {len(sb['shots'])} shot ({planned} planlı)")
+        from .images import scenes
+        groups = scenes(sb["shots"])
+        planned = sum(1 for g in groups if g[0].get("visual"))
+        print(f"  storyboard: {len(sb['shots'])} cümle parçası, {planned} planlı sahne")
 
     def step_voice():
         from .voice import make_voice

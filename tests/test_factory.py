@@ -30,7 +30,7 @@ def test_channel_project_and_readiness(tmp_channels):
     cfg = config_mod.load_config(ch.id)
     sb = build_storyboard(p, cfg)
     for s in sb["shots"]:
-        s["visual"] = {"bg": "plain_warm", "figures": [{"pose": "stand", "x": 400 + 10 * int(s["id"][1:])}]}
+        s["visual"] = {"prompt": f"scene {s['id']}"} if int(s["id"][1:]) % 3 == 1 else {"same": True}
     p.save_storyboard(sb)
     r = check(Project(ch.id, p.slug))
     assert r["ready"], [c for c in r["checks"] if not c["ok"]]
@@ -69,7 +69,7 @@ def test_panel_api(tmp_channels):
     slug = c.post(f"/api/channels/demo/ideas/{idea['id']}/project").json()["slug"]
     proj = c.get(f"/api/projects/demo/{slug}").json()
     assert proj["meta"]["title"] == "Why do we sweat?" and proj["readiness"]["ready"] is False
-    svg = c.post("/api/preview-svg", json={"visual": "bg: gym\nfigures: [{pose: run}]"}).text
+    svg = c.post("/api/preview-svg", json={"visual": "bg: plain_warm\nprops: [{type: pie, value: 0.3}]"}).text
     assert svg.startswith("<svg")
     assert c.get("/files/../config.yaml").status_code == 404
     assert c.post(f"/api/projects/demo/{slug}/run", json={"step": "rm -rf"}).status_code == 400

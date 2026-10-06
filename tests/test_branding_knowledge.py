@@ -16,7 +16,8 @@ def ch(tmp_path, monkeypatch):
     from studio.project import create_project
     c = create_channel("demo", "Demo Channel", ["en", "tr"])
     d = c.data
-    d.update({"tagline": "Your body has a long training log.", "mascot": {"pose": "point", "wear": ["headband"]},
+    d.update({"tagline": "Your body has a long training log.", "visual_style": "Gouache mural.",
+              "characters": {"coach": {"description": "The Coach: a woman with a red sweatband."}},
               "series": {"limits": {"name": "Human Limits", "pillars": ["P3"], "promise": "Extreme bodies"}}})
     c.save(d)
     c.save_ideas({"pillars": {"P3": {"name": "Extreme", "promise": "p"}},
@@ -53,16 +54,23 @@ def test_banner_safe_area_is_centred():
     assert (x1 - x0, y1 - y0) == SAFE and abs(x0 + x1 - BANNER[0]) <= 1 and abs(y0 + y1 - BANNER[1]) <= 1
 
 
-def test_branding_renders(ch):
-    pw = pytest.importorskip("playwright.sync_api")
-    try:
-        with pw.sync_playwright() as p:
-            p.chromium.launch().close()
-    except Exception:
-        pytest.skip("no Chromium for Playwright")
+def test_branding_renders(ch, monkeypatch, tmp_path):
+    """Profile, watermark and banner from two paintings (Gemini faked), painted once and then reused."""
+    from studio.images import gemini_engine
+    calls = []
+
+    def fake_generate(self, prompt, out, refs=None, aspect=None, size=None):
+        calls.append((prompt, aspect))
+        Image.new("RGB", size or (1920, 1080), "orange").save(out)
+
+    monkeypatch.setattr(gemini_engine, "secret", lambda name: "k")
+    monkeypatch.setattr(gemini_engine.GeminiEngine, "generate", fake_generate)
     from studio.branding import render_branding
     made = {p.name: p for p in render_branding("demo", config_mod.load_config("demo"))}
     assert Image.open(made["profile.png"]).size == (800, 800)
     assert Image.open(made["banner.png"]).size == (2560, 1440)
     wm = Image.open(made["watermark.png"])
     assert wm.size == (150, 150) and wm.mode == "RGBA" and wm.getpixel((0, 0))[3] == 0
+    assert [a for _, a in calls] == ["1:1", "16:9"] and "red sweatband" in calls[0][0]
+    render_branding("demo", config_mod.load_config("demo"))
+    assert len(calls) == 2                              # cached paintings, no second payment

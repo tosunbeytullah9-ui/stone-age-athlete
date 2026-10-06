@@ -1,8 +1,8 @@
 """Assembly with FFmpeg.
 
-  render_video     long video (16:9): one gently moving clip per shot → concat → narration + music → -14 LUFS
+  render_video     long video (16:9): one picture per scene with one continuous camera move (zoom or pan) across
+                   all of the scene's shots, cross-fades between scenes → narration + music → -14 LUFS
   render_shorts    vertical 9:16 cut-downs: a shot range, blurred backdrop, title band
-  compile_videos   long "for sleep" compilation of several finished videos of a channel
   describe         description.txt with chapters (from paragraph timing) + sources
   contact_sheet    grid of shot thumbnails for review
 """
@@ -49,59 +49,67 @@ def placeholder(text: str, out: Path, size=(1920, 1080)) -> None:
     img.save(out)
 
 
-def _camera_modes(shots: list[dict], cfg: Config) -> list[str]:
-    """Explicit shot.camera wins. Otherwise the zoom direction stays the same within a run of shots on one
-    background (no jitter across continuity cuts) and alternates when the scene changes. Chart shots hold still."""
+CAMERA_CYCLE = ("in", "right", "out", "left")
+
+
+def _scene_modes(groups: list[list[dict]]) -> list[str]:
+    """One camera move per scene. Explicit `camera` on the scene's first shot wins; charts hold still;
+    otherwise the moves rotate (in → pan right → out → pan left) so consecutive pictures never move alike."""
     from .fx import animated_visuals
-    start = object()
-    modes, cur, prev_bg = [], "out", start
-    for s in shots:
-        v = s.get("visual")
-        bg = v.get("bg") if isinstance(v, dict) else None
-        if bg != prev_bg:
-            cur = "in" if (cur == "out" or prev_bg is start) else "out"
-            prev_bg = bg
-        cam = (s.get("camera") or {}).get("zoom") if isinstance(s.get("camera"), dict) else s.get("camera")
-        if cam in ("in", "out", "none"):
+    from .images import engine_name
+    modes, k = [], 0
+    for g in groups:
+        head = g[0]
+        cam = head.get("camera")
+        cam = cam.get("zoom") if isinstance(cam, dict) else cam
+        v = head.get("visual")
+        if cam in ("in", "out", "left", "right", "none"):
             modes.append(cam)
-        elif animated_visuals(v):
+        elif animated_visuals(v) or (isinstance(v, dict) and engine_name(head, Config()) == "svg"):
             modes.append("none")
         else:
-            modes.append(cur)
+            modes.append(CAMERA_CYCLE[k % len(CAMERA_CYCLE)])
+            k += 1
     return modes
 
 
-def _zexpr(mode: str, zoom: float, frames: int) -> str:
-    n = max(frames - 1, 1)
+def _cam_expr(mode: str, zoom: float, start: int, total: int) -> tuple[str, str, str]:
+    """zoompan z/x/y for frames [start, ...) of a scene that lasts `total` frames: the move is continuous over
+    the whole scene even though every shot inside it is a separate clip. Eased in and out (smoothstep)."""
+    n = max(total - 1, 1)
+    p = f"min(1,({start}+on)/{n})"
+    s = f"({p})*({p})*(3-2*({p}))"
+    cx, cy = "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)"
     if mode == "in":
-        return f"1+{zoom}*(1-pow(1-on/{n},2))"          # eased
+        return f"1+{zoom}*{s}", cx, cy
     if mode == "out":
-        return f"1+{zoom}-{zoom}*(1-pow(1-on/{n},2))"
-    return "1"
+        return f"1+{zoom}-{zoom}*{s}", cx, cy
+    if mode == "right":
+        return f"{1 + zoom}", f"(iw-iw/zoom)*{s}", cy
+    if mode == "left":
+        return f"{1 + zoom}", f"(iw-iw/zoom)*(1-{s})", cy
+    return "1", cx, cy
 
 
-def _end_zoom(mode: str, zoom: float) -> str:
-    return str(1 + zoom) if mode == "in" else "1"
-
-
-def _clip(img: Path, out: Path, frames: int, fps: int, zoom: float, mode: str, w: int, h: int, crf: int,
-          prev: Path | None = None, prev_mode: str = "none", anim: list[Path] | None = None, xfade: int = 0) -> None:
-    """One clip per shot. Optional: a short cross-fade from the previous shot (continuity runs) and a chart
-    intro sequence (anim frames) before the hold."""
-    zoom = zoom if mode != "none" else 0
+def _clip(img: Path, out: Path, frames: int, fps: int, cam: tuple, w: int, h: int, crf: int,
+          prev: Path | None = None, prev_cam: tuple | None = None, anim: list[Path] | None = None,
+          xfade: int = 0) -> None:
+    """One clip per shot. cam = (mode, zoom, start frame in the scene, scene length).
+    Optional: a cross-fade from the previous scene's last frame, and a chart intro (anim frames) before the hold."""
     args, graph, inputs = [], [], 0
 
-    def still(path: Path, z: str, d: int) -> str:
+    def still(path: Path, c: tuple, d: int) -> str:
         nonlocal inputs
+        z, x, y = _cam_expr(*c)
         args.extend(["-loop", "1", "-framerate", "1", "-t", "1", "-i", str(path)])
         i = inputs
         inputs += 1
-        graph.append(f"[{i}:v]scale={w * 2}:{h * 2},zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+        graph.append(f"[{i}:v]scale={w * 2}:{h * 2},zoompan=z='{z}':x='{x}':y='{y}'"
                      f":d={d}:s={w}x{h}:fps={fps},setsar=1,format=yuv420p[s{i}]")
         return f"[s{i}]"
 
     anim = [a for a in (anim or []) if a.exists()]
-    use_x = prev is not None and xfade > 0 and frames > xfade * 2
+    use_x = prev is not None and prev_cam is not None and xfade > 0 and frames > xfade * 2
     frames_out = frames
     frames = frames + (1 if use_x else 0)       # xfade drops one frame; -frames:v below keeps the exact length
     if anim and frames > len(anim) + 2:
@@ -112,20 +120,19 @@ def _clip(img: Path, out: Path, frames: int, fps: int, zoom: float, mode: str, w
         i = inputs
         inputs += 1
         graph.append(f"[{i}:v]fps={fps},scale={w}:{h},setsar=1,format=yuv420p,trim=end_frame={len(anim)}[a{i}]")
-        hold = still(img, "1", frames - len(anim))
+        hold = still(img, ("none", 0, 0, 1), frames - len(anim))
         graph.append(f"[a{i}]{hold}concat=n=2:v=1[main]")
     else:
-        m = still(img, _zexpr(mode, zoom, frames), frames)
+        m = still(img, cam, frames)
         graph.append(f"{m}null[main]")
     last = "[main]"
     if use_x:
-        p = still(prev, _end_zoom(prev_mode, zoom), xfade + 1)
+        p = still(prev, prev_cam, xfade + 1)
         graph.append(f"{p}settb=AVTB,fps={fps}[pp];{last}settb=AVTB,fps={fps}[mm];"
                      f"[pp][mm]xfade=transition=fade:duration={xfade / fps:.4f}:offset=0[xf]")
         last = "[xf]"
     _run([*args, "-filter_complex", ";".join(graph), "-map", last, "-frames:v", str(frames_out), "-r", str(fps),
-          "-c:v", "libx264", "-preset", "veryfast", "-tune", "animation", "-crf", str(crf), "-pix_fmt", "yuv420p",
-          str(out)])
+          "-c:v", "libx264", "-preset", "veryfast", "-crf", str(crf), "-pix_fmt", "yuv420p", str(out)])
 
 
 def _mix_and_mux(silent: Path, narration: Path, out: Path, cfg: Config, work: Path, start: float = 0.0,
@@ -181,18 +188,18 @@ def _overlay_for(shot: dict, auto: dict) -> dict | None:
     return shot.get("overlay") or auto.get(shot["id"])
 
 
-def outro_image(project: Project, cfg: Config, lang: str, size=(1920, 1080)) -> Path | None:
+def outro_image(project: Project, cfg: Config, lang: str, last_scene: Path | None, size=(1920, 1080)) -> Path | None:
+    """End screen on a soft, darkened copy of the video's last picture."""
     oc = cfg.get_path("channel.outro") or {}
     if oc.get("enabled") is False or float(oc.get("seconds", 18) or 0) <= 0:
         return None
-    from .fx import draw_outro, outro_visual
-    from .images.svg_engine import SvgEngine
-    from .svgkit import render_svg
-    from .svgkit.style import use_palette
-    base = project.build / "outro_base.png"
-    if not base.exists():
-        with SvgEngine(cfg) as eng, use_palette(cfg.get_path("channel.style.palette") or {}):
-            eng.svg_to_png(render_svg(outro_visual(cfg.get_path("channel.mascot") or {})), base)
+    from .fx import draw_outro
+    if last_scene and last_scene.exists():
+        base = Image.open(last_scene).convert("RGB").resize(size).filter(ImageFilter.GaussianBlur(14))
+        base = base.point(lambda v: int(v * 0.55))
+    else:
+        base = Image.new("RGB", size, "#2b2620")
+
     def pick(v, default):
         if isinstance(v, dict):
             return v.get(lang) or v.get(project.primary_lang()) or default
@@ -200,12 +207,32 @@ def outro_image(project: Project, cfg: Config, lang: str, size=(1920, 1080)) -> 
     text = pick(oc.get("text"), {"tr": "Sıradaki video"}.get(lang, "Watch next"))
     sub = pick(oc.get("sub"), cfg.get_path("channel.name", ""))
     out = project.lang_dir(lang) / "outro.png"
-    draw_outro(Image.open(base), text, sub).resize(size).save(out)
+    draw_outro(base, text, sub).resize(size).save(out)
     return out
+
+
+def _scene_image(project: Project, head: dict, texts: list[str], work: Path, size: tuple[int, int]) -> Path:
+    img = project.shots_dir / f"{head['id']}.png"
+    if not img.exists():
+        img = work / f"{head['id']}_placeholder.png"
+        placeholder(_wrap_text(" ".join(texts)), img, size)
+    return img
+
+
+def _wrap_text(text: str, width: int = 42) -> str:
+    lines, cur = [], ""
+    for word in text.split():
+        if cur and len(cur) + 1 + len(word) > width:
+            lines.append(cur)
+            cur = word
+        else:
+            cur = f"{cur} {word}".strip()
+    return "\n".join(lines + [cur])
 
 
 def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path:
     from .fx import apply_overlay, auto_overlays, build_sfx_track, sfx_events
+    from .images import scenes
     lang = lang or project.primary_lang()
     primary = project.primary_lang()
     shots = {s["id"]: s for s in project.load_storyboard()["shots"]}
@@ -215,45 +242,48 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
     timing = project.read_json(tpath)
     fps = int(cfg.get_path("video.fps", 30))
     w, h = int(cfg.get_path("video.width", 1920)), int(cfg.get_path("video.height", 1080))
-    zoom = float(cfg.get_path("video.zoom", 0.06))
+    zoom = float(cfg.get_path("video.zoom", 0.08))
     crf = int(cfg.get_path("video.crf", 20))
-    xfade = int(cfg.get_path("video.xfade_frames", 6)) if cfg.get_path("video.transitions", True) else 0
+    xfade = int(cfg.get_path("video.xfade_frames", 10)) if cfg.get_path("video.transitions", True) else 0
     work = project.lang_dir(lang) / "clips"
     work.mkdir(exist_ok=True)
     ordered = [shots[t["id"]] for t in timing]
-    modes = _camera_modes(ordered, cfg)
+    frames_of = dict(zip((t["id"] for t in timing), _frames(timing, fps)))
+    groups = scenes(ordered)
+    modes = _scene_modes(groups)
     auto = auto_overlays(project)
 
-    jobs, prev_img, prev_bg = [], None, None
-    for i, (t, frames) in enumerate(zip(timing, _frames(timing, fps))):
-        shot = shots[t["id"]]
-        img = project.shots_dir / f"{t['id']}.png"
-        if not img.exists():
-            img = work / f"{t['id']}_placeholder.png"
-            placeholder(shot["text"], img, (w, h))
-        ov = _overlay_for(shot, auto)
-        img_ov = apply_overlay(img, ov, lang, primary, work / f"{t['id']}_ov.png")
-        anim = sorted(project.shots_dir.glob(f"{t['id']}_a[0-9][0-9].png"))
-        if ov and anim:
-            anim = [apply_overlay(a, ov, lang, primary, work / f"{a.stem}_ov.png") for a in anim]
-        v = shot.get("visual")
-        bg = v.get("bg") if isinstance(v, dict) else None
-        same_scene = i > 0 and bg is not None and bg == prev_bg
-        jobs.append(dict(img=img_ov, out=work / f"{i:04d}.mp4", frames=frames, mode=modes[i], anim=anim,
-                         prev=prev_img if same_scene else None, prev_mode=modes[i - 1] if i else "none"))
-        prev_img, prev_bg = img_ov, bg
+    jobs, prev_img, prev_cam, n = [], None, None, 0
+    for g, mode in zip(groups, modes):
+        head = g[0]
+        img = _scene_image(project, head, [s["text"] for s in g], work, (w, h))
+        total = sum(frames_of[s["id"]] for s in g)
+        start = 0
+        for k, shot in enumerate(g):
+            ov = _overlay_for(shot, auto)
+            img_ov = apply_overlay(img, ov, lang, primary, work / f"{shot['id']}_ov.png")
+            anim = sorted(project.shots_dir.glob(f"{head['id']}_a[0-9][0-9].png")) if k == 0 else []
+            if ov and anim:
+                anim = [apply_overlay(a, ov, lang, primary, work / f"{a.stem}_ov.png") for a in anim]
+            jobs.append(dict(img=img_ov, out=work / f"{n:04d}.mp4", frames=frames_of[shot["id"]],
+                             cam=(mode, zoom, start, total), anim=anim,
+                             prev=prev_img if k == 0 else None, prev_cam=prev_cam if k == 0 else None))
+            n += 1
+            start += frames_of[shot["id"]]
+            prev_img, prev_cam = img_ov, (mode, zoom, total - 1, total)
 
-    outro = outro_image(project, cfg, lang, (w, h))
+    last_scene = project.shots_dir / f"{groups[-1][0]['id']}.png" if groups else None
+    outro = outro_image(project, cfg, lang, last_scene, (w, h))
     outro_frames = int(float(cfg.get_path("channel.outro.seconds", 18) or 18) * fps) if outro else 0
     if outro:
-        jobs.append(dict(img=outro, out=work / f"{len(jobs):04d}.mp4", frames=outro_frames, mode="in", anim=[],
-                         prev=None, prev_mode="none"))
+        jobs.append(dict(img=outro, out=work / f"{n:04d}.mp4", frames=outro_frames,
+                         cam=("in", zoom / 2, 0, outro_frames), anim=[], prev=prev_img, prev_cam=prev_cam))
 
-    print(f"  [{lang}] {len(jobs)} klip hazırlanıyor...")
+    print(f"  [{lang}] {len(groups)} sahne, {len(jobs)} klip hazırlanıyor...")
     done = 0
     with ThreadPoolExecutor(max_workers=4) as ex:
-        for _ in ex.map(lambda j: _clip(j["img"], j["out"], j["frames"], fps, zoom * (0.5 if j is jobs[-1] and outro else 1),
-                                        j["mode"], w, h, crf, j["prev"], j["prev_mode"], j["anim"], xfade), jobs):
+        for _ in ex.map(lambda j: _clip(j["img"], j["out"], j["frames"], fps, j["cam"], w, h, crf,
+                                        j["prev"], j["prev_cam"], j["anim"], xfade), jobs):
             done += 1
             if done % 25 == 0 or done == len(jobs):
                 print(f"  klip {done}/{len(jobs)}")
@@ -264,7 +294,7 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
     total = sum(_frames(timing, fps)) / fps + outro_frames / fps
     sfx = None
     if cfg.get_path("audio.sfx", True):
-        sfx = build_sfx_track(sfx_events(ordered, timing), total, ASSETS, work / "sfx.wav")
+        sfx = build_sfx_track(sfx_events(groups, timing), total, ASSETS, work / "sfx.wav")
     out = project.video_path(lang)
     _mix_and_mux(silent, project.audio_dir(lang) / "narration.wav", out, cfg, work, total=total, sfx=sfx)
     describe(project, cfg, lang)
@@ -294,111 +324,84 @@ def _short_frame_fallback(img_path: Path, out: Path, size=(1080, 1920)) -> None:
 
 def render_shorts(project: Project, cfg: Config, lang: str | None = None) -> list[Path]:
     """project.yaml → shorts: [{title: "...", from: s012, to: s030, hook: "optional first line on screen"}].
-    Drawings are re-rendered natively in 9:16 (vector crop around the action) with burned-in captions."""
+    Pictures are framed for 9:16 (blurred backdrop, charts re-cut as vectors) with burned-in captions."""
     from .fx import caption_frame, focus_x
-    from .images.svg_engine import SvgEngine
+    from .images import engine_name, scene_map
     from .project import shot_text
-    from .svgkit import crop_vertical, render_svg
-    from .svgkit.style import use_palette
     lang = lang or project.primary_lang()
     cuts = project.meta.get("shorts") or []
     if not cuts:
         raise SystemExit("project.yaml → shorts listesi boş. Örnek: shorts: [{title: 'Hook', from: s001, to: s018}]")
     timing = project.read_json(project.timing_path(lang))
     ids = [t["id"] for t in timing]
-    shots = {s["id"]: s for s in project.load_storyboard()["shots"]}
+    all_shots = project.load_storyboard()["shots"]
+    shots = {s["id"]: s for s in all_shots}
+    heads = scene_map(all_shots)
     fps = int(cfg.get_path("video.fps", 30))
+    zoom = float(cfg.get_path("video.zoom", 0.08))
     out_dir = project.lang_dir(lang) / "shorts"
     out_dir.mkdir(exist_ok=True)
     vdir = project.build / "shots_9x16"
     vdir.mkdir(exist_ok=True)
     made = []
-    palette = cfg.get_path("channel.style.palette") or {}
-    with SvgEngine(cfg) as eng:
-        for n, cut in enumerate(cuts, 1):
-            if cut.get("from") not in ids or cut.get("to") not in ids:
-                print(f"  short {n}: {cut.get('from')}–{cut.get('to')} bulunamadı (atlandı)")
-                continue
-            a, b = ids.index(cut["from"]), ids.index(cut["to"])
-            seg = timing[a:b + 1]
-            work = out_dir / f"work{n}"
-            work.mkdir(exist_ok=True)
-            base = seg[0]["start"]
-            rel = [{"id": t["id"], "start": t["start"] - base, "end": t["end"] - base} for t in seg]
-            rel[-1]["end"] = min(rel[-1]["end"], rel[-1]["start"] + 3.0)
-            total = rel[-1]["end"]
-            if total > 60:
-                print(f"  uyarı: short {n} {total:.0f} sn (60 sn üstü Shorts sayılmayabilir)")
-            clips = []
-            for i, (t, frames) in enumerate(zip(rel, _frames(rel, fps))):
-                shot = shots[t["id"]]
-                v = shot.get("visual")
-                vert = vdir / f"{t['id']}.png"
-                src16 = project.shots_dir / f"{t['id']}.png"
-                if isinstance(v, dict) and any(k in v for k in ("bg", "figures", "props")):
-                    stale = not vert.exists() or (src16.exists() and vert.stat().st_mtime < src16.stat().st_mtime)
-                    if stale:
-                        vis = {k: x for k, x in v.items() if k != "frame"}
-                        with use_palette(palette):
-                            svg = crop_vertical(render_svg(vis), focus_x(v))
-                        eng.svg_to_png(svg, vert, size=(1080, 1920))
-                else:
-                    src = project.shots_dir / f"{t['id']}.png"
-                    if not src.exists():
-                        placeholder(shot["text"], work / f"{t['id']}_ph.png")
-                        src = work / f"{t['id']}_ph.png"
-                    _short_frame_fallback(src, vert)
-                title = cut.get("hook") if (cut.get("hook") and t["start"] < 2.5) else cut.get("title", "")
-                frame = work / f"{t['id']}.png"
-                caption_frame(Image.open(vert), title, shot_text(shot, lang, project.primary_lang())).save(frame)
-                clip = work / f"{i:04d}.mp4"
-                _clip(frame, clip, frames, fps, float(cfg.get_path("video.zoom", 0.06)), "in", 1080, 1920, 21)
-                clips.append(clip)
-            (work / "list.txt").write_text("".join(f"file '{c.name}'\n" for c in clips), encoding="utf-8")
-            silent = work / "silent.mp4"
-            _run(["-f", "concat", "-safe", "0", "-i", str(work / "list.txt"), "-c", "copy", str(silent)])
-            out = out_dir / f"short{n:02d}.mp4"
-            _mix_and_mux(silent, project.audio_dir(lang) / "narration.wav", out, cfg, work, start=base, duration=total)
-            made.append(out)
-            print(f"  short hazır: {out.name} ({total:.0f} sn, dikey çizim + altyazı)")
+
+    def vertical(head: dict, work: Path) -> Path:
+        vert = vdir / f"{head['id']}.png"
+        src = project.shots_dir / f"{head['id']}.png"
+        if vert.exists() and src.exists() and vert.stat().st_mtime >= src.stat().st_mtime:
+            return vert
+        v = head.get("visual")
+        if isinstance(v, dict) and engine_name(head, cfg) == "svg":
+            from .images.svg_engine import SvgEngine
+            from .svgkit import crop_vertical, render_svg
+            from .svgkit.style import use_palette
+            with SvgEngine(cfg) as eng, use_palette(cfg.get_path("channel.style.palette") or {}):
+                eng.svg_to_png(crop_vertical(render_svg({k: x for k, x in v.items() if k != "frame"}), focus_x(v)),
+                               vert, size=(1080, 1920))
+            return vert
+        if not src.exists():
+            src = work / f"{head['id']}_ph.png"
+            placeholder(_wrap_text(head["text"], 24), src)
+        _short_frame_fallback(src, vert)
+        return vert
+
+    for n, cut in enumerate(cuts, 1):
+        if cut.get("from") not in ids or cut.get("to") not in ids:
+            print(f"  short {n}: {cut.get('from')}–{cut.get('to')} bulunamadı (atlandı)")
+            continue
+        a, b = ids.index(cut["from"]), ids.index(cut["to"])
+        seg = timing[a:b + 1]
+        work = out_dir / f"work{n}"
+        work.mkdir(exist_ok=True)
+        base = seg[0]["start"]
+        rel = [{"id": t["id"], "start": t["start"] - base, "end": t["end"] - base} for t in seg]
+        rel[-1]["end"] = min(rel[-1]["end"], rel[-1]["start"] + 3.0)
+        total = rel[-1]["end"]
+        if total > 60:
+            print(f"  uyarı: short {n} {total:.0f} sn (60 sn üstü Shorts sayılmayabilir)")
+        frames = _frames(rel, fps)
+        scene_len: dict[str, int] = {}
+        for t, f in zip(rel, frames):
+            scene_len[heads[t["id"]]] = scene_len.get(heads[t["id"]], 0) + f
+        clips, pos = [], {}
+        for i, (t, f) in enumerate(zip(rel, frames)):
+            shot, hid = shots[t["id"]], heads[t["id"]]
+            vert = vertical(shots[hid], work)
+            title = cut.get("hook") if (cut.get("hook") and t["start"] < 2.5) else cut.get("title", "")
+            frame = work / f"{t['id']}.png"
+            caption_frame(Image.open(vert), title, shot_text(shot, lang, project.primary_lang())).save(frame)
+            clip = work / f"{i:04d}.mp4"
+            _clip(frame, clip, f, fps, ("in", zoom, pos.get(hid, 0), scene_len[hid]), 1080, 1920, 21)
+            pos[hid] = pos.get(hid, 0) + f
+            clips.append(clip)
+        (work / "list.txt").write_text("".join(f"file '{c.name}'\n" for c in clips), encoding="utf-8")
+        silent = work / "silent.mp4"
+        _run(["-f", "concat", "-safe", "0", "-i", str(work / "list.txt"), "-c", "copy", str(silent)])
+        out = out_dir / f"short{n:02d}.mp4"
+        _mix_and_mux(silent, project.audio_dir(lang) / "narration.wav", out, cfg, work, start=base, duration=total)
+        made.append(out)
+        print(f"  short hazır: {out.name} ({total:.0f} sn, dikey + altyazı)")
     return made
-
-
-# ---------------------------------------------------------------- compilation
-def compile_videos(channel: str, slugs: list[str], cfg: Config, lang: str, title: str) -> Path:
-    """Joins finished videos (same language) into one long upload, e.g. a 1-2 h 'for sleep' version."""
-    from .channel import Channel
-    ch = Channel(channel)
-    out_dir = ch.dir / "compilations"
-    out_dir.mkdir(exist_ok=True)
-    vids = [Project(channel, s).video_path(lang) for s in slugs]
-    missing = [str(v) for v in vids if not v.exists()]
-    if missing:
-        raise SystemExit(f"Önce bu videoları üret: {missing}")
-    safe = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-") or "compilation"
-    lst = out_dir / f"{safe}.txt"
-    lst.write_text("".join(f"file '{v.resolve().as_posix()}'\n" for v in vids), encoding="utf-8")
-    out = out_dir / f"{safe}.{lang}.mp4"
-    _run(["-f", "concat", "-safe", "0", "-i", str(lst), "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", str(out)])
-    t, lines = 0.0, []
-    for s, v in zip(slugs, vids):
-        lines.append(f"{_ts(t)} {Project(channel, s).meta.get('title', s)}")
-        t += _duration(v)
-    (out_dir / f"{safe}.{lang}.chapters.txt").write_text("\n".join(lines), encoding="utf-8")
-    print(f"  derleme hazır: {out} ({t / 60:.0f} dk)")
-    return out
-
-
-def _duration(path: Path) -> float:
-    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
-                       capture_output=True, text=True, encoding="utf-8", errors="replace")
-    return float(r.stdout.strip() or 0)
-
-
-def _ts(sec: float) -> str:
-    sec = int(sec)
-    h, m, s = sec // 3600, sec % 3600 // 60, sec % 60
-    return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
 
 
 # ---------------------------------------------------------------- description
@@ -499,21 +502,25 @@ def write_srt(project: Project, lang: str | None = None, max_chars: int = 84, ma
     return out
 
 
-def contact_sheet(project: Project, cols: int = 6, limit: int = 400) -> Path:
-    shots = project.load_storyboard()["shots"][:limit]
-    tw, th = 320, 180
-    rows = max(1, (len(shots) + cols - 1) // cols)
-    sheet = Image.new("RGB", (cols * tw, rows * (th + 30)), "white")
+def contact_sheet(project: Project, cols: int = 4, limit: int = 400) -> Path:
+    """One tile per scene (picture + the words it covers), for reviewing the whole video at a glance."""
+    from .images import scenes
+    groups = scenes(project.load_storyboard()["shots"])[:limit]
+    tw, th, lh = 480, 270, 64
+    rows = max(1, (len(groups) + cols - 1) // cols)
+    sheet = Image.new("RGB", (cols * tw, rows * (th + lh)), "white")
     d = ImageDraw.Draw(sheet)
-    font = _font(16)
-    for i, s in enumerate(shots):
-        x, y = (i % cols) * tw, (i // cols) * (th + 30)
-        p = project.shots_dir / f"{s['id']}.png"
+    font = _font(15)
+    for i, g in enumerate(groups):
+        x, y = (i % cols) * tw, (i // cols) * (th + lh)
+        p = project.shots_dir / f"{g[0]['id']}.png"
         if p.exists():
             sheet.paste(Image.open(p).convert("RGB").resize((tw, th)), (x, y))
         else:
             d.rectangle([x, y, x + tw - 1, y + th - 1], fill="#eee")
-        d.text((x + 6, y + th + 6), f"{s['id']} {s['text'][:32]}", fill="black", font=font)
+        words = " ".join(s["text"] for s in g)
+        label = f"{g[0]['id']}–{g[-1]['id'][1:]}  {words}" if len(g) > 1 else f"{g[0]['id']}  {words}"
+        d.multiline_text((x + 6, y + th + 4), _wrap_text(label, 56)[:180], fill="black", font=font, spacing=2)
     out = project.build / "contact_sheet.png"
     sheet.save(out)
     return out

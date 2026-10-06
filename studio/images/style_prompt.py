@@ -1,28 +1,41 @@
-"""The fixed channel style for AI-generated images. Every Gemini prompt = STYLE + scene (+ character lock)."""
+"""The channel's fixed look for AI images. Every prompt = STYLE + scene + character descriptions.
+
+The style and the recurring characters live in channel.yaml so each channel keeps its own identity:
+
+  visual_style: "Hand-painted gouache illustration ..."
+  characters:
+    coach: {description: "The Coach: an athletic woman ...", ref: refs/coach.png}
+"""
 from __future__ import annotations
 
-STYLE = (
-    "Minimalist hand-drawn 2D illustration, clean bold black ink line art, doodle webcomic style. "
-    "All humans are simple stick figures with round pure-white heads, black outlines, thin black limbs, "
-    "no realistic anatomy, no skin tones. Flat muted earthy palette (ochre, sand, olive, clay) with subtle "
-    "paper texture; modern-day scenes use cool grey-blue tones instead. The only saturated color is a single "
-    "red accent. Full-bleed 16:9 scene with a simple grounded background, no borders, no text, no letters, "
-    "no numbers, no watermark."
+DEFAULT_STYLE = (
+    "Hand-painted gouache illustration in the style of a natural-history museum mural: rich warm light, visible "
+    "brush texture, painterly atmosphere, accurate believable anatomy, documentary mood, muted earthy palette."
+)
+RULES = (
+    "Full-bleed 16:9 frame, cinematic composition with one clear subject. No text, no letters, no numbers, "
+    "no captions, no labels, no logos, no watermark, no borders, no split panels."
 )
 
-CHARACTERS = {
-    "coach": "The coach character: a stick figure with a round white head, a red sweatband across the forehead, "
-             "a whistle on a cord around the neck.",
-}
 
-
-def build_prompt(visual, extra_style: str = "") -> str:
-    if visual is None:
-        return ""
+def scene_prompt(visual) -> str:
     if isinstance(visual, str):
-        scene, chars = visual, []
-    else:
-        scene, chars = visual.get("prompt", ""), visual.get("characters", []) or []
-    lock = " ".join(CHARACTERS[c] for c in chars if c in CHARACTERS)
-    style = f"{STYLE} {extra_style.strip()}".strip()
-    return f"{style}\n\nScene: {scene.strip()}" + (f"\n\n{lock}" if lock else "")
+        return visual
+    return (visual or {}).get("prompt", "") if isinstance(visual, dict) else ""
+
+
+def build_prompt(visual, style: str = "", characters: dict | None = None) -> str:
+    """style: channel visual_style ('' = default). characters: {name: {description, ref}} from channel.yaml."""
+    scene = scene_prompt(visual).strip()
+    if not scene:
+        return ""
+    names = visual.get("characters", []) if isinstance(visual, dict) else []
+    chars = characters or {}
+    lock = " ".join(str((chars.get(n) or {}).get("description", "")).strip() for n in names or [] if n in chars)
+    if lock and any((chars.get(n) or {}).get("ref") for n in names or []):
+        lock += " Keep the character exactly as in the attached reference sheet (face, hair, clothes)."
+    parts = [(style or DEFAULT_STYLE).strip(), f"Scene: {scene}"]
+    if lock:
+        parts.append(lock)
+    parts.append(RULES)
+    return "\n\n".join(parts)

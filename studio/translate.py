@@ -50,7 +50,7 @@ def translate(project: Project, cfg: Config, lang: str) -> None:
     if lang == project.primary_lang():
         print("  ana dil çevrilmez.")
         return
-    provider = cfg.get_path("planner.provider", "manual")
+    provider = cfg.get_path("planner.provider", "gemini")
     if provider == "manual":
         out = project.build / f"translate_{lang}_prompt.md"
         out.write_text(build_prompt(project, lang), encoding="utf-8")
@@ -58,8 +58,8 @@ def translate(project: Project, cfg: Config, lang: str) -> None:
         return
     from .llm import complete
     shots = [s for s in project.load_storyboard()["shots"] if not (s.get("i18n") or {}).get(lang)]
-    model = cfg.get_path("planner.anthropic.model", "claude-sonnet-5")
+    model = cfg.get_path(f"planner.{provider}.model", {"gemini": "gemini-3.8-flash"}.get(provider, "claude-sonnet-5"))
     for i in range(0, len(shots), 80):
         prompt = build_prompt(project, lang, subset=shots[i:i + 80])
-        n = apply_translation(project, lang, parse_yaml_reply(complete(prompt, model)))
+        n = apply_translation(project, lang, parse_yaml_reply(complete(prompt, model, provider=provider)))
         print(f"  çeviri [{lang}]: {n} shot")

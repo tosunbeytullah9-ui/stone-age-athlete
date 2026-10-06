@@ -2,8 +2,8 @@
 
 project.yaml:
   thumbnails:                       # up to 3 variants → YouTube "Test & Compare" (winner by watch time)
-    - visual: {bg: underwater, figures: [...], props: [...]}   # same recipe format as shots (docs/STORYBOARD.md)
-      frame: {x: 900, y: 560, zoom: 1.7}   # close-up: faces must read at phone size
+    - visual: {prompt: "...", characters: [coach]}   # same format as a scene (docs/STORYBOARD.md)
+      frame: {x: 900, y: 560, zoom: 1.3}   # optional extra close-up (1920×1080 coordinates)
       text: {en: "BIGGER SPLEENS", tr: "DEV DALAK"}   # ≤ 4 words; thumbnails MAY contain text (shots may not)
       text_pos: left                # left | right | top | bottom
       text_color: "#ffd84d"         # default yellow; white also works
@@ -11,9 +11,12 @@ project.yaml:
 
 Renders build/thumbnails/<lang>/thumb1.png … (1280×720 JPEG-safe PNG) and preview.png that shows every variant at
 YouTube's desktop and phone sizes, because a thumbnail is judged at ~168 px wide on a phone.
+The paintings are cached in build/thumbnails/raw/ by prompt, so changing only the text costs nothing.
 """
 from __future__ import annotations
 
+import hashlib
+import json
 import sys
 from pathlib import Path
 
@@ -105,10 +108,25 @@ def compose(base: Image.Image, text: str, pos: str = "left", color: str = "#ffd8
     return img
 
 
+THUMB_DIRECTION = ("YouTube thumbnail painting: one bold subject, close and large, strong contrast and saturated "
+                   "light, an expressive face if a person is shown, simple uncluttered background, and clear empty "
+                   "space on the {side} side of the frame for a big title.")
+
+
+def _frame_crop(img: Image.Image, frame: dict | None) -> Image.Image:
+    zoom = float((frame or {}).get("zoom", 1) or 1)
+    if zoom <= 1:
+        return img
+    W, H = img.size
+    vw, vh = W / zoom, H / zoom
+    fx, fy = float(frame.get("x", W / 2)) * W / 1920, float(frame.get("y", H / 2)) * H / 1080
+    x0, y0 = min(max(fx - vw / 2, 0), W - vw), min(max(fy - vh / 2, 0), H - vh)
+    return img.crop((round(x0), round(y0), round(x0 + vw), round(y0 + vh))).resize((W, H), Image.LANCZOS)
+
+
 def render_thumbnails(project: Project, cfg: Config, lang: str | None = None) -> list[Path]:
-    from .images.svg_engine import SvgEngine
-    from .svgkit import render_svg
-    from .svgkit.style import use_palette
+    from .images.gemini_engine import GeminiEngine
+    from .images.style_prompt import build_prompt
     variants = project.meta.get("thumbnails") or []
     if not variants:
         raise SystemExit("project.yaml → thumbnails boş. Panel: Kapak & başlık → 'Paket istemini kopyala'.")
@@ -118,27 +136,31 @@ def render_thumbnails(project: Project, cfg: Config, lang: str | None = None) ->
     raw_dir = out_dir / "raw"
     raw_dir.mkdir(parents=True, exist_ok=True)
     made: list[Path] = []
-    palette = cfg.get_path("channel.style.palette") or {}
-    with SvgEngine(cfg) as eng:
-        for n, v in enumerate(variants[:3], 1):
-            visual = dict(v.get("visual") or {})
-            if not visual:
-                print(f"  kapak {n}: visual yok, atlandı")
-                continue
-            if v.get("frame"):
-                visual["frame"] = v["frame"]
-            with use_palette(palette):
-                svg = render_svg(visual, seed=n * 7)
-            raw = raw_dir / f"thumb{n}.png"
-            eng.svg_to_png(svg, raw)
-            for lg in langs:
-                img = compose(Image.open(raw), _text_for(v, lg, primary), v.get("text_pos", "left"),
-                              v.get("text_color", "#ffd84d"), v.get("highlight"), v.get("frame"))
-                d = out_dir / lg
-                d.mkdir(parents=True, exist_ok=True)
-                out = d / f"thumb{n}.png"
-                img.save(out, optimize=True)
-                made.append(out)
+    eng = None
+    for n, v in enumerate(variants[:3], 1):
+        visual = v.get("visual")
+        if isinstance(visual, str):
+            visual = {"prompt": visual}
+        if not isinstance(visual, dict) or not visual.get("prompt"):
+            print(f"  kapak {n}: visual.prompt yok, atlandı")
+            continue
+        side = {"left": "left", "right": "right", "top": "top", "bottom": "bottom"}.get(v.get("text_pos", "left"), "left")
+        scene = {**visual, "prompt": f"{THUMB_DIRECTION.format(side=side)} {visual['prompt']}"}
+        eng = eng or GeminiEngine(cfg)
+        prompt = build_prompt(scene, eng.style, eng.characters)
+        key = hashlib.sha1(json.dumps([prompt, eng.model], ensure_ascii=False).encode()).hexdigest()[:10]
+        raw = raw_dir / f"thumb{n}_{key}.png"
+        if not raw.exists():
+            eng.generate(prompt, raw, eng.char_refs(visual.get("characters")))
+        base = _frame_crop(Image.open(raw).convert("RGB"), v.get("frame"))
+        for lg in langs:
+            img = compose(base, _text_for(v, lg, primary), v.get("text_pos", "left"),
+                          v.get("text_color", "#ffd84d"), v.get("highlight"), None)
+            d = out_dir / lg
+            d.mkdir(parents=True, exist_ok=True)
+            out = d / f"thumb{n}.png"
+            img.save(out, optimize=True)
+            made.append(out)
     for lg in langs:
         preview(project, lg)
     print(f"  {len(made)} kapak görseli hazır: {out_dir}")
@@ -174,8 +196,8 @@ def preview(project: Project, lang: str) -> Path | None:
 
 PACKAGE_PROMPT = """You are the packaging strategist of the YouTube channel "{name}" ({tagline}).
 Positioning: education, not fitness-influencer. A strength & conditioning coach tells the story of the human body;
-every claim is sourced; each video ends with a practical "coach's lesson". Visual style: hand-drawn stick figures
-(the mascot "{mascot_name}": {mascot}).
+every claim is sourced; each video ends with a practical "coach's lesson". Visual style: {style}
+Recurring character: {characters}
 
 Video: "{title}"
 Series: {series}
@@ -183,11 +205,11 @@ Series: {series}
 Create packaging. Rules:
 - Titles: ≤ 60 characters, curiosity without lying: the title must stay true to the claims listed below (no bigger
   numbers, no "all humans" if the study is one group). Mix styles: question, surprising fact, "why", contrast.
-- Thumbnails: 3 clearly DIFFERENT concepts (not the same picture with other words). Each is a scene recipe in the
-  exact format of the spec below, plus `frame` for a close-up (zoom 1.5–2.2 so faces/objects read on a phone),
-  `text` of at most 4 words in English and Turkish, `text_pos` on the empty side of the picture, and optionally
-  `highlight` (red circle) on the one detail that matters. One big idea per thumbnail; the text must not repeat the
-  title, it adds to it.
+- Thumbnails: 3 clearly DIFFERENT concepts (not the same picture with other words). Each is a painting prompt
+  (one bold subject, close-up, readable at phone size; describe subject, action, emotion, light), `characters: [coach]`
+  only if the coach appears, `text` of at most 4 words in English and Turkish, `text_pos` on the empty side of the
+  picture, and optionally `highlight` (red circle, 1920×1080 coordinates) on the one detail that matters. One big idea
+  per thumbnail; the text must not repeat the title, it adds to it. No text inside the painting itself.
 - Hooks: 3 alternative first 8 seconds (≤ 25 words) that put the most surprising sourced fact or stake up front.
 - Shorts: 2 ideas for purpose-written Shorts from this research (hook line + what it shows + loop ending).
 
@@ -195,8 +217,7 @@ Reply with ONLY this YAML:
 
 titles: ["...", "..."]            # 10
 thumbnails:
-  - visual: {{bg: ..., figures: [...], props: [...]}}
-    frame: {{x: 900, y: 560, zoom: 1.8}}
+  - visual: {{prompt: "...", characters: [coach]}}
     text: {{en: "...", tr: "..."}}
     text_pos: left
     highlight: {{x: 1100, y: 500, r: 130}}
@@ -211,15 +232,11 @@ shorts_ideas:
 
 ## Script
 {script}
-
-## Drawing spec
-{spec}
 """
 
 
 def build_package_prompt(project: Project) -> str:
     from .claims import load_claims
-    from .planner import SPEC
     from .publish import HOOK_TYPES, get_publish
     ch = project.ch.data
     pub = get_publish(project)
@@ -228,10 +245,12 @@ def build_package_prompt(project: Project) -> str:
                        for c in load_claims(project)["claims"]) or "(no claims.yaml yet: use only what the script says)"
     script = project.script_path.read_text(encoding="utf-8")
     return PACKAGE_PROMPT.format(
-        name=ch.get("name", project.channel), tagline=ch.get("tagline", ""), mascot_name=ch.get("mascot_name", "the Coach"),
-        mascot=ch.get("mascot", {}), title=project.meta.get("title", project.slug),
+        name=ch.get("name", project.channel), tagline=ch.get("tagline", ""),
+        style=ch.get("visual_style") or "painterly documentary illustration",
+        characters="; ".join(f"{k}: {(v or {}).get('description', '')}" for k, v in (ch.get("characters") or {}).items())
+        or "none", title=project.meta.get("title", project.slug),
         series=f"{series.get('name', '—')}: {series.get('promise', '')}", hook_types=", ".join(HOOK_TYPES),
-        claims=claims, script=script, spec=SPEC.read_text(encoding="utf-8"))
+        claims=claims, script=script)
 
 
 def apply_package(project: Project, data: dict) -> dict:

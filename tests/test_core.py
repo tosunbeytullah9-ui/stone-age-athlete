@@ -3,7 +3,6 @@ from studio.align import _proportional
 from studio.planner import parse_yaml_reply
 from studio.splitter import split_script
 from studio.svgkit import catalog, render_svg
-from studio.svgkit.figure import POSES
 from studio.voice import build_units
 
 
@@ -29,15 +28,24 @@ def test_units_and_proportional_timing():
     assert starts[0] == 1.0 and 1.0 < starts[1] < 5.0
 
 
-def test_every_pose_prop_and_background_renders():
+def test_every_chart_and_background_renders():
     cat = catalog()
-    for pose in POSES:
-        assert "<svg" in render_svg({"bg": "plain_warm", "figures": [{"pose": pose, "wear": ["headband", "hide"]}]})
     for bg in cat["backgrounds"]:
         assert "<svg" in render_svg({"bg": bg})
-    for p in cat["props"]:
+    for p in cat["charts"]:
         extra = {"to": (100, 100)} if p == "arrow" else {}
         assert "<svg" in render_svg({"bg": "plain_cool", "props": [{"type": p, "x": 900, "y": 500, **extra}]})
+
+
+def test_scenes_group_shots_that_share_a_picture():
+    from studio.images import drop_orphans, engine_name, scene_map, scenes
+    shots = [{"id": "s001", "visual": {"prompt": "a"}}, {"id": "s002", "visual": {"same": True}},
+             {"id": "s003", "visual": {"bg": "plain_warm", "props": [{"type": "pie"}]}},
+             {"id": "s004", "visual": None}, {"id": "s005", "visual": {"same": True}}]
+    assert scene_map(shots) == {"s001": "s001", "s002": "s001", "s003": "s003", "s004": "s004", "s005": "s005"}
+    assert [[s["id"] for s in g] for g in scenes(shots)] == [["s001", "s002"], ["s003"], ["s004"], ["s005"]]
+    assert engine_name(shots[0], {}) == "gemini" and engine_name(shots[2], {}) == "svg"
+    assert drop_orphans(shots) == 1 and shots[4]["visual"] is None
 
 
 def test_planner_reply_parsing():
@@ -73,12 +81,21 @@ def test_gemini_engine_with_fake_api(tmp_path, monkeypatch):
         sent.update(url=url, body=json, headers=headers)
         return Resp()
 
-    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    monkeypatch.setattr(gemini_engine, "secret", lambda name: "test-key")
     monkeypatch.setattr(gemini_engine.requests, "post", fake_post)
-    eng = gemini_engine.GeminiEngine(Config({"images": {"gemini": {"model": "gemini-3.1-flash-image"}}}))
+    monkeypatch.setattr(gemini_engine, "CHANNELS", tmp_path)
+    (tmp_path / "ch" / "refs").mkdir(parents=True)
+    Image.new("RGB", (64, 64), "red").save(tmp_path / "ch" / "refs" / "coach.png")
+    eng = gemini_engine.GeminiEngine(Config({
+        "images": {"gemini": {"model": "gemini-3.1-flash-image"}},
+        "channel": {"id": "ch", "visual_style": "Gouache museum mural.",
+                    "characters": {"coach": {"description": "The Coach: a woman.", "ref": "refs/coach.png"}}}}))
     out = tmp_path / "s001.png"
     eng.render({"id": "s001", "visual": {"prompt": "a mammoth herd", "characters": ["coach"]}}, out)
     assert Image.open(out).size == (1920, 1080)
     assert "gemini-3.1-flash-image:generateContent" in sent["url"]
     assert sent["headers"]["x-goog-api-key"] == "test-key"
-    assert "stick figures" in sent["body"]["contents"][0]["parts"][0]["text"]
+    parts = sent["body"]["contents"][0]["parts"]
+    assert parts[0]["text"].startswith("Gouache museum mural.") and "The Coach: a woman." in parts[0]["text"]
+    assert "a mammoth herd" in parts[0]["text"] and "No text" in parts[0]["text"]
+    assert len(parts) == 2 and parts[1]["inline_data"]["mime_type"] == "image/png"   # character sheet attached
