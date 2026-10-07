@@ -2,7 +2,8 @@
 
   python -m studio branding [--channel C] [--force]   →  channels/<C>/build/branding/
     profile.png       800×800   profile picture: the coach's portrait (shown as a circle)
-    banner.png        2560×1440 banner; name + tagline inside the 1546×423 area every device shows
+    banner.png        2560×1440 banner: a panorama without people in focus, and inside the 1546×423 area every
+                                device shows, the coach's portrait in a round frame + name + tagline
     banner_guides.png the banner with TV / desktop / phone crop lines, for checking before upload
     watermark.png     150×150   video watermark (transparent round badge)
 
@@ -10,7 +11,8 @@ The two paintings (raw/profile_art.png, raw/banner_art.png) are made once with G
 Optional channel.yaml → branding:
   branding:
     profile_prompt: "..."         # replaces the default portrait description
-    banner_prompt: "..."          # replaces the default banner scene
+    profile_crop: [0.15, 0, 0.85, 0.7]   # part of the portrait painting used (fractions x0 y0 x1 y1), default all
+    banner_prompt: "..."          # replaces the default banner scene (keep it free of the coach: she is framed)
     name_color: "#ffffff"
     accent: "#e3a447"             # tagline colour
 Text is allowed here (not in shots): it is channel artwork, not a video frame.
@@ -30,12 +32,15 @@ SAFE = (1546, 423)            # always visible (phone); desktop shows 2560×423,
 DESKTOP_H = 423
 WATERMARK = 150
 
-PROFILE_SCENE = ("Head-and-shoulders portrait of the coach, centred, looking at the viewer with a confident warm "
-                 "smile, plain soft warm background, the face filling the middle third of the square.")
-BANNER_SCENE = ("Wide panoramic scene: on the left, the coach stands confidently; behind and across the frame a "
-                "painted journey of human movement from an ancient savanna with early humans running and throwing "
-                "on the far left to a modern training ground on the right. The middle band of the picture is calm "
-                "and uncluttered so a title can sit on it.")
+PROFILE_SCENE = ("Close-up head-and-shoulders portrait of the coach, centred, looking at the viewer with a confident "
+                 "warm smile, plain soft warm background. Her face fills the middle of the square, cropped just "
+                 "below the shoulders; no hands, no body below the chest.")
+BANNER_SCENE = ("One continuous wide panoramic landscape painting, a single scene with one horizon line at the "
+                "vertical middle of the picture, no panels, no borders, no split. From left to right it slowly "
+                "changes from an ancient golden savanna with small early humans running and throwing spears, to a "
+                "Greek stadium track, to a modern athletics track. All people are small, seen from a distance, and "
+                "stand along the horizon in the middle band; sky above and ground below are calm and empty.")
+MEDALLION = 360               # the coach's round portrait on the banner (inside the safe area)
 
 
 def safe_box() -> tuple[int, int, int, int]:
@@ -66,6 +71,30 @@ def _banner_text(img: Image.Image, name: str, tagline: str, left: int, name_colo
     for ln in tag_lines:
         d.text((left, y), ln, font=tf, fill=accent, stroke_width=max(3, tf_size // 12), stroke_fill="#111111")
         y += int(tf_size * 1.25)
+
+
+def _crop(img: Image.Image, frac) -> Image.Image:
+    """Square crop by fractions [x0, y0, x1, y1] of the image (None = whole image)."""
+    if not frac:
+        return img
+    W, H = img.size
+    x0, y0, x1, y1 = (round(f * d) for f, d in zip(frac, (W, H, W, H)))
+    side = min(x1 - x0, y1 - y0)
+    return img.crop((x0, y0, x0 + side, y0 + side))
+
+
+def _medallion(img: Image.Image, portrait: Image.Image, centre: tuple[int, int], size: int) -> None:
+    """Paste the portrait as a circle with a light ring and a soft shadow, centred on `centre`."""
+    from PIL import ImageFilter
+    face = portrait.convert("RGBA").resize((size, size), Image.LANCZOS)
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).ellipse([0, 0, size - 1, size - 1], fill=255)
+    x, y = centre[0] - size // 2, centre[1] - size // 2
+    shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).ellipse([x + 6, y + 14, x + size + 6, y + size + 14], fill=(0, 0, 0, 140))
+    img.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(14)))
+    img.paste(face, (x, y), mask)
+    ImageDraw.Draw(img).ellipse([x, y, x + size - 1, y + size - 1], outline="#f4ead7", width=10)
 
 
 def guides(banner: Path, out: Path) -> Path:
@@ -110,12 +139,13 @@ def render_branding(channel: str, cfg: Config, force: bool = False) -> list[Path
 
     art = _paint(eng, prompt(b.get("profile_prompt") or PROFILE_SCENE), raw_dir / "profile_art.png", "1:1",
                  (PROFILE, PROFILE), refs, force)
+    portrait = _crop(Image.open(art).convert("RGB"), b.get("profile_crop")).resize((PROFILE, PROFILE), Image.LANCZOS)
     raw = out / "profile.png"
-    Image.open(art).convert("RGB").resize((PROFILE, PROFILE), Image.LANCZOS).save(raw)
+    portrait.save(raw)
     made.append(raw)
 
     # watermark: the same portrait, round and transparent outside the circle
-    wm = Image.open(raw).convert("RGBA").crop((120, 80, 680, 640)).resize((WATERMARK, WATERMARK), Image.LANCZOS)
+    wm = portrait.convert("RGBA").crop((80, 40, 720, 680)).resize((WATERMARK, WATERMARK), Image.LANCZOS)
     mask = Image.new("L", (WATERMARK, WATERMARK), 0)
     ImageDraw.Draw(mask).ellipse([2, 2, WATERMARK - 3, WATERMARK - 3], fill=255)
     wm.putalpha(mask)
@@ -124,15 +154,19 @@ def render_branding(channel: str, cfg: Config, force: bool = False) -> list[Path
     wm.save(wpath)
     made.append(wpath)
 
-    # banner: painting across the full width, name + tagline on a soft band inside the safe area
-    bart = _paint(eng, prompt(b.get("banner_prompt") or BANNER_SCENE), raw_dir / "banner_art.png", "16:9",
-                  BANNER, refs, force)
+    # banner: a panorama across the full width; the coach's portrait in a round frame and the name + tagline sit
+    # inside the safe area, so a phone shows her face and the name, a TV the whole painting
+    bart = _paint(eng, build_prompt({"prompt": b.get("banner_prompt") or BANNER_SCENE}, eng.style, chars),
+                  raw_dir / "banner_art.png", "16:9", BANNER, [], force)
     x0, y0, x1, y1 = safe_box()
     img = Image.open(bart).convert("RGBA").resize(BANNER, Image.LANCZOS)
+    cx, cy = x0 + 30 + MEDALLION // 2, (y0 + y1) // 2
     band = Image.new("RGBA", BANNER, (0, 0, 0, 0))
-    ImageDraw.Draw(band).rounded_rectangle([x0 + 360, y0 + 20, x1, y1 - 20], radius=28, fill=(15, 15, 15, 150))
-    img = Image.alpha_composite(img, band).convert("RGB")
-    _banner_text(img, data.get("name") or channel, data.get("tagline") or "", x0 + 400,
+    ImageDraw.Draw(band).rounded_rectangle([cx, y0 + 50, x1 - 10, y1 - 50], radius=36, fill=(20, 16, 12, 165))
+    img = Image.alpha_composite(img, band)
+    _medallion(img, portrait, (cx, cy), MEDALLION)
+    img = img.convert("RGB")
+    _banner_text(img, data.get("name") or channel, data.get("tagline") or "", cx + MEDALLION // 2 + 40,
                  b.get("name_color", "#ffffff"), b.get("accent", "#ffd84d"))
     bpath = out / "banner.png"
     img.save(bpath, optimize=True)

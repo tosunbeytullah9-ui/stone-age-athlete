@@ -406,15 +406,20 @@ def render_shorts(project: Project, cfg: Config, lang: str | None = None) -> lis
 
 # ---------------------------------------------------------------- description
 def describe(project: Project, cfg: Config, lang: str | None = None) -> Path:
-    """description.txt: title, chapters (project.yaml chapters: {paragraph index: label}) and sources."""
+    """description.txt, ready for YouTube: hook paragraph (project.yaml description), the channel's credit line,
+    chapters (project.yaml chapters: {paragraph index: label}), the sources cited in claims.yaml and the channel's
+    footer (channel.yaml → youtube.credit / youtube.footer). Kept under YouTube's 5000 characters, no < or >."""
     lang = lang or project.primary_lang()
+    yt = cfg.get_path("channel.youtube") or {}
     sb = project.load_storyboard()
     timing = {t["id"]: t for t in project.read_json(project.timing_path(lang))}
     meta = project.meta
     chapters = meta.get("chapters") or {}
-    lines = [meta.get("title", project.slug), ""]
+    lines = []
     if (meta.get("description") or "").strip():
         lines += [meta["description"].strip(), ""]
+    if (yt.get("credit") or "").strip():
+        lines += [yt["credit"].strip(), ""]
     seen, chap, last = set(), [], -99.0
     for s in sb["shots"]:
         if s["para"] in seen or s["id"] not in timing:
@@ -448,10 +453,17 @@ def describe(project: Project, cfg: Config, lang: str | None = None) -> Path:
                 t = f"{head.split(' — ')[0].split(' - ')[0].strip()}: {t}"
             links.append(t)
             head = ""
+    footer = (yt.get("footer") or "").strip()
+    links = [f"- {ln}" for ln in links]
+    while links and len("\n".join([*lines, "Sources:", *links, "", footer])) > 4900:
+        links.pop()                                    # the long tail of sources goes first, never the footer
     if links:
-        lines += ["Sources:", *[f"- {ln}" for ln in links], ""]
+        lines += ["Sources:", *links, ""]
+    if footer:
+        lines.append(footer)
+    text = "\n".join(lines).strip().replace("<", "").replace(">", "")   # YouTube rejects angle brackets
     out = project.lang_dir(lang) / "description.txt"
-    out.write_text("\n".join(lines).strip() + "\n", encoding="utf-8")
+    out.write_text(text + "\n", encoding="utf-8")
     write_srt(project, lang)
     return out
 

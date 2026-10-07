@@ -41,6 +41,12 @@ When asked to "plan" a project (e.g. "002'yi planla"):
 - `python -m studio thumbnails <slug>` renders project.yaml → `thumbnails` (≤3 variants; text allowed on thumbnails,
   never in shots). Titles/thumbnail concepts come from the package prompt (panel: Kapak & başlık).
 - `publish:` in project.yaml is the publish record (series, hook_type, prediction, youtube_id, metrics).
+- `describe` builds the YouTube description: hook paragraph, `channel.yaml → youtube.credit`, chapters, the sources
+  cited in claims.yaml, `youtube.footer`. Never name the coach (owner's decision); the credit line says "an expert
+  strength and conditioning coach".
+- `python -m studio upload <slug> [VIDEO_ID|URL] [--at "YYYY-MM-DD HH:MM" | --at now]` publishes through the YouTube
+  Data API (studio/youtube.py: one-time OAuth setup, `youtube-login`). Until `youtube.api_audited: true` Google
+  locks API-uploaded files as private, so the owner drags video.mp4 into Studio as a draft and passes its link.
 - Second languages are uploaded as an extra audio track on the same video: `python -m studio dub <slug> --lang tr`.
 
 ## Channel artwork and the channel bible

@@ -171,9 +171,13 @@ def get_channel(cid: str):
     ch = _ch(cid)
     out = ch.dir / "build"
     art = {n: _file_url(out / "branding" / f"{n}.png") for n in ("profile", "banner", "banner_guides", "watermark")}
+    from ..youtube import SECRETS_DIR, _token_path, load_state
+    yt = {"client": (SECRETS_DIR / "client_secret.json").exists(), "token": _token_path(ch.id).exists(),
+          "title": load_state(ch.id).get("channel_title", ""),
+          "audited": bool((ch.data.get("youtube") or {}).get("api_audited"))}
     return {"id": ch.id, "data": ch.data, "yaml": ch.path.read_text(encoding="utf-8"),
             "pillars": ch.load_ideas().get("pillars", {}), "statuses": IDEA_STATUSES,
-            "branding": art, "knowledge": _file_url(out / "knowledge.md")}
+            "branding": art, "knowledge": _file_url(out / "knowledge.md"), "youtube": yt}
 
 
 @app.put("/api/channels/{cid}")
@@ -635,6 +639,18 @@ def run_step(cid: str, slug: str, body: dict = Body(...)):
     if step not in STEP_LABELS:
         raise HTTPException(400, f"bilinmeyen adım: {step}")
     args = [step, slug, "--channel", cid]
+    if step == "upload":
+        from ..youtube import YouTubeError, parse_video_id
+        try:
+            vid = parse_video_id(body.get("video") or None)
+        except YouTubeError as e:
+            raise HTTPException(400, str(e))
+        if vid:
+            args.insert(2, vid)
+        if body.get("at"):
+            if body["at"] != "now" and not re.match(r"^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}$", body["at"]):
+                raise HTTPException(400, "yayın zamanı: YYYY-MM-DD HH:MM ya da now")
+            args += ["--at", body["at"].replace("T", " ")]
     if body.get("lang"):
         args += ["--lang", body["lang"]]
     if body.get("only"):
@@ -647,7 +663,7 @@ def run_step(cid: str, slug: str, body: dict = Body(...)):
 
 @app.post("/api/tools/{tool}")
 def tools(tool: str, body: dict = Body(default={})):
-    if tool not in ("check-links", "branding", "knowledge"):
+    if tool not in ("check-links", "branding", "knowledge", "youtube-login"):
         raise HTTPException(404)
     args = [tool] + (["--channel", body["channel"]] if body.get("channel") else [])
     return {"job": manager.submit(args, STEP_LABELS[tool]).id}

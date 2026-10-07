@@ -5,7 +5,7 @@ handle: "@HomoAthleticus"
 aliases: [stone-age-athlete]     # old channel id; projects from the old folder are moved here automatically
 tagline: "Your body has a 2-million-year training log. Let's read it."
 category: Education
-languages: [en, tr]              # first = primary; tr = dubbed audio track on the same video
+languages: [en]                  # English only (decided 2026-10-07); add tr back for a dubbed audio track
 description: >
   The story of the human body, told by a strength coach. How our ancestors moved, how warriors trained,
   why your body is built the way it is, and which fitness "facts" are myths. Every claim sourced.
@@ -37,6 +37,23 @@ outro:                           # end-screen scene after the narration (YouTube
   seconds: 18
   text: {en: "Watch next", tr: "Sıradaki video"}
   sub: {en: "Homo Athleticus · every claim sourced", tr: "Homo Athleticus · her iddia kaynaklı"}
+youtube:                         # python -m studio upload <slug>: what goes onto YouTube (studio/youtube.py)
+  credit: "This video was created by an expert strength and conditioning coach. Every claim is linked to its source below."
+  footer: |-
+    Educational content only, not medical advice. Talk to a qualified professional before you change your training.
+
+    Homo Athleticus: the story of the human body, told by a strength coach.
+  category: 27                   # Education
+  language: en
+  made_for_kids: false
+  synthetic_media: false         # true only if a picture could pass for real footage of a real person or event
+  publish_time: "22:00"          # this computer's time (Türkiye) = 15:00 New York in summer, 14:00 in winter
+  privacy: private               # when no release time is given: private | unlisted | public
+  api_audited: false             # true once Google approves the API audit (then video.mp4 is uploaded by the API too)
+  tags: [human evolution, strength and conditioning, exercise science, sports science, fitness myths, anthropology,
+    human body, evolution of exercise]
+branding:                        # python -m studio branding → build/branding/ (profile, banner, watermark)
+  profile_crop: [0.18, 0.0, 0.82, 0.64]   # the face part of raw/profile_art.png (fractions x0 y0 x1 y1)
 chart_paper: refs/paper.png       # charts are printed on this painted paper (same world as the AI scenes)
 style:
   palette: {}                    # chart colours, e.g. {ochre: "#e3a447"}

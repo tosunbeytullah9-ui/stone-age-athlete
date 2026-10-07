@@ -20,6 +20,7 @@ STEP_LABELS = {
     "check": "Kalite kontrol", "all": "Tümünü üret",
     "thumbnails": "Kapak görselleri", "package": "Başlık & kapak paketi", "signals": "Fikir sinyalleri", "check-links": "Bağlantı kontrolü",
     "branding": "Marka görselleri", "knowledge": "Bilgi paketi",
+    "upload": "YouTube'a gönder", "youtube-login": "YouTube bağlantısı",
 }
 
 

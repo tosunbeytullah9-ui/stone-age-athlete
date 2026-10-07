@@ -271,14 +271,23 @@ style:
   palette: {sky_warm: "#e9e4d4", ochre: "#7aa0a8"}   # kanalın renk kimliği
 prompt_style: "Muted blue-grey palette, clinical feel."</pre></div></div>
     <div class="grid g2" style="margin-top:16px"><div class="card"><h3>Marka görselleri</h3>
-    <p class="small muted">YouTube Studio → Özelleştirme → Markalama: profil resmi (800×800), banner (2560×1440, yazı her cihazda görünen 1546×423 alanda) ve video filigranı (150×150). Maskotla, videolardaki çizim kitiyle çizilir. İsteğe bağlı <span class="kbd">branding:</span> ayarları için <span class="kbd">studio/branding.py</span>.</p>
+    <p class="small muted">YouTube Studio → Özelleştirme → Markalama: profil resmi (800×800), banner (2560×1440, koçun portresi ve yazı her cihazda görünen 1546×423 alanda) ve video filigranı (150×150). Kanalın resim stiliyle Gemini çizer (2 resim, bir kez; yeniden çizdirmek için <span class="kbd">raw/</span> klasöründeki resmi sil). İsteğe bağlı <span class="kbd">branding:</span> ayarları için <span class="kbd">studio/branding.py</span>.</p>
     <div class="row"><button class="primary" id="br-make">Marka görsellerini üret</button></div>
     ${ch.branding && ch.branding.banner ? `<div style="margin-top:12px"><a href="${ch.branding.banner_guides}" target="_blank"><img src="${ch.branding.banner_guides}" style="width:100%;border-radius:8px" alt="banner"></a>
       <div class="row" style="margin-top:8px;align-items:center;gap:12px"><img src="${ch.branding.profile}" style="width:96px;height:96px;border-radius:50%" alt="profil"><img src="${ch.branding.watermark}" style="width:48px;height:48px" alt="filigran">
       <span class="small"><a href="${ch.branding.profile}" download>profile.png</a> · <a href="${ch.branding.banner}" download>banner.png</a> · <a href="${ch.branding.watermark}" download>watermark.png</a></span></div></div>` : ""}</div>
     <div class="card"><h3>Bilgi paketi (sohbet botu için)</h3>
     <p class="small muted">Kanalın tamamını tek dosyada toplar: kimlik, seriler, yazım kuralları, ses etiketleri, çizim kiti, fikir havuzu, yayın sonuçları, kaynak kütüphanesi ve örnek senaryo. Claude Project / ChatGPT / Gemini / DeepSeek'e "bilgi" olarak yükle; yayın ya da marka değişikliğinden sonra yeniden üretip değiştir.</p>
-    <div class="row"><button class="primary" id="kn-make">Bilgi paketini üret</button>${ch.knowledge ? ` <a class="small" href="${ch.knowledge}" download="knowledge.md">knowledge.md indir</a>` : ""}</div></div></div>`;
+    <div class="row"><button class="primary" id="kn-make">Bilgi paketini üret</button>${ch.knowledge ? ` <a class="small" href="${ch.knowledge}" download="knowledge.md">knowledge.md indir</a>` : ""}</div></div></div>
+    <div class="card" style="margin-top:16px"><h3>YouTube bağlantısı ${ch.youtube.token ? pill("bağlı: " + (ch.youtube.title || "?"), "ok") : pill("bağlı değil", "warn")}</h3>
+    <p class="small muted">Bitmiş videoyu resmi YouTube API'siyle yayınlar: başlık, açıklama (bölümler + kaynaklar), etiketler, kapak, altyazı, seri listesi, yayın zamanı. Bir kez kurulur:</p>
+    <ol class="small"><li><a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a> → yeni proje → <i>APIs &amp; Services → Library</i> → <b>YouTube Data API v3</b> → Enable.</li>
+      <li><i>OAuth consent screen</i>: External, uygulama adı "Video Fabrikasi", kanalın Google hesabını test kullanıcısı ekle, sonra <b>Publish app</b> (Testing modunda bağlantı 7 günde düşer).</li>
+      <li><i>Credentials → Create credentials → OAuth client ID → Desktop app</i> → JSON'u indir → <span class="kbd">.fabrika/youtube/client_secret.json</span> olarak kaydet ${ch.youtube.client ? pill("bulundu", "ok") : pill("yok", "bad")}</li>
+      <li>Aşağıdaki düğme → tarayıcıda hesap seçerken <b>kanalın marka hesabını</b> seç → izin ver. ("Google bu uygulamayı doğrulamadı" uyarısında: Gelişmiş → devam et; uygulama senin.)</li></ol>
+    <p class="small muted">${ch.youtube.audited ? "API denetimi onaylı: video dosyası da API ile yüklenir." : `Google, denetlenmemiş API projesinden yüklenen videoları "özel" kilitler. Denetim onaylanana kadar video dosyasını Studio'ya sen sürükle (taslak), linkini projenin Video sekmesindeki "YouTube'a gönder" kutusuna yapıştır; gerisini API doldurur. <a href="https://support.google.com/youtube/contact/yt_api_form" target="_blank">Denetim başvurusu</a>, onaylanınca <span class="kbd">youtube: {api_audited: true}</span>.`}</p>
+    <div class="row"><button class="primary" id="yt-login" ${ch.youtube.client ? "" : "disabled"}>${ch.youtube.token ? "Yeniden bağlan" : "YouTube'a bağlan"}</button></div></div>`;
+  $("#yt-login").onclick = async () => { const r = await api("/api/tools/youtube-login", { method: "POST", body: { channel: cid } }); watch(r.job, "YouTube bağlantısı"); state.onJobsDone = () => viewChannel(cid, "settings"); };
   $("#br-make").onclick = async () => { const r = await api("/api/tools/branding", { method: "POST", body: { channel: cid } }); watch(r.job, "Marka görselleri"); state.onJobsDone = () => viewChannel(cid, "settings"); };
   $("#kn-make").onclick = async () => { const r = await api("/api/tools/knowledge", { method: "POST", body: { channel: cid } }); watch(r.job, "Bilgi paketi"); state.onJobsDone = () => viewChannel(cid, "settings"); };
   $("#cy-save").onclick = async () => { try { await api(`/api/channels/${cid}`, { method: "PUT", body: { yaml: $("#cy").value } }); toast("Kaydedildi"); refreshSidebar(); } catch (e) { toast(e.message, true); } };
@@ -490,6 +499,15 @@ function sceneEditor(cid, slug, k) {
   };
 }
 
+function ytBox(lg) {
+  const pub = P.publish || {}, id = pub.youtube_id || "";
+  return `<div class="yt-box" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line, #ddd)"><div class="spread"><h3 style="margin:0">YouTube'a gönder</h3>${id ? `<a class="small" href="https://youtu.be/${esc(id)}" target="_blank">youtu.be/${esc(id)}</a>` : ""}</div>
+    <p class="small muted">Başlık (Yayın & performans → kullanılan başlık), açıklama, etiketler, ${pub.thumbnail_used || 1}. kapak, altyazı, seri listesi ve yayın zamanı API ile doldurulur. Yayın zamanı boşsa takvimdeki tarih (${esc(pub.planned_date || "yok")}) + kanalın yayın saati kullanılır; o da yoksa video özel kalır.</p>
+    <div class="row" style="gap:8px;flex-wrap:wrap"><input class="yt-vid" style="flex:1;min-width:220px" placeholder="Studio'ya yüklediğin taslağın linki (API denetimine kadar)" value="${esc(id)}">
+      <input class="yt-at" type="datetime-local"><label class="small"><input class="yt-now" type="checkbox"> hemen yayınla</label>
+      <button class="primary" data-yt="${lg}">${id ? "YouTube'u güncelle" : "YouTube'a gönder"}</button></div></div>`;
+}
+
 function projVideo(cid, slug, el) {
   const primary = P.languages[0];
   const block = (lg) => {
@@ -509,6 +527,7 @@ function projVideo(cid, slug, el) {
           <div class="row" style="margin-top:8px"><a class="btn sm" href="${o.video}" download>Videoyu indir</a>${o.captions ? `<a class="btn sm" href="${o.captions}" download>Altyazı (.srt)</a>` : ""}${o.dub ? `<a class="btn sm" href="${o.dub}" download>Ek ses izi (.wav)</a>` : ""}</div></div>
         <div><div class="spread"><span class="small muted">YouTube açıklaması (bölümler + kaynaklar)</span><button class="sm" data-desc="${lg}">Kopyala</button></div>
         <textarea class="code" rows="12" readonly>${esc(o.description)}</textarea></div></div>` : `<p class="muted small" style="margin-bottom:0">Henüz video yok. "Videoyu üret" sırasıyla: seslendirme → zamanlama → eksik resimler → kurgu${isPrimary ? " → (Proje ayarlarında shorts listesi varsa) Shorts" : ""}. Değişmeyen ses ve resimler önbellekten gelir, tekrar ücret ödenmez.</p>`}
+      ${isPrimary && o.video ? ytBox(lg) : ""}
       ${o.shorts.length ? `<h3 style="margin-top:14px">Shorts</h3><div class="video-grid">${o.shorts.map((u) => `<div><video controls preload="metadata" src="${u}"></video><a class="small" href="${u}" download>indir</a></div>`).join("")}</div>` : ""}</div>`;
   };
   el.innerHTML = `<div class="grid" style="grid-template-columns: minmax(0,2fr) minmax(260px,1fr)">
@@ -530,6 +549,14 @@ function projVideo(cid, slug, el) {
     catch (e) { toast(e.message, true); }
   }));
   $$("[data-desc]").forEach((b) => (b.onclick = () => copyText(P.outputs[b.dataset.desc].description)));
+  $$("[data-yt]").forEach((b) => (b.onclick = async () => {
+    const box = b.closest(".yt-box"), at = $(".yt-at", box).value, now = $(".yt-now", box).checked;
+    if (now && !confirm("Video hemen herkese açık yayınlanacak. Emin misin?")) return;
+    try {
+      const r = await api(`/api/projects/${cid}/${slug}/run`, { method: "POST", body: { step: "upload", lang: b.dataset.yt, video: $(".yt-vid", box).value.trim(), at: now ? "now" : at.replace("T", " ") } });
+      watch(r.job, "YouTube'a gönder"); state.onJobsDone = () => viewProject(cid, slug, "video");
+    } catch (e) { toast(e.message, true); }
+  }));
   if (P.jobs.length) watch(P.jobs[0].id, P.jobs[0].label);
 }
 

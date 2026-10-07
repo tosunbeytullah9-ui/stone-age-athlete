@@ -15,7 +15,8 @@ tüm sütunları kapsıyor ve eğitim/bilim konumlandırmasına uyuyor.
 | **Kategori** | Education (fitness değil) |
 | **Görsel dil** | Elle boyanmış guaş illüstrasyon, doğa tarihi müzesi duvar resmi havası (channel.yaml → `visual_style`) |
 | **Karakter** | The Coach: 30'larının başında atletik bir kadın, yüksek at kuyruğu, kırmızı ter bandı, antrasit tişört, düdük (referans: `channels/homo-athleticus/refs/coach.png`). Anlatır, gösterir, "coach's lesson"ı verir; anlatıcı sesle aynı kişi |
-| **Diller** | İngilizce ana dil. Türkçe, aynı videoya **ek ses izi** olarak eklenir (ayrı kanal değil) |
+| **Diller** | Sadece İngilizce (7 Ekim 2026 kararı). Türkçe ses izi altyapısı duruyor; istenirse `languages: [en, tr]` |
+| **Uzman bilgisi** | Koçun adı verilmez. Her açıklamada: "This video was created by an expert strength and conditioning coach." (`channel.yaml → youtube.credit`) |
 
 **Kanal açıklaması (YouTube "Hakkında", ≤300 karakter):**
 > The story of the human body, told by a strength coach. How our ancestors moved, how warriors trained, why your
@@ -74,8 +75,7 @@ Seri renkleri kapaklarda küçük bir köşe vurgusu olarak kullanılabilir. Ren
 - En fazla 4 kelime; başlığı tekrarlamaz, onu tamamlar.
 - 3 farklı konsept üret, YouTube "Test & Compare" ile dene (kazananı izlenme süresi belirler).
 
-**Türkçe:** Başlık ve kapak yazısı dile özel yazılır (kelime kelime çeviri değil). YouTube'da videonun
-*Diller* bölümünden Türkçe başlık, açıklama ve kapak eklenir.
+**Türkçe:** Kanal şimdilik sadece İngilizce. Türkçe eklenirse başlık ve kapak yazısı dile özel yazılır.
 
 ## Büyüme sırası
 

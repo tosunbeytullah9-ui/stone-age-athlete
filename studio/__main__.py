@@ -19,6 +19,8 @@ steps:
   dub          --lang tr: audio track fitted to the primary video (upload as an extra YouTube audio track)
   sheet        contact sheet: one tile per scene
   check        quality gate (research, sources, variety)
+  upload       publish on YouTube [VIDEO_ID|URL] [--at "YYYY-MM-DD HH:MM" | --at now]: metadata, thumbnail,
+               captions, playlist, release time (see studio/youtube.py for the one-time setup)
   all          split → voice → align → images → render (+ describe) for --lang
   status       short summary
 
@@ -31,6 +33,7 @@ other:
   apply-plan <project> FILE / apply-translation <project> FILE --lang L
   branding [--channel C] [--force]                        profile picture, banner, watermark (build/branding/)
   knowledge [--channel C]                                 channel bible for any chatbot (build/knowledge.md)
+  youtube-login [--channel C]                             connect the channel to the YouTube API (browser consent)
 """
 from __future__ import annotations
 
@@ -58,6 +61,7 @@ def main(argv=None) -> None:
     ap.add_argument("--title", default=None)
     ap.add_argument("--stash", default=None)
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--at", default=None)
     a = ap.parse_args(argv)
     t0 = time.time()
     cmd = a.command
@@ -77,6 +81,13 @@ def main(argv=None) -> None:
     if cmd == "branding":
         from .branding import render_branding
         render_branding(channel, load_config(channel), force=a.force)
+        return
+    if cmd == "youtube-login":
+        from .youtube import YouTubeError, login
+        try:
+            login(channel)
+        except YouTubeError as e:
+            sys.exit(f"  {e}")
         return
     if cmd == "knowledge":
         from .knowledge import write_knowledge
@@ -178,6 +189,12 @@ def main(argv=None) -> None:
     elif cmd == "describe":
         from .render import describe
         print(f"  {describe(p, cfg, lang)}")
+    elif cmd == "upload":
+        from .youtube import YouTubeError, publish_video
+        try:
+            publish_video(p, cfg, lang, video=a.file, at=a.at, force=a.force)
+        except YouTubeError as e:
+            sys.exit(f"  {e}")
     elif cmd == "sheet":
         from .render import contact_sheet
         print(f"  {contact_sheet(p)}")
