@@ -6,7 +6,7 @@ channel, the kind that wins most often becomes that channel's default.
 
 | kind | what it shows | words |
 |---|---|---|
-| `correction` | the belief in big letters, struck through by hand in the accent colour; a handwritten note under it | `myth` ≤ 2 words or one number, `note` ≤ 3 words |
+| `correction` | the belief in big letters, struck through by hand in the accent colour; a handwritten note under it | `myth` ≤ 3 short words or one number, `note` ≤ 3 words |
 | `stamp` | one object drawn large, a rubber stamp on its empty side | none (the stamp word: channel default or `stamp`) |
 | `scene` | a moment that really happens in the video | `text` ≤ 3 words |
 
@@ -40,7 +40,7 @@ every variant in the light and the dark feed, at phone home-feed size and at 168
 there: if the words do not read at 168 px, they are too long.
 
 The renderer warns about these rules:
-- `myth` longer than 2 words
+- `myth` longer than 3 words
 - `note` or `text` longer than 3 words
 - a number with no `claim`
 - `pos: bottom-right`

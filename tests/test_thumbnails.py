@@ -53,8 +53,8 @@ def test_long_scene_text_wraps_instead_of_shrinking():
 
 
 def test_lint_rules():
-    assert tk.lint({"kind": "correction"}, {"myth": "eight full glasses", "note": "a b c d"}) == [
-        "inanış en fazla 2 kelime olmalı", "not en fazla 3 kelime olmalı"]
+    assert tk.lint({"kind": "correction"}, {"myth": "eight full glasses daily", "note": "a b c d"}) == [
+        "inanış en fazla 3 kelime olmalı", "not en fazla 3 kelime olmalı"]
     assert any("claim" in w for w in tk.lint({"kind": "scene"}, {"text": "CONSUL AT 42"}))
     assert tk.lint({"kind": "scene", "claim": "c07"}, {"text": "CONSUL AT 42"}) == []
     assert tk.lint({"kind": "stamp", "pos": "bottom-right"}, {})
@@ -95,3 +95,43 @@ def test_preview_and_apply_package(proj):  # noqa: F811
         _picture().save(d / f"thumb{i}.png")
     out = th.preview(proj, "en")
     assert out.exists() and Image.open(out).size == (40 + 3 * 470, 980)
+
+
+def test_render_thumbnails_end_to_end(proj, monkeypatch):  # noqa: F811
+    import studio.images.gemini_engine as ge
+    prompts = []
+
+    class FakeEngine:
+        style, characters, model = "Ink drawing on a ledger page.", {}, "fake"
+
+        def __init__(self, cfg):
+            pass
+
+        def char_refs(self, chars):
+            return []
+
+        def generate(self, prompt, out, refs):
+            prompts.append(prompt)
+            _picture().save(out)
+
+    monkeypatch.setattr(ge, "GeminiEngine", FakeEngine)
+    d = proj.ch.data
+    d["thumbnails"] = {"paper": True, "ink_boost": 1}
+    d["series"]["limits"]["color"] = "#b23a2e"
+    proj.ch.save(d)
+    from studio.config import load_config
+    from studio.project import Project
+    p = Project(proj.channel, proj.slug)
+    th.apply_package(p, {"thumbnails": [
+        {"kind": "correction", "visual": {"prompt": "eight glasses"}, "myth": {"en": "8 GLASSES"},
+         "note": {"en": "half a sentence?"}, "claim": "c01"},
+        {"kind": "stamp", "visual": {"prompt": "a bottle"}, "pos": "top-right"},
+        {"visual": {"prompt": "classic"}, "text": {"en": "OLD STYLE"}}]})
+    p = Project(proj.channel, proj.slug)
+    made = th.render_thumbnails(p, load_config(proj.channel), "en")
+    assert [m.name for m in made] == ["thumb1.png", "thumb2.png", "thumb3.png"]
+    assert Image.open(made[0]).size == (1920, 1080) and Image.open(made[2]).size == (1280, 720)
+    assert "upper left" in prompts[0] and "rubber stamp" in prompts[1] and "big title" in prompts[2]
+    assert (p.build / "thumbnails" / "en" / "preview.png").exists()
+    th.render_thumbnails(p, load_config(proj.channel), "en")       # words only changed → no new pictures
+    assert len(prompts) == 3

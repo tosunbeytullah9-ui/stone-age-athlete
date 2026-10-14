@@ -4,7 +4,7 @@ project.yaml (the three kinds, look from channel.yaml → thumbnails, drawn by s
   thumbnails:
     - kind: correction              # the belief struck through + a handwritten note
       visual: {prompt: "...", characters: []}
-      myth: {en: "8 GLASSES"}       # ≤ 2 words or one number
+      myth: {en: "8 GLASSES"}       # ≤ 3 short words or one number
       note: {en: "half a sentence?"}   # ≤ 3 words
       pos: top-left                 # top-left | top | top-right | left | right | bottom-left | bottom
       claim: c03                    # the claim a number/fact on the thumbnail rests on
@@ -273,8 +273,8 @@ Create packaging. Rules:
   numbers, no "all humans" if the study is one group). Mix styles: question, surprising fact, "why", contrast.
 - Thumbnails: exactly 3, one of each kind, so YouTube's Test & Compare can tell which kind works for this channel.
   The factory prints every word itself; the picture never contains text.
-  1. kind: correction. `myth`: the belief the video overturns, at most 2 words or one number, printed big and struck
-     through by hand. `note`: at most 3 handwritten words under it that open a curiosity gap without giving the
+  1. kind: correction. `myth`: the belief the video overturns, at most 3 short words or one number, printed big
+     and struck through by hand. `note`: at most 3 handwritten words under it that open a curiosity gap without giving the
      answer away. Picture: the object of the belief, large.
   2. kind: stamp. One iconic object of the belief drawn large; a rubber stamp goes on the empty side. `stamp` only if
      a word other than "{stamp}" fits much better. No other words.

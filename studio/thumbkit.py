@@ -311,8 +311,8 @@ def lint(v: dict, texts: dict) -> list[str]:
     warn = []
     kind = v.get("kind")
     if kind == "correction":
-        if word_count(texts.get("myth")) > 2:
-            warn.append("inanış en fazla 2 kelime olmalı")
+        if word_count(texts.get("myth")) > 3:
+            warn.append("inanış en fazla 3 kelime olmalı")
         if word_count(texts.get("note")) > 3:
             warn.append("not en fazla 3 kelime olmalı")
     elif kind == "scene" and word_count(texts.get("text")) > 3:
