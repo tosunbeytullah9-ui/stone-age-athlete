@@ -44,8 +44,10 @@ Every render layers an ambience bed per scene and effects on audible actions/wor
 (built-in synthesis, CC0/CC-BY files in library/sounds/catalog.yaml) are ever used.
 
 ## Packaging and publishing
-- `python -m studio thumbnails <slug>` renders project.yaml → `thumbnails` (≤3 variants; text allowed on thumbnails,
-  never in shots). Titles/thumbnail concepts come from the package prompt (panel: Kapak & başlık).
+- `python -m studio thumbnails <slug>` renders project.yaml → `thumbnails`: three kinds, one each (`correction`,
+  `stamp`, `scene`; docs/THUMBNAILS.md), look from `channel.yaml → thumbnails`, words printed by the factory (never in
+  the AI picture or in shots), ≤3 words, numbers tied to a `claim`. Check `preview.png` (light/dark feed, 168 px).
+  Titles/thumbnail concepts come from the package prompt (panel: Kapak & başlık), fed by `channel.yaml → package`.
 - `publish:` in project.yaml is the publish record (series, hook_type, prediction, youtube_id, metrics).
 - `describe` builds the YouTube description: hook paragraph, `channel.yaml → youtube.credit`, chapters, the sources
   cited in claims.yaml, `youtube.footer`. Never name the coach (owner's decision); the credit line says "an expert

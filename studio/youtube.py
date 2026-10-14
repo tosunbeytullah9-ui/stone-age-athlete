@@ -52,7 +52,7 @@ AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 SCOPES = "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.force-ssl"
 CHUNK = 8 * 1024 * 1024                 # resumable upload chunk (multiple of 256 KiB)
-THUMB_MAX = 2 * 1024 * 1024             # YouTube thumbnail limit
+THUMB_MAX = 50 * 1024 * 1024            # YouTube thumbnail limit (2 MB until 2026; thumbnails.set: 50 MB)
 VIDEO_ID = re.compile(r"^[A-Za-z0-9_-]{11}$")
 AUDIT_FORM = "https://support.google.com/youtube/contact/yt_api_form"
 

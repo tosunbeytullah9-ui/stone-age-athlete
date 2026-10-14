@@ -55,7 +55,7 @@ function projPackage(cid, slug, el) {
         <div id="live-box" class="hidden" style="margin-top:10px"><div id="live-status" class="small muted"></div><div class="log" id="live-log" style="height:120px"></div></div>
       </div>
       <div class="card" style="margin-top:14px"><div class="spread"><h3 style="margin:0">Kapak tarifleri (YAML)</h3><button class="sm" id="th-save">Kaydet</button></div>
-        <textarea id="th-yaml" class="code" rows="16" spellcheck="false" placeholder="- visual: {prompt: 'close-up of a Bajau diver gliding over a reef, calm eyes', characters: []}\n  text: {en: BIGGER SPLEENS, tr: DEV DALAK}\n  text_pos: left">${esc(P.thumbnails_yaml)}</textarea></div>
+        <textarea id="th-yaml" class="code" rows="16" spellcheck="false" placeholder="- kind: correction\n  visual: {prompt: 'eight drinking glasses in a row', characters: []}\n  myth: {en: 8 GLASSES}\n  note: {en: half a sentence?}\n  pos: top-left\n  claim: c03\n- kind: stamp\n  visual: {prompt: 'a giant water bottle monument'}\n- kind: scene\n  visual: {prompt: 'a grape pointing at a raisin'}\n  text: {en: NOT A RAISIN}\n  pos: top">${esc(P.thumbnails_yaml)}</textarea></div>
     </div>
     <div>
       <div class="card"><h3>Başlık adayları</h3>

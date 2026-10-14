@@ -54,6 +54,17 @@ youtube:                         # python -m studio upload <slug>: what goes ont
     human body, evolution of exercise]
 branding:                        # python -m studio branding → build/branding/ (profile, banner, watermark)
   profile_crop: [0.18, 0.0, 0.82, 0.64]   # the face part of raw/profile_art.png (fractions x0 y0 x1 y1)
+package:                         # what the packaging prompt (titles, thumbnails, hooks) is told about the channel
+  positioning: >-
+    Education, not fitness-influencer. A strength & conditioning coach tells the story of the human body; every claim
+    is sourced; each video ends with a practical "coach's lesson".
+  thumbnail_rules:
+    - "`characters: [coach]` only if the coach appears in the picture."
+thumbnails:                      # look of the three thumbnail kinds (docs/THUMBNAILS.md)
+  ink: "#151311"
+  accent: "#d8342c"              # strike-through, note and stamp colour
+  stamp: MYTH                    # default rubber-stamp word
+  paper: false                   # paintings: the words sit on a torn paper slip
 chart_paper: refs/paper.png       # charts are printed on this painted paper (same world as the AI scenes)
 style:
   palette: {}                    # chart colours, e.g. {ochre: "#e3a447"}

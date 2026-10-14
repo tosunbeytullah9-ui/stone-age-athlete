@@ -25,6 +25,8 @@ WRITING_RULES = """- Narration in English, short sentences, second-person hook. 
   DOI, number or quote. Never round a claim up: "university women rowers", not "Olympic rowers"; "a group of
   Neolithic women", not "ancient humans".
 - Title, thumbnail and hook may not promise more than the claims support.
+- Thumbnails: three per video, one of each kind (correction: the belief struck through + a note; stamp: one object
+  + a rubber stamp; scene: a moment from the video), at most three words, tested with Test & Compare.
 - Images never contain text; numbers become pictures (charts, gauges, two sizes). Text only on thumbnails and in
   the on-screen overlay layer."""
 

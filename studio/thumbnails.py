@@ -1,6 +1,17 @@
-"""Thumbnails + titles ("packaging").
+"""Thumbnails + titles ("packaging"). Rules and the three kinds: docs/THUMBNAILS.md.
 
-project.yaml:
+project.yaml (the three kinds, look from channel.yaml → thumbnails, drawn by studio/thumbkit.py):
+  thumbnails:
+    - kind: correction              # the belief struck through + a handwritten note
+      visual: {prompt: "...", characters: []}
+      myth: {en: "8 GLASSES"}       # ≤ 2 words or one number
+      note: {en: "half a sentence?"}   # ≤ 3 words
+      pos: top-left                 # top-left | top | top-right | left | right | bottom-left | bottom
+      claim: c03                    # the claim a number/fact on the thumbnail rests on
+    - kind: stamp                   # one object + a rubber stamp (channel default word, or stamp: {en: "MYTH"})
+    - kind: scene                   # a moment from the video + text ≤ 3 words
+
+Older entries without `kind` keep the classic look:
   thumbnails:                       # up to 3 variants → YouTube "Test & Compare" (winner by watch time)
     - visual: {prompt: "...", characters: [coach]}   # same format as a scene (docs/STORYBOARD.md)
       frame: {x: 900, y: 560, zoom: 1.3}   # optional extra close-up (1920×1080 coordinates)
@@ -31,6 +42,7 @@ FONT_CANDIDATES = [
     "/System/Library/Fonts/Supplemental/Arial Black.ttf", "/System/Library/Fonts/Supplemental/Impact.ttf",
     "/Library/Fonts/Arial Black.ttf", "impact.ttf", "Impact.ttf",
     "DejaVuSans-Bold.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "arialbd.ttf",
+    str(Path(__file__).resolve().parent.parent / "assets" / "fonts" / "Anton-Regular.ttf"),
 ]
 
 
@@ -111,6 +123,34 @@ def compose(base: Image.Image, text: str, pos: str = "left", color: str = "#ffd8
 THUMB_DIRECTION = ("YouTube thumbnail painting: one bold subject, close and large, strong contrast and saturated "
                    "light, an expressive face if a person is shown, simple uncluttered background, and clear empty "
                    "space on the {side} side of the frame for a big title.")
+KIND_SPACE = {        # what the picture must leave free for the words the factory prints on it
+    "correction": "Leave the {area} of the frame completely empty (plain background, nothing drawn there) for a "
+                  "big handwritten line.",
+    "stamp": "Leave a large completely empty area in the {area} of the frame (plain background, nothing drawn there) "
+             "for a rubber stamp.",
+    "scene": "Leave the {area} of the frame completely empty (plain background) for three handwritten words.",
+}
+AREA = {"top-left": "upper left", "top": "top third", "top-right": "upper right", "left": "left half",
+        "right": "right half", "bottom-left": "lower left", "bottom": "bottom third"}
+KIND_DIRECTION = ("Thumbnail picture: one subject drawn large and close, filling about half of the frame, bold clear "
+                  "shapes that still read when the picture is shown very small, nothing else competing with it.")
+
+
+def _direction(v: dict, ch: dict) -> str:
+    kind = v.get("kind")
+    custom = ((ch or {}).get("thumbnails") or {}).get("direction")
+    if kind in KIND_SPACE:
+        pos = v.get("pos") or ("top" if kind == "scene" else "top-left")
+        return f"{custom or KIND_DIRECTION} {KIND_SPACE[kind].format(area=AREA.get(pos, 'upper left'))}"
+    side = {"left": "left", "right": "right", "top": "top", "bottom": "bottom"}.get(v.get("text_pos", "left"), "left")
+    return custom.format(side=side) if custom and "{side}" in custom else THUMB_DIRECTION.format(side=side)
+
+
+def _field(v: dict, key: str, lang: str, primary: str) -> str:
+    t = v.get(key) or ""
+    if isinstance(t, dict):
+        t = t.get(lang) or (t.get(primary) if lang == primary else "") or ""
+    return str(t).strip()
 
 
 def _frame_crop(img: Image.Image, frame: dict | None) -> Image.Image:
@@ -124,7 +164,14 @@ def _frame_crop(img: Image.Image, frame: dict | None) -> Image.Image:
     return img.crop((round(x0), round(y0), round(x0 + vw), round(y0 + vh))).resize((W, H), Image.LANCZOS)
 
 
+def _series_color(project: Project) -> str | None:
+    from .publish import get_publish
+    sid = get_publish(project).get("series") or ""
+    return ((project.ch.data.get("series") or {}).get(sid) or {}).get("color")
+
+
 def render_thumbnails(project: Project, cfg: Config, lang: str | None = None) -> list[Path]:
+    from . import thumbkit
     from .images.gemini_engine import GeminiEngine
     from .images.style_prompt import build_prompt
     variants = project.meta.get("thumbnails") or []
@@ -132,6 +179,9 @@ def render_thumbnails(project: Project, cfg: Config, lang: str | None = None) ->
         raise SystemExit("project.yaml → thumbnails boş. Panel: Kapak & başlık → 'Paket istemini kopyala'.")
     primary = project.primary_lang()
     langs = [lang] if lang else project.ch.languages
+    ch = project.ch.data
+    theme = thumbkit.theme_of(ch)
+    color = _series_color(project)
     out_dir = project.build / "thumbnails"
     raw_dir = out_dir / "raw"
     raw_dir.mkdir(parents=True, exist_ok=True)
@@ -144,8 +194,7 @@ def render_thumbnails(project: Project, cfg: Config, lang: str | None = None) ->
         if not isinstance(visual, dict) or not visual.get("prompt"):
             print(f"  kapak {n}: visual.prompt yok, atlandı")
             continue
-        side = {"left": "left", "right": "right", "top": "top", "bottom": "bottom"}.get(v.get("text_pos", "left"), "left")
-        scene = {**visual, "prompt": f"{THUMB_DIRECTION.format(side=side)} {visual['prompt']}"}
+        scene = {**visual, "prompt": f"{_direction(v, ch)} {visual['prompt']}"}
         eng = eng or GeminiEngine(cfg)
         prompt = build_prompt(scene, eng.style, eng.characters)
         key = hashlib.sha1(json.dumps([prompt, eng.model], ensure_ascii=False).encode()).hexdigest()[:10]
@@ -154,8 +203,14 @@ def render_thumbnails(project: Project, cfg: Config, lang: str | None = None) ->
             eng.generate(prompt, raw, eng.char_refs(visual.get("characters")))
         base = _frame_crop(Image.open(raw).convert("RGB"), v.get("frame"))
         for lg in langs:
-            img = compose(base, _text_for(v, lg, primary), v.get("text_pos", "left"),
-                          v.get("text_color", "#ffd84d"), v.get("highlight"), None)
+            if v.get("kind") in thumbkit.KINDS:
+                texts = {k: _field(v, k, lg, primary) for k in ("myth", "note", "stamp", "text")}
+                for w in thumbkit.lint(v, texts):
+                    print(f"  uyarı kapak {n} ({v['kind']}): {w}")
+                img = thumbkit.compose_kind(base, v, texts, theme, color)
+            else:
+                img = compose(base, _text_for(v, lg, primary), v.get("text_pos", "left"),
+                              v.get("text_color", "#ffd84d"), v.get("highlight"), None)
             d = out_dir / lg
             d.mkdir(parents=True, exist_ok=True)
             out = d / f"thumb{n}.png"
@@ -168,36 +223,47 @@ def render_thumbnails(project: Project, cfg: Config, lang: str | None = None) ->
 
 
 def preview(project: Project, lang: str) -> Path | None:
-    """All variants side by side at desktop (360 px) and phone (168 px) size, next to a fake title line."""
+    """Every variant as the feed shows it: phone home feed (full width) and sidebar/search (168 px), light and dark."""
     d = project.build / "thumbnails" / lang
     thumbs = sorted(d.glob("thumb[0-9].png"))
     if not thumbs:
         return None
     from .render import _font as small_font
-    W = 40 + len(thumbs) * 420
-    sheet = Image.new("RGB", (W, 470), "#0f0f0f")
-    dr = ImageDraw.Draw(sheet)
+    variants = project.meta.get("thumbnails") or []
+    kinds = [(variants[i] if i < len(variants) and isinstance(variants[i], dict) else {}).get("kind", "")
+             for i in range(len(thumbs))]
+    names = {"correction": "Düzeltme", "stamp": "Damga", "scene": "Sahne"}
     title = project.meta.get("title", project.slug)
+    channel = project.ch.data.get("name", project.channel)
+    col_w, half = 470, 490
+    W, H = 40 + len(thumbs) * col_w, 2 * half
+    sheet = Image.new("RGB", (W, H), "#ffffff")
+    dr = ImageDraw.Draw(sheet)
+    dr.rectangle([0, half, W, H], fill="#0f0f0f")
+    lf, tf = small_font(18), small_font(16)
     for i, t in enumerate(thumbs):
-        x = 40 + i * 420
-        big = Image.open(t).resize((360, 202), Image.LANCZOS)
-        sheet.paste(big, (x, 30))
-        dr.text((x, 244), f"{chr(65 + i)} — masaüstü", fill="#aaaaaa", font=small_font(16))
-        small = Image.open(t).resize((168, 94), Image.LANCZOS)
-        sheet.paste(small, (x, 290))
-        tf = small_font(15)
-        for k, ln in enumerate(_wrap(dr, title, tf, 220)[:3]):
-            dr.text((x + 180, 292 + k * 20), ln, fill="#f1f1f1", font=tf)
-        dr.text((x, 400), f"{chr(65 + i)} — telefon (168 px)", fill="#aaaaaa", font=small_font(16))
+        img = Image.open(t).convert("RGB")
+        x = 40 + i * col_w
+        label = f"{chr(65 + i)}" + (f" · {names.get(kinds[i], kinds[i])}" if kinds[i] else "")
+        for k, (fg, mode) in enumerate((("#0f0f0f", "açık tema"), ("#f1f1f1", "koyu tema"))):
+            y0 = k * half + 18
+            dr.text((x, y0), f"{label} · {mode}", fill="#888888", font=lf)
+            sheet.paste(img.resize((420, 236), Image.LANCZOS), (x, y0 + 30))
+            for j, ln in enumerate(_wrap(dr, title, tf, 420)[:2]):
+                dr.text((x, y0 + 274 + j * 20), ln, fill=fg, font=tf)
+            sheet.paste(img.resize((168, 94), Image.LANCZOS), (x, y0 + 330))
+            for j, ln in enumerate(_wrap(dr, title, tf, 240)[:2]):
+                dr.text((x + 180, y0 + 332 + j * 20), ln, fill=fg, font=tf)
+            dr.text((x + 180, y0 + 376), f"{channel} · 168 px", fill="#888888", font=tf)
     out = d / "preview.png"
     sheet.save(out)
     return out
 
 
 PACKAGE_PROMPT = """You are the packaging strategist of the YouTube channel "{name}" ({tagline}).
-Positioning: education, not fitness-influencer. A strength & conditioning coach tells the story of the human body;
-every claim is sourced; each video ends with a practical "coach's lesson". Visual style: {style}
-Recurring character: {characters}
+Positioning: {positioning}
+Visual style: {style}
+Recurring characters: {characters}
 
 Video: "{title}"
 Series: {series}
@@ -205,22 +271,38 @@ Series: {series}
 Create packaging. Rules:
 - Titles: ≤ 60 characters, curiosity without lying: the title must stay true to the claims listed below (no bigger
   numbers, no "all humans" if the study is one group). Mix styles: question, surprising fact, "why", contrast.
-- Thumbnails: 3 clearly DIFFERENT concepts (not the same picture with other words). Each is a painting prompt
-  (one bold subject, close-up, readable at phone size; describe subject, action, emotion, light), `characters: [coach]`
-  only if the coach appears, `text` of at most 4 words in English and Turkish, `text_pos` on the empty side of the
-  picture, and optionally `highlight` (red circle, 1920×1080 coordinates) on the one detail that matters. One big idea
-  per thumbnail; the text must not repeat the title, it adds to it. No text inside the painting itself.
-- Hooks: 3 alternative first 8 seconds (≤ 25 words) that put the most surprising sourced fact or stake up front.
+- Thumbnails: exactly 3, one of each kind, so YouTube's Test & Compare can tell which kind works for this channel.
+  The factory prints every word itself; the picture never contains text.
+  1. kind: correction. `myth`: the belief the video overturns, at most 2 words or one number, printed big and struck
+     through by hand. `note`: at most 3 handwritten words under it that open a curiosity gap without giving the
+     answer away. Picture: the object of the belief, large.
+  2. kind: stamp. One iconic object of the belief drawn large; a rubber stamp goes on the empty side. `stamp` only if
+     a word other than "{stamp}" fits much better. No other words.
+  3. kind: scene. A funny or tense moment that really happens in the video; `text`: at most 3 words.
+  For each: `visual: {{prompt, characters}}` (one subject filling about half of the frame, what it is and does,
+  emotion, framing; no text in the picture), `pos` = where the words go and the picture stays empty (top-left | top |
+  top-right | left | right | bottom-left | bottom; never bottom-right, where YouTube shows the duration), and `claim`
+  = the id of the claim that any number or fact on the thumbnail rests on. The words add to the title, never repeat it.
+{thumb_rules}- Hooks: 3 alternative first 8 seconds (≤ 25 words) that put the most surprising sourced fact or stake up front.
 - Shorts: 2 ideas for purpose-written Shorts from this research (hook line + what it shows + loop ending).
 
 Reply with ONLY this YAML:
 
 titles: ["...", "..."]            # 10
 thumbnails:
-  - visual: {{prompt: "...", characters: [coach]}}
-    text: {{en: "...", tr: "..."}}
-    text_pos: left
-    highlight: {{x: 1100, y: 500, r: 130}}
+  - kind: correction
+    visual: {{prompt: "...", characters: []}}
+    myth: {{en: "..."}}
+    note: {{en: "..."}}
+    pos: top-left
+    claim: c03
+  - kind: stamp
+    visual: {{prompt: "...", characters: []}}
+    pos: top-left
+  - kind: scene
+    visual: {{prompt: "...", characters: []}}
+    text: {{en: "..."}}
+    pos: top
 hooks:
   - {{type: cold_open_stat, text: "..."}}    # types: {hook_types}
 description: "first two lines of the YouTube description (≤ 200 chars), no hashtags"
@@ -236,21 +318,28 @@ shorts_ideas:
 
 
 def build_package_prompt(project: Project) -> str:
+    from . import thumbkit
     from .claims import load_claims
     from .publish import HOOK_TYPES, get_publish
     ch = project.ch.data
     pub = get_publish(project)
     series = (ch.get("series") or {}).get(pub.get("series") or "", {})
-    claims = "\n".join(f"- {c.get('text')}" + (f" (caveat: {c['caveat']})" if c.get("caveat") else "")
+    claims = "\n".join(f"- {c.get('id', '')}: {c.get('text')}" + (f" (caveat: {c['caveat']})" if c.get("caveat") else "")
                        for c in load_claims(project)["claims"]) or "(no claims.yaml yet: use only what the script says)"
     script = project.script_path.read_text(encoding="utf-8")
+    pkg = ch.get("package") or {}
+    rules = pkg.get("thumbnail_rules") or ((ch.get("thumbnails") or {}).get("rules")) or []
+    if isinstance(rules, str):
+        rules = [rules]
+    thumb_rules = "".join(f"- {r}\n" for r in rules)
     return PACKAGE_PROMPT.format(
         name=ch.get("name", project.channel), tagline=ch.get("tagline", ""),
+        positioning=" ".join(str(pkg.get("positioning") or ch.get("description") or "").split()),
         style=ch.get("visual_style") or "painterly documentary illustration",
         characters="; ".join(f"{k}: {(v or {}).get('description', '')}" for k, v in (ch.get("characters") or {}).items())
         or "none", title=project.meta.get("title", project.slug),
         series=f"{series.get('name', '—')}: {series.get('promise', '')}", hook_types=", ".join(HOOK_TYPES),
-        claims=claims, script=script)
+        stamp=thumbkit.theme_of(ch).get("stamp", "WRONG"), thumb_rules=thumb_rules, claims=claims, script=script)
 
 
 def apply_package(project: Project, data: dict) -> dict:
