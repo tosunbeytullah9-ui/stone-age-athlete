@@ -54,7 +54,12 @@ youtube:                         # python -m studio upload <slug>: what goes ont
     human body, evolution of exercise]
 branding:                        # python -m studio branding → build/branding/ (profile, banner, watermark)
   profile_crop: [0.18, 0.0, 0.82, 0.64]   # the face part of raw/profile_art.png (fractions x0 y0 x1 y1)
-package:                         # what the packaging prompt (titles, thumbnails, hooks) is told about the channel
+brand_doc: docs/BRAND.md          # brand book that goes into the channel bible (default: channels/<id>/BRAND.md)
+package:                         # what the packaging prompt and the channel bible are told about the channel
+  script_structure: >-
+    HOOK (0–8 s, the most surprising *sourced* fact or stake) → SETUP → EVIDENCE (one study at a time: who was
+    measured, what was found) → TURN ("but here is where the story gets complicated": what the evidence cannot tell
+    us) → COACH'S LESSON (60–90 s, safe, usable today). About 1,300–1,600 words ≈ 9–11 min.
   positioning: >-
     Education, not fitness-influencer. A strength & conditioning coach tells the story of the human body; every claim
     is sourced; each video ends with a practical "coach's lesson".

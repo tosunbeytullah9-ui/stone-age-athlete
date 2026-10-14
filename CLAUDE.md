@@ -60,8 +60,10 @@ Every render layers an ambience bed per scene and effects on audible actions/wor
 ## Channel artwork and the channel bible
 - `python -m studio branding --channel <c>` → `channels/<c>/build/branding/` (profile 800², banner 2560×1440 with
   text in the 1546×423 safe area, watermark 150²). Check `banner_guides.png`.
-- `python -m studio knowledge --channel <c>` → `channels/<c>/build/knowledge.md`: identity, rules, scene format,
-  ideas, results, sources, a reference script. Upload it to the chatbot (Claude Project) after changes.
+- `python -m studio knowledge --channel <c>` → `channels/<c>/build/knowledge.md`: identity, the channel's own script
+  structure (`channel.yaml → package.script_structure`) and brand/persona book (`channels/<c>/BRAND.md`, or
+  `brand_doc`), thumbnails, scene format, ideas, results, the sources it cites, a reference script. It is the
+  channel's file in the claude.ai project "Video Fabrikası" (`kanallar/<c>/kanal-kitabi.md`); replace it after changes.
 
 ## Translating
 `python -m studio translate <slug> --lang tr` writes a prompt; answer it as YAML `sNNN: "..."` (natural spoken

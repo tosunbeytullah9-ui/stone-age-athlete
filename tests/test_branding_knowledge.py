@@ -41,11 +41,18 @@ def test_knowledge_bible(ch):
     cfg = config_mod.load_config("demo")
     md = build_knowledge("demo", cfg)
     for part in ("# Demo Channel: channel bible", "Human Limits", "[curious]", "| i001 | Bajau / divers | A | idea | 4/2/5",
-                 "`ilardo2018` (primary)", "59 Bajau adults", "abc", "views 1200", "## 10. Reference script",
+                 "`ilardo2018` (primary)", "59 Bajau adults", "abc", "views 1200", "## 11. Reference script",
                  "They dive all day."):
         assert part in md, part
     assert "Dropped one" not in md and "<!-- note -->" not in md
-    assert write_knowledge("demo", cfg).read_text(encoding="utf-8") == md
+    assert "ENDING (what it means for the viewer)" in md and "COACH'S LESSON" not in md   # no other channel's rules
+    d = ch.data
+    d["package"] = {"script_structure": "CASE FILE → VERDICT"}
+    ch.save(d)
+    (ch.dir / "BRAND.md").write_text("# Brand\n\nMortimer never shows his face.\n", encoding="utf-8")
+    md2 = build_knowledge("demo", cfg)
+    assert "Structure: CASE FILE → VERDICT" in md2 and "Mortimer never shows his face." in md2
+    assert write_knowledge("demo", cfg).read_text(encoding="utf-8") == md2
 
 
 def test_banner_safe_area_is_centred():

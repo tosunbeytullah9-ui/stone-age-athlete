@@ -18,17 +18,18 @@ from .config import ROOT, Config
 
 WRITING_RULES = """- Narration in English, short sentences, second-person hook. Translations are shot-level (same boundaries,
   spoken length within ±10%).
-- Structure: HOOK (0–8 s, the most surprising *sourced* fact or stake) → SETUP → EVIDENCE (one study at a time:
-  who was measured, what was found) → TURN ("but here is where the story gets complicated": what the evidence
-  cannot tell us) → COACH'S LESSON (60–90 s, safe, usable today). About 1,300–1,600 words ≈ 9–11 min.
 - Every factual claim is linked to a source in the library and to the shot ids that say it. Never invent a source,
   DOI, number or quote. Never round a claim up: "university women rowers", not "Olympic rowers"; "a group of
   Neolithic women", not "ancient humans".
 - Title, thumbnail and hook may not promise more than the claims support.
-- Thumbnails: three per video, one of each kind (correction: the belief struck through + a note; stamp: one object
-  + a rubber stamp; scene: a moment from the video), at most three words, tested with Test & Compare.
 - Images never contain text; numbers become pictures (charts, gauges, two sizes). Text only on thumbnails and in
-  the on-screen overlay layer."""
+  the on-screen overlay layer.
+- Thumbnails: three per video, one of each kind (correction: the belief struck through + a note; stamp: one object
+  + a rubber stamp; scene: a moment from the video), at most three words, tested with Test & Compare."""
+
+DEFAULT_STRUCTURE = """HOOK (0–8 s, the most surprising *sourced* fact or stake) → SETUP → EVIDENCE (one study at a time: who was
+measured, what was found) → TURN (what the evidence cannot tell us) → ENDING (what it means for the viewer).
+About 1,300–1,600 words ≈ 9–11 min."""
 
 DELIVERY_TAGS = """Only with the expressive voice model (ElevenLabs `eleven_v3`); ignored by other voices and never shown in
 captions. Put the tag before the words, at most one every few sentences:
@@ -96,10 +97,25 @@ def _projects(ch: Channel) -> tuple[str, str]:
     return "\n".join(rows), ref
 
 
-def _sources() -> str:
+def _cited(ch: Channel) -> set[str]:
+    from .claims import load_claims
+    from .project import Project
+    ids: set[str] = set()
+    for slug in ch.project_slugs():
+        try:
+            ids |= {str(c.get("source")) for c in load_claims(Project(ch.id, slug))["claims"] if c.get("source")}
+        except Exception:                                  # noqa: BLE001  (a broken claims file must not stop this)
+            continue
+    return ids
+
+
+def _sources(ch: Channel | None = None) -> str:
     from .claims import load_library
     rows = []
+    cited = _cited(ch) if ch is not None else set()
     for s in load_library().get("sources") or []:
+        if cited and s.get("id") not in cited:
+            continue
         bits = [s.get("authors", ""), str(s.get("year", "")), s.get("venue", "")]
         meta = ", ".join(b for b in bits if b)
         pop = f" Population: {s['population']}." if s.get("population") else ""
@@ -122,7 +138,23 @@ def build_knowledge(channel: str, cfg: Config) -> str:
         import re
         txt = re.sub(r"<!--[\s\S]*?-->", "", _read(Project(ch.id, ref).script_path)).strip()
         ref_script = f"From `{ref}`. Match this voice, rhythm and sourcing discipline, not its topic.\n\n```text\n{txt}\n```"
-    brand = _demote(_strip_title(_read(ROOT / "docs" / "BRAND.md")), 1)
+    brand_file = ROOT / d["brand_doc"] if d.get("brand_doc") else ch.dir / "BRAND.md"
+    brand = _demote(_strip_title(_read(brand_file)), 1) or "(no brand book yet: channels/<channel>/BRAND.md)"
+    pkg = d.get("package") or {}
+    structure = " ".join(str(pkg.get("script_structure") or DEFAULT_STRUCTURE).split())
+    from .thumbkit import theme_of
+    th = theme_of(d)
+    trules = pkg.get("thumbnail_rules") or []
+    trules = [trules] if isinstance(trules, str) else trules
+    thumbs = (f"- Look: ink {th['ink']}, accent {th['accent']}, default stamp word \"{th['stamp']}\", "
+              f"{'paper page (words inked onto the page)' if th['paper'] else 'painting (words on a paper slip)'}.\n"
+              + "".join(f"- {r}\n" for r in trules)
+              + "- Format and rules: `project.yaml → thumbnails` (kind, visual, myth/note/stamp/text, pos, claim); "
+                "upload the correction kind first.")
+    char_ids = ", ".join(f"`{k}`" for k in (d.get("characters") or {})) or "none"
+    tts = (d.get("overrides") or {}).get("tts") or {}
+    voice = (f"{tts.get('provider')}" + (f" ({(tts.get(tts.get('provider')) or {}).get('voice', '')})"
+                                         if isinstance(tts.get(tts.get('provider')), dict) else "")) if tts.get("provider") else "factory default"
     storyboard = _demote(_strip_title(_read(ROOT / "docs" / "STORYBOARD.md")), 1)
     parts = [
         f"# {d.get('name', channel)}: channel bible",
@@ -140,18 +172,22 @@ def build_knowledge(channel: str, cfg: Config) -> str:
         f"- **About:** {' '.join(str(d.get('description', '')).split())}\n"
         f"- **Languages:** {', '.join(d.get('languages') or [])} (first = primary; others are extra audio tracks)\n"
         f"- **Look:** {' '.join(str(d.get('visual_style', '')).split())}\n"
-        f"- **Recurring characters:** {chars}",
+        f"- **Recurring characters:** {chars}\n"
+        f"- **Narrator voice:** {voice}\n"
+        f"- **Positioning:** {' '.join(str(pkg.get('positioning') or '').split()) or '—'}",
         f"## 2. Series (playlists)\n| series | pillars | promise |\n| --- | --- | --- |\n{series}",
-        f"## 3. Writing rules\n{WRITING_RULES}",
+        f"## 3. Writing rules\n- Structure: {structure}\n{WRITING_RULES}",
         f"## 4. Voice delivery tags\n{DELIVERY_TAGS}",
-        f"## 5. Brand architecture (owner's notes, Turkish)\n{brand}",
-        f"## 6. Drawing kit and storyboard format\n{storyboard}",
-        f"## 7. Videos so far and how they performed\n{projects}",
-        f"## 8. Idea bank (demand/competition/gap = YouTube signals 1–5)\n{_ideas(ch)}",
-        f"## 9. Source library (cite by id; never invent new ones)\n{_sources()}",
+        f"## 5. Brand and persona book (owner's notes)\n{brand}",
+        f"## 6. Thumbnails\n{thumbs}",
+        f"## 7. Scene plan (storyboard) format\nThis channel's recurring characters: {char_ids}. Where the spec "
+        f"below says `coach`, use this channel's character ids instead.\n\n{storyboard}",
+        f"## 8. Videos so far and how they performed\n{projects}",
+        f"## 9. Idea bank (demand/competition/gap = YouTube signals 1–5)\n{_ideas(ch)}",
+        f"## 10. Source library (sources this channel cites; cite by id, never invent new ones)\n{_sources(ch)}",
     ]
     if ref_script:
-        parts.append(f"## 10. Reference script\n{ref_script}")
+        parts.append(f"## 11. Reference script\n{ref_script}")
     return "\n\n".join(p for p in parts if p) + "\n"
 
 
