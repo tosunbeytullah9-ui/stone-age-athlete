@@ -103,6 +103,37 @@ def render_effects(events: list[dict], total: float, voice: np.ndarray, level_db
     return out
 
 
+def render_music(segs: list[dict], total: float, voice: np.ndarray, music_dir: Path, level_db: float = -16.0,
+                 duck_db: float = 8.0, fade: float = 2.0) -> np.ndarray:
+    """Music bed: each segment plays its track from the top (looped if short), fades in and out, sits `level_db`
+    under the voice in pauses and a further `duck_db` lower while the narrator speaks."""
+    n = int(total * SR) + SR
+    out = np.zeros((n, 2), "float32")
+    v_rms = _rms(voice) or 0.05
+    cache: dict[str, np.ndarray] = {}
+    for sg in segs:
+        f = music_dir / sg["track"]
+        if not f.exists():
+            continue
+        if sg["track"] not in cache:
+            cache[sg["track"]] = catalog._read(f)
+        x = cache[sg["track"]]
+        a, b = int(sg["t0"] * SR), min(n, int(sg["t1"] * SR))
+        if b <= a or not len(x):
+            continue
+        piece = x[np.arange(b - a) % len(x)]
+        g = v_rms * 10 ** (level_db / 20) / (_rms(x) or 1e-6)
+        ramp = np.ones(b - a, "float32")
+        r = min(int(fade * SR), (b - a) // 2)
+        if r > 1:
+            ramp[:r] = np.linspace(0, 1, r)
+            ramp[-r:] = np.linspace(1, 0, r)
+        out[a:b] += piece * (g * ramp)[:, None]
+    env = voice_envelope(voice, n, 0.05, 0.6)
+    out *= (1 - (1 - 10 ** (-duck_db / 20)) * env)[:, None]
+    return out
+
+
 def read_voice(path: Path) -> np.ndarray:
     import soundfile as sf
     x, sr = sf.read(str(path), dtype="float32", always_2d=True)
@@ -113,9 +144,14 @@ def read_voice(path: Path) -> np.ndarray:
     return x
 
 
-def build_stems(plan: dict, voice_path: Path, total: float, work: Path, cfg) -> dict[str, Path]:
+def build_stems(plan: dict, voice_path: Path, total: float, work: Path, cfg, music_dir: Path | None = None
+                ) -> dict[str, Path]:
     voice = read_voice(voice_path)
     stems = {}
+    if plan.get("music") and music_dir is not None:
+        mus = render_music(plan["music"], total, voice, music_dir, float(cfg.get_path("audio.music_db", -16)),
+                           float(cfg.get_path("audio.music_duck_db", 8)))
+        stems["music"] = catalog.write_wav(work / "music.wav", mus)
     if plan.get("amb"):
         amb = render_ambience(plan["amb"], total, voice, float(cfg.get_path("audio.ambience_db", -22)),
                               float(cfg.get_path("audio.duck_db", 5)))

@@ -138,13 +138,13 @@ def _clip(img: Path, out: Path, frames: int, fps: int, cam: tuple, w: int, h: in
 
 def _mix_and_mux(silent: Path, narration: Path, out: Path, cfg: Config, work: Path, start: float = 0.0,
                  duration: float | None = None, total: float | None = None, sfx: Path | None = None,
-                 stems: list[Path] | None = None) -> None:
+                 stems: list[Path] | None = None, music_input: bool = True) -> None:
     """Narration (+ music ducked under the voice, + sound stems: ambience and effects) → exact loudness →
     true-peak limit → mux. Stereo: the voice sits in the centre, beds and effects spread left and right."""
     mixed = work / "mix.wav"
     lufs = float(cfg.get_path("audio.target_lufs", -14))
     music_name = cfg.get_path("audio.music", "") or ""
-    music = ASSETS / "music" / music_name if music_name else None
+    music = ASSETS / "music" / music_name if (music_name and music_input) else None
     trim = ["-ss", f"{start:.3f}"] + (["-t", f"{duration:.3f}"] if duration else [])
     comp = "acompressor=threshold=-20dB:ratio=3:attack=5:release=120"
     pad = f",apad=whole_dur={total:.3f}" if total else ""
@@ -317,7 +317,7 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
         sfx = build_sfx_track(sfx_events(groups, timing), total, ASSETS, work / "sfx.wav")
     out = project.video_path(lang)
     _mix_and_mux(silent, project.audio_dir(lang) / "narration.wav", out, cfg, work, total=total, sfx=sfx,
-                 stems=stems)
+                 stems=stems, music_input=not stems)
     describe(project, cfg, lang)
     print(f"  video hazır: {out} ({total:.0f} sn{', kapanış ' + str(outro_frames // fps) + ' sn' if outro else ''})")
     return out
@@ -419,10 +419,10 @@ def render_shorts(project: Project, cfg: Config, lang: str | None = None) -> lis
         silent = work / "silent.mp4"
         _run(["-f", "concat", "-safe", "0", "-i", str(work / "list.txt"), "-c", "copy", str(silent)])
         out = out_dir / f"short{n:02d}.mp4"
-        stems = [p for p in (project.lang_dir(lang) / "clips" / "ambience.wav",
-                             project.lang_dir(lang) / "clips" / "effects.wav") if p.exists()]
+        stems = [p for p in (project.lang_dir(lang) / "clips" / f"{k}.wav" for k in ("ambience", "effects", "music"))
+                 if p.exists()]
         _mix_and_mux(silent, project.audio_dir(lang) / "narration.wav", out, cfg, work, start=base, duration=total,
-                     stems=stems)
+                     stems=stems, music_input=not stems)
         made.append(out)
         print(f"  short hazır: {out.name} ({total:.0f} sn, dikey + altyazı)")
     return made

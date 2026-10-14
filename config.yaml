@@ -90,7 +90,11 @@ dub:
 
 # 5) Kurgu ve ses miksajı
 audio:
-  music: ""           # assets/music/ altındaki dosya adı (boş = müziksiz)
+  music: ""           # assets/music/ altındaki dosya adı (boş = müziksiz). Ses tasarımı açıkken assets/music/<kanal>/
+                      #   klasöründeki TÜM parçalar kullanılır: her bölümde (chapters) sıradaki parça, hüküm öncesi sessizlik
+  music_tracks: []    # ya da açık liste (assets/music/ altında): [intro.mp3, kanit.mp3]
+  music_db: -16       # müzik seviyesi (anlatıcıya göre, duraklamalarda)
+  music_duck_db: 8    # anlatıcı konuşurken müzik ayrıca bu kadar kısılır
   music_volume: 0.07  # konuşma yokken ~2 katı; konuşurken otomatik kısılır (duck)
   duck: true
   design: true        # ses tasarımı: her sahneye ortam sesi + görüntüdeki/sözdeki eyleme efekt (docs/SOUND.md)

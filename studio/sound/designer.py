@@ -227,6 +227,48 @@ def plan(groups: list[list[dict]], timing: list[dict], brand: dict | None = None
     return {"amb": amb, "sfx": events}
 
 
+def music_plan(groups: list[list[dict]], timing: list[dict], tracks: list[str], chapters: dict | None = None,
+               end: float | None = None, min_len: float = 60.0) -> list[dict]:
+    """Music changes with the story: a new track at chapter starts (project.yaml chapters, paragraph index → label),
+    never sooner than `min_len` seconds, and a moment of silence before the verdict lands."""
+    if not tracks or not timing:
+        return []
+    tm = {t["id"]: t for t in timing}
+    para_start: dict[int, float] = {}
+    verdicts = []
+    for g in groups:
+        for s in g:
+            if s["id"] in tm:
+                para_start.setdefault(int(s.get("para", 0)), tm[s["id"]]["start"])
+                if re.match(r"\s*verdict\b", s.get("text") or "", re.I):
+                    verdicts.append((tm[s["id"]]["start"], tm[s["id"]]["end"]))
+    cuts = sorted({para_start[int(k)] for k in (chapters or {}) if int(k) in para_start} | {0.0})
+    starts = []
+    for c in cuts:
+        if not starts or c - starts[-1] >= min_len:
+            starts.append(c)
+    stop = end or max(t["end"] for t in timing)
+    segs = [{"t0": a, "t1": (starts[i + 1] if i + 1 < len(starts) else stop), "track": tracks[i % len(tracks)]}
+            for i, a in enumerate(starts)]
+    out = []
+    for sg in segs:                               # carve out the silence before each verdict
+        pieces = [sg]
+        for v0, v1 in verdicts:
+            nxt = []
+            for pc in pieces:
+                a, b = v0 - 1.5, v1 + 0.6
+                if b <= pc["t0"] or a >= pc["t1"]:
+                    nxt.append(pc)
+                    continue
+                if a > pc["t0"]:
+                    nxt.append({**pc, "t1": a})
+                if b < pc["t1"]:
+                    nxt.append({**pc, "t0": b})
+            pieces = nxt
+        out += [pc for pc in pieces if pc["t1"] - pc["t0"] > 1.0]
+    return out
+
+
 def summary(p: dict, scenes: int) -> dict:
     beds = [a for a in p["amb"] if a["id"] != "none"]
     covered = sum(a["t1"] - a["t0"] for a in beds)

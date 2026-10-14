@@ -65,3 +65,15 @@ def test_stems_are_levelled_against_the_voice(tmp_path):
     assert np.abs(fx).max() > 0 and np.abs(fx[: sr // 2]).max() == 0
     catalog.write_wav(tmp_path / "a.wav", amb)
     assert (tmp_path / "a.wav").stat().st_size > 10000
+
+
+def test_music_follows_chapters_and_goes_quiet_before_the_verdict():
+    from studio.sound.designer import music_plan
+    shots = [{"id": f"s{i:03d}", "para": i, "text": "Verdict: wrong." if i == 9 else "words"} for i in range(12)]
+    groups = [[s] for s in shots]
+    timing = [{"id": s["id"], "start": 40.0 * i, "end": 40.0 * i + 39} for i, s in enumerate(shots)]
+    segs = music_plan(groups, timing, ["a.mp3", "b.mp3"], {0: "Intro", 1: "x", 3: "Evidence", 6: "Turn"}, 480)
+    assert [s["track"] for s in segs][:3] == ["a.mp3", "b.mp3", "a.mp3"]
+    assert segs[0]["t0"] == 0 and segs[1]["t0"] == 120.0          # chapter at 40 s is too soon → merged
+    v0 = 360.0
+    assert not any(s["t0"] < v0 + 39 and s["t1"] > v0 - 1.5 for s in segs)   # silence around the verdict

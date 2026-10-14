@@ -18,10 +18,32 @@ def brand_of(cfg) -> dict:
     return dict(cfg.get_path("channel.sound") or {})
 
 
+AUDIO_EXT = (".mp3", ".wav", ".flac", ".ogg", ".m4a")
+
+
+def music_tracks(cfg) -> tuple[Path, list[str]]:
+    """assets/music/<channel id>/ (every audio file, in name order) or audio.music_tracks / audio.music."""
+    from ..config import ASSETS
+    base = ASSETS / "music"
+    listed = cfg.get_path("audio.music_tracks") or []
+    if isinstance(listed, str):
+        listed = [listed]
+    if not listed and cfg.get_path("audio.music"):
+        listed = [cfg.get_path("audio.music")]
+    if listed:
+        return base, [t for t in listed if (base / t).exists()]
+    folder = base / str(cfg.get_path("channel.id", "") or "_none_")
+    if folder.is_dir():
+        return folder, sorted(f.name for f in folder.iterdir() if f.suffix.lower() in AUDIO_EXT)
+    return base, []
+
+
 def make_plan(project, cfg, lang: str, groups: list[list[dict]], timing: list[dict], end: float | None = None) -> dict:
-    from .designer import plan, summary
+    from .designer import music_plan, plan, summary
     p = plan(groups, timing, brand_of(cfg), bool(cfg.get_path("audio.ambience", True)),
              bool(cfg.get_path("audio.effects", True)), end)
+    _, tracks = music_tracks(cfg)
+    p["music"] = music_plan(groups, timing, tracks, project.meta.get("chapters") or {}, end)
     p["summary"] = summary(p, len(groups))
     out = project.lang_dir(lang) / "sound_plan.json"
     out.write_text(json.dumps(p, indent=1, ensure_ascii=False), encoding="utf-8")
@@ -31,8 +53,13 @@ def make_plan(project, cfg, lang: str, groups: list[list[dict]], timing: list[di
 def design_stems(project, cfg, lang: str, groups, timing, total: float, work: Path) -> list[Path]:
     from .mixdown import build_stems
     p = make_plan(project, cfg, lang, groups, timing, end=total)
-    stems = build_stems(p, project.audio_dir(lang) / "narration.wav", total, work, cfg)
+    stems = build_stems(p, project.audio_dir(lang) / "narration.wav", total, work, cfg, music_tracks(cfg)[0])
+    for k in ("ambience", "effects", "music"):            # a stem from an older render must not leak into Shorts
+        if k not in stems and (work / f"{k}.wav").exists():
+            (work / f"{k}.wav").unlink()
     s = p["summary"]
+    if p["music"]:
+        print(f"  müzik: {len({m['track'] for m in p['music']})} parça, {len(p['music'])} bölüm")
     print(f"  ses: {len(s['amb_kinds'])} çeşit ortam sesi (%{s['amb_coverage'] * 100:.0f} kapsama), "
           f"{s['sfx_count']} efekt ({s['sfx_per_min']:.1f}/dk)")
     return list(stems.values())

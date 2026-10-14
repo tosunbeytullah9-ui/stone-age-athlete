@@ -13,6 +13,13 @@ effects   ── on words / actions audio.sfx_db (default -12 dB vs. the voice)
 
 Output is stereo (beds and effects spread left and right, the voice stays in the middle).
 
+## Music
+Put licence-safe tracks (YouTube Audio Library "no attribution required", your own) into
+`assets/music/<channel id>/` (never committed). The factory plays them in name order, one per chapter
+(`project.yaml → chapters`, at least 60 s each), fades between them, keeps them `audio.music_db` (-16 dB) under the
+voice in pauses and another `audio.music_duck_db` (8 dB) lower while the narrator talks, and goes silent for a
+moment before "Verdict:" so the verdict lands. Name tracks 01_..., 02_... to control the order.
+
 ## How it decides (studio/sound/designer.py)
 - **Ambience**: read from the scene's picture prompt. The setting named first wins: "A 1980s newsroom … a park
   outside" → office. Mortimer's desk (`characters: [clerk]`), anatomy plates, maps and charts → `archive`.
