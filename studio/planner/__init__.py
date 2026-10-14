@@ -7,6 +7,7 @@ manual     (free)   writes build/planner_prompt.md — paste it into Claude (cla
 """
 from __future__ import annotations
 
+import copy
 from pathlib import Path
 
 import yaml
@@ -57,12 +58,12 @@ def apply_plan(project: Project, plan: dict) -> int:
             continue
         old = s.get("visual")
         if isinstance(entry, dict) and "visual" in entry:
-            s["visual"] = entry["visual"]
+            s["visual"] = copy.deepcopy(entry["visual"])   # shared dicts would become YAML anchors
             for k in ("engine", "camera", "sound", "overlay"):
                 if k in entry:
                     s[k] = entry[k]
         else:
-            s["visual"] = entry
+            s["visual"] = copy.deepcopy(entry)
         if s["visual"] != old:
             forget_image(project, s["id"])
         n += 1

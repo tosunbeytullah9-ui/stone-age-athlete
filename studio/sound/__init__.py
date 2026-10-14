@@ -43,7 +43,9 @@ def make_plan(project, cfg, lang: str, groups: list[list[dict]], timing: list[di
     p = plan(groups, timing, brand_of(cfg), bool(cfg.get_path("audio.ambience", True)),
              bool(cfg.get_path("audio.effects", True)), end)
     _, tracks = music_tracks(cfg)
-    p["music"] = music_plan(groups, timing, tracks, project.meta.get("chapters") or {}, end)
+    import zlib                                   # every video starts the rotation on a different track
+    p["music"] = music_plan(groups, timing, tracks, project.meta.get("chapters") or {}, end,
+                            offset=zlib.crc32(project.slug.encode()) % max(1, len(tracks)))
     p["summary"] = summary(p, len(groups))
     out = project.lang_dir(lang) / "sound_plan.json"
     out.write_text(json.dumps(p, indent=1, ensure_ascii=False), encoding="utf-8")

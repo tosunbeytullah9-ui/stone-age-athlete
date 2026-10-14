@@ -228,7 +228,7 @@ def plan(groups: list[list[dict]], timing: list[dict], brand: dict | None = None
 
 
 def music_plan(groups: list[list[dict]], timing: list[dict], tracks: list[str], chapters: dict | None = None,
-               end: float | None = None, min_len: float = 60.0) -> list[dict]:
+               end: float | None = None, min_len: float = 60.0, offset: int = 0) -> list[dict]:
     """Music changes with the story: a new track at chapter starts (project.yaml chapters, paragraph index → label),
     never sooner than `min_len` seconds, and a moment of silence before the verdict lands."""
     if not tracks or not timing:
@@ -248,7 +248,7 @@ def music_plan(groups: list[list[dict]], timing: list[dict], tracks: list[str], 
         if not starts or c - starts[-1] >= min_len:
             starts.append(c)
     stop = end or max(t["end"] for t in timing)
-    segs = [{"t0": a, "t1": (starts[i + 1] if i + 1 < len(starts) else stop), "track": tracks[i % len(tracks)]}
+    segs = [{"t0": a, "t1": (starts[i + 1] if i + 1 < len(starts) else stop), "track": tracks[(i + offset) % len(tracks)]}
             for i, a in enumerate(starts)]
     out = []
     for sg in segs:                               # carve out the silence before each verdict
