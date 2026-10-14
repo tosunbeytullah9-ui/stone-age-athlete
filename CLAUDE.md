@@ -37,6 +37,12 @@ When asked to "plan" a project (e.g. "002'yi planla"):
 - Short sentences, second-person hook. Use the idea bank (`ideas.yaml`: priority, signals, gut score) and avoid
   saturated titles.
 
+## Sound
+Every render layers an ambience bed per scene and effects on audible actions/words under the narration
+(docs/SOUND.md, studio/sound/). It is automatic; override per shot with `sound:` only when it is wrong.
+`python -m studio sound <slug>` shows the plan, `sounds-demo` plays every sound. Only licence-checked sounds
+(built-in synthesis, CC0/CC-BY files in library/sounds/catalog.yaml) are ever used.
+
 ## Packaging and publishing
 - `python -m studio thumbnails <slug>` renders project.yaml → `thumbnails` (≤3 variants; text allowed on thumbnails,
   never in shots). Titles/thumbnail concepts come from the package prompt (panel: Kapak & başlık).

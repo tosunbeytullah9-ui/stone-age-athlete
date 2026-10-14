@@ -120,7 +120,8 @@ def _clip(img: Path, out: Path, frames: int, fps: int, cam: tuple, w: int, h: in
         i = inputs
         inputs += 1
         graph.append(f"[{i}:v]fps={fps},scale={w}:{h},setsar=1,format=yuv420p,trim=end_frame={len(anim)}[a{i}]")
-        hold = still(img, ("none", 0, 0, 1), frames - len(anim))
+        mode, zm, st, tot = cam                  # the camera move continues after the intro (charts: mode none)
+        hold = still(img, (mode, zm, st + len(anim), tot), frames - len(anim))
         graph.append(f"[a{i}]{hold}concat=n=2:v=1[main]")
     else:
         m = still(img, cam, frames)
@@ -136,8 +137,10 @@ def _clip(img: Path, out: Path, frames: int, fps: int, cam: tuple, w: int, h: in
 
 
 def _mix_and_mux(silent: Path, narration: Path, out: Path, cfg: Config, work: Path, start: float = 0.0,
-                 duration: float | None = None, total: float | None = None, sfx: Path | None = None) -> None:
-    """Narration (+ music ducked under the voice, + sound effects) → exact loudness → true-peak limit → mux."""
+                 duration: float | None = None, total: float | None = None, sfx: Path | None = None,
+                 stems: list[Path] | None = None) -> None:
+    """Narration (+ music ducked under the voice, + sound stems: ambience and effects) → exact loudness →
+    true-peak limit → mux. Stereo: the voice sits in the centre, beds and effects spread left and right."""
     mixed = work / "mix.wav"
     lufs = float(cfg.get_path("audio.target_lufs", -14))
     music_name = cfg.get_path("audio.music", "") or ""
@@ -146,24 +149,30 @@ def _mix_and_mux(silent: Path, narration: Path, out: Path, cfg: Config, work: Pa
     comp = "acompressor=threshold=-20dB:ratio=3:attack=5:release=120"
     pad = f",apad=whole_dur={total:.3f}" if total else ""
     inputs = [*trim, "-i", str(narration)]
-    chains = [f"[0:a]{comp},aresample=48000{pad},asplit=2[v][key]"]
+    chains = [f"[0:a]{comp},aresample=48000,aformat=channel_layouts=stereo{pad},asplit=2[v][key]"]
     mixes = ["[v]"]
     n, key_used = 1, False
     if music and music.exists():
         vol = float(cfg.get_path("audio.music_volume", 0.07))
         inputs += ["-stream_loop", "-1", "-i", str(music)]
         if cfg.get_path("audio.duck", True):
-            chains.append(f"[{n}:a]aresample=48000,volume={vol * 2.2:.3f}[m0];"
+            chains.append(f"[{n}:a]aresample=48000,aformat=channel_layouts=stereo,volume={vol * 2.2:.3f}[m0];"
                           f"[m0][key]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=450[m]")
             key_used = True
         else:
-            chains.append(f"[{n}:a]aresample=48000,volume={vol}[m]")
+            chains.append(f"[{n}:a]aresample=48000,aformat=channel_layouts=stereo,volume={vol}[m]")
         mixes.append("[m]")
         n += 1
     if sfx and sfx.exists():
         inputs += ["-i", str(sfx)]
-        chains.append(f"[{n}:a]aresample=48000,volume={float(cfg.get_path('audio.sfx_volume', 0.35)):.3f}[fx]")
+        chains.append(f"[{n}:a]aresample=48000,aformat=channel_layouts=stereo,"
+                      f"volume={float(cfg.get_path('audio.sfx_volume', 0.35)):.3f}[fx]")
         mixes.append("[fx]")
+        n += 1
+    for k, stem in enumerate(p for p in (stems or []) if p and p.exists()):
+        inputs += [*trim, "-i", str(stem)]                    # stems share the narration's timeline
+        chains.append(f"[{n}:a]aresample=48000,aformat=channel_layouts=stereo[st{k}]")
+        mixes.append(f"[st{k}]")
         n += 1
     if not key_used:
         chains.append("[key]anullsink")
@@ -173,7 +182,7 @@ def _mix_and_mux(silent: Path, narration: Path, out: Path, cfg: Config, work: Pa
         graph = ";".join(chains) + f";{''.join(mixes)}amix=inputs={len(mixes)}:duration=first:dropout_transition=0:normalize=0[a]"
     if total:
         graph = graph[:-3] + f",afade=t=out:st={max(0.0, total - 1.5):.3f}:d=1.5[a]"
-    _run([*inputs, "-filter_complex", graph, "-map", "[a]", "-ar", "48000", str(mixed)])
+    _run([*inputs, "-filter_complex", graph, "-map", "[a]", "-ar", "48000", "-ac", "2", str(mixed)])
     gain = lufs - _measure_lufs(mixed)
     _run(["-i", str(silent), "-i", str(mixed), "-filter_complex",
           f"[1:a]volume={gain:.2f}dB,alimiter=limit=0.84:level=false[a]",
@@ -231,7 +240,7 @@ def _wrap_text(text: str, width: int = 42) -> str:
 
 
 def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path:
-    from .fx import apply_overlay, auto_overlays, build_sfx_track, sfx_events
+    from .fx import apply_overlay, auto_overlays, build_sfx_track, reveal_frames, sfx_events
     from .images import scenes
     lang = lang or project.primary_lang()
     primary = project.primary_lang()
@@ -253,16 +262,24 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
     modes = _scene_modes(groups)
     auto = auto_overlays(project)
 
-    jobs, prev_img, prev_cam, n = [], None, None, 0
-    for g, mode in zip(groups, modes):
+    reveal = str(cfg.get_path("video.reveal", "") or "")
+    reveal_n = int(cfg.get_path("video.reveal_frames", 14))
+    reveal_on = str(cfg.get_path("video.reveal_on", "paragraph"))
+    jobs, prev_img, prev_cam, n, prev_para = [], None, None, 0, None
+    for gi, (g, mode) in enumerate(zip(groups, modes)):
         head = g[0]
         img = _scene_image(project, head, [s["text"] for s in g], work, (w, h))
+        new_para = gi == 0 or head.get("para") != prev_para
+        prev_para = head.get("para")
         total = sum(frames_of[s["id"]] for s in g)
         start = 0
         for k, shot in enumerate(g):
             ov = _overlay_for(shot, auto)
             img_ov = apply_overlay(img, ov, lang, primary, work / f"{shot['id']}_ov.png")
             anim = sorted(project.shots_dir.glob(f"{head['id']}_a[0-9][0-9].png")) if k == 0 else []
+            if (k == 0 and not anim and reveal == "ink" and (reveal_on == "scene" or new_para)
+                    and img.exists() and frames_of[shot["id"]] > reveal_n + 6):
+                anim = reveal_frames(img, work / "reveal", reveal_n, mode, zoom, seed=gi, size=(w, h))
             if ov and anim:
                 anim = [apply_overlay(a, ov, lang, primary, work / f"{a.stem}_ov.png") for a in anim]
             jobs.append(dict(img=img_ov, out=work / f"{n:04d}.mp4", frames=frames_of[shot["id"]],
@@ -292,11 +309,15 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
     silent = work / "video_silent.mp4"
     _run(["-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(silent)])
     total = sum(_frames(timing, fps)) / fps + outro_frames / fps
-    sfx = None
-    if cfg.get_path("audio.sfx", True):
+    sfx, stems = None, []
+    if cfg.get_path("audio.design", True):
+        from .sound import design_stems
+        stems = design_stems(project, cfg, lang, groups, timing, total, work)
+    elif cfg.get_path("audio.sfx", True):
         sfx = build_sfx_track(sfx_events(groups, timing), total, ASSETS, work / "sfx.wav")
     out = project.video_path(lang)
-    _mix_and_mux(silent, project.audio_dir(lang) / "narration.wav", out, cfg, work, total=total, sfx=sfx)
+    _mix_and_mux(silent, project.audio_dir(lang) / "narration.wav", out, cfg, work, total=total, sfx=sfx,
+                 stems=stems)
     describe(project, cfg, lang)
     print(f"  video hazır: {out} ({total:.0f} sn{', kapanış ' + str(outro_frames // fps) + ' sn' if outro else ''})")
     return out
@@ -398,13 +419,24 @@ def render_shorts(project: Project, cfg: Config, lang: str | None = None) -> lis
         silent = work / "silent.mp4"
         _run(["-f", "concat", "-safe", "0", "-i", str(work / "list.txt"), "-c", "copy", str(silent)])
         out = out_dir / f"short{n:02d}.mp4"
-        _mix_and_mux(silent, project.audio_dir(lang) / "narration.wav", out, cfg, work, start=base, duration=total)
+        stems = [p for p in (project.lang_dir(lang) / "clips" / "ambience.wav",
+                             project.lang_dir(lang) / "clips" / "effects.wav") if p.exists()]
+        _mix_and_mux(silent, project.audio_dir(lang) / "narration.wav", out, cfg, work, start=base, duration=total,
+                     stems=stems)
         made.append(out)
         print(f"  short hazır: {out.name} ({total:.0f} sn, dikey + altyazı)")
     return made
 
 
 # ---------------------------------------------------------------- description
+def _ts(sec: float) -> str:
+    """YouTube chapter timestamp: 0:00, 4:05, 1:02:03."""
+    sec = int(max(0, sec))
+    h, rem = divmod(sec, 3600)
+    m, s = divmod(rem, 60)
+    return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
+
+
 def describe(project: Project, cfg: Config, lang: str | None = None) -> Path:
     """description.txt, ready for YouTube: hook paragraph (project.yaml description), the channel's credit line,
     chapters (project.yaml chapters: {paragraph index: label}), the sources cited in claims.yaml and the channel's

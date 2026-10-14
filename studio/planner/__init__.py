@@ -58,7 +58,7 @@ def apply_plan(project: Project, plan: dict) -> int:
         old = s.get("visual")
         if isinstance(entry, dict) and "visual" in entry:
             s["visual"] = entry["visual"]
-            for k in ("engine", "camera"):
+            for k in ("engine", "camera", "sound", "overlay"):
                 if k in entry:
                     s[k] = entry[k]
         else:

@@ -17,3 +17,4 @@ backups/
 *.senin-surumun
 channels/*/build/
 /build/
+library/sounds/files/

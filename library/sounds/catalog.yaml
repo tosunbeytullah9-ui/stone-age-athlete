@@ -1,0 +1,31 @@
+# Shared sound library: audio files used by every channel (see studio/sound/catalog.py).
+# Built-in sounds (synthesised by the factory, no licence needed) do not appear here:
+#   ambience: room archive rain wind sea fire night forest murmur street_old city lab gym hall battle stadium ship
+#             desert tavern
+#   effects:  gulp sip pour drip splash stamp paper page_turn pen tick clock knock footsteps coins bell ding whistle
+#             heartbeat whoosh pop boom impact riser sword cheer typewriter camera glass chalk gallop
+# Files: `python -m studio sounds-fetch` downloads every entry with a url into library/sounds/files/ (git-ignored).
+# Add your own downloads (Freesound CC0, Pixabay, YouTube Audio Library ...) with `file:` and the licence; a sound
+# without an accepted licence is never used. CC-BY sounds get a credit line in the description automatically.
+sounds:
+  # Adafruit Sound Samples (github.com/adafruit/Adafruit-Sound-Samples): "All CC0 / Public Domain"
+  - {id: vinyl_hiss, kind: amb, file: adafruit/vinyl_hiss.wav, license: CC0, tags: [old, record, archive], fallback: room,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sonic-pi/vinyl_hiss.wav"}
+  - {id: door, kind: sfx, file: adafruit/door.wav, license: CC0, tags: [door], fallback: knock,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sounds%20of%20adafruit/door.wav"}
+  - {id: door_close, kind: sfx, file: adafruit/door_close.wav, license: CC0, tags: [door], fallback: knock,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sounds%20of%20adafruit/door_close.wav"}
+  - {id: drawer, kind: sfx, file: adafruit/drawer_open.wav, license: CC0, tags: [archive, drawer], fallback: paper,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sounds%20of%20adafruit/Warehouse/drawer_open.wav"}
+  - {id: drawer_roll, kind: sfx, file: adafruit/drawer_roll.wav, license: CC0, tags: [archive, drawer], fallback: paper,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sounds%20of%20adafruit/drawer_roll.wav"}
+  - {id: chime, kind: sfx, file: adafruit/chime.wav, license: CC0, tags: [bell, reveal], fallback: ding,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sounds%20of%20adafruit/chime.wav"}
+  - {id: crow, kind: sfx, file: adafruit/misc_crow.wav, license: CC0, tags: [bird, ominous], fallback: tick,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sonic-pi/misc_crow.wav"}
+  - {id: cineboom, kind: sfx, file: adafruit/misc_cineboom.wav, license: CC0, tags: [impact, reveal], fallback: impact,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sonic-pi/misc_cineboom.wav"}
+  - {id: swoosh_dark, kind: sfx, file: adafruit/ambi_dark_woosh.wav, license: CC0, tags: [transition], fallback: whoosh,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sonic-pi/ambi_dark_woosh.wav"}
+  - {id: steam, kind: sfx, file: adafruit/radiator_steam.wav, license: CC0, tags: [steam, machine], fallback: whoosh,
+     url: "https://raw.githubusercontent.com/adafruit/Adafruit-Sound-Samples/master/sounds%20of%20adafruit/Steam%20Hammer/radiator_steam.wav"}

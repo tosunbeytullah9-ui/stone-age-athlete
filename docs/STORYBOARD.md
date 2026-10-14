@@ -75,6 +75,12 @@ Every prompt is automatically prefixed with the channel's `visual_style` (channe
 Colours: `ochre` (ancient/us), `water` (modern/them), `good` (green), `bad` (red), `clay`, `stone`, `night`.
 Add `overlay` with the real numbers. Charts hold still (no camera move) and grow in.
 
+## Sound (`sound`, optional — automatic when omitted, see docs/SOUND.md)
+Every scene gets an ambience bed from its picture and effects for audible actions automatically. Override only
+when the automatic choice is wrong: `sound: {amb: rain}` on a scene's first shot (`none` = silence),
+`sound: {sfx: [{id: gulp, at: drinks}]}` on any shot (`at` = a word of that shot), `sfx: []` = no effects.
+Names: `python -m studio sounds-demo` (built-in + library).
+
 ## On-screen text (`overlay`, drawn per language at render time — the picture itself stays text-free)
 Use sparingly (the 2–4 key numbers of a video, a label that removes confusion):
 `overlay: {kind: stat, text: "+11–16%", i18n: {tr: "%11–16"}}` big number · `kind: label` caption band ·

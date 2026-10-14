@@ -132,6 +132,73 @@ def animated_visuals(visual) -> list[dict]:
     return out
 
 
+# ------------------------------------------------------------------ ink reveal ("drawn onto the page")
+def _start_crop(W: int, H: int, mode: str, zoom: float) -> tuple[int, int, int, int]:
+    """The part of the picture the camera shows on the first frame of a scene (matches render._cam_expr)."""
+    if mode == "in" or mode == "none":
+        return 0, 0, W, H
+    z = 1 + zoom
+    cw, ch = W / z, H / z
+    y0 = (H - ch) / 2
+    if mode == "out":
+        x0 = (W - cw) / 2
+    elif mode == "right":
+        x0 = 0
+    else:                                           # left: the move starts at the right edge
+        x0 = W - cw
+    return int(x0), int(y0), int(x0 + cw), int(y0 + ch)
+
+
+def _paper_of(img: Image.Image) -> Image.Image:
+    """A blank page for the drawing to appear on: the picture's own paper colour (median of its brightest half)
+    with a hint of its large-scale light and stains, so the page does not jump when the drawing arrives."""
+    from PIL import ImageFilter
+    arr = np.asarray(img.convert("RGB"), dtype=np.float32)
+    lum = arr.mean(axis=2)
+    bright = arr[lum >= np.percentile(lum, 50)]
+    col = np.median(bright, axis=0) if bright.size else np.array([240, 230, 210], np.float32)
+    low = np.asarray(img.convert("RGB").resize((img.width // 8, img.height // 8))
+                     .filter(ImageFilter.GaussianBlur(10)).resize(img.size, Image.BICUBIC), dtype=np.float32)
+    blank = 0.88 * col[None, None, :] + 0.12 * low
+    return Image.fromarray(np.clip(blank, 0, 255).astype(np.uint8))
+
+
+def reveal_frames(src: Path, out_dir: Path, n: int = 14, mode: str = "in", zoom: float = 0.08,
+                  seed: int = 0, size: tuple[int, int] = (1920, 1080)) -> list[Path]:
+    """Frames in which the scene's ink drawing appears on the page, sweeping left to right with a ragged,
+    pen-like front (about half a second at 30 fps). Framed like the camera's first frame so the move continues
+    seamlessly after the reveal. Cached: frames are rebuilt only when the picture changes."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    stamp = int(src.stat().st_mtime)
+    paths = [out_dir / f"{src.stem}_r{k:02d}_{stamp}.png" for k in range(n)]
+    if all(p.exists() for p in paths):
+        return paths
+    W, H = size
+    img = Image.open(src).convert("RGB").resize((W, H))
+    box = _start_crop(W, H, mode, zoom)
+    img = img.crop(box).resize((W, H), Image.BICUBIC)
+    paper = _paper_of(img)
+    a, b = np.asarray(paper, dtype=np.float32), np.asarray(img, dtype=np.float32)
+    rng = np.random.default_rng(seed)
+    gw, gh = 32, 18                                   # smooth noise field → ragged edge of the drawing front
+    noise = Image.fromarray((rng.random((gh, gw)) * 255).astype(np.uint8)).resize((W, H), Image.BICUBIC)
+    nz = np.asarray(noise, dtype=np.float32) / 255.0
+    xs = np.linspace(0, 1, W, dtype=np.float32)[None, :]
+    ys = np.linspace(0, 1, H, dtype=np.float32)[:, None]
+    order = 0.72 * xs + 0.10 * ys + 0.18 * nz        # mostly left → right, a little top → bottom
+    soft = 0.06
+    for k, p in enumerate(paths):
+        prog = (k + 1) / n * (1 + soft) - soft / 2
+        m = np.clip((prog - order) / soft, 0, 1)[..., None]
+        m = m * m * (3 - 2 * m)
+        frame = a * (1 - m) + b * m
+        Image.fromarray(frame.astype(np.uint8)).save(p)
+    for old in out_dir.glob(f"{src.stem}_r??_*.png"):
+        if old not in paths:
+            old.unlink(missing_ok=True)
+    return paths
+
+
 # ------------------------------------------------------------------ sound effects
 SR = 48000
 

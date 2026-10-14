@@ -60,6 +60,17 @@ def check(project: Project, lang: str | None = None) -> dict:
     if groups:
         add("coach", coach <= 0.3 * len(groups), "warn", f"Koçlu sahne: {coach}/{len(groups)} (en fazla %30 önerilir)")
 
+    from .sound import catalog as snd
+    cat = snd.load_catalog()
+    bad = []
+    for s in shots:
+        so = s.get("sound") if isinstance(s.get("sound"), dict) else {}
+        ids = [so["amb"]] if so.get("amb") not in (None, "none") else []
+        ids += [x if isinstance(x, str) else (x or {}).get("id") for x in so.get("sfx") or []]
+        bad += [f"{s['id']}:{i}" for i in ids if not snd.known(str(i), cat)]
+    add("sound", not bad, "warn", "Ses: storyboard'daki ses adları geçerli" if not bad
+        else f"Ses: bilinmeyen ses adı {', '.join(bad[:4])} (liste: python -m studio sounds-demo)")
+
     paid = sum(1 for g in groups if g[0].get("visual") and engine_name(g[0], {}) == "gemini")
     add("cost", True, "info", f"AI resmi: {paid} sahne (yaklaşık {paid * 0.05:.2f} $; değişmeyen sahne tekrar ödenmez)")
 

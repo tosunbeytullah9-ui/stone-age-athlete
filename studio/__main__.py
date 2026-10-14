@@ -18,6 +18,7 @@ steps:
   captions     captions.<lang>.srt only
   dub          --lang tr: audio track fitted to the primary video (upload as an extra YouTube audio track)
   sheet        contact sheet: one tile per scene
+  sound        sound plan for --lang (ambience beds + effects; needs voice + align) → build/<lang>/sound_plan.json
   check        quality gate (research, sources, variety)
   upload       publish on YouTube [VIDEO_ID|URL] [--at "YYYY-MM-DD HH:MM" | --at now]: metadata, thumbnail,
                captions, playlist, release time (see studio/youtube.py for the one-time setup)
@@ -34,6 +35,8 @@ other:
   branding [--channel C] [--force]                        profile picture, banner, watermark (build/branding/)
   knowledge [--channel C]                                 channel bible for any chatbot (build/knowledge.md)
   youtube-login [--channel C]                             connect the channel to the YouTube API (browser consent)
+  sounds-demo                                             every sound in one file to listen to (build/sounds_demo.wav)
+  sounds-fetch [--only id1,id2]                           download the library's free sound files (library/sounds)
 """
 from __future__ import annotations
 
@@ -101,6 +104,17 @@ def main(argv=None) -> None:
         from .claims import check_links
         for ln in check_links():
             print(f"  {ln}")
+        return
+    if cmd == "sounds-demo":
+        from .config import ROOT
+        from .sound import demo
+        out = demo(ROOT / "build" / "sounds_demo.wav")
+        print(f"  {out}\n  içindekiler: {out.with_suffix('.txt')}")
+        return
+    if cmd == "sounds-fetch":
+        from .sound.catalog import fetch
+        for sid, st in fetch([x for x in (a.only or "").split(",") if x] or None).items():
+            print(f"  {sid}: {st}")
         return
     if cmd == "new-channel":
         from .channel import create_channel
@@ -195,6 +209,18 @@ def main(argv=None) -> None:
             publish_video(p, cfg, lang, video=a.file, at=a.at, force=a.force)
         except YouTubeError as e:
             sys.exit(f"  {e}")
+    elif cmd == "sound":
+        from .images import scenes
+        from .sound import make_plan
+        timing = p.read_json(p.timing_path(lang))
+        shots = {s["id"]: s for s in p.load_storyboard()["shots"]}
+        groups = scenes([shots[t["id"]] for t in timing if t["id"] in shots])
+        sp = make_plan(p, cfg, lang, groups, timing)
+        s = sp["summary"]
+        print(f"  ortam sesi: %{s['amb_coverage'] * 100:.0f} kapsama · {', '.join(s['amb_kinds'])}")
+        print(f"  efekt: {s['sfx_count']} ({s['sfx_per_min']:.1f}/dk)")
+        for e in sp["sfx"]:
+            print(f"    {e['t']:7.2f} sn  {e['id']:<10} {e['why']}")
     elif cmd == "sheet":
         from .render import contact_sheet
         print(f"  {contact_sheet(p)}")

@@ -15,6 +15,9 @@ video:
   crf: 20             # kalite (düşük = daha kaliteli, daha büyük dosya)
   transitions: true   # sahneler arasında yumuşak geçiş
   xfade_frames: 10    # geçiş uzunluğu (kare)
+  reveal: ""          # "ink": resim sahnenin başında sayfaya çiziliyormuş gibi belirir (defter stili kanallar)
+  reveal_frames: 14   # çizilme süresi (kare; 14 kare ≈ 0,5 sn)
+  reveal_on: paragraph   # paragraph = yeni paragrafla açılan sahnelerde | scene = her sahnede
 
 split:                # altyazı/çeviri birimi (shot). Görsel sahne başına: bir resim 2–4 shot boyunca kalır
   min_chars: 20
@@ -90,6 +93,12 @@ audio:
   music: ""           # assets/music/ altındaki dosya adı (boş = müziksiz)
   music_volume: 0.07  # konuşma yokken ~2 katı; konuşurken otomatik kısılır (duck)
   duck: true
-  sfx: true           # sahne değişiminde "whoosh", yeni nesnede "pop" (assets/sfx/whoosh.wav, pop.wav ile değiştirilebilir)
+  design: true        # ses tasarımı: her sahneye ortam sesi + görüntüdeki/sözdeki eyleme efekt (docs/SOUND.md)
+  ambience: true      #   ortam sesleri (sokak, laboratuvar, yağmur, arşiv...)
+  effects: true       #   nokta efektleri (yudum, damga, kâğıt, para...)
+  ambience_db: -22    #   ortam sesi seviyesi, anlatıcıya göre (dB)
+  duck_db: 5          #   anlatıcı konuşurken ortam sesi ayrıca bu kadar kısılır
+  sfx_db: -12         #   efekt seviyesi, anlatıcıya göre (dB)
+  sfx: true           # design: false iken eski sade efektler: sahne değişiminde "whoosh", grafikte "pop"
   sfx_volume: 0.35
   target_lufs: -14
