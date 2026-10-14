@@ -1,0 +1,801 @@
+# Scene plan, Ancient People Didn't Die at 30
+s001:
+  visual:
+    prompt: a bustling ancient Roman forum full of people, sunlit marble temples, wide view
+  camera: in
+s002:
+  visual:
+    same: true
+s003:
+  visual:
+    prompt: a modern living room, a television showing a documentary about ancient Rome, a friend gesturing knowingly on the sofa
+  camera: right
+s004:
+  visual:
+    same: true
+s005:
+  visual:
+    same: true
+s006:
+  visual:
+    same: true
+s007:
+  visual:
+    prompt: an imagined Roman street where everyone is a young adult, not a single grey hair in sight, slightly eerie, comic
+  camera: in
+s008:
+  visual:
+    same: true
+s009:
+  visual:
+    same: true
+s010:
+  visual:
+    prompt: 'a comic sequence of one Roman man aging absurdly fast: a teenage groom, a battle-scarred young soldier, a youthful senator in a toga'
+  camera: out
+s011:
+  visual:
+    same: true
+s012:
+  visual:
+    same: true
+s013:
+  visual:
+    same: true
+s014:
+  visual:
+    prompt: the clerk's hands stamping a thick case file on a cluttered wooden desk in a dim archive, brass lamp
+    characters:
+    - clerk
+  camera: in
+s015:
+  visual:
+    same: true
+s016:
+  visual:
+    same: true
+s017:
+  visual:
+    prompt: endless tall archive shelves full of bound case files disappearing into darkness
+  camera: in
+s018:
+  visual:
+    same: true
+s019:
+  visual:
+    prompt: the clerk's hands opening a folder containing a sketch of a Roman tombstone
+    characters:
+    - clerk
+  camera: none
+s020:
+  visual:
+    same: true
+s021:
+  visual:
+    prompt: the clerk's very old, wrinkled hands resting on an ancient ledger, lamp light, dignified
+    characters:
+    - clerk
+  camera: in
+s022:
+  visual:
+    same: true
+s023:
+  visual:
+    same: true
+s024:
+  visual:
+    prompt: a grumpy elderly Greek philosopher with a long white beard walking off with a scroll tucked under his arm, comic
+  camera: right
+s025:
+  visual:
+    same: true
+s026:
+  visual:
+    same: true
+s027:
+  visual:
+    prompt: a single large number drawn in chalk on a blackboard being circled, a hand holding chalk, no legible digits
+  camera: in
+s028:
+  visual:
+    same: true
+s029:
+  visual:
+    same: true
+s030:
+  visual:
+    prompt: the clerk's hands opening a ledger to columns of tally marks
+    characters:
+    - clerk
+  camera: none
+s031:
+  visual:
+    same: true
+s032:
+  visual:
+    prompt: a huge crowd of people of all ages, from newborns to the very old, being poured into a giant funnel, comic infographic illustration
+  camera: in
+s033:
+  visual:
+    same: true
+s034:
+  visual:
+    same: true
+s035:
+  visual:
+    same: true
+s036:
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.02
+      - 1.0
+      - 0.5
+      colors:
+      - bad
+      - good
+      - stone
+s037:
+  visual:
+    same: true
+s038:
+  visual:
+    same: true
+s039:
+  visual:
+    same: true
+s040:
+  visual:
+    prompt: two tombstones side by side in a peaceful cemetery, one tiny, one weathered and old, gentle light, respectful
+  camera: right
+s041:
+  visual:
+    same: true
+s042:
+  visual:
+    same: true
+s043:
+  visual:
+    same: true
+s044:
+  visual:
+    same: true
+s045:
+  visual:
+    prompt: a puzzled tailor holding up trousers with one and a half legs, comic
+  camera: out
+s046:
+  visual:
+    same: true
+s047:
+  visual:
+    same: true
+s048:
+  visual:
+    same: true
+s049:
+  visual:
+    prompt: a vast map of the Roman Empire around the Mediterranean, warm watercolour
+  camera: in
+s050:
+  visual:
+    same: true
+s051:
+  visual:
+    bg: plain_warm
+    props:
+    - type: line_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.7
+      - 0.6
+      - 0.5
+      - 0.45
+      - 0.4
+      - 0.33
+      - 0.24
+      - 0.12
+      - 0.03
+      color: bad
+s052:
+  visual:
+    same: true
+s053:
+  visual:
+    same: true
+s054:
+  visual:
+    same: true
+s055:
+  visual:
+    same: true
+s056:
+  visual:
+    prompt: papyrus census documents from Roman Egypt laid on a table in a museum, faded Greek handwriting, no legible text
+  camera: in
+s057:
+  visual:
+    same: true
+s058:
+  visual:
+    same: true
+s059:
+  visual:
+    same: true
+s060:
+  visual:
+    prompt: grieving Roman parents beside a small cradle, lamp light, tender and sombre
+  camera: in
+s061:
+  visual:
+    same: true
+s062:
+  visual:
+    same: true
+s063:
+  visual:
+    prompt: a balance scale tipping heavily under the weight of many small marbles, symbolic, minimal
+  camera: none
+s064:
+  visual:
+    same: true
+s065:
+  visual:
+    same: true
+s066:
+  visual:
+    same: true
+s067:
+  visual:
+    same: true
+s068:
+  visual:
+    prompt: a Roman child at the doorway of a house, looking out at the world, hopeful
+  camera: right
+s069:
+  visual:
+    same: true
+s070:
+  visual:
+    prompt: a Roman family meal with children, parents and grandparents at the same table, warm lamplight
+  camera: in
+s071:
+  visual:
+    same: true
+s072:
+  visual:
+    same: true
+s073:
+  visual:
+    prompt: a white-haired Roman couple walking slowly together in a garden of olive trees
+  camera: left
+s074:
+  visual:
+    same: true
+s075:
+  visual:
+    prompt: an archaeologist kneeling in an excavation trench, brushing soil off an ancient skeleton
+  camera: in
+s076:
+  visual:
+    same: true
+s077:
+  visual:
+    same: true
+s078:
+  visual:
+    prompt: a bone specialist in a lab examining a pelvis with calipers, frowning, reference charts on the wall
+  camera: right
+s079:
+  visual:
+    same: true
+s080:
+  visual:
+    same: true
+s081:
+  visual:
+    prompt: rows of archaeological record cards in a drawer, many stamped with the same vague label, comic
+  camera: out
+s082:
+  visual:
+    same: true
+s083:
+  visual:
+    same: true
+s084:
+  visual:
+    prompt: two anthropologists with notebooks sitting with members of a hunter-gatherer community in a forest clearing, respectful
+  camera: in
+s085:
+  visual:
+    same: true
+s086:
+  visual:
+    same: true
+s087:
+  visual:
+    same: true
+s088:
+  visual:
+    prompt: a hunter-gatherer camp at dusk, simple shelters and a fire, no modern objects
+  camera: left
+s089:
+  visual:
+    same: true
+s090:
+  visual:
+    same: true
+s091:
+  visual:
+    prompt: hunter-gatherers carrying firewood and baskets along a forest path, strong and weathered
+  camera: right
+s092:
+  visual:
+    same: true
+s093:
+  visual:
+    same: true
+s094:
+  visual:
+    prompt: a field researcher writing in a notebook by a fire, columns of numbers, no legible text
+  camera: in
+s095:
+  visual:
+    same: true
+s096:
+  visual:
+    same: true
+s097:
+  visual:
+    same: true
+s098:
+  visual:
+    prompt: children playing by a river near a forest village, joyful but fragile
+  camera: in
+s099:
+  visual:
+    same: true
+s100:
+  visual:
+    prompt: the researcher raising an eyebrow at his notebook, an idea dawning
+  camera: out
+s101:
+  visual:
+    same: true
+s102:
+  visual:
+    prompt: a white-haired hunter-gatherer elder telling stories to children around a fire, firelight, dignified
+  camera: in
+s103:
+  visual:
+    same: true
+s104:
+  visual:
+    same: true
+s105:
+  visual:
+    prompt: a middle-aged hunter-gatherer man and woman preparing food together, healthy and capable
+  camera: left
+s106:
+  visual:
+    same: true
+s107:
+  visual:
+    same: true
+s108:
+  visual:
+    prompt: an anatomical watercolour of a human body with a soft clock drawn behind it, elegant scientific illustration
+  camera: in
+s109:
+  visual:
+    same: true
+s110:
+  visual:
+    same: true
+s111:
+  visual:
+    prompt: the clerk's hands unrolling an ancient scroll
+    characters:
+    - clerk
+  camera: none
+s112:
+  visual:
+    same: true
+s113:
+  visual:
+    prompt: an ancient Hebrew scribe writing on a parchment scroll by an oil lamp, Middle Eastern setting
+  camera: in
+s114:
+  visual:
+    same: true
+s115:
+  visual:
+    same: true
+s116:
+  visual:
+    same: true
+s117:
+  visual:
+    prompt: an elderly man with a staff standing on a hill at sunset, surveying his flocks, serene
+  camera: right
+s118:
+  visual:
+    same: true
+s119:
+  visual:
+    same: true
+s120:
+  visual:
+    same: true
+s121:
+  visual:
+    prompt: the Roman Senate in session, togaed senators debating in a marble chamber
+  camera: in
+s122:
+  visual:
+    same: true
+s123:
+  visual:
+    same: true
+s124:
+  visual:
+    same: true
+s125:
+  visual:
+    same: true
+s126:
+  visual:
+    prompt: a grey-haired Roman consul in a purple-bordered toga walking with lictors carrying fasces
+  camera: left
+s127:
+  visual:
+    same: true
+s128:
+  visual:
+    same: true
+s129:
+  visual:
+    same: true
+s130:
+  visual:
+    prompt: a Roman senate chamber filled with translucent ghostly senators, comic
+  camera: out
+s131:
+  visual:
+    same: true
+s132:
+  visual:
+    prompt: a row of distinguished elderly Roman senators with white hair and beards, seated on marble benches, straight-on view
+  camera: none
+s133:
+  visual:
+    same: true
+s134:
+  visual:
+    same: true
+s135:
+  visual:
+    same: true
+s136:
+  visual:
+    prompt: a Roman jurist at a desk with wax tablets and an abacus, calculating, scrolls piled around
+  camera: in
+s137:
+  visual:
+    same: true
+s138:
+  visual:
+    same: true
+s139:
+  visual:
+    same: true
+s140:
+  visual:
+    prompt: a Roman pensioner collecting coins from an official at a counter, grey-haired and cheerful
+  camera: right
+s141:
+  visual:
+    same: true
+s142:
+  visual:
+    same: true
+s143:
+  visual:
+    same: true
+s144:
+  visual:
+    prompt: a very old Greek playwright with a white beard writing by an oil lamp, ancient Athens
+  camera: in
+s145:
+  visual:
+    same: true
+s146:
+  visual:
+    same: true
+s147:
+  visual:
+    prompt: an ancient Athenian courtroom, an elderly man standing and reading aloud from a scroll while jurors listen
+  camera: in
+s148:
+  visual:
+    same: true
+s149:
+  visual:
+    same: true
+s150:
+  visual:
+    same: true
+s151:
+  visual:
+    prompt: an ancient Greek theatre at sunset, a modern audience watching a performance, timeless
+  camera: out
+s152:
+  visual:
+    same: true
+s153:
+  visual:
+    same: true
+s154:
+  visual:
+    same: true
+s155:
+  visual:
+    prompt: a marble statue of an emperor in a toga, aged features, in a museum hall
+  camera: in
+s156:
+  visual:
+    same: true
+s157:
+  visual:
+    same: true
+s158:
+  visual:
+    prompt: an elderly Greek philosopher teaching young students in an olive grove
+  camera: left
+s159:
+  visual:
+    same: true
+s160:
+  visual:
+    prompt: a wealthy old Roman reclining comfortably in a villa garden, servants nearby
+  camera: in
+s161:
+  visual:
+    same: true
+s162:
+  visual:
+    prompt: the clerk's hands opening a folder with a dark red ribbon
+    characters:
+    - clerk
+  camera: none
+s163:
+  visual:
+    same: true
+s164:
+  visual:
+    same: true
+s165:
+  visual:
+    prompt: a narrow ancient street at night, shadows and danger, sombre
+  camera: in
+s166:
+  visual:
+    bg: plain_cool
+    props:
+    - type: pie
+      x: 960
+      y: 520
+      scale: 2.2
+      value: 0.7
+      colors:
+      - bad
+      - stone
+s167:
+  visual:
+    same: true
+s168:
+  visual:
+    same: true
+s169:
+  visual:
+    same: true
+s170:
+  visual:
+    prompt: an ancient town under a dark sky during a plague, people carrying the sick, restrained and sombre
+  camera: right
+s171:
+  visual:
+    same: true
+s172:
+  visual:
+    same: true
+s173:
+  visual:
+    prompt: a thirty-year-old Roman blacksmith at his forge, healthy but surrounded by hazards, sparks flying
+  camera: in
+s174:
+  visual:
+    same: true
+s175:
+  visual:
+    same: true
+s176:
+  visual:
+    same: true
+s177:
+  visual:
+    prompt: a sturdy old Roman farmer with a weathered face resting under a tree after work
+  camera: left
+s178:
+  visual:
+    same: true
+s179:
+  visual:
+    same: true
+s180:
+  visual:
+    same: true
+s181:
+  visual:
+    prompt: a newborn baby sleeping in a modern hospital cot, soft light
+  camera: in
+s182:
+  visual:
+    same: true
+s183:
+  visual:
+    same: true
+s184:
+  visual:
+    prompt: a still life of a clean water tap, a vaccine vial, a loaf of bread and a pill bottle, straight-on view, one row, none overlapping
+  camera: none
+s185:
+  visual:
+    same: true
+s186:
+  visual:
+    same: true
+s187:
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.4
+      - 1.0
+      colors:
+      - stone
+      - good
+s188:
+  visual:
+    same: true
+s189:
+  visual:
+    same: true
+s190:
+  visual:
+    prompt: a modern playground full of children running and laughing
+  camera: right
+s191:
+  visual:
+    same: true
+s192:
+  visual:
+    same: true
+s193:
+  visual:
+    same: true
+s194:
+  visual:
+    prompt: a modern grandmother celebrating her ninetieth birthday with her family, cake and candles
+  camera: in
+s195:
+  visual:
+    same: true
+s196:
+  visual:
+    same: true
+s197:
+  visual:
+    prompt: an ancient Roman grandmother holding a grandchild on her lap in a courtyard
+  camera: in
+s198:
+  visual:
+    same: true
+s199:
+  visual:
+    same: true
+s200:
+  visual:
+    prompt: a wise elder addressing a village council under a tree
+  camera: left
+s201:
+  visual:
+    same: true
+s202:
+  visual:
+    prompt: two grumpy old Roman men on a bench shaking their fists at noisy youths, comic
+  camera: out
+s203:
+  visual:
+    same: true
+s204:
+  visual:
+    same: true
+s205:
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+  camera: in
+s206:
+  visual:
+    prompt: a cradle and an old man's walking stick side by side in a warm room, symbolic still life
+  camera: in
+s207:
+  visual:
+    same: true
+s208:
+  visual:
+    same: true
+s209:
+  visual:
+    same: true
+s210:
+  visual:
+    prompt: three generations of an ancient family walking together along a road at sunset
+  camera: right
+s211:
+  visual:
+    same: true
+s212:
+  visual:
+    same: true
+s213:
+  visual:
+    same: true
+s214:
+  visual:
+    prompt: an aged Roman senator raising an eyebrow from his marble seat, comic
+  camera: in
+s215:
+  visual:
+    same: true
+s216:
+  visual:
+    same: true
+s217:
+  visual:
+    same: true
+s218:
+  visual:
+    prompt: the clerk's hands sliding the file between two others on a crowded shelf
+    characters:
+    - clerk
+  camera: left
+s219:
+  visual:
+    same: true
+s220:
+  visual:
+    prompt: the clerk's very old hands closing the file, then the desk lamp dims
+    characters:
+    - clerk
+  camera: out
+s221:
+  visual:
+    same: true
+s222:
+  visual:
+    same: true
+s223:
+  visual:
+    same: true

@@ -1,0 +1,54 @@
+title: Coca-Cola Didn't Make Santa Red
+idea: i010
+status: production
+description: Santa was wearing red in 1881. Coca-Cola was invented in 1886. Thomas Nast, Puck magazine, a mineral
+  water company, Dickens' green-robed spirit and the Brazilian soda that really did change Santa's colour. Case
+  file 010.
+chapters: {0: Intro, 4: Where Santa came from, 8: Thomas Nast's red Santa, 11: Puck magazine, 13: The first soda
+    Santa, 14: The green Father Christmas, 18: A soft drink that did change him, 19: What Coca-Cola really did,
+  23: Why the myth survives, 24: Verdict}
+publish:
+  title_variants: [Coca-Cola Didn't Make Santa Red, Santa Was Red Before Coca-Cola Existed, The Coca-Cola Santa
+      Myth, The Soft Drink That Actually Changed Santa's Colour]
+  hook_options:
+  - {type: you, text: 'Did you know Coca-Cola made Santa red? It didn''t. He was red five years before Coke existed.'}
+  - {type: cold_open_stat, text: Santa was red in 1881. Coca-Cola was invented in 1886.}
+  - {type: contradiction, text: 'A soft drink really did change Santa''s colour. It just wasn''t Coca-Cola, and
+      it made him green.'}
+  thumbnail_concepts:
+  - {visual: Victorian red Santa print next to '1881' and an unlabelled soda bottle '1886', text: RED FIRST}
+  - {visual: Green-robed Father Christmas vs red Santa, text: NOT COKE}
+  - {visual: Green Santa on a Brazilian float, text: THE REAL SODA SANTA}
+  series: history-files
+  hook_type: you
+  slot: long
+  verdict: PARTIALLY WRONG
+shorts:
+- {title: Santa was red five years before Coca-Cola existed, from: s049, to: s073, hook: Santa was red five years
+    before Coca-Cola existed}
+- {title: Where the green Santa really came from, from: s103, to: s130, hook: Where the green Santa really came
+    from}
+- {title: A soft drink did change Santa's colour, from: s146, to: s171, hook: A soft drink did change Santa's colour}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: A jolly bearded Santa Claus in a long red coat holding a sack, drawn large in the lower right of the
+      page
+    characters: []
+  myth: {en: '1931'}
+  note: {en: '1881'}
+  pos: top-left
+  claim: [c13, c05]
+- kind: stamp
+  visual:
+    prompt: A plain red glass soda bottle with no label and no logo, drawn large on the right side of the page
+    characters: []
+  pos: top-left
+- kind: scene
+  visual:
+    prompt: A plump Santa Claus in a red suit with white fur trim on an old Victorian magazine page without any
+      letters, an old-fashioned printing press beside it, drawn large in the lower two thirds
+    characters: []
+  text: {en: BEFORE THE SODA}
+  pos: top
+  claim: c06

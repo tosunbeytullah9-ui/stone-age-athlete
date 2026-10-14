@@ -1,0 +1,72 @@
+title: Vikings Never Wore Horned Helmets. An Opera Did.
+idea: i002
+status: production
+description: Picture a Viking and you see horns. Those horns were designed in 1875 by a costume designer for Wagner's
+  Ring. The real Viking helmets we have are round, iron and hornless; the real horned helmets are Bronze Age and
+  about 1,700 years too early. Case file 002.
+chapters: {0: The helmet in your head, 4: The only real Viking helmets, 9: What 'Viking' actually meant, 13: 'Who
+    gave them horns?', 15: '1875: the opera', 19: Real horned helmets, 24: 'Were Vikings dirty?', 27: Verdict, 28: How
+    to spot a costume}
+publish:
+  title_variants: [Vikings Never Wore Horns. An Opera Did., 'Who Actually Put Horns on Viking Helmets?', The Opera
+      Costume That Fooled the World, Why Vikings Never Wore Horned Helmets, Vikings Didn't Wear Horns. He Did.,
+    The 1876 Mistake on Every Viking Helmet, We Only Found 2 Viking Helmets. Neither Has Horns., 'Did Any Viking
+      Ever Actually Wear Horns?', How Wagner's Costume Designer Fooled History, 'Vikings: The Real Helmet vs The
+      Opera Myth']
+  hook_options:
+  - {type: cold_open_stat, text: 'We have dug up thousands of Viking graves, but only two complete helmets. Neither
+      of them has horns. Not even a small one.'}
+  - {type: contradiction, text: Horned helmets are entirely real. Archaeologists found them in Denmark. But they
+      were made seventeen hundred years before the first Viking.}
+  - {type: mystery, text: Those horns on every Viking helmet weren't made of iron or bone. They were designed in
+      1875 by a costume designer for an opera.}
+  thumbnail_concepts:
+  - {visual: A round iron Viking helmet next to a horned opera helmet with a red stamp across the horns, text: FAKE
+      HORNS}
+  - {visual: An opera singer in a horned helmet on a dramatic stage, text: 1875 COSTUME}
+  - {visual: 'A plain iron helmet on velvet, spotlight', text: NO HORNS. EVER.}
+  series: history-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+  shorts_ideas:
+  - {hook: Name one real Viking helmet with horns. I'll wait., shows: 'Mortimer''s ink-stained hands flipping through
+      ledger sketches: the 1943 Gjermundbu iron dome, the 1950s Yarm helmet, then pausing on an empty page where
+      horns are crossed out.', loop: Which brings us right back to why nobody can name one real Viking helmet with
+      horns.}
+  - {hook: 'The English complained about Viking invaders for the weirdest reason: they were too clean.', shows: 'Ink
+      doodles on ledger paper showing Viking graves filled with combs, tweezers, and ear-scoops, followed by a grubby
+      English chronicler looking deeply annoyed.', loop: And that jealousy is why the English complained about Viking
+      invaders for the weirdest reason.}
+shorts:
+- {title: The opera that gave Vikings horns, from: s100, to: s131, hook: Vikings had wings before they had horns}
+- {title: 'Real horned helmets exist. They''re just 1,700 years too early', from: s142, to: s165, hook: Horned helmets
+    are real. Just not Viking.}
+- {title: 'Were Vikings actually dirty?', from: s184, to: s198, hook: The Vikings had a bath day}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: A large iron Viking spectacles helmet drawn with thin ink lines and soft cross-hatching, centered on
+      aged cream ledger paper with faint blue rules and a red margin. Two comical curved animal horns sit detached
+      on either side, hovering as if misplaced. Subtle ochre watercolor wash on the iron surface.
+    characters: []
+  myth: {en: VIKING HORNS}
+  note: {en: OPERA PROP}
+  pos: top-left
+  claim: c01
+- kind: stamp
+  visual:
+    prompt: A single round iron helmet with spectacles eye-guard drawn large in black fountain pen ink, viewed from
+      the front, filling the right half of an aged cream ledger page. Light ink cross-hatching and a soft muted
+      brick-red watercolor shadow beneath. Clear empty space on the left.
+    characters: []
+  pos: left
+- kind: scene
+  visual:
+    prompt: Mortimer's thin ink-drawn hands in dark-green coat cuffs with tiny brass buttons, holding a long fountain
+      pen and carefully sketching two curved bull horns onto the head of a startled, bearded ink-doodle Viking on
+      an aged ledger page.
+    characters: [clerk]
+  text: {en: INVENTED IN 1875}
+  pos: top
+  claim: c01

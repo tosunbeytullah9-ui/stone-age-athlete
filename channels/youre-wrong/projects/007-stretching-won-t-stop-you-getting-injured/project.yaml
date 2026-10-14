@@ -1,0 +1,54 @@
+title: Stretching Won't Stop You Getting Injured
+idea: i007
+status: production
+description: 'Touching your toes before exercise won''t stop you getting injured. 1,538 army recruits, 26,610 athletes
+  and a Cochrane review say so. What actually protects you: strength, fitness and a real warm-up. Case file 007.'
+chapters: {0: Intro, 4: How stretching became a ritual, 6: The army experiment, 11: '26,610 athletes', 14: The hamstring
+    exercise that works, 15: Stretching can make you weaker, 19: Soreness, 22: Why it feels like it helps, 26: Warm-ups
+    that work, 28: A coach's view, 30: Verdict}
+publish:
+  title_variants: [Stretching Won't Stop You Getting Injured, Stretching Before Exercise Doesn't Prevent Injury,
+    '1,538 Soldiers Tested Your Warm-Up Stretch', 'The Pre-Workout Stretch Is a Ritual, Not Armour']
+  hook_options:
+  - {type: you, text: 'Everybody knows you have to stretch before exercise. 1,538 soldiers say otherwise.'}
+  - {type: cold_open_stat, text: The exercise everyone skips prevents injuries. The one everyone does doesn't.}
+  - {type: contradiction, text: 'Touching your toes before a sprint might make you slower, and no safer.'}
+  thumbnail_concepts:
+  - {visual: Person touching toes with a cracked shield icon, text: NOT ARMOUR}
+  - {visual: 'Army recruits stretching, 158 vs 175', text: NO DIFFERENCE}
+  - {visual: Barbell vs stretching strap, text: THIS ONE WORKS}
+  series: body-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+shorts:
+- {title: '1,538 soldiers tested the pre-workout stretch', from: s051, to: s077, hook: '1,538 soldiers tested the
+    pre-workout stretch'}
+- {title: The exercise everyone skips is the one that works, from: s078, to: s097, hook: The exercise everyone skips
+    is the one that works}
+- {title: Stretching before a sprint can make you slower, from: s111, to: s133, hook: Stretching before a sprint
+    can make you slower}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: An ink figure in gym clothes bending forward to touch his toes, drawn large in the lower right of the
+      page
+    characters: []
+  myth: {en: STRETCH FIRST}
+  note: {en: '26,610 people'}
+  pos: top-left
+  claim: c05
+- kind: stamp
+  visual:
+    prompt: A PE teacher with a whistle in his mouth and a clipboard, pointing at the ground, drawn large on the
+      right side of the page
+    characters: []
+  pos: top-left
+- kind: scene
+  visual:
+    prompt: An athlete kneeling on a mat doing a Nordic hamstring curl, leaning slowly forward while a partner holds
+      his ankles, drawn large in the lower two thirds
+    characters: []
+  text: {en: DO THIS INSTEAD}
+  pos: top
+  claim: c06

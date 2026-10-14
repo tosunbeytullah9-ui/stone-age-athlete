@@ -1,0 +1,55 @@
+title: Ancient People Didn't Die at 30
+idea: i009
+status: production
+description: Life expectancy in ancient Rome was 20 to 30 years. So who was running the Senate? Averages hide the
+  babies; hunter-gatherers with no medicine most commonly died around 72; a psalm promised threescore years and
+  ten; Sophocles lived to 90. Case file 009.
+chapters: {0: Intro, 4: The trouble with averages, 8: Children and the Roman numbers, 12: Skeletons lie about age,
+  13: 'Hunter-gatherers: dying at 72', 17: Threescore years and ten, 19: Roman politics, 22: The old ones, 24: What
+    really killed people, 27: The twist, 29: Verdict}
+publish:
+  title_variants: [Ancient People Didn't Die at 30, Life Expectancy Was 30. People Still Lived to 70, The 'Everyone
+      Died at 30' Myth, 'Who Was Running the Roman Senate, Then?']
+  hook_options:
+  - {type: you, text: 'Life expectancy in ancient Rome was 20 to 30. So who was running the Senate?'}
+  - {type: cold_open_stat, text: 'One person dies at 1, another at 71. Their average is 36. Nobody died at 36.'}
+  - {type: contradiction, text: Hunter-gatherers with no medicine most commonly died around 72.}
+  thumbnail_concepts:
+  - {visual: Old Roman senator with white beard, text: 'DEAD AT 30?'}
+  - {visual: 'Two tombstones, 1 and 71, average 36', text: AVERAGES LIE}
+  - {visual: Psalm scroll with '70', text: THEY KNEW}
+  series: cross-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+shorts:
+- {title: Why 'life expectancy 30' doesn't mean dying at 30, from: s028, to: s046, hook: Why 'life expectancy 30'
+    doesn't mean dying at 30}
+- {title: 'No doctors, no medicine. Most common adult age at death: 72', from: s082, to: s108, hook: 'No doctors,
+    no medicine. Most common adult age at death: 72'}
+- {title: 'If Romans died at 30, who ran the Senate?', from: s119, to: s141, hook: 'If Romans died at 30, who ran
+    the Senate?'}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: A Roman man in a tunic bent over a walking stick with a long grey beard, drawn large in the lower right
+      of the page
+    characters: []
+  myth: {en: DEAD AT 30}
+  note: {en: on average…}
+  pos: top-left
+  claim: c01
+- kind: stamp
+  visual:
+    prompt: A plain Roman tombstone with a carved portrait of an old man and no letters on it, drawn large on the
+      right side of the page
+    characters: []
+  pos: top-left
+- kind: scene
+  visual:
+    prompt: An old Roman senator with a long white beard in a toga, proudly holding a bundle of rods with an axe,
+      a young man beside him looking astonished, drawn large in the lower two thirds
+    characters: []
+  text: {en: CONSUL AT 42}
+  pos: top
+  claim: c07

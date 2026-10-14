@@ -1,0 +1,134 @@
+# Channel identity + overrides of config.yaml (edit in the panel: Kanal → Kanal ayarları)
+# Persona and rules: BRAND.md (from the Claude Docs persona book, kept up to date)
+name: You're Wrong!
+handle: "@YoureWrongFiles"        # check availability on YouTube before creating the channel
+tagline: "Everything you know is on file. Most of it is wrong."
+category: Education
+languages: [en]
+description: >
+  Clerk Mortimer has worked at the Bureau of Human Error for about three thousand years. His job: file every
+  "fact" humanity got wrong. Every Tuesday a body file (fitness, health, the human body), every Friday a history
+  file. Every claim sourced. Body files are checked by an expert strength and conditioning coach.
+pronunciation: "MOR-tih-mer"
+visual_style: >-                 # every AI picture starts with this sentence (the channel's look: "Mortimer's Ledger")
+  Hand-drawn ink illustration on a page of an old clerk's ledger. The page fills the entire frame edge to edge (no
+  book edges, no table, no photograph of a notebook): aged cream paper with faint blue ruled lines and a thin red
+  margin line near the left edge, soft paper grain, now and then a tiny ink blot. Drawn with a black fountain pen in
+  a confident, minimal, witty doodle style: people are simple expressive ink figures with round heads, dot eyes and
+  small simple mouths, thin limbs and very clear body language, like clever sketches in a notebook margin; objects
+  and places drawn with sparse clean lines and light cross-hatching. Colour only as small accents of muted brick red
+  and ochre watercolour wash, two or three touches per picture. Generous empty paper around one clear idea, readable
+  at a glance.
+# previous look (watercolor archive plates, used for 001 v1): .fabrika/channel_youre-wrong_watercolor_backup.yaml
+characters:                      # recurring people; add `ref: refs/clerk.png` once a hands-and-desk sheet exists
+  clerk:
+    description: >-
+      The Clerk (Mortimer) never shows his face. Usually only his hands and forearms are drawn, in the same ink style:
+      long thin fingers with ink-stained fingertips and a dark-green sleeve cuff with a small brass button (the only
+      green in the picture), working at a ledger desk with a brass rubber stamp and an ink pad. When his whole body
+      is drawn he is a very tall, thin ink figure in a long dark-green coat, always seen from behind or with his face
+      hidden.
+series:                          # recurring formats = playlists
+  body-files:    {name: "Body Files",    pillars: [P1], promise: "Fitness and health 'facts', traced to where they came from and tested", color: "#b23a2e"}
+  history-files: {name: "History Files", pillars: [P2], promise: "History everyone learned wrong, and who started the rumor", color: "#b8913f"}
+  cross-files:   {name: "Cross Files",   pillars: [P3], promise: "Where history meets the human body", color: "#6b5a43"}
+schedule:
+  per_week: 2
+  days: [Tue, Fri]               # Tuesday: body file · Friday: history file
+  slot_types: [long, long]
+  hours_per_video: 6.5           # update after the first 10 videos
+outro:
+  seconds: 18
+  text: {en: "Next case file"}
+  sub: {en: "You're Wrong! · every claim sourced"}
+youtube:
+  credit: "Body files on this channel are checked by an expert strength and conditioning coach. Every claim is linked to its source below."
+  footer: |-
+    Educational content only, not medical advice. Talk to a qualified professional before you change your training, diet or fluid intake.
+
+    You're Wrong! The Bureau of Human Error files what everyone got wrong. Tuesday: body files. Friday: history files.
+  category: 27
+  language: en
+  made_for_kids: false
+  synthetic_media: false
+  publish_time: "22:00"
+  privacy: private
+  api_audited: false
+  tags: [myths, misconceptions, common myths debunked, fitness myths, history myths, science explained, human body,
+    you're wrong]
+branding:                        # python -m studio branding / panel: Kanal ayarları → Marka görsellerini üret
+  # Mortimer's face is never shown, so the profile picture is his signature object: the stamp.
+  profile_prompt: >-
+    Bold, simple close-up centred in the square: an old ink-stained hand in a dark-green wool sleeve with a brass
+    cufflink, gripping a heavy brass rubber stamp and pressing it down onto cream paper, a vivid red ink splash
+    bursting out under the stamp. Strong clear silhouette against a plain warm cream background, readable even
+    at a tiny size. No face, no other objects.
+  banner_prompt: >-
+    One continuous wide panoramic painting of an endless old archive hall seen straight on, a single scene with
+    one horizon line at the vertical middle: towering dark wooden shelves packed with tied cardboard case folders
+    stretch away to both sides, a rolling library ladder on the far left, a lone wooden desk with a glowing
+    green-glass banker's lamp and a brass rubber stamp on the far right, warm dusty lamplight and floating dust.
+    No people. The middle band is calm and uncluttered.
+  name_color: "#ffffff"
+  accent: "#ff7a5c"              # tagline in the stamp's red, lightened for contrast on the dark band
+chart_paper: refs/paper.png      # blank ledger page: charts are inked onto the same paper as the drawings
+sound:                           # the channel's sound language (docs/SOUND.md); beds and effects are automatic
+  transition: page_turn          # new paragraph on a new picture: Mortimer turns a page of the ledger
+  chart: pen                     # charts are inked into the ledger
+  case_file: drawer              # "Case file zero zero ..." → a file drawer rolls open
+  verdict: stamp                 # "Verdict: wrong." → the rubber stamp
+  clerk_amb: archive             # Mortimer's desk: quiet hall, wall clock, a page now and then
+  default_amb: room
+style:
+  palette: {}
+package:                         # what the packaging prompt and the channel bible are told about the channel
+  script_structure: >-
+    HOOK + CASE FILE (0–30 s: a first line from the viewer's world, then this video's own "Case file zero zero N.
+    Subject: … Belief: …") → WHY WE ALL BELIEVED IT (who filed the original report) → EVIDENCE FILES (3–4 parts,
+    each answers one question and opens the next; a re-hook about every 2 min; one "Filing note" subscribe joke at
+    40–50 %) → VERDICT (music stops, "Verdict: wrong." stamp, then what is actually true) → BRIDGE ("Case closed.
+    Your file, however, remains open. Next case: …"). 1,400–1,600 words, 8–12 min. Persona rules: BRAND.md.
+  positioning: >-
+    Mortimer, a deadpan clerk at the Bureau of Human Error, files every "fact" humanity got wrong. English, dry
+    British wit, every claim sourced. Body files (fitness, health, the human body) on Tuesdays, history files on
+    Fridays. The viewer should feel clever for being corrected, never mocked.
+  thumbnail_rules:
+    - "The clerk's face is never shown: at most his hands with the green cuff, `characters: [clerk]`."
+    - "Pictures are ink drawings on the ledger page, like the video: simple expressive ink figures, one idea."
+thumbnails:                      # look of the three thumbnail kinds (docs/THUMBNAILS.md)
+  ink: "#181614"
+  accent: "#b23026"              # Mortimer's red pen and rubber stamp
+  stamp: WRONG
+  paper: true                    # ledger page: warmer page, darker edges, ink pressed into the paper
+  ink_boost: 1                   # thicker lines so the drawing survives at 168 px
+  direction: >-
+    Thumbnail drawing on the ledger page: one subject drawn large and close with bold, thick black ink outlines,
+    filling about half of the frame, very simple, nothing else competing with it.
+overrides:
+  video:
+    reveal: ink                  # the drawing appears on the page at the start of each new paragraph's scene
+  audio:
+    music_tracks:                # instrumental tracks only (songs with vocals fight the narrator); rotated per chapter
+      - youre-wrong/Dwarf Star - Freedom Trail Studio.mp3
+      - youre-wrong/Lace Tablecloths - The Mini Vandals.mp3
+      - youre-wrong/The Truth - Anno Domini Beats.mp3
+      - youre-wrong/South Street Strut - The Great North Sound Society.mp3
+      - youre-wrong/Goat's Skull - Verified Picasso.mp3
+      - youre-wrong/Kung Fu Love Tree - Quincas Moreira.mp3
+      - youre-wrong/Unavailable - Causmic.mp3
+      - youre-wrong/The Chase - Topher Mohr and Alex Elena.mp3
+      - youre-wrong/Mix It Up - RalphReal.mp3
+      - youre-wrong/Missed My Chance - The Grey Room _ Clark Sims.mp3
+  tts:
+    provider: gemini             # tempo fix 2026-10-13: first render read at 115 wpm (too slow)
+    paragraph_pause: 0.35
+    question_tag: ""
+    gemini:
+      voice: Charon              # alternative to audition: Iapetus (Gacrux was too heavy and slow)
+      style: >-
+        Mortimer, a sharp, sardonic archive clerk who has seen every human mistake for three thousand years.
+        Crisp, brisk, confident British delivery at a lively conversational pace, about 170 words per minute.
+        Dry and deadpan, never sleepy: keep the energy up and the sentences moving. Only the punchlines are
+        read flat, after a short beat. Numbers are said clearly. Sounds amused, not tired.
+    kokoro: {voice: bm_george, lang_code: b}   # free fallback: British male
+    edge: {voice_by_lang: {en: en-GB-RyanNeural}}

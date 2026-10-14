@@ -1,0 +1,1638 @@
+title: 002-vikings-never-wore-horned-helmets
+paragraphs: 33
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: Picture a Viking.
+  visual:
+    prompt: A theatrical poster-style painting of a burly bearded Norse warrior in a helmet with two big curved
+      horns, holding a huge axe, scowling under a stormy sky, deliberately over-dramatic like a 19th-century opera
+      illustration
+  camera: in
+- id: s002
+  para: 0
+  sent: 1
+  text: Go on.
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 2
+  text: Big beard, big axe, and two big horns sticking out of his helmet.
+  visual:
+    same: true
+- id: s004
+  para: 0
+  sent: 3
+  text: Those horns were designed in eighteen seventy-five.
+  tone:
+  - pause
+  visual:
+    prompt: 'Close-up in an 1870s costume workshop lit by gaslight: a costume designer''s hands painting a helmet
+      with two large cow horns on a wooden stand, brushes, fabric and sketches around, no readable writing'
+  camera: right
+  overlay:
+    kind: stat
+    text: '1875'
+- id: s005
+  para: 0
+  sent: 4
+  text: By a costume designer.
+  visual:
+    same: true
+- id: s006
+  para: 0
+  sent: 5
+  text: For an opera.
+  visual:
+    same: true
+- id: s007
+  para: 1
+  sent: 6
+  text: Case file zero zero two.
+  visual:
+    prompt: Overhead close-up of the clerk's ink-stained hands untying the string of a thick blank cardboard case
+      folder on the wooden archive desk, green banker's lamp glowing, brass rubber stamp beside it
+    characters:
+    - clerk
+  camera: in
+  overlay:
+    kind: label
+    text: CASE FILE 002
+- id: s008
+  para: 1
+  sent: 7
+  text: 'Subject: you, and roughly everyone else on Earth.'
+  visual:
+    same: true
+- id: s009
+  para: 1
+  sent: 8
+  text: 'Belief: Vikings went into battle wearing horned helmets.'
+  visual:
+    same: true
+- id: s010
+  para: 2
+  sent: 9
+  text: I have a personal interest in this one.
+  visual:
+    prompt: 'The clerk''s hands placing two old objects at opposite ends of his long archive desk: on the left a
+      green-patinated bronze helmet with two curving horns, on the right a plain round rusted iron helmet, a long
+      empty stretch of desk between them'
+    characters:
+    - clerk
+  camera: left
+- id: s011
+  para: 2
+  sent: 10
+  text: I have met Vikings.
+  visual:
+    same: true
+- id: s012
+  para: 2
+  sent: 11
+  text: I have also met horned helmets.
+  visual:
+    same: true
+- id: s013
+  para: 2
+  sent: 12
+  text: And I can tell you, with some confidence,
+  visual:
+    prompt: 'One continuous misty Scandinavian landscape at dusk: on a hill on the far left a small Bronze Age torch
+      procession, and far away on the right a single Viking longship sailing on a calm fjord, a vast empty valley
+      between them'
+  camera: right
+- id: s014
+  para: 2
+  sent: 12
+  text: that the two never met on a battlefield.
+  visual:
+    same: true
+- id: s015
+  para: 2
+  sent: 13
+  text: Mostly, they missed each other by about seventeen centuries.
+  visual:
+    same: true
+- id: s016
+  para: 3
+  sent: 14
+  text: So let's open the file.
+  visual:
+    prompt: The clerk's hands spreading old black-and-white excavation photographs of rusted metal objects across
+      the archive desk, a magnifying glass on top, lamplight
+    characters:
+    - clerk
+  camera: in
+- id: s017
+  para: 3
+  sent: 15
+  text: And as always, we start with the evidence.
+  visual:
+    same: true
+- id: s018
+  para: 3
+  sent: 16
+  text: Which is where this story gets embarrassing for the helmet.
+  visual:
+    same: true
+- id: s019
+  para: 4
+  sent: 17
+  text: In March nineteen forty-three,
+  visual:
+    prompt: 'A hillside farm in the Ringerike countryside of Norway in spring 1943: a man in 1940s work clothes
+      levelling earth with a shovel next to a wooden farmhouse, birch trees, a horse and cart, pale northern light'
+  camera: left
+- id: s020
+  para: 4
+  sent: 17
+  text: a man in Norway was levelling the ground to build a house,
+  visual:
+    same: true
+- id: s021
+  para: 4
+  sent: 17
+  text: on a farm called Gjermundbu.
+  visual:
+    same: true
+- id: s022
+  para: 4
+  sent: 18
+  text: Instead of foundations,
+  visual:
+    prompt: 'Close-up of an excavated grave in dark soil: rusted iron fragments of a broken helmet lying among stones,
+      an archaeologist''s trowel and brush beside them, soft daylight'
+  camera: in
+- id: s023
+  para: 4
+  sent: 18
+  text: he found a rich warrior's grave from the tenth century.
+  visual:
+    same: true
+- id: s024
+  para: 4
+  sent: 19
+  text: And in it, an iron helmet, broken into pieces.
+  visual:
+    same: true
+- id: s025
+  para: 4
+  sent: 20
+  text: Next to it lay the remains of a mail shirt,
+  visual:
+    prompt: 'Close-up in a museum conservation lab: corroded fragments of an iron mail shirt, thousands of tiny
+      interlinked rings, laid out on white cloth under a lamp, tweezers beside them'
+  camera: right
+- id: s026
+  para: 4
+  sent: 20
+  text: the most complete one ever found from the Viking Age.
+  visual:
+    same: true
+- id: s027
+  para: 4
+  sent: 21
+  text: Whoever this was, he was not a farmer who wandered into a fight.
+  visual:
+    prompt: 'A tenth-century Norse warrior standing in a green valley, fully equipped: knee-length iron mail shirt,
+      rounded iron helmet with an eye-and-nose guard and no horns, sword at his hip, round wooden shield, calm and
+      proud'
+  camera: out
+- id: s028
+  para: 4
+  sent: 22
+  text: He was dressed for war, by the best tailor in the valley.
+  visual:
+    same: true
+- id: s029
+  para: 5
+  sent: 23
+  text: Archaeologists rebuilt it from nine fragments.
+  visual:
+    prompt: 'Museum close-up of a reconstructed Viking Age iron helmet on a stand: a rounded cap made of four riveted
+      plates with a fixed spectacle-shaped guard around the eyes and nose, dark background, dramatic spotlight'
+  camera: in
+- id: s030
+  para: 5
+  sent: 24
+  text: A rounded iron cap made of four plates.
+  visual:
+    same: true
+- id: s031
+  para: 5
+  sent: 25
+  text: A fixed guard around the eyes and nose,
+  visual:
+    same: true
+- id: s032
+  para: 5
+  sent: 25
+  text: like a pair of iron spectacles.
+  visual:
+    same: true
+- id: s033
+  para: 5
+  sent: 26
+  text: And on top?
+  visual:
+    prompt: The same rounded iron helmet seen from directly above, its smooth bare dome with no horns at all, spotlit
+      on dark velvet, a gently comic emptiness
+    ref: s029
+  camera: in
+- id: s034
+  para: 5
+  sent: 27
+  text: Nothing.
+  visual:
+    same: true
+- id: s035
+  para: 5
+  sent: 28
+  text: No horns.
+  visual:
+    same: true
+- id: s036
+  para: 5
+  sent: 29
+  text: Not even a small, apologetic one.
+  visual:
+    same: true
+- id: s037
+  para: 6
+  sent: 30
+  text: For a long time, this was the only Viking Age helmet
+  visual:
+    prompt: 'A quiet museum gallery in Oslo: a single iron Viking helmet inside a tall glass case in the centre,
+      a few visitors looking at it, soft cool light'
+  camera: out
+- id: s038
+  para: 6
+  sent: 30
+  text: that could be put back together.
+  visual:
+    same: true
+- id: s039
+  para: 6
+  sent: 31
+  text: Then, in twenty twenty,
+  visual:
+    prompt: 'A university archaeology laboratory: an older archaeologist with glasses examining a rusty iron helmet
+      under a bright magnifying lamp, notes and tools on the bench, grey English daylight'
+  camera: left
+- id: s040
+  para: 6
+  sent: 31
+  text: an archaeologist from Durham University
+  visual:
+    same: true
+- id: s041
+  para: 6
+  sent: 31
+  text: took a closer look at a rusty helmet
+  visual:
+    same: true
+- id: s042
+  para: 6
+  sent: 31
+  text: that workers had dug up while laying sewage pipes in Yarm,
+  visual:
+    prompt: 'A small northern English market town street in the 1950s: workmen in flat caps digging a deep trench
+      to lay large clay sewage pipes, terraced brick houses, one worker lifting a muddy round object out of the
+      earth'
+  camera: right
+- id: s043
+  para: 6
+  sent: 31
+  text: in the north of England,
+  visual:
+    same: true
+- id: s044
+  para: 6
+  sent: 31
+  text: back in the nineteen-fifties.
+  visual:
+    same: true
+- id: s045
+  para: 6
+  sent: 32
+  text: It had been sitting in plain sight for decades.
+  visual:
+    prompt: 'A dusty shelf in a small local museum store room: a rusty round iron helmet sitting overlooked among
+      old jars, boxes and forgotten objects, a beam of light falling on it'
+  camera: in
+- id: s046
+  para: 6
+  sent: 33
+  text: Tenth century.
+  visual:
+    same: true
+- id: s047
+  para: 6
+  sent: 34
+  text: Iron.
+  visual:
+    same: true
+- id: s048
+  para: 6
+  sent: 35
+  text: Round.
+  visual:
+    same: true
+- id: s049
+  para: 6
+  sent: 36
+  text: Also no horns.
+  tone:
+  - pause
+  visual:
+    same: true
+- id: s050
+  para: 7
+  sent: 37
+  text: Two helmets.
+  visual:
+    prompt: Straight-on front view of exactly two round iron Viking helmets standing side by side on museum stands,
+      and in front of them a small tray holding a few rusted helmet fragments, plain dark background
+  camera: in
+- id: s051
+  para: 7
+  sent: 38
+  text: That is the entire collection
+  visual:
+    same: true
+- id: s052
+  para: 7
+  sent: 38
+  text: of nearly complete Viking helmets in the world.
+  visual:
+    same: true
+- id: s053
+  para: 7
+  sent: 39
+  text: Add a handful of fragments, and you reach about five.
+  visual:
+    same: true
+- id: s054
+  para: 7
+  sent: 40
+  text: For a culture that spent centuries raiding
+  visual:
+    prompt: A fleet of Viking longships with striped square sails sailing along a rugged European coastline, a distant
+      town and church on the shore, wind and spray, wide view
+  camera: left
+- id: s055
+  para: 7
+  sent: 40
+  text: and trading across Europe,
+  visual:
+    same: true
+- id: s056
+  para: 7
+  sent: 40
+  text: that is a suspiciously small number of hats.
+  visual:
+    same: true
+- id: s057
+  para: 8
+  sent: 41
+  text: Historians think the reason is simple.
+  visual:
+    prompt: A Viking Age blacksmith in a smoky forge hammering a glowing piece of iron on an anvil, a small clay
+      furnace, bellows, sparks flying, sweat and firelight
+  camera: in
+- id: s058
+  para: 8
+  sent: 42
+  text: Iron was hard to make, and expensive.
+  visual:
+    same: true
+- id: s059
+  para: 8
+  sent: 43
+  text: A good metal helmet was a luxury,
+  visual:
+    same: true
+- id: s060
+  para: 8
+  sent: 43
+  text: repaired again and again and handed down in families.
+  visual:
+    same: true
+- id: s061
+  para: 8
+  sent: 44
+  text: Many ordinary Vikings probably fought
+  visual:
+    prompt: A group of ordinary Norse warriors on a pebble beach in wool tunics and simple leather caps, holding
+      spears and round wooden shields, none of them wearing metal helmets, grey sky
+  camera: right
+- id: s062
+  para: 8
+  sent: 44
+  text: with no metal helmet at all.
+  visual:
+    same: true
+- id: s063
+  para: 8
+  sent: 45
+  text: Leather, wool, and hope.
+  visual:
+    same: true
+- id: s064
+  para: 9
+  sent: 46
+  text: 'And while we are correcting things:'
+  visual:
+    prompt: A historian in a modern university library reading an old medieval manuscript with a magnifying glass,
+      the script blurred and unreadable, warm reading lamp
+  camera: in
+- id: s065
+  para: 9
+  sent: 46
+  text: '"Viking" was not even the name of a people.'
+  visual:
+    same: true
+- id: s066
+  para: 9
+  sent: 47
+  text: In Old Norse, as the historian Judith Jesch explains,
+  visual:
+    same: true
+- id: s067
+  para: 9
+  sent: 47
+  text: a víkingr was a person on an expedition,
+  visual:
+    prompt: A Norse crew of twelve men rowing a longship together across open grey sea on an expedition, oars dipping
+      in rhythm, sea spray, low clouds
+  camera: left
+- id: s068
+  para: 9
+  sent: 47
+  text: usually by sea and in a group.
+  visual:
+    same: true
+- id: s069
+  para: 9
+  sent: 48
+  text: Víking was the activity.
+  visual:
+    same: true
+- id: s070
+  para: 9
+  sent: 49
+  text: You did not grow up a Viking.
+  visual:
+    prompt: A Norse man coming home to his turf-roofed farmstead carrying a sea chest, his family greeting him,
+      cows grazing in the green pasture, peaceful summer evening
+  camera: out
+- id: s071
+  para: 9
+  sent: 50
+  text: You went viking, and then, ideally,
+  visual:
+    same: true
+- id: s072
+  para: 9
+  sent: 50
+  text: you came home and fed the cows.
+  visual:
+    same: true
+- id: s073
+  para: 9
+  sent: 51
+  text: Calling everyone in medieval Scandinavia a Viking is a
+  visual:
+    prompt: A gently comic modern British city street crowded with tourists holding maps and cameras, red double-decker
+      bus in the background, overcast light
+  camera: right
+- id: s074
+  para: 9
+  sent: 51
+  text: bit like calling everyone in modern Britain a tourist.
+  visual:
+    same: true
+- id: s075
+  para: 10
+  sent: 52
+  text: And these expedition people travelled far.
+  visual:
+    prompt: The monastery of Lindisfarne on its tidal island in the year 793, stone church and small buildings,
+      monks on the shore looking out to sea where three longships approach in the distance, dramatic grey dawn
+  camera: in
+- id: s076
+  para: 10
+  sent: 53
+  text: The Viking Age is usually counted
+  visual:
+    same: true
+- id: s077
+  para: 10
+  sent: 53
+  text: from a raid on the monastery of Lindisfarne,
+  visual:
+    same: true
+- id: s078
+  para: 10
+  sent: 53
+  text: off the coast of England,
+  visual:
+    prompt: 'The same island monastery a moment later: the longships run up onto the beach and monks hurry back
+      toward the church, no violence shown, wind and grey light'
+    ref: s075
+  camera: right
+- id: s079
+  para: 10
+  sent: 53
+  text: in seven hundred and ninety-three.
+  visual:
+    same: true
+- id: s080
+  para: 10
+  sent: 54
+  text: Two centuries later,
+  visual:
+    prompt: A sturdy Norse trading ship crossing the wild North Atlantic, grey waves, a distant iceberg, the crew
+      wrapped in wool cloaks, vast lonely ocean
+  camera: out
+- id: s081
+  para: 10
+  sent: 54
+  text: Norse sailors had crossed the whole Atlantic.
+  visual:
+    same: true
+- id: s082
+  para: 10
+  sent: 55
+  text: In twenty twenty-one,
+  visual:
+    prompt: Close-up of a scientist's gloved hands holding an old piece of wood showing fine tree rings and a clean
+      cut mark from a metal axe, a magnifying lens over the rings, laboratory light
+  camera: in
+- id: s083
+  para: 10
+  sent: 55
+  text: scientists used the trace of an ancient solar storm,
+  visual:
+    same: true
+- id: s084
+  para: 10
+  sent: 55
+  text: locked inside tree rings,
+  visual:
+    same: true
+- id: s085
+  para: 10
+  sent: 55
+  text: to date wood cut with metal tools at L'Anse aux Meadows, in Newfoundland.
+  visual:
+    same: true
+- id: s086
+  para: 10
+  sent: 56
+  text: 'The year the trees were cut: one thousand and twenty-one.'
+  visual:
+    prompt: Reconstructed Norse sod-walled houses on a grassy coastal meadow at L'Anse aux Meadows in Newfoundland,
+      a calm bay and low cliffs, soft northern light
+  camera: left
+  overlay:
+    kind: stat
+    text: '1021'
+- id: s087
+  para: 10
+  sent: 57
+  text: Exactly one thousand years before the study.
+  visual:
+    same: true
+- id: s088
+  para: 11
+  sent: 58
+  text: So these were people who could build
+  visual:
+    prompt: 'Norse shipbuilders constructing a longship on a riverbank: overlapping oak planks, the curved keel
+      and frame, men with axes and adzes, wood chips everywhere, bright day'
+  camera: right
+- id: s089
+  para: 11
+  sent: 58
+  text: ships good enough to reach America.
+  visual:
+    same: true
+- id: s090
+  para: 11
+  sent: 59
+  text: People who knew a lot about wind, wood, iron and weight.
+  visual:
+    same: true
+- id: s091
+  para: 11
+  sent: 60
+  text: And somehow, we decided they went into battle with a pair
+  visual:
+    prompt: 'A gently comic scene: a warrior in a helmet with two big horns being pulled off balance by an opponent
+      who simply grabs both horns like handles, both men in wool tunics on a field, no blood'
+  camera: in
+- id: s092
+  para: 11
+  sent: 60
+  text: of extra handles bolted to their heads.
+  visual:
+    same: true
+- id: s093
+  para: 11
+  sent: 61
+  text: I have filed stranger things.
+  tone:
+  - pause
+  visual:
+    prompt: The clerk's hands sliding a thin new folder into an already overstuffed wooden drawer full of strange
+      old files, dust lifting in the lamplight
+    characters:
+    - clerk
+  camera: left
+- id: s094
+  para: 11
+  sent: 62
+  text: Not many.
+  visual:
+    same: true
+- id: s095
+  para: 12
+  sent: 63
+  text: Filing note.
+  visual:
+    prompt: A Viking Age merchant's balance scale weighing a heap of silver coins and chopped silver, next to it
+      a rounded iron helmet as if being priced, warm lamplight on a wooden table
+  camera: in
+- id: s096
+  para: 12
+  sent: 64
+  text: Subscribing to this channel costs nothing.
+  visual:
+    same: true
+- id: s097
+  para: 12
+  sent: 65
+  text: Unlike a Viking helmet.
+  visual:
+    same: true
+- id: s098
+  para: 13
+  sent: 66
+  text: So if not from the Vikings, where did the horns come from?
+  visual:
+    prompt: The clerk's hand lifting a very old, dust-covered folder out of the bottom of a tall stack, a cloud
+      of dust catching the green lamplight
+    characters:
+    - clerk
+  camera: in
+- id: s099
+  para: 13
+  sent: 67
+  text: Let's see who filed the original report.
+  visual:
+    same: true
+- id: s100
+  para: 14
+  sent: 68
+  text: For most of the nineteenth century,
+  visual:
+    prompt: An early 19th-century romantic painter in his studio working on a huge canvas of a heroic Norse warrior
+      wearing a helmet with small feathered wings, oil paints, candlelight
+  camera: out
+- id: s101
+  para: 14
+  sent: 68
+  text: artists already loved Vikings.
+  visual:
+    same: true
+- id: s102
+  para: 14
+  sent: 69
+  text: But they did not give them horns.
+  visual:
+    same: true
+- id: s103
+  para: 14
+  sent: 70
+  text: They gave them wings.
+  visual:
+    same: true
+- id: s104
+  para: 14
+  sent: 71
+  text: Little feathered wings on the sides of the helmet,
+  visual:
+    prompt: Close-up of a theatrical helmet with two little feathered wings on its sides resting on a windowsill,
+      and a grumpy pigeon standing right next to it looking at it suspiciously, comic mood
+  camera: in
+- id: s105
+  para: 14
+  sent: 71
+  text: like a very angry pigeon.
+  visual:
+    same: true
+- id: s106
+  para: 14
+  sent: 72
+  text: In the famous Swedish poem Frithiof's Saga,
+  visual:
+    prompt: An old leather-bound book of Swedish poetry lying open in a 19th-century library, one page showing an
+      engraving of a hero in a winged eagle helmet, the printed text blurred and unreadable, candlelight
+  camera: right
+- id: s107
+  para: 14
+  sent: 72
+  text: published in eighteen twenty-five,
+  visual:
+    same: true
+- id: s108
+  para: 14
+  sent: 72
+  text: the hero wears what the poem calls an eagle's helm.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: '"an eagle''s helm" - Frithiof''s Saga, 1825'
+- id: s109
+  para: 15
+  sent: 73
+  text: Then, in eighteen seventy-five,
+  visual:
+    prompt: A German painter and costume designer in an 1870s frock coat at a huge worktable covered with costume
+      sketches, armour pieces and fabric swatches, gaslight, focused and busy
+  camera: left
+- id: s110
+  para: 15
+  sent: 73
+  text: a German painter and costume designer
+  visual:
+    same: true
+- id: s111
+  para: 15
+  sent: 73
+  text: named Carl Emil Doepler got a very big job.
+  visual:
+    same: true
+- id: s112
+  para: 15
+  sent: 74
+  text: Richard Wagner was preparing the first
+  visual:
+    prompt: A grand red-brick opera festival theatre on a green hill above a small Bavarian town in 1876, horse-drawn
+      carriages arriving, people in evening dress, summer evening light
+  camera: out
+- id: s113
+  para: 15
+  sent: 74
+  text: complete performance of his opera cycle,
+  visual:
+    same: true
+- id: s114
+  para: 15
+  sent: 74
+  text: The Ring of the Nibelung,
+  visual:
+    same: true
+- id: s115
+  para: 15
+  sent: 74
+  text: in the town of Bayreuth.
+  visual:
+    same: true
+- id: s116
+  para: 15
+  sent: 75
+  text: Doepler had to dress the gods, heroes and villains of Norse myth.
+  visual:
+    prompt: 'A busy backstage costume fitting in the 1870s: opera singers being dressed as Norse gods in capes and
+      armour, an assistant placing a helmet with two horns on one singer''s head, tall mirrors, gaslight'
+  camera: in
+- id: s117
+  para: 15
+  sent: 76
+  text: And for some of them, he designed helmets with horns.
+  visual:
+    same: true
+- id: s118
+  para: 16
+  sent: 77
+  text: Not everybody loved it.
+  visual:
+    prompt: An elegant woman in an 1870s black silk dress seen from behind, sitting at a writing desk in a rehearsal
+      room, writing in her diary, a costumed singer in a horned helmet visible through the doorway
+  camera: right
+- id: s119
+  para: 16
+  sent: 78
+  text: Wagner's own wife, Cosima,
+  visual:
+    same: true
+- id: s120
+  para: 16
+  sent: 78
+  text: wrote that the costumes made the characters
+  visual:
+    same: true
+- id: s121
+  para: 16
+  sent: 78
+  text: look like Native American chiefs.
+  visual:
+    same: true
+- id: s122
+  para: 16
+  sent: 79
+  text: She lost that argument.
+  tone:
+  - pause
+  visual:
+    prompt: 'A dramatic 1876 opera performance seen from the audience: singers in horned helmets and long capes
+      on a misty stage with painted rocks, strong stage light, silhouettes of the audience in front'
+  camera: in
+- id: s123
+  para: 16
+  sent: 80
+  text: To about a hundred and fifty years of history.
+  visual:
+    same: true
+- id: s124
+  para: 17
+  sent: 81
+  text: Because the opera premiered
+  visual:
+    prompt: 'A busy 1880s printing workshop: illustrators at slanted drawing desks copying pictures of horned warriors,
+      a heavy printing press and stacks of fresh prints, the printed pages blurred and unreadable'
+  camera: left
+- id: s125
+  para: 17
+  sent: 81
+  text: in eighteen seventy-six and became a sensation.
+  visual:
+    same: true
+- id: s126
+  para: 17
+  sent: 82
+  text: Illustrators all over Europe copied the look.
+  visual:
+    same: true
+- id: s127
+  para: 17
+  sent: 83
+  text: One popular British adventure novel had shown its Vikings
+  visual:
+    bg: plain_warm
+    props:
+    - type: timeline
+      x: 960
+      y: 560
+      scale: 1.3
+      n: 9
+      highlight: 8
+- id: s128
+  para: 17
+  sent: 83
+  text: in winged hats through eight illustrated editions.
+  visual:
+    same: true
+- id: s129
+  para: 17
+  sent: 84
+  text: In the ninth, in eighteen ninety, they suddenly grew horns.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 9th edition, 1890
+- id: s130
+  para: 17
+  sent: 85
+  text: Nobody explained why.
+  visual:
+    prompt: A Victorian reader in an armchair by the fire reading an illustrated adventure novel, completely unbothered,
+      a cat asleep on his lap, cosy lamplight
+  camera: in
+- id: s131
+  para: 17
+  sent: 86
+  text: Nobody asked.
+  visual:
+    same: true
+- id: s132
+  para: 18
+  sent: 87
+  text: The historian Roberta Frank,
+  visual:
+    prompt: A historian in a modern library surrounded by tall stacks of old illustrated books open to pictures
+      of warriors, comparing them with a magnifying glass, the text blurred and unreadable
+  camera: right
+- id: s133
+  para: 18
+  sent: 87
+  text: who traced all of this,
+  visual:
+    same: true
+- id: s134
+  para: 18
+  sent: 87
+  text: found almost no horned Vikings in pictures
+  visual:
+    same: true
+- id: s135
+  para: 18
+  sent: 87
+  text: before the late eighteen-seventies.
+  visual:
+    same: true
+- id: s136
+  para: 18
+  sent: 88
+  text: After that, they were everywhere.
+  visual:
+    prompt: A modern toy and souvenir shop shelf crammed with plastic horned helmets, toy axes, plush bearded warrior
+      dolls and party costumes, bright colours, no logos or readable labels
+  camera: out
+- id: s137
+  para: 18
+  sent: 89
+  text: On book covers.
+  visual:
+    same: true
+- id: s138
+  para: 18
+  sent: 90
+  text: In cartoons.
+  visual:
+    same: true
+- id: s139
+  para: 18
+  sent: 91
+  text: On sports logos.
+  visual:
+    same: true
+- id: s140
+  para: 18
+  sent: 92
+  text: And eventually, on your head, at a costume party,
+  visual:
+    prompt: A sleepy man at two in the morning sitting on a sofa after a costume party, wearing a lopsided plastic
+      horned helmet, streamers and paper cups around him, dim lamplight
+  camera: in
+- id: s141
+  para: 18
+  sent: 92
+  text: at two in the morning.
+  visual:
+    same: true
+- id: s142
+  para: 19
+  sent: 93
+  text: But here is where the file gets complicated.
+  tone:
+  - serious
+  visual:
+    prompt: 'The archive desk at night: the clerk''s hands pausing over the open case file as the green lamp flickers,
+      a second heavy folder sliding out from underneath, long shadows'
+    characters:
+    - clerk
+  camera: in
+- id: s143
+  para: 19
+  sent: 94
+  text: Because horned helmets are real.
+  visual:
+    same: true
+- id: s144
+  para: 19
+  sent: 95
+  text: Archaeologists have actually dug them up.
+  visual:
+    same: true
+- id: s145
+  para: 19
+  sent: 96
+  text: Just not from Vikings.
+  visual:
+    same: true
+- id: s146
+  para: 20
+  sent: 97
+  text: In nineteen forty-two,
+  visual:
+    prompt: 'A Danish peat bog in 1942: a peat worker in a cap and boots cutting dark turf with a long spade, discovering
+      a green bronze object half-buried in the wet peat, grey sky, flat marshland'
+  camera: left
+- id: s147
+  para: 20
+  sent: 97
+  text: a peat worker cutting turf in a bog near Veksø, in Denmark,
+  visual:
+    same: true
+- id: s148
+  para: 20
+  sent: 97
+  text: found two bronze helmets.
+  visual:
+    same: true
+- id: s149
+  para: 20
+  sent: 98
+  text: Each had two long, curving horns, a curled beak,
+  visual:
+    prompt: Museum close-up of a Bronze Age bronze ceremonial helmet with two long curving horns, a small curled
+      beak at the front and two round staring eyes, green-brown patina, dramatic spotlight on a dark background
+  camera: in
+- id: s150
+  para: 20
+  sent: 98
+  text: and a pair of staring eyes.
+  visual:
+    same: true
+- id: s151
+  para: 20
+  sent: 99
+  text: Beautiful.
+  visual:
+    same: true
+- id: s152
+  para: 20
+  sent: 100
+  text: Completely impractical for a fight.
+  visual:
+    same: true
+- id: s153
+  para: 21
+  sent: 101
+  text: In twenty twenty-two,
+  visual:
+    prompt: Two researchers in a clean laboratory taking a tiny sample from the inside of a bronze horned helmet
+      with a scalpel, sample vials and a microscope nearby, bright cool light
+  camera: right
+- id: s154
+  para: 21
+  sent: 101
+  text: Danish researchers radiocarbon-dated material from the helmets.
+  visual:
+    same: true
+- id: s155
+  para: 21
+  sent: 102
+  text: They had been placed in that bog around nine hundred BC.
+  visual:
+    bg: plain_warm
+    props:
+    - type: timeline
+      x: 960
+      y: 560
+      scale: 1.3
+      n: 10
+      highlight: 0
+  overlay:
+    kind: stat
+    text: c. 900 BC
+- id: s156
+  para: 21
+  sent: 103
+  text: Almost three thousand years ago.
+  visual:
+    same: true
+- id: s157
+  para: 21
+  sent: 104
+  text: Nearly seventeen hundred years before the Viking Age began.
+  visual:
+    same: true
+- id: s158
+  para: 21
+  sent: 105
+  text: One of the archaeologists described the Viking connection,
+  visual:
+    prompt: A Danish archaeologist laughing gently and shaking her head in a museum gallery beside a glass case
+      holding two bronze horned helmets, warm light
+  camera: left
+- id: s159
+  para: 21
+  sent: 105
+  text: and I quote, as "nonsense."
+  visual:
+    same: true
+- id: s160
+  para: 22
+  sent: 106
+  text: I was there, by the way.
+  visual:
+    prompt: 'A Bronze Age ceremony at dusk beside a misty bog: a torchlit procession of people in woven wool clothing,
+      two figures wearing bronze horned helmets, others raising long curved bronze horns, solemn and mysterious'
+  camera: out
+- id: s161
+  para: 22
+  sent: 107
+  text: Not in the bog.
+  visual:
+    same: true
+- id: s162
+  para: 22
+  sent: 108
+  text: At the ceremonies.
+  visual:
+    same: true
+- id: s163
+  para: 22
+  sent: 109
+  text: Those helmets were for rituals and processions, not for battle.
+  visual:
+    prompt: Close-up of a bronze horned ceremonial helmet on a wooden stand, a hand gripping one of its horns exactly
+      like a handle, comic and clear
+  camera: in
+- id: s164
+  para: 22
+  sent: 110
+  text: Nobody sensible goes into a fight wearing a helmet
+  visual:
+    same: true
+- id: s165
+  para: 22
+  sent: 110
+  text: that offers the enemy two convenient handles.
+  visual:
+    same: true
+- id: s166
+  para: 23
+  sent: 111
+  text: And to be fair to the costume designer,
+  visual:
+    prompt: A fragment of an old Viking Age woven tapestry, faded reds and browns, showing a procession of small
+      stylised figures and wagons, one figure wearing a horned headdress, displayed in a museum case
+  camera: in
+- id: s167
+  para: 23
+  sent: 111
+  text: he did not invent horns out of thin air.
+  visual:
+    same: true
+- id: s168
+  para: 23
+  sent: 112
+  text: Even the Vikings' own art has a few horned figures.
+  visual:
+    same: true
+- id: s169
+  para: 23
+  sent: 113
+  text: A ninth-century tapestry from the famous Oseberg ship burial
+  visual:
+    prompt: A great Viking ship with a tall carved spiral prow displayed in a white vaulted museum hall, visitors
+      small beside it, soft daylight
+  camera: out
+- id: s170
+  para: 23
+  sent: 113
+  text: in Norway shows people in horned headgear,
+  visual:
+    same: true
+- id: s171
+  para: 23
+  sent: 113
+  text: probably in a ritual procession.
+  visual:
+    same: true
+- id: s172
+  para: 23
+  sent: 114
+  text: But no helmet like that has ever been found,
+  visual:
+    prompt: A museum curator in a Scandinavian national museum examining Viking Age swords, brooches and helmet
+      fragments in a glass case, careful gloved hands, calm gallery light
+  camera: right
+- id: s173
+  para: 23
+  sent: 114
+  text: and as the National Museum of Denmark points out,
+  visual:
+    same: true
+- id: s174
+  para: 23
+  sent: 114
+  text: no written source from the time describes
+  visual:
+    same: true
+- id: s175
+  para: 23
+  sent: 114
+  text: Vikings wearing horns into battle.
+  visual:
+    same: true
+- id: s176
+  para: 23
+  sent: 115
+  text: Nineteenth-century collectors kept
+  visual:
+    prompt: 'A 19th-century gentleman collector''s cabinet of curiosities by gaslight: a long golden drinking horn,
+      small bronze figurines wearing horned helmets, old maps without lettering, glass domes'
+  camera: left
+- id: s177
+  para: 23
+  sent: 115
+  text: finding ancient horned figures.
+  visual:
+    same: true
+- id: s178
+  para: 23
+  sent: 116
+  text: A golden horn from Denmark.
+  visual:
+    same: true
+- id: s179
+  para: 23
+  sent: 117
+  text: Little bronze statues.
+  visual:
+    same: true
+- id: s180
+  para: 23
+  sent: 118
+  text: A metal plate from Sweden showing a dancer in a horned headdress.
+  visual:
+    prompt: Close-up of an ancient bronze plate with an embossed figure of a dancer wearing a headdress with two
+      curved horns ending in bird heads, worn green patina, museum light
+  camera: in
+- id: s181
+  para: 23
+  sent: 119
+  text: Those finds were real.
+  visual:
+    same: true
+- id: s182
+  para: 23
+  sent: 120
+  text: The mistake was taking a thousand years of very different people,
+  visual:
+    prompt: 'A gently comic craftsman''s workbench: a man gluing a golden horn, bird-head ornaments and bronze horns
+      from different ancient objects onto one iron helmet, a pot of glue, gaslight'
+  camera: right
+- id: s183
+  para: 23
+  sent: 120
+  text: and gluing all of their headgear onto one Viking.
+  visual:
+    same: true
+- id: s184
+  para: 24
+  sent: 121
+  text: While the file is open, one more correction, free of charge.
+  visual:
+    prompt: 'A stereotypical movie-style Viking: a mud-covered, wild-haired warrior scowling in the rain, deliberately
+      exaggerated and grimy'
+  camera: in
+- id: s185
+  para: 24
+  sent: 122
+  text: The other half of the costume is the dirt.
+  visual:
+    same: true
+- id: s186
+  para: 24
+  sent: 123
+  text: Vikings are usually pictured as filthy.
+  visual:
+    same: true
+- id: s187
+  para: 24
+  sent: 124
+  text: Archaeologists keep finding the opposite.
+  visual:
+    prompt: 'Straight-on view of Viking Age grooming tools laid out on a museum cloth: a carved bone comb, small
+      bronze tweezers, an ear spoon and a toothpick, clean and orderly, soft light'
+  camera: in
+- id: s188
+  para: 24
+  sent: 125
+  text: Combs, in the graves of both men and women.
+  visual:
+    same: true
+- id: s189
+  para: 24
+  sent: 126
+  text: Tweezers.
+  visual:
+    same: true
+- id: s190
+  para: 24
+  sent: 127
+  text: Ear cleaners.
+  visual:
+    same: true
+- id: s191
+  para: 24
+  sent: 128
+  text: Toothpicks.
+  visual:
+    same: true
+- id: s192
+  para: 24
+  sent: 129
+  text: In Old Norse, the word for Saturday literally means bath day.
+  visual:
+    prompt: 'Inside a Norse bathhouse on a Saturday: a family washing and combing their hair beside a wooden tub,
+      steam rising from hot stones, warm firelight'
+  camera: left
+  overlay:
+    kind: label
+    text: Saturday = laugardagr = "bath day"
+- id: s193
+  para: 25
+  sent: 130
+  text: One English chronicle,
+  visual:
+    prompt: A medieval English monk writing a chronicle in a stone scriptorium with a quill by candlelight, a slightly
+      sour expression, the page unreadable
+  camera: in
+- id: s194
+  para: 25
+  sent: 130
+  text: written long after the Viking raids,
+  visual:
+    same: true
+- id: s195
+  para: 25
+  sent: 130
+  text: even complained that Danish men combed their hair every day,
+  visual:
+    same: true
+- id: s196
+  para: 25
+  sent: 130
+  text: bathed every Saturday and changed their clothes regularly.
+  visual:
+    same: true
+- id: s197
+  para: 25
+  sent: 131
+  text: It was written as a complaint.
+  visual:
+    prompt: The clerk's hands filing a single yellowed medieval page into a drawer of the archive, a small dry smile
+      implied by the careful gesture, lamplight
+    characters:
+    - clerk
+  camera: right
+- id: s198
+  para: 25
+  sent: 132
+  text: In our archive, it is filed under jealousy.
+  visual:
+    same: true
+- id: s199
+  para: 26
+  sent: 133
+  text: So, back to the file.
+  visual:
+    prompt: The same rounded iron helmet with its eye-and-nose guard alone on dark velvet under a single spotlight,
+      quiet and serious
+    ref: s029
+  camera: in
+- id: s200
+  para: 26
+  sent: 134
+  text: Vikings in horned helmets.
+  visual:
+    same: true
+- id: s201
+  para: 26
+  sent: 135
+  text: The real Viking helmets we have are round, iron and hornless.
+  visual:
+    same: true
+- id: s202
+  para: 26
+  sent: 136
+  text: The real horned helmets we have are bronze, ceremonial,
+  visual:
+    prompt: The same bronze horned ceremonial helmet alone on dark velvet under a single spotlight
+    ref: s149
+  camera: in
+- id: s203
+  para: 26
+  sent: 136
+  text: and about seventeen centuries too early.
+  visual:
+    same: true
+- id: s204
+  para: 26
+  sent: 137
+  text: And the picture in your head was designed
+  visual:
+    prompt: The same opera stage at the curtain call, singers in horned helmets bowing, flowers thrown onto the
+      stage, warm golden light
+    ref: s122
+  camera: out
+- id: s205
+  para: 26
+  sent: 137
+  text: in eighteen seventy-five, for an opera.
+  visual:
+    same: true
+- id: s206
+  para: 27
+  sent: 138
+  text: 'Verdict: wrong.'
+  visual:
+    prompt: Dramatic close-up of the clerk's hand slamming a heavy brass rubber stamp down onto the case folder,
+      a burst of red ink and dust flying up, the green lamp shaking
+    characters:
+    - clerk
+  camera: in
+  overlay:
+    kind: stat
+    text: WRONG
+    pos: center
+    color: '#e8402f'
+- id: s207
+  para: 27
+  sent: 139
+  text: Wrong helmet.
+  tone:
+  - pause
+  visual:
+    same: true
+- id: s208
+  para: 27
+  sent: 140
+  text: Wrong century.
+  visual:
+    same: true
+- id: s209
+  para: 27
+  sent: 141
+  text: Wrong millennium.
+  visual:
+    same: true
+- id: s210
+  para: 27
+  sent: 142
+  text: Right opera.
+  visual:
+    same: true
+- id: s211
+  para: 28
+  sent: 143
+  text: Now, a filing note you can actually use.
+  visual:
+    prompt: A theatre costume rack backstage with a plastic horned helmet hanging next to capes, placed beside a
+      museum display case of real excavated iron objects, a gently ironic contrast
+  camera: left
+- id: s212
+  para: 28
+  sent: 144
+  text: How to catch a costume pretending to be history.
+  visual:
+    same: true
+- id: s213
+  para: 29
+  sent: 145
+  text: One.
+  visual:
+    prompt: A researcher in a dim archive pulling the oldest, most battered book out from the very bottom of a tall
+      wobbling stack of newer books, dust in the light
+  camera: in
+- id: s214
+  para: 29
+  sent: 146
+  text: Ask for the oldest source.
+  visual:
+    same: true
+- id: s215
+  para: 29
+  sent: 147
+  text: Not the most famous picture.
+  visual:
+    same: true
+- id: s216
+  para: 29
+  sent: 148
+  text: The oldest one.
+  visual:
+    same: true
+- id: s217
+  para: 29
+  sent: 149
+  text: If the horns first appear in the eighteen-seventies,
+  visual:
+    prompt: A yellowed 1870s print of a horned warrior lying on a table under a magnifying glass, a pencil beside
+      it, the printed lettering blurred and unreadable
+  camera: right
+- id: s218
+  para: 29
+  sent: 149
+  text: they are an eighteen-seventies idea.
+  visual:
+    same: true
+- id: s219
+  para: 30
+  sent: 150
+  text: Two.
+  visual:
+    prompt: Archaeologists kneeling in a trench carefully brushing soil from objects in an excavated Viking Age
+      grave, string grid lines, sunny day
+  camera: out
+- id: s220
+  para: 30
+  sent: 151
+  text: Look at what was dug up, not what was drawn.
+  visual:
+    same: true
+- id: s221
+  para: 30
+  sent: 152
+  text: Paintings show what artists believed.
+  visual:
+    prompt: A museum hall where a huge romantic painting of heroic warriors hangs on the wall above a simple glass
+      case with real excavated grave goods, a visitor looking from one to the other
+  camera: in
+- id: s222
+  para: 30
+  sent: 153
+  text: Graves show what people owned.
+  visual:
+    same: true
+- id: s223
+  para: 31
+  sent: 154
+  text: Three.
+  visual:
+    prompt: A 19th-century theatre impresario backstage counting a pile of ticket money by lamplight, costumed singers
+      in horned helmets passing behind him
+  camera: left
+- id: s224
+  para: 31
+  sent: 155
+  text: When something looks a little too perfect for the story,
+  visual:
+    same: true
+- id: s225
+  para: 31
+  sent: 155
+  text: ask who needed the story.
+  visual:
+    same: true
+- id: s226
+  para: 31
+  sent: 156
+  text: Here, Roberta Frank points at a stage production
+  visual:
+    prompt: A late 19th-century patriotic festival crowd in a European town square, people in their best clothes
+      waving flags and banners without lettering, bunting, bright afternoon
+  camera: out
+- id: s227
+  para: 31
+  sent: 156
+  text: and the national pride of the late nineteenth century.
+  visual:
+    same: true
+- id: s228
+  para: 31
+  sent: 157
+  text: History rarely gets this dramatic on its own.
+  visual:
+    prompt: 'A busy theatre costume department: seamstresses sewing long capes and fitting horns onto helmets, mannequins,
+      bolts of fabric, warm light'
+  camera: in
+- id: s229
+  para: 31
+  sent: 158
+  text: It needs a costume department.
+  visual:
+    same: true
+- id: s230
+  para: 32
+  sent: 159
+  text: Case closed.
+  visual:
+    prompt: The clerk's hands tying the string around the finished case folder and placing it on a towering stack
+      of closed folders, the green lamp dimming
+    characters:
+    - clerk
+  camera: out
+- id: s231
+  para: 32
+  sent: 160
+  text: Your file, however, remains open.
+  visual:
+    same: true
+- id: s232
+  para: 32
+  sent: 161
+  text: 'Next case: that burning feeling in your legs,'
+  visual:
+    prompt: A runner bent over on an athletics track after a hard sprint, hands on knees, the thigh muscles glowing
+      faintly red, evening light
+  camera: in
+- id: s233
+  para: 32
+  sent: 161
+  text: and the molecule that has been blamed for it for a very, very long time.
+  visual:
+    same: true

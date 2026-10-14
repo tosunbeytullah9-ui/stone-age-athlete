@@ -1,0 +1,736 @@
+# Scene plan, Coca-Cola Didn't Make Santa Red
+s001:
+  visual:
+    prompt: a cosy Christmas party in a living room, a man leaning in to tell a secret to friends holding drinks, fairy lights
+  camera: in
+s002:
+  visual:
+    same: true
+s003:
+  visual:
+    prompt: a plain unlabelled glass soda bottle next to a Santa hat on a table, red and white, no logos, no text
+  camera: right
+s004:
+  visual:
+    same: true
+s005:
+  visual:
+    prompt: partygoers raising eyebrows, impressed, while one smug guest folds his arms, comic
+  camera: out
+s006:
+  visual:
+    same: true
+s007:
+  visual:
+    same: true
+s008:
+  visual:
+    same: true
+s009:
+  visual:
+    same: true
+s010:
+  visual:
+    prompt: the clerk's hands stamping a thick case file on a cluttered wooden desk in a dim archive, brass lamp
+    characters:
+    - clerk
+  camera: in
+s011:
+  visual:
+    same: true
+s012:
+  visual:
+    same: true
+s013:
+  visual:
+    prompt: endless tall archive shelves full of bound case files disappearing into darkness, a single sprig of holly on one shelf
+  camera: in
+s014:
+  visual:
+    same: true
+s015:
+  visual:
+    prompt: the clerk's hands opening a folder containing an old Christmas card with Santa
+    characters:
+    - clerk
+  camera: none
+s016:
+  visual:
+    same: true
+s017:
+  visual:
+    prompt: a silent archive at Christmas, no decorations, snow falling outside a tall window, a cup of tea on the desk
+  camera: in
+s018:
+  visual:
+    same: true
+s019:
+  visual:
+    same: true
+s020:
+  visual:
+    prompt: the clerk's hands spreading dozens of vintage Santa pictures across the desk like playing cards
+    characters:
+    - clerk
+  camera: out
+s021:
+  visual:
+    same: true
+s022:
+  visual:
+    same: true
+s023:
+  visual:
+    same: true
+s024:
+  visual:
+    prompt: a fourth-century bishop with a white beard in church robes secretly leaving a bag of coins at a poor family's window at night, Byzantine town
+  camera: in
+s025:
+  visual:
+    same: true
+s026:
+  visual:
+    same: true
+s027:
+  visual:
+    same: true
+s028:
+  visual:
+    prompt: a medieval European icon painting of Saint Nicholas as a bearded bishop with a mitre and crozier
+  camera: in
+s029:
+  visual:
+    same: true
+s030:
+  visual:
+    prompt: Dutch settlers in colonial New Amsterdam celebrating Sinterklaas, 17th-century houses, snow
+  camera: right
+s031:
+  visual:
+    same: true
+s032:
+  visual:
+    prompt: a 19th-century New York parlour, a father reading a poem to children by the fire on Christmas Eve
+  camera: in
+s033:
+  visual:
+    same: true
+s034:
+  visual:
+    same: true
+s035:
+  visual:
+    same: true
+s036:
+  visual:
+    prompt: a tiny sleigh pulled by eight small reindeer landing on a snowy rooftop beside a chimney, moonlight
+  camera: left
+s037:
+  visual:
+    same: true
+s038:
+  visual:
+    prompt: a very small, chubby elf-like Saint Nicholas with a pipe and a sack, 1820s engraving style
+  camera: in
+s039:
+  visual:
+    same: true
+s040:
+  visual:
+    same: true
+s041:
+  visual:
+    same: true
+s042:
+  visual:
+    prompt: a tiny elf Santa slipping easily down a chimney, comic, old engraving style
+  camera: out
+s043:
+  visual:
+    same: true
+s044:
+  visual:
+    same: true
+s045:
+  visual:
+    prompt: eight small reindeer lined up in the snow in one row, straight-on view, none overlapping
+  camera: none
+s046:
+  visual:
+    same: true
+s047:
+  visual:
+    same: true
+s048:
+  visual:
+    same: true
+s049:
+  visual:
+    prompt: the clerk's hands sliding a slim folder with a sketch of a red-nosed reindeer into a drawer, with a wink
+    characters:
+    - clerk
+  camera: none
+s050:
+  visual:
+    same: true
+s051:
+  visual:
+    same: true
+s052:
+  visual:
+    same: true
+s053:
+  visual:
+    prompt: a 19th-century cartoonist at a drawing board in a busy magazine office, ink and pens, sketches pinned around
+  camera: in
+s054:
+  visual:
+    same: true
+s055:
+  visual:
+    same: true
+s056:
+  visual:
+    same: true
+s057:
+  visual:
+    same: true
+s058:
+  visual:
+    prompt: a Union army camp in winter during the American Civil War, soldiers in blue gathering around a sleigh
+  camera: right
+s059:
+  visual:
+    same: true
+s060:
+  visual:
+    same: true
+s061:
+  visual:
+    same: true
+s062:
+  visual:
+    prompt: a 1860s wood engraving style Santa wearing a star-spangled jacket and striped trousers, handing out gifts to Union soldiers, holding a small puppet
+  camera: in
+s063:
+  visual:
+    same: true
+s064:
+  visual:
+    same: true
+s065:
+  visual:
+    same: true
+s066:
+  visual:
+    same: true
+s067:
+  visual:
+    prompt: a stack of old magazines from the 1860s to 1880s, each with a black-and-white Santa engraving on the page
+  camera: in
+s068:
+  visual:
+    same: true
+s069:
+  visual:
+    prompt: Santa's workshop at the North Pole in a 1860s engraving style, shelves of toys, snow outside
+  camera: left
+s070:
+  visual:
+    same: true
+s071:
+  visual:
+    prompt: a big, white-bearded, jolly Santa Claus in a red suit trimmed with white fur, holding a long pipe and an armful of toys, in the style of an 1880s hand-coloured print
+  camera: in
+s072:
+  visual:
+    same: true
+s073:
+  visual:
+    same: true
+s074:
+  visual:
+    same: true
+s075:
+  visual:
+    prompt: a 1886 pharmacy soda fountain counter with glass bottles and a pharmacist, no labels, no text
+  camera: right
+s076:
+  visual:
+    same: true
+s077:
+  visual:
+    same: true
+s078:
+  visual:
+    prompt: a colourful early-1900s humour magazine lying on a table, lithographed cover art, no legible text
+  camera: in
+s079:
+  visual:
+    same: true
+s080:
+  visual:
+    same: true
+s081:
+  visual:
+    same: true
+s082:
+  visual:
+    prompt: a big, white-bearded, jolly Santa Claus in a red suit trimmed with white fur on an early-1900s lithographed magazine cover style, holly border, no text
+  camera: in
+s083:
+  visual:
+    same: true
+s084:
+  visual:
+    same: true
+s085:
+  visual:
+    same: true
+s086:
+  visual:
+    prompt: a jolly round Santa laughing heartily, early 1900s lithograph style
+  camera: out
+s087:
+  visual:
+    same: true
+s088:
+  visual:
+    same: true
+s089:
+  visual:
+    prompt: 1920s New York department store window with a row of identical Santas greeting children, snowy street
+  camera: left
+s090:
+  visual:
+    same: true
+s091:
+  visual:
+    same: true
+s092:
+  visual:
+    same: true
+s093:
+  visual:
+    same: true
+s094:
+  visual:
+    prompt: a 1910s advertisement-style illustration of Santa relaxing with a glass of sparkling mineral water, no text, no logos
+  camera: in
+s095:
+  visual:
+    same: true
+s096:
+  visual:
+    same: true
+s097:
+  visual:
+    same: true
+s098:
+  visual:
+    prompt: a 1920s ginger ale advertisement style painting of Santa raising a glass, colourful, no text, no logos
+  camera: right
+s099:
+  visual:
+    same: true
+s100:
+  visual:
+    same: true
+s101:
+  visual:
+    same: true
+s102:
+  visual:
+    prompt: a 1940s magazine illustration of Santa enjoying a soda by the fire, no logos, no text
+  camera: in
+s103:
+  visual:
+    same: true
+s104:
+  visual:
+    same: true
+s105:
+  visual:
+    same: true
+s106:
+  visual:
+    same: true
+s107:
+  visual:
+    prompt: the clerk's hands turning over an envelope addressed with only a small green holly sketch
+    characters:
+    - clerk
+  camera: none
+s108:
+  visual:
+    same: true
+s109:
+  visual:
+    same: true
+s110:
+  visual:
+    prompt: a Victorian English Christmas feast, a long table with roast goose, pudding and candles
+  camera: in
+s111:
+  visual:
+    same: true
+s112:
+  visual:
+    same: true
+s113:
+  visual:
+    same: true
+s114:
+  visual:
+    prompt: a row of four Victorian Father Christmas figures in brown, green, blue and white robes, straight-on view, one row, none overlapping
+  camera: none
+s115:
+  visual:
+    same: true
+s116:
+  visual:
+    same: true
+s117:
+  visual:
+    same: true
+s118:
+  visual:
+    prompt: an old Father Christmas in a long brown robe dotted with white snowflakes, Victorian book illustration
+  camera: in
+s119:
+  visual:
+    same: true
+s120:
+  visual:
+    same: true
+s121:
+  visual:
+    prompt: a Victorian child in a nightgown asking a question at a frosty window, imagining Father Christmas in green
+  camera: right
+s122:
+  visual:
+    same: true
+s123:
+  visual:
+    same: true
+s124:
+  visual:
+    same: true
+s125:
+  visual:
+    prompt: Charles Dickens writing at his desk by candlelight in 1843, quill and manuscript pages
+  camera: in
+s126:
+  visual:
+    same: true
+s127:
+  visual:
+    same: true
+s128:
+  visual:
+    same: true
+s129:
+  visual:
+    prompt: a large jolly bearded spirit with a holly wreath, wearing a loose green fur-trimmed robe, surrounded by heaps of food and a wassail bowl, Victorian etching style
+  camera: in
+s130:
+  visual:
+    same: true
+s131:
+  visual:
+    same: true
+s132:
+  visual:
+    prompt: a startled old miser in a nightcap staring up at the green-robed spirit, Victorian etching style
+  camera: left
+s133:
+  visual:
+    same: true
+s134:
+  visual:
+    same: true
+s135:
+  visual:
+    prompt: a green-robed Father Christmas and a red-suited Santa shaking hands across a frosty ocean, whimsical illustration
+  camera: in
+s136:
+  visual:
+    same: true
+s137:
+  visual:
+    same: true
+s138:
+  visual:
+    prompt: children in Britain and America hanging stockings by fireplaces, split view, early 1900s
+  camera: right
+s139:
+  visual:
+    same: true
+s140:
+  visual:
+    same: true
+s141:
+  visual:
+    same: true
+s142:
+  visual:
+    prompt: the two Christmas figures merging into one in a gentle swirl of snow, whimsical
+  camera: in
+s143:
+  visual:
+    same: true
+s144:
+  visual:
+    prompt: a long-robed, big-bearded Father Christmas walking through an English village in the 1980s, nostalgic
+  camera: left
+s145:
+  visual:
+    same: true
+s146:
+  visual:
+    same: true
+s147:
+  visual:
+    same: true
+s148:
+  visual:
+    prompt: a green Christmas robe fading away like a ghost in the snow
+  camera: out
+s149:
+  visual:
+    same: true
+s150:
+  visual:
+    prompt: a sunny Brazilian city at Christmas, a Santa in a green suit waving from a float, palm trees and fairy lights
+  camera: in
+s151:
+  visual:
+    same: true
+s152:
+  visual:
+    same: true
+s153:
+  visual:
+    same: true
+s154:
+  visual:
+    same: true
+s155:
+  visual:
+    prompt: the clerk's hands holding a small swatch of green fabric up to the lamp, amused
+    characters:
+    - clerk
+  camera: none
+s156:
+  visual:
+    same: true
+s157:
+  visual:
+    same: true
+s158:
+  visual:
+    prompt: the clerk's hand weighing two objects on a balance scale, fairly
+    characters:
+    - clerk
+  camera: none
+s159:
+  visual:
+    same: true
+s160:
+  visual:
+    prompt: a 1930s illustrator's studio, an artist painting a large canvas at an easel, brushes and oils
+  camera: in
+s161:
+  visual:
+    same: true
+s162:
+  visual:
+    same: true
+s163:
+  visual:
+    prompt: a big, white-bearded, jolly Santa Claus in a red suit trimmed with white fur, warm and rosy, pleasantly plump, painted in a lush 1930s magazine illustration style
+  camera: in
+s164:
+  visual:
+    same: true
+s165:
+  visual:
+    same: true
+s166:
+  visual:
+    prompt: a kindly rosy grandfatherly Santa smiling over a plate of cookies by a Christmas tree, 1930s painting style
+  camera: right
+s167:
+  visual:
+    same: true
+s168:
+  visual:
+    same: true
+s169:
+  visual:
+    prompt: an artist in a 1930s studio painting a jovial older man posing in a red Santa costume
+  camera: in
+s170:
+  visual:
+    same: true
+s171:
+  visual:
+    same: true
+s172:
+  visual:
+    same: true
+s173:
+  visual:
+    prompt: a 1950s American street with magazine stands, posters and shop windows all showing warm red-suited Santas, no logos, no text
+  camera: left
+s174:
+  visual:
+    same: true
+s175:
+  visual:
+    same: true
+s176:
+  visual:
+    prompt: hundreds of identical red Santa images repeating into the distance like wallpaper, dreamlike
+  camera: out
+s177:
+  visual:
+    same: true
+s178:
+  visual:
+    same: true
+s179:
+  visual:
+    same: true
+s180:
+  visual:
+    prompt: a child with eyes closed imagining a rosy, twinkling Santa in a thought bubble
+  camera: in
+s181:
+  visual:
+    same: true
+s182:
+  visual:
+    same: true
+s183:
+  visual:
+    prompt: a red and white striped scarf next to a red and white Santa hat on a table, coincidence, still life
+  camera: in
+s184:
+  visual:
+    same: true
+s185:
+  visual:
+    same: true
+s186:
+  visual:
+    same: true
+s187:
+  visual:
+    prompt: a plain red soda can with no logo standing next to a Santa suit on a hanger, comic
+  camera: right
+s188:
+  visual:
+    same: true
+s189:
+  visual:
+    same: true
+s190:
+  visual:
+    same: true
+s191:
+  visual:
+    same: true
+s192:
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+  camera: in
+s193:
+  visual:
+    prompt: a 19th-century cartoonist proudly holding up a hand-coloured print of a red-suited Santa
+  camera: in
+s194:
+  visual:
+    same: true
+s195:
+  visual:
+    same: true
+s196:
+  visual:
+    prompt: 'a gallery wall of Christmas art in time order: an elf-like Santa, a red lithograph Santa, a green-robed Father Christmas, straight-on view'
+  camera: none
+s197:
+  visual:
+    same: true
+s198:
+  visual:
+    same: true
+s199:
+  visual:
+    same: true
+s200:
+  visual:
+    same: true
+s201:
+  visual:
+    prompt: a craftsman polishing a carved wooden Santa figure until it shines, symbolic
+  camera: in
+s202:
+  visual:
+    same: true
+s203:
+  visual:
+    same: true
+s204:
+  visual:
+    same: true
+s205:
+  visual:
+    same: true
+s206:
+  visual:
+    prompt: a rumour drawn as a paper aeroplane flying from person to person at a party, comic
+  camera: right
+s207:
+  visual:
+    same: true
+s208:
+  visual:
+    same: true
+s209:
+  visual:
+    same: true
+s210:
+  visual:
+    prompt: an old magazine cover lying ignored under a pile of party napkins
+  camera: in
+s211:
+  visual:
+    same: true
+s212:
+  visual:
+    prompt: the clerk's hands sliding the file onto a shelf beside nine other case files
+    characters:
+    - clerk
+  camera: left
+s213:
+  visual:
+    same: true
+s214:
+  visual:
+    prompt: the clerk's hands closing the tenth file and placing it on a neat stack of ten, then the desk lamp dims
+    characters:
+    - clerk
+  camera: out
+s215:
+  visual:
+    same: true
+s216:
+  visual:
+    same: true
+s217:
+  visual:
+    same: true

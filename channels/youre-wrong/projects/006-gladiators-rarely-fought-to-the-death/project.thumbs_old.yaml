@@ -1,0 +1,53 @@
+title: Gladiators Rarely Fought to the Death
+idea: i006
+status: production
+description: The thumb goes down, the gladiator dies. Except most bouts ended with both men alive. Contracts, referees,
+  a surgeon named Galen, the bones of Ephesus and a gladiator who lost four times and walked out every time. Case
+  file 006.
+chapters: {0: Intro, 4: 'Who were gladiators?', 5: The money, 8: Referees and mercy, 10: Flamma's record, 13: The
+    bones of Ephesus, 18: 'Galen, gladiator surgeon', 20: The thumbs, 26: The salute, 29: The dark side, 32: Barley
+    men, 33: Verdict}
+publish:
+  title_variants: [Gladiators Rarely Fought to the Death, Gladiators Didn't Fight to the Death (Usually), The Thumbs-Down
+      Is a Lie. So Is the Salute, Why a Dead Gladiator Cost 50 Times More]
+  hook_options:
+  - {type: you, text: The emperor turns his thumb down. Death. Except that almost none of this happened.}
+  - {type: cold_open_stat, text: 'One gladiator lost four times, and walked out every time.'}
+  - {type: contradiction, text: 'A Roman contract charged 20 for a live gladiator and 1,000 for a dead one.'}
+  thumbnail_concepts:
+  - {visual: Emperor's hand with thumb down crossed out in red, text: NOT DEATH}
+  - {visual: Gladiator walking away alive with a ledger '34 FIGHTS', text: HE LOST 4 TIMES}
+  - {visual: Thumbs-up hand in Roman setting, text: 'THIS MEANT DEATH?'}
+  series: history-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+shorts:
+- {title: A dead gladiator cost 50 times more, from: s034, to: s055, hook: A dead gladiator cost 50 times more}
+- {title: He lost four times and walked out every time, from: s070, to: s094, hook: He lost four times and walked
+    out every time}
+- {title: The thumbs-down is a 19th-century painting, from: s135, to: s161, hook: The thumbs-down is a 19th-century
+    painting}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: Two gladiators drawn large in the lower half of the page, one standing over the other with a short sword,
+      a crowd sketched behind them
+    characters: []
+  myth: {en: TO THE DEATH}
+  note: {en: mostly not}
+  pos: top-left
+  claim: c06
+- kind: stamp
+  visual:
+    prompt: A large hand making a thumbs-down gesture, drawn on the right side of the page
+    characters: []
+  pos: top-left
+- kind: scene
+  visual:
+    prompt: Two tired gladiators shaking hands in the middle of a sandy arena while a referee with a long stick
+      stands between them, drawn large in the lower two thirds
+    characters: []
+  text: {en: 'A DRAW?'}
+  pos: top
+  claim: c07

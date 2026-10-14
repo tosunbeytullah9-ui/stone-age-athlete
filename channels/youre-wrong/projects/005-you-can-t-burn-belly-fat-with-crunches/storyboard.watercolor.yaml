@@ -1,0 +1,1557 @@
+title: 005-you-can-t-burn-belly-fat-with-crunches
+paragraphs: 37
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: Somewhere, right now,
+  visual:
+    prompt: a determined person in a grey t-shirt doing crunches on a gym mat, late at night in an empty gym, a
+      clock on the wall
+  camera: in
+- id: s002
+  para: 0
+  sent: 0
+  text: someone is doing their three hundredth crunch.
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 1
+  text: Teeth clenched.
+  visual:
+    prompt: close-up of a clenched jaw and sweaty forehead mid-crunch, intense effort
+  camera: in
+- id: s004
+  para: 0
+  sent: 2
+  text: Stomach burning.
+  visual:
+    same: true
+- id: s005
+  para: 0
+  sent: 3
+  text: Absolutely convinced that the fat on their belly is melting,
+  visual:
+    prompt: a cartoon of belly fat melting like butter in a frying pan under a red glow, humorous
+  camera: out
+- id: s006
+  para: 0
+  sent: 3
+  text: right there, under the burn.
+  visual:
+    same: true
+- id: s007
+  para: 1
+  sent: 4
+  text: It is a lovely image.
+  visual:
+    prompt: an ink cartoon of a little blob of fat packing a suitcase and leaving a stomach through a door, humorous
+  camera: right
+- id: s008
+  para: 1
+  sent: 5
+  text: Work the muscle,
+  visual:
+    same: true
+- id: s009
+  para: 1
+  sent: 5
+  text: and the fat sitting on top of it simply gives up and leaves.
+  visual:
+    same: true
+- id: s010
+  para: 1
+  sent: 6
+  text: Crunches for the belly.
+  visual:
+    prompt: three people side by side on gym mats, one doing crunches, one doing leg raises, one doing arm kickbacks
+      with a small dumbbell, straight-on view, one row, none overlapping
+  camera: left
+- id: s011
+  para: 1
+  sent: 7
+  text: Leg raises for the thighs.
+  visual:
+    same: true
+- id: s012
+  para: 1
+  sent: 8
+  text: Little arm kickbacks for the wobbly bit under the arm.
+  visual:
+    same: true
+- id: s013
+  para: 2
+  sent: 9
+  text: Case file zero zero five.
+  visual:
+    prompt: the clerk's hands opening a folder containing a sketch of a person pointing at their own belly
+    characters:
+    - clerk
+  camera: none
+  overlay:
+    kind: label
+    text: CASE FILE 005
+    pos: top
+- id: s014
+  para: 2
+  sent: 10
+  text: 'Subject: you, and your stomach.'
+  visual: null
+- id: s015
+  para: 2
+  sent: 11
+  text: 'Belief: work a muscle hard enough,'
+  visual: null
+- id: s016
+  para: 2
+  sent: 11
+  text: and the fat on top of it burns away.
+  visual: null
+- id: s017
+  para: 3
+  sent: 12
+  text: The idea has a name, you see.
+  visual:
+    prompt: a person standing in front of a mirror pinching belly fat and pointing at the abdominal muscles beneath,
+      ink and watercolour
+  camera: in
+- id: s018
+  para: 3
+  sent: 13
+  text: Spot reduction.
+  visual:
+    same: true
+- id: s019
+  para: 3
+  sent: 14
+  text: The belief that you can choose where your body loses fat,
+  visual:
+    same: true
+- id: s020
+  para: 3
+  sent: 14
+  text: by exercising the muscle underneath it.
+  visual:
+    prompt: a glossy fitness shop shelf crowded with gadgets, belts and gizmos, a smiling salesman behind the counter
+  camera: right
+- id: s021
+  para: 3
+  sent: 15
+  text: And an entire industry has been very happy for you to believe it.
+  visual:
+    same: true
+- id: s022
+  para: 4
+  sent: 16
+  text: In April nineteen ninety-one,
+  visual:
+    prompt: an early-1990s living room with a bulky television showing an infomercial, a family watching on a sofa
+  camera: in
+- id: s023
+  para: 4
+  sent: 16
+  text: a little hinged gadget appeared on American television.
+  visual:
+    same: true
+- id: s024
+  para: 4
+  sent: 17
+  text: You put it between your knees, and you squeezed.
+  visual:
+    prompt: a simple hinged spring exercise gadget squeezed between a woman's knees, retro 1990s workout clothes,
+      no face visible
+  camera: in
+- id: s025
+  para: 4
+  sent: 18
+  text: It promised better thighs.
+  visual:
+    same: true
+- id: s026
+  para: 4
+  sent: 19
+  text: It cost about twenty dollars.
+  visual:
+    prompt: a mountain of identical cardboard boxes stacked high in a warehouse, delivery trucks loading
+  camera: out
+  overlay:
+    kind: stat
+    text: $20
+    pos: bottom
+- id: s027
+  para: 4
+  sent: 20
+  text: Six million were sold in eighteen months,
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 6,000,000 in 18 months
+    pos: bottom
+- id: s028
+  para: 4
+  sent: 20
+  text: and total sales eventually passed three hundred million dollars.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: $300,000,000+
+    pos: center
+- id: s029
+  para: 5
+  sent: 21
+  text: A decade later came the electric belts.
+  visual:
+    prompt: an electric abdominal belt strapped around a waist, with little cartoon lightning bolts buzzing, 2000s
+      style
+  camera: in
+- id: s030
+  para: 5
+  sent: 22
+  text: Strap one around your waist,
+  visual:
+    same: true
+- id: s031
+  para: 5
+  sent: 22
+  text: let it buzz your stomach muscles,
+  visual:
+    same: true
+- id: s032
+  para: 5
+  sent: 22
+  text: and watch the inches vanish.
+  visual:
+    same: true
+- id: s033
+  para: 5
+  sent: 23
+  text: One advert promised you would lose four inches in thirty days.
+  visual:
+    prompt: a TV infomercial set with a presenter holding up an ab belt, studio lights, an enthusiastic audience
+  camera: left
+  overlay:
+    kind: label
+    text: “Lose 4 inches in 30 days”
+    pos: bottom
+- id: s034
+  para: 5
+  sent: 24
+  text: Another claimed that ten minutes equalled six hundred sit-ups.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: “10 minutes = 600 sit-ups”
+    pos: bottom
+- id: s035
+  para: 6
+  sent: 25
+  text: In May two thousand two,
+  visual:
+    prompt: a United States federal courthouse with columns, a stack of boxed ab belts carried up the steps as evidence
+  camera: in
+- id: s036
+  para: 6
+  sent: 25
+  text: the United States Federal Trade Commission took three
+  visual:
+    same: true
+- id: s037
+  para: 6
+  sent: 25
+  text: of the best-selling belts to court for false claims.
+  visual:
+    same: true
+- id: s038
+  para: 6
+  sent: 26
+  text: Its chairman said, and I have this one framed,
+  visual:
+    prompt: the clerk's hands hanging a small framed certificate on the archive wall
+    characters:
+    - clerk
+  camera: none
+- id: s039
+  para: 6
+  sent: 26
+  text: that there are no magic pills,
+  visual:
+    same: true
+- id: s040
+  para: 6
+  sent: 26
+  text: potions or pulsators for losing weight.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: “No magic pills, potions, or pulsators” — FTC, 2002
+    pos: bottom
+- id: s041
+  para: 7
+  sent: 27
+  text: But the gadgets were only selling a story.
+  visual:
+    prompt: the clerk's hands laying five evidence folders in one row on the desk, straight-on view, none overlapping
+    characters:
+    - clerk
+  camera: none
+  tone:
+  - pause
+- id: s042
+  para: 7
+  sent: 28
+  text: Let us look at the evidence.
+  visual:
+    same: true
+- id: s043
+  para: 7
+  sent: 29
+  text: Five exhibits.
+  visual:
+    same: true
+- id: s044
+  para: 7
+  sent: 30
+  text: I have arranged them in order of increasing cruelty.
+  visual:
+    same: true
+- id: s045
+  para: 8
+  sent: 31
+  text: Exhibit one.
+  visual:
+    prompt: a 1970s tennis court, a player serving powerfully, ink and watercolour
+  camera: right
+- id: s046
+  para: 8
+  sent: 32
+  text: Tennis players.
+  visual:
+    same: true
+- id: s047
+  para: 8
+  sent: 33
+  text: Back in nineteen seventy-one,
+  visual:
+    same: true
+- id: s048
+  para: 8
+  sent: 33
+  text: a researcher found the perfect natural experiment.
+  visual:
+    same: true
+- id: s049
+  para: 8
+  sent: 34
+  text: A serious tennis player uses one arm far more than the other, for years.
+  visual:
+    prompt: a researcher in a 1970s lab coat measuring a tennis player's forearm with skinfold calipers
+  camera: in
+- id: s050
+  para: 8
+  sent: 35
+  text: So he measured twenty of them.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 20 players
+    pos: bottom
+- id: s051
+  para: 9
+  sent: 36
+  text: The playing arm was bigger.
+  visual:
+    prompt: anatomical drawing of two arms side by side, the left arm visibly more muscular than the right, straight-on
+      view
+  camera: none
+- id: s052
+  para: 9
+  sent: 37
+  text: More muscle, thicker forearm, thicker upper arm.
+  visual:
+    same: true
+- id: s053
+  para: 9
+  sent: 38
+  text: And the fat over those muscles?
+  visual:
+    prompt: anatomical cross-section diagram of two arms side by side, different muscle sizes but the same thin
+      yellow fat layer around each, no text
+  camera: in
+- id: s054
+  para: 9
+  sent: 39
+  text: The same thickness on both sides.
+  visual:
+    same: true
+- id: s055
+  para: 9
+  sent: 40
+  text: Years of work on one arm, and the fat did not notice.
+  visual:
+    same: true
+- id: s056
+  para: 10
+  sent: 41
+  text: Exhibit two.
+  visual:
+    prompt: a 1980s university gym, rows of people doing sit-ups on mats with their knees bent, a researcher with
+      a clipboard
+  camera: left
+- id: s057
+  para: 10
+  sent: 42
+  text: The sit-up study.
+  visual:
+    same: true
+- id: s058
+  para: 10
+  sent: 43
+  text: In nineteen eighty-four,
+  visual:
+    same: true
+- id: s059
+  para: 10
+  sent: 43
+  text: researchers took nineteen people and split them into two groups.
+  visual:
+    same: true
+- id: s060
+  para: 10
+  sent: 44
+  text: One group did sit-ups.
+  visual:
+    prompt: a wall calendar with days crossed off one by one, a tally of thousands of marks on a chalkboard beside
+      it
+  camera: in
+- id: s061
+  para: 10
+  sent: 45
+  text: Every day.
+  visual:
+    same: true
+- id: s062
+  para: 10
+  sent: 46
+  text: For twenty-seven days.
+  visual:
+    same: true
+- id: s063
+  para: 10
+  sent: 47
+  text: By the end, each of them had done five thousand and four sit-ups.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 5,004 sit-ups
+    pos: center
+- id: s064
+  para: 11
+  sent: 48
+  text: Then the researchers took tiny samples of fat.
+  visual:
+    prompt: a 1980s lab, small sample tubes labelled with coloured caps in a rack, a microscope on the bench
+  camera: right
+- id: s065
+  para: 11
+  sent: 49
+  text: From the belly, from the upper back, and from the buttocks.
+  visual:
+    same: true
+- id: s066
+  para: 11
+  sent: 50
+  text: The fat cells had shrunk a little.
+  visual:
+    prompt: microscope view of round fat cells, drawn in watercolour, all slightly shrunken by the same amount
+  camera: in
+- id: s067
+  para: 11
+  sent: 51
+  text: But they had shrunk by about the same amount everywhere.
+  visual:
+    same: true
+- id: s068
+  para: 11
+  sent: 52
+  text: The belly got no special treatment.
+  visual:
+    same: true
+- id: s069
+  para: 11
+  sent: 53
+  text: Five thousand sit-ups, and the bottom benefited just as much.
+  visual:
+    same: true
+- id: s070
+  para: 12
+  sent: 54
+  text: Exhibit three.
+  visual:
+    prompt: a modern clinic room, sedentary adults lying on mats doing abdominal exercises, an instructor counting
+  camera: in
+- id: s071
+  para: 12
+  sent: 55
+  text: In two thousand eleven,
+  visual:
+    same: true
+- id: s072
+  para: 12
+  sent: 55
+  text: a study put twenty-four sedentary adults
+  visual:
+    same: true
+- id: s073
+  para: 12
+  sent: 55
+  text: on an abdominal programme.
+  visual:
+    same: true
+- id: s074
+  para: 12
+  sent: 56
+  text: Seven exercises, two sets of ten, five days a week, for six weeks.
+  visual:
+    prompt: a bored control group sitting on a bench eating crisps and watching
+  camera: right
+- id: s075
+  para: 12
+  sent: 57
+  text: A control group did nothing at all.
+  visual:
+    same: true
+- id: s076
+  para: 13
+  sent: 58
+  text: After six weeks, the exercise group could do far more curl-ups.
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.68
+      - 1.0
+      colors:
+      - stone
+      - good
+- id: s077
+  para: 13
+  sent: 59
+  text: Forty-seven on average, against thirty-two for the do-nothings.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 32 vs 47 curl-ups
+    pos: top
+- id: s078
+  para: 13
+  sent: 60
+  text: Their stomach muscles had clearly improved.
+  visual:
+    same: true
+- id: s079
+  para: 13
+  sent: 61
+  text: And their belly fat,
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 1.0
+      colors:
+      - stone
+      - bad
+- id: s080
+  para: 13
+  sent: 61
+  text: their waist size and their body fat percentage?
+  visual:
+    same: true
+- id: s081
+  para: 13
+  sent: 62
+  text: No significant change.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 'belly fat: no change'
+    pos: top
+- id: s082
+  para: 13
+  sent: 63
+  text: Stronger abs.
+  visual:
+    same: true
+- id: s083
+  para: 13
+  sent: 64
+  text: Same belly.
+  visual:
+    same: true
+- id: s084
+  para: 14
+  sent: 65
+  text: Exhibit four.
+  visual:
+    prompt: a large research gym with many people doing single-arm dumbbell curls with one arm only
+  camera: left
+- id: s085
+  para: 14
+  sent: 66
+  text: A much bigger study, in two thousand seven.
+  visual:
+    same: true
+- id: s086
+  para: 14
+  sent: 67
+  text: One hundred and four people trained one arm for twelve weeks,
+  visual:
+    prompt: a person lying inside an MRI scanner with one arm extended, a technician at a monitor
+  camera: in
+  overlay:
+    kind: stat
+    text: 104 people · 12 weeks
+    pos: bottom
+- id: s087
+  para: 14
+  sent: 67
+  text: and left the other arm alone.
+  visual:
+    same: true
+- id: s088
+  para: 14
+  sent: 68
+  text: Then their arms went into an MRI scanner.
+  visual:
+    same: true
+- id: s089
+  para: 15
+  sent: 69
+  text: There was no meaningful difference
+  visual:
+    prompt: two arms side by side under a scanner light, one flexing proudly, one relaxed, both with identical slim
+      fat layers, humorous
+  camera: out
+- id: s090
+  para: 15
+  sent: 69
+  text: in fat loss between the trained arm and the lazy one.
+  visual:
+    same: true
+- id: s091
+  para: 15
+  sent: 70
+  text: Fat had come off, a little, all over.
+  visual:
+    same: true
+- id: s092
+  para: 15
+  sent: 71
+  text: The arm that did all the work got no reward for it.
+  visual:
+    same: true
+- id: s093
+  para: 16
+  sent: 72
+  text: And now exhibit five.
+  visual:
+    prompt: the clerk's hands opening a folder with a gleeful flourish, a teacup rattling
+    characters:
+    - clerk
+  camera: in
+  tone:
+  - pause
+- id: s094
+  para: 16
+  sent: 73
+  text: My favourite.
+  visual:
+    same: true
+- id: s095
+  para: 16
+  sent: 74
+  text: In two thousand thirteen,
+  visual:
+    same: true
+- id: s096
+  para: 16
+  sent: 74
+  text: eleven sports science students
+  visual:
+    prompt: a sports science student on a leg press machine pushing with only one leg, the other leg resting on
+      the floor
+  camera: in
+- id: s097
+  para: 16
+  sent: 74
+  text: spent twelve weeks training one leg.
+  visual:
+    same: true
+- id: s098
+  para: 16
+  sent: 75
+  text: Only one leg.
+  visual:
+    same: true
+- id: s099
+  para: 16
+  sent: 76
+  text: On a leg press, with light weights,
+  visual:
+    prompt: the same student, exhausted and sweaty, still pushing with one leg, a wall clock showing a long time
+      has passed, comic
+  camera: right
+- id: s100
+  para: 16
+  sent: 76
+  text: for about a thousand repetitions per session.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: ~1,000 reps / session
+    pos: bottom
+- id: s101
+  para: 16
+  sent: 77
+  text: Each session took around eighty minutes.
+  visual:
+    same: true
+- id: s102
+  para: 16
+  sent: 78
+  text: Of one leg.
+  visual:
+    same: true
+- id: s103
+  para: 17
+  sent: 79
+  text: At the end, they had lost fat.
+  visual:
+    prompt: a full-body DXA scanner bed with a student lying on it, a technician at the screen
+  camera: in
+- id: s104
+  para: 17
+  sent: 80
+  text: Not much, about seven hundred grams.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: −0.7 kg fat
+    pos: bottom
+- id: s105
+  para: 17
+  sent: 81
+  text: But here is the cruel part.
+  visual:
+    same: true
+- id: s106
+  para: 17
+  sent: 82
+  text: The fat did not come off the trained leg.
+  visual:
+    prompt: a comic drawing of a person whose trained leg looks unchanged while their arms and waist look slimmer,
+      puzzled expression
+  camera: out
+- id: s107
+  para: 17
+  sent: 83
+  text: It came off the trunk and the arms.
+  visual:
+    same: true
+- id: s108
+  para: 17
+  sent: 84
+  text: Twelve weeks of punishing one leg,
+  visual:
+    same: true
+- id: s109
+  para: 17
+  sent: 84
+  text: and the body chose to slim down the arms.
+  visual:
+    same: true
+- id: s110
+  para: 18
+  sent: 85
+  text: Exhibit five, part two.
+  visual:
+    prompt: a librarian-researcher surrounded by piles of journals, pooling papers into one big stack
+  camera: in
+- id: s111
+  para: 18
+  sent: 86
+  text: In two thousand twenty-one,
+  visual:
+    same: true
+- id: s112
+  para: 18
+  sent: 86
+  text: a team pooled every well-controlled study they could find
+  visual:
+    same: true
+- id: s113
+  para: 18
+  sent: 86
+  text: that compared a trained limb with an untrained one.
+  visual:
+    same: true
+- id: s114
+  para: 18
+  sent: 87
+  text: Thirteen studies.
+  visual:
+    prompt: straight-on view of thirteen thin scientific journals standing in one row on a shelf, none overlapping
+  camera: none
+- id: s115
+  para: 18
+  sent: 88
+  text: One thousand, one hundred and fifty-eight people.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 13 studies · 1,158 people
+    pos: bottom
+- id: s116
+  para: 18
+  sent: 89
+  text: Thirty-seven comparisons.
+  visual:
+    same: true
+- id: s117
+  para: 19
+  sent: 90
+  text: Seventeen comparisons favoured the trained side.
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.85
+      - 1.0
+      colors:
+      - good
+      - bad
+- id: s118
+  para: 19
+  sent: 91
+  text: Twenty favoured the untrained side.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 17 vs 20
+    pos: top
+- id: s119
+  para: 19
+  sent: 92
+  text: The overall effect was, statistically speaking, zero.
+  visual:
+    same: true
+- id: s120
+  para: 19
+  sent: 93
+  text: In the authors' own words, spot reduction was not observed.
+  visual:
+    prompt: the clerk's hands closing the stack of journals and placing a paperweight on it
+    characters:
+    - clerk
+  camera: none
+- id: s121
+  para: 20
+  sent: 94
+  text: So why does it feel so true?
+  visual:
+    prompt: a determined person in a grey t-shirt doing crunches on a gym mat, face red, a cartoon flame drawn over
+      the stomach
+  camera: in
+- id: s122
+  para: 20
+  sent: 95
+  text: Because of the burn.
+  visual:
+    same: true
+- id: s123
+  para: 20
+  sent: 96
+  text: When you do crunch after crunch, your stomach really does burn.
+  visual:
+    same: true
+- id: s124
+  para: 20
+  sent: 97
+  text: It feels like something is being melted.
+  visual:
+    same: true
+- id: s125
+  para: 20
+  sent: 98
+  text: It is not.
+  visual:
+    prompt: the clerk's hand tapping an older case folder that shows a small sketch of a burning muscle
+    characters:
+    - clerk
+  camera: none
+- id: s126
+  para: 20
+  sent: 99
+  text: That burning is the muscle working hard, not fat leaving.
+  visual:
+    same: true
+- id: s127
+  para: 20
+  sent: 100
+  text: And if you are wondering what causes the burn,
+  visual:
+    same: true
+- id: s128
+  para: 20
+  sent: 100
+  text: we covered that in case file zero zero three.
+  visual:
+    same: true
+- id: s129
+  para: 20
+  sent: 101
+  text: 'Short version: it is not what you think either.'
+  visual:
+    same: true
+- id: s130
+  para: 21
+  sent: 102
+  text: So why does the belly ignore the belly exercise?
+  visual:
+    prompt: a person in gym clothes staring down at their stomach, puzzled, hands on hips
+  camera: in
+- id: s131
+  para: 21
+  sent: 103
+  text: The answer is in how fat actually works.
+  visual:
+    same: true
+- id: s132
+  para: 22
+  sent: 104
+  text: Fat is stored in fat cells as triglycerides.
+  visual:
+    prompt: a watercolour scientific illustration of fat cells as plump yellow spheres packed together, soft lighting
+  camera: in
+- id: s133
+  para: 22
+  sent: 105
+  text: When your body needs energy,
+  visual:
+    same: true
+- id: s134
+  para: 22
+  sent: 105
+  text: a muscle does not reach
+  visual:
+    prompt: a cartoon muscle fibre reaching its little arm toward a neighbouring fat cell and being politely refused,
+      humorous
+  camera: right
+- id: s135
+  para: 22
+  sent: 105
+  text: into the nearest fat cell and help itself.
+  visual:
+    same: true
+- id: s136
+  para: 22
+  sent: 106
+  text: Instead, hormones such as adrenaline travel through the blood
+  visual:
+    prompt: illustration of tiny messenger figures travelling along red blood vessels, knocking on fat cells all
+      across a human silhouette
+  camera: in
+- id: s137
+  para: 22
+  sent: 106
+  text: and signal fat cells all over the body.
+  visual:
+    same: true
+- id: s138
+  para: 22
+  sent: 107
+  text: Those cells break their fat down into fatty acids,
+  visual:
+    same: true
+- id: s139
+  para: 22
+  sent: 107
+  text: and release them into the bloodstream.
+  visual:
+    prompt: illustration of fat cells releasing small golden droplets into a flowing bloodstream, carried away to
+      distant muscles
+  camera: left
+- id: s140
+  para: 22
+  sent: 108
+  text: From there, the fuel goes wherever it is needed.
+  visual:
+    same: true
+- id: s141
+  para: 23
+  sent: 109
+  text: Think of it like this.
+  visual:
+    prompt: a man with wallets bulging from every pocket of his coat, comic
+  camera: in
+- id: s142
+  para: 23
+  sent: 110
+  text: Your fat is not a wallet in each pocket.
+  visual:
+    same: true
+- id: s143
+  para: 23
+  sent: 111
+  text: It is one central bank.
+  visual:
+    prompt: a grand old central bank building with marble columns
+  camera: in
+- id: s144
+  para: 23
+  sent: 112
+  text: When your legs need money,
+  visual:
+    same: true
+- id: s145
+  para: 23
+  sent: 112
+  text: the bank does not empty the wallet nearest your legs.
+  visual:
+    prompt: inside the bank, clerks sending money capsules through pneumatic tubes to faraway destinations, comic
+  camera: right
+- id: s146
+  para: 23
+  sent: 113
+  text: It sends a transfer from wherever it likes.
+  visual:
+    same: true
+- id: s147
+  para: 24
+  sent: 114
+  text: And even then, the fat cells do not disappear.
+  visual:
+    prompt: a watercolour of fat cells drawn as balloons, slowly deflating, still present but smaller
+  camera: in
+- id: s148
+  para: 24
+  sent: 115
+  text: In adults, the number of fat cells stays remarkably steady.
+  visual:
+    same: true
+- id: s149
+  para: 24
+  sent: 116
+  text: When you lose fat, the cells mostly shrink,
+  visual:
+    same: true
+- id: s150
+  para: 24
+  sent: 116
+  text: like balloons letting out air.
+  visual:
+    same: true
+- id: s151
+  para: 24
+  sent: 117
+  text: So you are not deleting the belly.
+  visual:
+    prompt: a single balloon slowly letting out air on a table, gentle and comic
+  camera: out
+- id: s152
+  para: 24
+  sent: 118
+  text: You are deflating it.
+  visual:
+    same: true
+- id: s153
+  para: 24
+  sent: 119
+  text: Slowly.
+  visual:
+    same: true
+- id: s154
+  para: 24
+  sent: 120
+  text: Along with everything else.
+  visual:
+    same: true
+- id: s155
+  para: 25
+  sent: 121
+  text: So which part of the bank pays out first?
+  visual:
+    prompt: the clerk's hands dropping a small blank ballot paper into a waste bin
+    characters:
+    - clerk
+  camera: none
+- id: s156
+  para: 25
+  sent: 122
+  text: Mostly, you do not get a vote.
+  visual:
+    same: true
+- id: s157
+  para: 25
+  sent: 123
+  text: Where your body stores fat,
+  visual:
+    same: true
+- id: s158
+  para: 25
+  sent: 123
+  text: and which stores it gives up first,
+  visual:
+    prompt: a DNA double helix intertwined with an hourglass and a small hormone molecule, elegant scientific illustration
+  camera: in
+- id: s159
+  para: 25
+  sent: 123
+  text: depends on your genes, your sex,
+  visual:
+    same: true
+- id: s160
+  para: 25
+  sent: 123
+  text: your age and your hormones.
+  visual:
+    same: true
+- id: s161
+  para: 25
+  sent: 124
+  text: Men tend to store more around the abdomen.
+  visual:
+    prompt: straight-on side-by-side silhouettes of a man and a woman, the man carrying more fat at the waist, the
+      woman at the hips and thighs, tasteful anatomical style, none overlapping
+  camera: none
+- id: s162
+  para: 25
+  sent: 125
+  text: Women, before menopause,
+  visual:
+    same: true
+- id: s163
+  para: 25
+  sent: 125
+  text: tend to carry more on the hips and thighs.
+  visual:
+    same: true
+- id: s164
+  para: 25
+  sent: 126
+  text: Fat in the upper body is also more active
+  visual:
+    prompt: an upper-body fat cell busily releasing droplets while a lower-body fat cell sits calmly with folded
+      arms, comic contrast
+  camera: in
+- id: s165
+  para: 25
+  sent: 126
+  text: in releasing its stores than fat in the lower body.
+  visual:
+    same: true
+- id: s166
+  para: 25
+  sent: 127
+  text: None of this asks for your opinion.
+  visual:
+    same: true
+- id: s167
+  para: 26
+  sent: 128
+  text: Now, in the interest of fairness,
+  visual:
+    prompt: the clerk's hand raising a finger as if to object, then writing a small footnote in the file
+    characters:
+    - clerk
+  camera: none
+  tone:
+  - serious
+- id: s168
+  para: 26
+  sent: 128
+  text: the Bureau notes one complication.
+  visual:
+    same: true
+- id: s169
+  para: 26
+  sent: 129
+  text: A small Danish study had ten men exercise one leg at a time.
+  visual:
+    prompt: a Danish physiology lab, a man doing one-legged knee extensions on a machine, small sensors taped to
+      his thigh
+  camera: in
+- id: s170
+  para: 26
+  sent: 130
+  text: The fat sitting right next to the working
+  visual:
+    same: true
+- id: s171
+  para: 26
+  sent: 130
+  text: muscle did get a little more blood flow,
+  visual:
+    same: true
+- id: s172
+  para: 26
+  sent: 130
+  text: and released its fat a little faster
+  visual:
+    prompt: cross-section illustration of a working thigh with slightly more blood vessels glowing in the fat beside
+      the muscle, next to a resting thigh
+  camera: right
+- id: s173
+  para: 26
+  sent: 130
+  text: than the fat next to the resting leg.
+  visual:
+    same: true
+- id: s174
+  para: 27
+  sent: 131
+  text: So there may be a tiny local effect.
+  visual:
+    prompt: a tiny feather floating beside a huge loud brass band, comic metaphor
+  camera: out
+- id: s175
+  para: 27
+  sent: 132
+  text: But tiny is the important word.
+  visual:
+    same: true
+- id: s176
+  para: 27
+  sent: 133
+  text: When researchers look at what actually changes in the mirror,
+  visual:
+    prompt: a crowd of thousands of people standing in front of long rows of mirrors, seen from behind
+  camera: in
+- id: s177
+  para: 27
+  sent: 133
+  text: across thousands of people,
+  visual:
+    same: true
+- id: s178
+  para: 27
+  sent: 133
+  text: it does not show up.
+  visual:
+    same: true
+- id: s179
+  para: 27
+  sent: 134
+  text: A whisper of a signal, drowned out by the whole body shouting.
+  visual:
+    same: true
+- id: s180
+  para: 28
+  sent: 135
+  text: Which brings us to the six-pack.
+  visual:
+    prompt: a classical marble statue with sculpted abdominal muscles, standing behind a closed stage curtain, theatrical
+      lighting
+  camera: in
+- id: s181
+  para: 28
+  sent: 136
+  text: Here is a secret the belt adverts would rather you did not hear.
+  visual:
+    same: true
+- id: s182
+  para: 28
+  sent: 137
+  text: You already have one.
+  visual:
+    same: true
+- id: s183
+  para: 28
+  sent: 138
+  text: Almost everyone does.
+  visual:
+    prompt: anatomical illustration of a strong abdominal muscle wall covered by a soft layer of fat, side cross-section
+  camera: in
+- id: s184
+  para: 28
+  sent: 139
+  text: The muscle is there.
+  visual:
+    same: true
+- id: s185
+  para: 28
+  sent: 140
+  text: Whether anyone can see it depends
+  visual:
+    same: true
+- id: s186
+  para: 28
+  sent: 140
+  text: on the layer of fat covering it.
+  visual:
+    same: true
+- id: s187
+  para: 29
+  sent: 141
+  text: Crunches can make the muscle stronger.
+  visual:
+    prompt: a person in gym clothes trying to lift just one corner of a heavy velvet curtain that hides a marble
+      statue, comic
+  camera: left
+- id: s188
+  para: 29
+  sent: 142
+  text: They cannot remove the curtain.
+  visual:
+    same: true
+- id: s189
+  para: 29
+  sent: 143
+  text: And you cannot pull back a curtain
+  visual:
+    same: true
+- id: s190
+  para: 29
+  sent: 143
+  text: from just one corner of the room.
+  visual:
+    same: true
+- id: s191
+  para: 30
+  sent: 144
+  text: An expert strength and conditioning coach,
+  visual:
+    prompt: a coach's whistle and clipboard resting on a gymnastics mat in an empty training hall
+  camera: in
+- id: s192
+  para: 30
+  sent: 144
+  text: who works with elite athletes, puts it simply.
+  visual:
+    same: true
+- id: s193
+  para: 30
+  sent: 145
+  text: Train your core for what it actually does.
+  visual:
+    prompt: an elite gymnast holding a strict hollow-body hold on a gymnastics floor, strong and controlled
+  camera: right
+- id: s194
+  para: 30
+  sent: 146
+  text: It braces your spine,
+  visual:
+    same: true
+- id: s195
+  para: 30
+  sent: 146
+  text: and it transfers force between your legs and your arms.
+  visual:
+    same: true
+- id: s196
+  para: 30
+  sent: 147
+  text: That is worth doing for its own sake.
+  visual:
+    prompt: an athlete in a weightlifting gym performing a heavy barbell back squat
+  camera: in
+- id: s197
+  para: 30
+  sent: 148
+  text: But if the goal is less fat, the answer is the whole body.
+  visual:
+    same: true
+- id: s198
+  para: 30
+  sent: 149
+  text: Big lifts, hard conditioning, enough sleep,
+  visual:
+    prompt: a still life of a barbell, a jump rope, a pillow and a healthy plate of food, straight-on view, one
+      row, none overlapping
+  camera: none
+- id: s199
+  para: 30
+  sent: 149
+  text: and an honest look at what is on your plate.
+  visual:
+    same: true
+- id: s200
+  para: 31
+  sent: 150
+  text: Lose fat overall, and it will come off everywhere,
+  visual:
+    prompt: a person standing confidently in front of a mirror, slimmer all over, gentle morning light
+  camera: in
+- id: s201
+  para: 31
+  sent: 150
+  text: in an order that your genes decide.
+  visual:
+    same: true
+- id: s202
+  para: 31
+  sent: 151
+  text: Including, eventually, the bit you were crunching at.
+  visual:
+    same: true
+- id: s203
+  para: 32
+  sent: 152
+  text: 'Verdict: wrong.'
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+  camera: in
+  overlay:
+    kind: label
+    text: WRONG
+    pos: center
+    color: '#e8402f'
+  tone:
+  - pause
+- id: s204
+  para: 33
+  sent: 153
+  text: You cannot choose where you lose fat.
+  visual:
+    prompt: a judge's gavel resting on a pile of research papers next to a tennis racket
+  camera: in
+- id: s205
+  para: 33
+  sent: 154
+  text: Exercising a muscle builds that muscle.
+  visual:
+    same: true
+- id: s206
+  para: 33
+  sent: 155
+  text: It does not drain the fat on top of it.
+  visual:
+    same: true
+- id: s207
+  para: 33
+  sent: 156
+  text: The tennis players proved it,
+  visual:
+    prompt: a sports science student limping heroically out of a gym on one tired leg, comic
+  camera: right
+- id: s208
+  para: 33
+  sent: 156
+  text: the sit-ups proved it,
+  visual:
+    same: true
+- id: s209
+  para: 33
+  sent: 156
+  text: and the poor one-legged students proved it most of all.
+  visual:
+    same: true
+- id: s210
+  para: 34
+  sent: 157
+  text: You can choose where you build muscle.
+  visual:
+    prompt: a person flexing a bicep proudly in front of a mirror while an old crumpled receipt lies on the floor
+  camera: in
+- id: s211
+  para: 34
+  sent: 158
+  text: That part is yours.
+  visual:
+    same: true
+- id: s212
+  para: 34
+  sent: 159
+  text: Where the fat leaves from is a decision your
+  visual:
+    same: true
+- id: s213
+  para: 34
+  sent: 159
+  text: body made long before you bought a belt.
+  visual:
+    same: true
+- id: s214
+  para: 35
+  sent: 160
+  text: The gadget makers have known this for decades.
+  visual:
+    prompt: the clerk's hands fanning out a thick stack of old shop receipts on the desk
+    characters:
+    - clerk
+  camera: out
+- id: s215
+  para: 35
+  sent: 161
+  text: It has not stopped them.
+  visual:
+    same: true
+- id: s216
+  para: 35
+  sent: 162
+  text: It has not stopped you, either.
+  visual:
+    same: true
+- id: s217
+  para: 35
+  sent: 163
+  text: I have the receipts.
+  visual:
+    same: true
+- id: s218
+  para: 36
+  sent: 164
+  text: Case closed.
+  visual: null
+- id: s219
+  para: 36
+  sent: 165
+  text: Do one crunch for me.
+  visual: null
+- id: s220
+  para: 36
+  sent: 166
+  text: Just the one.
+  visual:
+    prompt: a lone person doing a single crunch on a gym mat with a cheerful salute
+  camera: in
+- id: s221
+  para: 36
+  sent: 167
+  text: Strictly for morale.
+  visual:
+    same: true
+- id: s222
+  para: 36
+  sent: 168
+  text: 'Next case: a thumb, a painting,'
+  visual: null
+- id: s223
+  para: 36
+  sent: 168
+  text: and a gladiator who lost four times and walked out every time.
+  visual: null

@@ -1,0 +1,67 @@
+title: How Much Water Do You Actually Need?
+idea: i001
+status: production
+description: The "8 glasses a day" rule comes from a 1945 report whose very next sentence said most of that water
+  is already in your food. A 2022 study of 5,604 people in 26 countries found water use ranges from about 1 to 6
+  liters a day. Case file 001.
+chapters: {0: The rule everyone knows, 5: '1945: the sentence nobody read', 9: Who checked, 13: 'Does coffee count?',
+  14: Thirst is not a late alarm, 19: What bodies actually use, 25: Where it gets complicated, 28: 'Yes, you can
+    drink too much', 31: Verdict, 32: What to do instead}
+publish:
+  title_variants: [The 8-Glass Rule Was Just Half a Sentence, 'How Much Water Do You Actually Need?', Why You Don't
+      Need 8 Glasses of Water, You've Been Drinking Your Food for Years, The 1945 Mistake Behind the 8-Glass Myth,
+    Science Tested the 8-Glass Rule. It Failed., 'Can You Drink Too Much Water?', The Water Myth That Fooled Everyone,
+    How the 8 Glasses of Water Myth Started, Why 8 Glasses of Water Is Wrong]
+  hook_options:
+  - {type: cold_open_stat, text: 'In 2022, Science measured 5,600 people. Daily water turnover ranged from one to
+      six liters. One target fits nobody.'}
+  - {type: contradiction, text: 'The rule to drink eight glasses of water started in 1945, when everyone ignored
+      the very next sentence.'}
+  - {type: story, text: 'In 2002, thirteen percent of tested Boston Marathon finishers drank so much fluid they
+      developed hyponatremia.'}
+  thumbnail_concepts:
+  - {visual: 'A row of eight glasses of water, the last one knocked over, a red rubber stamp mark across them',
+    text: '8 GLASSES?'}
+  - {visual: 'A sandwich dripping water like a tap, a glass of water ignored beside it', text: YOU'RE DRINKING YOUR
+      FOOD}
+  - {visual: 'An old 1945 typewritten page under a magnifying glass, red stamp', text: 1945 MISTAKE}
+  series: body-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+  shorts_ideas:
+  - {hook: 'Did you know you already drink about a third of your water from solid food?', shows: 'Mortimer flipping
+      open vintage archive cards showing bread is roughly one-third water, plain water makes up only a third of
+      intake, and metabolic water.', loop: '...which is why nobody ever needed...'}
+  - {hook: Drinking too much water during a marathon can put you in hospital., shows: 'Archival medical file detailing
+      the 2002 Boston Marathon study, explaining how weight gain during endurance exercise reveals dangerous fluid
+      overload.', loop: '...so before your next long race, remember...'}
+  title_used: How Much Water Do You Actually Need?
+shorts:
+- {title: The 1945 sentence nobody finished reading, from: s019, to: s036, hook: 'Where did "8 glasses a day" come
+    from?'}
+- {title: 'Does coffee really dehydrate you?', from: s069, to: s078, hook: '"But coffee dehydrates you."'}
+- {title: 'Yes, you can drink too much water', from: s161, to: s171, hook: The part the water bottle never mentions}
+thumbnails:
+- visual:
+    prompt: Ink and watercolor illustration on aged cream paper. A single thick slice of crusty bread held upright,
+      dripping water droplets into a measuring beaker, vintage anatomical cross-section style with fine sepia hatching
+      and warm ochre washes.
+    characters: []
+  text: {en: EATING YOUR WATER, tr: YEMEĞİNİ İÇİYORSUN}
+  text_pos: left
+  highlight: {x: 1050, y: 620, r: 120}
+- visual:
+    prompt: Vintage archival ink and watercolor plate. Mortimer's pale ink-stained hands in dark green woolen sleeves
+      holding a brass seal above an open 1945 government case folder, illuminated by a warm banker's lamp.
+    characters: []
+  text: {en: UNFINISHED SENTENCE, tr: YARIM CÜMLE}
+  text_pos: left
+  highlight: {x: 1220, y: 520, r: 140}
+- visual:
+    prompt: Old scientific encyclopedia plate. A cracked vintage glass tumbler overflowing with water, stark dark-brown
+      ink linework with muted sepia washes and striking crimson accents against stained parchment.
+    characters: []
+  text: {en: 'TOO MUCH WATER?', tr: 'FAZLA SU ZARAR?'}
+  text_pos: right
+  highlight: {x: 820, y: 480, r: 130}

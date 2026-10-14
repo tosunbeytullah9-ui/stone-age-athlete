@@ -1,0 +1,1610 @@
+title: 009-ancient-people-didn-t-die-at-30
+paragraphs: 34
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: In ancient Rome,
+  visual:
+    prompt: a bustling ancient Roman forum full of people, sunlit marble temples, wide view, people drawn as simple
+      expressive ink figures
+    ledger: true
+  camera: in
+- id: s002
+  para: 0
+  sent: 0
+  text: life expectancy was somewhere between twenty and thirty years.
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 1
+  text: You have heard a number like that before.
+  visual:
+    prompt: a modern living room, a television showing a documentary about ancient Rome, a friend gesturing knowingly
+      on the sofa
+    ledger: true
+  camera: right
+- id: s004
+  para: 0
+  sent: 2
+  text: Maybe in a documentary.
+  visual:
+    same: true
+- id: s005
+  para: 0
+  sent: 3
+  text: Maybe from a friend who was making a point
+  visual:
+    same: true
+- id: s006
+  para: 0
+  sent: 3
+  text: about how lucky we are.
+  visual:
+    same: true
+- id: s007
+  para: 1
+  sent: 4
+  text: And it conjures a very particular picture.
+  visual:
+    prompt: an imagined Roman street where everyone is a young adult, not a single grey hair in sight, slightly
+      eerie, comic
+    ledger: true
+  camera: in
+- id: s008
+  para: 1
+  sent: 5
+  text: A world of young people.
+  visual:
+    same: true
+- id: s009
+  para: 1
+  sent: 6
+  text: Grandparents were a rarity.
+  visual:
+    same: true
+- id: s010
+  para: 1
+  sent: 7
+  text: You were married at fifteen,
+  visual:
+    prompt: 'a comic sequence of one Roman man aging absurdly fast: a teenage groom, a battle-scarred young soldier,
+      a youthful senator in a toga, people drawn as simple expressive ink figures'
+    ledger: true
+  camera: out
+- id: s011
+  para: 1
+  sent: 7
+  text: a veteran at twenty-five,
+  visual:
+    same: true
+- id: s012
+  para: 1
+  sent: 7
+  text: and an elder statesman at twenty-nine.
+  visual:
+    same: true
+- id: s013
+  para: 1
+  sent: 8
+  text: Then you dropped dead, roughly on schedule, at thirty.
+  visual:
+    same: true
+- id: s014
+  para: 2
+  sent: 9
+  text: Case file zero zero nine.
+  visual:
+    prompt: the clerk's hands opening a folder containing a sketch of a Roman tombstone
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  overlay:
+    kind: label
+    text: CASE FILE 009
+    pos: top
+- id: s015
+  para: 2
+  sent: 10
+  text: 'Subject: you, and your great-great-great-grandparents.'
+  visual:
+    same: true
+- id: s016
+  para: 2
+  sent: 11
+  text: 'Belief: in the ancient world,'
+  visual:
+    prompt: a thirty-year-old ink figure in a simple Roman tunic, hunched over a walking stick with a long grey
+      beard, while a friend his own age helps him across a cobbled street, comic
+    characters: []
+    ledger: true
+- id: s017
+  para: 2
+  sent: 11
+  text: people were old at thirty,
+  visual:
+    same: true
+- id: s018
+  para: 2
+  sent: 11
+  text: and dead soon after.
+  visual:
+    same: true
+- id: s019
+  para: 3
+  sent: 12
+  text: I should mention that I am roughly three thousand years old.
+  visual:
+    prompt: the clerk's very old, wrinkled hands resting on an ancient ledger, dignified
+    characters:
+    - clerk
+    ledger: true
+  camera: in
+- id: s020
+  para: 3
+  sent: 13
+  text: So I take this one a little personally.
+  visual:
+    same: true
+- id: s021
+  para: 3
+  sent: 14
+  text: In my experience,
+  visual:
+    same: true
+- id: s022
+  para: 3
+  sent: 14
+  text: ancient people were perfectly capable of growing old.
+  visual:
+    prompt: a grumpy elderly Greek philosopher with a long white beard walking off with a scroll tucked under his
+      arm, comic
+    ledger: true
+  camera: right
+- id: s023
+  para: 3
+  sent: 15
+  text: Several of them did it just to annoy me.
+  visual:
+    same: true
+- id: s024
+  para: 3
+  sent: 16
+  text: One of them still owes me a library book.
+  visual:
+    same: true
+- id: s025
+  para: 4
+  sent: 17
+  text: The problem is not the number.
+  visual:
+    prompt: a single large number drawn in chalk on a blackboard being circled, a hand holding chalk, no legible
+      digits
+    ledger: true
+  camera: in
+  tone:
+  - pause
+- id: s026
+  para: 4
+  sent: 18
+  text: The number is roughly right.
+  visual:
+    same: true
+- id: s027
+  para: 4
+  sent: 19
+  text: The problem is what you think it means.
+  visual:
+    same: true
+- id: s028
+  para: 5
+  sent: 20
+  text: Exhibit one is the maths.
+  visual:
+    prompt: the clerk's hands opening a ledger to columns of tally marks
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s029
+  para: 5
+  sent: 21
+  text: Life expectancy at birth is an average.
+  visual:
+    same: true
+- id: s030
+  para: 5
+  sent: 22
+  text: It takes everyone who was born,
+  visual:
+    prompt: a huge crowd of people of all ages, from newborns to the very old, being poured into a giant funnel,
+      comic infographic illustration, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s031
+  para: 5
+  sent: 22
+  text: including every baby who died in the first week,
+  visual:
+    same: true
+- id: s032
+  para: 5
+  sent: 22
+  text: and calculates how long they lived on average.
+  visual:
+    same: true
+- id: s033
+  para: 5
+  sent: 23
+  text: And averages can be very, very misleading.
+  visual:
+    same: true
+- id: s034
+  para: 6
+  sent: 24
+  text: Let me show you.
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.02
+      - 1.0
+      - 0.5
+      colors:
+      - bad
+      - good
+      - stone
+- id: s035
+  para: 6
+  sent: 25
+  text: Imagine two people.
+  visual:
+    same: true
+- id: s036
+  para: 6
+  sent: 26
+  text: One dies at the age of one.
+  visual:
+    same: true
+- id: s037
+  para: 6
+  sent: 27
+  text: The other lives to seventy-one.
+  visual:
+    same: true
+- id: s038
+  para: 6
+  sent: 28
+  text: Their average lifespan is thirty-six.
+  visual:
+    prompt: two tombstones side by side in a peaceful cemetery, one tiny, one weathered and old, respectful
+    ledger: true
+  camera: right
+  overlay:
+    kind: stat
+    text: 'average: 36'
+    pos: top
+- id: s039
+  para: 6
+  sent: 29
+  text: But nobody in that example died at thirty-six.
+  visual:
+    same: true
+- id: s040
+  para: 6
+  sent: 30
+  text: Not a single person.
+  visual:
+    same: true
+- id: s041
+  para: 6
+  sent: 31
+  text: One died as a baby.
+  visual:
+    same: true
+- id: s042
+  para: 6
+  sent: 32
+  text: The other died old.
+  visual:
+    same: true
+- id: s043
+  para: 7
+  sent: 33
+  text: It is the same reason the average
+  visual:
+    prompt: a puzzled tailor holding up trousers with one and a half legs, comic
+    ledger: true
+  camera: out
+- id: s044
+  para: 7
+  sent: 33
+  text: person has slightly fewer than two legs.
+  visual:
+    same: true
+- id: s045
+  para: 7
+  sent: 34
+  text: Technically true.
+  visual:
+    same: true
+- id: s046
+  para: 7
+  sent: 35
+  text: Completely useless for buying trousers.
+  visual:
+    same: true
+- id: s047
+  para: 8
+  sent: 36
+  text: Now, scale that up to an entire empire.
+  visual:
+    prompt: a vast map of the Roman Empire around the Mediterranean, warm ink
+    ledger: true
+  camera: in
+- id: s048
+  para: 8
+  sent: 37
+  text: Historians estimate that in the Roman world,
+  visual:
+    same: true
+- id: s049
+  para: 8
+  sent: 37
+  text: somewhere between a quarter and a third
+  visual:
+    bg: plain_warm
+    props:
+    - type: line_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.7
+      - 0.6
+      - 0.5
+      - 0.45
+      - 0.4
+      - 0.33
+      - 0.24
+      - 0.12
+      - 0.03
+      color: bad
+- id: s050
+  para: 8
+  sent: 37
+  text: of babies died in their first year.
+  visual:
+    same: true
+- id: s051
+  para: 8
+  sent: 38
+  text: Only around fifty-five to sixty-five
+  visual:
+    same: true
+- id: s052
+  para: 8
+  sent: 38
+  text: per cent survived to the age of five.
+  visual:
+    same: true
+- id: s053
+  para: 8
+  sent: 39
+  text: Perhaps half of everyone born had died by the age of ten.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: ~1 in 2 dead by age 10
+    pos: top
+- id: s054
+  para: 8
+  sent: 40
+  text: The best evidence we have,
+  visual:
+    prompt: papyrus census documents from Roman Egypt laid on a table in a museum, faded Greek handwriting, no legible
+      text
+    ledger: true
+  camera: in
+- id: s055
+  para: 8
+  sent: 40
+  text: census returns from Roman Egypt,
+  visual:
+    same: true
+- id: s056
+  para: 8
+  sent: 40
+  text: points to a life expectancy at birth
+  visual:
+    same: true
+- id: s057
+  para: 8
+  sent: 40
+  text: of just twenty-two to twenty-five years.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 22–25 years at birth
+    pos: bottom
+- id: s058
+  para: 9
+  sent: 41
+  text: That is a staggering amount of loss, and it was real.
+  visual:
+    prompt: grieving Roman parents beside a small cradle, tender and sombre
+    ledger: true
+  camera: in
+- id: s059
+  para: 9
+  sent: 42
+  text: Behind those numbers are millions of grieving parents.
+  visual:
+    same: true
+- id: s060
+  para: 9
+  sent: 43
+  text: But look at what it does to the average.
+  visual:
+    same: true
+- id: s061
+  para: 9
+  sent: 44
+  text: All those very short lives drag the number right down.
+  visual:
+    prompt: a balance scale tipping heavily under the weight of many small marbles, symbolic, minimal
+    ledger: true
+  camera: none
+- id: s062
+  para: 9
+  sent: 45
+  text: A life expectancy at birth of twenty-five
+  visual:
+    same: true
+- id: s063
+  para: 9
+  sent: 45
+  text: does not mean adults died at twenty-five.
+  visual:
+    same: true
+- id: s064
+  para: 9
+  sent: 46
+  text: It means a great many children died
+  visual:
+    same: true
+- id: s065
+  para: 9
+  sent: 46
+  text: before they ever became adults.
+  visual:
+    same: true
+- id: s066
+  para: 10
+  sent: 47
+  text: So the more useful question is this.
+  visual:
+    prompt: a Roman child at the doorway of a house, looking out at the world, hopeful, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: right
+- id: s067
+  para: 10
+  sent: 48
+  text: If you did survive childhood, how long could you expect to live?
+  visual:
+    same: true
+- id: s068
+  para: 11
+  sent: 49
+  text: For the Roman Empire, the estimates change dramatically.
+  visual:
+    prompt: a Roman family meal with children, parents and grandparents at the same table, people drawn as simple
+      expressive ink figures
+    ledger: true
+  camera: in
+- id: s069
+  para: 11
+  sent: 50
+  text: A Roman child who reached the age of ten could expect,
+  visual:
+    same: true
+- id: s070
+  para: 11
+  sent: 50
+  text: on average, to live several more decades.
+  visual:
+    same: true
+- id: s071
+  para: 11
+  sent: 51
+  text: Into their forties or fifties, on average.
+  visual:
+    prompt: a white-haired Roman couple walking slowly together in a garden of olive trees
+    ledger: true
+  camera: left
+- id: s072
+  para: 11
+  sent: 52
+  text: And of course, an average includes plenty who went much further.
+  visual:
+    same: true
+- id: s073
+  para: 12
+  sent: 53
+  text: There is another trap hidden in the evidence.
+  visual:
+    prompt: an archaeologist kneeling in an excavation trench, brushing soil off an ancient skeleton
+    ledger: true
+  camera: in
+- id: s074
+  para: 12
+  sent: 54
+  text: Much of what we know about ancient ages comes from skeletons.
+  visual:
+    same: true
+- id: s075
+  para: 12
+  sent: 55
+  text: And estimating age from bones is hard.
+  visual:
+    same: true
+- id: s076
+  para: 12
+  sent: 56
+  text: Traditional methods have struggled
+  visual:
+    prompt: a bone specialist in a lab examining a pelvis with calipers, frowning, reference charts on the wall
+    ledger: true
+  camera: right
+- id: s077
+  para: 12
+  sent: 56
+  text: to estimate the age of anyone older than about fifty.
+  visual:
+    same: true
+- id: s078
+  para: 12
+  sent: 57
+  text: A skeleton that belonged to a seventy-year-old can end up
+  visual:
+    same: true
+- id: s079
+  para: 12
+  sent: 57
+  text: in the records simply as older than fifty.
+  visual:
+    prompt: rows of archaeological record cards in a drawer, many stamped with the same vague label, comic
+    ledger: true
+  camera: out
+- id: s080
+  para: 12
+  sent: 58
+  text: Do that across a whole cemetery,
+  visual:
+    same: true
+- id: s081
+  para: 12
+  sent: 58
+  text: and the ancient world starts to look younger than it really was.
+  visual:
+    same: true
+- id: s082
+  para: 13
+  sent: 59
+  text: Exhibit two.
+  visual:
+    prompt: two anthropologists with notebooks sitting with members of a hunter-gatherer community in a forest clearing,
+      respectful
+    ledger: true
+  camera: in
+- id: s083
+  para: 13
+  sent: 60
+  text: In two thousand seven,
+  visual:
+    same: true
+- id: s084
+  para: 13
+  sent: 60
+  text: two anthropologists,
+  visual:
+    same: true
+- id: s085
+  para: 13
+  sent: 60
+  text: Michael Gurven and Hillard Kaplan,
+  visual:
+    same: true
+- id: s086
+  para: 13
+  sent: 60
+  text: studied hunter-gatherer societies.
+  visual:
+    prompt: a hunter-gatherer camp at dusk, simple shelters and a fire, no modern objects
+    ledger: true
+  camera: left
+- id: s087
+  para: 13
+  sent: 61
+  text: These are groups living without modern medicine, hospitals,
+  visual:
+    same: true
+- id: s088
+  para: 13
+  sent: 61
+  text: vaccines or antibiotics.
+  visual:
+    same: true
+- id: s089
+  para: 13
+  sent: 62
+  text: Probably the closest thing we have
+  visual:
+    prompt: hunter-gatherers carrying firewood and baskets along a forest path, strong and weathered
+    ledger: true
+  camera: right
+- id: s090
+  para: 13
+  sent: 62
+  text: to how humans lived for most of our history.
+  visual:
+    same: true
+- id: s091
+  para: 13
+  sent: 63
+  text: Hard lives, physical work, no pharmacy round the corner.
+  visual:
+    same: true
+- id: s092
+  para: 14
+  sent: 64
+  text: Life expectancy at birth in these groups ranged
+  visual:
+    prompt: a field researcher writing in a notebook by a fire, columns of numbers, no legible text, people drawn
+      as simple expressive ink figures
+    ledger: true
+  camera: in
+  overlay:
+    kind: stat
+    text: 'at birth: 21–37 years'
+    pos: bottom
+- id: s093
+  para: 14
+  sent: 64
+  text: from about twenty-one to thirty-seven years.
+  visual:
+    same: true
+- id: s094
+  para: 14
+  sent: 65
+  text: Very low.
+  visual:
+    same: true
+- id: s095
+  para: 14
+  sent: 66
+  text: Exactly the kind of number that gets quoted.
+  visual:
+    same: true
+- id: s096
+  para: 14
+  sent: 67
+  text: Only around fifty-seven per cent
+  visual:
+    prompt: children playing by a river near a forest village, joyful but fragile, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s097
+  para: 14
+  sent: 67
+  text: of children survived to the age of fifteen.
+  visual:
+    same: true
+- id: s098
+  para: 15
+  sent: 68
+  text: But then they asked a different question.
+  visual:
+    prompt: the researcher raising an eyebrow at his notebook, an idea dawning, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: out
+- id: s099
+  para: 15
+  sent: 69
+  text: Among adults, at what age do people most commonly die?
+  visual:
+    same: true
+- id: s100
+  para: 15
+  sent: 70
+  text: The answer was about seventy-two.
+  visual:
+    prompt: a white-haired hunter-gatherer elder telling stories to children around a fire, firelight, dignified,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+  overlay:
+    kind: stat
+    text: 'most common adult death: ~72'
+    pos: bottom
+- id: s101
+  para: 15
+  sent: 71
+  text: Across different societies,
+  visual:
+    same: true
+- id: s102
+  para: 15
+  sent: 71
+  text: the range was roughly sixty-eight to seventy-eight.
+  visual:
+    same: true
+- id: s103
+  para: 16
+  sent: 72
+  text: And someone who reached forty-five could expect, on average,
+  visual:
+    prompt: a middle-aged hunter-gatherer man and woman preparing food together, healthy and capable, people drawn
+      as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s104
+  para: 16
+  sent: 72
+  text: about two more decades of life.
+  visual:
+    same: true
+- id: s105
+  para: 16
+  sent: 73
+  text: The authors concluded that seven decades seems
+  visual:
+    same: true
+- id: s106
+  para: 16
+  sent: 73
+  text: to be the natural lifespan of a human being.
+  visual:
+    prompt: an anatomical ink of a human body with a soft clock drawn behind it, elegant scientific illustration
+    ledger: true
+  camera: in
+- id: s107
+  para: 16
+  sent: 74
+  text: Our bodies are built to function well for about seventy years,
+  visual:
+    same: true
+- id: s108
+  para: 16
+  sent: 74
+  text: even without a doctor in sight.
+  visual:
+    same: true
+- id: s109
+  para: 17
+  sent: 75
+  text: Exhibit three.
+  visual:
+    prompt: the clerk's hands unrolling an ancient scroll
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  tone:
+  - pause
+- id: s110
+  para: 17
+  sent: 76
+  text: The ancients told us themselves.
+  visual:
+    same: true
+- id: s111
+  para: 18
+  sent: 77
+  text: Long before the Roman Empire,
+  visual:
+    prompt: an ancient Hebrew scribe writing on a parchment scroll by an oil lamp, Middle Eastern setting
+    ledger: true
+  camera: in
+- id: s112
+  para: 18
+  sent: 77
+  text: a psalm in the Hebrew Bible put it like this.
+  visual:
+    same: true
+- id: s113
+  para: 18
+  sent: 78
+  text: The days of our years are threescore years and ten.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: “threescore years and ten”
+    pos: bottom
+- id: s114
+  para: 18
+  sent: 79
+  text: And if by reason of strength they be fourscore years.
+  visual:
+    same: true
+- id: s115
+  para: 18
+  sent: 80
+  text: Threescore and ten is seventy.
+  visual:
+    prompt: an elderly man with a staff standing on a hill at sunset, surveying his flocks, serene, people drawn
+      as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s116
+  para: 18
+  sent: 81
+  text: Fourscore is eighty.
+  visual:
+    same: true
+- id: s117
+  para: 18
+  sent: 82
+  text: That is not a culture that expected to die at thirty.
+  visual:
+    same: true
+- id: s118
+  para: 18
+  sent: 83
+  text: That is a culture that knew exactly what a full life looked like, and wrote it down.
+  visual:
+    same: true
+- id: s119
+  para: 19
+  sent: 84
+  text: Exhibit four.
+  visual:
+    prompt: the Roman Senate in session, togaed senators debating in a marble chamber
+    ledger: true
+  camera: in
+- id: s120
+  para: 19
+  sent: 85
+  text: Look at their politics.
+  visual:
+    same: true
+- id: s121
+  para: 19
+  sent: 86
+  text: In the Roman Republic,
+  visual:
+    same: true
+- id: s122
+  para: 19
+  sent: 86
+  text: after the reforms of the dictator Sulla,
+  visual:
+    same: true
+- id: s123
+  para: 19
+  sent: 86
+  text: you had to be at least thirty just to become a quaestor,
+  visual:
+    same: true
+- id: s124
+  para: 19
+  sent: 86
+  text: the most junior senior office.
+  visual:
+    prompt: a grey-haired Roman consul in a purple-bordered toga walking with lictors carrying fasces
+    ledger: true
+  camera: left
+- id: s125
+  para: 19
+  sent: 87
+  text: And to become consul,
+  visual:
+    same: true
+- id: s126
+  para: 19
+  sent: 87
+  text: the highest office in the state,
+  visual:
+    same: true
+- id: s127
+  para: 19
+  sent: 87
+  text: you had to be at least forty-two.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 'consul: minimum age 42'
+    pos: bottom
+- id: s128
+  para: 20
+  sent: 88
+  text: If Romans really died at thirty,
+  visual:
+    prompt: a Roman senate chamber filled with translucent ghostly senators, comic
+    ledger: true
+  camera: out
+- id: s129
+  para: 20
+  sent: 88
+  text: then the entire constitution was designed to be run by ghosts.
+  visual:
+    same: true
+- id: s130
+  para: 20
+  sent: 89
+  text: And the word senate itself comes from the Latin senex.
+  visual:
+    prompt: a row of distinguished elderly Roman senators with white hair and beards, seated on marble benches,
+      straight-on view
+    ledger: true
+  camera: none
+- id: s131
+  para: 20
+  sent: 90
+  text: Old man.
+  visual:
+    same: true
+- id: s132
+  para: 20
+  sent: 91
+  text: The Romans named their most powerful
+  visual:
+    same: true
+- id: s133
+  para: 20
+  sent: 91
+  text: institution after their elderly.
+  visual:
+    same: true
+- id: s134
+  para: 21
+  sent: 92
+  text: Roman lawyers even used a table for annuities,
+  visual:
+    prompt: a Roman jurist at a desk with wax tablets and an abacus, calculating, scrolls piled around
+    ledger: true
+  camera: in
+- id: s135
+  para: 21
+  sent: 92
+  text: regular payments for life,
+  visual:
+    same: true
+- id: s136
+  para: 21
+  sent: 92
+  text: listing how many years of payments to expect at each age.
+  visual:
+    same: true
+- id: s137
+  para: 21
+  sent: 93
+  text: It is attributed to the jurist Ulpian.
+  visual:
+    same: true
+- id: s138
+  para: 21
+  sent: 94
+  text: Historians argue about how it was calculated,
+  visual:
+    prompt: a Roman pensioner collecting coins from an official at a counter, grey-haired and cheerful
+    ledger: true
+  camera: right
+- id: s139
+  para: 21
+  sent: 94
+  text: and it is not a census.
+  visual:
+    same: true
+- id: s140
+  para: 21
+  sent: 95
+  text: But nobody builds a pension table
+  visual:
+    same: true
+- id: s141
+  para: 21
+  sent: 95
+  text: for a population that is all dead by thirty.
+  visual:
+    same: true
+- id: s142
+  para: 22
+  sent: 96
+  text: Exhibit five.
+  visual:
+    prompt: a very old Greek playwright with a white beard writing by an oil lamp, ancient Athens
+    ledger: true
+  camera: in
+- id: s143
+  para: 22
+  sent: 97
+  text: The individuals.
+  visual:
+    same: true
+- id: s144
+  para: 22
+  sent: 98
+  text: The Greek playwright Sophocles lived to about ninety.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 'Sophocles: ~90'
+    pos: bottom
+- id: s145
+  para: 22
+  sent: 99
+  text: Near the end, according to one story,
+  visual:
+    prompt: an ancient Athenian courtroom, an elderly man standing and reading aloud from a scroll while jurors
+      listen, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s146
+  para: 22
+  sent: 99
+  text: his own sons tried to have him declared
+  visual:
+    same: true
+- id: s147
+  para: 22
+  sent: 99
+  text: incompetent to manage his affairs.
+  visual:
+    same: true
+- id: s148
+  para: 22
+  sent: 100
+  text: He answered the charge in court by reading
+  visual:
+    same: true
+- id: s149
+  para: 22
+  sent: 100
+  text: from the play he was writing at the time, Oedipus at Colonus.
+  visual:
+    prompt: an ancient Greek theatre at sunset, a modern audience watching a performance, timeless
+    ledger: true
+  camera: out
+- id: s150
+  para: 22
+  sent: 101
+  text: The judges, so the story goes, sided with him.
+  visual:
+    same: true
+- id: s151
+  para: 22
+  sent: 102
+  text: The play is still performed.
+  visual:
+    same: true
+- id: s152
+  para: 22
+  sent: 103
+  text: The sons are mostly remembered for losing.
+  visual:
+    same: true
+- id: s153
+  para: 23
+  sent: 104
+  text: The emperor Augustus,
+  visual:
+    prompt: a marble statue of an emperor in a toga, aged features, in a museum hall, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s154
+  para: 23
+  sent: 104
+  text: who ruled Rome for over forty years,
+  visual:
+    same: true
+- id: s155
+  para: 23
+  sent: 104
+  text: died at seventy-five.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 'Augustus: 75'
+    pos: bottom
+- id: s156
+  para: 23
+  sent: 105
+  text: The philosopher Plato reached about eighty.
+  visual:
+    prompt: an elderly Greek philosopher teaching young students in an olive grove, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: left
+- id: s157
+  para: 23
+  sent: 106
+  text: These were not freaks of nature.
+  visual:
+    same: true
+- id: s158
+  para: 23
+  sent: 107
+  text: They were people who were lucky enough, and wealthy enough,
+  visual:
+    prompt: a wealthy old Roman reclining comfortably in a villa garden, servants nearby
+    ledger: true
+  camera: in
+- id: s159
+  para: 23
+  sent: 107
+  text: to dodge the main killers.
+  visual:
+    same: true
+- id: s160
+  para: 24
+  sent: 108
+  text: So what were the main killers?
+  visual:
+    prompt: the clerk's hands opening a folder with a dark red ribbon
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  tone:
+  - serious
+- id: s161
+  para: 24
+  sent: 109
+  text: Here, the myth contains a grain of truth,
+  visual:
+    same: true
+- id: s162
+  para: 24
+  sent: 109
+  text: and it is worth being honest about it.
+  visual:
+    same: true
+- id: s163
+  para: 25
+  sent: 110
+  text: Life was genuinely more dangerous.
+  visual:
+    prompt: a narrow ancient street at night, shadows and danger, sombre
+    ledger: true
+  camera: in
+- id: s164
+  para: 25
+  sent: 111
+  text: In the hunter-gatherer data,
+  visual:
+    bg: plain_cool
+    props:
+    - type: pie
+      x: 960
+      y: 520
+      scale: 2.2
+      value: 0.7
+      colors:
+      - bad
+      - stone
+- id: s165
+  para: 25
+  sent: 111
+  text: illness accounted for about seventy per cent of all deaths.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: illness ~70% · violence/accidents ~20%
+    pos: top
+- id: s166
+  para: 25
+  sent: 112
+  text: Infections that a course of antibiotics would clear today.
+  visual:
+    same: true
+- id: s167
+  para: 25
+  sent: 113
+  text: Violence and accidents made up about twenty per cent.
+  visual:
+    same: true
+- id: s168
+  para: 25
+  sent: 114
+  text: Childbirth was dangerous for mothers.
+  visual:
+    prompt: an ancient town under a dark sky during a plague, people carrying the sick, restrained and sombre, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s169
+  para: 25
+  sent: 115
+  text: A bad winter, a failed harvest,
+  visual:
+    same: true
+- id: s170
+  para: 25
+  sent: 115
+  text: or a plague could wipe out a town.
+  visual:
+    same: true
+- id: s171
+  para: 26
+  sent: 116
+  text: So yes, many more people died young, at every age.
+  visual:
+    prompt: a thirty-year-old Roman blacksmith at his forge, healthy but surrounded by hazards, sparks flying
+    ledger: true
+  camera: in
+- id: s172
+  para: 26
+  sent: 117
+  text: A thirty-year-old in ancient Rome was
+  visual:
+    same: true
+- id: s173
+  para: 26
+  sent: 117
+  text: in more danger than a thirty-year-old today.
+  visual:
+    same: true
+- id: s174
+  para: 26
+  sent: 118
+  text: The chance of reaching old age was much lower.
+  visual:
+    same: true
+- id: s175
+  para: 26
+  sent: 119
+  text: But the possibility was always there.
+  visual:
+    prompt: a sturdy old Roman farmer with a weathered face resting under a tree after work
+    ledger: true
+  camera: left
+- id: s176
+  para: 26
+  sent: 120
+  text: The human body was not built differently.
+  visual:
+    same: true
+- id: s177
+  para: 26
+  sent: 121
+  text: People did not wear out at thirty.
+  visual:
+    same: true
+- id: s178
+  para: 26
+  sent: 122
+  text: They were killed, mostly by things we can now prevent.
+  visual:
+    same: true
+- id: s179
+  para: 27
+  sent: 123
+  text: And here is the twist.
+  visual:
+    prompt: a newborn baby sleeping in a modern hospital cot
+    ledger: true
+  camera: in
+- id: s180
+  para: 27
+  sent: 124
+  text: The biggest change in modern life expectancy
+  visual:
+    same: true
+- id: s181
+  para: 27
+  sent: 124
+  text: did not come from making old people older.
+  visual:
+    same: true
+- id: s182
+  para: 27
+  sent: 125
+  text: It came from keeping babies alive.
+  visual:
+    prompt: a ink sketch of a clean water tap, a vaccine vial, a loaf of bread and a pill bottle, straight-on view,
+      one row, none overlapping
+    ledger: true
+  camera: none
+- id: s183
+  para: 27
+  sent: 126
+  text: Clean water, vaccines, better nutrition, antibiotics,
+  visual:
+    same: true
+- id: s184
+  para: 27
+  sent: 126
+  text: and safer childbirth.
+  visual:
+    same: true
+- id: s185
+  para: 27
+  sent: 127
+  text: In about two hundred years,
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.4
+      - 1.0
+      colors:
+      - stone
+      - good
+- id: s186
+  para: 27
+  sent: 127
+  text: global life expectancy has risen
+  visual:
+    same: true
+- id: s187
+  para: 27
+  sent: 127
+  text: from under thirty to over seventy.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: < 30 → 72+
+    pos: top
+- id: s188
+  para: 27
+  sent: 128
+  text: A good part of that is simply because far fewer children die.
+  visual:
+    prompt: a modern playground full of children running and laughing, people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s189
+  para: 27
+  sent: 129
+  text: Not all of it, to be fair.
+  visual:
+    same: true
+- id: s190
+  para: 27
+  sent: 130
+  text: Life expectancy has improved at every age.
+  visual:
+    same: true
+- id: s191
+  para: 27
+  sent: 131
+  text: But the children are where the big numbers came from.
+  visual:
+    same: true
+- id: s192
+  para: 28
+  sent: 132
+  text: We did extend old age a little, too.
+  visual:
+    prompt: a modern grandmother celebrating her ninetieth birthday with her family, cake and candles
+    ledger: true
+  camera: in
+- id: s193
+  para: 28
+  sent: 133
+  text: More people now reach their eighties
+  visual:
+    same: true
+- id: s194
+  para: 28
+  sent: 133
+  text: and nineties than ever before.
+  visual:
+    same: true
+- id: s195
+  para: 28
+  sent: 134
+  text: But the idea that the ancient world
+  visual:
+    prompt: an ancient Roman grandmother holding a grandchild on her lap in a courtyard
+    ledger: true
+  camera: in
+- id: s196
+  para: 28
+  sent: 134
+  text: had no old people is simply wrong.
+  visual:
+    same: true
+- id: s197
+  para: 28
+  sent: 135
+  text: They had grandparents.
+  visual:
+    same: true
+- id: s198
+  para: 28
+  sent: 136
+  text: They had wise elders.
+  visual:
+    prompt: a wise elder addressing a village council under a tree
+    ledger: true
+  camera: left
+- id: s199
+  para: 28
+  sent: 137
+  text: They had grumpy old men complaining about the youth of today.
+  visual:
+    same: true
+- id: s200
+  para: 28
+  sent: 138
+  text: The Bureau has several thousand years
+  visual:
+    prompt: two grumpy old Roman men on a bench shaking their fists at noisy youths, comic, people drawn as simple
+      expressive ink figures
+    ledger: true
+  camera: out
+- id: s201
+  para: 28
+  sent: 138
+  text: of those complaints on file.
+  visual:
+    same: true
+- id: s202
+  para: 28
+  sent: 139
+  text: They are remarkably consistent.
+  visual:
+    same: true
+- id: s203
+  para: 29
+  sent: 140
+  text: 'Verdict: wrong.'
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: WRONG
+    pos: center
+    color: '#e8402f'
+- id: s204
+  para: 30
+  sent: 141
+  text: Ancient people did not die at thirty.
+  visual:
+    prompt: a cradle and an old man's walking stick side by side in a warm room, symbolic ink sketch, people drawn
+      as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s205
+  para: 30
+  sent: 142
+  text: Low life expectancy at birth was driven mainly
+  visual:
+    same: true
+- id: s206
+  para: 30
+  sent: 142
+  text: by the deaths of babies and young children.
+  visual:
+    same: true
+- id: s207
+  para: 30
+  sent: 143
+  text: If you survived childhood,
+  visual:
+    same: true
+- id: s208
+  para: 30
+  sent: 143
+  text: you had a real chance of living into your sixties or seventies,
+  visual:
+    prompt: three generations of an ancient family walking together along a road at sunset
+    ledger: true
+  camera: right
+- id: s209
+  para: 30
+  sent: 143
+  text: and some lived much longer.
+  visual:
+    same: true
+- id: s210
+  para: 30
+  sent: 144
+  text: The natural human lifespan has been
+  visual:
+    same: true
+- id: s211
+  para: 30
+  sent: 144
+  text: about seven decades for a very long time.
+  visual:
+    same: true
+- id: s212
+  para: 31
+  sent: 145
+  text: The next time someone tells you
+  visual:
+    prompt: an aged Roman senator raising an eyebrow from his marble seat, comic
+    ledger: true
+  camera: in
+- id: s213
+  para: 31
+  sent: 145
+  text: that people in the past died at thirty,
+  visual:
+    same: true
+- id: s214
+  para: 31
+  sent: 145
+  text: ask them one question.
+  visual:
+    same: true
+- id: s215
+  para: 31
+  sent: 146
+  text: Who, then, was running the Senate?
+  visual:
+    same: true
+- id: s216
+  para: 32
+  sent: 147
+  text: I have filed this one under statistics,
+  visual:
+    prompt: the clerk's hands sliding the file between two others on a crowded shelf
+    characters:
+    - clerk
+    ledger: true
+  camera: left
+- id: s217
+  para: 32
+  sent: 147
+  text: cross-referenced with grandparents.
+  visual:
+    same: true
+- id: s218
+  para: 33
+  sent: 148
+  text: Case closed.
+  visual:
+    prompt: the clerk's hands tying the string around the life-expectancy folder and placing it on a stack of closed
+      folders
+    characters:
+    - clerk
+    ledger: true
+- id: s219
+  para: 33
+  sent: 149
+  text: Your file, however, remains open.
+  visual:
+    same: true
+- id: s220
+  para: 33
+  sent: 150
+  text: 'Next case: a mineral water, a magazine cover,'
+  visual:
+    prompt: a cheerful bearded Santa Claus ink figure in a long red coat holding up a plain glass bottle of mineral
+      water, a pile of old magazines beside him, comic
+    characters: []
+    ledger: true
+- id: s221
+  para: 33
+  sent: 150
+  text: and a man who was wearing red long before the soda arrived.
+  visual:
+    same: true

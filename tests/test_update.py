@@ -75,3 +75,43 @@ def test_restore_stash_follows_renamed_channel(tmp_path, monkeypatch):
     assert not (repo / "channels/old").exists()
     assert _git(repo, "stash", "list") == ""
     assert Path(repo / "backups").exists()
+
+
+def test_restore_untracked_channel_now_in_git(tmp_path, monkeypatch):
+    """A channel that lived only on the owner's computer is added to git: identical files (CRLF on Windows) stay
+    silent, a file the owner changed afterwards keeps his version, and the incoming copy is set aside."""
+    import studio.channel as channel_mod
+    import studio.config as config_mod
+    import studio.migrate as migrate_mod
+    import studio.updater as up
+
+    repo = tmp_path / "r"
+    (repo / "channels").mkdir(parents=True)
+    (repo / "README.md").write_text("v1\n")
+    _git(repo, "init", "-q", "-b", "main")
+    _git(repo, "-c", "user.email=t@t", "-c", "user.name=t", "add", "-A")
+    _git(repo, "-c", "user.email=t@t", "-c", "user.name=t", "commit", "-qm", "v1")
+    yw = repo / "channels/yw"
+    (yw / "projects/001-a").mkdir(parents=True)
+    (yw / "channel.yaml").write_bytes(b"name: YW\r\nlanguages: [en]\r\n")           # Windows line endings
+    (yw / "projects/001-a/script.md").write_text("# A\n\nnewer words\n")
+    _git(repo, "stash", "push", "-u", "-q")
+    (yw / "projects/001-a").mkdir(parents=True)
+    (yw / "channel.yaml").write_text("name: YW\nlanguages: [en]\n")
+    (yw / "projects/001-a/script.md").write_text("# A\n\nsnapshot words\n")
+    _git(repo, "-c", "user.email=t@t", "-c", "user.name=t", "add", "-A")
+    _git(repo, "-c", "user.email=t@t", "-c", "user.name=t", "commit", "-qm", "v2: channel in git")
+
+    for mod in (config_mod, channel_mod, migrate_mod, up):
+        if hasattr(mod, "ROOT"):
+            monkeypatch.setattr(mod, "ROOT", repo)
+    monkeypatch.setattr(config_mod, "CHANNELS", repo / "channels")
+    monkeypatch.setattr(channel_mod, "CHANNELS", repo / "channels")
+    monkeypatch.setattr(migrate_mod, "CHANNELS", repo / "channels")
+    monkeypatch.setattr(up, "STATE", repo / ".fabrika/state.json")
+
+    assert up.restore() == 0
+    assert not list(repo.rglob("*.senin-surumun"))
+    assert not (yw / "channel.yaml.guncelleme-surumu").exists()
+    assert (yw / "projects/001-a/script.md").read_text() == "# A\n\nnewer words\n"
+    assert (yw / "projects/001-a/script.md.guncelleme-surumu").read_text() == "# A\n\nsnapshot words\n"

@@ -1,0 +1,849 @@
+# Scene plan, Gladiators Rarely Fought to the Death
+s001:
+  visual:
+    prompt: the Colosseum packed with fifty thousand roaring Romans, sunlight on the sand, epic wide view
+  camera: in
+s002:
+  visual:
+    same: true
+s003:
+  visual:
+    same: true
+s004:
+  visual:
+    prompt: a murmillo gladiator with a broad-brimmed crested helmet, a tall rectangular shield and a short sword standing over a fallen a retiarius gladiator with a net, a trident and a bare head on the
+      arena sand, looking up toward the imperial box
+  camera: in
+s005:
+  visual:
+    same: true
+s006:
+  visual:
+    prompt: a Roman emperor in a purple toga in his box, extending his hand with the thumb turned down, dramatic
+  camera: in
+s007:
+  visual:
+    same: true
+s008:
+  visual:
+    prompt: a cinema screen showing a dramatic arena fight, silhouettes of an audience eating popcorn
+  camera: right
+s009:
+  visual:
+    same: true
+s010:
+  visual:
+    prompt: a heroic painting-like scene of two gladiators locked in combat, dust and blood
+  camera: out
+s011:
+  visual:
+    same: true
+s012:
+  visual:
+    prompt: the clerk's hands stamping a thick case file on a cluttered wooden desk in a dim archive, brass lamp
+    characters:
+    - clerk
+  camera: in
+s013:
+  visual:
+    same: true
+s014:
+  visual:
+    same: true
+s015:
+  visual:
+    prompt: endless tall archive shelves full of bound case files disappearing into darkness
+  camera: in
+s016:
+  visual:
+    same: true
+s017:
+  visual:
+    prompt: the clerk's hands opening a folder containing a sketch of a gladiator helmet
+    characters:
+    - clerk
+  camera: none
+s018:
+  visual:
+    same: true
+s019:
+  visual:
+    prompt: a quiet figure in a dark cloak in the upper stands of an ancient arena, holding a wax tablet and stylus, counting
+  camera: right
+s020:
+  visual:
+    same: true
+s021:
+  visual:
+    same: true
+s022:
+  visual:
+    prompt: a gritty arena scene, two gladiators trading blows, blood on the sand, but a referee with a long staff standing close
+  camera: in
+s023:
+  visual:
+    same: true
+s024:
+  visual:
+    same: true
+s025:
+  visual:
+    prompt: a line of gladiator recruits in a Roman training school courtyard, some in chains, some free men in tunics
+  camera: left
+s026:
+  visual:
+    same: true
+s027:
+  visual:
+    same: true
+s028:
+  visual:
+    prompt: a free Roman man signing a contract on a wax tablet before a gladiator school manager, coins on the table
+  camera: in
+s029:
+  visual:
+    same: true
+s030:
+  visual:
+    same: true
+s031:
+  visual:
+    prompt: a Roman nobleman in a fine toga stepping into a gladiator training yard while shocked aristocrats watch
+  camera: right
+s032:
+  visual:
+    same: true
+s033:
+  visual:
+    same: true
+s034:
+  visual:
+    prompt: a Pompeii wall covered in ancient scratched graffiti drawings of gladiators and hearts, two young women giggling nearby, no legible text
+  camera: in
+s035:
+  visual:
+    same: true
+s036:
+  visual:
+    same: true
+s037:
+  visual:
+    same: true
+s038:
+  visual:
+    prompt: the clerk's hands counting a stack of Roman silver coins on the desk
+    characters:
+    - clerk
+  camera: none
+s039:
+  visual:
+    same: true
+s040:
+  visual:
+    same: true
+s041:
+  visual:
+    prompt: a Roman gladiator school courtyard, trainers drilling gladiators with wooden swords against a wooden post
+  camera: left
+s042:
+  visual:
+    same: true
+s043:
+  visual:
+    same: true
+s044:
+  visual:
+    prompt: gladiators eating together at a long table in a barracks, a doctor bandaging an arm, a manager watching with a ledger
+  camera: in
+s045:
+  visual:
+    same: true
+s046:
+  visual:
+    same: true
+s047:
+  visual:
+    prompt: a Roman jurist in a toga writing on a scroll by lamplight, legal codices stacked around him
+  camera: in
+s048:
+  visual:
+    same: true
+s049:
+  visual:
+    same: true
+s050:
+  visual:
+    same: true
+s051:
+  visual:
+    prompt: a balance scale with a small pile of coins on one side and a huge heap of coins on the other, straight-on view
+  camera: none
+s052:
+  visual:
+    same: true
+s053:
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.02
+      - 1.0
+      colors:
+      - good
+      - bad
+s054:
+  visual:
+    same: true
+s055:
+  visual:
+    same: true
+s056:
+  visual:
+    prompt: a lanista in a rich tunic anxiously watching a fight from the gate, biting his knuckle, comic
+  camera: right
+s057:
+  visual:
+    same: true
+s058:
+  visual:
+    same: true
+s059:
+  visual:
+    same: true
+s060:
+  visual:
+    prompt: two gladiators fighting while a referee in a white tunic with a long staff watches closely, a second referee behind
+  camera: in
+s061:
+  visual:
+    same: true
+s062:
+  visual:
+    same: true
+s063:
+  visual:
+    prompt: a wounded a retiarius gladiator with a net, a trident and a bare head kneeling on the sand, raising one finger in appeal
+  camera: in
+s064:
+  visual:
+    same: true
+s065:
+  visual:
+    prompt: a Roman emperor in his box considering, chin in hand, the crowd waiting
+  camera: left
+s066:
+  visual:
+    same: true
+s067:
+  visual:
+    bg: plain_warm
+    props:
+    - type: pie
+      x: 960
+      y: 520
+      scale: 2.2
+      value: 0.15
+      colors:
+      - bad
+      - good
+s068:
+  visual:
+    same: true
+s069:
+  visual:
+    same: true
+s070:
+  visual:
+    same: true
+s071:
+  visual:
+    prompt: two gladiators standing side by side, exhausted, raising their arms to applause from the crowd
+  camera: out
+s072:
+  visual:
+    same: true
+s073:
+  visual:
+    same: true
+s074:
+  visual:
+    prompt: an old weathered stone tombstone in Sicily with a carved relief of a gladiator, carved inscription lines too worn to read
+  camera: in
+s075:
+  visual:
+    same: true
+s076:
+  visual:
+    same: true
+s077:
+  visual:
+    prompt: the clerk's finger tracing the worn carvings on a rubbing of an ancient tombstone
+    characters:
+    - clerk
+  camera: none
+s078:
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.43
+      - 0.19
+      colors:
+      - good
+      - stone
+      - bad
+s079:
+  visual:
+    same: true
+s080:
+  visual:
+    same: true
+s081:
+  visual:
+    same: true
+s082:
+  visual:
+    prompt: a murmillo gladiator with a broad-brimmed crested helmet, a tall rectangular shield and a short sword kneeling defeated, the crowd waving cloths, the editor gesturing mercy
+  camera: in
+s083:
+  visual:
+    same: true
+s084:
+  visual:
+    same: true
+s085:
+  visual:
+    prompt: the same a murmillo gladiator with a broad-brimmed crested helmet, a tall rectangular shield and a short sword, older and scarred, walking back out into the arena to fight again, confident
+  camera: right
+s086:
+  visual:
+    same: true
+s087:
+  visual:
+    same: true
+s088:
+  visual:
+    prompt: a modern smartphone screen glowing in the dark, a person scrolling, ink and watercolour
+  camera: in
+s089:
+  visual:
+    same: true
+s090:
+  visual:
+    same: true
+s091:
+  visual:
+    prompt: a wooden practice sword lying on a stone bench, shafts of light, symbolic
+  camera: in
+s092:
+  visual:
+    same: true
+s093:
+  visual:
+    same: true
+s094:
+  visual:
+    prompt: a Roman gladiator placing a hand on the shoulder of a fallen comrade's gravestone, mournful
+  camera: left
+s095:
+  visual:
+    same: true
+s096:
+  visual:
+    same: true
+s097:
+  visual:
+    prompt: the clerk's hands pulling open a small separate drawer stuffed with notes
+    characters:
+    - clerk
+  camera: none
+s098:
+  visual:
+    same: true
+s099:
+  visual:
+    prompt: the clerk's hands laying out a bone and a magnifying glass on a cloth
+    characters:
+    - clerk
+  camera: in
+s100:
+  visual:
+    same: true
+s101:
+  visual:
+    prompt: archaeologists in 1993 excavating an ancient cemetery near ruined marble columns at Ephesus, Turkey
+  camera: right
+s102:
+  visual:
+    same: true
+s103:
+  visual:
+    same: true
+s104:
+  visual:
+    same: true
+s105:
+  visual:
+    prompt: a modern laboratory with ancient skulls on padded trays, researchers in white coats with a CT scanner
+  camera: in
+s106:
+  visual:
+    same: true
+s107:
+  visual:
+    same: true
+s108:
+  visual:
+    prompt: close-up of an ancient skull showing a smooth healed depression, museum lighting
+  camera: in
+s109:
+  visual:
+    same: true
+s110:
+  visual:
+    prompt: a Roman doctor stitching a gladiator's head wound in a barracks infirmary, lamp light
+  camera: left
+s111:
+  visual:
+    same: true
+s112:
+  visual:
+    prompt: an ancient skull with a single clean puncture wound, scientific illustration
+  camera: in
+s113:
+  visual:
+    same: true
+s114:
+  visual:
+    same: true
+s115:
+  visual:
+    same: true
+s116:
+  visual:
+    prompt: a referee separating two gladiators with a long staff, the rules enforced
+  camera: right
+s117:
+  visual:
+    same: true
+s118:
+  visual:
+    same: true
+s119:
+  visual:
+    prompt: a dark corridor beneath the arena, shadowy and ominous, a figure with a heavy mallet waiting
+  camera: in
+s120:
+  visual:
+    same: true
+s121:
+  visual:
+    same: true
+s122:
+  visual:
+    prompt: an arena gate closing at dusk, long shadows, sombre
+  camera: out
+s123:
+  visual:
+    same: true
+s124:
+  visual:
+    same: true
+s125:
+  visual:
+    prompt: a young Greek doctor in a simple tunic arriving at a gladiator school in Pergamon, carrying a case of instruments
+  camera: in
+s126:
+  visual:
+    same: true
+s127:
+  visual:
+    same: true
+s128:
+  visual:
+    same: true
+s129:
+  visual:
+    prompt: an older Galen in rich robes attending a Roman emperor in a palace, scrolls and medicine jars
+  camera: right
+s130:
+  visual:
+    same: true
+s131:
+  visual:
+    same: true
+s132:
+  visual:
+    prompt: an anatomical watercolour of a deep wound on a forearm, showing muscles and tendons beneath, scientific
+  camera: in
+s133:
+  visual:
+    prompt: Galen writing in a ledger by lamplight, a row of recovering gladiators resting on cots behind him
+  camera: left
+s134:
+  visual:
+    same: true
+s135:
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.08
+      - 1.0
+      colors:
+      - good
+      - bad
+s136:
+  visual:
+    same: true
+s137:
+  visual:
+    same: true
+s138:
+  visual:
+    prompt: a gladiator flexing a newly healed arm and grinning at the doctor
+  camera: in
+s139:
+  visual:
+    prompt: the clerk's hands holding up a single thumb-shaped wax seal, examining it
+    characters:
+    - clerk
+  camera: none
+s140:
+  visual:
+    same: true
+s141:
+  visual:
+    prompt: a grand nineteenth-century art gallery, visitors in top hats admiring a huge academic painting of an arena scene
+  camera: in
+s142:
+  visual:
+    same: true
+s143:
+  visual:
+    same: true
+s144:
+  visual:
+    same: true
+s145:
+  visual:
+    prompt: an academic-style oil painting of a victorious gladiator standing over a fallen retiarius while Vestal Virgins in white robes point their thumbs down, Colosseum crowd
+  camera: in
+s146:
+  visual:
+    same: true
+s147:
+  visual:
+    same: true
+s148:
+  visual:
+    same: true
+s149:
+  visual:
+    prompt: a film set with a camera crane in a reconstructed Roman arena, crew and lights
+  camera: right
+s150:
+  visual:
+    same: true
+s151:
+  visual:
+    same: true
+s152:
+  visual:
+    prompt: a globe surrounded by countless hands giving a thumbs-down, comic
+  camera: out
+s153:
+  visual:
+    same: true
+s154:
+  visual:
+    prompt: a Roman poet with a scroll reciting sardonically in a crowded Roman street
+  camera: in
+s155:
+  visual:
+    same: true
+s156:
+  visual:
+    same: true
+s157:
+  visual:
+    prompt: a giant question mark made of ancient marble lying in a ruin, a scholar scratching his head
+  camera: left
+s158:
+  visual:
+    same: true
+s159:
+  visual:
+    same: true
+s160:
+  visual:
+    prompt: two hand gestures side by side, a thumb pointing up and a thumb pressed against a closed fist, carved in marble relief, straight-on view, none overlapping
+  camera: none
+s161:
+  visual:
+    same: true
+s162:
+  visual:
+    same: true
+s163:
+  visual:
+    prompt: a modern tourist giving a cheerful thumbs-up in front of a holiday photo, while a Roman ghost behind looks horrified, comic
+  camera: in
+s164:
+  visual:
+    same: true
+s165:
+  visual:
+    same: true
+s166:
+  visual:
+    prompt: an arena crowd on their feet shouting, mouths open, fists raised
+  camera: right
+s167:
+  visual:
+    same: true
+s168:
+  visual:
+    same: true
+s169:
+  visual:
+    prompt: arena spectators waving white cloths in the air, a sea of fabric
+  camera: in
+s170:
+  visual:
+    same: true
+s171:
+  visual:
+    prompt: a line of gladiators raising their swords toward the imperial box, cinematic
+  camera: in
+s172:
+  visual:
+    same: true
+s173:
+  visual:
+    prompt: a theatrical film still of a gladiator bellowing toward the emperor, dramatic lighting
+  camera: out
+s174:
+  visual:
+    same: true
+s175:
+  visual:
+    prompt: the clerk's hands unrolling an old scroll with a sketch of ships on a lake
+    characters:
+    - clerk
+  camera: none
+s176:
+  visual:
+    same: true
+s177:
+  visual:
+    same: true
+s178:
+  visual:
+    prompt: a huge mock naval battle on a lake in the year 52, Roman warships, crowds on the hillsides
+  camera: in
+s179:
+  visual:
+    same: true
+s180:
+  visual:
+    prompt: ragged condemned prisoners in boats raising their arms toward an emperor on the shore, pleading
+  camera: right
+s181:
+  visual:
+    same: true
+s182:
+  visual:
+    prompt: Emperor Claudius on a lakeside platform shrugging awkwardly, while prisoners cheer and throw down their weapons
+  camera: in
+s183:
+  visual:
+    same: true
+s184:
+  visual:
+    same: true
+s185:
+  visual:
+    prompt: soldiers coaxing reluctant prisoners back into the boats, comic chaos
+  camera: left
+s186:
+  visual:
+    same: true
+s187:
+  visual:
+    same: true
+s188:
+  visual:
+    prompt: a dark, grim arena at dusk, empty sand, a sombre atmosphere
+  camera: in
+s189:
+  visual:
+    same: true
+s190:
+  visual:
+    same: true
+s191:
+  visual:
+    prompt: lions prowling in the arena under an awning, the crowd distant and blurred, restrained not graphic
+  camera: right
+s192:
+  visual:
+    same: true
+s193:
+  visual:
+    same: true
+s194:
+  visual:
+    prompt: Emperor Augustus in a laurel wreath signing a decree on a scroll
+  camera: in
+s195:
+  visual:
+    same: true
+s196:
+  visual:
+    same: true
+s197:
+  visual:
+    prompt: a young gladiator's simple gravestone among many in a row, flowers placed before it
+  camera: in
+s198:
+  visual:
+    same: true
+s199:
+  visual:
+    same: true
+s200:
+  visual:
+    prompt: a gladiator lacing his sandals at dawn before a fight, calm and resigned
+  camera: left
+s201:
+  visual:
+    same: true
+s202:
+  visual:
+    same: true
+s203:
+  visual:
+    prompt: a modern combat sports arena with a referee raising a fighter's arm, echoing a Roman arena
+  camera: out
+s204:
+  visual:
+    same: true
+s205:
+  visual:
+    same: true
+s206:
+  visual:
+    same: true
+s207:
+  visual:
+    prompt: a Roman barracks kitchen, bowls of barley porridge and beans on a wooden table
+  camera: in
+s208:
+  visual:
+    same: true
+s209:
+  visual:
+    same: true
+s210:
+  visual:
+    prompt: a Roman scholar writing in a codex, a sheaf of barley beside him
+  camera: right
+s211:
+  visual:
+    same: true
+s212:
+  visual:
+    same: true
+s213:
+  visual:
+    prompt: a gladiator drinking from a clay cup of grey ash tonic, grimacing
+  camera: in
+s214:
+  visual:
+    same: true
+s215:
+  visual:
+    same: true
+s216:
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+  camera: in
+s217:
+  visual:
+    prompt: two gladiators leaving the arena side by side, both alive, helmets under their arms
+  camera: in
+s218:
+  visual:
+    same: true
+s219:
+  visual:
+    same: true
+s220:
+  visual:
+    prompt: a still life of a referee's staff, a surgeon's bronze instruments and a bowl of barley on a table, straight-on view, one row, none overlapping
+  camera: none
+s221:
+  visual:
+    same: true
+s222:
+  visual:
+    same: true
+s223:
+  visual:
+    same: true
+s224:
+  visual:
+    prompt: an older scarred gladiator walking back into the sunlight of the arena tunnel, determined
+  camera: out
+s225:
+  visual:
+    same: true
+s226:
+  visual:
+    same: true
+s227:
+  visual:
+    same: true
+s228:
+  visual:
+    prompt: the clerk's hands sliding the file between two others on a crowded shelf
+    characters:
+    - clerk
+  camera: left
+s229:
+  visual:
+    same: true
+s230:
+  visual:
+    prompt: the clerk's hands closing the file, then the desk lamp dims
+    characters:
+    - clerk
+  camera: out
+s231:
+  visual:
+    same: true
+s232:
+  visual:
+    same: true
+s233:
+  visual:
+    prompt: the clerk's hand making a sideways thumb gesture, uncertain, in lamplight
+    characters:
+    - clerk
+  camera: none
+s234:
+  visual:
+    same: true

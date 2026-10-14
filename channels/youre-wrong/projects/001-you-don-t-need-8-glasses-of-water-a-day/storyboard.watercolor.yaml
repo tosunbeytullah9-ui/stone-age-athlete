@@ -1,0 +1,1586 @@
+title: 001-you-don-t-need-8-glasses-of-water-a-day
+paragraphs: 38
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: Eight glasses of water a day.
+  visual:
+    prompt: Straight-on front view of exactly eight identical full glasses of water standing side by side in one
+      evenly spaced straight row across a wooden kitchen table, all the same size, every glass fully visible, none
+      overlapping or hidden, counted left to right one to eight, soft morning window light, a quiet kitchen behind
+  camera: in
+- id: s002
+  para: 0
+  sent: 1
+  text: You have heard it a thousand times.
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 2
+  text: And it started with a sentence that nobody finished reading.
+  visual:
+    same: true
+- id: s004
+  para: 1
+  sent: 3
+  text: Case file zero zero one.
+  visual:
+    prompt: Overhead close-up of the clerk's old ink-stained hands untying the string of a thick blank cardboard
+      case folder on a cluttered wooden archive desk, a green-glass banker's lamp glowing, a brass rubber stamp
+      and an ink pad beside the folder, dust floating in the lamplight
+    characters:
+    - clerk
+  camera: in
+  overlay:
+    kind: label
+    text: CASE FILE 001
+- id: s005
+  para: 1
+  sent: 4
+  text: 'Subject: you.'
+  visual:
+    same: true
+- id: s006
+  para: 1
+  sent: 5
+  text: 'Belief: you must drink eight glasses of water a day,'
+  visual:
+    prompt: 'A comic still life on a white porcelain saucer: one plump, glossy green grape next to a tiny shrivelled
+      dark raisin, a brass magnifying glass leaning over them, dramatic side light, plain cream background'
+  camera: right
+- id: s007
+  para: 1
+  sent: 5
+  text: or your body slowly turns into a raisin.
+  visual:
+    same: true
+- id: s008
+  para: 2
+  sent: 6
+  text: I am Mortimer.
+  visual:
+    prompt: 'Seen from behind a small wooden desk with a green banker''s lamp: an endless archive hall stretching
+      away, towering wooden shelves packed with tied cardboard folders up to a vaulted ceiling, the clerk''s hands
+      resting on a stack of folders in the foreground, his face out of frame'
+    characters:
+    - clerk
+  camera: out
+- id: s009
+  para: 2
+  sent: 7
+  text: I work at the Bureau of Human Error.
+  visual:
+    same: true
+- id: s010
+  para: 2
+  sent: 8
+  text: My job is to file everything humanity gets wrong.
+  visual:
+    same: true
+- id: s011
+  para: 2
+  sent: 9
+  text: I have been doing it for about three thousand years.
+  visual:
+    prompt: Low-angle view straight up a towering archive shelf that disappears into darkness, thousands of identical
+      tied cardboard folders, a rolling wooden library ladder leaning against it, dust drifting through shafts of
+      pale light
+  camera: in
+- id: s012
+  para: 2
+  sent: 10
+  text: The archive is not getting smaller.
+  visual:
+    same: true
+- id: s013
+  para: 3
+  sent: 11
+  text: Now, I am not judging.
+  visual:
+    prompt: Close-up of the clerk's ink-stained hands on the archive desk turning over a dented, faded 1990s plastic
+      sports water bottle with a pull-up cap, inspecting it in the lamplight like a museum object, folders stacked
+      around
+    characters:
+    - clerk
+  camera: left
+- id: s014
+  para: 3
+  sent: 12
+  text: I believed this one too.
+  visual:
+    same: true
+- id: s015
+  para: 3
+  sent: 13
+  text: I carried a water bottle for most of the nineteen-nineties.
+  visual:
+    prompt: 'A 1990s city street on a grey day, seen from behind: a very tall thin figure in a long dark-green wool
+      coat walking away from the viewer, carrying an absurdly huge plastic water bottle under one arm, 1990s pedestrians
+      in denim jackets and sneakers turning to look, his face never visible'
+    characters:
+    - clerk
+  camera: right
+- id: s016
+  para: 3
+  sent: 14
+  text: It was very heavy.
+  visual:
+    same: true
+- id: s017
+  para: 3
+  sent: 15
+  text: It did nothing for my personality.
+  visual:
+    same: true
+- id: s018
+  para: 4
+  sent: 16
+  text: So let's open the file, and see who wrote the original report.
+  visual:
+    prompt: Close-up of the clerk's hand pulling a thick yellowed folder out of a deep drawer of a tall oak filing
+      cabinet, the drawer packed with hundreds of other folders, warm lamplight, dust lifting off the paper
+    characters:
+    - clerk
+  camera: in
+- id: s019
+  para: 5
+  sent: 17
+  text: The year is nineteen forty-five.
+  visual:
+    prompt: Wide shot of a grand neoclassical government building in Washington in 1945, stone columns and wide
+      steps, autumn trees, men in fedoras and overcoats and women in 1940s coats walking past, a few rounded 1940s
+      cars at the curb, crisp afternoon light
+  camera: left
+- id: s020
+  para: 5
+  sent: 18
+  text: In the United States,
+  visual:
+    same: true
+- id: s021
+  para: 5
+  sent: 18
+  text: a government panel called the Food
+  visual:
+    prompt: 'Medium shot of a 1945 scientific committee meeting: six middle-aged scientists and officials in suits
+      and ties around a long dark wooden table covered with papers, coffee cups, a glass water jug, a haze of cigarette
+      smoke, tall window light falling across the table'
+  camera: in
+- id: s022
+  para: 5
+  sent: 18
+  text: and Nutrition Board publishes its advice on water.
+  visual:
+    same: true
+- id: s023
+  para: 5
+  sent: 19
+  text: An adult, it says, needs about two and a half liters a day.
+  visual:
+    prompt: 'Still life on a 1940s kitchen counter: a large glass measuring jug full of water next to a hearty plate
+      of food, roast meat, potatoes and green beans, a typewriter blurred in the background, warm afternoon light'
+  camera: right
+- id: s024
+  para: 5
+  sent: 20
+  text: Roughly one milliliter for every calorie of food.
+  visual:
+    same: true
+- id: s025
+  para: 6
+  sent: 21
+  text: That is about ten glasses.
+  visual:
+    prompt: Side view of a long kitchen counter with ten full glasses of water standing in one neat row, each glass
+      catching the light, a calm 1940s kitchen behind them
+  camera: left
+- id: s026
+  para: 6
+  sent: 22
+  text: So far, the legend looks almost modest.
+  visual:
+    same: true
+- id: s027
+  para: 6
+  sent: 23
+  text: But the board did not stop there.
+  visual:
+    prompt: Close-up of a 1940s typewriter with a sheet of paper rolled in, the typing out of focus and unreadable,
+      a brass magnifying glass resting on the page and a fountain pen beside it, a desk lamp throwing a warm circle
+      of light
+  camera: in
+  tone:
+  - pause
+- id: s028
+  para: 6
+  sent: 24
+  text: 'The very next sentence says, and I quote:'
+  visual:
+    same: true
+- id: s029
+  para: 6
+  sent: 24
+  text: '"Most of this quantity is contained in prepared foods."'
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: '"Most of this quantity is contained in prepared foods." - 1945'
+- id: s030
+  para: 7
+  sent: 25
+  text: Most of it.
+  visual:
+    prompt: 'Overhead view of a 1940s family dinner table: bowls of steaming vegetable soup, sliced tomatoes, cucumbers,
+      oranges, a wedge of watermelon, bread, glasses of milk, four pairs of hands reaching for the dishes, warm
+      homely light'
+  camera: out
+- id: s031
+  para: 7
+  sent: 26
+  text: Is already.
+  visual:
+    same: true
+- id: s032
+  para: 7
+  sent: 27
+  text: In your food.
+  visual:
+    same: true
+- id: s033
+  para: 7
+  sent: 28
+  text: That sentence did not make it into the legend.
+  visual:
+    prompt: 'Medium shot inside a busy modern gym: a line of six people in workout clothes queueing at a steel water
+      fountain, each one patiently filling an oversized plastic bottle, bright cool overhead lights, treadmills
+      in the background'
+  camera: right
+- id: s034
+  para: 7
+  sent: 29
+  text: Somewhere between nineteen forty-five and your gym bag,
+  visual:
+    same: true
+- id: s035
+  para: 7
+  sent: 29
+  text: humanity read the first half, nodded,
+  visual:
+    same: true
+- id: s036
+  para: 7
+  sent: 29
+  text: and went to fill a bottle.
+  visual:
+    same: true
+- id: s037
+  para: 8
+  sent: 30
+  text: Then, in the nineteen-seventies,
+  visual:
+    prompt: 'A 1970s university lecture hall seen from the back row: a middle-aged nutrition professor in a brown
+      tweed jacket at the front beside a blackboard with simple chalk drawings of drinking glasses, rows of students
+      with long hair and wide collars, warm orange light'
+  camera: in
+- id: s038
+  para: 8
+  sent: 30
+  text: a well-known American nutritionist, Frederick Stare,
+  visual:
+    same: true
+- id: s039
+  para: 8
+  sent: 30
+  text: recommended at least six glasses a day.
+  visual:
+    same: true
+- id: s040
+  para: 8
+  sent: 31
+  text: He never explained where the number came from.
+  visual:
+    prompt: Straight-on front view of a 1970s kitchen table with exactly six identical glasses of water standing
+      in one evenly spaced row, every glass fully visible, while one hand sets down a seventh glass at the right
+      end of the row and a second hand holds up an eighth glass above it, eight glasses in total, orange and brown
+      1970s wallpaper behind
+  camera: left
+- id: s041
+  para: 8
+  sent: 32
+  text: Over the years, six became eight.
+  visual:
+    same: true
+- id: s042
+  para: 8
+  sent: 33
+  text: A suggestion became a commandment.
+  visual:
+    prompt: 'A gently absurd scene: a giant stone monument of a sports water bottle on a tall pedestal in the middle
+      of a sunny city square, small crowds of modern people looking up at it in reverence, pigeons on the cap'
+  camera: out
+- id: s043
+  para: 8
+  sent: 34
+  text: And the commandment got its own bottle.
+  visual:
+    same: true
+- id: s044
+  para: 9
+  sent: 35
+  text: In two thousand and two,
+  visual:
+    prompt: Over-the-shoulder view of an elderly white-haired professor in a cardigan reading at a desk in a book-lined
+      university office in 2002, snow falling on New England pine trees outside the window, stacks of medical journals,
+      a desk lamp
+  camera: in
+- id: s045
+  para: 9
+  sent: 35
+  text: a kidney specialist named Heinz Valtin decided to check.
+  visual:
+    same: true
+- id: s046
+  para: 9
+  sent: 36
+  text: He was a professor at Dartmouth Medical School,
+  visual:
+    same: true
+- id: s047
+  para: 9
+  sent: 36
+  text: and he had written textbooks on how the body balances water.
+  visual:
+    prompt: A cut-away anatomical museum plate of the human kidneys, ureters and bladder with the renal arteries
+      and veins, painted with fine ink lines and soft watercolor, shown floating against aged paper like an old
+      medical textbook illustration
+  camera: right
+- id: s048
+  para: 9
+  sent: 37
+  text: He went looking for the science behind eight glasses a day.
+  visual:
+    same: true
+- id: s049
+  para: 9
+  sent: 38
+  text: He found no scientific proof
+  visual:
+    prompt: Close-up of an old wooden library card catalogue with one long drawer pulled all the way out and completely
+      empty, the professor's hand resting on its edge, dust in the light
+  camera: in
+- id: s050
+  para: 9
+  sent: 38
+  text: that every person must drink that much.
+  visual:
+    same: true
+- id: s051
+  para: 10
+  sent: 39
+  text: Instead, he pointed at the obvious.
+  visual:
+    prompt: 'A rustic wooden table covered with juicy fresh food: sliced watermelon, cucumbers, ripe tomatoes, oranges
+      cut in half, crisp lettuce, everything glistening with juice and water droplets, bright natural light'
+  camera: left
+- id: s052
+  para: 10
+  sent: 40
+  text: You get lots of water from solid food.
+  visual:
+    same: true
+- id: s053
+  para: 10
+  sent: 41
+  text: Especially fruit and vegetables.
+  visual:
+    same: true
+- id: s054
+  para: 10
+  sent: 42
+  text: Even bread is roughly a third water.
+  visual:
+    prompt: Close-up of a thick sandwich cut in half on a plate, soft bread, lettuce and juicy tomato slices, a
+      drop of tomato juice falling from it, a glass of water standing ignored in the background
+  camera: in
+- id: s055
+  para: 10
+  sent: 43
+  text: You have been drinking your sandwich for years.
+  visual:
+    same: true
+- id: s056
+  para: 11
+  sent: 44
+  text: And it is not only food.
+  visual:
+    prompt: 'Wide shot of a long modern dining table set with every kind of watery food and drink: cups of coffee,
+      pots of tea, glasses of milk, orange juice, bowls of soup, fruit, yogurt and one small glass of water, a family
+      of five sitting down to eat'
+  camera: out
+- id: s057
+  para: 11
+  sent: 45
+  text: Since two thousand and four,
+  visual:
+    same: true
+- id: s058
+  para: 11
+  sent: 45
+  text: the official American guideline has counted total water,
+  visual:
+    same: true
+- id: s059
+  para: 11
+  sent: 45
+  text: from all foods and all drinks.
+  visual:
+    same: true
+- id: s060
+  para: 11
+  sent: 46
+  text: About three point seven liters a day for men,
+  visual:
+    prompt: A man and a woman in their thirties standing side by side at a bright modern kitchen counter, each with
+      a tall jug, a mug of tea and a bowl of soup in front of them, the man's jug noticeably larger, relaxed friendly
+      mood
+  camera: right
+- id: s061
+  para: 11
+  sent: 46
+  text: and two point seven for women.
+  visual:
+    same: true
+- id: s062
+  para: 12
+  sent: 47
+  text: Now here is the number that ruins the rule.
+  visual:
+    prompt: 'A modern nutrition research office: two researchers at a desk comparing printed food diaries and survey
+      sheets, the writing too small to read, computer screens softly blurred, mugs and fruit on the desk, cool daylight'
+  camera: in
+- id: s063
+  para: 12
+  sent: 48
+  text: When American researchers looked
+  visual:
+    same: true
+- id: s064
+  para: 12
+  sent: 48
+  text: at what adults actually consumed,
+  visual:
+    same: true
+- id: s065
+  para: 12
+  sent: 48
+  text: plain drinking water was only about a third of it.
+  visual:
+    bg: plain_cool
+    props:
+    - type: pie
+      x: 960
+      y: 520
+      value: 0.32
+      colors:
+      - water
+      - '#fbfbf7'
+      scale: 2.2
+- id: s066
+  para: 12
+  sent: 49
+  text: Thirty percent for men.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 30% / 34%
+- id: s067
+  para: 12
+  sent: 50
+  text: Thirty-four percent for women.
+  visual:
+    same: true
+- id: s068
+  para: 12
+  sent: 51
+  text: The rest came from other drinks, and from food.
+  visual:
+    same: true
+- id: s069
+  para: 13
+  sent: 52
+  text: '"But coffee dehydrates you." I know.'
+  visual:
+    prompt: Close-up of the clerk's hand pulling open a small wooden desk drawer that is stuffed with old blank
+      folders and a chipped white coffee cup still steaming, the lamp lighting the drawer from above
+    characters:
+    - clerk
+  camera: left
+- id: s070
+  para: 13
+  sent: 53
+  text: That one has its own drawer.
+  visual:
+    same: true
+- id: s071
+  para: 13
+  sent: 54
+  text: In two thousand and fourteen,
+  visual:
+    prompt: 'A British university sports science laboratory: a researcher in a white lab coat with a clipboard weighing
+      a young man in a t-shirt on a large lab scale, measuring tubes and equipment on the benches, grey English
+      daylight through tall windows'
+  camera: in
+- id: s072
+  para: 13
+  sent: 54
+  text: researchers in Britain gave fifty men,
+  visual:
+    same: true
+- id: s073
+  para: 13
+  sent: 54
+  text: all daily coffee drinkers,
+  visual:
+    same: true
+- id: s074
+  para: 13
+  sent: 54
+  text: four cups of coffee a day for three days.
+  visual:
+    prompt: 'Close-up of a lab bench: four white cups of black coffee lined up in a row, and next to them four identical
+      glasses of water in a matching row, a laboratory timer and a notebook beside them, clean cool light'
+  camera: right
+- id: s075
+  para: 13
+  sent: 55
+  text: Then the same amount of water, for three days.
+  visual:
+    same: true
+- id: s076
+  para: 13
+  sent: 56
+  text: Their hydration looked the same.
+  visual:
+    bg: plain_warm
+    props:
+    - type: balance
+      x: 960
+      y: 900
+      tilt: 0.0
+      scale: 1.5
+- id: s077
+  para: 13
+  sent: 57
+  text: Moderate coffee, in people used to it,
+  visual:
+    same: true
+- id: s078
+  para: 13
+  sent: 57
+  text: hydrated about as well as water.
+  visual:
+    same: true
+- id: s079
+  para: 14
+  sent: 58
+  text: While that drawer is open, here is its neighbour.
+  visual:
+    prompt: Close-up of the clerk's hand pulling open a second small wooden drawer right next to an already open
+      one in the archive desk, a puff of dust rising, old blank folders inside, warm lamplight
+    characters:
+    - clerk
+  camera: right
+- id: s080
+  para: 14
+  sent: 59
+  text: '"If you feel thirsty,'
+  visual:
+    same: true
+- id: s081
+  para: 14
+  sent: 59
+  text: you are already dehydrated." You have heard that one too.
+  visual:
+    prompt: 'Gently comic scene in a modern gym: a muscular man holding an enormous gallon water jug lecturing a
+      bored friend who is tying his shoelaces on a bench, bright cool light'
+  camera: in
+- id: s082
+  para: 14
+  sent: 60
+  text: Usually from someone holding a very large bottle.
+  visual:
+    same: true
+- id: s083
+  para: 15
+  sent: 61
+  text: The earliest version in our files comes
+  visual:
+    prompt: 'A busy 1980s American newspaper newsroom on a hot summer day: rows of desks with typewriters and telephones,
+      stacks of newsprint, a desk fan turning, reporters in short sleeves, sunlight through the blinds'
+  camera: left
+- id: s084
+  para: 15
+  sent: 61
+  text: from an Illinois newspaper,
+  visual:
+    same: true
+- id: s085
+  para: 15
+  sent: 61
+  text: in nineteen eighty-four.
+  visual:
+    same: true
+- id: s086
+  para: 15
+  sent: 62
+  text: A fitness expert said it
+  visual:
+    prompt: 'A 1984 outdoor summer aerobics class in a suburban park: a fitness instructor in a headband and leg
+      warmers leading a group of sweating people in bright leotards under a hot sun, a cooler of water at the side'
+  camera: in
+- id: s087
+  para: 15
+  sent: 62
+  text: about people exercising for more than an hour, in summer heat.
+  visual:
+    same: true
+- id: s088
+  para: 15
+  sent: 63
+  text: Sensible advice.
+  visual:
+    same: true
+- id: s089
+  para: 15
+  sent: 64
+  text: Then the details fell off.
+  visual:
+    prompt: Close-up of an old yellowed newspaper clipping on the archive desk, the print blurred and unreadable,
+      a pair of scissors snipping pieces off its edges, small paper scraps fluttering away into the lamplight
+  camera: in
+- id: s090
+  para: 15
+  sent: 65
+  text: The summer went missing.
+  visual:
+    same: true
+- id: s091
+  para: 15
+  sent: 66
+  text: The hour went missing.
+  visual:
+    same: true
+- id: s092
+  para: 15
+  sent: 67
+  text: The exercise went missing.
+  visual:
+    same: true
+- id: s093
+  para: 15
+  sent: 68
+  text: What was left was a sentence about everybody, all the time,
+  visual:
+    prompt: A man relaxing on a living-room sofa in front of a television in the evening, anxiously gulping from
+      a huge plastic water bottle, a cat watching him with a puzzled look
+  camera: right
+- id: s094
+  para: 15
+  sent: 68
+  text: including people sitting on a sofa.
+  visual:
+    same: true
+- id: s095
+  para: 16
+  sent: 69
+  text: Valtin checked this one as well.
+  visual:
+    prompt: The same elderly white-haired professor in his book-lined office, now leaning over an anatomy textbook
+      with a magnifying glass, snow still falling outside the window
+    ref: s044
+  camera: in
+- id: s096
+  para: 16
+  sent: 70
+  text: Thirst switches on when your blood has become less
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.4
+      - 1.0
+      colors:
+      - good
+      - bad
+- id: s097
+  para: 16
+  sent: 70
+  text: than two percent more concentrated.
+  visual:
+    same: true
+- id: s098
+  para: 16
+  sent: 71
+  text: Most experts would say dehydration begins at around five percent.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: thirst <2%  |  dehydration ~5%
+- id: s099
+  para: 16
+  sent: 72
+  text: So in daily life, thirst is not a late alarm.
+  visual:
+    prompt: An old-fashioned brass fire alarm bell on a wall ringing early, while below it a calm woman simply pours
+      herself a glass of water in a sunny kitchen, nothing is burning
+  camera: left
+- id: s100
+  para: 16
+  sent: 73
+  text: It is an early one.
+  visual:
+    same: true
+- id: s101
+  para: 16
+  sent: 74
+  text: Your body is not that badly designed.
+  visual:
+    prompt: A gently comic anatomical museum plate of the human abdomen, the intestines painted in soft watercolor,
+      the small appendix highlighted in muted red as if under suspicion, aged encyclopedia paper
+  camera: in
+- id: s102
+  para: 16
+  sent: 75
+  text: I have seen worse.
+  visual:
+    same: true
+- id: s103
+  para: 16
+  sent: 76
+  text: I have seen the appendix.
+  visual:
+    same: true
+- id: s104
+  para: 17
+  sent: 77
+  text: There is one exception, and it is the original one.
+  visual:
+    prompt: A lone long-distance runner on a straight desert road under a blazing midday sun, shirt soaked with
+      sweat, heat shimmer rising from the asphalt, no other people in sight
+  camera: out
+- id: s105
+  para: 17
+  sent: 78
+  text: Long, hard exercise in the heat.
+  visual:
+    same: true
+- id: s106
+  para: 17
+  sent: 79
+  text: That is where sports scientists trust
+  visual:
+    prompt: An old-fashioned bathroom scale standing on a red running track next to a stopwatch, a towel and a water
+      bottle, harsh hot sunlight and long shadows
+  camera: in
+- id: s107
+  para: 17
+  sent: 79
+  text: a bathroom scale more than a feeling.
+  visual:
+    same: true
+- id: s108
+  para: 17
+  sent: 80
+  text: Hold that thought.
+  visual:
+    same: true
+- id: s109
+  para: 17
+  sent: 81
+  text: Our coach will come back to it.
+  visual:
+    same: true
+- id: s110
+  para: 18
+  sent: 82
+  text: Filing note.
+  visual:
+    prompt: The clerk's hands on the archive desk holding an open antique pocket watch, surrounded by dozens of
+      other old pocket watches and brass hourglasses scattered among the folders, warm lamplight, a gently comic
+      mood
+    characters:
+    - clerk
+  camera: in
+- id: s111
+  para: 18
+  sent: 83
+  text: Subscribing to this channel is free.
+  visual:
+    same: true
+- id: s112
+  para: 18
+  sent: 84
+  text: I checked.
+  visual:
+    same: true
+- id: s113
+  para: 18
+  sent: 85
+  text: I have had three thousand years.
+  visual:
+    same: true
+- id: s114
+  para: 19
+  sent: 86
+  text: So how much water does a body actually move through in a day?
+  visual:
+    prompt: Aerial view of a busy city pedestrian crossing at midday, hundreds of people of all ages and builds
+      crossing in every direction, long shadows, a lively documentary mood
+  camera: out
+- id: s115
+  para: 19
+  sent: 87
+  text: For a long time, nobody had measured it in large numbers.
+  visual:
+    same: true
+- id: s116
+  para: 19
+  sent: 88
+  text: In two thousand and twenty-two,
+  visual:
+    prompt: 'A large modern laboratory: an international team of five scientists of different ages and backgrounds
+      working around a mass spectrometer and racks of small sample vials, one checking a tray of tubes, bright clean
+      light'
+  camera: left
+- id: s117
+  para: 19
+  sent: 88
+  text: a large international team published the answer
+  visual:
+    same: true
+- id: s118
+  para: 19
+  sent: 88
+  text: in the journal Science.
+  visual:
+    same: true
+- id: s119
+  para: 19
+  sent: 89
+  text: They had data from five thousand six hundred and four people,
+  visual:
+    prompt: An antique world map painted like an old atlas page, with small red pins scattered across every inhabited
+      continent, a magnifying glass resting on one corner, aged paper, no lettering
+  camera: right
+- id: s120
+  para: 19
+  sent: 89
+  text: in twenty-six countries,
+  visual:
+    same: true
+- id: s121
+  para: 19
+  sent: 89
+  text: aged eight days to ninety-six years.
+  visual:
+    same: true
+- id: s122
+  para: 20
+  sent: 90
+  text: Each person drank a small,
+  visual:
+    prompt: Close-up of a hand holding a small laboratory beaker of perfectly clear water that seems to shimmer
+      faintly, a rack of tiny labeled sample vials blurred behind it, cool light
+  camera: in
+- id: s123
+  para: 20
+  sent: 90
+  text: measured dose of specially labeled water.
+  visual:
+    same: true
+- id: s124
+  para: 20
+  sent: 91
+  text: Harmless isotopes that can be traced.
+  visual:
+    same: true
+- id: s125
+  para: 20
+  sent: 92
+  text: Then the scientists followed how fast
+  visual:
+    prompt: An anatomical museum plate of a standing translucent human figure, a soft blue current of water flowing
+      in through the mouth and out through the skin, lungs and kidneys, painted like an old encyclopedia illustration
+      on aged paper
+  camera: out
+- id: s126
+  para: 20
+  sent: 92
+  text: that water moved through the body.
+  visual:
+    same: true
+- id: s127
+  para: 20
+  sent: 93
+  text: Not what people said they drank.
+  visual:
+    same: true
+- id: s128
+  para: 20
+  sent: 94
+  text: What their bodies actually did.
+  visual:
+    same: true
+- id: s129
+  para: 21
+  sent: 95
+  text: The result?
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.17
+      - 1.0
+      colors:
+      - water
+      - ochre
+- id: s130
+  para: 21
+  sent: 96
+  text: Daily water turnover ranged from about one liter to about six.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 1-6 L a day
+- id: s131
+  para: 21
+  sent: 97
+  text: Some bodies moved six times as much water as others.
+  visual:
+    same: true
+- id: s132
+  para: 21
+  sent: 98
+  text: One number for everybody was never going to fit.
+  visual:
+    same: true
+- id: s133
+  para: 22
+  sent: 99
+  text: The biggest reasons were physical activity, and being an athlete.
+  visual:
+    prompt: A sweating sprinter in a running vest racing along a sunlit athletics track in hot weather, and behind
+      the fence a road worker in a hard hat shovelling gravel, heat haze over everything
+  camera: right
+- id: s134
+  para: 22
+  sent: 100
+  text: Then sex, the kind of country you live in, and age.
+  visual:
+    same: true
+- id: s135
+  para: 22
+  sent: 101
+  text: Heat and humidity mattered too.
+  visual:
+    same: true
+- id: s136
+  para: 22
+  sent: 102
+  text: All else being equal,
+  visual:
+    prompt: 'Interior of a quiet office: a man at a desk with a small cup beside his computer, while through the
+      big window behind him a runner in shorts jogs past in the bright park, the contrast of the two lives in one
+      frame'
+  camera: in
+- id: s137
+  para: 22
+  sent: 102
+  text: an athlete turned over about one liter more per day.
+  visual:
+    same: true
+- id: s138
+  para: 23
+  sent: 103
+  text: And the authors wrote it down, plainly.
+  visual:
+    prompt: Close-up of an open scientific journal on a desk, the printed columns too small and blurred to read,
+      a red pencil circling one paragraph, reading glasses resting on the page, lamplight
+  camera: left
+- id: s139
+  para: 23
+  sent: 104
+  text: The common suggestion to drink eight glasses
+  visual:
+    same: true
+- id: s140
+  para: 23
+  sent: 104
+  text: a day is not backed by objective evidence.
+  visual:
+    same: true
+- id: s141
+  para: 24
+  sent: 105
+  text: My favourite detail is this.
+  visual:
+    prompt: A cut-away scientific plate of a single human cell, its mitochondria glowing softly, tiny droplets of
+      water forming inside as food is burned, painted like a vintage biology textbook illustration on aged paper
+  camera: in
+- id: s142
+  para: 24
+  sent: 106
+  text: About a tenth of the water passing
+  visual:
+    same: true
+- id: s143
+  para: 24
+  sent: 106
+  text: through you is made by your own body, when it burns food.
+  visual:
+    same: true
+- id: s144
+  para: 24
+  sent: 107
+  text: You are, in a small way, a water factory.
+  visual:
+    prompt: 'A whimsical vintage encyclopedia plate: a calm human figure drawn as a tiny old-fashioned factory,
+      with brass pipes, little furnaces burning bread and fruit, and a small tap releasing drops of water'
+  camera: right
+- id: s145
+  para: 24
+  sent: 108
+  text: Nobody prints that on the bottle.
+  visual:
+    same: true
+- id: s146
+  para: 25
+  sent: 109
+  text: But here is where the file gets complicated.
+  visual:
+    prompt: 'The archive desk at night: the clerk''s hands pausing over the open case file, the green lamp flickering,
+      a second, much thicker folder sliding out from underneath the first one, long dramatic shadows'
+    characters:
+    - clerk
+  camera: in
+  tone:
+  - serious
+- id: s147
+  para: 25
+  sent: 110
+  text: Because "eight glasses is wrong" does
+  visual:
+    same: true
+- id: s148
+  para: 25
+  sent: 110
+  text: not mean "water does not matter."
+  visual:
+    same: true
+- id: s149
+  para: 26
+  sent: 111
+  text: First, look at the numbers again.
+  visual:
+    prompt: 'A young man and a young woman, both about twenty, sitting on a park bench on a mild spring day eating
+      lunch: sandwiches, apples, a thermos of tea and a bottle of water, cherry blossoms behind them'
+  camera: left
+- id: s150
+  para: 26
+  sent: 112
+  text: For a typical twenty-year-old man in a mild climate,
+  visual:
+    same: true
+- id: s151
+  para: 26
+  sent: 112
+  text: the study predicted
+  visual:
+    same: true
+- id: s152
+  para: 26
+  sent: 112
+  text: about three point two liters of turnover a day.
+  visual:
+    prompt: 'Still life: one small glass of water standing almost lost among a large spread of soup, salad, fruit,
+      a teapot, a jug of milk and a coffee pot, seen from a low angle so the food towers over the glass'
+  camera: in
+- id: s153
+  para: 26
+  sent: 113
+  text: For a woman, about two point seven.
+  visual:
+    same: true
+- id: s154
+  para: 26
+  sent: 114
+  text: That is more than eight glasses.
+  visual:
+    same: true
+- id: s155
+  para: 26
+  sent: 115
+  text: It is just that a big part of it never comes out of a glass.
+  visual:
+    same: true
+- id: s156
+  para: 27
+  sent: 116
+  text: Second, some people really do need more.
+  visual:
+    prompt: A muscular road construction worker in a hard hat and high-visibility vest drinking deeply from a large
+      canteen under a blazing midday sun, heat haze rising from the asphalt, other workers in the background
+  camera: right
+- id: s157
+  para: 27
+  sent: 117
+  text: Athletes.
+  visual:
+    same: true
+- id: s158
+  para: 27
+  sent: 118
+  text: People doing hard physical work.
+  visual:
+    same: true
+- id: s159
+  para: 27
+  sent: 119
+  text: Anyone in serious heat.
+  visual:
+    prompt: A sunlit family doctor's office on a hot summer day, an electric fan turning, the doctor handing an
+      older patient a written plan across the desk, the writing unreadable, a glass of water between them
+  camera: in
+- id: s160
+  para: 27
+  sent: 120
+  text: And anyone whose doctor has given them their own rules.
+  visual:
+    same: true
+- id: s161
+  para: 28
+  sent: 121
+  text: Third, and this is the part the bottle never mentions,
+  visual:
+    prompt: Close-up of a glass under a running kitchen tap, already full and overflowing, water spilling over the
+      rim and spreading across the counter, slightly ominous light
+  camera: in
+- id: s162
+  para: 28
+  sent: 121
+  text: you can drink too much.
+  visual:
+    same: true
+- id: s163
+  para: 28
+  sent: 122
+  text: In two thousand and two,
+  visual:
+    prompt: 'The finish area of a big-city marathon in 2002: crowds of exhausted runners in early-2000s running
+      gear crossing the line, foil blankets, a white medical tent, spectators behind barriers, spring sunshine,
+      no readable signs'
+  camera: out
+- id: s164
+  para: 28
+  sent: 122
+  text: doctors took blood from four hundred
+  visual:
+    same: true
+- id: s165
+  para: 28
+  sent: 122
+  text: and eighty-eight runners at the finish of the Boston Marathon.
+  visual:
+    same: true
+- id: s166
+  para: 28
+  sent: 123
+  text: About thirteen percent had abnormally low sodium in their blood.
+  visual:
+    bg: plain_warm
+    props:
+    - type: people
+      x: 960
+      y: 520
+      n: 15
+      k: 2
+      cols: 5
+      scale: 1.6
+  overlay:
+    kind: stat
+    text: 13%
+- id: s167
+  para: 28
+  sent: 124
+  text: A condition called hyponatremia.
+  visual:
+    same: true
+- id: s168
+  para: 28
+  sent: 125
+  text: A small number were in the critical range.
+  visual:
+    same: true
+- id: s169
+  para: 29
+  sent: 126
+  text: The strongest warning sign was weight gain during the race.
+  visual:
+    prompt: 'Inside a white marathon medical tent: a tired runner wrapped in a foil blanket stepping onto an old-fashioned
+      balance scale, holding a paper cup, a volunteer medic watching with concern'
+  camera: in
+- id: s170
+  para: 29
+  sent: 127
+  text: Those runners had drunk more than they had sweated out.
+  visual:
+    same: true
+- id: s171
+  para: 29
+  sent: 128
+  text: They followed "drink as much as you can" a little too faithfully.
+  visual:
+    same: true
+- id: s172
+  para: 30
+  sent: 129
+  text: So, back to the file.
+  visual:
+    prompt: 'The archive desk: a single glass of water standing in the middle of spread-out case papers and old
+      photographs, the clerk''s hands resting on either side of it, lamplight'
+    characters:
+    - clerk
+  camera: left
+- id: s173
+  para: 30
+  sent: 130
+  text: Eight glasses of water a day.
+  visual:
+    same: true
+- id: s174
+  para: 30
+  sent: 131
+  text: A board in nineteen forty-five named an amount,
+  visual:
+    prompt: 'The same 1945 committee room in the evening, now empty: chairs pushed back from the long wooden table,
+      scattered papers, a half-empty water jug, golden low sunlight through the tall window'
+    ref: s021
+  camera: right
+- id: s175
+  para: 30
+  sent: 131
+  text: and in the very next sentence said most
+  visual:
+    same: true
+- id: s176
+  para: 30
+  sent: 131
+  text: of it is already in your food.
+  visual:
+    same: true
+- id: s177
+  para: 30
+  sent: 132
+  text: A nutritionist turned it into a habit.
+  visual:
+    prompt: A modern shop shelf crammed with hundreds of reusable water bottles in every colour and size, stacked
+      to the ceiling, a lone shopper looking up at them, bright retail light
+  camera: out
+- id: s178
+  para: 30
+  sent: 133
+  text: And the habit outlived the footnote.
+  visual:
+    same: true
+- id: s179
+  para: 31
+  sent: 134
+  text: 'Verdict: wrong.'
+  visual:
+    prompt: Dramatic close-up of the clerk's hand slamming a heavy brass rubber stamp down onto the case folder,
+      a burst of red ink and a puff of dust flying up, the green lamp shaking, papers lifting off the desk
+    characters:
+    - clerk
+  camera: in
+  overlay:
+    kind: stat
+    text: WRONG
+    pos: center
+    color: '#e8402f'
+- id: s180
+  para: 31
+  sent: 135
+  text: Not dangerous for most people.
+  visual:
+    same: true
+  tone:
+  - pause
+- id: s181
+  para: 31
+  sent: 136
+  text: Not useless.
+  visual:
+    same: true
+- id: s182
+  para: 31
+  sent: 137
+  text: Just wrong.
+  visual:
+    same: true
+- id: s183
+  para: 31
+  sent: 138
+  text: Your water comes from your food,
+  visual:
+    prompt: 'A sunny picnic on a grassy hill: a basket of fruit, a thermos of coffee, a bowl of cold soup, a glass
+      of milk and one glass of water on a checked cloth, friends'' hands reaching in, relaxed summer light'
+  camera: left
+- id: s184
+  para: 31
+  sent: 138
+  text: from every drink you have,
+  visual:
+    same: true
+- id: s185
+  para: 31
+  sent: 138
+  text: and even from your own body.
+  visual:
+    same: true
+- id: s186
+  para: 31
+  sent: 139
+  text: The glass is only part of the story.
+  visual:
+    same: true
+- id: s187
+  para: 32
+  sent: 140
+  text: Now, a filing note from the strength
+  visual:
+    prompt: 'Seen from behind: a strength and conditioning coach with a whistle and a clipboard watching young gymnasts
+      train in a bright gymnastics hall, one gymnast on the rings, others stretching on blue mats'
+  camera: in
+- id: s188
+  para: 32
+  sent: 140
+  text: and conditioning coach who checks our body files.
+  visual:
+    same: true
+- id: s189
+  para: 32
+  sent: 141
+  text: Practical, and safe.
+  visual:
+    same: true
+- id: s190
+  para: 33
+  sent: 142
+  text: One.
+  visual:
+    prompt: A healthy woman in her forties pausing on a sunny forest hiking trail, drinking from a small cup with
+      a relaxed smile, backpack on, green light through the trees
+  camera: right
+- id: s191
+  para: 33
+  sent: 143
+  text: If you are a healthy adult in normal conditions,
+  visual:
+    same: true
+- id: s192
+  para: 33
+  sent: 143
+  text: thirst is a good guide.
+  visual:
+    same: true
+- id: s193
+  para: 33
+  sent: 144
+  text: Physiologists call thirst the main driver of how much we drink.
+  visual:
+    prompt: 'A family lunch on a shaded terrace on a hot summer day: jugs of water with lemon, bowls of fruit and
+      salad, three generations eating and drinking together, bright Mediterranean light'
+  camera: out
+- id: s194
+  para: 33
+  sent: 145
+  text: Drink when you are thirsty, drink with meals,
+  visual:
+    same: true
+- id: s195
+  para: 33
+  sent: 145
+  text: and drink a little more when it is hot.
+  visual:
+    same: true
+- id: s196
+  para: 34
+  sent: 146
+  text: Two.
+  visual:
+    prompt: A sweaty athlete after training in a gym hall, towel around her neck, standing next to an old-fashioned
+      bathroom scale on the floor, looking down at it thoughtfully
+  camera: in
+- id: s197
+  para: 34
+  sent: 147
+  text: If you train hard, stop guessing.
+  visual:
+    same: true
+- id: s198
+  para: 34
+  sent: 148
+  text: Weigh yourself before and after a session,
+  visual:
+    prompt: Close-up of bare feet stepping onto an analogue bathroom scale on a tiled changing-room floor, the dial
+      blurred, a sweaty training shirt dropped on the bench beside it
+  camera: in
+- id: s199
+  para: 34
+  sent: 148
+  text: without the sweaty clothes.
+  visual:
+    same: true
+- id: s200
+  para: 34
+  sent: 149
+  text: The difference is mostly sweat.
+  visual:
+    same: true
+- id: s201
+  para: 34
+  sent: 150
+  text: The American College of Sports Medicine
+  visual:
+    prompt: A sports scientist recording an athlete's weight on a large balance-beam scale in a training hall, the
+      athlete in running kit, a stopwatch and a water bottle on the bench, focused professional mood
+  camera: left
+- id: s202
+  para: 34
+  sent: 150
+  text: advises athletes not to lose more
+  visual:
+    same: true
+- id: s203
+  para: 34
+  sent: 150
+  text: than about two percent of their body weight
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: max 2% body weight
+- id: s204
+  para: 34
+  sent: 150
+  text: to water loss during exercise.
+  visual:
+    same: true
+- id: s205
+  para: 35
+  sent: 151
+  text: Three.
+  visual:
+    prompt: A marathon runner at a roadside drinks station, a long table covered with dozens of paper cups, the
+      runner hesitating with one cup in hand and politely waving away a volunteer offering another
+  camera: right
+- id: s206
+  para: 35
+  sent: 152
+  text: In long events, do not drink so much that you gain weight.
+  visual:
+    same: true
+- id: s207
+  para: 35
+  sent: 153
+  text: Gaining weight during a marathon is a warning sign.
+  visual:
+    same: true
+- id: s208
+  para: 35
+  sent: 154
+  text: Not an achievement.
+  visual:
+    same: true
+- id: s209
+  para: 36
+  sent: 155
+  text: And four.
+  visual:
+    prompt: 'A calm family doctor''s waiting room: an older man with a walking stick, a pregnant woman, and a young
+      man with a cold and a box of tissues, sitting in a row of chairs, soft daylight'
+  camera: in
+- id: s210
+  para: 36
+  sent: 156
+  text: If you are older, pregnant, ill, on medication,
+  visual:
+    same: true
+- id: s211
+  para: 36
+  sent: 156
+  text: or you have kidney or heart problems,
+  visual:
+    same: true
+- id: s212
+  para: 36
+  sent: 156
+  text: your needs are different.
+  visual:
+    prompt: A doctor listening carefully to an older patient in a consultation room, while on the windowsill behind
+      them a lone plastic water bottle stands ignored, gentle comic touch
+  camera: left
+- id: s213
+  para: 36
+  sent: 157
+  text: Ask your doctor.
+  visual:
+    same: true
+- id: s214
+  para: 36
+  sent: 158
+  text: Not a water bottle.
+  visual:
+    same: true
+- id: s215
+  para: 37
+  sent: 159
+  text: Case closed.
+  visual:
+    prompt: The clerk's hands tying the string around the finished case folder and placing it on top of a towering
+      stack of closed folders on the archive desk, the green lamp dimming
+    characters:
+    - clerk
+  camera: out
+- id: s216
+  para: 37
+  sent: 160
+  text: Your file, however, remains open.
+  visual:
+    same: true
+- id: s217
+  para: 37
+  sent: 161
+  text: 'Next case: a costume designer, an opera house,'
+  visual:
+    prompt: 'A nineteenth-century opera costume workshop by gaslight: a cluttered worktable with fabric, sketches
+      and pins, and on a wooden stand a gleaming metal helmet with two large curved horns, mysterious mood'
+  camera: in
+- id: s218
+  para: 37
+  sent: 161
+  text: and a helmet that never existed.
+  visual:
+    same: true

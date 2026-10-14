@@ -1,0 +1,806 @@
+# Scene plan, Columbus Didn't Prove the Earth Was Round
+s001:
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet standing defiantly before a council of frowning bearded scholars in a vaulted stone hall, romantic
+      19th-century history painting style
+  camera: in
+s002:
+  visual:
+    same: true
+s003:
+  visual:
+    same: true
+s004:
+  visual:
+    prompt: a cartoon of tiny ships sailing off the edge of a flat world into a waterfall, sea monsters waiting below, medieval map style
+  camera: out
+s005:
+  visual:
+    same: true
+s006:
+  visual:
+    prompt: three small caravels sailing into a vast ocean at dawn, heroic
+  camera: right
+s007:
+  visual:
+    same: true
+s008:
+  visual:
+    prompt: a 19th-century schoolroom, children at wooden desks, a teacher pointing at a painting of Columbus
+  camera: in
+s009:
+  visual:
+    same: true
+s010:
+  visual:
+    same: true
+s011:
+  visual:
+    prompt: the clerk's hand pulling a heroic painting off the wall to reveal blank plaster behind it, comic
+    characters:
+    - clerk
+  camera: none
+s012:
+  visual:
+    same: true
+s013:
+  visual:
+    prompt: the clerk's hands stamping a thick case file on a cluttered wooden desk in a dim archive, brass lamp
+    characters:
+    - clerk
+  camera: in
+s014:
+  visual:
+    same: true
+s015:
+  visual:
+    same: true
+s016:
+  visual:
+    prompt: endless tall archive shelves full of bound case files disappearing into darkness
+  camera: in
+s017:
+  visual:
+    same: true
+s018:
+  visual:
+    prompt: the clerk's hands opening a folder containing an old sketch of a flat world map
+    characters:
+    - clerk
+  camera: none
+s019:
+  visual:
+    same: true
+s020:
+  visual:
+    prompt: a long candlelit table in a 1490s Spanish palace, scholars and courtiers in a tedious meeting, one yawning
+  camera: left
+s021:
+  visual:
+    same: true
+s022:
+  visual:
+    same: true
+s023:
+  visual:
+    prompt: ancient Greek philosophers in a sunny colonnade, one drawing a circle in the sand with a stick
+  camera: in
+s024:
+  visual:
+    same: true
+s025:
+  visual:
+    same: true
+s026:
+  visual:
+    prompt: a lunar eclipse over an ancient Greek temple, the Earth's curved shadow sliding across the Moon
+  camera: in
+s027:
+  visual:
+    same: true
+s028:
+  visual:
+    same: true
+s029:
+  visual:
+    prompt: Eratosthenes, an ancient Greek scholar with a short beard, standing in the courtyard of a great library
+  camera: right
+s030:
+  visual:
+    same: true
+s031:
+  visual:
+    prompt: the vast ancient Library of Alexandria, scrolls stacked in endless niches, scholars reading
+  camera: in
+s032:
+  visual:
+    same: true
+s033:
+  visual:
+    same: true
+s034:
+  visual:
+    prompt: an ancient Egyptian town at noon, the Sun directly overhead, an upright stick casting no shadow
+  camera: in
+s035:
+  visual:
+    same: true
+s036:
+  visual:
+    same: true
+s037:
+  visual:
+    prompt: looking down into a deep stone well with sunlight shining all the way to the water at the bottom
+  camera: in
+s038:
+  visual:
+    same: true
+s039:
+  visual:
+    prompt: an ancient Alexandrian street at noon, an upright stick casting a short slanted shadow
+  camera: left
+s040:
+  visual:
+    same: true
+s041:
+  visual:
+    same: true
+s042:
+  visual:
+    prompt: a scholar measuring the angle of a shadow with a bronze instrument, ink and watercolour diagram style
+  camera: in
+s043:
+  visual:
+    same: true
+s044:
+  visual:
+    same: true
+s045:
+  visual:
+    prompt: a caravan of surveyors pacing across the Egyptian desert along the Nile, counting steps
+  camera: right
+s046:
+  visual:
+    same: true
+s047:
+  visual:
+    bg: plain_warm
+    props:
+    - type: pie
+      x: 960
+      y: 520
+      scale: 2.2
+      value: 0.02
+      colors:
+      - ochre
+      - stone
+s048:
+  visual:
+    same: true
+s049:
+  visual:
+    prompt: a watercolour globe of the Earth floating in space with a delicate measuring tape around its equator
+  camera: in
+s050:
+  visual:
+    same: true
+s051:
+  visual:
+    same: true
+s052:
+  visual:
+    prompt: a stick, a shadow and a wax tablet with calculations on a stone step, still life
+  camera: none
+s053:
+  visual:
+    same: true
+s054:
+  visual:
+    prompt: a dark gloomy medieval monastery at night, stereotypical Dark Ages imagery, comic exaggeration
+  camera: in
+s055:
+  visual:
+    same: true
+s056:
+  visual:
+    same: true
+s057:
+  visual:
+    prompt: a monk in a scriptorium holding up a flat pancake as if it were a map of the world, comic
+  camera: out
+s058:
+  visual:
+    same: true
+s059:
+  visual:
+    prompt: a medieval scholar in a hooded gown writing at a desk in a stone study, a celestial armillary sphere beside him
+  camera: in
+s060:
+  visual:
+    same: true
+s061:
+  visual:
+    same: true
+s062:
+  visual:
+    prompt: a medieval manuscript page with a beautifully illuminated diagram of a spherical Earth at the centre of nested circles, no legible text
+  camera: in
+s063:
+  visual:
+    same: true
+s064:
+  visual:
+    same: true
+s065:
+  visual:
+    prompt: a medieval university lecture hall, a master reading from a book to rows of students
+  camera: right
+s066:
+  visual:
+    same: true
+s067:
+  visual:
+    prompt: an early printing press in action, printers pulling sheets with circular cosmic diagrams, stacks of books
+  camera: in
+s068:
+  visual:
+    same: true
+s069:
+  visual:
+    same: true
+s070:
+  visual:
+    prompt: a student in a medieval gown walking through a university courtyard with a book under his arm
+  camera: left
+s071:
+  visual:
+    same: true
+s072:
+  visual:
+    same: true
+s073:
+  visual:
+    prompt: a medieval king on a throne holding a golden orb topped with a cross, in a stiff royal portrait
+  camera: in
+s074:
+  visual:
+    same: true
+s075:
+  visual:
+    same: true
+s076:
+  visual:
+    prompt: a close-up of a golden royal orb with a cross on a velvet cushion, and beside it a comic golden dinner plate
+  camera: out
+s077:
+  visual:
+    same: true
+s078:
+  visual:
+    prompt: a historian with a lantern searching through dusty archive stacks, comic
+  camera: in
+s079:
+  visual:
+    same: true
+s080:
+  visual:
+    prompt: an early Christian writer in a toga writing on a scroll, Roman setting, around 310 AD
+  camera: right
+s081:
+  visual:
+    same: true
+s082:
+  visual:
+    prompt: a sixth-century monk drawing a strange box-shaped world with a curved lid, like a chest, in a manuscript
+  camera: in
+s083:
+  visual:
+    same: true
+s084:
+  visual:
+    prompt: a crowd of medieval scholars ignoring a lone man waving a scroll, comic
+  camera: left
+s085:
+  visual:
+    same: true
+s086:
+  visual:
+    prompt: Copernicus at his desk in 1543 with his great book, chuckling at an old scroll
+  camera: in
+s087:
+  visual:
+    same: true
+s088:
+  visual:
+    same: true
+s089:
+  visual:
+    prompt: the clerk's hand underlining a sentence in a modern essay with a red pencil
+    characters:
+    - clerk
+  camera: none
+s090:
+  visual:
+    same: true
+s091:
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet arguing heatedly with scholars around a table covered in maps
+  camera: in
+s092:
+  visual:
+    same: true
+s093:
+  visual:
+    same: true
+s094:
+  visual:
+    prompt: the clerk's hands placing a small loser's ribbon on a portrait of an explorer, comic
+    characters:
+    - clerk
+  camera: none
+s095:
+  visual:
+    same: true
+s096:
+  visual:
+    prompt: a large globe on a stand, a scholar and Columbus measuring it with dividers, disagreeing
+  camera: in
+s097:
+  visual:
+    same: true
+s098:
+  visual:
+    prompt: an imaginary map showing Europe and Asia unusually close across a narrow ocean, old cartography style
+  camera: right
+s099:
+  visual:
+    same: true
+s100:
+  visual:
+    same: true
+s101:
+  visual:
+    same: true
+s102:
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet quietly erasing and redrawing numbers on a map with a sly look
+  camera: in
+s103:
+  visual:
+    prompt: a Renaissance astronomer in Florence in 1474 writing a letter by candlelight, a globe beside him
+  camera: in
+s104:
+  visual:
+    same: true
+s105:
+  visual:
+    same: true
+s106:
+  visual:
+    prompt: the King of Portugal on his throne, waving away a letter, bored
+  camera: left
+s107:
+  visual:
+    same: true
+s108:
+  visual:
+    same: true
+s109:
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet reading a letter with delight, nodding
+  camera: in
+s110:
+  visual:
+    same: true
+s111:
+  visual:
+    prompt: a medieval Arab astronomer with an astrolabe on a rooftop observatory in Baghdad, stars above
+  camera: in
+s112:
+  visual:
+    same: true
+s113:
+  visual:
+    prompt: two measuring rods of different lengths side by side, labelled only with colours, a hand swapping one for the other, ink diagram
+  camera: none
+s114:
+  visual:
+    same: true
+s115:
+  visual:
+    same: true
+s116:
+  visual:
+    prompt: an old map of the world being squeezed smaller and smaller by two hands, comic
+  camera: out
+s117:
+  visual:
+    same: true
+s118:
+  visual:
+    same: true
+s119:
+  visual:
+    same: true
+s120:
+  visual:
+    prompt: a map with a short dotted line across the Atlantic from the Canary Islands to Japan, Renaissance cartography
+  camera: in
+s121:
+  visual:
+    same: true
+s122:
+  visual:
+    same: true
+s123:
+  visual:
+    same: true
+s124:
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.23
+      - 1.0
+      colors:
+      - bad
+      - good
+s125:
+  visual:
+    same: true
+s126:
+  visual:
+    same: true
+s127:
+  visual:
+    prompt: a small caravel alone in an endless empty ocean, barrels of water running low on deck
+  camera: out
+s128:
+  visual:
+    same: true
+s129:
+  visual:
+    prompt: Portuguese royal advisers around a table shaking their heads at a chart, King John the Second listening
+  camera: in
+s130:
+  visual:
+    same: true
+s131:
+  visual:
+    same: true
+s132:
+  visual:
+    prompt: a Spanish commission in a monastery chamber led by a confessor in robes, examining a proposal
+  camera: right
+s133:
+  visual:
+    same: true
+s134:
+  visual:
+    same: true
+s135:
+  visual:
+    prompt: a starving sailor holding an empty barrel in the middle of the ocean, ink sketch, sombre
+  camera: in
+s136:
+  visual:
+    same: true
+s137:
+  visual:
+    same: true
+s138:
+  visual:
+    prompt: the clerk's hands moving a token from one side of a balance scale to the other
+    characters:
+    - clerk
+  camera: none
+s139:
+  visual:
+    same: true
+s140:
+  visual:
+    prompt: an unexpected green coastline appearing on the horizon in front of three caravels, sailors pointing in surprise
+  camera: in
+s141:
+  visual:
+    same: true
+s142:
+  visual:
+    same: true
+s143:
+  visual:
+    prompt: a lucky horseshoe hanging on a ship's mast, sunrise, comic
+  camera: right
+s144:
+  visual:
+    same: true
+s145:
+  visual:
+    same: true
+s146:
+  visual:
+    same: true
+s147:
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet on a ship's deck in 1498 writing a letter, looking at a pear on the table thoughtfully
+  camera: in
+s148:
+  visual:
+    same: true
+s149:
+  visual:
+    same: true
+s150:
+  visual:
+    same: true
+s151:
+  visual:
+    prompt: a whimsical globe shaped like a pear, with tiny ships sailing up the stalk, old engraving style
+  camera: out
+s152:
+  visual:
+    same: true
+s153:
+  visual:
+    same: true
+s154:
+  visual:
+    same: true
+s155:
+  visual:
+    prompt: the clerk's hands sliding a letter into a drawer, labelled only with a small pear sketch
+    characters:
+    - clerk
+  camera: none
+s156:
+  visual:
+    same: true
+s157:
+  visual:
+    prompt: a merchant in a Nuremberg workshop in 1492 painting a large round globe on a wooden stand
+  camera: in
+s158:
+  visual:
+    same: true
+s159:
+  visual:
+    same: true
+s160:
+  visual:
+    same: true
+s161:
+  visual:
+    prompt: the ancient Behaim globe in a museum glass case, softly lit
+  camera: in
+s162:
+  visual:
+    same: true
+s163:
+  visual:
+    prompt: close-up of an old globe showing Europe, Africa and Asia, with an empty ocean where the Americas should be
+  camera: right
+s164:
+  visual:
+    same: true
+s165:
+  visual:
+    same: true
+s166:
+  visual:
+    prompt: five tall ships leaving a Spanish port in 1519, crowds waving, flags flying
+  camera: in
+s167:
+  visual:
+    same: true
+s168:
+  visual:
+    same: true
+s169:
+  visual:
+    same: true
+s170:
+  visual:
+    same: true
+s171:
+  visual:
+    prompt: a single battered ship sailing home into harbour, ragged sailors on deck
+  camera: out
+s172:
+  visual:
+    same: true
+s173:
+  visual:
+    same: true
+s174:
+  visual:
+    same: true
+s175:
+  visual:
+    prompt: the clerk's hands opening a 19th-century leather-bound book
+    characters:
+    - clerk
+  camera: none
+s176:
+  visual:
+    same: true
+s177:
+  visual:
+    same: true
+s178:
+  visual:
+    prompt: an American author in an 1820s study writing with a quill, books and a portrait of Columbus around him
+  camera: in
+s179:
+  visual:
+    same: true
+s180:
+  visual:
+    same: true
+s181:
+  visual:
+    same: true
+s182:
+  visual:
+    prompt: elegant 1820s readers in a drawing room absorbed in the same leather-bound biography
+  camera: left
+s183:
+  visual:
+    same: true
+s184:
+  visual:
+    same: true
+s185:
+  visual:
+    prompt: a dramatic romantic painting of narrow-minded churchmen at Salamanca waving scriptures at Columbus
+  camera: in
+s186:
+  visual:
+    same: true
+s187:
+  visual:
+    same: true
+s188:
+  visual:
+    prompt: a 19th-century art salon hung with grand paintings of Columbus, and a pile of school textbooks
+  camera: right
+s189:
+  visual:
+    same: true
+s190:
+  visual:
+    same: true
+s191:
+  visual:
+    same: true
+s192:
+  visual:
+    prompt: two Victorian authors at desks, writing furiously, a dramatic chessboard of science versus religion between them
+  camera: in
+s193:
+  visual:
+    same: true
+s194:
+  visual:
+    same: true
+s195:
+  visual:
+    same: true
+s196:
+  visual:
+    same: true
+s197:
+  visual:
+    prompt: an allegorical Victorian illustration of a heroic scientist fighting a dark robed figure, battlefield clouds
+  camera: out
+s198:
+  visual:
+    same: true
+s199:
+  visual:
+    same: true
+s200:
+  visual:
+    same: true
+s201:
+  visual:
+    same: true
+s202:
+  visual:
+    prompt: a smug modern man looking at a medieval painting with a superior smile, comic
+  camera: in
+s203:
+  visual:
+    same: true
+s204:
+  visual:
+    same: true
+s205:
+  visual:
+    same: true
+s206:
+  visual:
+    prompt: a modern historian's desk with old books, index cards and a copy of a medieval globe
+  camera: in
+s207:
+  visual:
+    same: true
+s208:
+  visual:
+    same: true
+s209:
+  visual:
+    prompt: a modern author pulling a thread that unravels a large painted tapestry of the flat Earth myth
+  camera: right
+s210:
+  visual:
+    same: true
+s211:
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+  camera: in
+s212:
+  visual:
+    prompt: a medieval scholar calmly holding up a round globe, serene
+  camera: in
+s213:
+  visual:
+    same: true
+s214:
+  visual:
+    same: true
+s215:
+  visual:
+    prompt: scholars around a table pointing at correct calculations while Columbus scowls, warm light
+  camera: left
+s216:
+  visual:
+    same: true
+s217:
+  visual:
+    same: true
+s218:
+  visual:
+    prompt: a statue of Columbus in a park with a pigeon on his head, while a scholar's bust nearby wears a small laurel, comic
+  camera: in
+s219:
+  visual:
+    same: true
+s220:
+  visual:
+    same: true
+s221:
+  visual:
+    same: true
+s222:
+  visual:
+    prompt: the clerk's hands sliding the file between two others on a crowded shelf
+    characters:
+    - clerk
+  camera: left
+s223:
+  visual:
+    same: true
+s224:
+  visual:
+    prompt: the clerk's hands closing the file, then the desk lamp dims
+    characters:
+    - clerk
+  camera: out
+s225:
+  visual:
+    same: true
+s226:
+  visual:
+    same: true
+s227:
+  visual:
+    prompt: a gentle curved horizon of the ocean at sunset, no edge in sight
+  camera: out
+s228:
+  visual:
+    same: true

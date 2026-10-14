@@ -1,0 +1,1701 @@
+title: 007-stretching-won-t-stop-you-getting-injured
+paragraphs: 36
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: Picture a school sports field, any time in the last fifty years.
+  visual:
+    prompt: a 1980s school sports field on a grey morning, a PE teacher with a whistle in front of a line of children
+      in shorts
+  camera: in
+- id: s002
+  para: 0
+  sent: 1
+  text: Before anyone is allowed to run, the teacher blows a whistle.
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 2
+  text: Everyone bends over and touches their toes.
+  visual:
+    prompt: a line of schoolchildren bending over to touch their toes in unison, straight-on view, one row, none
+      overlapping
+  camera: none
+- id: s004
+  para: 0
+  sent: 3
+  text: Hold it.
+  visual:
+    same: true
+- id: s005
+  para: 0
+  sent: 4
+  text: Count to twenty.
+  visual:
+    same: true
+- id: s006
+  para: 0
+  sent: 5
+  text: Now the other leg.
+  visual:
+    same: true
+- id: s007
+  para: 1
+  sent: 6
+  text: Why?
+  visual:
+    prompt: a nervous runner clutching the back of his thigh in exaggerated pain, comic ink sketch
+  camera: right
+- id: s008
+  para: 1
+  sent: 7
+  text: Because everybody knows that
+  visual:
+    same: true
+- id: s009
+  para: 1
+  sent: 7
+  text: if you do not stretch before exercise,
+  visual:
+    same: true
+- id: s010
+  para: 1
+  sent: 7
+  text: you will pull something.
+  visual:
+    same: true
+- id: s011
+  para: 1
+  sent: 8
+  text: Stretching warms up the muscles.
+  visual:
+    prompt: a stern PE teacher and a sports coach side by side, both wagging a finger, comic
+  camera: in
+- id: s012
+  para: 1
+  sent: 9
+  text: Stretching prevents injuries.
+  visual:
+    same: true
+- id: s013
+  para: 1
+  sent: 10
+  text: Your teacher said so.
+  visual:
+    same: true
+- id: s014
+  para: 1
+  sent: 11
+  text: Your coach said so.
+  visual:
+    same: true
+- id: s015
+  para: 1
+  sent: 12
+  text: Your gym's poster says so,
+  visual:
+    prompt: a faded gym wall poster showing a very flexible man in a headband and leg warmers doing a split, retro
+      1980s, no text
+  camera: in
+- id: s016
+  para: 1
+  sent: 12
+  text: next to a drawing of a very flexible man in a headband.
+  visual:
+    same: true
+- id: s017
+  para: 2
+  sent: 13
+  text: Case file zero zero seven.
+  visual:
+    prompt: the clerk's hands opening a folder containing a sketch of a person touching their toes
+    characters:
+    - clerk
+  camera: none
+  overlay:
+    kind: label
+    text: CASE FILE 007
+    pos: top
+- id: s018
+  para: 2
+  sent: 14
+  text: 'Subject: you, and every PE teacher you ever had.'
+  visual: null
+- id: s019
+  para: 2
+  sent: 15
+  text: 'Belief: stretching before exercise stops you getting injured.'
+  visual: null
+- id: s020
+  para: 3
+  sent: 16
+  text: Let me be clear from the start,
+  visual:
+    prompt: a small delegation of calm yoga practitioners on rolled mats marching up to an archive door, comic
+  camera: right
+- id: s021
+  para: 3
+  sent: 16
+  text: before the yoga community sends a delegation.
+  visual:
+    same: true
+- id: s022
+  para: 3
+  sent: 17
+  text: Stretching is not useless.
+  visual:
+    prompt: a gymnast in a deep, graceful split on a training mat, soft light, showing great range of motion
+  camera: in
+- id: s023
+  para: 3
+  sent: 18
+  text: It is very good at one thing.
+  visual:
+    same: true
+- id: s024
+  para: 3
+  sent: 19
+  text: That thing is range of motion.
+  visual:
+    same: true
+- id: s025
+  para: 3
+  sent: 20
+  text: Stretch regularly, over weeks and months,
+  visual:
+    prompt: a person stretching every evening over many weeks, a calendar on the wall, gradually reaching further
+      toward their toes
+  camera: right
+- id: s026
+  para: 3
+  sent: 20
+  text: and you will be able to move further.
+  visual:
+    same: true
+- id: s027
+  para: 3
+  sent: 21
+  text: Even a single session increases your range for a while,
+  visual:
+    same: true
+- id: s028
+  para: 3
+  sent: 21
+  text: usually for less than half an hour.
+  visual:
+    same: true
+- id: s029
+  para: 3
+  sent: 22
+  text: The question today is whether it
+  visual:
+    prompt: a runner on a track touching her toes before a race, a big question mark hovering over her, ink sketch
+  camera: out
+- id: s030
+  para: 3
+  sent: 22
+  text: does the thing everyone uses it for.
+  visual:
+    same: true
+- id: s031
+  para: 3
+  sent: 23
+  text: Preventing injuries, just before you exercise.
+  visual:
+    same: true
+- id: s032
+  para: 4
+  sent: 24
+  text: First, a little history.
+  visual:
+    prompt: a 1970s city park full of joggers in short shorts and headbands, warm retro colours
+  camera: left
+- id: s033
+  para: 4
+  sent: 25
+  text: Stretching became a ritual during the fitness boom
+  visual:
+    same: true
+- id: s034
+  para: 4
+  sent: 25
+  text: of the nineteen seventies.
+  visual:
+    same: true
+- id: s035
+  para: 4
+  sent: 26
+  text: In nineteen seventy-five,
+  visual:
+    prompt: a couple at a kitchen table assembling a small self-published book, typewriter and drawings, 1970s
+  camera: in
+- id: s036
+  para: 4
+  sent: 26
+  text: an American couple self-published a small book called Stretching.
+  visual:
+    same: true
+- id: s037
+  para: 4
+  sent: 27
+  text: It was an immediate hit.
+  visual:
+    prompt: stacks of the same small paperback book piled high in a bookshop window, crowds browsing
+  camera: right
+- id: s038
+  para: 4
+  sent: 28
+  text: It went on to sell more than three and a half million copies,
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 3,500,000+ copies
+    pos: bottom
+- id: s039
+  para: 4
+  sent: 28
+  text: in twenty-nine foreign editions.
+  visual:
+    same: true
+- id: s040
+  para: 4
+  sent: 29
+  text: Runners stretched.
+  visual:
+    prompt: 'a montage of 1970s people stretching: a runner, an office worker at a desk, a glamorous film star by
+      a pool'
+  camera: in
+- id: s041
+  para: 4
+  sent: 30
+  text: Office workers stretched.
+  visual:
+    same: true
+- id: s042
+  para: 4
+  sent: 31
+  text: Hollywood stretched.
+  visual:
+    same: true
+- id: s043
+  para: 4
+  sent: 32
+  text: I stretched once, in nineteen seventy-six.
+  visual:
+    prompt: the clerk's hands bracing against a toppling filing cabinet, papers flying, comic
+    characters:
+    - clerk
+  camera: out
+- id: s044
+  para: 4
+  sent: 33
+  text: I pulled a filing cabinet over.
+  visual:
+    same: true
+- id: s045
+  para: 5
+  sent: 34
+  text: And nobody had really tested whether a stretch
+  visual:
+    prompt: an empty laboratory with a dusty clipboard labelled with nothing, cobwebs, untested
+  camera: in
+- id: s046
+  para: 5
+  sent: 34
+  text: before exercise actually stopped injuries.
+  visual:
+    same: true
+- id: s047
+  para: 5
+  sent: 35
+  text: It simply seemed obvious.
+  visual:
+    same: true
+- id: s048
+  para: 5
+  sent: 36
+  text: In science, that is called an untested assumption.
+  visual:
+    prompt: an old trophy cabinet and a team photo from the 1950s, sports tradition, nostalgic
+  camera: left
+- id: s049
+  para: 5
+  sent: 37
+  text: In sport, it was called tradition.
+  visual:
+    same: true
+- id: s050
+  para: 5
+  sent: 38
+  text: Which, at the Bureau, is usually where the trouble starts.
+  visual:
+    same: true
+- id: s051
+  para: 6
+  sent: 39
+  text: So, the evidence.
+  visual:
+    prompt: the clerk's hands laying four evidence folders in one row on the desk, straight-on view, none overlapping
+    characters:
+    - clerk
+  camera: none
+  tone:
+  - pause
+- id: s052
+  para: 6
+  sent: 40
+  text: Exhibit one is the army.
+  visual:
+    same: true
+- id: s053
+  para: 7
+  sent: 41
+  text: In the late nineteen nineties,
+  visual:
+    prompt: an Australian army training ground in the 1990s, rows of young recruits in green fatigues doing drills
+  camera: in
+- id: s054
+  para: 7
+  sent: 41
+  text: researchers in Australia had a perfect laboratory.
+  visual:
+    same: true
+- id: s055
+  para: 7
+  sent: 42
+  text: Army recruits.
+  visual:
+    same: true
+- id: s056
+  para: 7
+  sent: 43
+  text: Young men, all doing the same punishing training,
+  visual:
+    prompt: a huge formation of army recruits being split into two groups by a sergeant with a clipboard
+  camera: right
+- id: s057
+  para: 7
+  sent: 43
+  text: at the same time, on the same schedule.
+  visual:
+    same: true
+- id: s058
+  para: 7
+  sent: 44
+  text: One thousand, five hundred and thirty-eight
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 1,538 recruits
+    pos: bottom
+- id: s059
+  para: 7
+  sent: 44
+  text: of them were randomly split into two groups.
+  visual:
+    same: true
+- id: s060
+  para: 8
+  sent: 45
+  text: One group stretched before every training session.
+  visual:
+    prompt: army recruits doing a supervised standing hamstring stretch in rows, an instructor timing with a stopwatch
+  camera: in
+- id: s061
+  para: 8
+  sent: 46
+  text: Under supervision.
+  visual:
+    same: true
+- id: s062
+  para: 8
+  sent: 47
+  text: One twenty-second stretch for each
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 6 stretches × 20 s
+    pos: bottom
+- id: s063
+  para: 8
+  sent: 47
+  text: of six major leg muscle groups,
+  visual:
+    prompt: two groups of recruits side by side, one stretching, one just jogging, straight-on view
+  camera: none
+- id: s064
+  para: 8
+  sent: 47
+  text: every single warm-up.
+  visual:
+    same: true
+- id: s065
+  para: 8
+  sent: 48
+  text: The other group did the same warm-up, without the stretching.
+  visual:
+    same: true
+- id: s066
+  para: 9
+  sent: 49
+  text: Twelve weeks later, the researchers counted the injuries.
+  visual:
+    prompt: a 1990s army medical tent with recruits sitting with bandaged ankles and knees, a medic taking notes
+  camera: in
+- id: s067
+  para: 9
+  sent: 50
+  text: Three hundred and thirty-three lower-limb injuries in total.
+  visual:
+    same: true
+- id: s068
+  para: 9
+  sent: 51
+  text: The stretching group had one hundred and fifty-eight.
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.9
+      - 1.0
+      colors:
+      - water
+      - stone
+  overlay:
+    kind: stat
+    text: 158 vs 175 injuries
+    pos: top
+- id: s069
+  para: 9
+  sent: 52
+  text: The group that did not stretch had one hundred and seventy-five.
+  visual:
+    same: true
+- id: s070
+  para: 10
+  sent: 53
+  text: That sounds like a small win,
+  visual:
+    prompt: a researcher at a desk with a calculator and a magnifying glass, shrugging at a printout
+  camera: in
+- id: s071
+  para: 10
+  sent: 53
+  text: until you account for everything else.
+  visual:
+    same: true
+- id: s072
+  para: 10
+  sent: 54
+  text: Statistically, the difference was nothing.
+  visual:
+    same: true
+- id: s073
+  para: 10
+  sent: 55
+  text: The authors concluded
+  visual:
+    prompt: the clerk's hand underlining a sentence in a research paper with a red pencil
+    characters:
+    - clerk
+  camera: none
+- id: s074
+  para: 10
+  sent: 55
+  text: that a typical pre-exercise stretching routine
+  visual:
+    same: true
+- id: s075
+  para: 10
+  sent: 55
+  text: does not produce a meaningful reduction in the risk of injury.
+  visual:
+    same: true
+- id: s076
+  para: 10
+  sent: 56
+  text: Instead, they pointed to something else worth working on.
+  visual:
+    prompt: a fit recruit running hard up a hill with a heavy pack, determined
+  camera: right
+- id: s077
+  para: 10
+  sent: 57
+  text: Fitness.
+  visual:
+    same: true
+- id: s078
+  para: 11
+  sent: 58
+  text: Exhibit two.
+  visual:
+    prompt: a Danish research office in Copenhagen, piles of printed trials on a long table, researchers sorting
+      them
+  camera: in
+- id: s079
+  para: 11
+  sent: 59
+  text: In two thousand fourteen,
+  visual:
+    same: true
+- id: s080
+  para: 11
+  sent: 59
+  text: a team in Denmark pooled the best evidence
+  visual:
+    same: true
+- id: s081
+  para: 11
+  sent: 59
+  text: they could find on preventing sports injuries.
+  visual:
+    same: true
+- id: s082
+  para: 11
+  sent: 60
+  text: Twenty-five randomised trials.
+  visual:
+    prompt: an enormous crowd of athletes from many different sports, seen from above, ink and watercolour
+  camera: out
+- id: s083
+  para: 11
+  sent: 61
+  text: Twenty-six thousand, six hundred and ten people.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 25 trials · 26,610 people
+    pos: bottom
+- id: s084
+  para: 11
+  sent: 62
+  text: Almost three and a half thousand injuries.
+  visual:
+    same: true
+- id: s085
+  para: 12
+  sent: 63
+  text: They compared different strategies.
+  visual:
+    prompt: athletes doing balance training on wobble boards and a mixed circuit in a gym
+  camera: left
+- id: s086
+  para: 12
+  sent: 64
+  text: Balance training helped.
+  visual:
+    same: true
+- id: s087
+  para: 12
+  sent: 65
+  text: Programmes that combined several methods helped.
+  visual:
+    same: true
+- id: s088
+  para: 12
+  sent: 66
+  text: Stretching did not.
+  visual:
+    prompt: a lone person stretching in the corner of a gym while a statistician shrugs beside them, comic
+  camera: in
+- id: s089
+  para: 12
+  sent: 67
+  text: Its effect was, statistically, a shrug.
+  visual:
+    same: true
+- id: s090
+  para: 13
+  sent: 68
+  text: And the winner, by a long way?
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.33
+      - 0.96
+      colors:
+      - stone
+      - good
+      - bad
+- id: s091
+  para: 13
+  sent: 69
+  text: Strength training.
+  visual:
+    same: true
+- id: s092
+  para: 13
+  sent: 70
+  text: Programmes that made people stronger cut
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 'strength: injuries < ⅓'
+    pos: top
+- id: s093
+  para: 13
+  sent: 70
+  text: sports injuries to less than one third.
+  visual:
+    same: true
+- id: s094
+  para: 13
+  sent: 71
+  text: Overuse injuries were almost halved.
+  visual:
+    prompt: an athlete doing heavy barbell squats while others skip past to the stretching area, comic
+  camera: right
+- id: s095
+  para: 13
+  sent: 72
+  text: The exercise that everybody skips
+  visual:
+    same: true
+- id: s096
+  para: 13
+  sent: 72
+  text: was the one that actually worked.
+  visual:
+    same: true
+- id: s097
+  para: 13
+  sent: 73
+  text: The ritual that everybody does was the one that did not.
+  visual:
+    same: true
+- id: s098
+  para: 14
+  sent: 74
+  text: One example.
+  visual:
+    prompt: a sprinter clutching the back of his thigh on a running track, wincing
+  camera: in
+- id: s099
+  para: 14
+  sent: 75
+  text: The hamstring strain.
+  visual:
+    same: true
+- id: s100
+  para: 14
+  sent: 76
+  text: The classic I pulled something injury,
+  visual:
+    same: true
+- id: s101
+  para: 14
+  sent: 76
+  text: exactly the thing the toe-touching was supposed to prevent.
+  visual:
+    same: true
+- id: s102
+  para: 14
+  sent: 77
+  text: There is a brutal little strength
+  visual:
+    prompt: an athlete performing the Nordic hamstring curl, kneeling on a mat while a partner holds his ankles,
+      lowering his body slowly forward
+  camera: in
+- id: s103
+  para: 14
+  sent: 77
+  text: exercise called the Nordic hamstring curl.
+  visual:
+    same: true
+- id: s104
+  para: 14
+  sent: 78
+  text: You kneel, someone holds your ankles,
+  visual:
+    same: true
+- id: s105
+  para: 14
+  sent: 78
+  text: and you lower yourself slowly towards the floor.
+  visual:
+    same: true
+- id: s106
+  para: 14
+  sent: 79
+  text: A two thousand nineteen review of fifteen studies,
+  visual:
+    prompt: a sports science conference poster session, researchers comparing charts, no legible text
+  camera: left
+- id: s107
+  para: 14
+  sent: 79
+  text: with eight thousand four hundred and fifty-nine athletes,
+  visual:
+    same: true
+- id: s108
+  para: 14
+  sent: 79
+  text: found that programmes including it cut hamstring injuries
+  visual:
+    same: true
+- id: s109
+  para: 14
+  sent: 79
+  text: by up to fifty-one per cent.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: hamstring injuries −51%
+    pos: bottom
+- id: s110
+  para: 14
+  sent: 80
+  text: Strength, not stretch.
+  visual:
+    same: true
+- id: s111
+  para: 15
+  sent: 81
+  text: Exhibit three.
+  visual:
+    prompt: the clerk's hands turning a page with a grimace
+    characters:
+    - clerk
+  camera: none
+  tone:
+  - pause
+- id: s112
+  para: 15
+  sent: 82
+  text: It gets worse.
+  visual:
+    same: true
+- id: s113
+  para: 15
+  sent: 83
+  text: Some studies found that static stretching,
+  visual:
+    prompt: a powerlifter stretching for a long time on the floor, then struggling under a barbell, comic
+  camera: in
+- id: s114
+  para: 15
+  sent: 83
+  text: just before you need to perform,
+  visual:
+    same: true
+- id: s115
+  para: 15
+  sent: 83
+  text: can make you slightly weaker.
+  visual:
+    same: true
+- id: s116
+  para: 16
+  sent: 84
+  text: In two thousand thirteen,
+  visual:
+    prompt: a library desk with more than a hundred scientific journals stacked in tall piles
+  camera: in
+- id: s117
+  para: 16
+  sent: 84
+  text: a review combined more than a hundred studies.
+  visual:
+    same: true
+- id: s118
+  para: 16
+  sent: 85
+  text: On average, a static stretch before exercise reduced
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.946
+      colors:
+      - stone
+      - bad
+- id: s119
+  para: 16
+  sent: 85
+  text: maximal strength by around five per cent.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: strength −5.4%
+    pos: top
+- id: s120
+  para: 16
+  sent: 86
+  text: Explosive performance,
+  visual:
+    same: true
+- id: s121
+  para: 16
+  sent: 86
+  text: jumping and sprinting,
+  visual:
+    same: true
+- id: s122
+  para: 16
+  sent: 86
+  text: dropped by about two per cent.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: explosive −2%
+    pos: top
+- id: s123
+  para: 17
+  sent: 87
+  text: Now, before anyone panics, the details matter.
+  visual:
+    prompt: a stopwatch next to a person holding a short hamstring stretch, quick and light
+  camera: in
+- id: s124
+  para: 17
+  sent: 88
+  text: The longer the stretch, the bigger the drop.
+  visual:
+    same: true
+- id: s125
+  para: 17
+  sent: 89
+  text: A short stretch, under a minute per muscle,
+  visual:
+    same: true
+- id: s126
+  para: 17
+  sent: 89
+  text: has only a tiny effect.
+  visual:
+    same: true
+- id: s127
+  para: 17
+  sent: 90
+  text: And if you follow your stretching with some dynamic movement,
+  visual:
+    prompt: an athlete doing walking lunges and high knees after a brief stretch, moving dynamically on a field
+  camera: right
+- id: s128
+  para: 17
+  sent: 90
+  text: most of that loss disappears.
+  visual:
+    same: true
+- id: s129
+  para: 17
+  sent: 91
+  text: So a quick stretch in your warm-up will not ruin your session.
+  visual:
+    same: true
+- id: s130
+  para: 17
+  sent: 92
+  text: And dynamic stretching,
+  visual:
+    prompt: an athlete doing controlled leg swings beside a fence, dynamic stretching, energetic
+  camera: in
+- id: s131
+  para: 17
+  sent: 92
+  text: swinging and moving your limbs through their range,
+  visual:
+    same: true
+- id: s132
+  para: 17
+  sent: 92
+  text: actually tends to help a little.
+  visual:
+    same: true
+- id: s133
+  para: 17
+  sent: 93
+  text: On average, performance goes up by around one per cent.
+  visual:
+    same: true
+- id: s134
+  para: 18
+  sent: 94
+  text: But think about the logic for a moment.
+  visual:
+    prompt: a 1980s football team on a pitch holding long static stretches in a circle before kick-off
+  camera: left
+- id: s135
+  para: 18
+  sent: 95
+  text: The traditional pre-match ritual was a long, static stretch,
+  visual:
+    same: true
+- id: s136
+  para: 18
+  sent: 95
+  text: held patiently, right before sprinting.
+  visual:
+    same: true
+- id: s137
+  para: 18
+  sent: 96
+  text: Which turns out to be the one version
+  visual:
+    prompt: a sprinter in the starting blocks looking sluggish, cartoon snail shell on his back, comic
+  camera: in
+- id: s138
+  para: 18
+  sent: 96
+  text: most likely to make you slower,
+  visual:
+    same: true
+- id: s139
+  para: 18
+  sent: 96
+  text: without making you safer.
+  visual:
+    same: true
+- id: s140
+  para: 18
+  sent: 97
+  text: It is rather like polishing your car
+  visual:
+    prompt: a man carefully polishing a car while its tyres slowly go flat, comic ink sketch
+  camera: out
+- id: s141
+  para: 18
+  sent: 97
+  text: by letting the air out of the tyres.
+  visual:
+    same: true
+- id: s142
+  para: 19
+  sent: 98
+  text: Exhibit four.
+  visual:
+    prompt: a person walking down stairs the morning after exercise, wincing and holding the handrail, comic
+  camera: in
+- id: s143
+  para: 19
+  sent: 99
+  text: Soreness.
+  visual:
+    same: true
+- id: s144
+  para: 19
+  sent: 100
+  text: Surely stretching at least stops the aches the next day?
+  visual:
+    same: true
+- id: s145
+  para: 20
+  sent: 101
+  text: In two thousand eleven,
+  visual:
+    prompt: a quiet room of medical reviewers surrounded by stacks of papers and a large magnifying glass
+  camera: right
+- id: s146
+  para: 20
+  sent: 101
+  text: the Cochrane Collaboration,
+  visual:
+    same: true
+- id: s147
+  para: 20
+  sent: 101
+  text: which reviews medical evidence for a living,
+  visual:
+    same: true
+- id: s148
+  para: 20
+  sent: 101
+  text: looked at exactly this.
+  visual:
+    same: true
+- id: s149
+  para: 20
+  sent: 102
+  text: Twelve studies,
+  visual:
+    prompt: a large outdoor fun run with thousands of runners in colourful shirts
+  camera: in
+- id: s150
+  para: 20
+  sent: 102
+  text: including one large trial with more than two thousand people.
+  visual:
+    same: true
+- id: s151
+  para: 20
+  sent: 103
+  text: Stretching before exercise, after exercise, or both,
+  visual:
+    prompt: a long measuring ruler marked from zero to one hundred with a tiny highlighted sliver at one end, minimal
+      illustration, no numbers
+  camera: none
+- id: s152
+  para: 20
+  sent: 103
+  text: reduced soreness by about one point.
+  visual:
+    same: true
+- id: s153
+  para: 20
+  sent: 104
+  text: On a one-hundred-point scale.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: ~1 point / 100
+    pos: center
+- id: s154
+  para: 21
+  sent: 105
+  text: One point.
+  visual:
+    prompt: a microscope focused on a nearly invisible speck, comic
+  camera: in
+- id: s155
+  para: 21
+  sent: 106
+  text: You would not notice it.
+  visual:
+    same: true
+- id: s156
+  para: 21
+  sent: 107
+  text: Even in the big trial,
+  visual:
+    prompt: a person groaning on the stairs the next morning, legs stiff, despite a yoga mat under their arm, comic
+  camera: left
+- id: s157
+  para: 21
+  sent: 107
+  text: the difference in peak soreness over a week
+  visual:
+    same: true
+- id: s158
+  para: 21
+  sent: 107
+  text: was under four points out of a hundred.
+  visual:
+    same: true
+- id: s159
+  para: 21
+  sent: 108
+  text: Real, measurable,
+  visual:
+    same: true
+- id: s160
+  para: 21
+  sent: 108
+  text: and completely irrelevant to your stairs the next morning.
+  visual:
+    same: true
+- id: s161
+  para: 21
+  sent: 109
+  text: The reviewers concluded that stretching does not produce
+  visual:
+    prompt: the clerk's hands filing a slim report into a drawer
+    characters:
+    - clerk
+  camera: none
+- id: s162
+  para: 21
+  sent: 109
+  text: clinically important reductions in muscle soreness.
+  visual:
+    same: true
+- id: s163
+  para: 21
+  sent: 110
+  text: And if you want to know what soreness actually is,
+  visual:
+    prompt: the clerk's finger tapping on an older case folder with a sketch of a sore muscle
+    characters:
+    - clerk
+  camera: none
+- id: s164
+  para: 21
+  sent: 110
+  text: case file zero zero three has the paperwork.
+  visual:
+    same: true
+- id: s165
+  para: 22
+  sent: 111
+  text: So why does stretching feel like it helps?
+  visual:
+    prompt: a thoughtful athlete sitting on a bench, wondering, chin in hand
+  camera: in
+  tone:
+  - serious
+- id: s166
+  para: 22
+  sent: 112
+  text: A few reasons.
+  visual:
+    same: true
+- id: s167
+  para: 23
+  sent: 113
+  text: First, it feels good.
+  visual:
+    prompt: a person enjoying a deep relaxing stretch on a mat at sunrise, eyes closed, content
+  camera: in
+- id: s168
+  para: 23
+  sent: 114
+  text: A stretch genuinely makes you feel looser.
+  visual:
+    same: true
+- id: s169
+  para: 23
+  sent: 115
+  text: But research suggests a lot of that new flexibility comes
+  visual:
+    prompt: a stylised illustration of a nervous system glowing along a leg, calming signals travelling from the
+      spinal cord
+  camera: right
+- id: s170
+  para: 23
+  sent: 115
+  text: from your nervous system tolerating the stretch better,
+  visual:
+    same: true
+- id: s171
+  para: 23
+  sent: 115
+  text: rather than the muscle itself suddenly changing.
+  visual:
+    same: true
+- id: s172
+  para: 23
+  sent: 116
+  text: You have not rebuilt the muscle.
+  visual:
+    prompt: a small negotiating table between a person and a cartoon muscle wearing a tie, comic
+  camera: in
+- id: s173
+  para: 23
+  sent: 117
+  text: You have negotiated with it.
+  visual:
+    same: true
+- id: s174
+  para: 24
+  sent: 118
+  text: Second, it is part of a warm-up.
+  visual:
+    prompt: a team jogging around a pitch, then doing skips and arm circles, breath visible in cold air
+  camera: left
+- id: s175
+  para: 24
+  sent: 119
+  text: And warming up genuinely matters.
+  visual:
+    same: true
+- id: s176
+  para: 24
+  sent: 120
+  text: Raising your body temperature,
+  visual:
+    same: true
+- id: s177
+  para: 24
+  sent: 120
+  text: getting blood moving,
+  visual:
+    same: true
+- id: s178
+  para: 24
+  sent: 120
+  text: rehearsing the movements you are about to do.
+  visual:
+    same: true
+- id: s179
+  para: 24
+  sent: 121
+  text: When people stretched before sport and did not get hurt,
+  visual:
+    prompt: a stretching athlete taking a bow on a stage while an exhausted warm-up drill figure stands in the shadows,
+      comic
+  camera: out
+- id: s180
+  para: 24
+  sent: 121
+  text: they credited the stretching.
+  visual:
+    same: true
+- id: s181
+  para: 24
+  sent: 122
+  text: The warm-up quietly did the work, and the stretch took the bow.
+  visual:
+    same: true
+- id: s182
+  para: 25
+  sent: 123
+  text: Third, it is a ritual.
+  visual:
+    prompt: an athlete in a tunnel before a big match, nervously touching her toes, stadium lights beyond
+  camera: in
+- id: s183
+  para: 25
+  sent: 124
+  text: Before a big moment,
+  visual:
+    same: true
+- id: s184
+  para: 25
+  sent: 124
+  text: people like to do something familiar
+  visual:
+    same: true
+- id: s185
+  para: 25
+  sent: 124
+  text: with their hands and their nerves.
+  visual:
+    same: true
+- id: s186
+  para: 25
+  sent: 125
+  text: Touching your toes is calming.
+  visual:
+    prompt: the clerk's hands stamping a file and placing it in a different tray
+    characters:
+    - clerk
+  camera: none
+- id: s187
+  para: 25
+  sent: 126
+  text: The Bureau has nothing against calm.
+  visual:
+    same: true
+- id: s188
+  para: 25
+  sent: 127
+  text: We only object when calm is filed under injury prevention.
+  visual:
+    same: true
+- id: s189
+  para: 26
+  sent: 128
+  text: And when you look at warm-ups that are designed properly,
+  visual:
+    prompt: Norwegian youth football pitch in autumn, teenage girls in team kits gathered around a coach
+  camera: in
+- id: s190
+  para: 26
+  sent: 128
+  text: the results are impressive.
+  visual:
+    same: true
+- id: s191
+  para: 26
+  sent: 129
+  text: In two thousand eight,
+  visual:
+    same: true
+- id: s192
+  para: 26
+  sent: 129
+  text: researchers in Norway tested a twenty-minute football warm-up
+  visual:
+    same: true
+- id: s193
+  para: 26
+  sent: 129
+  text: on almost nineteen hundred teenage girls.
+  visual:
+    prompt: teenage girl footballers doing planks and Nordic hamstring lowers on the grass, coach watching
+  camera: right
+- id: s194
+  para: 26
+  sent: 130
+  text: Running, balance, jumping,
+  visual:
+    same: true
+- id: s195
+  para: 26
+  sent: 130
+  text: and strength exercises like planks and hamstring lowers.
+  visual:
+    same: true
+- id: s196
+  para: 26
+  sent: 131
+  text: Over one season, overall injuries fell by about a third.
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.68
+      - 0.55
+      colors:
+      - stone
+      - good
+      - good
+- id: s197
+  para: 26
+  sent: 132
+  text: Severe injuries fell by almost half.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: severe injuries −45%
+    pos: top
+- id: s198
+  para: 26
+  sent: 133
+  text: Versions of that programme are now used
+  visual:
+    prompt: football teams around the world warming up on pitches in different countries, a montage
+  camera: out
+- id: s199
+  para: 26
+  sent: 133
+  text: by football teams around the world,
+  visual:
+    same: true
+- id: s200
+  para: 26
+  sent: 133
+  text: under the name the eleven plus.
+  visual:
+    same: true
+- id: s201
+  para: 27
+  sent: 134
+  text: Note what was in that warm-up.
+  visual:
+    prompt: a still life of a cone, a balance board and a kettlebell lined up on grass, straight-on view, one row,
+      none overlapping
+  camera: none
+- id: s202
+  para: 27
+  sent: 135
+  text: Movement, balance and strength.
+  visual:
+    same: true
+- id: s203
+  para: 27
+  sent: 136
+  text: Not twenty seconds of touching your toes.
+  visual:
+    same: true
+- id: s204
+  para: 28
+  sent: 137
+  text: An expert strength and conditioning coach,
+  visual:
+    prompt: a strength and conditioning coach with a clipboard watching gymnasts in a large training hall, seen
+      from behind
+  camera: in
+- id: s205
+  para: 28
+  sent: 137
+  text: who works with elite gymnasts,
+  visual:
+    same: true
+- id: s206
+  para: 28
+  sent: 137
+  text: has an interesting view on this.
+  visual:
+    same: true
+- id: s207
+  para: 28
+  sent: 138
+  text: In gymnastics, flexibility is not optional.
+  visual:
+    prompt: an elite gymnast performing a high split leap on a balance beam, extreme flexibility
+  camera: right
+- id: s208
+  para: 28
+  sent: 139
+  text: Athletes need extreme range of motion,
+  visual:
+    same: true
+- id: s209
+  para: 28
+  sent: 139
+  text: and stretching is part of how they build it,
+  visual:
+    same: true
+- id: s210
+  para: 28
+  sent: 139
+  text: over months and years.
+  visual:
+    same: true
+- id: s211
+  para: 28
+  sent: 140
+  text: But that work is planned as training,
+  visual:
+    prompt: a training plan board with blocks of colour for strength, skills and flexibility, no text
+  camera: in
+- id: s212
+  para: 28
+  sent: 140
+  text: with its own time and purpose.
+  visual:
+    same: true
+- id: s213
+  para: 28
+  sent: 141
+  text: It is not a magic shield you throw on
+  visual:
+    prompt: a gymnast hastily throwing on a cartoon suit of armour made of stretching straps just before a routine,
+      comic
+  camera: out
+- id: s214
+  para: 28
+  sent: 141
+  text: in the last five minutes before a hard session.
+  visual:
+    same: true
+- id: s215
+  para: 29
+  sent: 142
+  text: Before the hard work,
+  visual:
+    prompt: gymnasts jogging and skipping around the edge of a training floor, cheeks flushed, warming up
+  camera: left
+- id: s216
+  para: 29
+  sent: 142
+  text: the coach wants the body warm,
+  visual:
+    same: true
+- id: s217
+  para: 29
+  sent: 142
+  text: moving and switched on.
+  visual:
+    same: true
+- id: s218
+  para: 29
+  sent: 143
+  text: Pulses up.
+  visual:
+    same: true
+- id: s219
+  para: 29
+  sent: 144
+  text: Joints moving through the range they will use.
+  visual:
+    prompt: a gymnast doing controlled arm circles and hip rotations, then a light practice handstand
+  camera: in
+- id: s220
+  para: 29
+  sent: 145
+  text: A few rehearsal reps of the actual skill.
+  visual:
+    same: true
+- id: s221
+  para: 29
+  sent: 146
+  text: Then, if an athlete needs a particular range, a short stretch,
+  visual:
+    prompt: a gymnast doing a brief shoulder stretch against wall bars, then bouncing back into movement
+  camera: in
+- id: s222
+  para: 29
+  sent: 146
+  text: followed by more movement.
+  visual:
+    same: true
+- id: s223
+  para: 29
+  sent: 147
+  text: Long, slow holds belong to a different part of the day.
+  visual:
+    same: true
+- id: s224
+  para: 30
+  sent: 148
+  text: 'Verdict: wrong.'
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+  camera: in
+  overlay:
+    kind: label
+    text: WRONG
+    pos: center
+    color: '#e8402f'
+  tone:
+  - pause
+- id: s225
+  para: 31
+  sent: 149
+  text: A static stretch before exercise
+  visual:
+    prompt: rows of army recruits and a stack of research papers side by side, straight-on view
+  camera: none
+- id: s226
+  para: 31
+  sent: 149
+  text: does not meaningfully prevent injury.
+  visual:
+    same: true
+- id: s227
+  para: 31
+  sent: 150
+  text: In an army of recruits, it changed nothing.
+  visual:
+    same: true
+- id: s228
+  para: 31
+  sent: 151
+  text: In twenty-five trials, it changed nothing.
+  visual:
+    same: true
+- id: s229
+  para: 31
+  sent: 152
+  text: Held for too long, right before you sprint,
+  visual:
+    prompt: a sprinter stretching too long and missing the start of the race, comic
+  camera: right
+- id: s230
+  para: 31
+  sent: 152
+  text: it can even make you a little slower and weaker.
+  visual:
+    same: true
+- id: s231
+  para: 31
+  sent: 153
+  text: And it does next to nothing for soreness.
+  visual:
+    same: true
+- id: s232
+  para: 32
+  sent: 154
+  text: What does protect you is less glamorous.
+  visual:
+    prompt: a strong athlete deadlifting a barbell in a plain gym, unglamorous and focused
+  camera: in
+- id: s233
+  para: 32
+  sent: 155
+  text: Being fit.
+  visual:
+    same: true
+- id: s234
+  para: 32
+  sent: 156
+  text: Being strong.
+  visual:
+    same: true
+- id: s235
+  para: 32
+  sent: 157
+  text: And a real warm-up that gets your body
+  visual:
+    prompt: a whole team doing a lively dynamic warm-up on a pitch at sunset
+  camera: left
+- id: s236
+  para: 32
+  sent: 157
+  text: moving the way the sport will move it.
+  visual:
+    same: true
+- id: s237
+  para: 33
+  sent: 158
+  text: Stretching is still worth doing,
+  visual:
+    prompt: a person in a split on a mat with a suit of armour discarded beside them, comic
+  camera: in
+- id: s238
+  para: 33
+  sent: 158
+  text: if you need more range of motion.
+  visual:
+    same: true
+- id: s239
+  para: 33
+  sent: 159
+  text: Just stop treating it as armour.
+  visual:
+    same: true
+- id: s240
+  para: 34
+  sent: 160
+  text: I have filed this one under rituals,
+  visual:
+    prompt: the clerk's hands sliding a very worn folder labelled with a whistle sketch onto a shelf
+    characters:
+    - clerk
+  camera: left
+- id: s241
+  para: 34
+  sent: 160
+  text: cross-referenced with things your teacher said
+  visual:
+    same: true
+- id: s242
+  para: 34
+  sent: 160
+  text: with great confidence.
+  visual:
+    same: true
+- id: s243
+  para: 35
+  sent: 161
+  text: Case closed.
+  visual: null
+- id: s244
+  para: 35
+  sent: 162
+  text: You may touch your toes on the way out.
+  visual: null
+- id: s245
+  para: 35
+  sent: 163
+  text: For pleasure.
+  visual:
+    prompt: a cartoon person happily touching their toes while a tiny shield falls away, comic
+  camera: in
+- id: s246
+  para: 35
+  sent: 164
+  text: Not for protection.
+  visual:
+    same: true
+- id: s247
+  para: 35
+  sent: 165
+  text: 'Next case: a sailor, a pear,'
+  visual: null
+- id: s248
+  para: 35
+  sent: 165
+  text: and the most famous argument nobody ever had.
+  visual: null

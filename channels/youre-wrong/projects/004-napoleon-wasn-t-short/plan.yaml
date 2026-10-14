@@ -1,0 +1,809 @@
+# Scene plan, Napoleon Wasn't Short
+s001:
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat standing on a stone balcony, looking out over
+      a vast army in formation at dawn, grand and heroic
+  camera: in
+s002:
+  visual:
+    same: true
+s003:
+  visual:
+    same: true
+s004:
+  visual:
+    prompt: a tiny furious Napoleon in an absurdly gigantic bicorne hat, stamping his foot, in the style of a hand-coloured Georgian satirical etching, exaggerated caricature
+  camera: out
+s005:
+  visual:
+    same: true
+s006:
+  visual:
+    prompt: a short man in a modern suit shouting up at a much taller, bored colleague in an office, ink cartoon
+  camera: right
+s007:
+  visual:
+    same: true
+s008:
+  visual:
+    prompt: two office workers whispering behind their hands by a water cooler, glancing sideways at a short colleague across the room
+  camera: left
+s009:
+  visual:
+    same: true
+s010:
+  visual:
+    same: true
+s011:
+  visual:
+    prompt: the clerk's hands stamping a thick case file on a cluttered wooden desk in a dim archive, brass lamp
+    characters:
+    - clerk
+  camera: in
+s012:
+  visual:
+    same: true
+s013:
+  visual:
+    same: true
+s014:
+  visual:
+    prompt: endless tall archive shelves full of bound case files disappearing into darkness
+  camera: in
+s015:
+  visual:
+    same: true
+s016:
+  visual:
+    prompt: the clerk's hands opening a worn folder that contains a small pen-and-ink portrait of Napoleon in a bicorne hat
+    characters:
+    - clerk
+  camera: none
+s017:
+  visual:
+    same: true
+s018:
+  visual:
+    prompt: the remote rocky island of Saint Helena rising from a grey South Atlantic sea, low clouds, a lonely house on the plateau
+  camera: right
+s019:
+  visual:
+    same: true
+s020:
+  visual:
+    same: true
+s021:
+  visual:
+    same: true
+s022:
+  visual:
+    prompt: the clerk's hands untying a ribbon around a stack of yellowed papers with red wax seals
+    characters:
+    - clerk
+  camera: in
+s023:
+  visual:
+    same: true
+s024:
+  visual:
+    prompt: a plain bedroom in Longwood House in 1821, a simple narrow camp bed, guttering candles, mourning atmosphere, grey light through the window
+  camera: in
+s025:
+  visual:
+    same: true
+s026:
+  visual:
+    same: true
+s027:
+  visual:
+    same: true
+s028:
+  visual:
+    prompt: a physician in a dark coat holding a long folding wooden measuring rule beside a bed covered with a white sheet, a valet holding a candle, solemn and respectful
+  camera: none
+s029:
+  visual:
+    same: true
+s030:
+  visual:
+    same: true
+s031:
+  visual:
+    prompt: a tiny toy tin soldier of Napoleon standing next to a long wooden measuring rule on a table, comic scale
+  camera: in
+s032:
+  visual:
+    same: true
+s033:
+  visual:
+    same: true
+s034:
+  visual:
+    prompt: a British gentleman in a coffee house laughing heartily at a caricature print, quill pen behind his ear
+  camera: left
+s035:
+  visual:
+    same: true
+s036:
+  visual:
+    same: true
+s037:
+  visual:
+    prompt: two antique wooden rulers lying side by side, one French and one English, their markings visibly spaced differently, close-up, no numbers
+  camera: right
+s038:
+  visual:
+    same: true
+s039:
+  visual:
+    prompt: an eighteenth-century French merchant's counter with brass and wooden measuring rods, a tailor's chalk and fabric
+  camera: in
+s040:
+  visual:
+    same: true
+s041:
+  visual:
+    prompt: extreme close-up of two inch marks on two old rulers, the French mark clearly wider than the English one, ink and watercolour diagram style, no numbers
+  camera: none
+s042:
+  visual:
+    same: true
+s043:
+  visual:
+    same: true
+s044:
+  visual:
+    prompt: a confused tailor holding two different rulers, one in each hand, shrugging
+  camera: out
+s045:
+  visual:
+    same: true
+s046:
+  visual:
+    prompt: a smug London gentleman reading a newspaper in a club armchair, ignoring an abacus and a pile of conversion tables on the side table
+  camera: left
+s047:
+  visual:
+    same: true
+s048:
+  visual:
+    same: true
+s049:
+  visual:
+    same: true
+s050:
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat standing beside a tailor's height chart on a wall,
+      perfectly normal proportions
+  camera: in
+s051:
+  visual:
+    same: true
+s052:
+  visual:
+    prompt: an English upholsterer with a cloth tape measure in a candlelit room at Longwood House, a French general standing by, respectful
+  camera: right
+s053:
+  visual:
+    same: true
+s054:
+  visual:
+    same: true
+s055:
+  visual:
+    same: true
+s056:
+  visual:
+    prompt: a stiff British officer in a red coat, arms folded, reluctantly nodding at a measuring tape
+  camera: in
+s057:
+  visual:
+    same: true
+s058:
+  visual:
+    same: true
+s059:
+  visual:
+    same: true
+s060:
+  visual:
+    prompt: an elegant salon in Paris in 1802, the First Consul Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne
+      hat greeting a visiting gentleman, both men of similar height, straight-on view
+  camera: right
+s061:
+  visual:
+    same: true
+s062:
+  visual:
+    same: true
+s063:
+  visual:
+    same: true
+s064:
+  visual:
+    prompt: a 1960s print shop, a typesetter setting small metal letters in a composing stick, ink rollers and stacks of paper
+  camera: in
+s065:
+  visual:
+    same: true
+s066:
+  visual:
+    same: true
+s067:
+  visual:
+    same: true
+s068:
+  visual:
+    prompt: the clerk's hands filing two thin scholarly pamphlets side by side into a drawer
+    characters:
+    - clerk
+  camera: none
+s069:
+  visual:
+    same: true
+s070:
+  visual:
+    same: true
+s071:
+  visual:
+    same: true
+s072:
+  visual:
+    prompt: straight-on front view of a row of seven ordinary French men of the 1790s, farmers, soldiers and shopkeepers, all of similar height, one row, none overlapping
+  camera: none
+s073:
+  visual:
+    same: true
+s074:
+  visual:
+    same: true
+s075:
+  visual:
+    same: true
+s076:
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat in a crowded French market square, the same height
+      as the citizens around him
+  camera: left
+s077:
+  visual:
+    same: true
+s078:
+  visual:
+    same: true
+s079:
+  visual:
+    same: true
+s080:
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat admiring himself in a tall gilded mirror, chin
+      raised proudly
+  camera: in
+s081:
+  visual:
+    same: true
+s082:
+  visual:
+    prompt: the clerk's hands laying three evidence objects in one row on the desk, a wooden ruler, a tall fur bearskin hat and a quill pen, straight-on view
+    characters:
+    - clerk
+  camera: none
+s083:
+  visual:
+    same: true
+s084:
+  visual:
+    same: true
+s085:
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.93
+      - 1.0
+      colors:
+      - bad
+      - good
+s086:
+  visual:
+    same: true
+s087:
+  visual:
+    same: true
+s088:
+  visual:
+    same: true
+s089:
+  visual:
+    same: true
+s090:
+  visual:
+    prompt: a long line of French Imperial Guard grenadiers in towering black bearskin hats on parade, blue coats with white crossbelts
+  camera: left
+s091:
+  visual:
+    same: true
+s092:
+  visual:
+    same: true
+s093:
+  visual:
+    prompt: a tall grenadier recruit standing against a wooden height post while a sergeant checks him, a bearskin hat waiting on a stool
+  camera: in
+s094:
+  visual:
+    same: true
+s095:
+  visual:
+    same: true
+s096:
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat in his plain green coat standing among tall grenadiers
+      in bearskin hats and marshals with feathered hats and gold braid, he looks small among them
+  camera: in
+s097:
+  visual:
+    same: true
+s098:
+  visual:
+    same: true
+s099:
+  visual:
+    prompt: an ordinary man standing among very tall basketball players, looking like a garden gnome, humorous ink and watercolour sketch
+  camera: out
+s100:
+  visual:
+    same: true
+s101:
+  visual:
+    same: true
+s102:
+  visual:
+    prompt: French soldiers around a campfire at night, raising their cups and cheering their young general
+  camera: right
+s103:
+  visual:
+    same: true
+s104:
+  visual:
+    same: true
+s105:
+  visual:
+    same: true
+s106:
+  visual:
+    prompt: veteran soldiers smiling fondly and lifting their hats as Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black
+      bicorne hat rides past on a horse
+  camera: left
+s107:
+  visual:
+    same: true
+s108:
+  visual:
+    same: true
+s109:
+  visual:
+    same: true
+s110:
+  visual:
+    prompt: the Battle of Lodi in 1796, a long wooden bridge over a river, cannon smoke, a young general in uniform aiming a cannon himself among gunners
+  camera: in
+s111:
+  visual:
+    same: true
+s112:
+  visual:
+    same: true
+s113:
+  visual:
+    same: true
+s114:
+  visual:
+    prompt: the clerk's hands sliding a folder to the side of the desk, unimpressed, a cup of tea nearby
+    characters:
+    - clerk
+  camera: none
+s115:
+  visual:
+    same: true
+s116:
+  visual:
+    same: true
+s117:
+  visual:
+    prompt: a Georgian London workshop at night, a caricaturist hunched over a copper etching plate by candlelight, ink pots and burins
+  camera: in
+s118:
+  visual:
+    same: true
+s119:
+  visual:
+    same: true
+s120:
+  visual:
+    prompt: a crowd of Londoners in 1800s clothing pressing their faces against a print shop window on a busy street
+  camera: right
+s121:
+  visual:
+    same: true
+s122:
+  visual:
+    same: true
+s123:
+  visual:
+    prompt: a gentleman in a dark coat discreetly sliding a purse of coins across a table to an artist
+  camera: in
+s124:
+  visual:
+    same: true
+s125:
+  visual:
+    same: true
+s126:
+  visual:
+    same: true
+s127:
+  visual:
+    prompt: British warships sailing out under dark storm clouds, war returning, white cliffs behind
+  camera: left
+s128:
+  visual:
+    same: true
+s129:
+  visual:
+    same: true
+s130:
+  visual:
+    prompt: a tiny screaming spoiled-child Napoleon with a giant bicorne hat, enormous boots and a sword longer than himself, in the style of a hand-coloured Georgian satirical etching, exaggerated caricature
+  camera: in
+s131:
+  visual:
+    same: true
+s132:
+  visual:
+    same: true
+s133:
+  visual:
+    same: true
+s134:
+  visual:
+    prompt: a grand reception room in the Tuileries palace, Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat
+      angrily confronting a British ambassador while diplomats stare in shock
+  camera: right
+s135:
+  visual:
+    same: true
+s136:
+  visual:
+    same: true
+s137:
+  visual:
+    same: true
+s138:
+  visual:
+    prompt: London newspaper presses rolling, freshly printed sheets stacked high, newsboys running out the door
+  camera: in
+s139:
+  visual:
+    same: true
+s140:
+  visual:
+    prompt: Napoleon in a wild tantrum, a table kicked over and a globe rolling on the floor, in the style of a hand-coloured Georgian satirical etching, exaggerated caricature
+  camera: out
+s141:
+  visual:
+    same: true
+s142:
+  visual:
+    same: true
+s143:
+  visual:
+    same: true
+s144:
+  visual:
+    same: true
+s145:
+  visual:
+    prompt: a gigantic King George the Third peering through a spyglass at a tiny Napoleon standing in the palm of his hand, in the style of a hand-coloured Georgian satirical etching, exaggerated caricature
+  camera: in
+s146:
+  visual:
+    same: true
+s147:
+  visual:
+    same: true
+s148:
+  visual:
+    same: true
+s149:
+  visual:
+    same: true
+s150:
+  visual:
+    prompt: two men at a dinner table carving a large globe like a Christmas pudding, one tall and lanky, the other small, in the style of a hand-coloured Georgian satirical etching, exaggerated caricature
+  camera: in
+s151:
+  visual:
+    same: true
+s152:
+  visual:
+    same: true
+s153:
+  visual:
+    same: true
+s154:
+  visual:
+    prompt: a very tall thin British statesman standing next to a Napoleon half his height, side by side, in the style of a hand-coloured Georgian satirical etching, exaggerated caricature
+  camera: out
+s155:
+  visual:
+    same: true
+s156:
+  visual:
+    same: true
+s157:
+  visual:
+    prompt: a miniature Napoleon rising out of a candlestick while a Cossack lowers a candle snuffer over him, in the style of a hand-coloured Georgian satirical etching, exaggerated caricature
+  camera: in
+s158:
+  visual:
+    same: true
+s159:
+  visual:
+    same: true
+s160:
+  visual:
+    same: true
+s161:
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat in exile, sitting at a desk and frowning at a
+      satirical print in his hands
+  camera: in
+s162:
+  visual:
+    same: true
+s163:
+  visual:
+    same: true
+s164:
+  visual:
+    prompt: British ministers around a table politely ignoring an unopened French letter, sipping tea
+  camera: right
+s165:
+  visual:
+    same: true
+s166:
+  visual:
+    same: true
+s167:
+  visual:
+    prompt: the painter Jacques-Louis David in his studio at a huge canvas, sketching a rearing horse
+  camera: left
+s168:
+  visual:
+    same: true
+s169:
+  visual:
+    same: true
+s170:
+  visual:
+    same: true
+s171:
+  visual:
+    prompt: Napoleon on a rearing white stallion on a stormy alpine pass, billowing golden cloak, pointing heroically upward, grand neoclassical painting style
+  camera: in
+s172:
+  visual:
+    same: true
+s173:
+  visual:
+    prompt: a painter's studio with a marble bust of Napoleon on a plinth and a young man posing on a wooden model horse
+  camera: right
+s174:
+  visual:
+    same: true
+s175:
+  visual:
+    prompt: Napoleon wrapped in a grey greatcoat riding a mule up a snowy mountain path, led by a local guide on foot, sombre and realistic
+  camera: in
+s176:
+  visual:
+    same: true
+s177:
+  visual:
+    same: true
+s178:
+  visual:
+    prompt: two contrasting pictures side by side on an easel, on the left a heroic giant Napoleon on horseback, on the right a tiny caricature Napoleon
+  camera: out
+s179:
+  visual:
+    same: true
+s180:
+  visual:
+    same: true
+s181:
+  visual:
+    same: true
+s182:
+  visual:
+    prompt: the clerk's hands opening the last folder in the pile under the lamp
+    characters:
+    - clerk
+  camera: in
+s183:
+  visual:
+    same: true
+s184:
+  visual:
+    same: true
+s185:
+  visual:
+    prompt: a short man with clenched fists shouting at a much taller man who looks bored, modern office, ink cartoon
+  camera: left
+s186:
+  visual:
+    same: true
+s187:
+  visual:
+    same: true
+s188:
+  visual:
+    prompt: a man in an armchair nodding along to a newspaper, the calendar on the wall shedding its pages, his hair turning grey
+  camera: in
+s189:
+  visual:
+    same: true
+s190:
+  visual:
+    prompt: a university laboratory, two men fencing playfully with wooden sticks, one rapping the other on the knuckles, researchers with clipboards and heart monitors watching
+  camera: right
+s191:
+  visual:
+    same: true
+s192:
+  visual:
+    same: true
+s193:
+  visual:
+    same: true
+s194:
+  visual:
+    prompt: a calm short man smiling while a red-faced tall man swings back angrily, researchers taking notes
+  camera: in
+s195:
+  visual:
+    same: true
+s196:
+  visual:
+    same: true
+s197:
+  visual:
+    prompt: a psychology laboratory, two men at a table dividing a pile of coins, the shorter man pulling a slightly larger pile toward himself
+  camera: in
+s198:
+  visual:
+    same: true
+s199:
+  visual:
+    same: true
+s200:
+  visual:
+    same: true
+s201:
+  visual:
+    same: true
+s202:
+  visual:
+    prompt: a short man calmly playing chess, relaxed and strategic, no fighting
+  camera: left
+s203:
+  visual:
+    same: true
+s204:
+  visual:
+    same: true
+s205:
+  visual:
+    prompt: a crowd staring and pointing at a short angry man, while beside him a tall angry man is ignored by everyone, ink cartoon
+  camera: out
+s206:
+  visual:
+    same: true
+s207:
+  visual:
+    same: true
+s208:
+  visual:
+    same: true
+s209:
+  visual:
+    same: true
+s210:
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+  camera: in
+s211:
+  visual:
+    prompt: straight-on view of Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat standing beside a tall wall
+      height chart, normal height
+  camera: none
+s212:
+  visual:
+    same: true
+s213:
+  visual:
+    same: true
+s214:
+  visual:
+    prompt: a wooden ruler, a black bearskin hat and a quill pen arranged together on a desk like evidence, straight-on view, one row, none overlapping
+  camera: in
+s215:
+  visual:
+    same: true
+s216:
+  visual:
+    same: true
+s217:
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat in coronation robes crowning himself inside Notre-Dame
+      cathedral, grand ceremony
+  camera: in
+s218:
+  visual:
+    same: true
+s219:
+  visual:
+    same: true
+s220:
+  visual:
+    prompt: modern museum visitors smirking at a small statue of Napoleon on a pedestal
+  camera: right
+s221:
+  visual:
+    same: true
+s222:
+  visual:
+    same: true
+s223:
+  visual:
+    prompt: a cartoonist's desk with an ink pot, a quill and an hourglass slowly running out
+  camera: in
+s224:
+  visual:
+    same: true
+s225:
+  visual:
+    same: true
+s226:
+  visual:
+    same: true
+s227:
+  visual:
+    prompt: the clerk's hands sliding a very thick folder onto a crowded archive shelf
+    characters:
+    - clerk
+  camera: left
+s228:
+  visual:
+    same: true
+s229:
+  visual:
+    same: true
+s230:
+  visual:
+    prompt: the clerk's hands placing an antique French wooden ruler on top of a closed file, then the desk lamp dims
+    characters:
+    - clerk
+  camera: out
+s231:
+  visual:
+    same: true
+s232:
+  visual:
+    same: true

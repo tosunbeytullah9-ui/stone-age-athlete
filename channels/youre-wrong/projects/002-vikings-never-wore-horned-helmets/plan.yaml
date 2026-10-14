@@ -1,0 +1,398 @@
+# Scene plan, Case 002 (Vikings). 81 scenes, 2 charts (s127 timeline of editions, s155 timeline), clerk in 9 scenes.
+s001:
+  visual: {prompt: "A theatrical poster-style painting of a burly bearded Norse warrior in a helmet with two big curved horns, holding a huge axe, scowling under a stormy sky, deliberately over-dramatic like a 19th-century opera illustration"}
+  camera: in
+s002: {visual: {same: true}}
+s003: {visual: {same: true}}
+s004:
+  visual: {prompt: "Close-up in an 1870s costume workshop lit by gaslight: a costume designer's hands painting a helmet with two large cow horns on a wooden stand, brushes, fabric and sketches around, no readable writing"}
+  camera: right
+s005: {visual: {same: true}}
+s006: {visual: {same: true}}
+s007:
+  visual: {prompt: "Overhead close-up of the clerk's ink-stained hands untying the string of a thick blank cardboard case folder on the wooden archive desk, green banker's lamp glowing, brass rubber stamp beside it", characters: [clerk]}
+  camera: in
+s008: {visual: {same: true}}
+s009: {visual: {same: true}}
+s010:
+  visual: {prompt: "The clerk's hands placing two old objects at opposite ends of his long archive desk: on the left a green-patinated bronze helmet with two curving horns, on the right a plain round rusted iron helmet, a long empty stretch of desk between them", characters: [clerk]}
+  camera: left
+s011: {visual: {same: true}}
+s012: {visual: {same: true}}
+s013:
+  visual: {prompt: "One continuous misty Scandinavian landscape at dusk: on a hill on the far left a small Bronze Age torch procession, and far away on the right a single Viking longship sailing on a calm fjord, a vast empty valley between them"}
+  camera: right
+s014: {visual: {same: true}}
+s015: {visual: {same: true}}
+s016:
+  visual: {prompt: "The clerk's hands spreading old black-and-white excavation photographs of rusted metal objects across the archive desk, a magnifying glass on top, lamplight", characters: [clerk]}
+  camera: in
+s017: {visual: {same: true}}
+s018: {visual: {same: true}}
+s019:
+  visual: {prompt: "A hillside farm in the Ringerike countryside of Norway in spring 1943: a man in 1940s work clothes levelling earth with a shovel next to a wooden farmhouse, birch trees, a horse and cart, pale northern light"}
+  camera: left
+s020: {visual: {same: true}}
+s021: {visual: {same: true}}
+s022:
+  visual: {prompt: "Close-up of an excavated grave in dark soil: rusted iron fragments of a broken helmet lying among stones, an archaeologist's trowel and brush beside them, soft daylight"}
+  camera: in
+s023: {visual: {same: true}}
+s024: {visual: {same: true}}
+s025:
+  visual: {prompt: "Close-up in a museum conservation lab: corroded fragments of an iron mail shirt, thousands of tiny interlinked rings, laid out on white cloth under a lamp, tweezers beside them"}
+  camera: right
+s026: {visual: {same: true}}
+s027:
+  visual: {prompt: "A tenth-century Norse warrior standing in a green valley, fully equipped: knee-length iron mail shirt, rounded iron helmet with an eye-and-nose guard and no horns, sword at his hip, round wooden shield, calm and proud"}
+  camera: out
+s028: {visual: {same: true}}
+s029:
+  visual: {prompt: "Museum close-up of a reconstructed Viking Age iron helmet on a stand: a rounded cap made of four riveted plates with a fixed spectacle-shaped guard around the eyes and nose, dark background, dramatic spotlight"}
+  camera: in
+s030: {visual: {same: true}}
+s031: {visual: {same: true}}
+s032: {visual: {same: true}}
+s033:
+  visual: {prompt: "The same rounded iron helmet seen from directly above, its smooth bare dome with no horns at all, spotlit on dark velvet, a gently comic emptiness", ref: s029}
+  camera: in
+s034: {visual: {same: true}}
+s035: {visual: {same: true}}
+s036: {visual: {same: true}}
+s037:
+  visual: {prompt: "A quiet museum gallery in Oslo: a single iron Viking helmet inside a tall glass case in the centre, a few visitors looking at it, soft cool light"}
+  camera: out
+s038: {visual: {same: true}}
+s039:
+  visual: {prompt: "A university archaeology laboratory: an older archaeologist with glasses examining a rusty iron helmet under a bright magnifying lamp, notes and tools on the bench, grey English daylight"}
+  camera: left
+s040: {visual: {same: true}}
+s041: {visual: {same: true}}
+s042:
+  visual: {prompt: "A small northern English market town street in the 1950s: workmen in flat caps digging a deep trench to lay large clay sewage pipes, terraced brick houses, one worker lifting a muddy round object out of the earth"}
+  camera: right
+s043: {visual: {same: true}}
+s044: {visual: {same: true}}
+s045:
+  visual: {prompt: "A dusty shelf in a small local museum store room: a rusty round iron helmet sitting overlooked among old jars, boxes and forgotten objects, a beam of light falling on it"}
+  camera: in
+s046: {visual: {same: true}}
+s047: {visual: {same: true}}
+s048: {visual: {same: true}}
+s049: {visual: {same: true}}
+s050:
+  visual: {prompt: "Straight-on front view of exactly two round iron Viking helmets standing side by side on museum stands, and in front of them a small tray holding a few rusted helmet fragments, plain dark background"}
+  camera: in
+s051: {visual: {same: true}}
+s052: {visual: {same: true}}
+s053: {visual: {same: true}}
+s054:
+  visual: {prompt: "A fleet of Viking longships with striped square sails sailing along a rugged European coastline, a distant town and church on the shore, wind and spray, wide view"}
+  camera: left
+s055: {visual: {same: true}}
+s056: {visual: {same: true}}
+s057:
+  visual: {prompt: "A Viking Age blacksmith in a smoky forge hammering a glowing piece of iron on an anvil, a small clay furnace, bellows, sparks flying, sweat and firelight"}
+  camera: in
+s058: {visual: {same: true}}
+s059: {visual: {same: true}}
+s060: {visual: {same: true}}
+s061:
+  visual: {prompt: "A group of ordinary Norse warriors on a pebble beach in wool tunics and simple leather caps, holding spears and round wooden shields, none of them wearing metal helmets, grey sky"}
+  camera: right
+s062: {visual: {same: true}}
+s063: {visual: {same: true}}
+s064:
+  visual: {prompt: "A historian in a modern university library reading an old medieval manuscript with a magnifying glass, the script blurred and unreadable, warm reading lamp"}
+  camera: in
+s065: {visual: {same: true}}
+s066: {visual: {same: true}}
+s067:
+  visual: {prompt: "A Norse crew of twelve men rowing a longship together across open grey sea on an expedition, oars dipping in rhythm, sea spray, low clouds"}
+  camera: left
+s068: {visual: {same: true}}
+s069: {visual: {same: true}}
+s070:
+  visual: {prompt: "A Norse man coming home to his turf-roofed farmstead carrying a sea chest, his family greeting him, cows grazing in the green pasture, peaceful summer evening"}
+  camera: out
+s071: {visual: {same: true}}
+s072: {visual: {same: true}}
+s073:
+  visual: {prompt: "A gently comic modern British city street crowded with tourists holding maps and cameras, red double-decker bus in the background, overcast light"}
+  camera: right
+s074: {visual: {same: true}}
+s075:
+  visual: {prompt: "The monastery of Lindisfarne on its tidal island in the year 793, stone church and small buildings, monks on the shore looking out to sea where three longships approach in the distance, dramatic grey dawn"}
+  camera: in
+s076: {visual: {same: true}}
+s077: {visual: {same: true}}
+s078:
+  visual: {prompt: "The same island monastery a moment later: the longships run up onto the beach and monks hurry back toward the church, no violence shown, wind and grey light", ref: s075}
+  camera: right
+s079: {visual: {same: true}}
+s080:
+  visual: {prompt: "A sturdy Norse trading ship crossing the wild North Atlantic, grey waves, a distant iceberg, the crew wrapped in wool cloaks, vast lonely ocean"}
+  camera: out
+s081: {visual: {same: true}}
+s082:
+  visual: {prompt: "Close-up of a scientist's gloved hands holding an old piece of wood showing fine tree rings and a clean cut mark from a metal axe, a magnifying lens over the rings, laboratory light"}
+  camera: in
+s083: {visual: {same: true}}
+s084: {visual: {same: true}}
+s085: {visual: {same: true}}
+s086:
+  visual: {prompt: "Reconstructed Norse sod-walled houses on a grassy coastal meadow at L'Anse aux Meadows in Newfoundland, a calm bay and low cliffs, soft northern light"}
+  camera: left
+s087: {visual: {same: true}}
+s088:
+  visual: {prompt: "Norse shipbuilders constructing a longship on a riverbank: overlapping oak planks, the curved keel and frame, men with axes and adzes, wood chips everywhere, bright day"}
+  camera: right
+s089: {visual: {same: true}}
+s090: {visual: {same: true}}
+s091:
+  visual: {prompt: "A gently comic scene: a warrior in a helmet with two big horns being pulled off balance by an opponent who simply grabs both horns like handles, both men in wool tunics on a field, no blood"}
+  camera: in
+s092: {visual: {same: true}}
+s093:
+  visual: {prompt: "The clerk's hands sliding a thin new folder into an already overstuffed wooden drawer full of strange old files, dust lifting in the lamplight", characters: [clerk]}
+  camera: left
+s094: {visual: {same: true}}
+s095:
+  visual: {prompt: "A Viking Age merchant's balance scale weighing a heap of silver coins and chopped silver, next to it a rounded iron helmet as if being priced, warm lamplight on a wooden table"}
+  camera: in
+s096: {visual: {same: true}}
+s097: {visual: {same: true}}
+s098:
+  visual: {prompt: "The clerk's hand lifting a very old, dust-covered folder out of the bottom of a tall stack, a cloud of dust catching the green lamplight", characters: [clerk]}
+  camera: in
+s099: {visual: {same: true}}
+s100:
+  visual: {prompt: "An early 19th-century romantic painter in his studio working on a huge canvas of a heroic Norse warrior wearing a helmet with small feathered wings, oil paints, candlelight"}
+  camera: out
+s101: {visual: {same: true}}
+s102: {visual: {same: true}}
+s103: {visual: {same: true}}
+s104:
+  visual: {prompt: "Close-up of a theatrical helmet with two little feathered wings on its sides resting on a windowsill, and a grumpy pigeon standing right next to it looking at it suspiciously, comic mood"}
+  camera: in
+s105: {visual: {same: true}}
+s106:
+  visual: {prompt: "An old leather-bound book of Swedish poetry lying open in a 19th-century library, one page showing an engraving of a hero in a winged eagle helmet, the printed text blurred and unreadable, candlelight"}
+  camera: right
+s107: {visual: {same: true}}
+s108: {visual: {same: true}}
+s109:
+  visual: {prompt: "A German painter and costume designer in an 1870s frock coat at a huge worktable covered with costume sketches, armour pieces and fabric swatches, gaslight, focused and busy"}
+  camera: left
+s110: {visual: {same: true}}
+s111: {visual: {same: true}}
+s112:
+  visual: {prompt: "A grand red-brick opera festival theatre on a green hill above a small Bavarian town in 1876, horse-drawn carriages arriving, people in evening dress, summer evening light"}
+  camera: out
+s113: {visual: {same: true}}
+s114: {visual: {same: true}}
+s115: {visual: {same: true}}
+s116:
+  visual: {prompt: "A busy backstage costume fitting in the 1870s: opera singers being dressed as Norse gods in capes and armour, an assistant placing a helmet with two horns on one singer's head, tall mirrors, gaslight"}
+  camera: in
+s117: {visual: {same: true}}
+s118:
+  visual: {prompt: "An elegant woman in an 1870s black silk dress seen from behind, sitting at a writing desk in a rehearsal room, writing in her diary, a costumed singer in a horned helmet visible through the doorway"}
+  camera: right
+s119: {visual: {same: true}}
+s120: {visual: {same: true}}
+s121: {visual: {same: true}}
+s122:
+  visual: {prompt: "A dramatic 1876 opera performance seen from the audience: singers in horned helmets and long capes on a misty stage with painted rocks, strong stage light, silhouettes of the audience in front"}
+  camera: in
+s123: {visual: {same: true}}
+s124:
+  visual: {prompt: "A busy 1880s printing workshop: illustrators at slanted drawing desks copying pictures of horned warriors, a heavy printing press and stacks of fresh prints, the printed pages blurred and unreadable"}
+  camera: left
+s125: {visual: {same: true}}
+s126: {visual: {same: true}}
+s127:
+  visual:
+    bg: plain_warm
+    props: [{type: timeline, x: 960, y: 560, scale: 1.3, n: 9, highlight: 8}]
+s128: {visual: {same: true}}
+s129: {visual: {same: true}}
+s130:
+  visual: {prompt: "A Victorian reader in an armchair by the fire reading an illustrated adventure novel, completely unbothered, a cat asleep on his lap, cosy lamplight"}
+  camera: in
+s131: {visual: {same: true}}
+s132:
+  visual: {prompt: "A historian in a modern library surrounded by tall stacks of old illustrated books open to pictures of warriors, comparing them with a magnifying glass, the text blurred and unreadable"}
+  camera: right
+s133: {visual: {same: true}}
+s134: {visual: {same: true}}
+s135: {visual: {same: true}}
+s136:
+  visual: {prompt: "A modern toy and souvenir shop shelf crammed with plastic horned helmets, toy axes, plush bearded warrior dolls and party costumes, bright colours, no logos or readable labels"}
+  camera: out
+s137: {visual: {same: true}}
+s138: {visual: {same: true}}
+s139: {visual: {same: true}}
+s140:
+  visual: {prompt: "A sleepy man at two in the morning sitting on a sofa after a costume party, wearing a lopsided plastic horned helmet, streamers and paper cups around him, dim lamplight"}
+  camera: in
+s141: {visual: {same: true}}
+s142:
+  visual: {prompt: "The archive desk at night: the clerk's hands pausing over the open case file as the green lamp flickers, a second heavy folder sliding out from underneath, long shadows", characters: [clerk]}
+  camera: in
+s143: {visual: {same: true}}
+s144: {visual: {same: true}}
+s145: {visual: {same: true}}
+s146:
+  visual: {prompt: "A Danish peat bog in 1942: a peat worker in a cap and boots cutting dark turf with a long spade, discovering a green bronze object half-buried in the wet peat, grey sky, flat marshland"}
+  camera: left
+s147: {visual: {same: true}}
+s148: {visual: {same: true}}
+s149:
+  visual: {prompt: "Museum close-up of a Bronze Age bronze ceremonial helmet with two long curving horns, a small curled beak at the front and two round staring eyes, green-brown patina, dramatic spotlight on a dark background"}
+  camera: in
+s150: {visual: {same: true}}
+s151: {visual: {same: true}}
+s152: {visual: {same: true}}
+s153:
+  visual: {prompt: "Two researchers in a clean laboratory taking a tiny sample from the inside of a bronze horned helmet with a scalpel, sample vials and a microscope nearby, bright cool light"}
+  camera: right
+s154: {visual: {same: true}}
+s155:
+  visual:
+    bg: plain_warm
+    props: [{type: timeline, x: 960, y: 560, scale: 1.3, n: 10, highlight: 0}]
+s156: {visual: {same: true}}
+s157: {visual: {same: true}}
+s158:
+  visual: {prompt: "A Danish archaeologist laughing gently and shaking her head in a museum gallery beside a glass case holding two bronze horned helmets, warm light"}
+  camera: left
+s159: {visual: {same: true}}
+s160:
+  visual: {prompt: "A Bronze Age ceremony at dusk beside a misty bog: a torchlit procession of people in woven wool clothing, two figures wearing bronze horned helmets, others raising long curved bronze horns, solemn and mysterious"}
+  camera: out
+s161: {visual: {same: true}}
+s162: {visual: {same: true}}
+s163:
+  visual: {prompt: "Close-up of a bronze horned ceremonial helmet on a wooden stand, a hand gripping one of its horns exactly like a handle, comic and clear"}
+  camera: in
+s164: {visual: {same: true}}
+s165: {visual: {same: true}}
+s166:
+  visual: {prompt: "A fragment of an old Viking Age woven tapestry, faded reds and browns, showing a procession of small stylised figures and wagons, one figure wearing a horned headdress, displayed in a museum case"}
+  camera: in
+s167: {visual: {same: true}}
+s168: {visual: {same: true}}
+s169:
+  visual: {prompt: "A great Viking ship with a tall carved spiral prow displayed in a white vaulted museum hall, visitors small beside it, soft daylight"}
+  camera: out
+s170: {visual: {same: true}}
+s171: {visual: {same: true}}
+s172:
+  visual: {prompt: "A museum curator in a Scandinavian national museum examining Viking Age swords, brooches and helmet fragments in a glass case, careful gloved hands, calm gallery light"}
+  camera: right
+s173: {visual: {same: true}}
+s174: {visual: {same: true}}
+s175: {visual: {same: true}}
+s176:
+  visual: {prompt: "A 19th-century gentleman collector's cabinet of curiosities by gaslight: a long golden drinking horn, small bronze figurines wearing horned helmets, old maps without lettering, glass domes"}
+  camera: left
+s177: {visual: {same: true}}
+s178: {visual: {same: true}}
+s179: {visual: {same: true}}
+s180:
+  visual: {prompt: "Close-up of an ancient bronze plate with an embossed figure of a dancer wearing a headdress with two curved horns ending in bird heads, worn green patina, museum light"}
+  camera: in
+s181: {visual: {same: true}}
+s182:
+  visual: {prompt: "A gently comic craftsman's workbench: a man gluing a golden horn, bird-head ornaments and bronze horns from different ancient objects onto one iron helmet, a pot of glue, gaslight"}
+  camera: right
+s183: {visual: {same: true}}
+s184:
+  visual: {prompt: "A stereotypical movie-style Viking: a mud-covered, wild-haired warrior scowling in the rain, deliberately exaggerated and grimy"}
+  camera: in
+s185: {visual: {same: true}}
+s186: {visual: {same: true}}
+s187:
+  visual: {prompt: "Straight-on view of Viking Age grooming tools laid out on a museum cloth: a carved bone comb, small bronze tweezers, an ear spoon and a toothpick, clean and orderly, soft light"}
+  camera: in
+s188: {visual: {same: true}}
+s189: {visual: {same: true}}
+s190: {visual: {same: true}}
+s191: {visual: {same: true}}
+s192:
+  visual: {prompt: "Inside a Norse bathhouse on a Saturday: a family washing and combing their hair beside a wooden tub, steam rising from hot stones, warm firelight"}
+  camera: left
+s193:
+  visual: {prompt: "A medieval English monk writing a chronicle in a stone scriptorium with a quill by candlelight, a slightly sour expression, the page unreadable"}
+  camera: in
+s194: {visual: {same: true}}
+s195: {visual: {same: true}}
+s196: {visual: {same: true}}
+s197:
+  visual: {prompt: "The clerk's hands filing a single yellowed medieval page into a drawer of the archive, a small dry smile implied by the careful gesture, lamplight", characters: [clerk]}
+  camera: right
+s198: {visual: {same: true}}
+s199:
+  visual: {prompt: "The same rounded iron helmet with its eye-and-nose guard alone on dark velvet under a single spotlight, quiet and serious", ref: s029}
+  camera: in
+s200: {visual: {same: true}}
+s201: {visual: {same: true}}
+s202:
+  visual: {prompt: "The same bronze horned ceremonial helmet alone on dark velvet under a single spotlight", ref: s149}
+  camera: in
+s203: {visual: {same: true}}
+s204:
+  visual: {prompt: "The same opera stage at the curtain call, singers in horned helmets bowing, flowers thrown onto the stage, warm golden light", ref: s122}
+  camera: out
+s205: {visual: {same: true}}
+s206:
+  visual: {prompt: "Dramatic close-up of the clerk's hand slamming a heavy brass rubber stamp down onto the case folder, a burst of red ink and dust flying up, the green lamp shaking", characters: [clerk]}
+  camera: in
+s207: {visual: {same: true}}
+s208: {visual: {same: true}}
+s209: {visual: {same: true}}
+s210: {visual: {same: true}}
+s211:
+  visual: {prompt: "A theatre costume rack backstage with a plastic horned helmet hanging next to capes, placed beside a museum display case of real excavated iron objects, a gently ironic contrast"}
+  camera: left
+s212: {visual: {same: true}}
+s213:
+  visual: {prompt: "A researcher in a dim archive pulling the oldest, most battered book out from the very bottom of a tall wobbling stack of newer books, dust in the light"}
+  camera: in
+s214: {visual: {same: true}}
+s215: {visual: {same: true}}
+s216: {visual: {same: true}}
+s217:
+  visual: {prompt: "A yellowed 1870s print of a horned warrior lying on a table under a magnifying glass, a pencil beside it, the printed lettering blurred and unreadable"}
+  camera: right
+s218: {visual: {same: true}}
+s219:
+  visual: {prompt: "Archaeologists kneeling in a trench carefully brushing soil from objects in an excavated Viking Age grave, string grid lines, sunny day"}
+  camera: out
+s220: {visual: {same: true}}
+s221:
+  visual: {prompt: "A museum hall where a huge romantic painting of heroic warriors hangs on the wall above a simple glass case with real excavated grave goods, a visitor looking from one to the other"}
+  camera: in
+s222: {visual: {same: true}}
+s223:
+  visual: {prompt: "A 19th-century theatre impresario backstage counting a pile of ticket money by lamplight, costumed singers in horned helmets passing behind him"}
+  camera: left
+s224: {visual: {same: true}}
+s225: {visual: {same: true}}
+s226:
+  visual: {prompt: "A late 19th-century patriotic festival crowd in a European town square, people in their best clothes waving flags and banners without lettering, bunting, bright afternoon"}
+  camera: out
+s227: {visual: {same: true}}
+s228:
+  visual: {prompt: "A busy theatre costume department: seamstresses sewing long capes and fitting horns onto helmets, mannequins, bolts of fabric, warm light"}
+  camera: in
+s229: {visual: {same: true}}
+s230:
+  visual: {prompt: "The clerk's hands tying the string around the finished case folder and placing it on a towering stack of closed folders, the green lamp dimming", characters: [clerk]}
+  camera: out
+s231: {visual: {same: true}}
+s232:
+  visual: {prompt: "A runner bent over on an athletics track after a hard sprint, hands on knees, the thigh muscles glowing faintly red, evening light"}
+  camera: in
+s233: {visual: {same: true}}

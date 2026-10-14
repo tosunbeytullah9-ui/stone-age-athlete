@@ -1,0 +1,1715 @@
+title: 006-gladiators-rarely-fought-to-the-death
+paragraphs: 38
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: The Colosseum.
+  visual:
+    prompt: the Colosseum packed with fifty thousand roaring Romans, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s002
+  para: 0
+  sent: 1
+  text: Fifty thousand screaming Romans.
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 2
+  text: Two gladiators circle each other in the sand.
+  visual:
+    same: true
+- id: s004
+  para: 0
+  sent: 3
+  text: One falls.
+  visual:
+    prompt: a murmillo gladiator with a broad-brimmed crested helmet, a tall rectangular shield and a short sword
+      standing over a fallen a retiarius gladiator with a net, a trident and a bare head on the arena sand, looking
+      up toward the imperial box, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s005
+  para: 0
+  sent: 4
+  text: The winner looks up at the emperor.
+  visual:
+    same: true
+- id: s006
+  para: 0
+  sent: 5
+  text: The emperor pauses, and turns his thumb down.
+  visual:
+    prompt: a Roman emperor in a purple toga in his box, extending his hand with the thumb turned down, dramatic,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s007
+  para: 0
+  sent: 6
+  text: Death.
+  visual:
+    same: true
+- id: s008
+  para: 1
+  sent: 7
+  text: You have seen this scene a hundred times.
+  visual:
+    prompt: a cinema screen showing a dramatic arena fight, silhouettes of an audience eating popcorn
+    ledger: true
+  camera: right
+- id: s009
+  para: 1
+  sent: 8
+  text: In paintings, in films, in at least one very loud video game.
+  visual:
+    same: true
+- id: s010
+  para: 1
+  sent: 9
+  text: Gladiators fought to the death.
+  visual:
+    prompt: a heroic drawing-like scene of two gladiators locked in combat, dust flying, people drawn as simple
+      expressive ink figures
+    ledger: true
+  camera: out
+- id: s011
+  para: 1
+  sent: 10
+  text: That was the whole point.
+  visual:
+    same: true
+- id: s012
+  para: 2
+  sent: 11
+  text: Case file zero zero six.
+  visual:
+    prompt: the clerk's hands opening a folder containing a sketch of a gladiator helmet
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  overlay:
+    kind: label
+    text: CASE FILE 006
+    pos: top
+- id: s013
+  para: 2
+  sent: 12
+  text: 'Subject: you, and every film you have ever seen about Rome.'
+  visual:
+    same: true
+- id: s014
+  para: 2
+  sent: 13
+  text: 'Belief: gladiators fought to the death.'
+  visual:
+    same: true
+- id: s015
+  para: 3
+  sent: 14
+  text: I attended a few games in my time.
+  visual:
+    prompt: a quiet figure in a dark cloak in the upper stands of an ancient arena, holding a wax tablet and stylus,
+      counting, people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s016
+  para: 3
+  sent: 15
+  text: Professionally, of course.
+  visual:
+    same: true
+- id: s017
+  para: 3
+  sent: 16
+  text: Someone had to count.
+  visual:
+    same: true
+- id: s018
+  para: 3
+  sent: 17
+  text: And I can tell you that the arena was brutal, it was bloody,
+  visual:
+    prompt: a gritty arena scene, two gladiators trading blows, but a referee with a long staff standing close,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s019
+  para: 3
+  sent: 17
+  text: and it was not, most of the time,
+  visual:
+    same: true
+- id: s020
+  para: 3
+  sent: 17
+  text: a fight to the death.
+  visual:
+    same: true
+- id: s021
+  para: 4
+  sent: 18
+  text: First, who were they?
+  visual:
+    prompt: a line of gladiator recruits in a Roman training school courtyard, some in chains, some free men in
+      tunics, people drawn as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s022
+  para: 4
+  sent: 19
+  text: Many were slaves, or prisoners of war.
+  visual:
+    same: true
+- id: s023
+  para: 4
+  sent: 20
+  text: But by the first century,
+  visual:
+    same: true
+- id: s024
+  para: 4
+  sent: 20
+  text: a surprising number were free men who signed contracts
+  visual:
+    prompt: a free Roman man signing a contract on a wax tablet before a gladiator school manager, coins on the
+      table, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s025
+  para: 4
+  sent: 20
+  text: with gladiator schools of their own accord.
+  visual:
+    same: true
+- id: s026
+  para: 4
+  sent: 21
+  text: Desperate men, former soldiers, and,
+  visual:
+    same: true
+- id: s027
+  para: 4
+  sent: 21
+  text: to the horror of polite society,
+  visual:
+    prompt: a Roman nobleman in a fine toga stepping into a gladiator training yard while shocked aristocrats watch,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s028
+  para: 4
+  sent: 21
+  text: the occasional nobleman.
+  visual:
+    same: true
+- id: s029
+  para: 4
+  sent: 22
+  text: They came for money, and for fame.
+  visual:
+    same: true
+- id: s030
+  para: 4
+  sent: 23
+  text: On a wall in Pompeii,
+  visual:
+    prompt: a Pompeii wall covered in ancient scratched graffiti drawings of gladiators and hearts, two young women
+      giggling nearby, no legible text, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s031
+  para: 4
+  sent: 23
+  text: someone scratched that one fighter
+  visual:
+    same: true
+- id: s032
+  para: 4
+  sent: 23
+  text: was the delight of all the girls.
+  visual:
+    same: true
+- id: s033
+  para: 4
+  sent: 24
+  text: Another, apparently, caught the girls at night in his net.
+  visual:
+    same: true
+- id: s034
+  para: 5
+  sent: 25
+  text: Exhibit one.
+  visual:
+    prompt: the clerk's hands counting a stack of Roman silver coins on the desk
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s035
+  para: 5
+  sent: 26
+  text: The money.
+  visual:
+    same: true
+- id: s036
+  para: 5
+  sent: 27
+  text: With the Romans, there was always money.
+  visual:
+    same: true
+- id: s037
+  para: 5
+  sent: 28
+  text: A gladiator was not a random man thrown onto the sand.
+  visual:
+    prompt: a Roman gladiator school courtyard, trainers drilling gladiators with wooden swords against a wooden
+      post, people drawn as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s038
+  para: 5
+  sent: 29
+  text: He was a trained professional.
+  visual:
+    same: true
+- id: s039
+  para: 5
+  sent: 30
+  text: He was bought, housed, fed,
+  visual:
+    same: true
+- id: s040
+  para: 5
+  sent: 30
+  text: trained and given medical care by a manager called a lanista.
+  visual:
+    prompt: gladiators eating together at a long table in a barracks, a doctor bandaging an arm, a manager watching
+      with a ledger, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s041
+  para: 5
+  sent: 31
+  text: That cost a fortune.
+  visual:
+    same: true
+- id: s042
+  para: 5
+  sent: 32
+  text: And a dead gladiator was a fortune lost.
+  visual:
+    same: true
+- id: s043
+  para: 6
+  sent: 33
+  text: We even have the legal paperwork.
+  visual:
+    prompt: a Roman jurist in a toga writing on a scroll by lamplight, legal codices stacked around him
+    ledger: true
+  camera: in
+- id: s044
+  para: 6
+  sent: 34
+  text: A Roman jurist named Gaius,
+  visual:
+    same: true
+- id: s045
+  para: 6
+  sent: 34
+  text: writing in the second century,
+  visual:
+    same: true
+- id: s046
+  para: 6
+  sent: 34
+  text: discussed a contract for hiring out gladiators.
+  visual:
+    same: true
+- id: s047
+  para: 6
+  sent: 35
+  text: The fee was twenty for each man who came back unharmed.
+  visual:
+    prompt: a balance scale with a small pile of coins on one side and a huge heap of coins on the other, straight-on
+      view
+    ledger: true
+  camera: none
+- id: s048
+  para: 6
+  sent: 36
+  text: And one thousand for each man who was killed or maimed.
+  visual:
+    same: true
+- id: s049
+  para: 7
+  sent: 37
+  text: Twenty, against one thousand.
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.02
+      - 1.0
+      colors:
+      - good
+      - bad
+  overlay:
+    kind: stat
+    text: 20 vs 1,000
+    pos: top
+- id: s050
+  para: 7
+  sent: 38
+  text: Fifty times more.
+  visual:
+    same: true
+- id: s051
+  para: 7
+  sent: 39
+  text: If you were the man paying for the show,
+  visual:
+    same: true
+- id: s052
+  para: 7
+  sent: 39
+  text: every death was an extremely expensive decision.
+  visual:
+    prompt: a lanista in a rich tunic anxiously watching a fight from the gate, biting his knuckle, comic
+    ledger: true
+  camera: right
+- id: s053
+  para: 7
+  sent: 40
+  text: And if you were the lanista,
+  visual:
+    same: true
+- id: s054
+  para: 7
+  sent: 40
+  text: you wanted your property to walk out
+  visual:
+    same: true
+- id: s055
+  para: 7
+  sent: 40
+  text: of that arena on its own legs.
+  visual:
+    same: true
+- id: s056
+  para: 8
+  sent: 41
+  text: Fights were not a free-for-all, either.
+  visual:
+    prompt: two gladiators fighting while a referee in a white tunic with a long staff watches closely, a second
+      referee behind, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s057
+  para: 8
+  sent: 42
+  text: Every bout had a referee, sometimes two.
+  visual:
+    same: true
+- id: s058
+  para: 8
+  sent: 43
+  text: A gladiator who was beaten, or badly wounded,
+  visual:
+    same: true
+- id: s059
+  para: 8
+  sent: 43
+  text: could raise a finger and appeal for mercy.
+  visual:
+    prompt: a wounded a retiarius gladiator with a net, a trident and a bare head kneeling on the sand, raising
+      one finger in appeal, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s060
+  para: 8
+  sent: 44
+  text: Then the fight stopped,
+  visual:
+    same: true
+- id: s061
+  para: 8
+  sent: 44
+  text: and the decision passed to the man who was paying for the games.
+  visual:
+    prompt: a Roman emperor in his box considering, chin in hand, the crowd waiting, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: left
+- id: s062
+  para: 8
+  sent: 45
+  text: Often, that was the emperor.
+  visual:
+    same: true
+- id: s063
+  para: 9
+  sent: 46
+  text: And very often the answer was mercy.
+  visual:
+    bg: plain_warm
+    props:
+    - type: pie
+      x: 960
+      y: 520
+      scale: 2.2
+      value: 0.15
+      colors:
+      - bad
+      - good
+- id: s064
+  para: 9
+  sent: 47
+  text: Historians estimate that somewhere between one
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 1 in 5 – 1 in 10 bouts
+    pos: top
+- id: s065
+  para: 9
+  sent: 47
+  text: in five and one in ten bouts ended with a death.
+  visual:
+    same: true
+- id: s066
+  para: 9
+  sent: 48
+  text: Put the other way around,
+  visual:
+    same: true
+- id: s067
+  para: 9
+  sent: 48
+  text: most fights ended with both men still alive.
+  visual:
+    prompt: two gladiators standing side by side, exhausted, raising their arms to applause from the crowd, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: out
+- id: s068
+  para: 9
+  sent: 49
+  text: Some even ended in a draw,
+  visual:
+    same: true
+- id: s069
+  para: 9
+  sent: 49
+  text: with both fighters leaving the arena standing, to applause.
+  visual:
+    same: true
+- id: s070
+  para: 10
+  sent: 50
+  text: Let me show you a career.
+  visual:
+    prompt: an old weathered stone tombstone in Sicily with a carved relief of a gladiator, carved inscription lines
+      too worn to read, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s071
+  para: 10
+  sent: 51
+  text: In Sicily, there is a tombstone for a gladiator named Flamma.
+  visual:
+    same: true
+- id: s072
+  para: 10
+  sent: 52
+  text: He died at thirty.
+  visual:
+    same: true
+- id: s073
+  para: 10
+  sent: 53
+  text: It records his fights.
+  visual:
+    prompt: the clerk's finger tracing the worn carvings on a rubbing of an ancient tombstone
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s074
+  para: 10
+  sent: 54
+  text: Thirty-four bouts.
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.43
+      - 0.19
+      colors:
+      - good
+      - stone
+      - bad
+- id: s075
+  para: 10
+  sent: 55
+  text: Twenty-one wins.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 21 wins · 9 draws · 4 defeats
+    pos: top
+- id: s076
+  para: 10
+  sent: 56
+  text: Nine draws.
+  visual:
+    same: true
+- id: s077
+  para: 10
+  sent: 57
+  text: And four defeats.
+  visual:
+    same: true
+- id: s078
+  para: 11
+  sent: 58
+  text: Four defeats.
+  visual:
+    prompt: a murmillo gladiator with a broad-brimmed crested helmet, a tall rectangular shield and a short sword
+      kneeling defeated, the crowd waving cloths, the editor gesturing mercy, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s079
+  para: 11
+  sent: 59
+  text: And he survived every one of them.
+  visual:
+    same: true
+- id: s080
+  para: 11
+  sent: 60
+  text: He lost four times in front of a crowd,
+  visual:
+    same: true
+- id: s081
+  para: 11
+  sent: 60
+  text: and he was spared four times.
+  visual:
+    prompt: the same a murmillo gladiator with a broad-brimmed crested helmet, a tall rectangular shield and a short
+      sword, older and scarred, walking back out into the arena to fight again, confident, people drawn as simple
+      expressive ink figures
+    ledger: true
+  camera: right
+- id: s082
+  para: 11
+  sent: 61
+  text: That is not what a fight to the death looks like.
+  visual:
+    same: true
+- id: s083
+  para: 11
+  sent: 62
+  text: That looks like a career.
+  visual:
+    same: true
+- id: s084
+  para: 12
+  sent: 63
+  text: You may have read online
+  visual:
+    prompt: a modern smartphone screen glowing in the dark, a person scrolling, ink and ink, people drawn as simple
+      expressive ink figures
+    ledger: true
+  camera: in
+- id: s085
+  para: 12
+  sent: 63
+  text: that Flamma was offered his freedom four times,
+  visual:
+    same: true
+- id: s086
+  para: 12
+  sent: 63
+  text: and refused it every time.
+  visual:
+    same: true
+- id: s087
+  para: 12
+  sent: 64
+  text: A lovely story.
+  visual:
+    prompt: a wooden practice sword lying on a stone bench, symbolic
+    ledger: true
+  camera: in
+- id: s088
+  para: 12
+  sent: 65
+  text: The tombstone says nothing of the kind.
+  visual:
+    same: true
+- id: s089
+  para: 12
+  sent: 66
+  text: That number four is not four offers of freedom.
+  visual:
+    same: true
+- id: s090
+  para: 12
+  sent: 67
+  text: It is four times he was beaten, and spared.
+  visual:
+    prompt: a Roman gladiator placing a hand on the shoulder of a fallen comrade's gravestone, mournful, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s091
+  para: 12
+  sent: 68
+  text: It was put up by a comrade-in-arms named Delicatus,
+  visual:
+    same: true
+- id: s092
+  para: 12
+  sent: 68
+  text: for a man described as Syrian by birth.
+  visual:
+    same: true
+- id: s093
+  para: 12
+  sent: 69
+  text: Even the myth-busting has myths.
+  visual:
+    prompt: the clerk's hands pulling open a small separate drawer stuffed with notes
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s094
+  para: 12
+  sent: 70
+  text: I have a separate drawer for those.
+  visual:
+    same: true
+- id: s095
+  para: 13
+  sent: 71
+  text: Exhibit two.
+  visual:
+    prompt: the clerk's hands laying out a bone and a magnifying glass on a cloth
+    characters:
+    - clerk
+    ledger: true
+  camera: in
+  tone:
+  - pause
+- id: s096
+  para: 13
+  sent: 72
+  text: The bones.
+  visual:
+    same: true
+- id: s097
+  para: 14
+  sent: 73
+  text: In nineteen ninety-three,
+  visual:
+    prompt: archaeologists in 1993 excavating an ancient cemetery near ruined marble columns at Ephesus, Turkey
+    ledger: true
+  camera: right
+- id: s098
+  para: 14
+  sent: 73
+  text: archaeologists in Ephesus,
+  visual:
+    same: true
+- id: s099
+  para: 14
+  sent: 73
+  text: in what is now Turkey, found a cemetery.
+  visual:
+    same: true
+- id: s100
+  para: 14
+  sent: 74
+  text: It belonged to gladiators,
+  visual:
+    same: true
+- id: s101
+  para: 14
+  sent: 74
+  text: from around the second and third centuries.
+  visual:
+    prompt: a modern laboratory with ancient skulls on padded trays, researchers in white coats with a CT scanner,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s102
+  para: 14
+  sent: 75
+  text: Researchers from Vienna and Bern studied the remains
+  visual:
+    same: true
+- id: s103
+  para: 14
+  sent: 75
+  text: of at least sixty-eight people.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 68 individuals
+    pos: bottom
+- id: s104
+  para: 15
+  sent: 76
+  text: Eleven of them had old head wounds that had healed well.
+  visual:
+    prompt: close-up of an ancient skull showing a smooth healed depression
+    ledger: true
+  camera: in
+  overlay:
+    kind: stat
+    text: 11 healed head wounds
+    pos: bottom
+- id: s105
+  para: 15
+  sent: 77
+  text: These men had been hurt, treated, and had gone back to work.
+  visual:
+    same: true
+- id: s106
+  para: 15
+  sent: 78
+  text: Someone had stitched them up.
+  visual:
+    prompt: a Roman doctor stitching a gladiator's head wound in a barracks infirmary, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: left
+- id: s107
+  para: 15
+  sent: 79
+  text: Someone wanted them back in the arena.
+  visual:
+    same: true
+- id: s108
+  para: 16
+  sent: 80
+  text: The skeletons also showed something else.
+  visual:
+    prompt: an ancient skull with a single clean puncture wound, scientific illustration
+    ledger: true
+  camera: in
+- id: s109
+  para: 16
+  sent: 81
+  text: Not one of them had a pile of fresh wounds.
+  visual:
+    same: true
+- id: s110
+  para: 16
+  sent: 82
+  text: Each fatal injury was a single blow, from a single weapon.
+  visual:
+    same: true
+- id: s111
+  para: 16
+  sent: 83
+  text: No frenzied hacking.
+  visual:
+    same: true
+- id: s112
+  para: 16
+  sent: 84
+  text: The researchers concluded that the rules
+  visual:
+    prompt: a referee separating two gladiators with a long staff, the rules enforced, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: right
+- id: s113
+  para: 16
+  sent: 84
+  text: of combat were strictly enforced.
+  visual:
+    same: true
+- id: s114
+  para: 16
+  sent: 85
+  text: This was a regulated sport, not a massacre.
+  visual:
+    same: true
+- id: s115
+  para: 17
+  sent: 86
+  text: To be fair, the bones also show the dark side.
+  visual:
+    prompt: a dark corridor beneath the arena, shadowy and ominous, a figure with a heavy mallet waiting, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s116
+  para: 17
+  sent: 87
+  text: Ten of the men had died from a single fresh blow to the head.
+  visual:
+    same: true
+- id: s117
+  para: 17
+  sent: 88
+  text: Some researchers think a few of these were finishing strikes,
+  visual:
+    same: true
+- id: s118
+  para: 17
+  sent: 88
+  text: delivered to men the crowd had already condemned.
+  visual:
+    prompt: an arena gate closing at dusk, long shadows, sombre
+    ledger: true
+  camera: out
+- id: s119
+  para: 17
+  sent: 89
+  text: Rules, yes.
+  visual:
+    same: true
+- id: s120
+  para: 17
+  sent: 90
+  text: Gentle, no.
+  visual:
+    same: true
+- id: s121
+  para: 18
+  sent: 91
+  text: And the medical care was serious.
+  visual:
+    prompt: a young Greek doctor in a simple tunic arriving at a gladiator school in Pergamon, carrying a case of
+      instruments, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s122
+  para: 18
+  sent: 92
+  text: In the year one hundred and fifty-seven,
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: AD 157
+    pos: bottom
+- id: s123
+  para: 18
+  sent: 92
+  text: a young doctor named Galen took a job looking
+  visual:
+    same: true
+- id: s124
+  para: 18
+  sent: 92
+  text: after the gladiators at Pergamon.
+  visual:
+    same: true
+- id: s125
+  para: 18
+  sent: 93
+  text: Galen would later become the most
+  visual:
+    prompt: an older Galen in rich robes attending a Roman emperor in a palace, scrolls and medicine jars, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s126
+  para: 18
+  sent: 93
+  text: famous physician of the ancient world,
+  visual:
+    same: true
+- id: s127
+  para: 18
+  sent: 93
+  text: and doctor to the emperor Marcus Aurelius.
+  visual:
+    same: true
+- id: s128
+  para: 18
+  sent: 94
+  text: He called their wounds windows into the body.
+  visual:
+    prompt: an anatomical ink of a deep wound on a forearm, showing muscles and tendons beneath, scientific
+    ledger: true
+  camera: in
+- id: s129
+  para: 19
+  sent: 95
+  text: According to Galen himself,
+  visual:
+    prompt: Galen writing in a ledger by lamplight, a row of recovering gladiators resting on cots behind him, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s130
+  para: 19
+  sent: 95
+  text: only five gladiators died during his time in the post.
+  visual:
+    same: true
+- id: s131
+  para: 19
+  sent: 96
+  text: Under his predecessor, the figure was sixty.
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.08
+      - 1.0
+      colors:
+      - good
+      - bad
+- id: s132
+  para: 19
+  sent: 97
+  text: Five, against sixty.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 5 vs 60
+    pos: top
+- id: s133
+  para: 19
+  sent: 98
+  text: Gladiators had their own trauma surgeon.
+  visual:
+    same: true
+- id: s134
+  para: 19
+  sent: 99
+  text: And a good one.
+  visual:
+    prompt: a gladiator flexing a newly healed arm and grinning at the doctor, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s135
+  para: 20
+  sent: 100
+  text: Now.
+  visual:
+    prompt: the clerk's hands holding up a single thumb-shaped wax seal, examining it
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s136
+  para: 20
+  sent: 101
+  text: Let us deal with the thumbs.
+  visual:
+    same: true
+- id: s137
+  para: 21
+  sent: 102
+  text: That famous image, the crowd with their thumbs turned down,
+  visual:
+    prompt: a grand nineteenth-century art gallery, visitors in top hats admiring a huge drawing of an arena scene
+    ledger: true
+  camera: in
+- id: s138
+  para: 21
+  sent: 102
+  text: comes from a painting.
+  visual:
+    same: true
+- id: s139
+  para: 21
+  sent: 103
+  text: It is called Pollice Verso, which means with a turned thumb.
+  visual:
+    same: true
+- id: s140
+  para: 21
+  sent: 104
+  text: It was painted by Jean-Léon Gérôme, in eighteen seventy-two.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: Gérôme, 1872
+    pos: bottom
+- id: s141
+  para: 21
+  sent: 105
+  text: It shows a defeated gladiator lying in the sand,
+  visual:
+    prompt: an ink drawing of a victorious gladiator standing over a fallen retiarius while Vestal Virgins in white
+      robes point their thumbs down, Colosseum crowd, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s142
+  para: 21
+  sent: 105
+  text: while the spectators,
+  visual:
+    same: true
+- id: s143
+  para: 21
+  sent: 105
+  text: including the Vestal Virgins,
+  visual:
+    same: true
+- id: s144
+  para: 21
+  sent: 105
+  text: point their thumbs at the ground.
+  visual:
+    same: true
+- id: s145
+  para: 22
+  sent: 106
+  text: It was a magnificent painting.
+  visual:
+    prompt: a film set with a camera crane in a reconstructed Roman arena, crew and lights
+    ledger: true
+  camera: right
+- id: s146
+  para: 22
+  sent: 107
+  text: It was so magnificent that more than a century later,
+  visual:
+    same: true
+- id: s147
+  para: 22
+  sent: 107
+  text: it helped persuade a film director
+  visual:
+    same: true
+- id: s148
+  para: 22
+  sent: 107
+  text: to make a film called Gladiator.
+  visual:
+    prompt: a globe surrounded by countless hands giving a thumbs-down, comic
+    ledger: true
+  camera: out
+- id: s149
+  para: 22
+  sent: 108
+  text: And so the thumbs went around the world, again.
+  visual:
+    same: true
+- id: s150
+  para: 23
+  sent: 109
+  text: Here is the problem.
+  visual:
+    prompt: a Roman poet with a scroll reciting sardonically in a crowded Roman street
+    ledger: true
+  camera: in
+- id: s151
+  para: 23
+  sent: 110
+  text: The Romans did use a thumb gesture.
+  visual:
+    same: true
+- id: s152
+  para: 23
+  sent: 111
+  text: The poet Juvenal mentions a crowd
+  visual:
+    same: true
+- id: s153
+  para: 23
+  sent: 111
+  text: condemning a man with a turned thumb.
+  visual:
+    prompt: a giant question mark made of ancient marble lying in a ruin, a scholar scratching his head
+    ledger: true
+  camera: left
+- id: s154
+  para: 23
+  sent: 112
+  text: But nobody in antiquity tells us
+  visual:
+    same: true
+- id: s155
+  para: 23
+  sent: 112
+  text: which way the thumb actually turned.
+  visual:
+    same: true
+- id: s156
+  para: 24
+  sent: 113
+  text: Historians are still arguing.
+  visual:
+    prompt: two hand gestures side by side, a thumb pointing up and a thumb pressed against a closed fist, carved
+      in marble relief, straight-on view, none overlapping
+    ledger: true
+  camera: none
+- id: s157
+  para: 24
+  sent: 114
+  text: One suggestion is that a thumb pointed up meant death.
+  visual:
+    same: true
+- id: s158
+  para: 24
+  sent: 115
+  text: And that a thumb pressed down against a closed fist meant mercy.
+  visual:
+    same: true
+- id: s159
+  para: 24
+  sent: 116
+  text: Let him live.
+  visual:
+    prompt: a modern tourist giving a cheerful thumbs-up in front of a holiday photo, while a Roman ghost behind
+      looks horrified, comic
+    ledger: true
+  camera: in
+- id: s160
+  para: 24
+  sent: 117
+  text: If that is right, the thumbs-up you use to approve a holiday
+  visual:
+    same: true
+- id: s161
+  para: 24
+  sent: 117
+  text: photo might once have meant kill him.
+  visual:
+    same: true
+- id: s162
+  para: 25
+  sent: 118
+  text: The crowd also had a simpler method.
+  visual:
+    prompt: an arena crowd on their feet shouting, mouths open, fists raised, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: right
+- id: s163
+  para: 25
+  sent: 119
+  text: Shouting.
+  visual:
+    same: true
+- id: s164
+  para: 25
+  sent: 120
+  text: Romans yelled let him go, or, less charmingly, slay him.
+  visual:
+    same: true
+- id: s165
+  para: 25
+  sent: 121
+  text: Waving cloths may have helped too.
+  visual:
+    prompt: arena spectators waving white cloths in the air, a sea of fabric, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s166
+  para: 25
+  sent: 122
+  text: Subtle people, the Romans.
+  visual:
+    same: true
+- id: s167
+  para: 26
+  sent: 123
+  text: And then, the salute.
+  visual:
+    prompt: a line of gladiators raising their swords toward the imperial box, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+  tone:
+  - pause
+- id: s168
+  para: 26
+  sent: 124
+  text: Ave Caesar, morituri te salutant.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: Ave Caesar, morituri te salutant
+    pos: bottom
+- id: s169
+  para: 26
+  sent: 125
+  text: Hail Caesar, those who are about to die salute you.
+  visual:
+    prompt: a theatrical film still of a gladiator bellowing toward the emperor, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: out
+- id: s170
+  para: 26
+  sent: 126
+  text: Every gladiator film has someone bellow it.
+  visual:
+    same: true
+- id: s171
+  para: 27
+  sent: 127
+  text: In all of Roman literature,
+  visual:
+    prompt: the clerk's hands unrolling an old scroll with a sketch of ships on a lake
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s172
+  para: 27
+  sent: 127
+  text: it appears in connection with a single event.
+  visual:
+    same: true
+- id: s173
+  para: 27
+  sent: 128
+  text: In the year fifty-two,
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: AD 52
+    pos: bottom
+- id: s174
+  para: 27
+  sent: 128
+  text: the emperor Claudius staged a mock naval battle on a lake.
+  visual:
+    prompt: a huge mock naval battle on a lake in the year 52, Roman warships, crowds on the hillsides
+    ledger: true
+  camera: in
+- id: s175
+  para: 27
+  sent: 129
+  text: The fighters were not gladiators.
+  visual:
+    same: true
+- id: s176
+  para: 27
+  sent: 130
+  text: They were condemned criminals.
+  visual:
+    prompt: ragged condemned prisoners in boats raising their arms toward an emperor on the shore, pleading, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s177
+  para: 27
+  sent: 131
+  text: And they called out the line, apparently hoping to be spared.
+  visual:
+    same: true
+- id: s178
+  para: 28
+  sent: 132
+  text: Claudius replied, or not.
+  visual:
+    prompt: Emperor Claudius on a lakeside platform shrugging awkwardly, while prisoners cheer and throw down their
+      weapons, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s179
+  para: 28
+  sent: 133
+  text: The men decided he had pardoned them, and refused to fight.
+  visual:
+    same: true
+- id: s180
+  para: 28
+  sent: 134
+  text: It took some persuading to get them into the boats.
+  visual:
+    same: true
+- id: s181
+  para: 28
+  sent: 135
+  text: It was a one-time plea from desperate prisoners.
+  visual:
+    prompt: soldiers coaxing reluctant prisoners back into the boats, comic chaos, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: left
+- id: s182
+  para: 28
+  sent: 136
+  text: Historians have found no evidence
+  visual:
+    same: true
+- id: s183
+  para: 28
+  sent: 136
+  text: that it was a regular gladiator salute.
+  visual:
+    same: true
+- id: s184
+  para: 29
+  sent: 137
+  text: Now, in fairness to the Romans' reputation,
+  visual:
+    prompt: a dark, grim arena at dusk, empty sand
+    ledger: true
+  camera: in
+  tone:
+  - serious
+- id: s185
+  para: 29
+  sent: 137
+  text: the arena was a terrible place.
+  visual:
+    same: true
+- id: s186
+  para: 29
+  sent: 138
+  text: People did die there, and some of them had no chance at all.
+  visual:
+    same: true
+- id: s187
+  para: 29
+  sent: 139
+  text: Condemned criminals were executed in the arena,
+  visual:
+    prompt: lions prowling in the arena under an awning, restrained not graphic
+    ledger: true
+  camera: right
+- id: s188
+  para: 29
+  sent: 139
+  text: sometimes by animals.
+  visual:
+    same: true
+- id: s189
+  para: 29
+  sent: 140
+  text: Prisoners of war were sent in to die.
+  visual:
+    same: true
+- id: s190
+  para: 29
+  sent: 141
+  text: In the earlier days of the Republic,
+  visual:
+    prompt: Emperor Augustus in a laurel wreath signing a decree on a scroll, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s191
+  para: 29
+  sent: 141
+  text: some fights were openly held without mercy,
+  visual:
+    same: true
+- id: s192
+  para: 29
+  sent: 141
+  text: until Augustus banned them.
+  visual:
+    same: true
+- id: s193
+  para: 30
+  sent: 142
+  text: And let us not get sentimental.
+  visual:
+    prompt: a young gladiator's simple gravestone among many in a row, flowers placed before it, people drawn as
+      simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s194
+  para: 30
+  sent: 143
+  text: Most gladiators still died young, many by their mid-twenties.
+  visual:
+    same: true
+- id: s195
+  para: 30
+  sent: 144
+  text: A one-in-ten chance of dying every time you go
+  visual:
+    same: true
+- id: s196
+  para: 30
+  sent: 144
+  text: to work adds up quickly.
+  visual:
+    prompt: a gladiator lacing his sandals at dawn before a fight, calm and resigned, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: left
+- id: s197
+  para: 30
+  sent: 145
+  text: You would not take that job.
+  visual:
+    same: true
+- id: s198
+  para: 30
+  sent: 146
+  text: Plenty of Romans did.
+  visual:
+    same: true
+- id: s199
+  para: 31
+  sent: 147
+  text: So death was there.
+  visual:
+    prompt: a modern combat sports arena with a referee raising a fighter's arm, echoing a Roman arena
+    ledger: true
+  camera: out
+- id: s200
+  para: 31
+  sent: 148
+  text: It was just not the job description.
+  visual:
+    same: true
+- id: s201
+  para: 31
+  sent: 149
+  text: For a trained gladiator, the arena was a dangerous profession.
+  visual:
+    same: true
+- id: s202
+  para: 31
+  sent: 150
+  text: Closer to a modern combat sport than to an execution.
+  visual:
+    same: true
+- id: s203
+  para: 32
+  sent: 151
+  text: One last detail, for the fitness fans.
+  visual:
+    prompt: a Roman barracks kitchen, bowls of barley porridge and beans on a wooden table
+    ledger: true
+  camera: in
+- id: s204
+  para: 32
+  sent: 152
+  text: The gladiators of Ephesus ate mostly grain and beans.
+  visual:
+    same: true
+- id: s205
+  para: 32
+  sent: 153
+  text: Barley, especially.
+  visual:
+    same: true
+- id: s206
+  para: 32
+  sent: 154
+  text: Pliny the Elder says people called them barley men.
+  visual:
+    prompt: a Roman scholar writing in a codex, a sheaf of barley beside him
+    ledger: true
+  camera: right
+- id: s207
+  para: 32
+  sent: 155
+  text: And their bones contained unusually high levels of strontium,
+  visual:
+    same: true
+- id: s208
+  para: 32
+  sent: 155
+  text: which suggests they drank a tonic made from plant ashes,
+  visual:
+    same: true
+- id: s209
+  para: 32
+  sent: 155
+  text: to help them recover.
+  visual:
+    prompt: a gladiator drinking from a clay cup of grey ash tonic, grimacing, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s210
+  para: 32
+  sent: 156
+  text: Even the diet was managed.
+  visual:
+    same: true
+- id: s211
+  para: 32
+  sent: 157
+  text: You do not do that for a man you expect to lose by Thursday.
+  visual:
+    same: true
+- id: s212
+  para: 33
+  sent: 158
+  text: 'Verdict: wrong.'
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: WRONG
+    pos: center
+    color: '#e8402f'
+- id: s213
+  para: 34
+  sent: 159
+  text: Gladiators did not usually fight to the death.
+  visual:
+    prompt: two gladiators leaving the arena side by side, both alive, helmets under their arms, people drawn as
+      simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s214
+  para: 34
+  sent: 160
+  text: Most bouts ended with both men alive.
+  visual:
+    same: true
+- id: s215
+  para: 34
+  sent: 161
+  text: They were expensive professionals, with referees, rules,
+  visual:
+    same: true
+- id: s216
+  para: 34
+  sent: 161
+  text: surgeons and a managed diet.
+  visual:
+    prompt: a ink sketch of a referee's staff, a surgeon's bronze instruments and a bowl of barley on a table, straight-on
+      view, one row, none overlapping
+    ledger: true
+  camera: none
+- id: s217
+  para: 34
+  sent: 162
+  text: Defeat usually meant humiliation, not execution.
+  visual:
+    same: true
+- id: s218
+  para: 34
+  sent: 163
+  text: And the thumbs-down came from a painter,
+  visual:
+    same: true
+- id: s219
+  para: 34
+  sent: 163
+  text: some eighteen centuries later.
+  visual:
+    same: true
+- id: s220
+  para: 35
+  sent: 164
+  text: The truth is less cinematic.
+  visual:
+    prompt: an older scarred gladiator walking back into the sunlight of the arena tunnel, determined, people drawn
+      as simple expressive ink figures
+    ledger: true
+  camera: out
+- id: s221
+  para: 35
+  sent: 165
+  text: But it is somehow more human.
+  visual:
+    same: true
+- id: s222
+  para: 35
+  sent: 166
+  text: A man named Flamma lost four times,
+  visual:
+    same: true
+- id: s223
+  para: 35
+  sent: 166
+  text: walked out four times, and fought again.
+  visual:
+    same: true
+- id: s224
+  para: 36
+  sent: 167
+  text: I have filed this one under entertainment,
+  visual:
+    prompt: the clerk's hands sliding the file between two others on a crowded shelf
+    characters:
+    - clerk
+    ledger: true
+  camera: left
+- id: s225
+  para: 36
+  sent: 167
+  text: cross-referenced with labour law.
+  visual:
+    same: true
+- id: s226
+  para: 37
+  sent: 168
+  text: Case closed.
+  visual:
+    prompt: the clerk's hands sliding the gladiator folder, a small sketch of a helmet on its cover, into a tall
+      wooden filing drawer
+    characters:
+    - clerk
+    ledger: true
+- id: s227
+  para: 37
+  sent: 169
+  text: If you enjoyed it, a thumb is welcome.
+  visual:
+    same: true
+- id: s228
+  para: 37
+  sent: 170
+  text: Either direction.
+  visual:
+    prompt: the clerk's hand making a sideways thumb gesture, uncertain
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s229
+  para: 37
+  sent: 171
+  text: We are still not sure what it means.
+  visual:
+    same: true
+- id: s230
+  para: 37
+  sent: 172
+  text: 'Next case: a whistle, a school field,'
+  visual:
+    prompt: a PE teacher ink figure with a whistle in his mouth on a school playing field, a row of children bending
+      forward to touch their toes, one child wincing and holding the back of his thigh, comic
+    characters: []
+    ledger: true
+- id: s231
+  para: 37
+  sent: 172
+  text: and the stretch everybody does right before they pull something.
+  visual:
+    same: true

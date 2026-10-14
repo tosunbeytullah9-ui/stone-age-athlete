@@ -1,0 +1,1648 @@
+title: 008-columbus-didn-t-prove-the-earth-was-round
+paragraphs: 37
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: Fourteen ninety-two.
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet standing
+      defiantly before a council of frowning bearded scholars in a vaulted stone hall, romantic 19th-century history
+      drawing style, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s002
+  para: 0
+  sent: 1
+  text: A brave Italian sailor stands before a council of frowning, bearded scholars.
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 2
+  text: He insists the Earth is round.
+  visual:
+    same: true
+- id: s004
+  para: 0
+  sent: 3
+  text: They insist it is flat,
+  visual:
+    prompt: a cartoon of tiny ships sailing off the edge of a flat world into a waterfall, sea monsters waiting
+      below, medieval map style
+    ledger: true
+  camera: out
+- id: s005
+  para: 0
+  sent: 3
+  text: and that his ships will sail off the edge of the world.
+  visual:
+    same: true
+- id: s006
+  para: 0
+  sent: 4
+  text: He sails anyway.
+  visual:
+    prompt: three small caravels sailing into a vast ocean at dawn, heroic
+    ledger: true
+  camera: right
+- id: s007
+  para: 0
+  sent: 5
+  text: And he proves them all wrong.
+  visual:
+    same: true
+- id: s008
+  para: 1
+  sent: 6
+  text: It is one of the great stories
+  visual:
+    prompt: a 19th-century schoolroom, children at wooden desks, a teacher pointing at a drawing of Columbus, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s009
+  para: 1
+  sent: 6
+  text: of the triumph of reason over ignorance.
+  visual:
+    same: true
+- id: s010
+  para: 1
+  sent: 7
+  text: Children have learned it for nearly two hundred years.
+  visual:
+    same: true
+- id: s011
+  para: 1
+  sent: 8
+  text: There is only one problem.
+  visual:
+    prompt: the clerk's hand pulling a heroic drawing off the wall to reveal blank plaster behind it, comic
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s012
+  para: 1
+  sent: 9
+  text: Almost none of it happened.
+  visual:
+    same: true
+- id: s013
+  para: 2
+  sent: 10
+  text: Case file zero zero eight.
+  visual:
+    prompt: the clerk's hands opening a folder containing an old sketch of a flat world map
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  overlay:
+    kind: label
+    text: CASE FILE 008
+    pos: top
+- id: s014
+  para: 2
+  sent: 11
+  text: 'Subject: you, and most school textbooks.'
+  visual:
+    same: true
+- id: s015
+  para: 2
+  sent: 12
+  text: 'Belief: people in fourteen ninety-two thought the Earth was flat,'
+  visual:
+    prompt: a group of fifteenth-century European townsfolk ink figures on a harbour wall, peering nervously at
+      a flat sea that drops off a sharp edge like a tabletop, a small wooden ship sailing toward the edge, comic
+    characters: []
+    ledger: true
+- id: s016
+  para: 2
+  sent: 12
+  text: until Columbus proved them wrong.
+  visual:
+    same: true
+- id: s017
+  para: 3
+  sent: 13
+  text: I was in Europe in the fourteen nineties.
+  visual:
+    prompt: a long candlelit table in a 1490s Spanish palace, scholars and courtiers in a tedious meeting, one yawning
+    ledger: true
+  camera: left
+- id: s018
+  para: 3
+  sent: 14
+  text: I attended several very long meetings about Columbus.
+  visual:
+    same: true
+- id: s019
+  para: 3
+  sent: 15
+  text: Nobody, at any of them, mentioned an edge.
+  visual:
+    same: true
+- id: s020
+  para: 4
+  sent: 16
+  text: Let us begin long before Columbus.
+  visual:
+    prompt: ancient Greek philosophers in a sunny colonnade, one drawing a circle in the sand with a stick
+    ledger: true
+  camera: in
+- id: s021
+  para: 4
+  sent: 17
+  text: Around the fifth century before Christ,
+  visual:
+    same: true
+- id: s022
+  para: 4
+  sent: 17
+  text: Greek thinkers were already describing a spherical Earth.
+  visual:
+    same: true
+- id: s023
+  para: 4
+  sent: 18
+  text: Aristotle pointed out that during a lunar eclipse,
+  visual:
+    prompt: a lunar eclipse over an ancient Greek temple, the Earth's curved shadow sliding across the Moon
+    ledger: true
+  camera: in
+- id: s024
+  para: 4
+  sent: 18
+  text: the shadow the Earth casts on the Moon is always curved.
+  visual:
+    same: true
+- id: s025
+  para: 4
+  sent: 19
+  text: Only a ball casts a round shadow from every angle.
+  visual:
+    same: true
+- id: s026
+  para: 5
+  sent: 20
+  text: And then, in the third century before Christ,
+  visual:
+    prompt: Eratosthenes, an ancient Greek scholar with a short beard, standing in the courtyard of a great library
+    ledger: true
+  camera: right
+- id: s027
+  para: 5
+  sent: 20
+  text: a scholar named Eratosthenes did something astonishing.
+  visual:
+    same: true
+- id: s028
+  para: 5
+  sent: 21
+  text: He was the chief librarian of the great Library of Alexandria,
+  visual:
+    prompt: the vast ancient Library of Alexandria, scrolls stacked in endless niches, scholars reading
+    ledger: true
+  camera: in
+- id: s029
+  para: 5
+  sent: 21
+  text: which is a very good job for a man with questions.
+  visual:
+    same: true
+- id: s030
+  para: 5
+  sent: 22
+  text: He measured it.
+  visual:
+    same: true
+- id: s031
+  para: 6
+  sent: 23
+  text: He knew that at noon on the summer solstice,
+  visual:
+    prompt: an ancient Egyptian town at noon, the Sun directly overhead, an upright stick casting no shadow
+    ledger: true
+  camera: in
+- id: s032
+  para: 6
+  sent: 23
+  text: in the city of Syene, in southern Egypt,
+  visual:
+    same: true
+- id: s033
+  para: 6
+  sent: 23
+  text: the Sun stood directly overhead.
+  visual:
+    same: true
+- id: s034
+  para: 6
+  sent: 24
+  text: Upright sticks cast no shadow.
+  visual:
+    prompt: looking down into a deep stone well with sunlight shining all the way to the water at the bottom
+    ledger: true
+  camera: in
+- id: s035
+  para: 6
+  sent: 25
+  text: Sunlight reached the bottom of a well.
+  visual:
+    same: true
+- id: s036
+  para: 6
+  sent: 26
+  text: But at the same moment in Alexandria, further north,
+  visual:
+    prompt: an ancient Alexandrian street at noon, an upright stick casting a short slanted shadow
+    ledger: true
+  camera: left
+- id: s037
+  para: 6
+  sent: 26
+  text: the Sun was slightly off to one side.
+  visual:
+    same: true
+- id: s038
+  para: 6
+  sent: 27
+  text: Shadows appeared.
+  visual:
+    same: true
+- id: s039
+  para: 7
+  sent: 28
+  text: He measured the angle of the shadow in Alexandria.
+  visual:
+    prompt: a scholar measuring the angle of a shadow with a bronze instrument, ink and ink diagram style
+    ledger: true
+  camera: in
+- id: s040
+  para: 7
+  sent: 29
+  text: It was about seven degrees.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 7.2° = 1/50 of a circle
+    pos: bottom
+- id: s041
+  para: 7
+  sent: 30
+  text: One fiftieth of a full circle.
+  visual:
+    same: true
+- id: s042
+  para: 7
+  sent: 31
+  text: And the distance between the two cities was
+  visual:
+    prompt: a caravan of surveyors pacing across the Egyptian desert along the Nile, counting steps
+    ledger: true
+  camera: right
+- id: s043
+  para: 7
+  sent: 31
+  text: about five thousand stadia.
+  visual:
+    same: true
+- id: s044
+  para: 7
+  sent: 32
+  text: So the whole Earth, he reasoned, must be fifty times that.
+  visual:
+    bg: plain_warm
+    props:
+    - type: pie
+      x: 960
+      y: 520
+      scale: 2.2
+      value: 0.02
+      colors:
+      - ochre
+      - stone
+- id: s045
+  para: 7
+  sent: 33
+  text: Around two hundred and fifty thousand stadia.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 5,000 × 50 = 250,000 stadia
+    pos: top
+- id: s046
+  para: 8
+  sent: 34
+  text: Depending on exactly how long his stadion was,
+  visual:
+    prompt: a ink globe of the Earth floating in space with a delicate measuring tape around its equator
+    ledger: true
+  camera: in
+- id: s047
+  para: 8
+  sent: 34
+  text: that is remarkably close to the real figure
+  visual:
+    same: true
+- id: s048
+  para: 8
+  sent: 34
+  text: of about forty thousand kilometres.
+  visual:
+    same: true
+- id: s049
+  para: 8
+  sent: 35
+  text: With a stick, a shadow, and some honest arithmetic.
+  visual:
+    prompt: a stick, a shadow and a wax tablet with calculations on a stone step
+    ledger: true
+  camera: none
+- id: s050
+  para: 8
+  sent: 36
+  text: Seventeen centuries before Columbus.
+  visual:
+    same: true
+- id: s051
+  para: 9
+  sent: 37
+  text: So the Greeks knew.
+  visual:
+    prompt: a dark gloomy medieval monastery at night, stereotypical Dark Ages imagery, comic exaggeration
+    ledger: true
+  camera: in
+  tone:
+  - pause
+- id: s052
+  para: 9
+  sent: 38
+  text: Surely the Middle Ages forgot?
+  visual:
+    same: true
+- id: s053
+  para: 9
+  sent: 39
+  text: This is the second half of the myth.
+  visual:
+    same: true
+- id: s054
+  para: 9
+  sent: 40
+  text: The Dark Ages, when the Church supposedly made everyone
+  visual:
+    prompt: a monk in a scriptorium holding up a flat pancake as if it were a map of the world, comic
+    ledger: true
+  camera: out
+- id: s055
+  para: 9
+  sent: 40
+  text: believe the world was a pancake.
+  visual:
+    same: true
+- id: s056
+  para: 10
+  sent: 41
+  text: They did not.
+  visual:
+    prompt: a medieval scholar in a hooded gown writing at a desk in a stone study, a celestial armillary sphere
+      beside him
+    ledger: true
+  camera: in
+- id: s057
+  para: 10
+  sent: 42
+  text: Around the year twelve thirty,
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: c. 1230
+    pos: bottom
+- id: s058
+  para: 10
+  sent: 42
+  text: a scholar named John of Holywood,
+  visual:
+    same: true
+- id: s059
+  para: 10
+  sent: 42
+  text: known as Sacrobosco,
+  visual:
+    prompt: a medieval manuscript page with a beautifully illuminated diagram of a spherical Earth at the centre
+      of nested circles, no legible text
+    ledger: true
+  camera: in
+- id: s060
+  para: 10
+  sent: 42
+  text: wrote a textbook called On the Sphere.
+  visual:
+    same: true
+- id: s061
+  para: 10
+  sent: 43
+  text: It clearly describes the Earth as a sphere.
+  visual:
+    same: true
+- id: s062
+  para: 10
+  sent: 44
+  text: It became the standard astronomy textbook
+  visual:
+    prompt: a medieval university lecture hall, a master reading from a book to rows of students, people drawn as
+      simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s063
+  para: 10
+  sent: 44
+  text: in European universities for centuries.
+  visual:
+    same: true
+- id: s064
+  para: 10
+  sent: 45
+  text: When printing arrived,
+  visual:
+    prompt: an early printing press in action, printers pulling sheets with circular cosmic diagrams, stacks of
+      books
+    ledger: true
+  camera: in
+- id: s065
+  para: 10
+  sent: 45
+  text: it was printed again and again,
+  visual:
+    same: true
+- id: s066
+  para: 10
+  sent: 45
+  text: in more than eighty editions.
+  visual:
+    same: true
+- id: s067
+  para: 11
+  sent: 46
+  text: Every educated person who went to university
+  visual:
+    prompt: a student in a medieval gown walking through a university courtyard with a book under his arm, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s068
+  para: 11
+  sent: 46
+  text: in the late Middle Ages learned from a book whose title was,
+  visual:
+    same: true
+- id: s069
+  para: 11
+  sent: 46
+  text: quite literally, the sphere.
+  visual:
+    same: true
+- id: s070
+  para: 12
+  sent: 47
+  text: Look at medieval kings.
+  visual:
+    prompt: a medieval king on a throne holding a golden orb topped with a cross, in a stiff royal portrait, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s071
+  para: 12
+  sent: 48
+  text: In their portraits,
+  visual:
+    same: true
+- id: s072
+  para: 12
+  sent: 48
+  text: they often hold a golden ball topped with a cross.
+  visual:
+    same: true
+- id: s073
+  para: 12
+  sent: 49
+  text: It is called an orb, and it represents the world.
+  visual:
+    prompt: a close-up of a golden royal orb with a cross on a velvet cushion, and beside it a comic golden dinner
+      plate
+    ledger: true
+  camera: out
+- id: s074
+  para: 12
+  sent: 50
+  text: They were not holding a golden plate.
+  visual:
+    same: true
+- id: s075
+  para: 13
+  sent: 51
+  text: Historians have looked very hard for medieval flat-Earthers.
+  visual:
+    prompt: a historian with a lantern searching through dusty archive stacks, comic
+    ledger: true
+  camera: in
+- id: s076
+  para: 13
+  sent: 52
+  text: They found a couple.
+  visual:
+    same: true
+- id: s077
+  para: 13
+  sent: 53
+  text: An early Christian writer named Lactantius,
+  visual:
+    prompt: an early Christian writer in a toga writing on a scroll, Roman setting, around 310 AD
+    ledger: true
+  camera: right
+  overlay:
+    kind: label
+    text: c. 310
+    pos: bottom
+- id: s078
+  para: 13
+  sent: 53
+  text: around the year three hundred and ten.
+  visual:
+    same: true
+- id: s079
+  para: 13
+  sent: 54
+  text: And a sixth-century merchant and monk called Cosmas,
+  visual:
+    prompt: a sixth-century monk drawing a strange box-shaped world with a curved lid, like a chest, in a manuscript
+    ledger: true
+  camera: in
+- id: s080
+  para: 13
+  sent: 54
+  text: who wrote a strange book describing the world as a sort of box.
+  visual:
+    same: true
+- id: s081
+  para: 13
+  sent: 55
+  text: Both were outliers.
+  visual:
+    prompt: a crowd of medieval scholars ignoring a lone man waving a scroll, comic, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: left
+- id: s082
+  para: 13
+  sent: 56
+  text: Even at the time, hardly anyone took them seriously.
+  visual:
+    same: true
+- id: s083
+  para: 13
+  sent: 57
+  text: In fifteen forty-three,
+  visual:
+    prompt: Copernicus at his desk in 1543 with his great book, chuckling at an old scroll
+    ledger: true
+  camera: in
+- id: s084
+  para: 13
+  sent: 57
+  text: Copernicus himself mentioned Lactantius in his great book,
+  visual:
+    same: true
+- id: s085
+  para: 13
+  sent: 57
+  text: mainly to laugh at him.
+  visual:
+    same: true
+- id: s086
+  para: 13
+  sent: 58
+  text: The historian Stephen Jay Gould put it bluntly.
+  visual:
+    prompt: the clerk's hand underlining a sentence in a modern essay with a red pencil
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s087
+  para: 13
+  sent: 59
+  text: There never was a period of flat Earth darkness among scholars.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: “There never was a period of flat Earth darkness”
+    pos: bottom
+- id: s088
+  para: 14
+  sent: 60
+  text: So what was the argument about in fourteen ninety-two?
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet arguing
+      heatedly with scholars around a table covered in maps, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+  tone:
+  - pause
+- id: s089
+  para: 14
+  sent: 61
+  text: It was real.
+  visual:
+    same: true
+- id: s090
+  para: 14
+  sent: 62
+  text: It was heated.
+  visual:
+    same: true
+- id: s091
+  para: 14
+  sent: 63
+  text: And Columbus lost it.
+  visual:
+    prompt: the clerk's hands placing a small loser's ribbon on a portrait of an explorer, comic
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s092
+  para: 14
+  sent: 64
+  text: Because he was wrong.
+  visual:
+    same: true
+- id: s093
+  para: 15
+  sent: 65
+  text: Nobody disputed the shape.
+  visual:
+    prompt: a large globe on a stand, a scholar and Columbus measuring it with dividers, disagreeing
+    ledger: true
+  camera: in
+- id: s094
+  para: 15
+  sent: 66
+  text: They disputed the size.
+  visual:
+    same: true
+- id: s095
+  para: 16
+  sent: 67
+  text: Columbus wanted to reach Asia by sailing west.
+  visual:
+    prompt: an imaginary map showing Europe and Asia unusually close across a narrow ocean, old cartography style
+    ledger: true
+  camera: right
+- id: s096
+  para: 16
+  sent: 68
+  text: For that plan to work,
+  visual:
+    same: true
+- id: s097
+  para: 16
+  sent: 68
+  text: the Earth had to be small,
+  visual:
+    same: true
+- id: s098
+  para: 16
+  sent: 68
+  text: and Asia had to be close.
+  visual:
+    same: true
+- id: s099
+  para: 16
+  sent: 69
+  text: So he chose his numbers accordingly.
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet quietly
+      erasing and redrawing numbers on a map with a sly look, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s100
+  para: 17
+  sent: 70
+  text: He had some encouragement.
+  visual:
+    prompt: a Renaissance astronomer in Florence in 1474 writing a letter by candlelight, a globe beside him
+    ledger: true
+  camera: in
+- id: s101
+  para: 17
+  sent: 71
+  text: In fourteen seventy-four,
+  visual:
+    same: true
+- id: s102
+  para: 17
+  sent: 71
+  text: a Florentine astronomer named Paolo Toscanelli had suggested
+  visual:
+    same: true
+- id: s103
+  para: 17
+  sent: 71
+  text: to the King of Portugal
+  visual:
+    prompt: the King of Portugal on his throne, waving away a letter, bored, people drawn as simple expressive ink
+      figures
+    ledger: true
+  camera: left
+- id: s104
+  para: 17
+  sent: 71
+  text: that sailing west would be a shortcut to Asia.
+  visual:
+    same: true
+- id: s105
+  para: 17
+  sent: 72
+  text: The king was not interested.
+  visual:
+    same: true
+- id: s106
+  para: 17
+  sent: 73
+  text: Columbus reportedly wrote to Toscanelli, and was encouraged.
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet reading
+      a letter with delight, nodding, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s107
+  para: 17
+  sent: 74
+  text: A man who wants to hear yes will usually find someone to say it.
+  visual:
+    same: true
+- id: s108
+  para: 18
+  sent: 75
+  text: He took the medieval Arab astronomer Alfraganus,
+  visual:
+    prompt: a medieval Arab astronomer with an astrolabe on a rooftop observatory in Baghdad, stars above
+    ledger: true
+  camera: in
+- id: s109
+  para: 18
+  sent: 75
+  text: who had measured the length of a degree in Arabic miles.
+  visual:
+    same: true
+- id: s110
+  para: 18
+  sent: 76
+  text: Columbus seems to have assumed these were
+  visual:
+    prompt: two measuring rods of different lengths side by side, labelled only with colours, a hand swapping one
+      for the other, ink diagram
+    ledger: true
+  camera: none
+- id: s111
+  para: 18
+  sent: 76
+  text: the shorter Roman miles used in Italy.
+  visual:
+    same: true
+- id: s112
+  para: 18
+  sent: 77
+  text: A different mile, a smaller planet.
+  visual:
+    same: true
+- id: s113
+  para: 18
+  sent: 78
+  text: He also preferred the more modest estimates
+  visual:
+    prompt: an old map of the world being squeezed smaller and smaller by two hands, comic
+    ledger: true
+  camera: out
+- id: s114
+  para: 18
+  sent: 78
+  text: of the ancient geographer Ptolemy to the larger,
+  visual:
+    same: true
+- id: s115
+  para: 18
+  sent: 78
+  text: more accurate figure of Eratosthenes.
+  visual:
+    same: true
+- id: s116
+  para: 18
+  sent: 79
+  text: Every choice shrank the world.
+  visual:
+    same: true
+- id: s117
+  para: 19
+  sent: 80
+  text: His conclusion?
+  visual:
+    prompt: a map with a short dotted line across the Atlantic from the Canary Islands to Japan, Renaissance cartography
+    ledger: true
+  camera: in
+- id: s118
+  para: 19
+  sent: 81
+  text: From the Canary Islands to Japan was
+  visual:
+    same: true
+- id: s119
+  para: 19
+  sent: 81
+  text: about two thousand four hundred nautical miles.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: ~2,400 nautical miles
+    pos: bottom
+- id: s120
+  para: 19
+  sent: 82
+  text: Manageable, he thought.
+  visual:
+    same: true
+- id: s121
+  para: 20
+  sent: 83
+  text: The real distance is
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.23
+      - 1.0
+      colors:
+      - bad
+      - good
+- id: s122
+  para: 20
+  sent: 83
+  text: about ten thousand six hundred nautical miles.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: ~10,600 nautical miles
+    pos: top
+- id: s123
+  para: 20
+  sent: 84
+  text: More than four times further.
+  visual:
+    same: true
+- id: s124
+  para: 20
+  sent: 85
+  text: No ship of his day could have carried enough food
+  visual:
+    prompt: a small caravel alone in an endless empty ocean, barrels of water running low on deck
+    ledger: true
+  camera: out
+- id: s125
+  para: 20
+  sent: 85
+  text: and water to cross that much open ocean.
+  visual:
+    same: true
+- id: s126
+  para: 21
+  sent: 86
+  text: And the experts knew it.
+  visual:
+    prompt: Portuguese royal advisers around a table shaking their heads at a chart, King John the Second listening,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s127
+  para: 21
+  sent: 87
+  text: In Portugal, the advisers of King John the Second
+  visual:
+    same: true
+- id: s128
+  para: 21
+  sent: 87
+  text: looked at his plan and turned it down.
+  visual:
+    same: true
+- id: s129
+  para: 21
+  sent: 88
+  text: In Spain, a commission led by the queen's confessor,
+  visual:
+    prompt: a Spanish commission in a monastery chamber led by a confessor in robes, examining a proposal
+    ledger: true
+  camera: right
+- id: s130
+  para: 21
+  sent: 88
+  text: Hernando de Talavera,
+  visual:
+    same: true
+- id: s131
+  para: 21
+  sent: 88
+  text: also found it implausible.
+  visual:
+    same: true
+- id: s132
+  para: 21
+  sent: 89
+  text: Their objection was not that he would fall off.
+  visual:
+    prompt: a starving sailor holding an empty barrel in the middle of the ocean, ink sketch, sombre, people drawn
+      as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s133
+  para: 21
+  sent: 90
+  text: It was that he would starve.
+  visual:
+    same: true
+- id: s134
+  para: 21
+  sent: 91
+  text: They thought Asia was much further away than he claimed.
+  visual:
+    same: true
+- id: s135
+  para: 22
+  sent: 92
+  text: They were right.
+  visual:
+    prompt: the clerk's hands moving a token from one side of a balance scale to the other
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s136
+  para: 22
+  sent: 93
+  text: He was wrong.
+  visual:
+    same: true
+- id: s137
+  para: 22
+  sent: 94
+  text: If the Americas had not been sitting in the way,
+  visual:
+    prompt: an unexpected green coastline appearing on the horizon in front of three caravels, sailors pointing
+      in surprise, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s138
+  para: 22
+  sent: 94
+  text: an entirely unexpected continent,
+  visual:
+    same: true
+- id: s139
+  para: 22
+  sent: 94
+  text: roughly where he thought Japan would be,
+  visual:
+    same: true
+- id: s140
+  para: 22
+  sent: 94
+  text: Columbus and his crews would have died somewhere
+  visual:
+    prompt: a lucky horseshoe hanging on a ship's mast, sunrise, comic
+    ledger: true
+  camera: right
+- id: s141
+  para: 22
+  sent: 94
+  text: in the middle of the ocean.
+  visual:
+    same: true
+- id: s142
+  para: 22
+  sent: 95
+  text: He was not saved by being right.
+  visual:
+    same: true
+- id: s143
+  para: 22
+  sent: 96
+  text: He was saved by being lucky.
+  visual:
+    same: true
+- id: s144
+  para: 23
+  sent: 97
+  text: And Columbus was not exactly a reliable authority
+  visual:
+    prompt: Christopher Columbus, a tall man with long greying hair in a dark fifteenth-century doublet on a ship's
+      deck in 1498 writing a letter, looking at a pear on the table thoughtfully, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s145
+  para: 23
+  sent: 97
+  text: on the shape of the Earth anyway.
+  visual:
+    same: true
+- id: s146
+  para: 23
+  sent: 98
+  text: On his third voyage,
+  visual:
+    same: true
+- id: s147
+  para: 23
+  sent: 98
+  text: in fourteen ninety-eight,
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: '1498'
+    pos: bottom
+- id: s148
+  para: 23
+  sent: 98
+  text: he wrote that the world was not perfectly round at all.
+  visual:
+    prompt: a whimsical globe shaped like a pear, with tiny ships sailing up the stalk, old engraving style
+    ledger: true
+  camera: out
+- id: s149
+  para: 23
+  sent: 99
+  text: It was shaped like a pear, he said,
+  visual:
+    same: true
+- id: s150
+  para: 23
+  sent: 99
+  text: very round except where the stalk grows.
+  visual:
+    same: true
+- id: s151
+  para: 23
+  sent: 100
+  text: He believed he had found the stalk.
+  visual:
+    same: true
+- id: s152
+  para: 23
+  sent: 101
+  text: The Bureau has that letter.
+  visual:
+    prompt: the clerk's hands sliding a letter into a drawer, labelled only with a small pear sketch
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s153
+  para: 23
+  sent: 102
+  text: It is in the drawer marked confident.
+  visual:
+    same: true
+- id: s154
+  para: 24
+  sent: 103
+  text: And here is a lovely detail.
+  visual:
+    prompt: a merchant in a Nuremberg workshop in 1492 drawing a large round globe on a wooden stand
+    ledger: true
+  camera: in
+- id: s155
+  para: 24
+  sent: 104
+  text: In fourteen ninety-two,
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: '1492'
+    pos: bottom
+- id: s156
+  para: 24
+  sent: 104
+  text: the very year Columbus sailed,
+  visual:
+    same: true
+- id: s157
+  para: 24
+  sent: 104
+  text: a merchant named Martin Behaim finished a globe in Nuremberg.
+  visual:
+    same: true
+- id: s158
+  para: 24
+  sent: 105
+  text: A round model of the Earth.
+  visual:
+    prompt: the ancient Behaim globe in a museum glass case, softly lit
+    ledger: true
+  camera: in
+- id: s159
+  para: 24
+  sent: 106
+  text: It is the oldest surviving globe in the world.
+  visual:
+    same: true
+- id: s160
+  para: 24
+  sent: 107
+  text: It has no Americas on it, of course.
+  visual:
+    prompt: close-up of an old globe showing Europe, Africa and Asia, with an empty ocean where the Americas should
+      be
+    ledger: true
+  camera: right
+- id: s161
+  para: 24
+  sent: 108
+  text: Nobody in Europe knew they were there yet.
+  visual:
+    same: true
+- id: s162
+  para: 24
+  sent: 109
+  text: But it is very definitely round.
+  visual:
+    same: true
+- id: s163
+  para: 25
+  sent: 110
+  text: The roundness would be demonstrated
+  visual:
+    prompt: five tall ships leaving a Spanish port in 1519, crowds waving, flags flying
+    ledger: true
+  camera: in
+- id: s164
+  para: 25
+  sent: 110
+  text: in the most practical way possible thirty years later.
+  visual:
+    same: true
+- id: s165
+  para: 25
+  sent: 111
+  text: In fifteen nineteen,
+  visual:
+    same: true
+- id: s166
+  para: 25
+  sent: 111
+  text: five ships and about two hundred
+  visual:
+    same: true
+- id: s167
+  para: 25
+  sent: 111
+  text: and seventy men set out under Ferdinand Magellan.
+  visual:
+    same: true
+- id: s168
+  para: 25
+  sent: 112
+  text: Three years later, one ship came home,
+  visual:
+    prompt: a single battered ship sailing home into harbour, ragged sailors on deck, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: out
+- id: s169
+  para: 25
+  sent: 112
+  text: having sailed all the way around.
+  visual:
+    same: true
+- id: s170
+  para: 25
+  sent: 113
+  text: Eighteen men were on board.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: ~270 left · 18 returned
+    pos: bottom
+- id: s171
+  para: 25
+  sent: 114
+  text: Proving the obvious has never been cheap.
+  visual:
+    same: true
+- id: s172
+  para: 26
+  sent: 115
+  text: So where did the flat Earth story come from?
+  visual:
+    prompt: the clerk's hands opening a 19th-century leather-bound book
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  tone:
+  - serious
+- id: s173
+  para: 26
+  sent: 116
+  text: Not from the Middle Ages.
+  visual:
+    same: true
+- id: s174
+  para: 26
+  sent: 117
+  text: From the nineteenth century.
+  visual:
+    same: true
+- id: s175
+  para: 27
+  sent: 118
+  text: In eighteen twenty-eight,
+  visual:
+    prompt: an American author in an 1820s study writing with a quill, books and a portrait of Columbus around him
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: '1828'
+    pos: bottom
+- id: s176
+  para: 27
+  sent: 118
+  text: the American writer Washington Irving,
+  visual:
+    same: true
+- id: s177
+  para: 27
+  sent: 118
+  text: the man who gave us The Legend of Sleepy Hollow,
+  visual:
+    same: true
+- id: s178
+  para: 27
+  sent: 118
+  text: published a biography of Columbus.
+  visual:
+    same: true
+- id: s179
+  para: 27
+  sent: 119
+  text: It was beautifully written, enormously popular,
+  visual:
+    prompt: elegant 1820s readers in a drawing room absorbed in the same leather-bound biography
+    ledger: true
+  camera: left
+- id: s180
+  para: 27
+  sent: 119
+  text: and widely treated as scholarship.
+  visual:
+    same: true
+- id: s181
+  para: 27
+  sent: 120
+  text: It was also partly invented.
+  visual:
+    same: true
+- id: s182
+  para: 28
+  sent: 121
+  text: Irving described a dramatic council at Salamanca,
+  visual:
+    prompt: a dramatic romantic drawing of narrow-minded churchmen at Salamanca waving scriptures at Columbus
+    ledger: true
+  camera: in
+- id: s183
+  para: 28
+  sent: 121
+  text: where narrow-minded churchmen quoted scripture
+  visual:
+    same: true
+- id: s184
+  para: 28
+  sent: 121
+  text: to argue against a round Earth.
+  visual:
+    same: true
+- id: s185
+  para: 28
+  sent: 122
+  text: That scene is largely fiction.
+  visual:
+    prompt: a 19th-century art salon hung with grand paintings of Columbus, and a pile of school textbooks
+    ledger: true
+  camera: right
+- id: s186
+  para: 28
+  sent: 123
+  text: But it was a very good scene.
+  visual:
+    same: true
+- id: s187
+  para: 28
+  sent: 124
+  text: Painters painted it.
+  visual:
+    same: true
+- id: s188
+  para: 28
+  sent: 125
+  text: Schoolbooks repeated it.
+  visual:
+    same: true
+- id: s189
+  para: 29
+  sent: 126
+  text: Then the story found a job.
+  visual:
+    prompt: two Victorian authors at desks, writing furiously, a dramatic chessboard of science versus religion
+      between them
+    ledger: true
+  camera: in
+- id: s190
+  para: 29
+  sent: 127
+  text: Later in the century,
+  visual:
+    same: true
+- id: s191
+  para: 29
+  sent: 127
+  text: two influential books,
+  visual:
+    same: true
+- id: s192
+  para: 29
+  sent: 127
+  text: by John William Draper in eighteen seventy-four,
+  visual:
+    same: true
+- id: s193
+  para: 29
+  sent: 127
+  text: and Andrew Dickson White in eighteen ninety-six,
+  visual:
+    same: true
+- id: s194
+  para: 29
+  sent: 127
+  text: presented history as a long war between science and religion.
+  visual:
+    prompt: an allegorical Victorian illustration of a heroic scientist fighting a dark robed figure, battlefield
+      clouds, people drawn as simple expressive ink figures
+    ledger: true
+  camera: out
+- id: s195
+  para: 29
+  sent: 128
+  text: The flat Earth was perfect ammunition.
+  visual:
+    same: true
+- id: s196
+  para: 29
+  sent: 129
+  text: The medieval Church, they implied,
+  visual:
+    same: true
+- id: s197
+  para: 29
+  sent: 129
+  text: had kept people believing the world was flat,
+  visual:
+    same: true
+- id: s198
+  para: 29
+  sent: 129
+  text: until brave thinkers like Columbus set them free.
+  visual:
+    same: true
+- id: s199
+  para: 30
+  sent: 130
+  text: It was a satisfying story.
+  visual:
+    prompt: a smug modern man looking at a medieval drawing with a superior smile, comic, people drawn as simple
+      expressive ink figures
+    ledger: true
+  camera: in
+- id: s200
+  para: 30
+  sent: 131
+  text: It made the past look foolish, and the present look clever.
+  visual:
+    same: true
+- id: s201
+  para: 30
+  sent: 132
+  text: Which, in my experience,
+  visual:
+    same: true
+- id: s202
+  para: 30
+  sent: 132
+  text: is exactly the kind of story that people never bother to check.
+  visual:
+    same: true
+- id: s203
+  para: 31
+  sent: 133
+  text: In nineteen ninety-one,
+  visual:
+    prompt: a modern historian's desk with old books, index cards and a copy of a medieval globe
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: '1991'
+    pos: bottom
+- id: s204
+  para: 31
+  sent: 133
+  text: the historian Jeffrey Burton Russell traced the whole thing
+  visual:
+    same: true
+- id: s205
+  para: 31
+  sent: 133
+  text: in a book called Inventing the Flat Earth.
+  visual:
+    same: true
+- id: s206
+  para: 31
+  sent: 134
+  text: The myth, he showed, was not a medieval belief at all.
+  visual:
+    prompt: a modern author pulling a thread that unravels a large drawn tapestry of the flat Earth myth
+    ledger: true
+  camera: right
+- id: s207
+  para: 31
+  sent: 135
+  text: It was a modern invention about the medieval world.
+  visual:
+    same: true
+- id: s208
+  para: 32
+  sent: 136
+  text: 'Verdict: wrong.'
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: WRONG
+    pos: center
+    color: '#e8402f'
+- id: s209
+  para: 33
+  sent: 137
+  text: Columbus did not prove the Earth was round.
+  visual:
+    prompt: a medieval scholar calmly holding up a round globe, serene
+    ledger: true
+  camera: in
+- id: s210
+  para: 33
+  sent: 138
+  text: Educated Europeans had known it was round
+  visual:
+    same: true
+- id: s211
+  para: 33
+  sent: 138
+  text: for well over a thousand years.
+  visual:
+    same: true
+- id: s212
+  para: 33
+  sent: 139
+  text: The real argument in fourteen ninety-two was about size,
+  visual:
+    prompt: scholars around a table pointing at correct calculations while Columbus scowls
+    ledger: true
+  camera: left
+- id: s213
+  para: 33
+  sent: 139
+  text: and Columbus was on the wrong side of it.
+  visual:
+    same: true
+- id: s214
+  para: 33
+  sent: 140
+  text: His critics were the ones doing the better maths.
+  visual:
+    same: true
+- id: s215
+  para: 34
+  sent: 141
+  text: The irony is rather delicious.
+  visual:
+    prompt: a statue of Columbus in a park with a pigeon on his head, while a scholar's bust nearby wears a small
+      laurel, comic
+    ledger: true
+  camera: in
+- id: s216
+  para: 34
+  sent: 142
+  text: The man celebrated for defeating ignorance
+  visual:
+    same: true
+- id: s217
+  para: 34
+  sent: 142
+  text: was the one who got the numbers wrong.
+  visual:
+    same: true
+- id: s218
+  para: 34
+  sent: 143
+  text: And the scholars mocked for centuries as flat-Earth fools were, in fact, correct.
+  visual:
+    same: true
+- id: s219
+  para: 35
+  sent: 144
+  text: I have filed this one under heroes,
+  visual:
+    prompt: the clerk's hands sliding the file between two others on a crowded shelf
+    characters:
+    - clerk
+    ledger: true
+  camera: left
+- id: s220
+  para: 35
+  sent: 144
+  text: cross-referenced with arithmetic.
+  visual:
+    same: true
+- id: s221
+  para: 36
+  sent: 145
+  text: Case closed.
+  visual:
+    prompt: the clerk's hands closing the Columbus folder, a small round globe standing on the desk beside it
+    characters:
+    - clerk
+    ledger: true
+- id: s222
+  para: 36
+  sent: 146
+  text: Mind the edge on your way out.
+  visual:
+    same: true
+- id: s223
+  para: 36
+  sent: 147
+  text: There isn't one.
+  visual:
+    prompt: a gentle curved horizon of the ocean at sunset, no edge in sight
+    ledger: true
+  camera: out
+- id: s224
+  para: 36
+  sent: 148
+  text: But mind it anyway.
+  visual:
+    same: true
+- id: s225
+  para: 36
+  sent: 149
+  text: 'Next case: a psalm, a Roman senator,'
+  visual:
+    prompt: an old Roman senator ink figure in a toga with a long white beard, leaning on a walking stick and reading
+      an old scroll, a young man beside him looking astonished at how old he is, comic
+    characters: []
+    ledger: true
+- id: s226
+  para: 36
+  sent: 149
+  text: and a number that supposedly killed everyone at thirty.
+  visual:
+    same: true

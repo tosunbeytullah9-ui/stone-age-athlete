@@ -1,0 +1,1604 @@
+title: 003-lactic-acid-isn-t-why-you-re-sore
+paragraphs: 34
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: Two days after leg day, the stairs become your enemy.
+  visual:
+    prompt: A young man in gym clothes gripping a stair handrail with both hands and carefully stepping down a staircase,
+      grimacing, legs stiff, morning light through a window
+  camera: in
+- id: s002
+  para: 0
+  sent: 1
+  text: And you know exactly who to blame.
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 2
+  text: Lactic acid.
+  visual:
+    same: true
+- id: s004
+  para: 0
+  sent: 3
+  text: Here is the problem.
+  tone:
+  - pause
+  visual:
+    prompt: A man arriving home in the evening with a gym bag over his shoulder, opening his front door, tired but
+      relaxed, warm street lamp light
+  camera: right
+- id: s005
+  para: 0
+  sent: 4
+  text: Lactic acid had left your body before you even got home.
+  visual:
+    same: true
+- id: s006
+  para: 1
+  sent: 5
+  text: Case file zero zero three.
+  visual:
+    prompt: Overhead close-up of the clerk's ink-stained hands untying the string of a thick blank cardboard case
+      folder on the wooden archive desk, green banker's lamp glowing, brass rubber stamp beside it
+    characters:
+    - clerk
+  camera: in
+  overlay:
+    kind: label
+    text: CASE FILE 003
+- id: s007
+  para: 1
+  sent: 6
+  text: 'Subject: you.'
+  visual:
+    same: true
+- id: s008
+  para: 1
+  sent: 7
+  text: 'Belief: lactic acid builds up in your muscles'
+  visual:
+    prompt: An old-fashioned imaginary medical illustration of a thigh muscle filled with sharp white crystals tearing
+      the fibres, painted like a misguided vintage textbook plate
+  camera: in
+- id: s009
+  para: 1
+  sent: 7
+  text: and makes them sore for days.
+  visual:
+    same: true
+- id: s010
+  para: 2
+  sent: 8
+  text: I believed this one for most of the twentieth century.
+  visual:
+    prompt: The clerk's hands holding an old chrome stopwatch and a coach's whistle on the archive desk, a folded
+      vintage lab coat beside them, lamplight
+    characters:
+    - clerk
+  camera: left
+- id: s011
+  para: 2
+  sent: 9
+  text: Which, for me, is a long weekend.
+  visual:
+    same: true
+- id: s012
+  para: 2
+  sent: 10
+  text: I even told people to stretch the lactic acid out.
+  visual:
+    prompt: 'A gently comic 1960s gym: a confident man in an oversized white lab coat instructing a sweaty athlete
+      to stretch his legs against a wall bar, wooden floor, vintage equipment'
+  camera: right
+- id: s013
+  para: 2
+  sent: 11
+  text: With confidence.
+  visual:
+    same: true
+- id: s014
+  para: 2
+  sent: 12
+  text: In a lab coat I was not technically entitled to wear.
+  visual:
+    same: true
+- id: s015
+  para: 3
+  sent: 13
+  text: So let's open the file, and see who wrote the original report.
+  visual:
+    prompt: 'Edwardian Cambridge in 1907: Gothic college buildings and a stone courtyard, students and professors
+      in period suits and hats, bicycles leaning on a wall, soft English afternoon light'
+  camera: out
+- id: s016
+  para: 4
+  sent: 14
+  text: The year is nineteen oh seven.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: '1907'
+- id: s017
+  para: 4
+  sent: 15
+  text: At the University of Cambridge, two scientists,
+  visual:
+    same: true
+- id: s018
+  para: 4
+  sent: 15
+  text: Walter Fletcher and Frederick Gowland Hopkins,
+  visual:
+    prompt: 'An Edwardian physiology laboratory: two scientists in waistcoats and rolled sleeves working at a bench
+      with brass instruments, glass chambers and a smoked-drum recording apparatus, gaslight and daylight mixing'
+  camera: in
+- id: s019
+  para: 4
+  sent: 15
+  text: are studying frog muscles.
+  visual:
+    same: true
+- id: s020
+  para: 4
+  sent: 16
+  text: They make the muscles work without oxygen,
+  visual:
+    prompt: 'Close-up of an early 1900s laboratory apparatus: a small isolated muscle preparation attached to a
+      lever inside a glass chamber, a tube connected to a tall oxygen cylinder, a drum recording a wavy line, no
+      blood'
+  camera: in
+- id: s021
+  para: 4
+  sent: 16
+  text: and they find something new.
+  visual:
+    same: true
+- id: s022
+  para: 4
+  sent: 17
+  text: The working muscle produces lactic acid.
+  visual:
+    prompt: 'Close-up of Edwardian chemistry glassware: a scientist''s hands pouring liquid from a flask into a
+      test tube that changes colour, burettes and stoppered bottles in the background'
+  camera: left
+- id: s023
+  para: 4
+  sent: 18
+  text: And when oxygen comes back, the lactic acid disappears.
+  visual:
+    same: true
+- id: s024
+  para: 5
+  sent: 19
+  text: It was brilliant work.
+  visual:
+    prompt: A gold medal with an embossed profile resting in an open velvet case on a desk, the inscription too
+      worn to read, warm spotlight
+  camera: in
+- id: s025
+  para: 5
+  sent: 20
+  text: Hopkins later won a Nobel Prize, for something else entirely.
+  visual:
+    same: true
+- id: s026
+  para: 5
+  sent: 21
+  text: But this experiment started a whole
+  visual:
+    prompt: A busy early 20th-century physiology laboratory full of researchers in white coats, measuring instruments,
+      glass tubes and notebooks, light streaming through tall windows
+  camera: out
+- id: s027
+  para: 5
+  sent: 21
+  text: new science of muscle chemistry.
+  visual:
+    same: true
+- id: s028
+  para: 5
+  sent: 22
+  text: 'And it planted an idea:'
+  visual:
+    same: true
+- id: s029
+  para: 5
+  sent: 22
+  text: muscles without enough oxygen make lactic acid,
+  visual:
+    prompt: An exhausted 1920s runner in a white vest and shorts slumped on a wooden bench after a race, head down,
+      legs trembling, an empty cinder track behind him
+  camera: right
+- id: s030
+  para: 5
+  sent: 22
+  text: and lactic acid is the price you pay.
+  visual:
+    same: true
+- id: s031
+  para: 6
+  sent: 23
+  text: Then came the British physiologist Archibald Vivian Hill.
+  visual:
+    prompt: A British physiologist in a 1920s tweed suit on a grass running track holding a stopwatch while a runner
+      sprints past him, wooden stands behind, overcast light
+  camera: left
+- id: s032
+  para: 6
+  sent: 24
+  text: In nineteen twenty-two,
+  visual:
+    prompt: A grand 1920s award ceremony in an ornate concert hall in Stockholm, men in white tie and tails on a
+      stage under chandeliers, an orchestra at the side, warm golden light
+  camera: out
+- id: s033
+  para: 6
+  sent: 24
+  text: he shared the Nobel Prize
+  visual:
+    same: true
+- id: s034
+  para: 6
+  sent: 24
+  text: with the German biochemist Otto Meyerhof,
+  visual:
+    same: true
+- id: s035
+  para: 6
+  sent: 24
+  text: for discoveries about what happens inside a contracting muscle.
+  visual:
+    same: true
+- id: s036
+  para: 6
+  sent: 25
+  text: Hill described an "oxygen debt"
+  visual:
+    prompt: A 1920s runner wearing a mouthpiece connected to a large canvas gas-collection bag on his back, breathing
+      hard after a sprint, while a scientist holds the valve and checks his watch
+  camera: in
+- id: s037
+  para: 6
+  sent: 25
+  text: that the body pays back after hard exercise.
+  visual:
+    same: true
+- id: s038
+  para: 6
+  sent: 26
+  text: In his picture,
+  visual:
+    same: true
+- id: s039
+  para: 6
+  sent: 26
+  text: the extra oxygen you breathe during recovery burns
+  visual:
+    prompt: 'A whimsical vintage encyclopedia plate of a muscle drawn as a small factory: little barrels of acid
+      being carried to a furnace, some burned for energy, the rest rebuilt into stacks of fuel bricks'
+  camera: right
+- id: s040
+  para: 6
+  sent: 26
+  text: about a fifth of the lactic acid you made,
+  visual:
+    same: true
+- id: s041
+  para: 6
+  sent: 26
+  text: and the energy from that rebuilds the rest back into muscle fuel.
+  visual:
+    same: true
+- id: s042
+  para: 6
+  sent: 27
+  text: An elegant idea.
+  visual:
+    same: true
+- id: s043
+  para: 6
+  sent: 28
+  text: And it made lactic acid the main character of exhaustion.
+  visual:
+    prompt: A small glass vial of clear liquid standing on a velvet museum pedestal behind a velvet rope, spotlit
+      like a celebrity, a gold medal leaning against the pedestal
+  camera: in
+- id: s044
+  para: 6
+  sent: 29
+  text: Now the molecule had a Nobel Prize next to its name.
+  visual:
+    same: true
+- id: s045
+  para: 6
+  sent: 30
+  text: And a reputation.
+  visual:
+    same: true
+- id: s046
+  para: 7
+  sent: 31
+  text: For most of the century,
+  visual:
+    prompt: 1970s marathon runners in short shorts struggling up a hill in the heat, faces twisted with effort,
+      legs glowing faintly red, crowds at the roadside
+  camera: left
+- id: s047
+  para: 7
+  sent: 31
+  text: lactic acid was treated as the villain of exercise.
+  visual:
+    same: true
+- id: s048
+  para: 7
+  sent: 32
+  text: The waste product.
+  visual:
+    same: true
+- id: s049
+  para: 7
+  sent: 33
+  text: The reason you slow down.
+  visual:
+    same: true
+- id: s050
+  para: 7
+  sent: 34
+  text: The burning in your legs.
+  visual:
+    prompt: A man in an office two days after a hard workout lowering himself very carefully into his desk chair,
+      wincing, one hand on his thigh, colleagues amused in the background
+  camera: in
+- id: s051
+  para: 7
+  sent: 35
+  text: And, eventually, the soreness two days later.
+  visual:
+    same: true
+- id: s052
+  para: 7
+  sent: 36
+  text: That last part, nobody really tested.
+  tone:
+  - pause
+  visual:
+    same: true
+- id: s053
+  para: 7
+  sent: 37
+  text: It just sounded like the same villain.
+  visual:
+    same: true
+- id: s054
+  para: 8
+  sent: 38
+  text: So let's test it.
+  visual:
+    prompt: The clerk's hands holding a large brass magnifying glass over two open case files side by side on the
+      archive desk, lamplight
+    characters:
+    - clerk
+  camera: in
+- id: s055
+  para: 8
+  sent: 39
+  text: Starting with the timing.
+  visual:
+    same: true
+- id: s056
+  para: 9
+  sent: 40
+  text: When you exercise hard, lactate in your blood goes up.
+  visual:
+    prompt: 'A modern sports science lab: a cyclist on an ergometer, a scientist taking a tiny fingertip blood sample
+      into a small analyser, screens blurred, bright clean light'
+  camera: right
+- id: s057
+  para: 9
+  sent: 41
+  text: That part is true.
+  visual:
+    same: true
+- id: s058
+  para: 9
+  sent: 42
+  text: But after you stop, it comes back down fast.
+  visual:
+    same: true
+- id: s059
+  para: 9
+  sent: 43
+  text: Researchers have shown it returns
+  visual:
+    same: true
+- id: s060
+  para: 9
+  sent: 43
+  text: to resting levels within about an hour.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 'lactate: ~1 hour'
+- id: s061
+  para: 10
+  sent: 44
+  text: Now look at the soreness.
+  visual:
+    prompt: Two exercise scientists at a desk covered with printed research papers and charts, comparing notes,
+      the text too small to read, mugs of coffee, evening lamp
+  camera: left
+- id: s062
+  para: 10
+  sent: 45
+  text: According to a review by the exercise
+  visual:
+    same: true
+- id: s063
+  para: 10
+  sent: 45
+  text: scientists Brad Schoenfeld and Bret Contreras,
+  visual:
+    same: true
+- id: s064
+  para: 10
+  sent: 45
+  text: it usually becomes noticeable six
+  visual:
+    bg: plain_cool
+    props:
+    - type: line_chart
+      x: 960
+      y: 860
+      scale: 1.2
+      values:
+      - 0.1
+      - 0.95
+      - 0.15
+      - 0.05
+      - 0.05
+      - 0.05
+      values2:
+      - 0.0
+      - 0.0
+      - 0.25
+      - 0.65
+      - 1.0
+      - 0.5
+      color: bad
+      color2: water
+- id: s065
+  para: 10
+  sent: 45
+  text: to eight hours after a hard session,
+  visual:
+    same: true
+- id: s066
+  para: 10
+  sent: 45
+  text: and peaks at around forty-eight hours.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 'soreness: ~48 hours'
+- id: s067
+  para: 10
+  sent: 46
+  text: Two days.
+  visual:
+    same: true
+- id: s068
+  para: 11
+  sent: 47
+  text: So the suspect left the building about an hour after the crime,
+  visual:
+    prompt: 'A gently comic detective''s corkboard: a blank silhouette photo of a suspect connected by red string
+      to a photo of an empty building doorway and a clock face, pins and string, no writing'
+  camera: in
+- id: s069
+  para: 11
+  sent: 47
+  text: and the victim only noticed the damage the next day.
+  visual:
+    same: true
+- id: s070
+  para: 11
+  sent: 48
+  text: As a filing clerk,
+  visual:
+    same: true
+- id: s071
+  para: 11
+  sent: 48
+  text: I would like to point out that this is not how evidence works.
+  visual:
+    same: true
+- id: s072
+  para: 12
+  sent: 49
+  text: 'Second piece of evidence: running downhill.'
+  visual:
+    prompt: Trail runners racing down a steep rocky mountain path, leaning back and braking hard with each step,
+      dust and pebbles flying, bright summer light
+  camera: right
+- id: s073
+  para: 12
+  sent: 50
+  text: In nineteen eighty-three,
+  visual:
+    same: true
+- id: s074
+  para: 12
+  sent: 50
+  text: a team led by the physiologist James Schwane compared running
+  visual:
+    same: true
+- id: s075
+  para: 12
+  sent: 50
+  text: on the level with running downhill.
+  visual:
+    same: true
+- id: s076
+  para: 12
+  sent: 51
+  text: Level running pushed lactate up.
+  visual:
+    prompt: 'A 1980s exercise physiology lab with two treadmills side by side: one perfectly flat, the other tilted
+      steeply downhill, a runner on each, researchers with clipboards, beige equipment'
+  camera: left
+- id: s077
+  para: 12
+  sent: 52
+  text: Downhill running did not.
+  visual:
+    same: true
+- id: s078
+  para: 12
+  sent: 53
+  text: And yet downhill running is the one famous
+  visual:
+    prompt: Close-up of a runner's legs on a steep downhill treadmill, thighs braking hard with each landing, the
+      front thigh muscles highlighted with a faint red glow
+  camera: in
+- id: s079
+  para: 12
+  sent: 53
+  text: for leaving people sore for days.
+  visual:
+    same: true
+- id: s080
+  para: 13
+  sent: 54
+  text: Why?
+  visual:
+    prompt: A cut-away anatomical museum plate of the front thigh muscle of a runner stepping downhill, the muscle
+      shown lengthening while it brakes the body, arrows of force drawn as simple lines, aged paper
+  camera: in
+- id: s081
+  para: 13
+  sent: 55
+  text: Because running downhill is mostly braking.
+  visual:
+    same: true
+- id: s082
+  para: 13
+  sent: 56
+  text: Your thigh muscles work while they are being stretched,
+  visual:
+    same: true
+- id: s083
+  para: 13
+  sent: 56
+  text: to stop you from falling forward.
+  visual:
+    same: true
+- id: s084
+  para: 13
+  sent: 57
+  text: That kind of lengthening work,
+  visual:
+    prompt: A close-up scientific plate of the same thigh muscle fibres, a few tiny fibres frayed and glowing red
+      where they were strained, delicate ink and watercolor
+    ref: s080
+  camera: in
+- id: s085
+  para: 13
+  sent: 57
+  text: called eccentric work,
+  visual:
+    same: true
+- id: s086
+  para: 13
+  sent: 57
+  text: is the kind most likely to leave you sore.
+  visual:
+    same: true
+- id: s087
+  para: 13
+  sent: 58
+  text: Very little lactate.
+  visual:
+    prompt: A tired hiker sitting at the bottom of a steep mountain trail, massaging both thighs with a pained smile,
+      the long descent visible behind him
+  camera: right
+- id: s088
+  para: 13
+  sent: 59
+  text: A lot of soreness.
+  visual:
+    same: true
+- id: s089
+  para: 13
+  sent: 60
+  text: The two do not even turn up to the same appointments.
+  visual:
+    same: true
+- id: s090
+  para: 14
+  sent: 61
+  text: 'Third piece of evidence: the name itself.'
+  visual:
+    prompt: An exercise physiologist in a university lab holding up a colourful ball-and-stick molecular model,
+      explaining it to a student, shelves of equipment behind
+  camera: left
+- id: s091
+  para: 14
+  sent: 62
+  text: The exercise physiologist Robert Robergs has spent years
+  visual:
+    same: true
+- id: s092
+  para: 14
+  sent: 62
+  text: pointing out that your cells actually produce lactate, not lactic acid.
+  visual:
+    same: true
+- id: s093
+  para: 14
+  sent: 63
+  text: And the chemistry that makes lactate
+  visual:
+    prompt: 'Straight-on view of two glass beakers on a lab bench: one with an indicator liquid turning deep red,
+      the other calm and pale green, a pipette between them, clean light'
+  camera: in
+- id: s094
+  para: 14
+  sent: 63
+  text: does not create the acid problem.
+  visual:
+    same: true
+- id: s095
+  para: 14
+  sent: 64
+  text: If anything, it works against it.
+  visual:
+    same: true
+- id: s096
+  para: 15
+  sent: 65
+  text: And fourth, the most embarrassing part for the old story.
+  visual:
+    prompt: A vintage encyclopedia plate of a muscle cell drawn as a cosy boiler room, tiny workers shovelling small
+      glowing pellets into a furnace that powers the cell
+  camera: in
+- id: s097
+  para: 15
+  sent: 66
+  text: Lactate is not waste.
+  visual:
+    same: true
+- id: s098
+  para: 15
+  sent: 67
+  text: It is fuel.
+  visual:
+    same: true
+- id: s099
+  para: 15
+  sent: 68
+  text: At the University of California, Berkeley,
+  visual:
+    prompt: A sunny California university campus with a tall white clock tower, eucalyptus trees, students walking
+      and cycling, golden afternoon light
+  camera: out
+- id: s100
+  para: 15
+  sent: 68
+  text: the physiologist George Brooks spent decades showing
+  visual:
+    same: true
+- id: s101
+  para: 15
+  sent: 68
+  text: that lactate moves from cell to cell around the body,
+  visual:
+    prompt: An anatomical museum plate of a translucent human figure in motion, small glowing amber particles travelling
+      through the blood vessels from the leg muscles toward the heart and the brain
+  camera: in
+- id: s102
+  para: 15
+  sent: 68
+  text: in what he called the lactate shuttle.
+  visual:
+    same: true
+- id: s103
+  para: 15
+  sent: 69
+  text: His work found that the heart and the brain run
+  visual:
+    prompt: Close-up of the same anatomical plate showing the heart and the brain glowing warmly as the amber particles
+      arrive, delicate ink and watercolor on aged paper
+    ref: s101
+  camera: in
+- id: s104
+  para: 15
+  sent: 69
+  text: more efficiently on lactate than on glucose.
+  visual:
+    same: true
+- id: s105
+  para: 15
+  sent: 70
+  text: Your muscles burn it too, especially during hard effort.
+  visual:
+    same: true
+- id: s106
+  para: 16
+  sent: 71
+  text: Brooks has a neat way of putting it.
+  visual:
+    prompt: A grey-haired physiologist in a lab coat watching a cyclist pedal hard on an ergometer wearing a breathing
+      mask, monitors blurred, focused atmosphere
+  camera: right
+- id: s107
+  para: 16
+  sent: 72
+  text: Lactate production, he says, is a strain response.
+  visual:
+    same: true
+- id: s108
+  para: 16
+  sent: 73
+  text: It is there to compensate for metabolic stress.
+  visual:
+    same: true
+- id: s109
+  para: 16
+  sent: 74
+  text: In other words, lactate shows up because you are working hard.
+  visual:
+    prompt: 'A gently comic scene in a kitchen: a police officer solemnly handcuffing a ceiling smoke alarm that
+      is beeping, while a slightly smoking toaster sits unnoticed on the counter'
+  camera: in
+- id: s110
+  para: 16
+  sent: 75
+  text: It is the smoke alarm, not the fire.
+  visual:
+    same: true
+- id: s111
+  para: 16
+  sent: 76
+  text: And for about a hundred years, we kept arresting the smoke alarm.
+  visual:
+    same: true
+- id: s112
+  para: 17
+  sent: 77
+  text: So we blamed the soreness on the molecule
+  visual:
+    prompt: 'A whimsical vintage encyclopedia plate: a tiny courier drawn as a glowing amber droplet carrying a
+      lunch box through a red blood vessel toward a muscle fibre'
+  camera: left
+- id: s113
+  para: 17
+  sent: 77
+  text: that was busy delivering lunch.
+  visual:
+    same: true
+- id: s114
+  para: 17
+  sent: 78
+  text: If you have ever paid someone to massage the lactic acid out
+  visual:
+    prompt: A massage therapist kneading the calves and thighs of a tired runner lying on a massage table two days
+      after a race, a finisher's medal hanging on a chair, calm clinic light
+  camera: in
+- id: s115
+  para: 17
+  sent: 78
+  text: of your legs two days after a race,
+  visual:
+    same: true
+- id: s116
+  para: 17
+  sent: 78
+  text: I am afraid you paid them
+  visual:
+    same: true
+- id: s117
+  para: 17
+  sent: 78
+  text: to chase a molecule that had already left.
+  visual:
+    same: true
+- id: s118
+  para: 17
+  sent: 79
+  text: The massage may still have helped.
+  visual:
+    prompt: Close-up of the same therapist's hands working on the runner's calf muscle, relaxed and caring, soft
+      light
+    ref: s114
+  camera: in
+- id: s119
+  para: 17
+  sent: 80
+  text: We will come back to that.
+  visual:
+    same: true
+- id: s120
+  para: 17
+  sent: 81
+  text: It just was not evicting anyone.
+  visual:
+    same: true
+- id: s121
+  para: 18
+  sent: 82
+  text: Filing note.
+  visual:
+    prompt: 'A gently comic scene: a fit young woman slowly climbing a long staircase on all fours the day after
+      leg day, her dog trotting past her easily'
+  camera: right
+- id: s122
+  para: 18
+  sent: 83
+  text: Subscribing to this channel is free.
+  visual:
+    same: true
+- id: s123
+  para: 18
+  sent: 84
+  text: Unlike your next leg day, which will cost you the stairs.
+  visual:
+    same: true
+- id: s124
+  para: 19
+  sent: 85
+  text: So if it is not lactic acid, what is it?
+  visual:
+    prompt: A person in a gym doing slow walking lunges with dumbbells for the first time, lowering carefully under
+      control, muscles straining, bright gym light
+  camera: in
+- id: s125
+  para: 19
+  sent: 86
+  text: The current explanation is less dramatic and more physical.
+  visual:
+    same: true
+- id: s126
+  para: 19
+  sent: 87
+  text: When you do more than your muscles are used to,
+  visual:
+    same: true
+- id: s127
+  para: 19
+  sent: 87
+  text: especially that braking,
+  visual:
+    prompt: A microscope-view scientific plate of striated muscle fibres, a few small regions where the neat striped
+      pattern is slightly disrupted and glowing red, ink and watercolor
+  camera: in
+- id: s128
+  para: 19
+  sent: 87
+  text: eccentric kind of work,
+  visual:
+    same: true
+- id: s129
+  para: 19
+  sent: 87
+  text: you create small-scale damage in the muscle fibres.
+  visual:
+    same: true
+- id: s130
+  para: 19
+  sent: 88
+  text: Over the next day or two, your body cleans up and repairs.
+  visual:
+    prompt: The same microscope-view plate with small round repair cells gathering around the disrupted regions,
+      gently mending the fibres
+    ref: s127
+  camera: in
+- id: s131
+  para: 19
+  sent: 89
+  text: That repair process is what you feel.
+  visual:
+    same: true
+- id: s132
+  para: 20
+  sent: 90
+  text: And here is the good news.
+  visual:
+    prompt: The same person in the same gym two weeks later doing the same walking lunges with ease and a relaxed
+      smile
+    ref: s124
+  camera: left
+- id: s133
+  para: 20
+  sent: 91
+  text: Muscles adapt to this remarkably fast.
+  visual:
+    same: true
+- id: s134
+  para: 20
+  sent: 92
+  text: If you repeat the same activity within about two weeks,
+  visual:
+    same: true
+- id: s135
+  para: 20
+  sent: 92
+  text: the damage and the soreness are usually much smaller.
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.35
+      colors:
+      - bad
+      - good
+- id: s136
+  para: 20
+  sent: 93
+  text: Your first session protects you from the second.
+  visual:
+    same: true
+- id: s137
+  para: 20
+  sent: 94
+  text: It is one of the few times in life
+  visual:
+    prompt: 'A gently comic still life: a ceramic piggy bank wearing a tiny sweatband sitting next to a pair of
+      dumbbells and a towel on a gym bench'
+  camera: in
+- id: s138
+  para: 20
+  sent: 94
+  text: when suffering early is actually a good investment.
+  visual:
+    same: true
+- id: s139
+  para: 21
+  sent: 95
+  text: But here is where the file gets complicated.
+  tone:
+  - serious
+  visual:
+    prompt: 'The archive desk at night: the clerk''s hands pausing over the open case file as the green lamp flickers,
+      a second heavy folder sliding out from underneath, long shadows'
+    characters:
+    - clerk
+  camera: in
+- id: s140
+  para: 21
+  sent: 96
+  text: Because there are two different pains here,
+  visual:
+    same: true
+- id: s141
+  para: 21
+  sent: 96
+  text: and they are not the same thing.
+  visual:
+    same: true
+- id: s142
+  para: 22
+  sent: 97
+  text: The first is the soreness that arrives a day or two later.
+  visual:
+    prompt: A woman waking up in bed the morning after a hard workout, trying to sit up stiffly, wincing, soft morning
+      light through curtains
+  camera: right
+- id: s143
+  para: 22
+  sent: 98
+  text: That is the one lactic acid has been falsely accused of.
+  visual:
+    same: true
+- id: s144
+  para: 22
+  sent: 99
+  text: The second is the burning you feel during a hard set,
+  visual:
+    prompt: An athlete in the middle of a hard set on a leg press machine, face straining, thigh muscles burning
+      with a warm red-orange glow, gym lights
+  camera: in
+- id: s145
+  para: 22
+  sent: 99
+  text: while you are still doing it.
+  visual:
+    same: true
+- id: s146
+  para: 22
+  sent: 100
+  text: And that burning has a more interesting story.
+  visual:
+    same: true
+- id: s147
+  para: 23
+  sent: 101
+  text: In twenty fourteen,
+  visual:
+    prompt: 'A clinical research room: a volunteer''s relaxed hand resting palm-up on a padded table, a researcher
+      placing a very fine infusion line near the base of the thumb, careful and calm, no blood'
+  camera: in
+- id: s148
+  para: 23
+  sent: 101
+  text: researchers in the United States injected tiny amounts
+  visual:
+    same: true
+- id: s149
+  para: 23
+  sent: 101
+  text: of exercise chemicals into the thumb muscle of ten volunteers.
+  visual:
+    same: true
+- id: s150
+  para: 23
+  sent: 102
+  text: Lactate on its own did nothing.
+  visual:
+    prompt: Straight-on view of exactly three small separate glass vials of clear liquid standing in a row on a
+      white tray, each one alone with space between them, clean laboratory light
+  camera: in
+- id: s151
+  para: 23
+  sent: 103
+  text: Acid on its own did nothing.
+  visual:
+    same: true
+- id: s152
+  para: 23
+  sent: 104
+  text: Even the energy molecule ATP on its own did nothing.
+  visual:
+    same: true
+- id: s153
+  para: 23
+  sent: 105
+  text: But together, at the levels you would find during hard exercise,
+  visual:
+    prompt: Three streams of clear liquid pouring together into a single glass beaker, the mixture glowing a warm
+      orange where they meet, laboratory light
+  camera: in
+- id: s154
+  para: 23
+  sent: 105
+  text: they produced feelings of fatigue,
+  visual:
+    same: true
+- id: s155
+  para: 23
+  sent: 105
+  text: and at higher levels, an ache.
+  visual:
+    same: true
+- id: s156
+  para: 24
+  sent: 106
+  text: So lactate is not innocent in every case.
+  visual:
+    prompt: A gently comic vintage illustration of a police line-up of three small round cartoon molecules with
+      tiny faces standing against a height chart without numbers, one looking innocent
+  camera: in
+- id: s157
+  para: 24
+  sent: 107
+  text: It looks like one member of a small gang
+  visual:
+    same: true
+- id: s158
+  para: 24
+  sent: 107
+  text: that helps create the burn during exercise.
+  visual:
+    same: true
+- id: s159
+  para: 24
+  sent: 108
+  text: Just never the lone villain.
+  visual:
+    same: true
+- id: s160
+  para: 24
+  sent: 109
+  text: And not the one who sneaks back two days later.
+  visual:
+    same: true
+- id: s161
+  para: 24
+  sent: 110
+  text: One researcher has even argued that lactate's role
+  visual:
+    prompt: An anatomical plate of a muscle with fine sensory nerve fibres threading through it and glowing softly,
+      a researcher's hand pointing at them with a pencil
+  camera: right
+- id: s162
+  para: 24
+  sent: 110
+  text: in delayed soreness should be looked at again through the nerves.
+  visual:
+    same: true
+- id: s163
+  para: 24
+  sent: 111
+  text: That is a hypothesis, and an interesting one.
+  visual:
+    same: true
+- id: s164
+  para: 24
+  sent: 112
+  text: It is not the old story.
+  visual:
+    same: true
+- id: s165
+  para: 25
+  sent: 113
+  text: While the file is open, one more correction.
+  visual:
+    prompt: 'A 1980s bodybuilding gym: a sweaty lifter grimacing heroically mid-curl, mirrors, chrome dumbbells,
+      dramatic overhead light'
+  camera: left
+- id: s166
+  para: 25
+  sent: 114
+  text: Many people treat soreness as proof of a good workout.
+  visual:
+    same: true
+- id: s167
+  para: 25
+  sent: 115
+  text: No pain, no gain.
+  visual:
+    same: true
+- id: s168
+  para: 25
+  sent: 116
+  text: Schoenfeld and Contreras looked at this too.
+  visual:
+    prompt: Two sports scientists in a modern office reviewing studies on a large screen and printed journals, the
+      text blurred and unreadable, thoughtful mood
+  camera: in
+- id: s169
+  para: 25
+  sent: 117
+  text: 'Their conclusion:'
+  visual:
+    same: true
+- id: s170
+  para: 25
+  sent: 117
+  text: soreness is a poor way to judge a training session,
+  visual:
+    same: true
+- id: s171
+  para: 25
+  sent: 117
+  text: and it should not be used as a measure of results.
+  visual:
+    same: true
+- id: s172
+  para: 25
+  sent: 118
+  text: You can get stronger without being sore.
+  visual:
+    prompt: A strong woman calmly lifting a heavy barbell in a well-lit gym, controlled and confident, no sign of
+      strain or pain
+  camera: right
+- id: s173
+  para: 25
+  sent: 119
+  text: And you can be very sore after a session
+  visual:
+    same: true
+- id: s174
+  para: 25
+  sent: 119
+  text: that did very little for you,
+  visual:
+    prompt: 'A gently comic wedding party on a summer lawn: a guest in a suit and tie enthusiastically trying a
+      game of football for the first time, tripping, guests laughing'
+  camera: out
+- id: s175
+  para: 25
+  sent: 119
+  text: like your first time trying a new sport at a wedding.
+  visual:
+    same: true
+- id: s176
+  para: 26
+  sent: 120
+  text: So, back to the file.
+  visual:
+    prompt: The same young man carefully stepping down the staircase holding the rail, now with a knowing half-smile
+    ref: s001
+  camera: in
+- id: s177
+  para: 26
+  sent: 121
+  text: Lactic acid makes you sore for days.
+  visual:
+    same: true
+- id: s178
+  para: 26
+  sent: 122
+  text: The lactate is gone in about an hour.
+  visual:
+    bg: plain_cool
+    props:
+    - type: line_chart
+      x: 960
+      y: 860
+      scale: 1.2
+      values:
+      - 0.1
+      - 0.95
+      - 0.15
+      - 0.05
+      - 0.05
+      - 0.05
+      values2:
+      - 0.0
+      - 0.0
+      - 0.25
+      - 0.65
+      - 1.0
+      - 0.5
+      color: bad
+      color2: water
+- id: s179
+  para: 26
+  sent: 123
+  text: The soreness peaks around two days later.
+  visual:
+    same: true
+- id: s180
+  para: 26
+  sent: 124
+  text: The exercise that makes the most
+  visual:
+    prompt: The same trail runners racing down the steep rocky path, seen from below
+    ref: s072
+  camera: right
+- id: s181
+  para: 26
+  sent: 124
+  text: soreness makes the least lactate.
+  visual:
+    same: true
+- id: s182
+  para: 26
+  sent: 125
+  text: And the molecule itself is a fuel your heart
+  visual:
+    prompt: The same anatomical plate of the glowing heart and brain receiving amber particles
+    ref: s103
+  camera: in
+- id: s183
+  para: 26
+  sent: 125
+  text: and brain are happy to use.
+  visual:
+    same: true
+- id: s184
+  para: 27
+  sent: 126
+  text: 'Verdict: wrong.'
+  visual:
+    prompt: Dramatic close-up of the clerk's hand slamming a heavy brass rubber stamp down onto the case folder,
+      a burst of red ink and dust flying up, the green lamp shaking
+    characters:
+    - clerk
+  camera: in
+  overlay:
+    kind: stat
+    text: WRONG
+    pos: center
+    color: '#e8402f'
+- id: s185
+  para: 27
+  sent: 127
+  text: Wrong molecule.
+  tone:
+  - pause
+  visual:
+    same: true
+- id: s186
+  para: 27
+  sent: 128
+  text: Wrong timing.
+  visual:
+    same: true
+- id: s187
+  para: 27
+  sent: 129
+  text: And technically, wrong name.
+  visual:
+    same: true
+- id: s188
+  para: 28
+  sent: 130
+  text: Now, a filing note from the strength
+  visual:
+    prompt: 'Seen from behind: a strength and conditioning coach with a clipboard talking to two athletes in a weightlifting
+      area, chalk dust in the air, bright training hall'
+  camera: in
+- id: s189
+  para: 28
+  sent: 130
+  text: and conditioning coach who checks our body files.
+  visual:
+    same: true
+- id: s190
+  para: 28
+  sent: 131
+  text: Practical, and safe.
+  visual:
+    same: true
+- id: s191
+  para: 29
+  sent: 132
+  text: One.
+  visual:
+    prompt: A coach and an athlete looking together at a progress chart on a tablet in a gym, the screen blurred,
+      both nodding, relaxed
+  camera: right
+- id: s192
+  para: 29
+  sent: 133
+  text: Soreness is not the scoreboard.
+  visual:
+    same: true
+- id: s193
+  para: 29
+  sent: 134
+  text: 'Track what actually matters:'
+  visual:
+    same: true
+- id: s194
+  para: 29
+  sent: 134
+  text: the weight you lift, the reps you do, how well you move,
+  visual:
+    prompt: An athlete performing a clean, controlled deadlift with excellent form, the bar loaded with plates,
+      focused face, chalked hands
+  camera: in
+- id: s195
+  para: 29
+  sent: 134
+  text: how you feel over weeks.
+  visual:
+    same: true
+- id: s196
+  para: 29
+  sent: 135
+  text: If those go up, the training works, sore or not.
+  visual:
+    same: true
+- id: s197
+  para: 30
+  sent: 136
+  text: Two.
+  visual:
+    prompt: A beginner in a gym starting with light dumbbells while a coach watches and gives a thumbs up, encouraging
+      atmosphere
+  camera: left
+- id: s198
+  para: 30
+  sent: 137
+  text: When you start something new,
+  visual:
+    same: true
+- id: s199
+  para: 30
+  sent: 137
+  text: or come back after a break,
+  visual:
+    same: true
+- id: s200
+  para: 30
+  sent: 137
+  text: start lighter than your ego wants.
+  visual:
+    same: true
+- id: s201
+  para: 30
+  sent: 138
+  text: Especially with downhill running, jumping,
+  visual:
+    prompt: A runner jogging gently and carefully down a gentle grassy slope on a park path, relaxed pace, morning
+      light
+  camera: right
+- id: s202
+  para: 30
+  sent: 138
+  text: and slow lowering movements.
+  visual:
+    same: true
+- id: s203
+  para: 30
+  sent: 139
+  text: Your first session is a vaccine for the second.
+  visual:
+    prompt: An athlete doing a slow controlled squat with a light barbell, lowering carefully, a coach beside her
+      watching the knees
+  camera: in
+- id: s204
+  para: 30
+  sent: 140
+  text: Give it a week or two before you go all out.
+  visual:
+    same: true
+- id: s205
+  para: 31
+  sent: 141
+  text: Three.
+  visual:
+    prompt: A shelf of mysterious glowing potion bottles and supplement tubs with no labels, a little magical sparkle
+      around them, gently ironic mood
+  camera: in
+- id: s206
+  para: 31
+  sent: 142
+  text: If you are sore anyway, you do not need a magic potion.
+  visual:
+    same: true
+- id: s207
+  para: 31
+  sent: 143
+  text: In a twenty eighteen review of ninety-nine studies,
+  visual:
+    prompt: 'A sports clinic: a therapist massaging an athlete''s thigh on a treatment table, towels and oil bottles
+      without labels, calm professional light'
+  camera: left
+  overlay:
+    kind: stat
+    text: 99 studies
+- id: s208
+  para: 31
+  sent: 143
+  text: massage was the most effective method
+  visual:
+    same: true
+- id: s209
+  para: 31
+  sent: 143
+  text: for reducing soreness and feelings of fatigue.
+  visual:
+    same: true
+- id: s210
+  para: 31
+  sent: 144
+  text: Light active recovery,
+  visual:
+    prompt: 'Recovery corner of a training centre: an athlete in compression sleeves stepping into a cold water
+      tub, another walking slowly on a treadmill, calm mood'
+  camera: right
+- id: s211
+  para: 31
+  sent: 144
+  text: compression clothing and cold or contrast water helped a little.
+  visual:
+    same: true
+- id: s212
+  para: 31
+  sent: 145
+  text: Stretching, sadly, did not.
+  visual:
+    prompt: An athlete stretching a hamstring on a mat and looking slightly disappointed, gently comic
+  camera: in
+- id: s213
+  para: 32
+  sent: 146
+  text: And four.
+  visual:
+    prompt: A person sitting on a sofa calmly rubbing a broadly sore thigh with a relaxed expression, a cup of tea
+      beside them
+  camera: in
+- id: s214
+  para: 32
+  sent: 147
+  text: Normal soreness is dull,
+  visual:
+    same: true
+- id: s215
+  para: 32
+  sent: 147
+  text: spread across the muscle,
+  visual:
+    same: true
+- id: s216
+  para: 32
+  sent: 147
+  text: and fades within about a week.
+  visual:
+    same: true
+- id: s217
+  para: 32
+  sent: 148
+  text: If the pain is sharp, sits in a joint,
+  visual:
+    prompt: A physiotherapist carefully examining an athlete's knee joint on a treatment bench in a clinic, serious
+      and caring
+  camera: left
+- id: s218
+  para: 32
+  sent: 148
+  text: or keeps getting worse instead of better,
+  visual:
+    same: true
+- id: s219
+  para: 32
+  sent: 148
+  text: that is not soreness.
+  visual:
+    same: true
+- id: s220
+  para: 32
+  sent: 149
+  text: Get it checked.
+  visual:
+    same: true
+- id: s221
+  para: 33
+  sent: 150
+  text: Case closed.
+  visual:
+    prompt: The clerk's hands tying the string around the finished case folder and placing it on a towering stack
+      of closed folders, the green lamp dimming
+    characters:
+    - clerk
+  camera: out
+- id: s222
+  para: 33
+  sent: 151
+  text: Your file, however, remains open.
+  visual:
+    same: true
+- id: s223
+  para: 33
+  sent: 152
+  text: 'Next case: a French emperor,'
+  visual:
+    prompt: 'A gently comic scene: an early 19th-century French emperor in a bicorne hat and greatcoat seen from
+      behind, standing beside a very tall wooden measuring ruler in a palace hall'
+  camera: in
+- id: s224
+  para: 33
+  sent: 152
+  text: a British cartoonist,
+  visual:
+    same: true
+- id: s225
+  para: 33
+  sent: 152
+  text: and a ruler that measured the wrong inches.
+  visual:
+    same: true

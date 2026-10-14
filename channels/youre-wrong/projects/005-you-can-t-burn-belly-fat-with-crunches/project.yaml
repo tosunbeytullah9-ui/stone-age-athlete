@@ -1,0 +1,56 @@
+title: You Can't Burn Belly Fat With Crunches
+idea: i005
+status: production
+description: Crunches don't burn belly fat. From tennis players' arms to 5,004 sit-ups, one-legged leg presses and
+  a meta-analysis of 1,158 people, spot reduction keeps failing. Here's how fat actually leaves your body, and what
+  to do instead. Case file 005.
+chapters: {0: Intro, 3: The gadget industry, 7: The evidence, 8: Tennis players, 10: '5,004 sit-ups', 12: Six weeks
+    of abs, 14: 'One arm, MRI', 16: 'One leg, 12 weeks', 18: The meta-analysis, 20: Why it feels true, 21: How fat
+    really leaves, 26: The fair complication, 28: The six-pack, 30: What to do instead, 32: Verdict}
+publish:
+  title_variants: [You Can't Burn Belly Fat With Crunches, Crunches Don't Burn Belly Fat. Here's the Proof, '5,004
+      Sit-Ups Later: The Spot Reduction Myth', Why Your Abs Workout Isn't Touching Your Belly]
+  hook_options:
+  - {type: you, text: 'Somewhere right now, someone is doing their 300th crunch, convinced their belly fat is melting.
+      It isn''t.'}
+  - {type: cold_open_stat, text: 'Scientists made people do 5,004 sit-ups. The belly got no special treatment.'}
+  - {type: contradiction, text: Twelve weeks training one leg. The fat came off their arms.}
+  thumbnail_concepts:
+  - {visual: 'Person mid-crunch with a flame on the belly, fat blob waving from the arms', text: WRONG SPOT}
+  - {visual: 'Bar of 5,004 sit-ups vs belly fat unchanged', text: '5,004 SIT-UPS. NOTHING.'}
+  - {visual: 'One giant trained leg, slimmer arms, confused face', text: 'IT LEFT FROM WHERE?!'}
+  series: body-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+shorts:
+- {title: '5,004 sit-ups and the belly didn''t care', from: s056, to: s083, hook: '5,004 sit-ups and the belly didn''t
+    care'}
+- {title: They trained one leg for 12 weeks. The fat left their arms., from: s093, to: s109, hook: They trained
+    one leg for 12 weeks. The fat left their arms.}
+- {title: 'Your fat is a central bank, not a wallet', from: s132, to: s154, hook: 'Your fat is a central bank, not
+    a wallet'}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: A comic ink figure lying on a mat doing a crunch, round belly sticking up, sweat drops flying, drawn
+      large in the lower half of the page
+    characters: []
+  myth: {en: CRUNCHES}
+  note: {en: '5,004 sit-ups later…'}
+  pos: top-left
+  claim: c05
+- kind: stamp
+  visual:
+    prompt: A 1990s electronic ab belt with wires and a small control box, drawn large on the right side of the
+      page
+    characters: []
+  pos: top-left
+- kind: scene
+  visual:
+    prompt: 'A tennis player holding both arms out to the sides: the racket arm thick and muscular, the other arm
+      thin, drawn large in the lower two thirds of the page'
+    characters: []
+  text: {en: SAME FAT}
+  pos: top
+  claim: c04

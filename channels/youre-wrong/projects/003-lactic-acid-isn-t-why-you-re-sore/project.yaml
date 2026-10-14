@@ -1,0 +1,56 @@
+title: Lactic Acid Isn't Why You're Sore
+idea: i003
+status: production
+description: You blame lactic acid for the soreness two days after leg day. But lactate is back to normal within
+  about an hour, soreness peaks around 48 hours, and downhill running makes the most soreness with the least lactate.
+  Lactate is fuel, not waste. Case file 003.
+chapters: {0: The usual suspect, 4: '1907: frogs and a Nobel Prize', 8: 'Evidence 1: timing', 12: 'Evidence 2: running
+    downhill', 14: 'Evidence 3: the wrong name', 15: 'Evidence 4: lactate is fuel', 19: What soreness really is,
+  21: The burn is a different story, 25: 'Is soreness a good sign?', 27: Verdict, 28: What to do instead}
+publish:
+  title_variants: [Lactic Acid Isn't Why You're Sore, 'Why Are You Sore After a Workout? (Not Lactic Acid)', The
+      Lactic Acid Myth Coaches Still Repeat, What Really Causes Muscle Soreness, Lactic Acid Was Framed]
+  hook_options:
+  - {type: you, text: 'Two days after leg day, the stairs become your enemy. You blame lactic acid. Lactic acid
+      left your body before you got home.'}
+  - {type: cold_open_stat, text: 'Lactate is back to normal within about an hour. Soreness peaks around 48 hours
+      later. So who did it?'}
+  - {type: contradiction, text: Running downhill barely raises lactate. It is also the run that leaves you the most
+      sore.}
+  thumbnail_concepts:
+  - {visual: 'A person gripping a stair rail in pain, a glass vial of lactate with an alibi-style red stamp', text: NOT
+      GUILTY}
+  - {visual: 'Two lines: lactate drops in an hour, soreness peaks at 48 hours', text: WRONG SUSPECT}
+  - {visual: A police officer handcuffing a smoke alarm, text: LACTIC ACID WAS FRAMED}
+  series: body-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+shorts:
+- {title: Lactic acid has an alibi, from: s056, to: s071, hook: Lactate is gone in an hour. Soreness peaks at 48.}
+- {title: Why downhill running wrecks your legs, from: s072, to: s089, hook: 'Less lactate. More soreness. Why?'}
+- {title: 'Does soreness mean a good workout?', from: s165, to: s175, hook: 'No pain, no gain? Not quite.'}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: A large anatomical ink sketch of a human thigh muscle with small flames drawn around it as if it were
+      burning, in the lower right of the page
+    characters: []
+  myth: {en: LACTIC ACID}
+  note: {en: already gone}
+  pos: top-left
+  claim: c05
+- kind: stamp
+  visual:
+    prompt: A large glass laboratory flask with a sinister cartoon face, bubbling, drawn on the right side of the
+      page
+    characters: []
+  pos: top-left
+- kind: scene
+  visual:
+    prompt: A stiff, sore ink figure walking down a staircase backwards, gripping the handrail and wincing, little
+      pain lines around his thighs, drawn large on the right side
+    characters: []
+  text: {en: DAY 2}
+  pos: top-left
+  claim: c06

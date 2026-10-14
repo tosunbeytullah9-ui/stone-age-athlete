@@ -1,0 +1,329 @@
+# Scene plan for Case 001 — apply with: python -m studio apply-plan 001-you-don-t-need-8-glasses-of-water-a-day plan.yaml --channel youre-wrong
+# One painting per scene (2-4 shots). Charts: s065 pie, s076 balance, s098 bars, s135 people. Clerk in 11 of 67 scenes.
+s001:
+  visual: {prompt: "Straight-on front view of exactly eight identical full glasses of water standing side by side in one evenly spaced straight row across a wooden kitchen table, all the same size, every glass fully visible, none overlapping or hidden, counted left to right one to eight, soft morning window light, a quiet kitchen behind"}
+  camera: in
+s002: {visual: {same: true}}
+s003: {visual: {same: true}}
+s004:
+  visual: {prompt: "Overhead close-up of the clerk's old ink-stained hands untying the string of a thick blank cardboard case folder on a cluttered wooden archive desk, a green-glass banker's lamp glowing, a brass rubber stamp and an ink pad beside the folder, dust floating in the lamplight", characters: [clerk]}
+  camera: in
+s005: {visual: {same: true}}
+s006:
+  visual: {prompt: "A comic still life on a white porcelain saucer: one plump, glossy green grape next to a tiny shrivelled dark raisin, a brass magnifying glass leaning over them, dramatic side light, plain cream background"}
+  camera: right
+s007: {visual: {same: true}}
+s008:
+  visual: {prompt: "Seen from behind a small wooden desk with a green banker's lamp: an endless archive hall stretching away, towering wooden shelves packed with tied cardboard folders up to a vaulted ceiling, the clerk's hands resting on a stack of folders in the foreground, his face out of frame", characters: [clerk]}
+  camera: out
+s009: {visual: {same: true}}
+s010: {visual: {same: true}}
+s011:
+  visual: {prompt: "Low-angle view straight up a towering archive shelf that disappears into darkness, thousands of identical tied cardboard folders, a rolling wooden library ladder leaning against it, dust drifting through shafts of pale light"}
+  camera: in
+s012: {visual: {same: true}}
+s013:
+  visual: {prompt: "Close-up of the clerk's ink-stained hands on the archive desk turning over a dented, faded 1990s plastic sports water bottle with a pull-up cap, inspecting it in the lamplight like a museum object, folders stacked around", characters: [clerk]}
+  camera: left
+s014: {visual: {same: true}}
+s015:
+  visual: {prompt: "A 1990s city street on a grey day, seen from behind: a very tall thin figure in a long dark-green wool coat walking away from the viewer, carrying an absurdly huge plastic water bottle under one arm, 1990s pedestrians in denim jackets and sneakers turning to look, his face never visible", characters: [clerk]}
+  camera: right
+s016: {visual: {same: true}}
+s017: {visual: {same: true}}
+s018:
+  visual: {prompt: "Close-up of the clerk's hand pulling a thick yellowed folder out of a deep drawer of a tall oak filing cabinet, the drawer packed with hundreds of other folders, warm lamplight, dust lifting off the paper", characters: [clerk]}
+  camera: in
+s019:
+  visual: {prompt: "Wide shot of a grand neoclassical government building in Washington in 1945, stone columns and wide steps, autumn trees, men in fedoras and overcoats and women in 1940s coats walking past, a few rounded 1940s cars at the curb, crisp afternoon light"}
+  camera: left
+s020: {visual: {same: true}}
+s021:
+  visual: {prompt: "Medium shot of a 1945 scientific committee meeting: six middle-aged scientists and officials in suits and ties around a long dark wooden table covered with papers, coffee cups, a glass water jug, a haze of cigarette smoke, tall window light falling across the table"}
+  camera: in
+s022: {visual: {same: true}}
+s023:
+  visual: {prompt: "Still life on a 1940s kitchen counter: a large glass measuring jug full of water next to a hearty plate of food, roast meat, potatoes and green beans, a typewriter blurred in the background, warm afternoon light"}
+  camera: right
+s024: {visual: {same: true}}
+s025:
+  visual: {prompt: "Side view of a long kitchen counter with ten full glasses of water standing in one neat row, each glass catching the light, a calm 1940s kitchen behind them"}
+  camera: left
+s026: {visual: {same: true}}
+s027:
+  visual: {prompt: "Close-up of a 1940s typewriter with a sheet of paper rolled in, the typing out of focus and unreadable, a brass magnifying glass resting on the page and a fountain pen beside it, a desk lamp throwing a warm circle of light"}
+  camera: in
+s028: {visual: {same: true}}
+s029: {visual: {same: true}}
+s030:
+  visual: {prompt: "Overhead view of a 1940s family dinner table: bowls of steaming vegetable soup, sliced tomatoes, cucumbers, oranges, a wedge of watermelon, bread, glasses of milk, four pairs of hands reaching for the dishes, warm homely light"}
+  camera: out
+s031: {visual: {same: true}}
+s032: {visual: {same: true}}
+s033:
+  visual: {prompt: "Medium shot inside a busy modern gym: a line of six people in workout clothes queueing at a steel water fountain, each one patiently filling an oversized plastic bottle, bright cool overhead lights, treadmills in the background"}
+  camera: right
+s034: {visual: {same: true}}
+s035: {visual: {same: true}}
+s036: {visual: {same: true}}
+s037:
+  visual: {prompt: "A 1970s university lecture hall seen from the back row: a middle-aged nutrition professor in a brown tweed jacket at the front beside a blackboard with simple chalk drawings of drinking glasses, rows of students with long hair and wide collars, warm orange light"}
+  camera: in
+s038: {visual: {same: true}}
+s039: {visual: {same: true}}
+s040:
+  visual: {prompt: "Straight-on front view of a 1970s kitchen table with exactly six identical glasses of water standing in one evenly spaced row, every glass fully visible, while one hand sets down a seventh glass at the right end of the row and a second hand holds up an eighth glass above it, eight glasses in total, orange and brown 1970s wallpaper behind"}
+  camera: left
+s041: {visual: {same: true}}
+s042:
+  visual: {prompt: "A gently absurd scene: a giant stone monument of a sports water bottle on a tall pedestal in the middle of a sunny city square, small crowds of modern people looking up at it in reverence, pigeons on the cap"}
+  camera: out
+s043: {visual: {same: true}}
+s044:
+  visual: {prompt: "Over-the-shoulder view of an elderly white-haired professor in a cardigan reading at a desk in a book-lined university office in 2002, snow falling on New England pine trees outside the window, stacks of medical journals, a desk lamp"}
+  camera: in
+s045: {visual: {same: true}}
+s046: {visual: {same: true}}
+s047:
+  visual: {prompt: "A cut-away anatomical museum plate of the human kidneys, ureters and bladder with the renal arteries and veins, painted with fine ink lines and soft watercolor, shown floating against aged paper like an old medical textbook illustration"}
+  camera: right
+s048: {visual: {same: true}}
+s049:
+  visual: {prompt: "Close-up of an old wooden library card catalogue with one long drawer pulled all the way out and completely empty, the professor's hand resting on its edge, dust in the light"}
+  camera: in
+s050: {visual: {same: true}}
+s051:
+  visual: {prompt: "A rustic wooden table covered with juicy fresh food: sliced watermelon, cucumbers, ripe tomatoes, oranges cut in half, crisp lettuce, everything glistening with juice and water droplets, bright natural light"}
+  camera: left
+s052: {visual: {same: true}}
+s053: {visual: {same: true}}
+s054:
+  visual: {prompt: "Close-up of a thick sandwich cut in half on a plate, soft bread, lettuce and juicy tomato slices, a drop of tomato juice falling from it, a glass of water standing ignored in the background"}
+  camera: in
+s055: {visual: {same: true}}
+s056:
+  visual: {prompt: "Wide shot of a long modern dining table set with every kind of watery food and drink: cups of coffee, pots of tea, glasses of milk, orange juice, bowls of soup, fruit, yogurt and one small glass of water, a family of five sitting down to eat"}
+  camera: out
+s057: {visual: {same: true}}
+s058: {visual: {same: true}}
+s059: {visual: {same: true}}
+s060:
+  visual: {prompt: "A man and a woman in their thirties standing side by side at a bright modern kitchen counter, each with a tall jug, a mug of tea and a bowl of soup in front of them, the man's jug noticeably larger, relaxed friendly mood"}
+  camera: right
+s061: {visual: {same: true}}
+s062:
+  visual: {prompt: "A modern nutrition research office: two researchers at a desk comparing printed food diaries and survey sheets, the writing too small to read, computer screens softly blurred, mugs and fruit on the desk, cool daylight"}
+  camera: in
+s063: {visual: {same: true}}
+s064: {visual: {same: true}}
+s065:
+  visual:
+    bg: plain_cool
+    props: [{type: pie, x: 960, y: 520, scale: 2.2, value: 0.32, colors: [water, "#fbfbf7"]}]
+s066: {visual: {same: true}}
+s067: {visual: {same: true}}
+s068: {visual: {same: true}}
+s069:
+  visual: {prompt: "Close-up of the clerk's hand pulling open a small wooden desk drawer that is stuffed with old blank folders and a chipped white coffee cup still steaming, the lamp lighting the drawer from above", characters: [clerk]}
+  camera: left
+s070: {visual: {same: true}}
+s071:
+  visual: {prompt: "A British university sports science laboratory: a researcher in a white lab coat with a clipboard weighing a young man in a t-shirt on a large lab scale, measuring tubes and equipment on the benches, grey English daylight through tall windows"}
+  camera: in
+s072: {visual: {same: true}}
+s073: {visual: {same: true}}
+s074:
+  visual: {prompt: "Close-up of a lab bench: four white cups of black coffee lined up in a row, and next to them four identical glasses of water in a matching row, a laboratory timer and a notebook beside them, clean cool light"}
+  camera: right
+s075: {visual: {same: true}}
+s076:
+  visual:
+    bg: plain_warm
+    props: [{type: balance, x: 960, y: 900, scale: 1.5, tilt: 0.0}]
+s077: {visual: {same: true}}
+s078: {visual: {same: true}}
+s079:
+  visual: {prompt: "The clerk's hands on the archive desk holding an open antique pocket watch, surrounded by dozens of other old pocket watches and brass hourglasses scattered among the folders, warm lamplight, a gently comic mood", characters: [clerk]}
+  camera: in
+s080: {visual: {same: true}}
+s081: {visual: {same: true}}
+s082: {visual: {same: true}}
+s083:
+  visual: {prompt: "Aerial view of a busy city pedestrian crossing at midday, hundreds of people of all ages and builds crossing in every direction, long shadows, a lively documentary mood"}
+  camera: out
+s084: {visual: {same: true}}
+s085:
+  visual: {prompt: "A large modern laboratory: an international team of five scientists of different ages and backgrounds working around a mass spectrometer and racks of small sample vials, one checking a tray of tubes, bright clean light"}
+  camera: left
+s086: {visual: {same: true}}
+s087: {visual: {same: true}}
+s088:
+  visual: {prompt: "An antique world map painted like an old atlas page, with small red pins scattered across every inhabited continent, a magnifying glass resting on one corner, aged paper, no lettering"}
+  camera: right
+s089: {visual: {same: true}}
+s090: {visual: {same: true}}
+s091:
+  visual: {prompt: "Close-up of a hand holding a small laboratory beaker of perfectly clear water that seems to shimmer faintly, a rack of tiny labeled sample vials blurred behind it, cool light"}
+  camera: in
+s092: {visual: {same: true}}
+s093: {visual: {same: true}}
+s094:
+  visual: {prompt: "An anatomical museum plate of a standing translucent human figure, a soft blue current of water flowing in through the mouth and out through the skin, lungs and kidneys, painted like an old encyclopedia illustration on aged paper"}
+  camera: out
+s095: {visual: {same: true}}
+s096: {visual: {same: true}}
+s097: {visual: {same: true}}
+s098:
+  visual:
+    bg: plain_cool
+    props: [{type: bar_chart, x: 960, y: 860, values: [0.17, 1.0], colors: [water, ochre]}]
+s099: {visual: {same: true}}
+s100: {visual: {same: true}}
+s101: {visual: {same: true}}
+s102:
+  visual: {prompt: "A sweating sprinter in a running vest racing along a sunlit athletics track in hot weather, and behind the fence a road worker in a hard hat shovelling gravel, heat haze over everything"}
+  camera: right
+s103: {visual: {same: true}}
+s104: {visual: {same: true}}
+s105:
+  visual: {prompt: "Interior of a quiet office: a man at a desk with a small cup beside his computer, while through the big window behind him a runner in shorts jogs past in the bright park, the contrast of the two lives in one frame"}
+  camera: in
+s106: {visual: {same: true}}
+s107:
+  visual: {prompt: "Close-up of an open scientific journal on a desk, the printed columns too small and blurred to read, a red pencil circling one paragraph, reading glasses resting on the page, lamplight"}
+  camera: left
+s108: {visual: {same: true}}
+s109: {visual: {same: true}}
+s110:
+  visual: {prompt: "A cut-away scientific plate of a single human cell, its mitochondria glowing softly, tiny droplets of water forming inside as food is burned, painted like a vintage biology textbook illustration on aged paper"}
+  camera: in
+s111: {visual: {same: true}}
+s112: {visual: {same: true}}
+s113:
+  visual: {prompt: "A whimsical vintage encyclopedia plate: a calm human figure drawn as a tiny old-fashioned factory, with brass pipes, little furnaces burning bread and fruit, and a small tap releasing drops of water"}
+  camera: right
+s114: {visual: {same: true}}
+s115:
+  visual: {prompt: "The archive desk at night: the clerk's hands pausing over the open case file, the green lamp flickering, a second, much thicker folder sliding out from underneath the first one, long dramatic shadows", characters: [clerk]}
+  camera: in
+s116: {visual: {same: true}}
+s117: {visual: {same: true}}
+s118:
+  visual: {prompt: "A young man and a young woman, both about twenty, sitting on a park bench on a mild spring day eating lunch: sandwiches, apples, a thermos of tea and a bottle of water, cherry blossoms behind them"}
+  camera: left
+s119: {visual: {same: true}}
+s120: {visual: {same: true}}
+s121:
+  visual: {prompt: "Still life: one small glass of water standing almost lost among a large spread of soup, salad, fruit, a teapot, a jug of milk and a coffee pot, seen from a low angle so the food towers over the glass"}
+  camera: in
+s122: {visual: {same: true}}
+s123: {visual: {same: true}}
+s124: {visual: {same: true}}
+s125:
+  visual: {prompt: "A muscular road construction worker in a hard hat and high-visibility vest drinking deeply from a large canteen under a blazing midday sun, heat haze rising from the asphalt, other workers in the background"}
+  camera: right
+s126: {visual: {same: true}}
+s127: {visual: {same: true}}
+s128:
+  visual: {prompt: "A sunlit family doctor's office on a hot summer day, an electric fan turning, the doctor handing an older patient a written plan across the desk, the writing unreadable, a glass of water between them"}
+  camera: in
+s129: {visual: {same: true}}
+s130:
+  visual: {prompt: "Close-up of a glass under a running kitchen tap, already full and overflowing, water spilling over the rim and spreading across the counter, slightly ominous light"}
+  camera: in
+s131: {visual: {same: true}}
+s132:
+  visual: {prompt: "The finish area of a big-city marathon in 2002: crowds of exhausted runners in early-2000s running gear crossing the line, foil blankets, a white medical tent, spectators behind barriers, spring sunshine, no readable signs"}
+  camera: out
+s133: {visual: {same: true}}
+s134: {visual: {same: true}}
+s135:
+  visual:
+    bg: plain_warm
+    props: [{type: people, x: 960, y: 520, scale: 1.6, n: 15, k: 2, cols: 5}]
+s136: {visual: {same: true}}
+s137: {visual: {same: true}}
+s138:
+  visual: {prompt: "Inside a white marathon medical tent: a tired runner wrapped in a foil blanket stepping onto an old-fashioned balance scale, holding a paper cup, a volunteer medic watching with concern"}
+  camera: in
+s139: {visual: {same: true}}
+s140: {visual: {same: true}}
+s141:
+  visual: {prompt: "The archive desk: a single glass of water standing in the middle of spread-out case papers and old photographs, the clerk's hands resting on either side of it, lamplight", characters: [clerk]}
+  camera: left
+s142: {visual: {same: true}}
+s143:
+  visual: {prompt: "The same 1945 committee room in the evening, now empty: chairs pushed back from the long wooden table, scattered papers, a half-empty water jug, golden low sunlight through the tall window", ref: s021}
+  camera: right
+s144: {visual: {same: true}}
+s145: {visual: {same: true}}
+s146:
+  visual: {prompt: "A modern shop shelf crammed with hundreds of reusable water bottles in every colour and size, stacked to the ceiling, a lone shopper looking up at them, bright retail light"}
+  camera: out
+s147: {visual: {same: true}}
+s148:
+  visual: {prompt: "Dramatic close-up of the clerk's hand slamming a heavy brass rubber stamp down onto the case folder, a burst of red ink and a puff of dust flying up, the green lamp shaking, papers lifting off the desk", characters: [clerk]}
+  camera: in
+s149: {visual: {same: true}}
+s150: {visual: {same: true}}
+s151: {visual: {same: true}}
+s152:
+  visual: {prompt: "A sunny picnic on a grassy hill: a basket of fruit, a thermos of coffee, a bowl of cold soup, a glass of milk and one glass of water on a checked cloth, friends' hands reaching in, relaxed summer light"}
+  camera: left
+s153: {visual: {same: true}}
+s154: {visual: {same: true}}
+s155: {visual: {same: true}}
+s156:
+  visual: {prompt: "Seen from behind: a strength and conditioning coach with a whistle and a clipboard watching young gymnasts train in a bright gymnastics hall, one gymnast on the rings, others stretching on blue mats"}
+  camera: in
+s157: {visual: {same: true}}
+s158: {visual: {same: true}}
+s159:
+  visual: {prompt: "A healthy woman in her forties pausing on a sunny forest hiking trail, drinking from a small cup with a relaxed smile, backpack on, green light through the trees"}
+  camera: right
+s160: {visual: {same: true}}
+s161: {visual: {same: true}}
+s162:
+  visual: {prompt: "A family lunch on a shaded terrace on a hot summer day: jugs of water with lemon, bowls of fruit and salad, three generations eating and drinking together, bright Mediterranean light"}
+  camera: out
+s163: {visual: {same: true}}
+s164: {visual: {same: true}}
+s165:
+  visual: {prompt: "A sweaty athlete after training in a gym hall, towel around her neck, standing next to an old-fashioned bathroom scale on the floor, looking down at it thoughtfully"}
+  camera: in
+s166: {visual: {same: true}}
+s167:
+  visual: {prompt: "Close-up of bare feet stepping onto an analogue bathroom scale on a tiled changing-room floor, the dial blurred, a sweaty training shirt dropped on the bench beside it"}
+  camera: in
+s168: {visual: {same: true}}
+s169: {visual: {same: true}}
+s170:
+  visual: {prompt: "A sports scientist recording an athlete's weight on a large balance-beam scale in a training hall, the athlete in running kit, a stopwatch and a water bottle on the bench, focused professional mood"}
+  camera: left
+s171: {visual: {same: true}}
+s172: {visual: {same: true}}
+s173: {visual: {same: true}}
+s174:
+  visual: {prompt: "A marathon runner at a roadside drinks station, a long table covered with dozens of paper cups, the runner hesitating with one cup in hand and politely waving away a volunteer offering another"}
+  camera: right
+s175: {visual: {same: true}}
+s176: {visual: {same: true}}
+s177: {visual: {same: true}}
+s178:
+  visual: {prompt: "A calm family doctor's waiting room: an older man with a walking stick, a pregnant woman, and a young man with a cold and a box of tissues, sitting in a row of chairs, soft daylight"}
+  camera: in
+s179: {visual: {same: true}}
+s180: {visual: {same: true}}
+s181:
+  visual: {prompt: "A doctor listening carefully to an older patient in a consultation room, while on the windowsill behind them a lone plastic water bottle stands ignored, gentle comic touch"}
+  camera: left
+s182: {visual: {same: true}}
+s183: {visual: {same: true}}
+s184:
+  visual: {prompt: "The clerk's hands tying the string around the finished case folder and placing it on top of a towering stack of closed folders on the archive desk, the green lamp dimming", characters: [clerk]}
+  camera: out
+s185: {visual: {same: true}}
+s186:
+  visual: {prompt: "A nineteenth-century opera costume workshop by gaslight: a cluttered worktable with fabric, sketches and pins, and on a wooden stand a gleaming metal helmet with two large curved horns, mysterious mood"}
+  camera: in
+s187: {visual: {same: true}}

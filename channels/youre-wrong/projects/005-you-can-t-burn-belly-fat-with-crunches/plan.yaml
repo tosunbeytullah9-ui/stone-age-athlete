@@ -1,0 +1,805 @@
+# Scene plan, You Can't Burn Belly Fat With Crunches
+s001:
+  visual:
+    prompt: a determined person in a grey t-shirt doing crunches on a gym mat, late at night in an empty gym, a clock on the wall
+  camera: in
+s002:
+  visual:
+    same: true
+s003:
+  visual:
+    prompt: close-up of a clenched jaw and sweaty forehead mid-crunch, intense effort
+  camera: in
+s004:
+  visual:
+    same: true
+s005:
+  visual:
+    prompt: a cartoon of belly fat melting like butter in a frying pan under a red glow, humorous
+  camera: out
+s006:
+  visual:
+    same: true
+s007:
+  visual:
+    prompt: an ink cartoon of a little blob of fat packing a suitcase and leaving a stomach through a door, humorous
+  camera: right
+s008:
+  visual:
+    same: true
+s009:
+  visual:
+    same: true
+s010:
+  visual:
+    prompt: three people side by side on gym mats, one doing crunches, one doing leg raises, one doing arm kickbacks with a small dumbbell, straight-on view, one row, none overlapping
+  camera: left
+s011:
+  visual:
+    same: true
+s012:
+  visual:
+    same: true
+s013:
+  visual:
+    prompt: the clerk's hands stamping a thick case file on a cluttered wooden desk in a dim archive, brass lamp
+    characters:
+    - clerk
+  camera: in
+s014:
+  visual:
+    same: true
+s015:
+  visual:
+    same: true
+s016:
+  visual:
+    prompt: endless tall archive shelves full of bound case files disappearing into darkness
+  camera: in
+s017:
+  visual:
+    same: true
+s018:
+  visual:
+    prompt: the clerk's hands opening a folder containing a sketch of a person pointing at their own belly
+    characters:
+    - clerk
+  camera: none
+s019:
+  visual:
+    same: true
+s020:
+  visual:
+    prompt: a person standing in front of a mirror pinching belly fat and pointing at the abdominal muscles beneath, ink and watercolour
+  camera: in
+s021:
+  visual:
+    same: true
+s022:
+  visual:
+    same: true
+s023:
+  visual:
+    prompt: a glossy fitness shop shelf crowded with gadgets, belts and gizmos, a smiling salesman behind the counter
+  camera: right
+s024:
+  visual:
+    same: true
+s025:
+  visual:
+    prompt: an early-1990s living room with a bulky television showing an infomercial, a family watching on a sofa
+  camera: in
+s026:
+  visual:
+    same: true
+s027:
+  visual:
+    prompt: a simple hinged spring exercise gadget squeezed between a woman's knees, retro 1990s workout clothes, no face visible
+  camera: in
+s028:
+  visual:
+    same: true
+s029:
+  visual:
+    prompt: a mountain of identical cardboard boxes stacked high in a warehouse, delivery trucks loading
+  camera: out
+s030:
+  visual:
+    same: true
+s031:
+  visual:
+    same: true
+s032:
+  visual:
+    prompt: an electric abdominal belt strapped around a waist, with little cartoon lightning bolts buzzing, 2000s style
+  camera: in
+s033:
+  visual:
+    same: true
+s034:
+  visual:
+    same: true
+s035:
+  visual:
+    same: true
+s036:
+  visual:
+    prompt: a TV infomercial set with a presenter holding up an ab belt, studio lights, an enthusiastic audience
+  camera: left
+s037:
+  visual:
+    same: true
+s038:
+  visual:
+    prompt: a United States federal courthouse with columns, a stack of boxed ab belts carried up the steps as evidence
+  camera: in
+s039:
+  visual:
+    same: true
+s040:
+  visual:
+    same: true
+s041:
+  visual:
+    prompt: the clerk's hands hanging a small framed certificate on the archive wall
+    characters:
+    - clerk
+  camera: none
+s042:
+  visual:
+    same: true
+s043:
+  visual:
+    same: true
+s044:
+  visual:
+    prompt: the clerk's hands laying five evidence folders in one row on the desk, straight-on view, none overlapping
+    characters:
+    - clerk
+  camera: none
+s045:
+  visual:
+    same: true
+s046:
+  visual:
+    same: true
+s047:
+  visual:
+    same: true
+s048:
+  visual:
+    prompt: a 1970s tennis court, a player serving powerfully, ink and watercolour
+  camera: right
+s049:
+  visual:
+    same: true
+s050:
+  visual:
+    same: true
+s051:
+  visual:
+    same: true
+s052:
+  visual:
+    prompt: a researcher in a 1970s lab coat measuring a tennis player's forearm with skinfold calipers
+  camera: in
+s053:
+  visual:
+    same: true
+s054:
+  visual:
+    prompt: anatomical drawing of two arms side by side, the left arm visibly more muscular than the right, straight-on view
+  camera: none
+s055:
+  visual:
+    same: true
+s056:
+  visual:
+    prompt: anatomical cross-section diagram of two arms side by side, different muscle sizes but the same thin yellow fat layer around each, no text
+  camera: in
+s057:
+  visual:
+    same: true
+s058:
+  visual:
+    same: true
+s059:
+  visual:
+    prompt: a 1980s university gym, rows of people doing sit-ups on mats with their knees bent, a researcher with a clipboard
+  camera: left
+s060:
+  visual:
+    same: true
+s061:
+  visual:
+    same: true
+s062:
+  visual:
+    same: true
+s063:
+  visual:
+    prompt: a wall calendar with days crossed off one by one, a tally of thousands of marks on a chalkboard beside it
+  camera: in
+s064:
+  visual:
+    same: true
+s065:
+  visual:
+    same: true
+s066:
+  visual:
+    same: true
+s067:
+  visual:
+    prompt: a 1980s lab, small sample tubes labelled with coloured caps in a rack, a microscope on the bench
+  camera: right
+s068:
+  visual:
+    same: true
+s069:
+  visual:
+    prompt: microscope view of round fat cells, drawn in watercolour, all slightly shrunken by the same amount
+  camera: in
+s070:
+  visual:
+    same: true
+s071:
+  visual:
+    same: true
+s072:
+  visual:
+    same: true
+s073:
+  visual:
+    prompt: a modern clinic room, sedentary adults lying on mats doing abdominal exercises, an instructor counting
+  camera: in
+s074:
+  visual:
+    same: true
+s075:
+  visual:
+    same: true
+s076:
+  visual:
+    same: true
+s077:
+  visual:
+    prompt: a bored control group sitting on a bench eating crisps and watching
+  camera: right
+s078:
+  visual:
+    same: true
+s079:
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.68
+      - 1.0
+      colors:
+      - stone
+      - good
+s080:
+  visual:
+    same: true
+s081:
+  visual:
+    same: true
+s082:
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 1.0
+      colors:
+      - stone
+      - bad
+s083:
+  visual:
+    same: true
+s084:
+  visual:
+    same: true
+s085:
+  visual:
+    same: true
+s086:
+  visual:
+    same: true
+s087:
+  visual:
+    prompt: a large research gym with many people doing single-arm dumbbell curls with one arm only
+  camera: left
+s088:
+  visual:
+    same: true
+s089:
+  visual:
+    prompt: a person lying inside an MRI scanner with one arm extended, a technician at a monitor
+  camera: in
+s090:
+  visual:
+    same: true
+s091:
+  visual:
+    same: true
+s092:
+  visual:
+    prompt: two arms side by side under a scanner light, one flexing proudly, one relaxed, both with identical slim fat layers, humorous
+  camera: out
+s093:
+  visual:
+    same: true
+s094:
+  visual:
+    same: true
+s095:
+  visual:
+    same: true
+s096:
+  visual:
+    prompt: the clerk's hands opening a folder with a gleeful flourish, a teacup rattling
+    characters:
+    - clerk
+  camera: in
+s097:
+  visual:
+    same: true
+s098:
+  visual:
+    same: true
+s099:
+  visual:
+    prompt: a sports science student on a leg press machine pushing with only one leg, the other leg resting on the floor
+  camera: in
+s100:
+  visual:
+    same: true
+s101:
+  visual:
+    same: true
+s102:
+  visual:
+    prompt: the same student, exhausted and sweaty, still pushing with one leg, a wall clock showing a long time has passed, comic
+  camera: right
+s103:
+  visual:
+    same: true
+s104:
+  visual:
+    same: true
+s105:
+  visual:
+    same: true
+s106:
+  visual:
+    prompt: a full-body DXA scanner bed with a student lying on it, a technician at the screen
+  camera: in
+s107:
+  visual:
+    same: true
+s108:
+  visual:
+    same: true
+s109:
+  visual:
+    prompt: a comic drawing of a person whose trained leg looks unchanged while their arms and waist look slimmer, puzzled expression
+  camera: out
+s110:
+  visual:
+    same: true
+s111:
+  visual:
+    same: true
+s112:
+  visual:
+    same: true
+s113:
+  visual:
+    prompt: a librarian-researcher surrounded by piles of journals, pooling papers into one big stack
+  camera: in
+s114:
+  visual:
+    same: true
+s115:
+  visual:
+    same: true
+s116:
+  visual:
+    same: true
+s117:
+  visual:
+    prompt: straight-on view of thirteen thin scientific journals standing in one row on a shelf, none overlapping
+  camera: none
+s118:
+  visual:
+    same: true
+s119:
+  visual:
+    same: true
+s120:
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.85
+      - 1.0
+      colors:
+      - good
+      - bad
+s121:
+  visual:
+    same: true
+s122:
+  visual:
+    same: true
+s123:
+  visual:
+    prompt: the clerk's hands closing the stack of journals and placing a paperweight on it
+    characters:
+    - clerk
+  camera: none
+s124:
+  visual:
+    prompt: a determined person in a grey t-shirt doing crunches on a gym mat, face red, a cartoon flame drawn over the stomach
+  camera: in
+s125:
+  visual:
+    same: true
+s126:
+  visual:
+    same: true
+s127:
+  visual:
+    same: true
+s128:
+  visual:
+    prompt: the clerk's hand tapping an older case folder that shows a small sketch of a burning muscle
+    characters:
+    - clerk
+  camera: none
+s129:
+  visual:
+    same: true
+s130:
+  visual:
+    same: true
+s131:
+  visual:
+    same: true
+s132:
+  visual:
+    same: true
+s133:
+  visual:
+    prompt: a person in gym clothes staring down at their stomach, puzzled, hands on hips
+  camera: in
+s134:
+  visual:
+    same: true
+s135:
+  visual:
+    prompt: a watercolour scientific illustration of fat cells as plump yellow spheres packed together, soft lighting
+  camera: in
+s136:
+  visual:
+    same: true
+s137:
+  visual:
+    prompt: a cartoon muscle fibre reaching its little arm toward a neighbouring fat cell and being politely refused, humorous
+  camera: right
+s138:
+  visual:
+    same: true
+s139:
+  visual:
+    prompt: illustration of tiny messenger figures travelling along red blood vessels, knocking on fat cells all across a human silhouette
+  camera: in
+s140:
+  visual:
+    same: true
+s141:
+  visual:
+    same: true
+s142:
+  visual:
+    prompt: illustration of fat cells releasing small golden droplets into a flowing bloodstream, carried away to distant muscles
+  camera: left
+s143:
+  visual:
+    same: true
+s144:
+  visual:
+    prompt: a man with wallets bulging from every pocket of his coat, comic
+  camera: in
+s145:
+  visual:
+    same: true
+s146:
+  visual:
+    prompt: a grand old central bank building with marble columns
+  camera: in
+s147:
+  visual:
+    same: true
+s148:
+  visual:
+    prompt: inside the bank, clerks sending money capsules through pneumatic tubes to faraway destinations, comic
+  camera: right
+s149:
+  visual:
+    same: true
+s150:
+  visual:
+    prompt: a watercolour of fat cells drawn as balloons, slowly deflating, still present but smaller
+  camera: in
+s151:
+  visual:
+    same: true
+s152:
+  visual:
+    same: true
+s153:
+  visual:
+    same: true
+s154:
+  visual:
+    prompt: a single balloon slowly letting out air on a table, gentle and comic
+  camera: out
+s155:
+  visual:
+    same: true
+s156:
+  visual:
+    same: true
+s157:
+  visual:
+    same: true
+s158:
+  visual:
+    prompt: the clerk's hands dropping a small blank ballot paper into a waste bin
+    characters:
+    - clerk
+  camera: none
+s159:
+  visual:
+    same: true
+s160:
+  visual:
+    same: true
+s161:
+  visual:
+    prompt: a DNA double helix intertwined with an hourglass and a small hormone molecule, elegant scientific illustration
+  camera: in
+s162:
+  visual:
+    same: true
+s163:
+  visual:
+    same: true
+s164:
+  visual:
+    prompt: straight-on side-by-side silhouettes of a man and a woman, the man carrying more fat at the waist, the woman at the hips and thighs, tasteful anatomical style, none overlapping
+  camera: none
+s165:
+  visual:
+    same: true
+s166:
+  visual:
+    same: true
+s167:
+  visual:
+    prompt: an upper-body fat cell busily releasing droplets while a lower-body fat cell sits calmly with folded arms, comic contrast
+  camera: in
+s168:
+  visual:
+    same: true
+s169:
+  visual:
+    same: true
+s170:
+  visual:
+    prompt: the clerk's hand raising a finger as if to object, then writing a small footnote in the file
+    characters:
+    - clerk
+  camera: none
+s171:
+  visual:
+    same: true
+s172:
+  visual:
+    prompt: a Danish physiology lab, a man doing one-legged knee extensions on a machine, small sensors taped to his thigh
+  camera: in
+s173:
+  visual:
+    same: true
+s174:
+  visual:
+    same: true
+s175:
+  visual:
+    prompt: cross-section illustration of a working thigh with slightly more blood vessels glowing in the fat beside the muscle, next to a resting thigh
+  camera: right
+s176:
+  visual:
+    same: true
+s177:
+  visual:
+    prompt: a tiny feather floating beside a huge loud brass band, comic metaphor
+  camera: out
+s178:
+  visual:
+    same: true
+s179:
+  visual:
+    prompt: a crowd of thousands of people standing in front of long rows of mirrors, seen from behind
+  camera: in
+s180:
+  visual:
+    same: true
+s181:
+  visual:
+    same: true
+s182:
+  visual:
+    same: true
+s183:
+  visual:
+    prompt: a classical marble statue with sculpted abdominal muscles, standing behind a closed stage curtain, theatrical lighting
+  camera: in
+s184:
+  visual:
+    same: true
+s185:
+  visual:
+    same: true
+s186:
+  visual:
+    prompt: anatomical illustration of a strong abdominal muscle wall covered by a soft layer of fat, side cross-section
+  camera: in
+s187:
+  visual:
+    same: true
+s188:
+  visual:
+    same: true
+s189:
+  visual:
+    same: true
+s190:
+  visual:
+    prompt: a person in gym clothes trying to lift just one corner of a heavy velvet curtain that hides a marble statue, comic
+  camera: left
+s191:
+  visual:
+    same: true
+s192:
+  visual:
+    same: true
+s193:
+  visual:
+    same: true
+s194:
+  visual:
+    prompt: a coach's whistle and clipboard resting on a gymnastics mat in an empty training hall
+  camera: in
+s195:
+  visual:
+    same: true
+s196:
+  visual:
+    prompt: an elite gymnast holding a strict hollow-body hold on a gymnastics floor, strong and controlled
+  camera: right
+s197:
+  visual:
+    same: true
+s198:
+  visual:
+    same: true
+s199:
+  visual:
+    prompt: an athlete in a weightlifting gym performing a heavy barbell back squat
+  camera: in
+s200:
+  visual:
+    same: true
+s201:
+  visual:
+    prompt: a still life of a barbell, a jump rope, a pillow and a healthy plate of food, straight-on view, one row, none overlapping
+  camera: none
+s202:
+  visual:
+    same: true
+s203:
+  visual:
+    prompt: a person standing confidently in front of a mirror, slimmer all over, gentle morning light
+  camera: in
+s204:
+  visual:
+    same: true
+s205:
+  visual:
+    same: true
+s206:
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+  camera: in
+s207:
+  visual:
+    prompt: a judge's gavel resting on a pile of research papers next to a tennis racket
+  camera: in
+s208:
+  visual:
+    same: true
+s209:
+  visual:
+    same: true
+s210:
+  visual:
+    prompt: a sports science student limping heroically out of a gym on one tired leg, comic
+  camera: right
+s211:
+  visual:
+    same: true
+s212:
+  visual:
+    same: true
+s213:
+  visual:
+    prompt: a person flexing a bicep proudly in front of a mirror while an old crumpled receipt lies on the floor
+  camera: in
+s214:
+  visual:
+    same: true
+s215:
+  visual:
+    same: true
+s216:
+  visual:
+    same: true
+s217:
+  visual:
+    prompt: the clerk's hands fanning out a thick stack of old shop receipts on the desk
+    characters:
+    - clerk
+  camera: out
+s218:
+  visual:
+    same: true
+s219:
+  visual:
+    same: true
+s220:
+  visual:
+    same: true
+s221:
+  visual:
+    prompt: the clerk's hands closing the file, then the desk lamp dims
+    characters:
+    - clerk
+  camera: out
+s222:
+  visual:
+    same: true
+s223:
+  visual:
+    same: true
+s224:
+  visual:
+    prompt: a lone person doing a single crunch on a gym mat with a cheerful salute
+  camera: in
+s225:
+  visual:
+    same: true

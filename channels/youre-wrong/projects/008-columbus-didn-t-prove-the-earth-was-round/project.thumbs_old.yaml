@@ -1,0 +1,55 @@
+title: Columbus Didn't Prove the Earth Was Round
+idea: i008
+status: production
+description: In 1492 nobody educated thought the Earth was flat. The real argument was about its size, and Columbus
+  got it wrong. Eratosthenes, a medieval textbook called The Sphere, a pear-shaped Earth and the 1828 biography
+  that invented the myth. Case file 008.
+chapters: {0: Intro, 4: The Greeks measured it, 9: The Middle Ages knew, 14: 'The real argument: size', 18: Columbus's
+    maths, 21: His critics were right, 23: A pear-shaped Earth, 26: Where the myth came from, 32: Verdict}
+publish:
+  title_variants: [Columbus Didn't Prove the Earth Was Round, Nobody in 1492 Thought the Earth Was Flat, Columbus
+      Was Wrong. His Critics Were Right, The Flat Earth Myth Was Invented in 1828]
+  hook_options:
+  - {type: you, text: Fourteen ninety-two. A brave sailor insists the Earth is round. Almost none of this happened.}
+  - {type: cold_open_stat, text: 'Columbus thought Japan was 2,400 miles away. It''s 10,600.'}
+  - {type: contradiction, text: The scholars mocked as flat-Earth fools were the ones doing the better maths.}
+  thumbnail_concepts:
+  - {visual: 'Columbus pointing at a round globe, a medieval scholar holding an even rounder one', text: THEY KNEW}
+  - {visual: 'Map with 2,400 vs 10,600 miles', text: HE WAS WRONG}
+  - {visual: Pear-shaped Earth with tiny ships, text: HIS EARTH WAS A PEAR}
+  series: history-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+shorts:
+- {title: A librarian measured the Earth with a stick, from: s026, to: s050, hook: A librarian measured the Earth
+    with a stick}
+- {title: Columbus got the maths wrong. His critics didn't., from: s108, to: s134, hook: Columbus got the maths
+    wrong. His critics didn't.}
+- {title: The flat Earth myth was invented in 1828, from: s172, to: s198, hook: The flat Earth myth was invented
+    in 1828}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: A flat disc-shaped Earth with the sea pouring off its edge and a tiny wooden ship close to the edge,
+      drawn large in the lower right of the page
+    characters: []
+  myth: {en: FLAT EARTH}
+  note: {en: almost nobody}
+  pos: top-left
+  claim: c05
+- kind: stamp
+  visual:
+    prompt: Christopher Columbus proudly holding up a round globe in both hands like a trophy, drawn large on the
+      right side of the page
+    characters: []
+  pos: top-left
+- kind: scene
+  visual:
+    prompt: Columbus arguing with three scholars in long robes around a big globe, the scholars stretching a measuring
+      string around it, Columbus pinching two fingers together to show it is small, drawn large in the lower two
+      thirds
+    characters: []
+  text: {en: TOO SMALL}
+  pos: top
+  claim: c08

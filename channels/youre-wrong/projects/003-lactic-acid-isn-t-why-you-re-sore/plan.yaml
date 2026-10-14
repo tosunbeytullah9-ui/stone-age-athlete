@@ -1,0 +1,389 @@
+# Scene plan, Case 003 (lactic acid). Charts: s064 + s178 timing lines (red = lactate, blue = soreness), s135 first vs second bout.
+s001:
+  visual: {prompt: "A young man in gym clothes gripping a stair handrail with both hands and carefully stepping down a staircase, grimacing, legs stiff, morning light through a window"}
+  camera: in
+s002: {visual: {same: true}}
+s003: {visual: {same: true}}
+s004:
+  visual: {prompt: "A man arriving home in the evening with a gym bag over his shoulder, opening his front door, tired but relaxed, warm street lamp light"}
+  camera: right
+s005: {visual: {same: true}}
+s006:
+  visual: {prompt: "Overhead close-up of the clerk's ink-stained hands untying the string of a thick blank cardboard case folder on the wooden archive desk, green banker's lamp glowing, brass rubber stamp beside it", characters: [clerk]}
+  camera: in
+s007: {visual: {same: true}}
+s008:
+  visual: {prompt: "An old-fashioned imaginary medical illustration of a thigh muscle filled with sharp white crystals tearing the fibres, painted like a misguided vintage textbook plate"}
+  camera: in
+s009: {visual: {same: true}}
+s010:
+  visual: {prompt: "The clerk's hands holding an old chrome stopwatch and a coach's whistle on the archive desk, a folded vintage lab coat beside them, lamplight", characters: [clerk]}
+  camera: left
+s011: {visual: {same: true}}
+s012:
+  visual: {prompt: "A gently comic 1960s gym: a confident man in an oversized white lab coat instructing a sweaty athlete to stretch his legs against a wall bar, wooden floor, vintage equipment"}
+  camera: right
+s013: {visual: {same: true}}
+s014: {visual: {same: true}}
+s015:
+  visual: {prompt: "Edwardian Cambridge in 1907: Gothic college buildings and a stone courtyard, students and professors in period suits and hats, bicycles leaning on a wall, soft English afternoon light"}
+  camera: out
+s016: {visual: {same: true}}
+s017: {visual: {same: true}}
+s018:
+  visual: {prompt: "An Edwardian physiology laboratory: two scientists in waistcoats and rolled sleeves working at a bench with brass instruments, glass chambers and a smoked-drum recording apparatus, gaslight and daylight mixing"}
+  camera: in
+s019: {visual: {same: true}}
+s020:
+  visual: {prompt: "Close-up of an early 1900s laboratory apparatus: a small isolated muscle preparation attached to a lever inside a glass chamber, a tube connected to a tall oxygen cylinder, a drum recording a wavy line, no blood"}
+  camera: in
+s021: {visual: {same: true}}
+s022:
+  visual: {prompt: "Close-up of Edwardian chemistry glassware: a scientist's hands pouring liquid from a flask into a test tube that changes colour, burettes and stoppered bottles in the background"}
+  camera: left
+s023: {visual: {same: true}}
+s024:
+  visual: {prompt: "A gold medal with an embossed profile resting in an open velvet case on a desk, the inscription too worn to read, warm spotlight"}
+  camera: in
+s025: {visual: {same: true}}
+s026:
+  visual: {prompt: "A busy early 20th-century physiology laboratory full of researchers in white coats, measuring instruments, glass tubes and notebooks, light streaming through tall windows"}
+  camera: out
+s027: {visual: {same: true}}
+s028: {visual: {same: true}}
+s029:
+  visual: {prompt: "An exhausted 1920s runner in a white vest and shorts slumped on a wooden bench after a race, head down, legs trembling, an empty cinder track behind him"}
+  camera: right
+s030: {visual: {same: true}}
+s031:
+  visual: {prompt: "A British physiologist in a 1920s tweed suit on a grass running track holding a stopwatch while a runner sprints past him, wooden stands behind, overcast light"}
+  camera: left
+s032:
+  visual: {prompt: "A grand 1920s award ceremony in an ornate concert hall in Stockholm, men in white tie and tails on a stage under chandeliers, an orchestra at the side, warm golden light"}
+  camera: out
+s033: {visual: {same: true}}
+s034: {visual: {same: true}}
+s035: {visual: {same: true}}
+s036:
+  visual: {prompt: "A 1920s runner wearing a mouthpiece connected to a large canvas gas-collection bag on his back, breathing hard after a sprint, while a scientist holds the valve and checks his watch"}
+  camera: in
+s037: {visual: {same: true}}
+s038: {visual: {same: true}}
+s039:
+  visual: {prompt: "A whimsical vintage encyclopedia plate of a muscle drawn as a small factory: little barrels of acid being carried to a furnace, some burned for energy, the rest rebuilt into stacks of fuel bricks"}
+  camera: right
+s040: {visual: {same: true}}
+s041: {visual: {same: true}}
+s042: {visual: {same: true}}
+s043:
+  visual: {prompt: "A small glass vial of clear liquid standing on a velvet museum pedestal behind a velvet rope, spotlit like a celebrity, a gold medal leaning against the pedestal"}
+  camera: in
+s044: {visual: {same: true}}
+s045: {visual: {same: true}}
+s046:
+  visual: {prompt: "1970s marathon runners in short shorts struggling up a hill in the heat, faces twisted with effort, legs glowing faintly red, crowds at the roadside"}
+  camera: left
+s047: {visual: {same: true}}
+s048: {visual: {same: true}}
+s049: {visual: {same: true}}
+s050:
+  visual: {prompt: "A man in an office two days after a hard workout lowering himself very carefully into his desk chair, wincing, one hand on his thigh, colleagues amused in the background"}
+  camera: in
+s051: {visual: {same: true}}
+s052: {visual: {same: true}}
+s053: {visual: {same: true}}
+s054:
+  visual: {prompt: "The clerk's hands holding a large brass magnifying glass over two open case files side by side on the archive desk, lamplight", characters: [clerk]}
+  camera: in
+s055: {visual: {same: true}}
+s056:
+  visual: {prompt: "A modern sports science lab: a cyclist on an ergometer, a scientist taking a tiny fingertip blood sample into a small analyser, screens blurred, bright clean light"}
+  camera: right
+s057: {visual: {same: true}}
+s058: {visual: {same: true}}
+s059: {visual: {same: true}}
+s060: {visual: {same: true}}
+s061:
+  visual: {prompt: "Two exercise scientists at a desk covered with printed research papers and charts, comparing notes, the text too small to read, mugs of coffee, evening lamp"}
+  camera: left
+s062: {visual: {same: true}}
+s063: {visual: {same: true}}
+s064:
+  visual:
+    bg: plain_cool
+    props: [{type: line_chart, x: 960, y: 860, scale: 1.2, values: [0.1, 0.95, 0.15, 0.05, 0.05, 0.05], values2: [0.0, 0.0, 0.25, 0.65, 1.0, 0.5], color: bad, color2: water}]
+s065: {visual: {same: true}}
+s066: {visual: {same: true}}
+s067: {visual: {same: true}}
+s068:
+  visual: {prompt: "A gently comic detective's corkboard: a blank silhouette photo of a suspect connected by red string to a photo of an empty building doorway and a clock face, pins and string, no writing"}
+  camera: in
+s069: {visual: {same: true}}
+s070: {visual: {same: true}}
+s071: {visual: {same: true}}
+s072:
+  visual: {prompt: "Trail runners racing down a steep rocky mountain path, leaning back and braking hard with each step, dust and pebbles flying, bright summer light"}
+  camera: right
+s073: {visual: {same: true}}
+s074: {visual: {same: true}}
+s075: {visual: {same: true}}
+s076:
+  visual: {prompt: "A 1980s exercise physiology lab with two treadmills side by side: one perfectly flat, the other tilted steeply downhill, a runner on each, researchers with clipboards, beige equipment"}
+  camera: left
+s077: {visual: {same: true}}
+s078:
+  visual: {prompt: "Close-up of a runner's legs on a steep downhill treadmill, thighs braking hard with each landing, the front thigh muscles highlighted with a faint red glow"}
+  camera: in
+s079: {visual: {same: true}}
+s080:
+  visual: {prompt: "A cut-away anatomical museum plate of the front thigh muscle of a runner stepping downhill, the muscle shown lengthening while it brakes the body, arrows of force drawn as simple lines, aged paper"}
+  camera: in
+s081: {visual: {same: true}}
+s082: {visual: {same: true}}
+s083: {visual: {same: true}}
+s084:
+  visual: {prompt: "A close-up scientific plate of the same thigh muscle fibres, a few tiny fibres frayed and glowing red where they were strained, delicate ink and watercolor", ref: s080}
+  camera: in
+s085: {visual: {same: true}}
+s086: {visual: {same: true}}
+s087:
+  visual: {prompt: "A tired hiker sitting at the bottom of a steep mountain trail, massaging both thighs with a pained smile, the long descent visible behind him"}
+  camera: right
+s088: {visual: {same: true}}
+s089: {visual: {same: true}}
+s090:
+  visual: {prompt: "An exercise physiologist in a university lab holding up a colourful ball-and-stick molecular model, explaining it to a student, shelves of equipment behind"}
+  camera: left
+s091: {visual: {same: true}}
+s092: {visual: {same: true}}
+s093:
+  visual: {prompt: "Straight-on view of two glass beakers on a lab bench: one with an indicator liquid turning deep red, the other calm and pale green, a pipette between them, clean light"}
+  camera: in
+s094: {visual: {same: true}}
+s095: {visual: {same: true}}
+s096:
+  visual: {prompt: "A vintage encyclopedia plate of a muscle cell drawn as a cosy boiler room, tiny workers shovelling small glowing pellets into a furnace that powers the cell"}
+  camera: in
+s097: {visual: {same: true}}
+s098: {visual: {same: true}}
+s099:
+  visual: {prompt: "A sunny California university campus with a tall white clock tower, eucalyptus trees, students walking and cycling, golden afternoon light"}
+  camera: out
+s100: {visual: {same: true}}
+s101:
+  visual: {prompt: "An anatomical museum plate of a translucent human figure in motion, small glowing amber particles travelling through the blood vessels from the leg muscles toward the heart and the brain"}
+  camera: in
+s102: {visual: {same: true}}
+s103:
+  visual: {prompt: "Close-up of the same anatomical plate showing the heart and the brain glowing warmly as the amber particles arrive, delicate ink and watercolor on aged paper", ref: s101}
+  camera: in
+s104: {visual: {same: true}}
+s105: {visual: {same: true}}
+s106:
+  visual: {prompt: "A grey-haired physiologist in a lab coat watching a cyclist pedal hard on an ergometer wearing a breathing mask, monitors blurred, focused atmosphere"}
+  camera: right
+s107: {visual: {same: true}}
+s108: {visual: {same: true}}
+s109:
+  visual: {prompt: "A gently comic scene in a kitchen: a police officer solemnly handcuffing a ceiling smoke alarm that is beeping, while a slightly smoking toaster sits unnoticed on the counter"}
+  camera: in
+s110: {visual: {same: true}}
+s111: {visual: {same: true}}
+s112:
+  visual: {prompt: "A whimsical vintage encyclopedia plate: a tiny courier drawn as a glowing amber droplet carrying a lunch box through a red blood vessel toward a muscle fibre"}
+  camera: left
+s113: {visual: {same: true}}
+s114:
+  visual: {prompt: "A massage therapist kneading the calves and thighs of a tired runner lying on a massage table two days after a race, a finisher's medal hanging on a chair, calm clinic light"}
+  camera: in
+s115: {visual: {same: true}}
+s116: {visual: {same: true}}
+s117: {visual: {same: true}}
+s118:
+  visual: {prompt: "Close-up of the same therapist's hands working on the runner's calf muscle, relaxed and caring, soft light", ref: s114}
+  camera: in
+s119: {visual: {same: true}}
+s120: {visual: {same: true}}
+s121:
+  visual: {prompt: "A gently comic scene: a fit young woman slowly climbing a long staircase on all fours the day after leg day, her dog trotting past her easily"}
+  camera: right
+s122: {visual: {same: true}}
+s123: {visual: {same: true}}
+s124:
+  visual: {prompt: "A person in a gym doing slow walking lunges with dumbbells for the first time, lowering carefully under control, muscles straining, bright gym light"}
+  camera: in
+s125: {visual: {same: true}}
+s126: {visual: {same: true}}
+s127:
+  visual: {prompt: "A microscope-view scientific plate of striated muscle fibres, a few small regions where the neat striped pattern is slightly disrupted and glowing red, ink and watercolor"}
+  camera: in
+s128: {visual: {same: true}}
+s129: {visual: {same: true}}
+s130:
+  visual: {prompt: "The same microscope-view plate with small round repair cells gathering around the disrupted regions, gently mending the fibres", ref: s127}
+  camera: in
+s131: {visual: {same: true}}
+s132:
+  visual: {prompt: "The same person in the same gym two weeks later doing the same walking lunges with ease and a relaxed smile", ref: s124}
+  camera: left
+s133: {visual: {same: true}}
+s134: {visual: {same: true}}
+s135:
+  visual:
+    bg: plain_warm
+    props: [{type: bar_chart, x: 960, y: 860, values: [1.0, 0.35], colors: [bad, good]}]
+s136: {visual: {same: true}}
+s137:
+  visual: {prompt: "A gently comic still life: a ceramic piggy bank wearing a tiny sweatband sitting next to a pair of dumbbells and a towel on a gym bench"}
+  camera: in
+s138: {visual: {same: true}}
+s139:
+  visual: {prompt: "The archive desk at night: the clerk's hands pausing over the open case file as the green lamp flickers, a second heavy folder sliding out from underneath, long shadows", characters: [clerk]}
+  camera: in
+s140: {visual: {same: true}}
+s141: {visual: {same: true}}
+s142:
+  visual: {prompt: "A woman waking up in bed the morning after a hard workout, trying to sit up stiffly, wincing, soft morning light through curtains"}
+  camera: right
+s143: {visual: {same: true}}
+s144:
+  visual: {prompt: "An athlete in the middle of a hard set on a leg press machine, face straining, thigh muscles burning with a warm red-orange glow, gym lights"}
+  camera: in
+s145: {visual: {same: true}}
+s146: {visual: {same: true}}
+s147:
+  visual: {prompt: "A clinical research room: a volunteer's relaxed hand resting palm-up on a padded table, a researcher placing a very fine infusion line near the base of the thumb, careful and calm, no blood"}
+  camera: in
+s148: {visual: {same: true}}
+s149: {visual: {same: true}}
+s150:
+  visual: {prompt: "Straight-on view of exactly three small separate glass vials of clear liquid standing in a row on a white tray, each one alone with space between them, clean laboratory light"}
+  camera: in
+s151: {visual: {same: true}}
+s152: {visual: {same: true}}
+s153:
+  visual: {prompt: "Three streams of clear liquid pouring together into a single glass beaker, the mixture glowing a warm orange where they meet, laboratory light"}
+  camera: in
+s154: {visual: {same: true}}
+s155: {visual: {same: true}}
+s156:
+  visual: {prompt: "A gently comic vintage illustration of a police line-up of three small round cartoon molecules with tiny faces standing against a height chart without numbers, one looking innocent"}
+  camera: in
+s157: {visual: {same: true}}
+s158: {visual: {same: true}}
+s159: {visual: {same: true}}
+s160: {visual: {same: true}}
+s161:
+  visual: {prompt: "An anatomical plate of a muscle with fine sensory nerve fibres threading through it and glowing softly, a researcher's hand pointing at them with a pencil"}
+  camera: right
+s162: {visual: {same: true}}
+s163: {visual: {same: true}}
+s164: {visual: {same: true}}
+s165:
+  visual: {prompt: "A 1980s bodybuilding gym: a sweaty lifter grimacing heroically mid-curl, mirrors, chrome dumbbells, dramatic overhead light"}
+  camera: left
+s166: {visual: {same: true}}
+s167: {visual: {same: true}}
+s168:
+  visual: {prompt: "Two sports scientists in a modern office reviewing studies on a large screen and printed journals, the text blurred and unreadable, thoughtful mood"}
+  camera: in
+s169: {visual: {same: true}}
+s170: {visual: {same: true}}
+s171: {visual: {same: true}}
+s172:
+  visual: {prompt: "A strong woman calmly lifting a heavy barbell in a well-lit gym, controlled and confident, no sign of strain or pain"}
+  camera: right
+s173: {visual: {same: true}}
+s174:
+  visual: {prompt: "A gently comic wedding party on a summer lawn: a guest in a suit and tie enthusiastically trying a game of football for the first time, tripping, guests laughing"}
+  camera: out
+s175: {visual: {same: true}}
+s176:
+  visual: {prompt: "The same young man carefully stepping down the staircase holding the rail, now with a knowing half-smile", ref: s001}
+  camera: in
+s177: {visual: {same: true}}
+s178:
+  visual:
+    bg: plain_cool
+    props: [{type: line_chart, x: 960, y: 860, scale: 1.2, values: [0.1, 0.95, 0.15, 0.05, 0.05, 0.05], values2: [0.0, 0.0, 0.25, 0.65, 1.0, 0.5], color: bad, color2: water}]
+s179: {visual: {same: true}}
+s180:
+  visual: {prompt: "The same trail runners racing down the steep rocky path, seen from below", ref: s072}
+  camera: right
+s181: {visual: {same: true}}
+s182:
+  visual: {prompt: "The same anatomical plate of the glowing heart and brain receiving amber particles", ref: s103}
+  camera: in
+s183: {visual: {same: true}}
+s184:
+  visual: {prompt: "Dramatic close-up of the clerk's hand slamming a heavy brass rubber stamp down onto the case folder, a burst of red ink and dust flying up, the green lamp shaking", characters: [clerk]}
+  camera: in
+s185: {visual: {same: true}}
+s186: {visual: {same: true}}
+s187: {visual: {same: true}}
+s188:
+  visual: {prompt: "Seen from behind: a strength and conditioning coach with a clipboard talking to two athletes in a weightlifting area, chalk dust in the air, bright training hall"}
+  camera: in
+s189: {visual: {same: true}}
+s190: {visual: {same: true}}
+s191:
+  visual: {prompt: "A coach and an athlete looking together at a progress chart on a tablet in a gym, the screen blurred, both nodding, relaxed"}
+  camera: right
+s192: {visual: {same: true}}
+s193: {visual: {same: true}}
+s194:
+  visual: {prompt: "An athlete performing a clean, controlled deadlift with excellent form, the bar loaded with plates, focused face, chalked hands"}
+  camera: in
+s195: {visual: {same: true}}
+s196: {visual: {same: true}}
+s197:
+  visual: {prompt: "A beginner in a gym starting with light dumbbells while a coach watches and gives a thumbs up, encouraging atmosphere"}
+  camera: left
+s198: {visual: {same: true}}
+s199: {visual: {same: true}}
+s200: {visual: {same: true}}
+s201:
+  visual: {prompt: "A runner jogging gently and carefully down a gentle grassy slope on a park path, relaxed pace, morning light"}
+  camera: right
+s202: {visual: {same: true}}
+s203:
+  visual: {prompt: "An athlete doing a slow controlled squat with a light barbell, lowering carefully, a coach beside her watching the knees"}
+  camera: in
+s204: {visual: {same: true}}
+s205:
+  visual: {prompt: "A shelf of mysterious glowing potion bottles and supplement tubs with no labels, a little magical sparkle around them, gently ironic mood"}
+  camera: in
+s206: {visual: {same: true}}
+s207:
+  visual: {prompt: "A sports clinic: a therapist massaging an athlete's thigh on a treatment table, towels and oil bottles without labels, calm professional light"}
+  camera: left
+s208: {visual: {same: true}}
+s209: {visual: {same: true}}
+s210:
+  visual: {prompt: "Recovery corner of a training centre: an athlete in compression sleeves stepping into a cold water tub, another walking slowly on a treadmill, calm mood"}
+  camera: right
+s211: {visual: {same: true}}
+s212:
+  visual: {prompt: "An athlete stretching a hamstring on a mat and looking slightly disappointed, gently comic"}
+  camera: in
+s213:
+  visual: {prompt: "A person sitting on a sofa calmly rubbing a broadly sore thigh with a relaxed expression, a cup of tea beside them"}
+  camera: in
+s214: {visual: {same: true}}
+s215: {visual: {same: true}}
+s216: {visual: {same: true}}
+s217:
+  visual: {prompt: "A physiotherapist carefully examining an athlete's knee joint on a treatment bench in a clinic, serious and caring"}
+  camera: left
+s218: {visual: {same: true}}
+s219: {visual: {same: true}}
+s220: {visual: {same: true}}
+s221:
+  visual: {prompt: "The clerk's hands tying the string around the finished case folder and placing it on a towering stack of closed folders, the green lamp dimming", characters: [clerk]}
+  camera: out
+s222: {visual: {same: true}}
+s223:
+  visual: {prompt: "A gently comic scene: an early 19th-century French emperor in a bicorne hat and greatcoat seen from behind, standing beside a very tall wooden measuring ruler in a palace hall"}
+  camera: in
+s224: {visual: {same: true}}
+s225: {visual: {same: true}}

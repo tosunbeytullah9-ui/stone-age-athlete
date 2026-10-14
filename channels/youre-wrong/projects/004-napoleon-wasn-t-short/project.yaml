@@ -1,0 +1,54 @@
+title: Napoleon Wasn't Short
+idea: i004
+status: production
+description: Napoleon was measured at 5 feet 2 inches. In French inches. Converted properly he was about 1.68-1.70
+  m, roughly average for his time. So who shrank him? A unit conversion, a bodyguard of giants in bearskin hats,
+  and a British cartoonist who never met him. Case file 004.
+chapters: {0: Intro, 4: The body on Saint Helena, 7: French inches, 12: Average for his time, 13: Three suspects,
+  15: The bodyguard, 17: The little corporal, 19: The cartoonist, 27: Napoleon's own propaganda, 29: The Napoleon
+    complex, 34: Verdict}
+publish:
+  title_variants: [Napoleon Wasn't Short, Napoleon Wasn't Short. A Cartoonist Made Him Small, The Napoleon Complex
+      Is Built on a Mistake, How Britain Shrank an Emperor by 10 cm]
+  hook_options:
+  - {type: you, text: 'He conquered half of Europe, and all you remember is his height. The height he never had.'}
+  - {type: cold_open_stat, text: Five foot two. That's what they wrote down. They just weren't your feet.}
+  - {type: contradiction, text: The most famous short man in history was average. Here's who shrank him.}
+  thumbnail_concepts:
+  - {visual: Tiny caricature Napoleon in a giant hat next to a full-size calm Napoleon, text: HE WASN'T SHORT}
+  - {visual: 'Two rulers, French vs English, Napoleon silhouette between them', text: '5''2"?'}
+  - {visual: Giant hand with spyglass over a tiny Napoleon (Gillray homage), text: PROPAGANDA}
+  series: history-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+shorts:
+- {title: Napoleon was measured at 5'2" — in French inches, from: s020, to: s047, hook: Napoleon was measured at
+    5'2" — in French inches}
+- {title: How one cartoonist invented 'Little Boney', from: s113, to: s140, hook: How one cartoonist invented 'Little
+    Boney'}
+- {title: Science tested the Napoleon complex, from: s181, to: s205, hook: Science tested the Napoleon complex}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: Napoleon in his bicorne hat and grey greatcoat standing next to a very tall wooden measuring ruler,
+      drawn large on the right side of the page
+    characters: []
+  myth: {en: 5'2"}
+  note: {en: French inches}
+  pos: top-left
+  claim: c01
+- kind: stamp
+  visual:
+    prompt: A giant's open palm holding a tiny Napoleon in a bicorne hat while the giant peers at him through a
+      spyglass, in the spirit of an 1803 satirical cartoon, drawn large on the right side of the page
+    characters: []
+  pos: top-left
+- kind: scene
+  visual:
+    prompt: Napoleon in a plain green colonel's coat standing between two very tall grenadiers in towering bearskin
+      hats, looking small next to them, drawn large in the lower two thirds
+    characters: []
+  text: {en: TALL GUARDS}
+  pos: top
+  claim: c08

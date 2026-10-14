@@ -1,0 +1,14 @@
+# Claims in this video → shared library (library/sources.yaml). Set verified: true after you have
+# checked the quote against the source yourself. Panel: 1 · Senaryo & kaynaklar → İddialar.
+claims:
+- {id: c01, text: Roman life expectancy at birth is estimated at roughly 20-30 years (census returns from Roman Egypt suggest 22-25)., source: wiki-roman-demography, shots: [s001, s002, s054, s055, s056, s057], confidence: high, verified: false}
+- {id: c02, text: 'In the Roman world roughly 25-33% of infants died in their first year, only 55-65% survived to age 5, and perhaps half died by age 10.', source: wiki-roman-demography, shots: [s048, s049, s050, s051, s052, s053], confidence: high, verified: false}
+- {id: c03, text: A Roman who reached age 10 could expect to live to roughly 45-50 on average., source: wiki-roman-demography, shots: [s068, s069, s070, s071], confidence: high, verified: false}
+- {id: c04, text: Traditional skeletal methods have been unable to estimate ages of skeletons older than about 50., source: boldsen2002transition, shots: [s075, s076, s077, s078, s079], confidence: high, verified: false}
+- {id: c05, text: 'Gurven & Kaplan 2007: hunter-gatherer life expectancy at birth 21-37 years; ~57% survive to 15; modal adult age at death ~72 (range 68-78); ~two more decades expected at 45; seven decades as natural lifespan.', source: gurven2007, shots: [s083, s084, s085, s086, s087, s088, s089, s090, s091, s092, s093, s094, s095, s096, s097, s098, s099, s100, s101, s102, s103, s104, s105, s106, s107, s108], confidence: high, verified: false}
+- {id: c06, text: 'Psalm 90:10: ''The days of our years are threescore years and ten; and if by reason of strength they be fourscore years''.', source: psalm90-kjv, shots: [s111, s112, s113, s114, s115], confidence: high, verified: false}
+- {id: c07, text: Since Sulla's reforms quaestors had to be at least 30; the minimum age for consul was 42., source: wiki-cursus-honorum, shots: [s121, s122, s123, s124, s125, s126, s127], confidence: high, verified: false}
+- {id: c08, text: Sophocles lived to about 90; his sons reportedly tried to have him declared incompetent and he answered by reading from Oedipus at Colonus., source: wiki-sophocles, shots: [s144, s145, s146, s147, s148, s149, s150, s151], confidence: high, verified: false}
+- {id: c09, text: Augustus ruled for over 40 years and died aged 75., source: wiki-augustus, shots: [s153, s154, s155], confidence: high, verified: false}
+- {id: c10, text: 'Among hunter-gatherers, illness caused ~70% of deaths and violence/accidents ~20%.', source: gurven2007, shots: [s164, s165, s166, s167], confidence: high, verified: false}
+- {id: c11, text: Global life expectancy rose from under 30 to over 72 in roughly two centuries; falling child mortality was important but life expectancy rose at all ages., source: owid-life-expectancy, shots: [s185, s186, s187, s188, s189, s190, s191], confidence: high, verified: false}

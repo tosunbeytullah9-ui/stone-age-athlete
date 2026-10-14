@@ -1,0 +1,56 @@
+title: Vikings Never Wore Horned Helmets. An Opera Did.
+idea: i002
+status: production
+description: Picture a Viking and you see horns. Those horns were designed in 1875 by a costume designer for Wagner's
+  Ring. The real Viking helmets we have are round, iron and hornless; the real horned helmets are Bronze Age and
+  about 1,700 years too early. Case file 002.
+chapters: {0: The helmet in your head, 4: The only real Viking helmets, 9: What 'Viking' actually meant, 13: 'Who
+    gave them horns?', 15: '1875: the opera', 19: Real horned helmets, 24: 'Were Vikings dirty?', 27: Verdict, 28: How
+    to spot a costume}
+publish:
+  title_variants: [Vikings Never Wore Horned Helmets. An Opera Did., 'Why Do We Think Vikings Wore Horned Helmets?',
+    The Opera That Gave Vikings Horns, What Viking Helmets Really Looked Like, Horned Viking Helmets Are a Costume
+      From 1875]
+  hook_options:
+  - {type: you, text: 'Picture a Viking. Big beard, big axe, two big horns. Those horns were designed in 1875 by
+      a costume designer for an opera.'}
+  - {type: cold_open_stat, text: Only two nearly complete Viking helmets have ever been found. Neither has horns.}
+  - {type: mystery, text: 'Horned helmets are real. Archaeologists have dug them up. They are just 1,700 years too
+      old to be Viking.'}
+  thumbnail_concepts:
+  - {visual: A round iron Viking helmet next to a horned opera helmet with a red stamp across the horns, text: FAKE
+      HORNS}
+  - {visual: An opera singer in a horned helmet on a dramatic stage, text: 1875 COSTUME}
+  - {visual: 'A plain iron helmet on velvet, spotlight', text: NO HORNS. EVER.}
+  series: history-files
+  hook_type: you
+  slot: long
+  verdict: WRONG
+shorts:
+- {title: The opera that gave Vikings horns, from: s100, to: s131, hook: Vikings had wings before they had horns}
+- {title: 'Real horned helmets exist. They''re just 1,700 years too early', from: s142, to: s165, hook: Horned helmets
+    are real. Just not Viking.}
+- {title: 'Were Vikings actually dirty?', from: s184, to: s198, hook: The Vikings had a bath day}
+thumbnails:
+- kind: correction
+  visual:
+    prompt: A Viking helmet with two huge curved horns, drawn large in the lower right of the page
+    characters: []
+  myth: {en: HORNS}
+  note: {en: opera costume}
+  pos: top-left
+  claim: c01
+- kind: stamp
+  visual:
+    prompt: A grand nineteenth-century opera singer in a fur cloak wearing a horned helmet, arms raised in the middle
+      of an aria, drawn large on the right side of the page
+    characters: []
+  pos: top-left
+- kind: scene
+  visual:
+    prompt: 'Two helmets side by side on a table: a real Viking helmet, a plain round iron cap with a spectacle-shaped
+      eye guard, and a theatrical helmet with big horns, both drawn large in the lower two thirds'
+    characters: []
+  text: {en: 'THE REAL ONE?'}
+  pos: top
+  claim: c02

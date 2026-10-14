@@ -1,0 +1,1517 @@
+title: 010-coca-cola-didn-t-make-santa-red
+paragraphs: 30
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: Every December, someone at a party leans in with a fact.
+  visual:
+    prompt: a cosy Christmas party in a living room, a man leaning in to tell a secret to friends holding drinks,
+      fairy lights, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s002
+  para: 0
+  sent: 1
+  text: Did you know that Santa Claus used to wear green?
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 2
+  text: Then Coca-Cola dressed him in red, to match the brand.
+  visual:
+    prompt: a plain unlabelled glass soda bottle next to a Santa hat on a table, red and white, no logos, no text
+    ledger: true
+  camera: right
+- id: s004
+  para: 0
+  sent: 3
+  text: The jolly fat man in the red suit is basically an advertisement.
+  visual:
+    same: true
+- id: s005
+  para: 1
+  sent: 4
+  text: It is a perfect party fact.
+  visual:
+    prompt: partygoers raising eyebrows, impressed, while one smug guest folds his arms, comic, people drawn as
+      simple expressive ink figures
+    ledger: true
+  camera: out
+- id: s006
+  para: 1
+  sent: 5
+  text: It is surprising, it is a little cynical,
+  visual:
+    same: true
+- id: s007
+  para: 1
+  sent: 5
+  text: and it makes the person telling it sound
+  visual:
+    same: true
+- id: s008
+  para: 1
+  sent: 5
+  text: like they have seen behind the curtain.
+  visual:
+    same: true
+- id: s009
+  para: 1
+  sent: 6
+  text: It is also, for the most part, wrong.
+  visual:
+    same: true
+- id: s010
+  para: 2
+  sent: 7
+  text: Case file zero one zero.
+  visual:
+    prompt: the clerk's hands opening a folder containing an old Christmas card with Santa
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  overlay:
+    kind: label
+    text: CASE FILE 010
+    pos: top
+- id: s011
+  para: 2
+  sent: 8
+  text: 'Subject: you, and everyone at that party.'
+  visual:
+    same: true
+- id: s012
+  para: 2
+  sent: 9
+  text: 'Belief: Coca-Cola invented the red Santa Claus.'
+  visual:
+    same: true
+- id: s013
+  para: 3
+  sent: 10
+  text: I have spent a great many Christmases in the archive.
+  visual:
+    prompt: a silent archive at Christmas, no decorations, snow falling outside a tall window, a cup of tea on the
+      desk
+    ledger: true
+  camera: in
+- id: s014
+  para: 3
+  sent: 11
+  text: It is quiet, there is no tinsel,
+  visual:
+    same: true
+- id: s015
+  para: 3
+  sent: 11
+  text: and nobody asks me to wear a paper hat.
+  visual:
+    same: true
+- id: s016
+  para: 3
+  sent: 12
+  text: So I have had plenty of time to look at old pictures of Santa.
+  visual:
+    prompt: the clerk's hands spreading dozens of vintage Santa pictures across the desk like playing cards
+    characters:
+    - clerk
+    ledger: true
+  camera: out
+- id: s017
+  para: 3
+  sent: 13
+  text: Hundreds of them.
+  visual:
+    same: true
+- id: s018
+  para: 3
+  sent: 14
+  text: He rarely looks surprised to see me.
+  visual:
+    same: true
+- id: s019
+  para: 3
+  sent: 15
+  text: Let us look at a few together.
+  visual:
+    same: true
+- id: s020
+  para: 4
+  sent: 16
+  text: First, where does Santa come from?
+  visual:
+    prompt: a fourth-century bishop with a white beard in church robes secretly leaving a bag of coins at a poor
+      family's window at night, Byzantine town
+    ledger: true
+  camera: in
+  tone:
+  - pause
+- id: s021
+  para: 4
+  sent: 17
+  text: His roots go back to Saint Nicholas,
+  visual:
+    same: true
+- id: s022
+  para: 4
+  sent: 17
+  text: a fourth-century bishop in what is now Turkey,
+  visual:
+    same: true
+- id: s023
+  para: 4
+  sent: 17
+  text: famous for secret gift-giving.
+  visual:
+    same: true
+- id: s024
+  para: 4
+  sent: 18
+  text: In European art, Saint Nicholas is usually shown
+  visual:
+    prompt: a medieval European icon drawing of Saint Nicholas as a bearded bishop with a mitre and crozier
+    ledger: true
+  camera: in
+- id: s025
+  para: 4
+  sent: 18
+  text: as a bearded bishop in church robes.
+  visual:
+    same: true
+- id: s026
+  para: 4
+  sent: 19
+  text: The Dutch brought their Sinterklaas to New York,
+  visual:
+    prompt: Dutch settlers in colonial New Amsterdam celebrating Sinterklaas, 17th-century houses, snow
+    ledger: true
+  camera: right
+- id: s027
+  para: 4
+  sent: 19
+  text: and over time he became the American Santa Claus.
+  visual:
+    same: true
+- id: s028
+  para: 5
+  sent: 20
+  text: The modern version really took shape in eighteen twenty-three,
+  visual:
+    prompt: a 19th-century New York parlour, a father reading a poem to children by the fire on Christmas Eve, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s029
+  para: 5
+  sent: 20
+  text: with a poem published in New York.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: '1823'
+    pos: bottom
+- id: s030
+  para: 5
+  sent: 21
+  text: A Visit from Saint Nicholas.
+  visual:
+    same: true
+- id: s031
+  para: 5
+  sent: 22
+  text: You know it as The Night Before Christmas.
+  visual:
+    same: true
+- id: s032
+  para: 5
+  sent: 23
+  text: It gave us the sleigh, the reindeer,
+  visual:
+    prompt: a tiny sleigh pulled by eight small reindeer landing on a snowy rooftop beside a chimney
+    ledger: true
+  camera: left
+- id: s033
+  para: 5
+  sent: 23
+  text: the chimney and the sack of toys.
+  visual:
+    same: true
+- id: s034
+  para: 5
+  sent: 24
+  text: And it described Santa as chubby and plump,
+  visual:
+    prompt: a very small, chubby elf-like Saint Nicholas with a pipe and a sack, 1820s engraving style
+    ledger: true
+  camera: in
+- id: s035
+  para: 5
+  sent: 24
+  text: a right jolly old elf.
+  visual:
+    same: true
+- id: s036
+  para: 6
+  sent: 25
+  text: An elf.
+  visual:
+    same: true
+- id: s037
+  para: 6
+  sent: 26
+  text: With a miniature sleigh and tiny reindeer.
+  visual:
+    same: true
+- id: s038
+  para: 6
+  sent: 27
+  text: The original modern Santa was small enough
+  visual:
+    prompt: a tiny elf Santa slipping easily down a chimney, comic, old engraving style
+    ledger: true
+  camera: out
+- id: s039
+  para: 6
+  sent: 27
+  text: to fit down a chimney without a struggle.
+  visual:
+    same: true
+- id: s040
+  para: 6
+  sent: 28
+  text: The poem says nothing at all about the colour of his clothes.
+  visual:
+    same: true
+- id: s041
+  para: 7
+  sent: 29
+  text: It did, however, name the reindeer.
+  visual:
+    prompt: eight small reindeer lined up in the snow in one row, straight-on view, none overlapping
+    ledger: true
+  camera: none
+- id: s042
+  para: 7
+  sent: 30
+  text: Dasher, Dancer, Prancer, Vixen, Comet, Cupid,
+  visual:
+    same: true
+- id: s043
+  para: 7
+  sent: 30
+  text: and two called Dunder and Blixem,
+  visual:
+    same: true
+- id: s044
+  para: 7
+  sent: 30
+  text: Dutch for thunder and lightning.
+  visual:
+    same: true
+- id: s045
+  para: 7
+  sent: 31
+  text: Those last two were later tidied up into Donner and Blitzen.
+  visual:
+    prompt: the clerk's hands sliding a slim folder with a sketch of a red-nosed reindeer into a drawer, with a
+      wink
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s046
+  para: 7
+  sent: 32
+  text: Rudolph would not arrive for over a century.
+  visual:
+    same: true
+- id: s047
+  para: 7
+  sent: 33
+  text: He was, as it happens, created for a department store promotion.
+  visual:
+    same: true
+- id: s048
+  para: 7
+  sent: 34
+  text: But that is another file.
+  visual:
+    same: true
+- id: s049
+  para: 8
+  sent: 35
+  text: Exhibit one.
+  visual:
+    prompt: a 19th-century cartoonist at a drawing board in a busy magazine office, ink and pens, sketches pinned
+      around
+    ledger: true
+  camera: in
+- id: s050
+  para: 8
+  sent: 36
+  text: Thomas Nast.
+  visual:
+    same: true
+- id: s051
+  para: 8
+  sent: 37
+  text: A political cartoonist for Harper's Weekly,
+  visual:
+    same: true
+- id: s052
+  para: 8
+  sent: 37
+  text: the same Nast who helped popularise the elephant
+  visual:
+    same: true
+- id: s053
+  para: 8
+  sent: 37
+  text: as the symbol of the Republican Party.
+  visual:
+    same: true
+- id: s054
+  para: 8
+  sent: 38
+  text: On the third of January,
+  visual:
+    prompt: a Union army camp in winter during the American Civil War, soldiers in blue gathering around a sleigh,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s055
+  para: 8
+  sent: 38
+  text: eighteen sixty-three,
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: '1863'
+    pos: bottom
+- id: s056
+  para: 8
+  sent: 38
+  text: in the middle of the American Civil War,
+  visual:
+    same: true
+- id: s057
+  para: 8
+  sent: 38
+  text: Nast drew Santa visiting a Union army camp.
+  visual:
+    same: true
+- id: s058
+  para: 8
+  sent: 39
+  text: That Santa wore stars and stripes.
+  visual:
+    prompt: a 1860s wood engraving style, redrawn in ink Santa wearing a star-spangled jacket and striped trousers,
+      handing out gifts to Union soldiers, holding a small puppet, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s059
+  para: 8
+  sent: 40
+  text: He was, quite literally, dressed as the flag.
+  visual:
+    same: true
+- id: s060
+  para: 8
+  sent: 41
+  text: In one hand, he dangles a puppet
+  visual:
+    same: true
+- id: s061
+  para: 8
+  sent: 41
+  text: that looks suspiciously like the Confederate president, Jefferson Davis.
+  visual:
+    same: true
+- id: s062
+  para: 8
+  sent: 42
+  text: Santa had picked a side.
+  visual:
+    same: true
+- id: s063
+  para: 9
+  sent: 43
+  text: Nast went on to draw Santa for more than twenty years.
+  visual:
+    prompt: a stack of old magazines from the 1860s to 1880s, each with a black-and-white Santa engraving on the
+      page
+    ledger: true
+  camera: in
+- id: s064
+  para: 9
+  sent: 44
+  text: Thirty-three illustrations.
+  visual:
+    same: true
+- id: s065
+  para: 9
+  sent: 45
+  text: In eighteen sixty-six, he gave him a workshop, and an address.
+  visual:
+    prompt: Santa's workshop at the North Pole in a 1860s engraving style, redrawn in ink, shelves of toys, snow
+      outside
+    ledger: true
+  camera: left
+- id: s066
+  para: 9
+  sent: 46
+  text: Santa Claussville, North Pole.
+  visual:
+    same: true
+- id: s067
+  para: 9
+  sent: 47
+  text: And in eighteen eighty-one, he published Merry Old Santa Claus.
+  visual:
+    prompt: a big, white-bearded, jolly Santa Claus in a red suit trimmed with white fur, holding a long pipe and
+      an armful of toys, in the style of an 1880s hand-coloured print style, redrawn in ink
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: '1881'
+    pos: bottom
+- id: s068
+  para: 9
+  sent: 48
+  text: A round, white-bearded,
+  visual:
+    same: true
+- id: s069
+  para: 9
+  sent: 48
+  text: cheerful man with a pipe, an armful of toys,
+  visual:
+    same: true
+- id: s070
+  para: 9
+  sent: 48
+  text: and a red suit trimmed with white fur.
+  visual:
+    same: true
+- id: s071
+  para: 10
+  sent: 49
+  text: Eighteen eighty-one.
+  visual:
+    prompt: a 1886 pharmacy soda fountain counter with glass bottles and a pharmacist, no labels, no text
+    ledger: true
+  camera: right
+- id: s072
+  para: 10
+  sent: 50
+  text: Coca-Cola was invented in eighteen eighty-six.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 'Coca-Cola: 1886'
+    pos: bottom
+- id: s073
+  para: 10
+  sent: 51
+  text: Santa was in red five years before the drink existed.
+  visual:
+    same: true
+- id: s074
+  para: 11
+  sent: 52
+  text: Exhibit two.
+  visual:
+    prompt: a colourful early-1900s humour magazine lying on a table, lithographed cover art, no legible text
+    ledger: true
+  camera: in
+- id: s075
+  para: 11
+  sent: 53
+  text: Puck.
+  visual:
+    same: true
+- id: s076
+  para: 11
+  sent: 54
+  text: Puck was a popular American humour magazine,
+  visual:
+    same: true
+- id: s077
+  para: 11
+  sent: 54
+  text: printed in full colour.
+  visual:
+    same: true
+- id: s078
+  para: 11
+  sent: 55
+  text: On its Christmas covers in nineteen oh two,
+  visual:
+    prompt: a big, white-bearded, jolly Santa Claus in a red suit trimmed with white fur on an early-1900s lithographed
+      style, redrawn in ink magazine cover style, holly border, no text
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: 1902 · 1904 · 1905
+    pos: bottom
+- id: s079
+  para: 11
+  sent: 55
+  text: nineteen oh four and nineteen oh five,
+  visual:
+    same: true
+- id: s080
+  para: 11
+  sent: 55
+  text: Santa appears in red and white,
+  visual:
+    same: true
+- id: s081
+  para: 11
+  sent: 55
+  text: essentially in the form you know today.
+  visual:
+    same: true
+- id: s082
+  para: 11
+  sent: 56
+  text: Big, bearded, jolly.
+  visual:
+    prompt: a jolly round Santa laughing heartily, early 1900s lithograph style
+    ledger: true
+  camera: out
+- id: s083
+  para: 11
+  sent: 57
+  text: More than a quarter of a century
+  visual:
+    same: true
+- id: s084
+  para: 11
+  sent: 57
+  text: before Coca-Cola's famous campaign.
+  visual:
+    same: true
+- id: s085
+  para: 12
+  sent: 58
+  text: By the nineteen twenties,
+  visual:
+    prompt: 1920s New York department store window with a row of identical Santas greeting children, snowy street,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s086
+  para: 12
+  sent: 58
+  text: the image had become so standard that in nineteen twenty-seven,
+  visual:
+    same: true
+- id: s087
+  para: 12
+  sent: 58
+  text: a New York Times article noted
+  visual:
+    same: true
+- id: s088
+  para: 12
+  sent: 58
+  text: that a standardised Santa Claus appears to New York children.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: “A standardized Santa Claus” — 1927
+    pos: bottom
+- id: s089
+  para: 12
+  sent: 59
+  text: Four years before Coca-Cola painted a single one.
+  visual:
+    same: true
+- id: s090
+  para: 13
+  sent: 60
+  text: Exhibit three.
+  visual:
+    prompt: a 1910s advertisement-style illustration of Santa relaxing with a glass of sparkling mineral water,
+      no text, no logos
+    ledger: true
+  camera: in
+  tone:
+  - pause
+- id: s091
+  para: 13
+  sent: 61
+  text: Coca-Cola was not even the first soft drink to use him.
+  visual:
+    same: true
+- id: s092
+  para: 13
+  sent: 62
+  text: That honour goes to a company called White Rock Beverages,
+  visual:
+    same: true
+- id: s093
+  para: 13
+  sent: 62
+  text: which sold mineral water and ginger ale.
+  visual:
+    same: true
+- id: s094
+  para: 13
+  sent: 63
+  text: White Rock used Santa to sell mineral water in nineteen fifteen,
+  visual:
+    prompt: a 1920s ginger ale advertisement style drawing of Santa raising a glass, colourful, no text, no logos
+    ledger: true
+  camera: right
+  overlay:
+    kind: label
+    text: '1915'
+    pos: bottom
+- id: s095
+  para: 13
+  sent: 63
+  text: and again in colour in its ginger ale advertisements
+  visual:
+    same: true
+- id: s096
+  para: 13
+  sent: 63
+  text: from nineteen twenty-three.
+  visual:
+    same: true
+- id: s097
+  para: 13
+  sent: 64
+  text: Santa was selling fizzy drinks long before he was selling Coke.
+  visual:
+    same: true
+- id: s098
+  para: 13
+  sent: 65
+  text: And Coca-Cola was not the last, either.
+  visual:
+    prompt: a 1940s magazine illustration of Santa enjoying a soda by the fire, no logos, no text
+    ledger: true
+  camera: in
+- id: s099
+  para: 13
+  sent: 66
+  text: Pepsi used very similar Santa paintings
+  visual:
+    same: true
+- id: s100
+  para: 13
+  sent: 66
+  text: in the nineteen forties and fifties.
+  visual:
+    same: true
+- id: s101
+  para: 13
+  sent: 67
+  text: Nobody remembers that,
+  visual:
+    same: true
+- id: s102
+  para: 13
+  sent: 67
+  text: which tells you something about who had the better artist.
+  visual:
+    same: true
+- id: s103
+  para: 14
+  sent: 68
+  text: So where did the green Santa come from?
+  visual:
+    prompt: the clerk's hands turning over an envelope addressed with only a small green holly sketch
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s104
+  para: 14
+  sent: 69
+  text: Here, the party fact is not entirely made up.
+  visual:
+    same: true
+- id: s105
+  para: 14
+  sent: 70
+  text: It just has the wrong address.
+  visual:
+    same: true
+- id: s106
+  para: 15
+  sent: 71
+  text: In Britain,
+  visual:
+    prompt: a Victorian English Christmas feast, a long table with roast goose, pudding and candles
+    ledger: true
+  camera: in
+- id: s107
+  para: 15
+  sent: 71
+  text: there was a separate character called Father Christmas.
+  visual:
+    same: true
+- id: s108
+  para: 15
+  sent: 72
+  text: Older, more of a symbol of feasting
+  visual:
+    same: true
+- id: s109
+  para: 15
+  sent: 72
+  text: and good cheer than a delivery service.
+  visual:
+    same: true
+- id: s110
+  para: 15
+  sent: 73
+  text: His costume varied a great deal.
+  visual:
+    prompt: a row of four Victorian Father Christmas figures in brown, green, blue and white robes, straight-on
+      view, one row, none overlapping
+    ledger: true
+  camera: none
+- id: s111
+  para: 15
+  sent: 74
+  text: In early pictures, he appears in brown, green,
+  visual:
+    same: true
+- id: s112
+  para: 15
+  sent: 74
+  text: blue or white robes, although even then,
+  visual:
+    same: true
+- id: s113
+  para: 15
+  sent: 74
+  text: red was the most common colour.
+  visual:
+    same: true
+- id: s114
+  para: 15
+  sent: 75
+  text: In eighteen fifty-four,
+  visual:
+    prompt: an old Father Christmas in a long brown robe dotted with white snowflakes, Victorian book illustration
+    ledger: true
+  camera: in
+- id: s115
+  para: 15
+  sent: 75
+  text: one story describes him in a long brown robe,
+  visual:
+    same: true
+- id: s116
+  para: 15
+  sent: 75
+  text: spotted white with snow.
+  visual:
+    same: true
+- id: s117
+  para: 15
+  sent: 76
+  text: In eighteen eighty-one,
+  visual:
+    prompt: a Victorian child in a nightgown asking a question at a frosty window, imagining Father Christmas in
+      green, people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s118
+  para: 15
+  sent: 76
+  text: a children's poem asks whether Father
+  visual:
+    same: true
+- id: s119
+  para: 15
+  sent: 76
+  text: Christmas will come robed in green,
+  visual:
+    same: true
+- id: s120
+  para: 15
+  sent: 76
+  text: with beard all white.
+  visual:
+    same: true
+- id: s121
+  para: 16
+  sent: 77
+  text: The most famous green one comes from Charles Dickens.
+  visual:
+    prompt: Charles Dickens writing at his desk by candlelight in 1843, quill and manuscript pages
+    ledger: true
+  camera: in
+- id: s122
+  para: 16
+  sent: 78
+  text: In A Christmas Carol,
+  visual:
+    same: true
+- id: s123
+  para: 16
+  sent: 78
+  text: in eighteen forty-three,
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: '1843'
+    pos: bottom
+- id: s124
+  para: 16
+  sent: 78
+  text: the Ghost of Christmas Present appears to Scrooge.
+  visual:
+    same: true
+- id: s125
+  para: 16
+  sent: 79
+  text: In John Leech's illustration, he is a large, jolly,
+  visual:
+    prompt: a large jolly bearded spirit with a holly wreath, wearing a loose green fur-trimmed robe, surrounded
+      by heaps of food and a wassail bowl, Victorian etching style
+    ledger: true
+  camera: in
+- id: s126
+  para: 16
+  sent: 79
+  text: bearded figure with a holly wreath, surrounded by food,
+  visual:
+    same: true
+- id: s127
+  para: 16
+  sent: 79
+  text: wearing a loose green robe trimmed with fur.
+  visual:
+    same: true
+- id: s128
+  para: 16
+  sent: 80
+  text: Dickens never calls him Father Christmas.
+  visual:
+    prompt: a startled old miser in a nightcap staring up at the green-robed spirit, Victorian etching style
+    ledger: true
+  camera: left
+- id: s129
+  para: 16
+  sent: 81
+  text: But he looks very much like the British idea
+  visual:
+    same: true
+- id: s130
+  para: 16
+  sent: 81
+  text: of Christmas in person.
+  visual:
+    same: true
+- id: s131
+  para: 17
+  sent: 82
+  text: Over the nineteenth century,
+  visual:
+    prompt: a green-robed Father Christmas and a red-suited Santa shaking hands across a frosty ocean, whimsical
+      illustration
+    ledger: true
+  camera: in
+- id: s132
+  para: 17
+  sent: 82
+  text: the British Father Christmas
+  visual:
+    same: true
+- id: s133
+  para: 17
+  sent: 82
+  text: and the American Santa Claus gradually merged.
+  visual:
+    same: true
+- id: s134
+  para: 17
+  sent: 83
+  text: By the early twentieth century,
+  visual:
+    prompt: children in Britain and America hanging stockings by fireplaces, split view, early 1900s, people drawn
+      as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s135
+  para: 17
+  sent: 83
+  text: children on both sides
+  visual:
+    same: true
+- id: s136
+  para: 17
+  sent: 83
+  text: of the Atlantic were imagining the same man,
+  visual:
+    same: true
+- id: s137
+  para: 17
+  sent: 83
+  text: in more or less the same clothes.
+  visual:
+    same: true
+- id: s138
+  para: 17
+  sent: 84
+  text: A report from nineteen fifteen noted
+  visual:
+    prompt: the two Christmas figures merging into one in a gentle swirl of snow, whimsical
+    ledger: true
+  camera: in
+- id: s139
+  para: 17
+  sent: 84
+  text: that the two had effected a happy compromise.
+  visual:
+    same: true
+- id: s140
+  para: 17
+  sent: 85
+  text: Even so, as late as nineteen eighty-five,
+  visual:
+    prompt: a long-robed, big-bearded Father Christmas walking through an English village in the 1980s, nostalgic
+    ledger: true
+  camera: left
+- id: s141
+  para: 17
+  sent: 85
+  text: the Illustrated London News observed
+  visual:
+    same: true
+- id: s142
+  para: 17
+  sent: 85
+  text: that the British still preferred their own long-robed,
+  visual:
+    same: true
+- id: s143
+  para: 17
+  sent: 85
+  text: big-bearded Father Christmas.
+  visual:
+    same: true
+- id: s144
+  para: 17
+  sent: 86
+  text: So yes, there were green Christmas figures.
+  visual:
+    prompt: a green Christmas robe fading away like a ghost in the snow
+    ledger: true
+  camera: out
+- id: s145
+  para: 17
+  sent: 87
+  text: They simply faded out long before Coca-Cola came along.
+  visual:
+    same: true
+- id: s146
+  para: 18
+  sent: 88
+  text: And here is my favourite twist.
+  visual:
+    prompt: a sunny Brazilian city at Christmas, a Santa in a green suit waving from a float, palm trees and fairy
+      lights
+    ledger: true
+  camera: in
+- id: s147
+  para: 18
+  sent: 89
+  text: In Brazil, in the two thousands,
+  visual:
+    same: true
+- id: s148
+  para: 18
+  sent: 89
+  text: a soft drink company called Dolly ran Christmas
+  visual:
+    same: true
+- id: s149
+  para: 18
+  sent: 89
+  text: commercials with Santa dressed in green.
+  visual:
+    same: true
+- id: s150
+  para: 18
+  sent: 90
+  text: The green Santa caught on.
+  visual:
+    same: true
+- id: s151
+  para: 18
+  sent: 91
+  text: So there really is a soft drink
+  visual:
+    prompt: the clerk's hands holding a small swatch of green fabric up to the lamp, amused
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s152
+  para: 18
+  sent: 91
+  text: that changed the colour of Santa's suit.
+  visual:
+    same: true
+- id: s153
+  para: 18
+  sent: 92
+  text: It just was not Coca-Cola, and it made him green.
+  visual:
+    same: true
+- id: s154
+  para: 19
+  sent: 93
+  text: Now, to be fair to Coca-Cola.
+  visual:
+    prompt: the clerk's hand weighing two objects on a balance scale, fairly
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  tone:
+  - serious
+- id: s155
+  para: 19
+  sent: 94
+  text: Because the company did do something real.
+  visual:
+    same: true
+- id: s156
+  para: 20
+  sent: 95
+  text: In nineteen thirty-one,
+  visual:
+    prompt: a 1930s illustrator's studio, an artist drawing a large canvas at an easel, brushes and oils
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: '1931'
+    pos: bottom
+- id: s157
+  para: 20
+  sent: 95
+  text: Coca-Cola hired an illustrator named Haddon Sundblom
+  visual:
+    same: true
+- id: s158
+  para: 20
+  sent: 95
+  text: to paint Santa for its Christmas advertising.
+  visual:
+    same: true
+- id: s159
+  para: 20
+  sent: 96
+  text: Sundblom went back to the old poem for inspiration,
+  visual:
+    prompt: a big, white-bearded, jolly Santa Claus in a red suit trimmed with white fur, warm and rosy, pleasantly
+      plump, drawn in a lush 1930s magazine illustration style, redrawn in ink
+    ledger: true
+  camera: in
+- id: s160
+  para: 20
+  sent: 96
+  text: and painted Santa as warm, friendly,
+  visual:
+    same: true
+- id: s161
+  para: 20
+  sent: 96
+  text: pleasantly plump and human.
+  visual:
+    same: true
+- id: s162
+  para: 20
+  sent: 97
+  text: Not a small elf.
+  visual:
+    prompt: a kindly rosy grandfatherly Santa smiling over a plate of cookies by a Christmas tree, 1930s drawing
+      style
+    ledger: true
+  camera: right
+- id: s163
+  para: 20
+  sent: 98
+  text: Not a stern bishop.
+  visual:
+    same: true
+- id: s164
+  para: 20
+  sent: 99
+  text: A big, rosy grandfather you would happily leave a snack for.
+  visual:
+    same: true
+- id: s165
+  para: 21
+  sent: 100
+  text: His first model was a friend of his, named Lou Prentice.
+  visual:
+    prompt: an artist in a 1930s studio drawing a jovial older man posing in a red Santa costume, people drawn as
+      simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s166
+  para: 21
+  sent: 101
+  text: And Sundblom kept painting Santa
+  visual:
+    same: true
+- id: s167
+  para: 21
+  sent: 101
+  text: for Coca-Cola for over thirty years,
+  visual:
+    same: true
+- id: s168
+  para: 21
+  sent: 101
+  text: until nineteen sixty-four.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 1931 – 1964
+    pos: bottom
+- id: s169
+  para: 21
+  sent: 102
+  text: Those paintings appeared in magazines,
+  visual:
+    prompt: a 1950s American street with magazine stands, posters and shop windows all showing warm red-suited Santas,
+      no logos, no text
+    ledger: true
+  camera: left
+- id: s170
+  para: 21
+  sent: 102
+  text: on posters and on shop displays, again and again,
+  visual:
+    same: true
+- id: s171
+  para: 21
+  sent: 102
+  text: year after year, across America and then much of the world.
+  visual:
+    same: true
+- id: s172
+  para: 22
+  sent: 103
+  text: That kind of repetition is incredibly powerful.
+  visual:
+    prompt: hundreds of identical red Santa images repeating into the distance like wallpaper, dreamlike
+    ledger: true
+  camera: out
+- id: s173
+  para: 22
+  sent: 104
+  text: Coca-Cola did not invent the red Santa.
+  visual:
+    same: true
+- id: s174
+  para: 22
+  sent: 105
+  text: But it may well have done more than anyone else
+  visual:
+    same: true
+- id: s175
+  para: 22
+  sent: 105
+  text: to fix one particular version of him in the global imagination.
+  visual:
+    same: true
+- id: s176
+  para: 22
+  sent: 106
+  text: The rosy cheeks, the twinkle, the round belly, the cosy warmth.
+  visual:
+    prompt: a child with eyes closed imagining a rosy, twinkling Santa in a thought bubble, people drawn as simple
+      expressive ink figures
+    ledger: true
+  camera: in
+- id: s177
+  para: 22
+  sent: 107
+  text: When you picture Santa today,
+  visual:
+    same: true
+- id: s178
+  para: 22
+  sent: 107
+  text: there is a decent chance you are picturing a Sundblom.
+  visual:
+    same: true
+- id: s179
+  para: 23
+  sent: 108
+  text: And there is a reason the myth persists.
+  visual:
+    prompt: a red and white striped scarf next to a red and white Santa hat on a table, coincidence
+    ledger: true
+  camera: in
+- id: s180
+  para: 23
+  sent: 109
+  text: Coca-Cola's colours happen to be red and white.
+  visual:
+    same: true
+- id: s181
+  para: 23
+  sent: 110
+  text: So are Santa's.
+  visual:
+    same: true
+- id: s182
+  para: 23
+  sent: 111
+  text: It is a coincidence that makes a very convincing story.
+  visual:
+    same: true
+- id: s183
+  para: 23
+  sent: 112
+  text: The suit matches the can.
+  visual:
+    prompt: a plain red soda can with no logo standing next to a Santa suit on a hanger, comic
+    ledger: true
+  camera: right
+- id: s184
+  para: 23
+  sent: 113
+  text: Surely that is not an accident?
+  visual:
+    same: true
+- id: s185
+  para: 23
+  sent: 114
+  text: It is.
+  visual:
+    same: true
+- id: s186
+  para: 23
+  sent: 115
+  text: The suit came first.
+  visual:
+    same: true
+- id: s187
+  para: 23
+  sent: 116
+  text: The can simply had good taste.
+  visual:
+    same: true
+- id: s188
+  para: 24
+  sent: 117
+  text: 'Verdict: mostly wrong.'
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: MOSTLY WRONG
+    pos: center
+    color: '#e8402f'
+- id: s189
+  para: 25
+  sent: 118
+  text: Coca-Cola did not make Santa red.
+  visual:
+    prompt: a 19th-century cartoonist proudly holding up a hand-coloured print of a red-suited Santa
+    ledger: true
+  camera: in
+- id: s190
+  para: 25
+  sent: 119
+  text: Thomas Nast had him in red by eighteen eighty-one,
+  visual:
+    same: true
+- id: s191
+  para: 25
+  sent: 119
+  text: before the drink was invented.
+  visual:
+    same: true
+- id: s192
+  para: 25
+  sent: 120
+  text: Puck magazine had him in red
+  visual:
+    prompt: 'a gallery wall of Christmas art in time order: an elf-like Santa, a red lithograph Santa, a green-robed
+      Father Christmas, straight-on view'
+    ledger: true
+  camera: none
+- id: s193
+  para: 25
+  sent: 120
+  text: and white at the start of the twentieth century.
+  visual:
+    same: true
+- id: s194
+  para: 25
+  sent: 121
+  text: Another soft drink company used him in its adverts first.
+  visual:
+    same: true
+- id: s195
+  para: 25
+  sent: 122
+  text: And the famous green figure was a different
+  visual:
+    same: true
+- id: s196
+  para: 25
+  sent: 122
+  text: British tradition that had already faded away.
+  visual:
+    same: true
+- id: s197
+  para: 26
+  sent: 123
+  text: What Coca-Cola did was paint the most popular version of Santa,
+  visual:
+    prompt: a craftsman polishing a carved wooden Santa figure until it shines, symbolic, people drawn as simple
+      expressive ink figures
+    ledger: true
+  camera: in
+- id: s198
+  para: 26
+  sent: 123
+  text: beautifully, for over three decades,
+  visual:
+    same: true
+- id: s199
+  para: 26
+  sent: 123
+  text: and put it in front of the whole world.
+  visual:
+    same: true
+- id: s200
+  para: 26
+  sent: 124
+  text: It did not create him.
+  visual:
+    same: true
+- id: s201
+  para: 26
+  sent: 125
+  text: It polished him.
+  visual:
+    same: true
+- id: s202
+  para: 27
+  sent: 126
+  text: The real lesson is about how myths survive.
+  visual:
+    prompt: a rumour drawn as a paper aeroplane flying from person to person at a party, comic, people drawn as
+      simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s203
+  para: 27
+  sent: 127
+  text: A story that is surprising, slightly cynical,
+  visual:
+    same: true
+- id: s204
+  para: 27
+  sent: 127
+  text: and makes the teller sound clever
+  visual:
+    same: true
+- id: s205
+  para: 27
+  sent: 127
+  text: will travel further than a dull truth.
+  visual:
+    same: true
+- id: s206
+  para: 27
+  sent: 128
+  text: Even when the dull truth is printed
+  visual:
+    prompt: an old magazine cover lying ignored under a pile of party napkins
+    ledger: true
+  camera: in
+- id: s207
+  para: 27
+  sent: 128
+  text: on a magazine cover in nineteen oh two.
+  visual:
+    same: true
+- id: s208
+  para: 28
+  sent: 129
+  text: I have filed this one under advertising,
+  visual:
+    prompt: the clerk's hands sliding the file onto a shelf beside nine other case files
+    characters:
+    - clerk
+    ledger: true
+  camera: left
+- id: s209
+  para: 28
+  sent: 129
+  text: cross-referenced with coincidences.
+  visual:
+    same: true
+- id: s210
+  para: 29
+  sent: 130
+  text: Case closed.
+  visual:
+    prompt: the clerk's hands placing a tenth closed folder on top of a neat stack of folders, behind the desk a
+      long aisle of archive shelves crammed with thousands more folders stretching far away
+    characters:
+    - clerk
+    ledger: true
+- id: s211
+  para: 29
+  sent: 131
+  text: That brings our first ten case files to a close.
+  visual:
+    same: true
+- id: s212
+  para: 29
+  sent: 132
+  text: There are, I am sorry to report, many more.
+  visual:
+    same: true
+- id: s213
+  para: 29
+  sent: 133
+  text: 'Next case: three hundred Spartans,'
+  visual:
+    prompt: a small line of Spartan ink figures with round shields and crested helmets standing proudly in a narrow
+      mountain pass, while behind them a long crowd of other soldiers, helpers and servants is barely sketched in,
+      nobody looking at them, comic
+    characters: []
+    ledger: true
+- id: s214
+  para: 29
+  sent: 133
+  text: and the several thousand people nobody bothered to count.
+  visual:
+    same: true

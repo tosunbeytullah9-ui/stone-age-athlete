@@ -1,0 +1,1681 @@
+title: 004-napoleon-wasn-t-short
+paragraphs: 40
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: Napoleon Bonaparte.
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat,
+      white breeches and a black bicorne hat standing on a stone balcony, looking out over a vast army in formation
+      at dawn, grand and heroic, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s002
+  para: 0
+  sent: 1
+  text: Emperor of the French.
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 2
+  text: Conqueror of half of Europe.
+  visual:
+    same: true
+- id: s004
+  para: 0
+  sent: 3
+  text: And, as everyone knows, a tiny,
+  visual:
+    prompt: a tiny furious Napoleon in an absurdly gigantic bicorne hat, stamping his foot, drawn like a Georgian
+      satirical cartoon, exaggerated caricature
+    ledger: true
+  camera: out
+- id: s005
+  para: 0
+  sent: 3
+  text: furious little man in a very large hat.
+  visual:
+    same: true
+- id: s006
+  para: 1
+  sent: 4
+  text: He even has a psychological condition named after him.
+  visual:
+    prompt: a short man in a modern suit shouting up at a much taller, bored colleague in an office, people drawn
+      as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s007
+  para: 1
+  sent: 5
+  text: Short man, big temper, desperate to prove something.
+  visual:
+    same: true
+- id: s008
+  para: 1
+  sent: 6
+  text: You have probably used it yourself, about a colleague.
+  visual:
+    prompt: two office workers whispering behind their hands by a water cooler, glancing sideways at a short colleague
+      across the room
+    ledger: true
+  camera: left
+- id: s009
+  para: 1
+  sent: 7
+  text: Quietly.
+  visual:
+    same: true
+- id: s010
+  para: 1
+  sent: 8
+  text: Out of earshot.
+  visual:
+    same: true
+- id: s011
+  para: 2
+  sent: 9
+  text: Case file zero zero four.
+  visual:
+    prompt: the clerk's hands opening a worn folder that contains a small pen-and-ink portrait of Napoleon in a
+      bicorne hat
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  overlay:
+    kind: label
+    text: CASE FILE 004
+    pos: top
+- id: s012
+  para: 2
+  sent: 10
+  text: 'Subject: an emperor, and everyone who ever laughed at his height.'
+  visual:
+    same: true
+- id: s013
+  para: 2
+  sent: 11
+  text: 'Belief: Napoleon was a tiny man with a temper to match.'
+  visual:
+    same: true
+- id: s014
+  para: 3
+  sent: 12
+  text: I should declare an interest.
+  visual:
+    prompt: the remote rocky island of Saint Helena rising from a grey South Atlantic sea, low clouds, a lonely
+      house on the plateau
+    ledger: true
+  camera: right
+- id: s015
+  para: 3
+  sent: 13
+  text: I was on Saint Helena in eighteen twenty-one.
+  visual:
+    same: true
+- id: s016
+  para: 3
+  sent: 14
+  text: Not socially.
+  visual:
+    same: true
+- id: s017
+  para: 3
+  sent: 15
+  text: I was there for the paperwork.
+  visual:
+    same: true
+- id: s018
+  para: 3
+  sent: 16
+  text: And the paperwork, as usual,
+  visual:
+    prompt: the clerk's hands untying a ribbon around a stack of yellowed papers with red wax seals
+    characters:
+    - clerk
+    ledger: true
+  camera: in
+- id: s019
+  para: 3
+  sent: 16
+  text: tells a rather different story from the one you were taught.
+  visual:
+    same: true
+- id: s020
+  para: 4
+  sent: 17
+  text: Let us begin with the body.
+  visual:
+    prompt: a plain bedroom in Longwood House in 1821, a simple narrow camp bed, guttering candles
+    ledger: true
+  camera: in
+- id: s021
+  para: 4
+  sent: 18
+  text: Napoleon died on the fifth of May,
+  visual:
+    same: true
+- id: s022
+  para: 4
+  sent: 18
+  text: eighteen twenty-one, in exile,
+  visual:
+    same: true
+- id: s023
+  para: 4
+  sent: 18
+  text: on a small rock in the South Atlantic.
+  visual:
+    same: true
+- id: s024
+  para: 4
+  sent: 19
+  text: His physician, Francesco Antommarchi, measured him.
+  visual:
+    prompt: a physician in a dark coat holding a long folding wooden measuring rule beside a bed covered with a
+      white sheet, a valet holding a candle, solemn and respectful
+    ledger: true
+  camera: none
+- id: s025
+  para: 4
+  sent: 20
+  text: His valet, Louis Marchand, helped.
+  visual:
+    same: true
+- id: s026
+  para: 4
+  sent: 21
+  text: And the number they wrote down was five feet, two inches.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 5 pieds 2 pouces
+    pos: bottom
+- id: s027
+  para: 5
+  sent: 22
+  text: There it is.
+  visual:
+    prompt: a tiny toy tin soldier of Napoleon standing next to a long wooden measuring rule on a table, comic scale,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s028
+  para: 5
+  sent: 23
+  text: Five foot two.
+  visual:
+    same: true
+- id: s029
+  para: 5
+  sent: 24
+  text: Case closed, you might think.
+  visual:
+    same: true
+- id: s030
+  para: 5
+  sent: 25
+  text: A small man.
+  visual:
+    prompt: a British gentleman in a coffee house laughing heartily at a caricature print, quill pen behind his
+      ear
+    ledger: true
+  camera: left
+- id: s031
+  para: 5
+  sent: 26
+  text: The cartoonists were right.
+  visual:
+    same: true
+- id: s032
+  para: 5
+  sent: 27
+  text: Off you go.
+  visual:
+    same: true
+- id: s033
+  para: 6
+  sent: 28
+  text: Except for one tiny detail.
+  visual:
+    prompt: two antique wooden rulers lying side by side, one French and one English, their markings visibly spaced
+      differently, close-up, no numbers
+    ledger: true
+  camera: right
+  tone:
+  - pause
+- id: s034
+  para: 6
+  sent: 29
+  text: Those were not your feet, and they were not your inches.
+  visual:
+    same: true
+- id: s035
+  para: 7
+  sent: 30
+  text: The measurement was taken in old French units.
+  visual:
+    prompt: an eighteenth-century French merchant's counter with brass and wooden measuring rods, a tailor's chalk
+      and fabric
+    ledger: true
+  camera: in
+- id: s036
+  para: 7
+  sent: 31
+  text: Pieds and pouces.
+  visual:
+    same: true
+- id: s037
+  para: 7
+  sent: 32
+  text: And a French inch, a pouce,
+  visual:
+    prompt: extreme close-up of two inch marks on two old rulers, the French mark clearly wider than the English
+      one, ink and ink diagram style, no numbers
+    ledger: true
+  camera: none
+- id: s038
+  para: 7
+  sent: 32
+  text: was about two point seven centimetres.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 1 pouce ≈ 2.71 cm  |  1 inch = 2.54 cm
+    pos: bottom
+- id: s039
+  para: 7
+  sent: 33
+  text: An English inch is two point five four.
+  visual:
+    same: true
+- id: s040
+  para: 7
+  sent: 34
+  text: The French foot was longer too.
+  visual:
+    prompt: a confused tailor holding two different rulers, one in each hand, shrugging
+    ledger: true
+  camera: out
+- id: s041
+  para: 7
+  sent: 35
+  text: Same words, different ruler.
+  visual:
+    same: true
+- id: s042
+  para: 8
+  sent: 36
+  text: So do the arithmetic, which nobody in London bothered to do.
+  visual:
+    prompt: a smug London gentleman reading a newspaper in a club armchair, ignoring an abacus and a pile of conversion
+      tables on the side table
+    ledger: true
+  camera: left
+- id: s043
+  para: 8
+  sent: 37
+  text: Five pieds, two pouces and four lignes,
+  visual:
+    same: true
+- id: s044
+  para: 8
+  sent: 37
+  text: the last little bit,
+  visual:
+    same: true
+- id: s045
+  para: 8
+  sent: 37
+  text: comes to about one hundred and sixty-eight centimetres.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: ≈ 168 cm
+    pos: center
+- id: s046
+  para: 8
+  sent: 38
+  text: One metre sixty-eight,
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat,
+      white breeches and a black bicorne hat standing beside a tailor's height chart on a wall, perfectly normal
+      proportions, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s047
+  para: 8
+  sent: 38
+  text: or roughly five foot six in English measure.
+  visual:
+    same: true
+- id: s048
+  para: 9
+  sent: 39
+  text: And there is a second opinion.
+  visual:
+    prompt: an English upholsterer with a cloth tape measure in a candlelit room at Longwood House, a French general
+      standing by, respectful
+    ledger: true
+  camera: right
+- id: s049
+  para: 9
+  sent: 40
+  text: An English upholsterer named Andrew Darling
+  visual:
+    same: true
+- id: s050
+  para: 9
+  sent: 40
+  text: also measured the body,
+  visual:
+    same: true
+- id: s051
+  para: 9
+  sent: 40
+  text: with an English tape.
+  visual:
+    same: true
+- id: s052
+  para: 9
+  sent: 41
+  text: He wrote down five feet seven inches.
+  visual:
+    prompt: a stiff British officer in a red coat, arms folded, reluctantly nodding at a measuring tape
+    ledger: true
+  camera: in
+  overlay:
+    kind: stat
+    text: 5 ft 7 in ≈ 170 cm
+    pos: bottom
+- id: s053
+  para: 9
+  sent: 42
+  text: About one metre seventy.
+  visual:
+    same: true
+- id: s054
+  para: 9
+  sent: 43
+  text: A British witness, with a British ruler.
+  visual:
+    same: true
+- id: s055
+  para: 9
+  sent: 44
+  text: Not exactly a member of the Napoleon fan club.
+  visual:
+    same: true
+- id: s056
+  para: 10
+  sent: 45
+  text: Back in eighteen oh two,
+  visual:
+    prompt: an elegant salon in Paris in 1802, the First Consul Napoleon Bonaparte, a slim man of ordinary height
+      with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat greeting a visiting
+      gentleman, both men of similar height, straight-on view, people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s057
+  para: 10
+  sent: 45
+  text: a visitor named John Leslie Foster saw the First Consul
+  visual:
+    same: true
+- id: s058
+  para: 10
+  sent: 45
+  text: and described him as about five foot seven.
+  visual:
+    same: true
+- id: s059
+  para: 10
+  sent: 46
+  text: That was before anyone needed him to be small.
+  visual:
+    same: true
+- id: s060
+  para: 11
+  sent: 47
+  text: The confusion never quite went away.
+  visual:
+    prompt: a 1960s print shop, a typesetter setting small metal letters in a composing stick, ink rollers and stacks
+      of paper
+    ledger: true
+  camera: in
+- id: s061
+  para: 11
+  sent: 48
+  text: In nineteen sixty-three,
+  visual:
+    same: true
+- id: s062
+  para: 11
+  sent: 48
+  text: a scholarly journal in France printed his height
+  visual:
+    same: true
+- id: s063
+  para: 11
+  sent: 48
+  text: as one metre sixty-four.
+  visual:
+    same: true
+  overlay:
+    kind: stat
+    text: 1.64 m → 1.68 m
+    pos: bottom
+- id: s064
+  para: 11
+  sent: 49
+  text: A typo.
+  visual:
+    prompt: the clerk's hands filing two thin scholarly pamphlets side by side into a drawer
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s065
+  para: 11
+  sent: 50
+  text: The next issue had to correct it to one metre sixty-eight.
+  visual:
+    same: true
+- id: s066
+  para: 11
+  sent: 51
+  text: Even the correction of the myth needed a correction.
+  visual:
+    same: true
+- id: s067
+  para: 11
+  sent: 52
+  text: I filed both.
+  visual:
+    same: true
+- id: s068
+  para: 12
+  sent: 53
+  text: Now, five foot six or seven is not tall today.
+  visual:
+    prompt: straight-on front view of a row of seven ordinary French men of the 1790s, farmers, soldiers and shopkeepers,
+      all of similar height, one row, none overlapping, people drawn as simple expressive ink figures
+    ledger: true
+  camera: none
+- id: s069
+  para: 12
+  sent: 54
+  text: But Napoleon was not born today.
+  visual:
+    same: true
+- id: s070
+  para: 12
+  sent: 55
+  text: He was born in seventeen sixty-nine,
+  visual:
+    same: true
+- id: s071
+  para: 12
+  sent: 55
+  text: and in his day he was roughly average.
+  visual:
+    same: true
+- id: s072
+  para: 12
+  sent: 56
+  text: Some historians put him slightly above
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat,
+      white breeches and a black bicorne hat in a crowded French market square, the same height as the citizens
+      around him, people drawn as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s073
+  para: 12
+  sent: 56
+  text: the average Frenchman of his time.
+  visual:
+    same: true
+- id: s074
+  para: 12
+  sent: 57
+  text: Not a giant.
+  visual:
+    same: true
+- id: s075
+  para: 12
+  sent: 58
+  text: Not a dwarf.
+  visual:
+    same: true
+- id: s076
+  para: 12
+  sent: 59
+  text: A perfectly ordinary-sized man
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat,
+      white breeches and a black bicorne hat admiring himself in a tall gilded mirror, chin raised proudly, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s077
+  para: 12
+  sent: 59
+  text: with a perfectly extraordinary ego.
+  visual:
+    same: true
+- id: s078
+  para: 13
+  sent: 60
+  text: So where did the tiny emperor come from?
+  visual:
+    prompt: the clerk's hands laying three evidence objects in one row on the desk, a wooden ruler, a tall fur bearskin
+      hat and a quill pen, straight-on view
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+  tone:
+  - pause
+- id: s079
+  para: 13
+  sent: 61
+  text: Three suspects.
+  visual:
+    same: true
+- id: s080
+  para: 13
+  sent: 62
+  text: A ruler, a bodyguard, and a man with a pen.
+  visual:
+    same: true
+- id: s081
+  para: 14
+  sent: 63
+  text: Suspect one, the ruler.
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.93
+      - 1.0
+      colors:
+      - bad
+      - good
+- id: s082
+  para: 14
+  sent: 64
+  text: We have covered it.
+  visual:
+    same: true
+- id: s083
+  para: 14
+  sent: 65
+  text: French inches were read as English inches,
+  visual:
+    same: true
+- id: s084
+  para: 14
+  sent: 65
+  text: and the man lost about ten centimetres overnight.
+  visual:
+    same: true
+- id: s085
+  para: 14
+  sent: 66
+  text: Without even dieting.
+  visual:
+    same: true
+- id: s086
+  para: 15
+  sent: 67
+  text: Suspect two, the company he kept.
+  visual:
+    prompt: a long line of French Imperial Guard grenadiers in towering black bearskin hats on parade, blue coats
+      with white crossbelts
+    ledger: true
+  camera: left
+- id: s087
+  para: 15
+  sent: 68
+  text: Napoleon's Imperial Guard was the elite of his army,
+  visual:
+    same: true
+- id: s088
+  para: 15
+  sent: 68
+  text: and it was picked partly for size.
+  visual:
+    same: true
+- id: s089
+  para: 15
+  sent: 69
+  text: A grenadier of the Old Guard had to stand at least five foot ten.
+  visual:
+    prompt: a tall grenadier recruit standing against a wooden height post while a sergeant checks him, a bearskin
+      hat waiting on a stool
+    ledger: true
+  camera: in
+  overlay:
+    kind: stat
+    text: min. 178 cm
+    pos: bottom
+- id: s090
+  para: 15
+  sent: 70
+  text: Roughly one metre seventy-eight.
+  visual:
+    same: true
+- id: s091
+  para: 15
+  sent: 71
+  text: Then they put tall bearskin hats on top.
+  visual:
+    same: true
+- id: s092
+  para: 16
+  sent: 72
+  text: Now stand a man of one metre sixty-eight in the middle of that.
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat,
+      white breeches and a black bicorne hat in his plain green coat standing among tall grenadiers in bearskin
+      hats and marshals with feathered hats and gold braid, he looks small among them, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s093
+  para: 16
+  sent: 73
+  text: In a plain green colonel's coat,
+  visual:
+    same: true
+- id: s094
+  para: 16
+  sent: 73
+  text: while his marshals wear feathers and gold braid.
+  visual:
+    same: true
+- id: s095
+  para: 16
+  sent: 74
+  text: Of course he looks small.
+  visual:
+    prompt: an ordinary man standing among very tall basketball players, looking like a garden gnome, humorous ink
+      and ink sketch, people drawn as simple expressive ink figures
+    ledger: true
+  camera: out
+- id: s096
+  para: 16
+  sent: 75
+  text: Put anyone next to a basketball team
+  visual:
+    same: true
+- id: s097
+  para: 16
+  sent: 75
+  text: and they look like a garden gnome.
+  visual:
+    same: true
+- id: s098
+  para: 17
+  sent: 76
+  text: And then there is the nickname.
+  visual:
+    prompt: French soldiers around a campfire at night, raising their cups and cheering their young general, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s099
+  para: 17
+  sent: 77
+  text: Le petit caporal.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: le petit caporal
+    pos: bottom
+- id: s100
+  para: 17
+  sent: 78
+  text: The little corporal.
+  visual:
+    same: true
+- id: s101
+  para: 17
+  sent: 79
+  text: Surely that settles it?
+  visual:
+    same: true
+- id: s102
+  para: 18
+  sent: 80
+  text: It does not.
+  visual:
+    prompt: veteran soldiers smiling fondly and lifting their hats as Napoleon Bonaparte, a slim man of ordinary
+      height with short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat rides
+      past on a horse, people drawn as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s103
+  para: 18
+  sent: 81
+  text: His soldiers used it, and in French,
+  visual:
+    same: true
+- id: s104
+  para: 18
+  sent: 81
+  text: petit is often affection, not measurement.
+  visual:
+    same: true
+- id: s105
+  para: 18
+  sent: 82
+  text: It is what you call someone you are fond of.
+  visual:
+    same: true
+- id: s106
+  para: 18
+  sent: 83
+  text: The legend says the name was born at the Battle of Lodi,
+  visual:
+    prompt: the Battle of Lodi in 1796, a long wooden bridge over a river, cannon smoke, a young general in uniform
+      aiming a cannon himself among gunners
+    ledger: true
+  camera: in
+- id: s107
+  para: 18
+  sent: 83
+  text: in seventeen ninety-six,
+  visual:
+    same: true
+- id: s108
+  para: 18
+  sent: 83
+  text: when the young general aimed the cannons himself,
+  visual:
+    same: true
+- id: s109
+  para: 18
+  sent: 83
+  text: like a common corporal.
+  visual:
+    same: true
+- id: s110
+  para: 18
+  sent: 84
+  text: Lovely story.
+  visual:
+    prompt: the clerk's hands sliding a folder to the side of the desk, unimpressed, a cup of tea nearby
+    characters:
+    - clerk
+    ledger: true
+  camera: none
+- id: s111
+  para: 18
+  sent: 85
+  text: Historians point out there is no contemporary evidence for it.
+  visual:
+    same: true
+- id: s112
+  para: 18
+  sent: 86
+  text: Either way, it was a pet name, not a tape measure.
+  visual:
+    same: true
+- id: s113
+  para: 19
+  sent: 87
+  text: Which brings us to suspect three.
+  visual:
+    prompt: a Georgian London workshop at night, ink pots and burins
+    ledger: true
+  camera: in
+- id: s114
+  para: 19
+  sent: 88
+  text: The real culprit.
+  visual:
+    same: true
+- id: s115
+  para: 19
+  sent: 89
+  text: A Londoner named James Gillray.
+  visual:
+    same: true
+- id: s116
+  para: 20
+  sent: 90
+  text: Gillray was the most famous caricaturist in Britain.
+  visual:
+    prompt: a crowd of Londoners in 1800s clothing pressing their faces against a print shop window on a busy street,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s117
+  para: 20
+  sent: 91
+  text: His prints hung in the window of a shop on Saint James's Street,
+  visual:
+    same: true
+- id: s118
+  para: 20
+  sent: 91
+  text: and crowds pressed against the glass to see the latest one.
+  visual:
+    same: true
+- id: s119
+  para: 20
+  sent: 92
+  text: From seventeen ninety-seven,
+  visual:
+    prompt: a gentleman in a dark coat discreetly sliding a purse of coins across a table to an artist
+    ledger: true
+  camera: in
+- id: s120
+  para: 20
+  sent: 92
+  text: he was reportedly receiving money
+  visual:
+    same: true
+- id: s121
+  para: 20
+  sent: 92
+  text: from the government of William Pitt.
+  visual:
+    same: true
+- id: s122
+  para: 20
+  sent: 93
+  text: And he never once saw Napoleon in person.
+  visual:
+    same: true
+- id: s123
+  para: 21
+  sent: 94
+  text: When the Peace of Amiens collapsed
+  visual:
+    prompt: British warships sailing out under dark storm clouds, war returning, white cliffs behind
+    ledger: true
+  camera: left
+- id: s124
+  para: 21
+  sent: 94
+  text: in eighteen oh three and war returned,
+  visual:
+    same: true
+- id: s125
+  para: 21
+  sent: 94
+  text: Gillray went to work.
+  visual:
+    same: true
+- id: s126
+  para: 21
+  sent: 95
+  text: He drew Napoleon as a spoiled, screaming child, with a giant hat,
+  visual:
+    prompt: a tiny screaming spoiled-child Napoleon with a giant bicorne hat, enormous boots and a sword longer
+      than himself, drawn like a Georgian satirical cartoon, exaggerated caricature, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s127
+  para: 21
+  sent: 95
+  text: enormous boots and a sword longer than he was.
+  visual:
+    same: true
+- id: s128
+  para: 21
+  sent: 96
+  text: And he gave him a name.
+  visual:
+    same: true
+- id: s129
+  para: 21
+  sent: 97
+  text: Little Boney.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: LITTLE BONEY
+    pos: top
+- id: s130
+  para: 22
+  sent: 98
+  text: The temper came from real life, slightly enlarged.
+  visual:
+    prompt: a grand reception room in the Tuileries palace, Napoleon Bonaparte, a slim man of ordinary height with
+      short dark hair, in a plain green colonel's coat, white breeches and a black bicorne hat angrily confronting
+      a British ambassador while diplomats stare in shock, people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s131
+  para: 22
+  sent: 99
+  text: In March eighteen oh three,
+  visual:
+    same: true
+- id: s132
+  para: 22
+  sent: 99
+  text: Napoleon lost his patience with the British ambassador,
+  visual:
+    same: true
+- id: s133
+  para: 22
+  sent: 99
+  text: Lord Whitworth, in front of a room full of diplomats.
+  visual:
+    same: true
+- id: s134
+  para: 22
+  sent: 100
+  text: The London papers reported that he had threatened
+  visual:
+    prompt: London newspaper presses rolling, freshly printed sheets stacked high, newsboys running out the door
+    ledger: true
+  camera: in
+- id: s135
+  para: 22
+  sent: 100
+  text: to invade with four or five hundred thousand men.
+  visual:
+    same: true
+- id: s136
+  para: 22
+  sent: 101
+  text: Gillray drew him mid-tantrum,
+  visual:
+    prompt: Napoleon in a wild tantrum, a table kicked over and a globe rolling on the floor, drawn like a Georgian
+      satirical cartoon, exaggerated caricature
+    ledger: true
+  camera: out
+- id: s137
+  para: 22
+  sent: 101
+  text: the table kicked over,
+  visual:
+    same: true
+- id: s138
+  para: 22
+  sent: 101
+  text: the globe on the floor.
+  visual:
+    same: true
+- id: s139
+  para: 22
+  sent: 102
+  text: Small, loud, and dangerous.
+  visual:
+    same: true
+- id: s140
+  para: 22
+  sent: 103
+  text: A brand was born.
+  visual:
+    same: true
+- id: s141
+  para: 23
+  sent: 104
+  text: In June eighteen oh three,
+  visual:
+    prompt: a gigantic King George the Third peering through a spyglass at a tiny Napoleon standing in the palm
+      of his hand, drawn like a Georgian satirical cartoon, exaggerated caricature, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s142
+  para: 23
+  sent: 104
+  text: he published The King of Brobdingnag and Gulliver.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: Gillray, 1803
+    pos: bottom
+- id: s143
+  para: 23
+  sent: 105
+  text: King George the Third, enormous,
+  visual:
+    same: true
+- id: s144
+  para: 23
+  sent: 105
+  text: peers through a spyglass at a tiny Napoleon standing
+  visual:
+    same: true
+- id: s145
+  para: 23
+  sent: 105
+  text: in the palm of his hand.
+  visual:
+    same: true
+- id: s146
+  para: 24
+  sent: 106
+  text: In eighteen oh five came his masterpiece,
+  visual:
+    prompt: two men at a dinner table carving a large globe like a Christmas pudding, one tall and lanky, the other
+      small, drawn like a Georgian satirical cartoon, exaggerated caricature, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: in
+- id: s147
+  para: 24
+  sent: 106
+  text: The Plumb-pudding in Danger.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: Gillray, 1805
+    pos: bottom
+- id: s148
+  para: 24
+  sent: 107
+  text: Napoleon and Pitt sit at a table,
+  visual:
+    same: true
+- id: s149
+  para: 24
+  sent: 107
+  text: carving up the globe like a Christmas pudding.
+  visual:
+    same: true
+- id: s150
+  para: 24
+  sent: 108
+  text: Pitt is tall and lanky.
+  visual:
+    prompt: a very tall thin British statesman standing next to a Napoleon half his height, side by side, drawn
+      like a Georgian satirical cartoon, exaggerated caricature
+    ledger: true
+  camera: out
+- id: s151
+  para: 24
+  sent: 109
+  text: Napoleon is about half his size.
+  visual:
+    same: true
+- id: s152
+  para: 24
+  sent: 110
+  text: It is often called the most famous political cartoon of all time.
+  visual:
+    same: true
+- id: s153
+  para: 25
+  sent: 111
+  text: Other artists joined in.
+  visual:
+    prompt: a miniature Napoleon rising out of a candlestick while a Cossack lowers a candle snuffer over him, drawn
+      like a Georgian satirical cartoon, exaggerated caricature
+    ledger: true
+  camera: in
+- id: s154
+  para: 25
+  sent: 112
+  text: In eighteen fourteen, George Cruikshank drew Snuffing Out Boney.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: Cruikshank, 1814
+    pos: bottom
+- id: s155
+  para: 25
+  sent: 113
+  text: A miniature Napoleon rises out of a candlestick,
+  visual:
+    same: true
+- id: s156
+  para: 25
+  sent: 113
+  text: and a Cossack puts him out like a candle flame.
+  visual:
+    same: true
+- id: s157
+  para: 26
+  sent: 114
+  text: Napoleon noticed.
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat,
+      white breeches and a black bicorne hat in exile, sitting at a desk and frowning at a satirical print in his
+      hands, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s158
+  para: 26
+  sent: 115
+  text: He reportedly complained that Gillray did more
+  visual:
+    same: true
+- id: s159
+  para: 26
+  sent: 115
+  text: to bring him down than all the armies of Europe.
+  visual:
+    same: true
+- id: s160
+  para: 26
+  sent: 116
+  text: In eighteen oh six, he even demanded that the British
+  visual:
+    prompt: British ministers around a table politely ignoring an unopened French letter, sipping tea
+    ledger: true
+  camera: right
+- id: s161
+  para: 26
+  sent: 116
+  text: government censor its cartoonists.
+  visual:
+    same: true
+- id: s162
+  para: 26
+  sent: 117
+  text: The British government, with great politeness, ignored him.
+  visual:
+    same: true
+- id: s163
+  para: 27
+  sent: 118
+  text: To be fair to the British,
+  visual:
+    prompt: the painter Jacques-Louis David in his studio at a huge canvas, sketching a rearing horse
+    ledger: true
+  camera: left
+- id: s164
+  para: 27
+  sent: 118
+  text: Napoleon was running his own image factory.
+  visual:
+    same: true
+- id: s165
+  para: 27
+  sent: 119
+  text: He asked the painter Jacques-Louis David to show him calm,
+  visual:
+    same: true
+- id: s166
+  para: 27
+  sent: 119
+  text: on a fiery steed, crossing the Alps.
+  visual:
+    same: true
+- id: s167
+  para: 27
+  sent: 120
+  text: David delivered a rearing stallion,
+  visual:
+    prompt: Napoleon on a rearing white stallion on a stormy alpine pass, billowing golden cloak, pointing heroically
+      upward, grand neoclassical drawing style
+    ledger: true
+  camera: in
+- id: s168
+  para: 27
+  sent: 120
+  text: a billowing cloak and a heroic finger pointing at destiny.
+  visual:
+    same: true
+- id: s169
+  para: 27
+  sent: 121
+  text: Napoleon refused to sit for it.
+  visual:
+    prompt: a painter's studio with a marble bust of Napoleon on a plinth and a young man posing on a wooden model
+      horse, people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s170
+  para: 27
+  sent: 122
+  text: David used a bust for the face and his own son for the pose.
+  visual:
+    same: true
+- id: s171
+  para: 28
+  sent: 123
+  text: Fifty years later, the painter Paul Delaroche painted
+  visual:
+    prompt: Napoleon wrapped in a grey greatcoat riding a mule up a snowy mountain path, led by a local guide on
+      foot, sombre and simple
+    ledger: true
+  camera: in
+- id: s172
+  para: 28
+  sent: 123
+  text: the same crossing more honestly.
+  visual:
+    same: true
+- id: s173
+  para: 28
+  sent: 124
+  text: Napoleon, wrapped against the cold, on a mule.
+  visual:
+    same: true
+- id: s174
+  para: 28
+  sent: 125
+  text: Two sides, two sets of pictures, two lies.
+  visual:
+    prompt: two contrasting pictures side by side on an easel, on the left a heroic giant Napoleon on horseback,
+      on the right a tiny caricature Napoleon
+    ledger: true
+  camera: out
+- id: s175
+  para: 28
+  sent: 126
+  text: One made him a giant.
+  visual:
+    same: true
+- id: s176
+  para: 28
+  sent: 127
+  text: The other made him a toy.
+  visual:
+    same: true
+- id: s177
+  para: 28
+  sent: 128
+  text: Guess which one stuck.
+  visual:
+    same: true
+- id: s178
+  para: 29
+  sent: 129
+  text: Which leaves the last piece of evidence.
+  visual:
+    prompt: the clerk's hands opening the last folder in the pile under the lamp
+    characters:
+    - clerk
+    ledger: true
+  camera: in
+  tone:
+  - serious
+- id: s179
+  para: 29
+  sent: 130
+  text: The thing named after him.
+  visual:
+    same: true
+- id: s180
+  para: 29
+  sent: 131
+  text: The Napoleon complex.
+  visual:
+    same: true
+- id: s181
+  para: 30
+  sent: 132
+  text: The idea is simple.
+  visual:
+    prompt: a short man with clenched fists shouting at a much taller man who looks bored, modern office, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: left
+- id: s182
+  para: 30
+  sent: 133
+  text: Short men are more aggressive, because they are compensating.
+  visual:
+    same: true
+- id: s183
+  para: 30
+  sent: 134
+  text: It sounds plausible.
+  visual:
+    same: true
+- id: s184
+  para: 30
+  sent: 135
+  text: And it is exactly the kind of thing you can believe
+  visual:
+    prompt: a man in an armchair nodding along to a newspaper, the calendar on the wall shedding its pages, his
+      hair turning grey, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s185
+  para: 30
+  sent: 135
+  text: for a whole lifetime without ever testing it.
+  visual:
+    same: true
+- id: s186
+  para: 31
+  sent: 136
+  text: In two thousand seven,
+  visual:
+    prompt: a university laboratory, two men fencing playfully with wooden sticks, one rapping the other on the
+      knuckles, researchers with clipboards and heart monitors watching, people drawn as simple expressive ink figures
+    ledger: true
+  camera: right
+- id: s187
+  para: 31
+  sent: 136
+  text: researchers at the University of Central Lancashire tested it.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: UCLan, 2007
+    pos: bottom
+- id: s188
+  para: 31
+  sent: 137
+  text: They paired men in a stick-fencing exercise,
+  visual:
+    same: true
+- id: s189
+  para: 31
+  sent: 137
+  text: and one of them deliberately rapped his partner on the knuckles.
+  visual:
+    same: true
+- id: s190
+  para: 31
+  sent: 138
+  text: Then they watched who lost his temper.
+  visual:
+    prompt: a calm short man smiling while a red-faced tall man swings back angrily, researchers taking notes, people
+      drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s191
+  para: 31
+  sent: 139
+  text: The short men mostly stayed calm.
+  visual:
+    same: true
+- id: s192
+  para: 31
+  sent: 140
+  text: It was the taller men who were more likely to hit back.
+  visual:
+    same: true
+- id: s193
+  para: 32
+  sent: 141
+  text: In two thousand eighteen,
+  visual:
+    prompt: a psychology laboratory, two men at a table dividing a pile of coins, the shorter man pulling a slightly
+      larger pile toward himself, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s194
+  para: 32
+  sent: 141
+  text: a team at the Vrije Universiteit Amsterdam looked again.
+  visual:
+    same: true
+  overlay:
+    kind: label
+    text: VU Amsterdam, 2018
+    pos: bottom
+- id: s195
+  para: 32
+  sent: 142
+  text: In a money-sharing game,
+  visual:
+    same: true
+- id: s196
+  para: 32
+  sent: 142
+  text: shorter men did keep a little more
+  visual:
+    same: true
+- id: s197
+  para: 32
+  sent: 142
+  text: for themselves when playing against a taller man.
+  visual:
+    same: true
+- id: s198
+  para: 32
+  sent: 143
+  text: But they were not more likely to become physically aggressive.
+  visual:
+    prompt: a short man calmly playing chess, relaxed and strategic, no fighting, people drawn as simple expressive
+      ink figures
+    ledger: true
+  camera: left
+- id: s199
+  para: 32
+  sent: 144
+  text: Slightly more strategic, perhaps.
+  visual:
+    same: true
+- id: s200
+  para: 32
+  sent: 145
+  text: Angrier, no.
+  visual:
+    same: true
+- id: s201
+  para: 33
+  sent: 146
+  text: One of the earlier researchers, Mike Eslea, had a theory.
+  visual:
+    prompt: a crowd staring and pointing at a short angry man, while beside him a tall angry man is ignored by everyone,
+      people drawn as simple expressive ink figures
+    ledger: true
+  camera: out
+- id: s202
+  para: 33
+  sent: 147
+  text: When a short man gets angry,
+  visual:
+    same: true
+- id: s203
+  para: 33
+  sent: 147
+  text: people blame his height,
+  visual:
+    same: true
+- id: s204
+  para: 33
+  sent: 147
+  text: because his height is the first thing they notice.
+  visual:
+    same: true
+- id: s205
+  para: 33
+  sent: 148
+  text: When a tall man gets angry, he is just a man having a bad day.
+  visual:
+    same: true
+- id: s206
+  para: 34
+  sent: 149
+  text: 'Verdict: wrong.'
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+    ledger: true
+  camera: in
+  overlay:
+    kind: label
+    text: WRONG
+    pos: center
+    color: '#e8402f'
+  tone:
+  - pause
+- id: s207
+  para: 35
+  sent: 150
+  text: Napoleon Bonaparte was
+  visual:
+    prompt: straight-on view of Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain
+      green colonel's coat, white breeches and a black bicorne hat standing beside a tall wall height chart, normal
+      height, people drawn as simple expressive ink figures
+    ledger: true
+  camera: none
+- id: s208
+  para: 35
+  sent: 150
+  text: about one metre sixty-eight to one metre seventy.
+  visual:
+    same: true
+- id: s209
+  para: 35
+  sent: 151
+  text: Roughly average for his time.
+  visual:
+    same: true
+- id: s210
+  para: 35
+  sent: 152
+  text: He was shrunk by a unit conversion,
+  visual:
+    prompt: a wooden ruler, a black bearskin hat and a quill pen arranged together on a desk like evidence, straight-on
+      view, one row, none overlapping
+    ledger: true
+  camera: in
+- id: s211
+  para: 35
+  sent: 152
+  text: surrounded by giants in bearskin hats,
+  visual:
+    same: true
+- id: s212
+  para: 35
+  sent: 152
+  text: and drawn as a toddler by a man who never met him.
+  visual:
+    same: true
+- id: s213
+  para: 36
+  sent: 153
+  text: He conquered most of Europe.
+  visual:
+    prompt: Napoleon Bonaparte, a slim man of ordinary height with short dark hair, in a plain green colonel's coat,
+      white breeches and a black bicorne hat in coronation robes crowning himself inside Notre-Dame cathedral, grand
+      ceremony, people drawn as simple expressive ink figures
+    ledger: true
+  camera: in
+- id: s214
+  para: 36
+  sent: 154
+  text: He rewrote French law.
+  visual:
+    same: true
+- id: s215
+  para: 36
+  sent: 155
+  text: He crowned himself emperor.
+  visual:
+    same: true
+- id: s216
+  para: 36
+  sent: 156
+  text: And two hundred years later,
+  visual:
+    prompt: modern museum visitors smirking at a small statue of Napoleon on a pedestal
+    ledger: true
+  camera: right
+- id: s217
+  para: 36
+  sent: 156
+  text: the one thing everyone remembers
+  visual:
+    same: true
+- id: s218
+  para: 36
+  sent: 156
+  text: about him is a height he never had.
+  visual:
+    same: true
+- id: s219
+  para: 37
+  sent: 157
+  text: There is a lesson in that, and it is not about height.
+  visual:
+    prompt: a cartoonist's desk with an ink pot, a quill and an hourglass slowly running out
+    ledger: true
+  camera: in
+- id: s220
+  para: 37
+  sent: 158
+  text: If you want to shrink someone,
+  visual:
+    same: true
+- id: s221
+  para: 37
+  sent: 158
+  text: you do not need to beat their armies.
+  visual:
+    same: true
+- id: s222
+  para: 37
+  sent: 159
+  text: You just need a good cartoonist, and enough time.
+  visual:
+    same: true
+- id: s223
+  para: 38
+  sent: 160
+  text: I am filing this one under propaganda,
+  visual:
+    prompt: the clerk's hands sliding a very thick folder onto a crowded archive shelf
+    characters:
+    - clerk
+    ledger: true
+  camera: left
+- id: s224
+  para: 38
+  sent: 160
+  text: cross-referenced with measurement errors.
+  visual:
+    same: true
+- id: s225
+  para: 38
+  sent: 161
+  text: It is a very thick folder.
+  visual:
+    same: true
+- id: s226
+  para: 39
+  sent: 162
+  text: Case closed.
+  visual:
+    prompt: the clerk's hands closing the worn Napoleon folder and pressing the brass rubber stamp firmly onto its
+      cover, the ink pad beside it
+    characters:
+    - clerk
+    ledger: true
+- id: s227
+  para: 39
+  sent: 163
+  text: Your file, however, remains open.
+  visual:
+    same: true
+- id: s228
+  para: 39
+  sent: 164
+  text: 'Next case: three hundred crunches a night,'
+  visual:
+    prompt: a comic ink figure in pyjamas doing crunches on a bedroom rug late at night, a wall clock above the
+      bed, his round belly sticking up exactly the same as before, a tired cat watching from the pillow
+    characters: []
+    ledger: true
+- id: s229
+  para: 39
+  sent: 164
+  text: and the belly fat that never noticed.
+  visual:
+    same: true

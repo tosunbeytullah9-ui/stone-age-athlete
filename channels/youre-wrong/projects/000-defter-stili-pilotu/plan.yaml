@@ -1,0 +1,38 @@
+# Pilot plan: 11 scenes of case file 001 in the ledger style + one blank ledger page (s014, becomes the chart paper).
+s001:
+  visual: {prompt: "Eight simple ink-drawn drinking glasses full of water standing in one straight evenly spaced row across the middle of the page, straight-on view, every glass the same size and fully visible, none overlapping, a tiny anxious ink figure at the right end staring up at them with sweat drops"}
+  camera: in
+s002:
+  visual: {prompt: "The clerk's ink-drawn hands untying the string of a thick cardboard case folder on a desk, a rubber stamp and an ink pad beside it, a small brick-red stamp mark on the folder, seen from above", characters: [clerk]}
+  camera: none
+s003:
+  visual: {prompt: "Comic before-and-after: on the left a cheerful round ink figure shaped like a plump grape, on the right the same figure shrivelled into a tiny wrinkled raisin with a worried face, a curved arrow between them, ochre wash on the raisin"}
+  camera: right
+s004:
+  visual: {prompt: "A very tall thin ink figure in a long dark-green coat seen from behind, walking down a 1990s city street carrying an absurdly huge water bottle under one arm, a few small ink pedestrians in baggy 1990s clothes turning to stare", characters: [clerk]}
+  camera: left
+s005:
+  visual: {prompt: "Six simple ink figures in 1940s suits and ties sitting around a long table covered in papers, one of them standing and pointing at a big glass water jug in the middle, a window with a classical column outside, cigarette smoke drawn as little curls"}
+  camera: in
+s007:
+  visual: {prompt: "A long queue of small ink figures in workout clothes waiting at a water fountain, each holding an oversized water bottle, the first one filling his bottle while reading only the top half of a long paper scroll, the bottom half of the scroll trailing on the floor unread"}
+  camera: right
+s008:
+  visual: {prompt: "A 1970s lecture hall drawn in ink: a professor figure with a big moustache and wide tie at a blackboard with six chalk-drawn glasses, rows of small student figures with long 1970s hair seen from behind"}
+  camera: out
+s010:
+  visual: {prompt: "A giant stone monument of a sports water bottle on a tall pedestal in a city square, tiny ink figures bowing down before it, a pigeon sitting on the cap, a thin brick-red wash on the monument's label area"}
+  camera: in
+s011:
+  visual: {prompt: "An anatomical ledger sketch of the human kidneys, ureters and bladder drawn with fine ink lines and light cross-hatching, little arrows showing water flowing in and out, an ochre wash on the kidneys, like a page from an old doctor's notebook"}
+  camera: none
+s012:
+  visual: {prompt: "A small laboratory drawn in ink: a scientist figure in a lab coat with a clipboard weighing a young man standing on a big old-fashioned scale, four coffee cups lined up on a bench beside them, steam curls rising from the cups"}
+  camera: left
+s013:
+  visual:
+    bg: plain_warm
+    props: [{type: pie, x: 960, y: 520, scale: 2.2, value: 0.32, colors: [water, "#fbfbf7"]}]
+s014:
+  visual: {prompt: "A completely blank page of an old clerk's ledger filling the whole frame, straight-on view: aged cream paper with faint blue ruled lines and a thin red margin line near the left edge, soft paper grain, nothing drawn on it, no stains in the middle, evenly lit"}
+  camera: none

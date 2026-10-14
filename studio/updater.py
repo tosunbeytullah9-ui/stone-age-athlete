@@ -142,6 +142,18 @@ def _drop(stash: str) -> None:
             return
 
 
+def _same(a: bytes | None, b: bytes | None, path: str) -> bool:
+    """Equal, or equal text apart from line endings (Windows checkouts write CRLF, git stores LF)."""
+    if a is None or b is None:
+        return a is b
+    if a == b:
+        return True
+    if Path(path).suffix.lower() in TEXT_SUFFIXES:
+        norm = lambda x: x.replace(b"\r\n", b"\n").replace(b"\r", b"\n")      # noqa: E731
+        return norm(a) == norm(b)
+    return False
+
+
 def _rename_map(base: str) -> dict[str, str]:
     out = {}
     for ln in git("diff", "--name-status", "-M", base, "HEAD").splitlines():
@@ -196,13 +208,13 @@ def restore_stash(stash: str) -> list[str]:
             report.append(f"geri yüklendi: {tgt}")
             continue
         theirs = dst.read_bytes()
-        if theirs == ours:
+        if _same(theirs, ours, path):
             continue
-        if base_b is not None and theirs == base_b:
+        if base_b is not None and _same(theirs, base_b, path):
             dst.write_bytes(ours)
             report.append(f"değişikliğin korundu: {tgt}")
             continue
-        if base_b is not None and ours == base_b:
+        if base_b is not None and _same(ours, base_b, path):
             continue
         if dst.suffix in (".yaml", ".yml"):
             try:
@@ -225,7 +237,15 @@ def restore_stash(stash: str) -> list[str]:
         tgt = _target(path, renames, aliases)
         dst = ROOT / tgt
         if dst.exists():
-            if dst.read_bytes() != data:
+            incoming = dst.read_bytes()
+            if _same(incoming, data, path):
+                continue                               # the update brought the same file (e.g. a channel added to git)
+            if tgt.startswith("channels/"):            # the owner's own channel data: his copy wins
+                side = dst.with_name(dst.name + ".guncelleme-surumu")
+                side.write_bytes(incoming)
+                dst.write_bytes(data)
+                report.append(f"senin dosyan korundu: {tgt} (güncellemedeki kopya: {side.relative_to(ROOT)})")
+            else:
                 side = dst.with_name(dst.name + ".senin-surumun")
                 side.write_bytes(data)
                 report.append(f"ÇAKIŞMA: {tgt} yeni sürümde de var. Senin dosyan: {side.relative_to(ROOT)}")

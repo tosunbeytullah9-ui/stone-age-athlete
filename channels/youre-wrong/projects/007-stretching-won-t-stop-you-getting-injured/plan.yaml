@@ -1,0 +1,903 @@
+# Scene plan, Stretching Won't Stop You Getting Injured
+s001:
+  visual:
+    prompt: a 1980s school sports field on a grey morning, a PE teacher with a whistle in front of a line of children in shorts
+  camera: in
+s002:
+  visual:
+    same: true
+s003:
+  visual:
+    prompt: a line of schoolchildren bending over to touch their toes in unison, straight-on view, one row, none overlapping
+  camera: none
+s004:
+  visual:
+    same: true
+s005:
+  visual:
+    same: true
+s006:
+  visual:
+    same: true
+s007:
+  visual:
+    prompt: a nervous runner clutching the back of his thigh in exaggerated pain, comic ink sketch
+  camera: right
+s008:
+  visual:
+    same: true
+s009:
+  visual:
+    same: true
+s010:
+  visual:
+    same: true
+s011:
+  visual:
+    prompt: a stern PE teacher and a sports coach side by side, both wagging a finger, comic
+  camera: in
+s012:
+  visual:
+    same: true
+s013:
+  visual:
+    same: true
+s014:
+  visual:
+    same: true
+s015:
+  visual:
+    prompt: a faded gym wall poster showing a very flexible man in a headband and leg warmers doing a split, retro 1980s, no text
+  camera: in
+s016:
+  visual:
+    same: true
+s017:
+  visual:
+    prompt: the clerk's hands stamping a thick case file on a cluttered wooden desk in a dim archive, brass lamp
+    characters:
+    - clerk
+  camera: in
+s018:
+  visual:
+    same: true
+s019:
+  visual:
+    same: true
+s020:
+  visual:
+    prompt: endless tall archive shelves full of bound case files disappearing into darkness
+  camera: in
+s021:
+  visual:
+    same: true
+s022:
+  visual:
+    prompt: the clerk's hands opening a folder containing a sketch of a person touching their toes
+    characters:
+    - clerk
+  camera: none
+s023:
+  visual:
+    same: true
+s024:
+  visual:
+    prompt: a small delegation of calm yoga practitioners on rolled mats marching up to an archive door, comic
+  camera: right
+s025:
+  visual:
+    same: true
+s026:
+  visual:
+    prompt: a gymnast in a deep, graceful split on a training mat, soft light, showing great range of motion
+  camera: in
+s027:
+  visual:
+    same: true
+s028:
+  visual:
+    same: true
+s029:
+  visual:
+    prompt: a person stretching every evening over many weeks, a calendar on the wall, gradually reaching further toward their toes
+  camera: right
+s030:
+  visual:
+    same: true
+s031:
+  visual:
+    same: true
+s032:
+  visual:
+    same: true
+s033:
+  visual:
+    prompt: a runner on a track touching her toes before a race, a big question mark hovering over her, ink sketch
+  camera: out
+s034:
+  visual:
+    same: true
+s035:
+  visual:
+    same: true
+s036:
+  visual:
+    prompt: a 1970s city park full of joggers in short shorts and headbands, warm retro colours
+  camera: left
+s037:
+  visual:
+    same: true
+s038:
+  visual:
+    same: true
+s039:
+  visual:
+    prompt: a couple at a kitchen table assembling a small self-published book, typewriter and drawings, 1970s
+  camera: in
+s040:
+  visual:
+    same: true
+s041:
+  visual:
+    prompt: stacks of the same small paperback book piled high in a bookshop window, crowds browsing
+  camera: right
+s042:
+  visual:
+    same: true
+s043:
+  visual:
+    same: true
+s044:
+  visual:
+    prompt: 'a montage of 1970s people stretching: a runner, an office worker at a desk, a glamorous film star by a pool'
+  camera: in
+s045:
+  visual:
+    same: true
+s046:
+  visual:
+    same: true
+s047:
+  visual:
+    prompt: the clerk's hands bracing against a toppling filing cabinet, papers flying, comic
+    characters:
+    - clerk
+  camera: out
+s048:
+  visual:
+    same: true
+s049:
+  visual:
+    prompt: an empty laboratory with a dusty clipboard labelled with nothing, cobwebs, untested
+  camera: in
+s050:
+  visual:
+    same: true
+s051:
+  visual:
+    same: true
+s052:
+  visual:
+    prompt: an old trophy cabinet and a team photo from the 1950s, sports tradition, nostalgic
+  camera: left
+s053:
+  visual:
+    same: true
+s054:
+  visual:
+    same: true
+s055:
+  visual:
+    prompt: the clerk's hands laying four evidence folders in one row on the desk, straight-on view, none overlapping
+    characters:
+    - clerk
+  camera: none
+s056:
+  visual:
+    same: true
+s057:
+  visual:
+    prompt: an Australian army training ground in the 1990s, rows of young recruits in green fatigues doing drills
+  camera: in
+s058:
+  visual:
+    same: true
+s059:
+  visual:
+    same: true
+s060:
+  visual:
+    prompt: a huge formation of army recruits being split into two groups by a sergeant with a clipboard
+  camera: right
+s061:
+  visual:
+    same: true
+s062:
+  visual:
+    same: true
+s063:
+  visual:
+    same: true
+s064:
+  visual:
+    prompt: army recruits doing a supervised standing hamstring stretch in rows, an instructor timing with a stopwatch
+  camera: in
+s065:
+  visual:
+    same: true
+s066:
+  visual:
+    same: true
+s067:
+  visual:
+    prompt: two groups of recruits side by side, one stretching, one just jogging, straight-on view
+  camera: none
+s068:
+  visual:
+    same: true
+s069:
+  visual:
+    same: true
+s070:
+  visual:
+    prompt: a 1990s army medical tent with recruits sitting with bandaged ankles and knees, a medic taking notes
+  camera: in
+s071:
+  visual:
+    same: true
+s072:
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 0.9
+      - 1.0
+      colors:
+      - water
+      - stone
+s073:
+  visual:
+    same: true
+s074:
+  visual:
+    prompt: a researcher at a desk with a calculator and a magnifying glass, shrugging at a printout
+  camera: in
+s075:
+  visual:
+    same: true
+s076:
+  visual:
+    same: true
+s077:
+  visual:
+    prompt: the clerk's hand underlining a sentence in a research paper with a red pencil
+    characters:
+    - clerk
+  camera: none
+s078:
+  visual:
+    same: true
+s079:
+  visual:
+    same: true
+s080:
+  visual:
+    prompt: a fit recruit running hard up a hill with a heavy pack, determined
+  camera: right
+s081:
+  visual:
+    same: true
+s082:
+  visual:
+    prompt: a Danish research office in Copenhagen, piles of printed trials on a long table, researchers sorting them
+  camera: in
+s083:
+  visual:
+    same: true
+s084:
+  visual:
+    same: true
+s085:
+  visual:
+    same: true
+s086:
+  visual:
+    prompt: an enormous crowd of athletes from many different sports, seen from above, ink and watercolour
+  camera: out
+s087:
+  visual:
+    same: true
+s088:
+  visual:
+    same: true
+s089:
+  visual:
+    prompt: athletes doing balance training on wobble boards and a mixed circuit in a gym
+  camera: left
+s090:
+  visual:
+    same: true
+s091:
+  visual:
+    same: true
+s092:
+  visual:
+    prompt: a lone person stretching in the corner of a gym while a statistician shrugs beside them, comic
+  camera: in
+s093:
+  visual:
+    same: true
+s094:
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.33
+      - 0.96
+      colors:
+      - stone
+      - good
+      - bad
+s095:
+  visual:
+    same: true
+s096:
+  visual:
+    same: true
+s097:
+  visual:
+    same: true
+s098:
+  visual:
+    prompt: an athlete doing heavy barbell squats while others skip past to the stretching area, comic
+  camera: right
+s099:
+  visual:
+    same: true
+s100:
+  visual:
+    same: true
+s101:
+  visual:
+    same: true
+s102:
+  visual:
+    prompt: a sprinter clutching the back of his thigh on a running track, wincing
+  camera: in
+s103:
+  visual:
+    same: true
+s104:
+  visual:
+    same: true
+s105:
+  visual:
+    same: true
+s106:
+  visual:
+    prompt: an athlete performing the Nordic hamstring curl, kneeling on a mat while a partner holds his ankles, lowering his body slowly forward
+  camera: in
+s107:
+  visual:
+    same: true
+s108:
+  visual:
+    same: true
+s109:
+  visual:
+    same: true
+s110:
+  visual:
+    prompt: a sports science conference poster session, researchers comparing charts, no legible text
+  camera: left
+s111:
+  visual:
+    same: true
+s112:
+  visual:
+    same: true
+s113:
+  visual:
+    same: true
+s114:
+  visual:
+    same: true
+s115:
+  visual:
+    prompt: the clerk's hands turning a page with a grimace
+    characters:
+    - clerk
+  camera: none
+s116:
+  visual:
+    same: true
+s117:
+  visual:
+    prompt: a powerlifter stretching for a long time on the floor, then struggling under a barbell, comic
+  camera: in
+s118:
+  visual:
+    same: true
+s119:
+  visual:
+    same: true
+s120:
+  visual:
+    prompt: a library desk with more than a hundred scientific journals stacked in tall piles
+  camera: in
+s121:
+  visual:
+    same: true
+s122:
+  visual:
+    bg: plain_warm
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.946
+      colors:
+      - stone
+      - bad
+s123:
+  visual:
+    same: true
+s124:
+  visual:
+    same: true
+s125:
+  visual:
+    same: true
+s126:
+  visual:
+    same: true
+s127:
+  visual:
+    prompt: a stopwatch next to a person holding a short hamstring stretch, quick and light
+  camera: in
+s128:
+  visual:
+    same: true
+s129:
+  visual:
+    same: true
+s130:
+  visual:
+    same: true
+s131:
+  visual:
+    prompt: an athlete doing walking lunges and high knees after a brief stretch, moving dynamically on a field
+  camera: right
+s132:
+  visual:
+    same: true
+s133:
+  visual:
+    same: true
+s134:
+  visual:
+    prompt: an athlete doing controlled leg swings beside a fence, dynamic stretching, energetic
+  camera: in
+s135:
+  visual:
+    same: true
+s136:
+  visual:
+    same: true
+s137:
+  visual:
+    same: true
+s138:
+  visual:
+    prompt: a 1980s football team on a pitch holding long static stretches in a circle before kick-off
+  camera: left
+s139:
+  visual:
+    same: true
+s140:
+  visual:
+    same: true
+s141:
+  visual:
+    prompt: a sprinter in the starting blocks looking sluggish, cartoon snail shell on his back, comic
+  camera: in
+s142:
+  visual:
+    same: true
+s143:
+  visual:
+    same: true
+s144:
+  visual:
+    prompt: a man carefully polishing a car while its tyres slowly go flat, comic ink sketch
+  camera: out
+s145:
+  visual:
+    same: true
+s146:
+  visual:
+    prompt: a person walking down stairs the morning after exercise, wincing and holding the handrail, comic
+  camera: in
+s147:
+  visual:
+    same: true
+s148:
+  visual:
+    same: true
+s149:
+  visual:
+    prompt: a quiet room of medical reviewers surrounded by stacks of papers and a large magnifying glass
+  camera: right
+s150:
+  visual:
+    same: true
+s151:
+  visual:
+    same: true
+s152:
+  visual:
+    same: true
+s153:
+  visual:
+    prompt: a large outdoor fun run with thousands of runners in colourful shirts
+  camera: in
+s154:
+  visual:
+    same: true
+s155:
+  visual:
+    prompt: a long measuring ruler marked from zero to one hundred with a tiny highlighted sliver at one end, minimal illustration, no numbers
+  camera: none
+s156:
+  visual:
+    same: true
+s157:
+  visual:
+    same: true
+s158:
+  visual:
+    prompt: a microscope focused on a nearly invisible speck, comic
+  camera: in
+s159:
+  visual:
+    same: true
+s160:
+  visual:
+    prompt: a person groaning on the stairs the next morning, legs stiff, despite a yoga mat under their arm, comic
+  camera: left
+s161:
+  visual:
+    same: true
+s162:
+  visual:
+    same: true
+s163:
+  visual:
+    same: true
+s164:
+  visual:
+    same: true
+s165:
+  visual:
+    prompt: the clerk's hands filing a slim report into a drawer
+    characters:
+    - clerk
+  camera: none
+s166:
+  visual:
+    same: true
+s167:
+  visual:
+    prompt: the clerk's finger tapping on an older case folder with a sketch of a sore muscle
+    characters:
+    - clerk
+  camera: none
+s168:
+  visual:
+    same: true
+s169:
+  visual:
+    prompt: a thoughtful athlete sitting on a bench, wondering, chin in hand
+  camera: in
+s170:
+  visual:
+    same: true
+s171:
+  visual:
+    prompt: a person enjoying a deep relaxing stretch on a mat at sunrise, eyes closed, content
+  camera: in
+s172:
+  visual:
+    same: true
+s173:
+  visual:
+    prompt: a stylised illustration of a nervous system glowing along a leg, calming signals travelling from the spinal cord
+  camera: right
+s174:
+  visual:
+    same: true
+s175:
+  visual:
+    same: true
+s176:
+  visual:
+    prompt: a small negotiating table between a person and a cartoon muscle wearing a tie, comic
+  camera: in
+s177:
+  visual:
+    same: true
+s178:
+  visual:
+    prompt: a team jogging around a pitch, then doing skips and arm circles, breath visible in cold air
+  camera: left
+s179:
+  visual:
+    same: true
+s180:
+  visual:
+    same: true
+s181:
+  visual:
+    same: true
+s182:
+  visual:
+    same: true
+s183:
+  visual:
+    prompt: a stretching athlete taking a bow on a stage while an exhausted warm-up drill figure stands in the shadows, comic
+  camera: out
+s184:
+  visual:
+    same: true
+s185:
+  visual:
+    same: true
+s186:
+  visual:
+    prompt: an athlete in a tunnel before a big match, nervously touching her toes, stadium lights beyond
+  camera: in
+s187:
+  visual:
+    same: true
+s188:
+  visual:
+    same: true
+s189:
+  visual:
+    same: true
+s190:
+  visual:
+    prompt: the clerk's hands stamping a file and placing it in a different tray
+    characters:
+    - clerk
+  camera: none
+s191:
+  visual:
+    same: true
+s192:
+  visual:
+    same: true
+s193:
+  visual:
+    prompt: Norwegian youth football pitch in autumn, teenage girls in team kits gathered around a coach
+  camera: in
+s194:
+  visual:
+    same: true
+s195:
+  visual:
+    same: true
+s196:
+  visual:
+    same: true
+s197:
+  visual:
+    prompt: teenage girl footballers doing planks and Nordic hamstring lowers on the grass, coach watching
+  camera: right
+s198:
+  visual:
+    same: true
+s199:
+  visual:
+    same: true
+s200:
+  visual:
+    bg: plain_cool
+    props:
+    - type: bar_chart
+      x: 960
+      y: 860
+      values:
+      - 1.0
+      - 0.68
+      - 0.55
+      colors:
+      - stone
+      - good
+      - good
+s201:
+  visual:
+    same: true
+s202:
+  visual:
+    prompt: football teams around the world warming up on pitches in different countries, a montage
+  camera: out
+s203:
+  visual:
+    same: true
+s204:
+  visual:
+    same: true
+s205:
+  visual:
+    prompt: a still life of a cone, a balance board and a kettlebell lined up on grass, straight-on view, one row, none overlapping
+  camera: none
+s206:
+  visual:
+    same: true
+s207:
+  visual:
+    same: true
+s208:
+  visual:
+    prompt: a strength and conditioning coach with a clipboard watching gymnasts in a large training hall, seen from behind
+  camera: in
+s209:
+  visual:
+    same: true
+s210:
+  visual:
+    same: true
+s211:
+  visual:
+    prompt: an elite gymnast performing a high split leap on a balance beam, extreme flexibility
+  camera: right
+s212:
+  visual:
+    same: true
+s213:
+  visual:
+    same: true
+s214:
+  visual:
+    same: true
+s215:
+  visual:
+    prompt: a training plan board with blocks of colour for strength, skills and flexibility, no text
+  camera: in
+s216:
+  visual:
+    same: true
+s217:
+  visual:
+    prompt: a gymnast hastily throwing on a cartoon suit of armour made of stretching straps just before a routine, comic
+  camera: out
+s218:
+  visual:
+    same: true
+s219:
+  visual:
+    prompt: gymnasts jogging and skipping around the edge of a training floor, cheeks flushed, warming up
+  camera: left
+s220:
+  visual:
+    same: true
+s221:
+  visual:
+    same: true
+s222:
+  visual:
+    same: true
+s223:
+  visual:
+    prompt: a gymnast doing controlled arm circles and hip rotations, then a light practice handstand
+  camera: in
+s224:
+  visual:
+    same: true
+s225:
+  visual:
+    prompt: a gymnast doing a brief shoulder stretch against wall bars, then bouncing back into movement
+  camera: in
+s226:
+  visual:
+    same: true
+s227:
+  visual:
+    same: true
+s228:
+  visual:
+    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
+    characters:
+    - clerk
+  camera: in
+s229:
+  visual:
+    prompt: rows of army recruits and a stack of research papers side by side, straight-on view
+  camera: none
+s230:
+  visual:
+    same: true
+s231:
+  visual:
+    same: true
+s232:
+  visual:
+    same: true
+s233:
+  visual:
+    prompt: a sprinter stretching too long and missing the start of the race, comic
+  camera: right
+s234:
+  visual:
+    same: true
+s235:
+  visual:
+    same: true
+s236:
+  visual:
+    prompt: a strong athlete deadlifting a barbell in a plain gym, unglamorous and focused
+  camera: in
+s237:
+  visual:
+    same: true
+s238:
+  visual:
+    same: true
+s239:
+  visual:
+    prompt: a whole team doing a lively dynamic warm-up on a pitch at sunset
+  camera: left
+s240:
+  visual:
+    same: true
+s241:
+  visual:
+    prompt: a person in a split on a mat with a suit of armour discarded beside them, comic
+  camera: in
+s242:
+  visual:
+    same: true
+s243:
+  visual:
+    same: true
+s244:
+  visual:
+    prompt: the clerk's hands sliding a very worn folder labelled with a whistle sketch onto a shelf
+    characters:
+    - clerk
+  camera: left
+s245:
+  visual:
+    same: true
+s246:
+  visual:
+    same: true
+s247:
+  visual:
+    prompt: the clerk's hands closing the file, then the desk lamp dims
+    characters:
+    - clerk
+  camera: out
+s248:
+  visual:
+    same: true
+s249:
+  visual:
+    same: true
+s250:
+  visual:
+    prompt: a cartoon person happily touching their toes while a tiny shield falls away, comic
+  camera: in
+s251:
+  visual:
+    same: true

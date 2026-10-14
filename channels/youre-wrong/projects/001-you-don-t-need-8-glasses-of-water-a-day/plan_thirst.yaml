@@ -1,0 +1,57 @@
+# Scene plan for the added "thirst" section (Case 001, paragraphs 14-17)
+s079:
+  visual: {prompt: "Close-up of the clerk's hand pulling open a second small wooden drawer right next to an already open one in the archive desk, a puff of dust rising, old blank folders inside, warm lamplight", characters: [clerk]}
+  camera: right
+s080: {visual: {same: true}}
+s081:
+  visual: {prompt: "Gently comic scene in a modern gym: a muscular man holding an enormous gallon water jug lecturing a bored friend who is tying his shoelaces on a bench, bright cool light"}
+  camera: in
+s082: {visual: {same: true}}
+s083:
+  visual: {prompt: "A busy 1980s American newspaper newsroom on a hot summer day: rows of desks with typewriters and telephones, stacks of newsprint, a desk fan turning, reporters in short sleeves, sunlight through the blinds"}
+  camera: left
+s084: {visual: {same: true}}
+s085: {visual: {same: true}}
+s086:
+  visual: {prompt: "A 1984 outdoor summer aerobics class in a suburban park: a fitness instructor in a headband and leg warmers leading a group of sweating people in bright leotards under a hot sun, a cooler of water at the side"}
+  camera: in
+s087: {visual: {same: true}}
+s088: {visual: {same: true}}
+s089:
+  visual: {prompt: "Close-up of an old yellowed newspaper clipping on the archive desk, the print blurred and unreadable, a pair of scissors snipping pieces off its edges, small paper scraps fluttering away into the lamplight"}
+  camera: in
+s090: {visual: {same: true}}
+s091: {visual: {same: true}}
+s092: {visual: {same: true}}
+s093:
+  visual: {prompt: "A man relaxing on a living-room sofa in front of a television in the evening, anxiously gulping from a huge plastic water bottle, a cat watching him with a puzzled look"}
+  camera: right
+s094: {visual: {same: true}}
+s095:
+  visual: {prompt: "The same elderly white-haired professor in his book-lined office, now leaning over an anatomy textbook with a magnifying glass, snow still falling outside the window", ref: s044}
+  camera: in
+s096:
+  visual:
+    bg: plain_warm
+    props: [{type: bar_chart, x: 960, y: 860, values: [0.4, 1.0], colors: [good, bad]}]
+s097: {visual: {same: true}}
+s098: {visual: {same: true}}
+s099:
+  visual: {prompt: "An old-fashioned brass fire alarm bell on a wall ringing early, while below it a calm woman simply pours herself a glass of water in a sunny kitchen, nothing is burning"}
+  camera: left
+s100: {visual: {same: true}}
+s101:
+  visual: {prompt: "A gently comic anatomical museum plate of the human abdomen, the intestines painted in soft watercolor, the small appendix highlighted in muted red as if under suspicion, aged encyclopedia paper"}
+  camera: in
+s102: {visual: {same: true}}
+s103: {visual: {same: true}}
+s104:
+  visual: {prompt: "A lone long-distance runner on a straight desert road under a blazing midday sun, shirt soaked with sweat, heat shimmer rising from the asphalt, no other people in sight"}
+  camera: out
+s105: {visual: {same: true}}
+s106:
+  visual: {prompt: "An old-fashioned bathroom scale standing on a red running track next to a stopwatch, a towel and a water bottle, harsh hot sunlight and long shadows"}
+  camera: in
+s107: {visual: {same: true}}
+s108: {visual: {same: true}}
+s109: {visual: {same: true}}
