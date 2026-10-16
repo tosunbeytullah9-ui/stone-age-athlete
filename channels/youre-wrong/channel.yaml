@@ -107,6 +107,7 @@ thumbnails:                      # look of the three thumbnail kinds (docs/THUMB
 overrides:
   video:
     reveal: ink                  # the drawing appears on the page at the start of each new paragraph's scene
+    motion_preset: ledger        # living pictures: flat page camera + hand-drawn line boil (no depth parallax on paper)
   audio:
     music_tracks:                # instrumental tracks only (songs with vocals fight the narrator); rotated per chapter
       - youre-wrong/Dwarf Star - Freedom Trail Studio.mp3

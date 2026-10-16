@@ -45,7 +45,7 @@ def overlay_text(ov: dict, lang: str, primary: str) -> str:
 def draw_overlay(img: Image.Image, ov: dict, text: str) -> Image.Image:
     if not text:
         return img
-    img = img.convert("RGB").copy()
+    img = img.copy() if img.mode == "RGBA" else img.convert("RGB").copy()   # RGBA: transparent text layer
     W, H = img.size
     d = ImageDraw.Draw(img, "RGBA")
     kind = ov.get("kind", "label")
@@ -102,6 +102,17 @@ def apply_overlay(src: Path, overlay: dict | None, lang: str, primary: str, out:
     if not text:
         return src
     draw_overlay(Image.open(src), overlay, text).save(out)
+    return out
+
+
+def overlay_layer(overlay: dict | None, lang: str, primary: str, out: Path, size: tuple[int, int]) -> Path | None:
+    """The overlay alone on a transparent canvas (laid over a moving picture at render time)."""
+    if not overlay:
+        return None
+    text = overlay_text(overlay, lang, primary)
+    if not text:
+        return None
+    draw_overlay(Image.new("RGBA", size, (0, 0, 0, 0)), overlay, text).save(out)
     return out
 
 

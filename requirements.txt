@@ -7,6 +7,8 @@ pillow>=10.0
 playwright>=1.44
 numpy>=1.26
 soundfile>=0.12
+opencv-python-headless>=4.8   # canlı resim (studio/stillmotion)
+onnxruntime>=1.17            # canlı resim: derinlik haritası (model ilk kullanımda models/ klasörüne iner, ~100 MB)
 # Kontrol paneli
 fastapi>=0.110
 uvicorn>=0.29

@@ -1,7 +1,9 @@
 """Assembly with FFmpeg.
 
-  render_video     long video (16:9): one picture per scene with one continuous camera move (zoom or pan) across
-                   all of the scene's shots, cross-fades between scenes → narration + music → -14 LUFS
+  render_video     long video (16:9): one picture per scene with one continuous camera move across all of the
+                   scene's shots — a living picture (studio/motion.py: depth camera, swaying grass, fire, embers…)
+                   or the classic zoompan when video.motion is off —, cross-fades between scenes →
+                   narration + music → -14 LUFS
   render_shorts    vertical 9:16 cut-downs: a shot range, blurred backdrop, title band
   describe         description.txt with chapters (from paragraph timing) + sources
   contact_sheet    grid of shot thumbnails for review
@@ -91,25 +93,35 @@ def _cam_expr(mode: str, zoom: float, start: int, total: int) -> tuple[str, str,
     return "1", cx, cy
 
 
-def _clip(img: Path, out: Path, frames: int, fps: int, cam: tuple, w: int, h: int, crf: int,
-          prev: Path | None = None, prev_cam: tuple | None = None, anim: list[Path] | None = None,
-          xfade: int = 0) -> None:
-    """One clip per shot. cam = (mode, zoom, start frame in the scene, scene length).
-    Optional: a cross-fade from the previous scene's last frame, and a chart intro (anim frames) before the hold."""
+def _clip(out: Path, frames: int, fps: int, w: int, h: int, crf: int, src: tuple, prev: tuple | None = None,
+          anim: list[Path] | None = None, xfade: int = 0, overlay: Path | None = None) -> None:
+    """One clip per shot.
+    src / prev:  ("still", picture, (mode, zoom, start frame in the scene, scene length))  → FFmpeg zoompan camera
+                 ("motion", scene clip, start frame)                                         → living picture (motion.py)
+    Optional: a cross-fade from the previous scene, an intro (chart growth or ink reveal frames) before the main
+    part, and a transparent overlay (on-screen text) on top."""
     args, graph, inputs = [], [], 0
 
-    def still(path: Path, c: tuple, d: int) -> str:
+    def piece(source: tuple, offset: int, d: int) -> str:
+        """A stream of d frames of `source`, starting `offset` frames after its start."""
         nonlocal inputs
-        z, x, y = _cam_expr(*c)
-        args.extend(["-loop", "1", "-framerate", "1", "-t", "1", "-i", str(path)])
         i = inputs
         inputs += 1
-        graph.append(f"[{i}:v]scale={w * 2}:{h * 2},zoompan=z='{z}':x='{x}':y='{y}'"
-                     f":d={d}:s={w}x{h}:fps={fps},setsar=1,format=yuv420p[s{i}]")
+        if source[0] == "motion":
+            _, path, st = source
+            args.extend(["-i", str(path)])
+            graph.append(f"[{i}:v]trim=start_frame={st + offset}:end_frame={st + offset + d},setpts=PTS-STARTPTS,"
+                         f"fps={fps},scale={w}:{h},setsar=1,format=yuv420p[s{i}]")
+        else:
+            _, path, (mode, zm, st, tot) = source
+            z, x, y = _cam_expr(mode, zm, st + offset, tot)
+            args.extend(["-loop", "1", "-framerate", "1", "-t", "1", "-i", str(path)])
+            graph.append(f"[{i}:v]scale={w * 2}:{h * 2},zoompan=z='{z}':x='{x}':y='{y}'"
+                         f":d={d}:s={w}x{h}:fps={fps},setsar=1,format=yuv420p[s{i}]")
         return f"[s{i}]"
 
     anim = [a for a in (anim or []) if a.exists()]
-    use_x = prev is not None and prev_cam is not None and xfade > 0 and frames > xfade * 2
+    use_x = prev is not None and xfade > 0 and frames > xfade * 2
     frames_out = frames
     frames = frames + (1 if use_x else 0)       # xfade drops one frame; -frames:v below keeps the exact length
     if anim and frames > len(anim) + 2:
@@ -120,18 +132,22 @@ def _clip(img: Path, out: Path, frames: int, fps: int, cam: tuple, w: int, h: in
         i = inputs
         inputs += 1
         graph.append(f"[{i}:v]fps={fps},scale={w}:{h},setsar=1,format=yuv420p,trim=end_frame={len(anim)}[a{i}]")
-        mode, zm, st, tot = cam                  # the camera move continues after the intro (charts: mode none)
-        hold = still(img, (mode, zm, st + len(anim), tot), frames - len(anim))
+        hold = piece(src, len(anim), frames - len(anim))      # the move continues after the intro
         graph.append(f"[a{i}]{hold}concat=n=2:v=1[main]")
     else:
-        m = still(img, cam, frames)
-        graph.append(f"{m}null[main]")
+        graph.append(f"{piece(src, 0, frames)}null[main]")
     last = "[main]"
     if use_x:
-        p = still(prev, prev_cam, xfade + 1)
-        graph.append(f"{p}settb=AVTB,fps={fps}[pp];{last}settb=AVTB,fps={fps}[mm];"
+        pp = piece(prev, 0, xfade + 1)
+        graph.append(f"{pp}settb=AVTB,fps={fps}[pp];{last}settb=AVTB,fps={fps}[mm];"
                      f"[pp][mm]xfade=transition=fade:duration={xfade / fps:.4f}:offset=0[xf]")
         last = "[xf]"
+    if overlay is not None and overlay.exists():
+        i = inputs
+        inputs += 1
+        args.extend(["-loop", "1", "-i", str(overlay)])
+        graph.append(f"{last}[{i}:v]overlay=0:0:format=auto:shortest=1,format=yuv420p[ov]")
+        last = "[ov]"
     _run([*args, "-filter_complex", ";".join(graph), "-map", last, "-frames:v", str(frames_out), "-r", str(fps),
           "-c:v", "libx264", "-preset", "veryfast", "-crf", str(crf), "-pix_fmt", "yuv420p", str(out)])
 
@@ -240,7 +256,8 @@ def _wrap_text(text: str, width: int = 42) -> str:
 
 
 def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path:
-    from .fx import apply_overlay, auto_overlays, build_sfx_track, reveal_frames, sfx_events
+    from .fx import (animated_visuals, apply_overlay, auto_overlays, build_sfx_track, overlay_layer,
+                     reveal_frames, sfx_events)
     from .images import scenes
     lang = lang or project.primary_lang()
     primary = project.primary_lang()
@@ -265,42 +282,66 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
     reveal = str(cfg.get_path("video.reveal", "") or "")
     reveal_n = int(cfg.get_path("video.reveal_frames", 14))
     reveal_on = str(cfg.get_path("video.reveal_on", "paragraph"))
-    jobs, prev_img, prev_cam, n, prev_para = [], None, None, 0, None
+
+    # living pictures: one moving clip per painted scene (charts and SVG scenes keep the classic camera)
+    motion_clips: dict[str, Path] = {}
+    from .motion import enabled as motion_enabled
+    if motion_enabled(cfg):
+        from .images import engine_name
+        from .motion import load_plan, render_scene_clips, scene_spec
+        plan = load_plan(project)
+        mjobs = []
+        for gi, (g, mode) in enumerate(zip(groups, modes)):
+            img = project.shots_dir / f"{g[0]['id']}.png"
+            if img.exists() and engine_name(g[0], cfg) != "svg":
+                mjobs.append(dict(id=g[0]["id"], img=img, spec=scene_spec(g[0], gi, mode, cfg, plan),
+                                  frames=sum(frames_of[s["id"]] for s in g), tail=xfade + 2))
+        motion_clips = render_scene_clips(project, cfg, mjobs, fps, (w, h), crf)
+
+    jobs, prev_src, n, prev_para = [], None, 0, None
     for gi, (g, mode) in enumerate(zip(groups, modes)):
         head = g[0]
         img = _scene_image(project, head, [s["text"] for s in g], work, (w, h))
+        mclip = motion_clips.get(head["id"])
         new_para = gi == 0 or head.get("para") != prev_para
         prev_para = head.get("para")
         total = sum(frames_of[s["id"]] for s in g)
         start = 0
         for k, shot in enumerate(g):
             ov = _overlay_for(shot, auto)
-            img_ov = apply_overlay(img, ov, lang, primary, work / f"{shot['id']}_ov.png")
-            anim = sorted(project.shots_dir.glob(f"{head['id']}_a[0-9][0-9].png")) if k == 0 else []
+            # chart intro frames, only while the scene still is a growing chart (old frames can outlive a re-plan)
+            anim = (sorted(project.shots_dir.glob(f"{head['id']}_a[0-9][0-9].png"))
+                    if k == 0 and animated_visuals(head.get("visual")) else [])
             if (k == 0 and not anim and reveal == "ink" and (reveal_on == "scene" or new_para)
                     and img.exists() and frames_of[shot["id"]] > reveal_n + 6):
                 anim = reveal_frames(img, work / "reveal", reveal_n, mode, zoom, seed=gi, size=(w, h))
-            if ov and anim:
-                anim = [apply_overlay(a, ov, lang, primary, work / f"{a.stem}_ov.png") for a in anim]
-            jobs.append(dict(img=img_ov, out=work / f"{n:04d}.mp4", frames=frames_of[shot["id"]],
-                             cam=(mode, zoom, start, total), anim=anim,
-                             prev=prev_img if k == 0 else None, prev_cam=prev_cam if k == 0 else None))
+            if mclip:
+                layer = overlay_layer(ov, lang, primary, work / f"{shot['id']}_ovl.png", (w, h)) if ov else None
+                src, overlay = ("motion", mclip, start), layer
+            else:
+                img_ov = apply_overlay(img, ov, lang, primary, work / f"{shot['id']}_ov.png")
+                if ov and anim:
+                    anim = [apply_overlay(a, ov, lang, primary, work / f"{a.stem}_ov.png") for a in anim]
+                src, overlay = ("still", img_ov, (mode, zoom, start, total)), None
+            jobs.append(dict(out=work / f"{n:04d}.mp4", frames=frames_of[shot["id"]], src=src, anim=anim,
+                             prev=prev_src if k == 0 else None, overlay=overlay))
             n += 1
             start += frames_of[shot["id"]]
-            prev_img, prev_cam = img_ov, (mode, zoom, total - 1, total)
+            prev_src = (("motion", mclip, total) if mclip                    # the next scene fades in over
+                        else ("still", src[1], (mode, zoom, total - 1, total)))  # this one's continuing motion
 
     last_scene = project.shots_dir / f"{groups[-1][0]['id']}.png" if groups else None
     outro = outro_image(project, cfg, lang, last_scene, (w, h))
     outro_frames = int(float(cfg.get_path("channel.outro.seconds", 18) or 18) * fps) if outro else 0
     if outro:
-        jobs.append(dict(img=outro, out=work / f"{n:04d}.mp4", frames=outro_frames,
-                         cam=("in", zoom / 2, 0, outro_frames), anim=[], prev=prev_img, prev_cam=prev_cam))
+        jobs.append(dict(out=work / f"{n:04d}.mp4", frames=outro_frames, src=("still", outro, ("in", zoom / 2, 0, outro_frames)),
+                         anim=[], prev=prev_src, overlay=None))
 
     print(f"  [{lang}] {len(groups)} sahne, {len(jobs)} klip hazırlanıyor...")
     done = 0
     with ThreadPoolExecutor(max_workers=4) as ex:
-        for _ in ex.map(lambda j: _clip(j["img"], j["out"], j["frames"], fps, j["cam"], w, h, crf,
-                                        j["prev"], j["prev_cam"], j["anim"], xfade), jobs):
+        for _ in ex.map(lambda j: _clip(j["out"], j["frames"], fps, w, h, crf, j["src"], j["prev"], j["anim"],
+                                        xfade, j["overlay"]), jobs):
             done += 1
             if done % 25 == 0 or done == len(jobs):
                 print(f"  klip {done}/{len(jobs)}")
@@ -412,7 +453,7 @@ def render_shorts(project: Project, cfg: Config, lang: str | None = None) -> lis
             frame = work / f"{t['id']}.png"
             caption_frame(Image.open(vert), title, shot_text(shot, lang, project.primary_lang())).save(frame)
             clip = work / f"{i:04d}.mp4"
-            _clip(frame, clip, f, fps, ("in", zoom, pos.get(hid, 0), scene_len[hid]), 1080, 1920, 21)
+            _clip(clip, f, fps, 1080, 1920, 21, ("still", frame, ("in", zoom, pos.get(hid, 0), scene_len[hid])))
             pos[hid] = pos.get(hid, 0) + f
             clips.append(clip)
         (work / "list.txt").write_text("".join(f"file '{c.name}'\n" for c in clips), encoding="utf-8")

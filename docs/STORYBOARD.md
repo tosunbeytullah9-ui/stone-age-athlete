@@ -75,6 +75,12 @@ Every prompt is automatically prefixed with the channel's `visual_style` (channe
 Colours: `ochre` (ancient/us), `water` (modern/them), `good` (green), `bad` (red), `clay`, `stone`, `night`.
 Add `overlay` with the real numbers. Charts hold still (no camera move) and grow in.
 
+## Motion inside the picture (`motion.yaml`, optional — docs/MOTION.md)
+With `video.motion: auto` every painting moves a little on screen (depth camera, or line boil on ledger pages). After the pictures are
+painted, choose the scenes where something can believably move (grass, water, fire, dust, light, a breathing
+chest) and list them in `channels/<c>/projects/<slug>/motion.yaml` (scene id → `camera`, `fx`). Plan it while
+looking at `python -m studio motion <slug>` (build/motion_sheet.png); check with `motion-preview --only sNNN`.
+
 ## Sound (`sound`, optional — automatic when omitted, see docs/SOUND.md)
 Every scene gets an ambience bed from its picture and effects for audible actions automatically. Override only
 when the automatic choice is wrong: `sound: {amb: rain}` on a scene's first shot (`none` = silence),

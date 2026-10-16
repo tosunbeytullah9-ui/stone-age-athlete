@@ -18,6 +18,12 @@ video:
   reveal: ""          # "ink": resim sahnenin başında sayfaya çiziliyormuş gibi belirir (defter stili kanallar)
   reveal_frames: 14   # çizilme süresi (kare; 14 kare ≈ 0,5 sn)
   reveal_on: paragraph   # paragraph = yeni paragrafla açılan sahnelerde | scene = her sahnede
+  motion: off         # canlı resim: resmin içinde küçük hareketler (derinlikli kamera, sallanan çimen, ateş, toz…)
+                      #   auto = her resim hareket eder (projedeki motion.yaml planı, yoksa kanalın ön ayarı) | off = eski kamera
+                      #   tek kanalda açmak için: channel.yaml → overrides: video: motion: auto  (render ~2-3 kat uzar)
+  motion_preset: painterly   # painterly = boyalı/gerçekçi resim (derinlikli 2.5D kamera) | ledger = defter/mürekkep çizim
+                             #   (düz kamera + çizgi titreşimi) | flat = düz kamera
+  motion_workers: 3   # aynı anda hareketlendirilen sahne sayısı (bilgisayar yavaşlarsa azalt)
 
 split:                # altyazı/çeviri birimi (shot). Görsel sahne başına: bir resim 2–4 shot boyunca kalır
   min_chars: 20

@@ -24,6 +24,17 @@ When asked to "plan" a project (e.g. "002'yi planla"):
    text that slipped into a painting, the coach looking different. Fix the prompt and re-paint with `--only sNNN`.
    Unchanged scenes are cached and never paid twice.
 
+## Living pictures (motion inside the paintings)
+Renders can animate the scene paintings locally and for free (`studio/motion.py`, `studio/stillmotion`;
+docs/MOTION.md). Off by default; the owner turns it on with `video.motion: auto` (config.yaml, or one channel via
+`channel.yaml → overrides.video.motion`). Without a plan a picture gets the channel preset (`video.motion_preset`:
+`painterly` depth camera, `ledger` line boil). When asked to "make the pictures move" / "canlandır":
+1. `python -m studio motion <slug>` and **look at `build/motion_sheet.png`** (pictures with a 0..1 grid).
+2. Write `channels/<c>/projects/<slug>/motion.yaml` for the 30–50 % of scenes where something can believably move
+   (docs/MOTION.md: rules, camera, effect table). Subtle; never distort faces, hands or anatomy.
+3. `python -m studio motion-preview <slug> --only s0NN,...` and **look at `strip.png` and `motion.png`**
+   (red = what moves) for each; adjust boxes/amounts. Then `render` (with `video.motion: auto`).
+
 ## Writing narration
 - Structure (the script template shows it): hook in the first 8 s with the most surprising sourced fact, setup,
   evidence one study at a time, a turn ("but here is where the story gets complicated"), coach's lesson (60–90 s,

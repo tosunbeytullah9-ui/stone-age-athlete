@@ -18,6 +18,8 @@ steps:
   captions     captions.<lang>.srt only
   dub          --lang tr: audio track fitted to the primary video (upload as an extra YouTube audio track)
   sheet        contact sheet: one tile per scene
+  motion       living pictures: build/motion_sheet.png (pictures with a 0..1 grid, to plan motion.yaml) + plan status
+  motion-preview  --only s020,s107: strip.png, motion.png (red = what moves), preview.mp4 → build/motion_preview/
   sound        sound plan for --lang (ambience beds + effects; needs voice + align) → build/<lang>/sound_plan.json
   check        quality gate (research, sources, variety)
   upload       publish on YouTube [VIDEO_ID|URL] [--at "YYYY-MM-DD HH:MM" | --at now]: metadata, thumbnail,
@@ -221,6 +223,18 @@ def main(argv=None) -> None:
         print(f"  efekt: {s['sfx_count']} ({s['sfx_per_min']:.1f}/dk)")
         for e in sp["sfx"]:
             print(f"    {e['t']:7.2f} sn  {e['id']:<10} {e['why']}")
+    elif cmd == "motion":
+        from .images import scenes
+        from .motion import load_plan, motion_sheet, plan_path
+        plan = load_plan(p)
+        groups = [g for g in scenes(p.load_storyboard()["shots"]) if (p.shots_dir / f"{g[0]['id']}.png").exists()]
+        print(f"  {motion_sheet(p)}")
+        print(f"  plan: {plan_path(p)} — {sum(1 for g in groups if g[0]['id'] in plan)}/{len(groups)} sahne planlı "
+              f"(planı olmayanlar '{cfg.get_path('video.motion_preset', 'painterly')}' ön ayarıyla hareket eder)")
+    elif cmd == "motion-preview":
+        from .motion import preview_scenes
+        for out in preview_scenes(p, cfg, only):
+            print(f"  {out}")
     elif cmd == "sheet":
         from .render import contact_sheet
         print(f"  {contact_sheet(p)}")
