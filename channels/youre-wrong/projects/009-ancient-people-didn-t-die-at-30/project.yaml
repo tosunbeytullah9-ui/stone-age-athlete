@@ -22,6 +22,7 @@ publish:
   hook_type: you
   slot: long
   verdict: WRONG
+  planned_date: '2026-12-01'
 shorts:
 - {title: Why 'life expectancy 30' doesn't mean dying at 30, from: s028, to: s046, hook: Why 'life expectancy 30'
     doesn't mean dying at 30}

@@ -21,6 +21,7 @@ publish:
   hook_type: you
   slot: long
   verdict: WRONG
+  planned_date: '2026-11-24'
 shorts:
 - {title: '1,538 soldiers tested the pre-workout stretch', from: s051, to: s077, hook: '1,538 soldiers tested the
     pre-workout stretch'}

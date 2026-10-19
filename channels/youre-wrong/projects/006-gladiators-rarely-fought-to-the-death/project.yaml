@@ -22,6 +22,7 @@ publish:
   hook_type: you
   slot: long
   verdict: WRONG
+  planned_date: '2026-11-20'
 shorts:
 - {title: A dead gladiator cost 50 times more, from: s034, to: s055, hook: A dead gladiator cost 50 times more}
 - {title: He lost four times and walked out every time, from: s070, to: s094, hook: He lost four times and walked

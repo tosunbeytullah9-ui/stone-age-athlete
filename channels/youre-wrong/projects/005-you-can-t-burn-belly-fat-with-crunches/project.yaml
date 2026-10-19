@@ -23,6 +23,7 @@ publish:
   hook_type: you
   slot: long
   verdict: WRONG
+  planned_date: '2026-11-17'
 shorts:
 - {title: '5,004 sit-ups and the belly didn''t care', from: s056, to: s083, hook: '5,004 sit-ups and the belly didn''t
     care'}

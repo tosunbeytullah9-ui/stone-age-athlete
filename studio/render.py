@@ -507,6 +507,9 @@ def describe(project: Project, cfg: Config, lang: str | None = None) -> Path:
         lines += [meta["description"].strip(), ""]
     if (yt.get("credit") or "").strip():
         lines += [yt["credit"].strip(), ""]
+    transparency = str((cfg.get_path("channel.policy") or {}).get("transparency") or "").strip()
+    if transparency:                                   # who makes the channel and what is AI-made (docs/POLICY.md)
+        lines += [transparency, ""]
     seen, chap, last = set(), [], -99.0
     for s in sb["shots"]:
         if s["para"] in seen or s["id"] not in timing:

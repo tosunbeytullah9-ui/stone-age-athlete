@@ -26,6 +26,7 @@ publish:
   hook_type: you
   slot: long
   verdict: WRONG
+  planned_date: '2026-11-10'
 shorts:
 - {title: Lactic acid has an alibi, from: s056, to: s071, hook: Lactate is gone in an hour. Soreness peaks at 48.}
 - {title: Why downhill running wrecks your legs, from: s072, to: s089, hook: 'Less lactate. More soreness. Why?'}

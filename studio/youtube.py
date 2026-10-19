@@ -270,6 +270,11 @@ def _clean(text: str) -> str:
     return (text or "").replace("<", "").replace(">", "").strip()
 
 
+def _ai_label_needed(cfg: Config) -> bool:
+    from .policy import ai_label
+    return ai_label(cfg)[0]
+
+
 def video_body(project: Project, cfg: Config, lang: str, privacy: str, publish_at: str | None) -> dict:
     from .publish import get_publish
     yt = settings(cfg)
@@ -288,7 +293,7 @@ def video_body(project: Project, cfg: Config, lang: str, privacy: str, publish_a
             tags.append(t)
             total += cost
     status = {"privacyStatus": privacy, "selfDeclaredMadeForKids": bool(yt.get("made_for_kids")),
-              "containsSyntheticMedia": bool(yt.get("synthetic_media")), "embeddable": True,
+              "containsSyntheticMedia": bool(yt.get("synthetic_media")) or _ai_label_needed(cfg), "embeddable": True,
               "license": yt.get("license") or "youtube", "publicStatsViewable": True}
     if publish_at:
         status["publishAt"] = publish_at
@@ -414,6 +419,11 @@ def publish_video(project: Project, cfg: Config, lang: str, video: str | None = 
         raise YouTubeError("video.mp4 yok: önce videoyu üret.")
     if not force and not check(project)["ready"]:
         raise YouTubeError("Kalite kapısında engel var (python -m studio check). Yine de yüklemek için --force.")
+    from .policy import upload_blocks
+    blocks = upload_blocks(project, cfg)
+    if blocks:                                         # the owner's review is never skipped by --force
+        raise YouTubeError("Yayın öncesi kontrol tamamlanmadı:\n  - " + "\n  - ".join(blocks)
+                           + "\n  Panel: 5 · Yayın → Sahip onayı.")
     if not video_id and not yt_cfg.get("api_audited"):
         raise YouTubeError(
             "Google, denetlenmemiş bir API projesinden yüklenen videoları kalıcı olarak 'özel' kilitler.\n"

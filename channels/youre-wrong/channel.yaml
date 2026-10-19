@@ -56,6 +56,15 @@ youtube:
   api_audited: false
   tags: [myths, misconceptions, common myths debunked, fitness myths, history myths, science explained, human body,
     you're wrong]
+policy:                          # YouTube monetization policies (docs/POLICY.md, studio/policy.py)
+  sensitive: [health]            # body files are health topics: the narrator never poses as a health expert
+  sensitive_series: [body-files, cross-files]
+  narrator: fictional            # Mortimer is an openly fictional clerk; advice comes from sources, not from him
+  realistic_visuals: false       # ink drawings, clearly not footage → YouTube's "AI use" label is not required
+  transparency: >-
+    Mortimer is a fictional character with a synthetic voice, and the illustrations are made with AI tools. Every
+    claim is checked against the sources below, and body files are reviewed by a real strength and conditioning
+    coach before they are published.
 branding:                        # python -m studio branding / panel: Kanal ayarları → Marka görsellerini üret
   # Mortimer's face is never shown, so the profile picture is his signature object: the stamp.
   profile_prompt: >-
@@ -116,6 +125,7 @@ overrides:
     reveal: ink                  # the drawing appears on the page at the start of each new paragraph's scene
     motion_preset: ledger        # living pictures: flat page camera + hand-drawn line boil (no depth parallax on paper)
   audio:
+    music_licence: YouTube Audio Library, no attribution required   # checked by the policy gate
     music_tracks:                # instrumental tracks only (songs with vocals fight the narrator); rotated per chapter
       - youre-wrong/Dwarf Star - Freedom Trail Studio.mp3
       - youre-wrong/Lace Tablecloths - The Mini Vandals.mp3

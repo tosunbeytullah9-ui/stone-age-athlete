@@ -116,6 +116,9 @@ async function viewHome() {
       <div class="card stat"><div class="n">${totals.projects}</div><div class="l">Proje</div></div>
       <div class="card stat"><div class="n">${totals.videos}</div><div class="l">Üretilen video</div></div>
     </div>
+    <div class="card" style="margin-bottom:6px"><div class="spread"><div><h3 style="margin:0">Yeni video hazırla</h3>
+      <div class="small muted">Konu seç → Claude araştırır ve senaryo, iddialar, kapak, Shorts, takvim paketini hazırlar → sen incelersin → fabrika üretir.</div></div>
+      <div class="row">${ov.channels.map((c) => `<a class="btn primary" href="#/c/${c.id}/prep">${esc(c.name)} →</a>`).join("")}</div></div></div>
     <h2>Kanallar</h2>
     <div class="grid g3">${ov.channels.map(channelCard).join("")}
       <a class="card link" href="#/new-channel" style="display:flex;align-items:center;justify-content:center;min-height:150px;color:var(--muted)">+ Yeni kanal ekle</a></div>
@@ -166,12 +169,14 @@ async function viewChannel(cid, tab = "ideas") {
     <div class="spread"><h1>${esc(d.name)}</h1><span>${(d.languages || []).map((l) => pill(LANG_TR[l] || l)).join(" ")} ${pill(d.category || "")}</span></div>
     <p class="sub">${esc(d.tagline || "")}</p>
     <div class="tabs">
+      <a href="#/c/${cid}/prep" class="${tab === "prep" ? "active" : ""}">Hazırlık stüdyosu</a>
       <a href="#/c/${cid}/ideas" class="${tab === "ideas" ? "active" : ""}">Fikir havuzu</a>
       <a href="#/c/${cid}/calendar" class="${tab === "calendar" ? "active" : ""}">Takvim</a>
       <a href="#/c/${cid}/projects" class="${tab === "projects" ? "active" : ""}">Projeler</a>
       <a href="#/c/${cid}/settings" class="${tab === "settings" ? "active" : ""}">Kanal ayarları</a>
     </div><div id="tab"></div>`;
   const el = $("#tab");
+  if (tab === "prep") return channelPrep(cid, el);
   if (tab === "ideas") return channelIdeas(cid, el);
   if (tab === "projects") return channelProjects(cid, el);
   if (tab === "calendar") return channelCalendar(cid, el, d);
@@ -336,6 +341,10 @@ function projScript(cid, slug, el) {
     <div><div class="card"><div class="spread"><h3>Kaynaklar</h3><button id="so-save" class="primary sm">Kaydet</button></div>
       <p class="small muted" style="margin:0 0 8px">Serbest notlar: iddia + bağlantı. İddialar bölümü bunları ortak kütüphaneye ve cümlelere bağlar; açıklamaya sadece iddiaların kaynakları girer.</p>
       <textarea id="so" rows="8" class="code">${esc(P.sources)}</textarea></div>
+      ${(P.prep || {}).research ? `<div class="card" style="margin-top:14px"><h3>Araştırma (hazırlık paketi)</h3>
+        ${P.prep.research.answer ? `<div class="small"><b>Kanıt:</b> ${esc(P.prep.research.answer)}</div>` : ""}
+        ${P.prep.research.angle ? `<div class="small" style="margin-top:6px"><b>Bu videonun farkı:</b> ${esc(P.prep.research.angle)}</div>` : ""}
+        ${(P.prep.research.open_questions || []).length ? `<div class="small err" style="margin-top:6px"><b>Bakman gereken:</b> ${P.prep.research.open_questions.map(esc).join(" · ")}</div>` : ""}</div>` : ""}
       <div class="card" style="margin-top:14px" id="claims-card"></div>
       <div class="card" style="margin-top:14px"><h3>Kalite kapısı</h3>${checklist(P.readiness)}</div></div></div>`;
   const upd = () => ($("#wc").textContent = `· ${words($("#sc").value)} kelime ≈ ${(words($("#sc").value) / 150).toFixed(1)} dk`);
@@ -387,7 +396,7 @@ function projScenes(cid, slug, el) {
       <div class="flow-step ${step === 2 ? "now" : step > 2 ? "done" : ""}"><b>2</b><div><div class="t">Resimleri çiz</div><div class="small muted">${ai.length} AI resmi · ${missing ? `${missing} çizilmedi (~${(missing * 0.05).toFixed(2)} $)` : "hepsi hazır"}</div></div>
         <button id="b-images" class="${step === 2 ? "primary" : ""}" ${unplanned === groups.length ? "disabled" : ""}>Resimleri çiz</button></div>
       <div class="flow-step ${step === 3 ? "now" : ""}"><b>3</b><div><div class="t">Kontrol et</div><div class="small muted">Beğenmediğin sahneye tıkla, istemi düzelt, yeniden çiz</div></div>
-        <a class="btn ${step === 3 ? "primary" : ""}" href="#/p/${cid}/${slug}/video">Videoya geç →</a></div>
+        <a class="btn ${step === 3 ? "primary" : ""}" id="b-video" href="#/p/${cid}/${slug}/video">Videoya geç →</a></div>
     </div>
     ${manual ? `<div id="apply-box" class="card" style="margin-bottom:12px"><div class="small muted">Elle planlama: kopyaladığın istemi claude.ai'ye yapıştır, gelen YAML'ı buraya yapıştır. (Ayarlar'da <span class="kbd">planner.provider: gemini</span> yaparsan tek tıkla planlanır.)</div>
       <textarea id="apply-text" class="code" rows="5" placeholder="YAML cevabı"></textarea><div class="row" style="margin-top:6px"><button class="primary sm" id="apply-go">Planı uygula</button></div></div>` : ""}

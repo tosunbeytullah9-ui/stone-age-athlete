@@ -22,6 +22,7 @@ publish:
   hook_type: you
   slot: long
   verdict: WRONG
+  planned_date: '2026-11-13'
 shorts:
 - {title: Napoleon was measured at 5'2" — in French inches, from: s020, to: s047, hook: Napoleon was measured at
     5'2" — in French inches}

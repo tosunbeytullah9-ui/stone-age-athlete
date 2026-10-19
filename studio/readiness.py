@@ -1,5 +1,6 @@
-"""Quality gate. Protects the channel against YouTube's 'inauthentic / mass-produced content' rules
-(July 2026) by refusing to call a project ready until it is researched, sourced and varied.
+"""Quality gate. Protects the channel against YouTube's monetization policies (generic or repetitive content,
+reused content, AI personas on sensitive topics, advertiser-friendly metadata: studio/policy.py, docs/POLICY.md)
+by refusing to call a project ready until it is researched, sourced, original and varied.
 
 Each check: {key, ok, level: block|warn|info, message}. A project is 'ready' when no block fails.
 """
@@ -31,6 +32,12 @@ def check(project: Project, lang: str | None = None) -> dict:
         links = len(re.findall(r"https?://", src))
         add("sources", links >= 3, "block", f"Kaynaklar: {links} bağlantı — en az 3 gerekli (her iddiaya bir kaynak)")
         out.extend(claim_checks(project))
+
+    from .policy import project_checks
+    try:
+        out.extend(project_checks(project))          # YouTube monetization policies (docs/POLICY.md)
+    except Exception as e:                           # noqa: BLE001  (a broken file must not hide the other checks)
+        add("policy", False, "warn", f"Politika denetimi çalışmadı: {e}")
 
     if not project.storyboard_path.exists():
         add("storyboard", False, "block", "Storyboard yok — 'Böl' adımını çalıştır")

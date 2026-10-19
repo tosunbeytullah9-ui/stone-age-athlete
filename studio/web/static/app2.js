@@ -105,7 +105,7 @@ function projPublish(cid, slug, el) {
   const series = P.series || {};
   const langs = P.languages;
   const m = pub.metrics || [];
-  el.innerHTML = `<div class="grid g2">
+  el.innerHTML = `${reviewCard(cid, slug)}<div class="grid g2">
     <div class="card"><h3>Yayın kaydı</h3>
       <p class="small muted" style="margin-top:0">Yayından <b>önce</b> tahminini yaz: 30 video sonra sezginin mi, sinyallerin mi daha iyi tahmin ettiğini göreceksin.</p>
       <div class="form2">
@@ -141,6 +141,7 @@ function projPublish(cid, slug, el) {
       <p class="small muted">YouTube Studio → videonun Analytics'i → Etkileşim → Kitleyi elde tutma → Gelişmiş mod → dışa aktar (CSV), ya da tablodan iki sütunu (konum, elde tutma %) kopyala.</p>
       <div id="rt-box" class="hidden"><textarea id="rt-text" class="code" rows="6" placeholder="Video konumu (%)\tMutlak kitleyi elde tutma (%)&#10;0\t100&#10;1\t92 ..."></textarea><div class="row" style="margin-top:6px"><button class="sm primary" id="rt-go">İçe aktar</button></div></div>
       <div id="rt-view"></div></div>`;
+  bindReview(cid, slug);
   const val = (id) => $(id).value;
   $("#pb-save").onclick = async () => {
     const body = { series: val("#pb-series"), slot: val("#pb-slot"), hook_type: val("#pb-hook"), planned_date: val("#pb-planned"), title_used: val("#pb-title"),

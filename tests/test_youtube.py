@@ -40,8 +40,10 @@ def _ready(proj, credit=True):
     d = ch.data
     d["languages"] = ["en"]
     if credit:
-        d["youtube"] = {"credit": "Made by an expert coach.", "footer": "Not medical advice. <b>"}
+        d["youtube"] = {"credit": "Made by an expert coach.", "footer": "Not medical advice. <b>", "made_for_kids": False}
     ch.save(d)
+    from studio.policy import REVIEW_STEPS, save_review
+    save_review(proj, {k: True for k in REVIEW_STEPS})      # the owner approved the video
     apply_reply(proj, {"sources": [{"id": "ilardo2018", "title": "Adaptations <x>", "year": 2018, "type": "primary",
                                     "url": "https://x.org"}],
                        "claims": [{"text": "Spleens 50% larger", "source": "ilardo2018", "shots": ["s001"]}]})

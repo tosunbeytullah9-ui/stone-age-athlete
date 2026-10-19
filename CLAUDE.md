@@ -8,6 +8,19 @@ Layout: `channels/<channel>/{channel.yaml, ideas.yaml, projects/<slug>/}` + the 
 Every CLI step takes `<slug> --channel <channel> [--lang xx]`; the default channel is `factory.default_channel`
 (`homo-athleticus`, brand: docs/BRAND.md; old id `stone-age-athlete` still resolves via `aliases`).
 
+## Preparing a new video (preparation package) and YouTube policies
+A new video starts as a **preparation package** (docs/PREP.md, `studio/prep.py`; panel: Kanal → Hazırlık stüdyosu):
+research, sources, script, claims with `says` (exact script words), titles, 3 thumbnails, hooks, Shorts
+(`from`/`to` words), planned date and a policy self-check, in one YAML. When asked to "prepare" a video
+("i011'i hazırla"): `python -m studio prep-prompt --channel <c> --only i011` gives the full brief; research with web
+search, answer in that format, save it to `channels/<c>/prep/<date>-<slug>.yaml`, run `prep-check`, fix every error
+and block, then commit (the owner's panel shows it in the inbox) or `prep-import` when asked.
+Every step obeys YouTube's monetization policies (docs/POLICY.md, `studio/policy.py`, `python -m studio policy
+<slug>`): each video its own research and angle (no templated repeats), no AI persona posing as a health expert
+(sensitive channels: never "as a coach / as a doctor"), advice attributed to sources and health authorities, clean
+titles/thumbnails/openings, every number on a title or thumbnail backed by a claim, the transparency line in the
+description, the AI label when visuals are realistic. Upload needs the owner's review (`project.yaml → review`).
+
 ## Planning a video's pictures (most common task)
 Pictures are AI paintings in the channel's look (`channel.yaml → visual_style`), one per **scene** of 5–9 s
 (2–4 shots); the following shots of a scene are `visual: {same: true}` and the camera keeps moving over the picture.

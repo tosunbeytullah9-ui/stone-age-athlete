@@ -28,6 +28,8 @@ TEMPLATE = {
     "characters": {},             # {coach: {description: "...", ref: refs/coach.png}}
     "style": {"palette": {}},     # chart colours
     "overrides": {},              # any config.yaml key, e.g. {tts: {kokoro: {voice: bm_george}}}
+    "youtube": {"made_for_kids": False, "synthetic_media": False},   # COPPA + "AI use" declarations (docs/POLICY.md)
+    "policy": {"sensitive": [], "narrator": "fictional", "realistic_visuals": False, "transparency": ""},
 }
 
 

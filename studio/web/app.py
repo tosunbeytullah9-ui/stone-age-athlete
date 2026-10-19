@@ -244,6 +244,94 @@ def idea_to_project(cid: str, iid: str):
     return {"slug": p.slug}
 
 
+# ------------------------------------------------------------------ preparation studio (docs/PREP.md)
+@app.get("/api/channels/{cid}/prep")
+def prep_home(cid: str):
+    from .. import prep
+    from ..policy import ai_label, settings
+    ch = _ch(cid)
+    cfg = load_config(cid)
+    ideas = [i for i in ch.load_ideas()["ideas"] if i.get("status") in ("idea", "researching") and not i.get("project")]
+    rank = {"A": 0, "B": 1, "C": 2}
+    ideas.sort(key=lambda i: (rank.get(i.get("priority"), 1), -(i.get("gut") or 0)))
+    pol = settings(cfg)
+    return {"inbox": prep.list_inbox(cid), "ideas": ideas, "slots": prep.next_slots(cid),
+            "policy": {"sensitive": pol.get("sensitive") or [], "series": pol.get("sensitive_series") or [],
+                       "narrator": pol.get("narrator"), "transparency": pol.get("transparency") or "",
+                       "ai_label": ai_label(cfg, pol)},
+            "planner": cfg.get_path("planner.provider", "gemini"),
+            "after_import": cfg.get_path("prep.after_import") or []}
+
+
+@app.get("/api/channels/{cid}/prep/prompt", response_class=PlainTextResponse)
+def prep_prompt(cid: str, idea: str = "", topic: str = ""):
+    from ..prep import build_prompt
+    _ch(cid)
+    return build_prompt(cid, idea_id=idea or None, topic=topic or None, cfg=load_config(cid))
+
+
+@app.get("/api/channels/{cid}/prep/example", response_class=PlainTextResponse)
+def prep_example(cid: str):
+    from ..prep import EXAMPLE
+    return EXAMPLE.replace("channel: demo", f"channel: {cid}")
+
+
+@app.post("/api/channels/{cid}/prep/check")
+def prep_check(cid: str, body: dict = Body(...)):
+    from ..prep import check, parse
+    _ch(cid)
+    try:
+        data = parse(body.get("text", ""))
+    except Exception as e:                                       # noqa: BLE001
+        raise HTTPException(400, f"Paket okunamadı (YAML): {e}")
+    return {"data": data, "report": check(cid, data, load_config(cid))}
+
+
+@app.post("/api/channels/{cid}/prep/dump")
+def prep_dump(cid: str, body: dict = Body(...)):
+    """The edited package (JSON from the panel) back to YAML text."""
+    from ..prep import dump
+    return {"text": dump(body.get("data") or {})}
+
+
+@app.post("/api/channels/{cid}/prep/save")
+def prep_save(cid: str, body: dict = Body(...)):
+    from ..prep import save_inbox
+    _ch(cid)
+    try:
+        return {"name": save_inbox(cid, body.get("text", ""), body.get("name") or None)}
+    except Exception as e:                                       # noqa: BLE001
+        raise HTTPException(400, str(e))
+
+
+@app.get("/api/channels/{cid}/prep/inbox/{name}", response_class=PlainTextResponse)
+def prep_read(cid: str, name: str):
+    from ..prep import read_inbox
+    try:
+        return read_inbox(cid, name)
+    except FileNotFoundError:
+        raise HTTPException(404, "paket yok")
+
+
+@app.post("/api/channels/{cid}/prep/import")
+def prep_import(cid: str, body: dict = Body(...)):
+    from ..prep import import_bundle, parse
+    _ch(cid)
+    try:
+        data = parse(body.get("text", ""))
+        p = import_bundle(cid, data, load_config(cid), name=body.get("name") or None, force=bool(body.get("force")))
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+    job = manager.submit(["prep-run", p.slug, "--channel", cid], STEP_LABELS["prep-run"], cid, p.slug)
+    return {"slug": p.slug, "job": job.id}
+
+
+@app.put("/api/projects/{cid}/{slug}/review")
+def put_review(cid: str, slug: str, body: dict = Body(...)):
+    from ..policy import save_review
+    return save_review(_pr(cid, slug), body.get("steps") or {})
+
+
 # ------------------------------------------------------------------ projects
 def _project_summary(p: Project) -> dict:
     from ..readiness import check
@@ -329,12 +417,18 @@ def get_project(cid: str, slug: str):
              "thumbnails_yaml": yaml.safe_dump(p.meta.get("thumbnails") or [], allow_unicode=True, sort_keys=False,
                                                default_flow_style=None, width=110) if p.meta.get("thumbnails") else "",
              "retention": {lg: analyze(p, lg) for lg in langs},
-             "motion_rules": bool(((ch_data.get("remotion") or {}).get("scenes")))}
+             "motion_rules": bool(((ch_data.get("remotion") or {}).get("scenes"))),
+             "review": _review(p), "prep": (p.meta.get("prep") or {})}
     return {**extra, "channel": cid, "slug": slug, "meta": p.meta, "meta_yaml": p.meta_path.read_text(encoding="utf-8")
             if p.meta_path.exists() else "", "script": p.script_path.read_text(encoding="utf-8"),
             "sources": p.sources_path.read_text(encoding="utf-8") if p.sources_path.exists() else "",
             "languages": langs, "shots": shots, "readiness": check(p), "outputs": outputs,
             "sheet": _file_url(p.build / "contact_sheet.png"), "jobs": manager.active_for(cid, slug)}
+
+
+def _review(p: Project) -> dict:
+    from ..policy import review_state
+    return review_state(p)
 
 
 @app.put("/api/projects/{cid}/{slug}/script")

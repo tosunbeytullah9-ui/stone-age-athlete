@@ -44,6 +44,13 @@ other:
   sounds-demo                                             every sound in one file to listen to (build/sounds_demo.wav)
   sounds-fetch [--only id1,id2]                           download the library's free sound files (library/sounds)
   remotion-setup                                          install the motion-scene packages (needs Node.js)
+
+preparation (docs/PREP.md: research → script → claims → packaging → Shorts → slot, in one package):
+  prep-prompt [--channel C] [--only i011 | --title "topic"]   the prompt for Claude → build/prep_prompt.md
+  prep-check FILE [--channel C]                           what is missing + YouTube-policy report
+  prep-import FILE [--channel C] [--force]                package → project (split, claims and Shorts linked)
+  prep-run <project> [--channel C]                        config.yaml → prep.after_import (plan, motion, gate)
+  policy <project> [--channel C]                          YouTube monetization policy report (docs/POLICY.md)
 """
 from __future__ import annotations
 
@@ -103,6 +110,39 @@ def main(argv=None) -> None:
             login(channel)
         except YouTubeError as e:
             sys.exit(f"  {e}")
+        return
+    if cmd in ("prep-prompt", "prep-check", "prep-import"):
+        from . import prep
+        cfg = load_config(channel)
+        if cmd == "prep-prompt":
+            from .channel import Channel
+            out = Channel(channel).dir / "build" / "prep_prompt.md"
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(prep.build_prompt(channel, idea_id=a.only, topic=a.title or a.target, cfg=cfg),
+                           encoding="utf-8")
+            print(f"  istem hazır: {out}\n  Claude'a (claude.ai → Video Fabrikası projesi) yapıştır; gelen YAML'ı "
+                  f"panelde Hazırlık → 'Paketi incele' kutusuna yapıştır.")
+            return
+        path = Path(a.target or "")
+        if not path.exists():
+            sys.exit(f"  dosya yok: {path}")
+        data = prep.parse(path.read_text(encoding="utf-8"))
+        rep = prep.check(channel, data, cfg)
+        for e in rep["errors"]:
+            print(f"  ✕ HATA {e}")
+        for c in rep["checks"]:
+            if not c["ok"] or c["level"] == "info":
+                print(f"  {'✕' if c['level'] == 'block' else '!' if c['level'] == 'warn' else '·'} [{c['section']}] {c['message']}")
+        print(f"  {'HAZIR' if rep['ok'] else 'İÇE AKTARILABİLİR' if rep['importable'] else 'EKSİK'}: "
+              f"{rep['summary']['words']} kelime, {rep['summary']['claims']} iddia, {rep['summary']['shorts']} Short")
+        if cmd == "prep-import":
+            try:
+                pr = prep.import_bundle(channel, data, cfg, force=a.force)
+            except ValueError as e:
+                sys.exit(f"  {e}")
+            print(f"  proje: {pr.slug}")
+            for ln in prep.run_after(pr, cfg):
+                print(f"  {ln}")
         return
     if cmd == "knowledge":
         from .knowledge import write_knowledge
@@ -254,6 +294,15 @@ def main(argv=None) -> None:
               + (" → 'motion-prompt' ile ekle" if short and cmd == "motion-plan" else ""))
         if short and cmd == "motion-auto":
             print(f"  {run_data(p, cfg)}")
+    elif cmd == "prep-run":
+        from .prep import run_after
+        for ln in run_after(p, cfg):
+            print(f"  {ln}")
+    elif cmd == "policy":
+        from .policy import project_checks
+        for c in project_checks(p, cfg):
+            mark = "✓" if c["ok"] else "✕" if c["level"] == "block" else "!" if c["level"] == "warn" else "·"
+            print(f"  {mark} {c['message']}")
     elif cmd == "motion-prompt":
         from .motion_rules import run_data
         print(f"  {run_data(p, cfg)}")

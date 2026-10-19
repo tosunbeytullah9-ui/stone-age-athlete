@@ -23,6 +23,7 @@ publish:
   hook_type: you
   slot: long
   verdict: PARTIALLY WRONG
+  planned_date: '2026-12-04'
 shorts:
 - {title: Santa was red five years before Coca-Cola existed, from: s049, to: s073, hook: Santa was red five years
     before Coca-Cola existed}

@@ -124,6 +124,18 @@ def _sources(ch: Channel | None = None) -> str:
     return "\n".join(rows) if rows else "(empty)"
 
 
+def _policy(channel: str, cfg: Config) -> str:
+    from .config import load_config
+    from .policy import settings
+    from .prep import policy_text
+    c = load_config(channel)
+    pol = settings(c)
+    scope = (f"Sensitive topics on this channel: {', '.join(pol.get('sensitive') or []) or 'none'}"
+             + (f" (series: {', '.join(pol.get('sensitive_series'))})" if pol.get("sensitive_series") else "")
+             + f". Narrator: {pol.get('narrator')}. Checked by the factory: `python -m studio policy <slug>`.")
+    return scope + "\n\n" + policy_text(c, bool(pol.get("sensitive")))
+
+
 def build_knowledge(channel: str, cfg: Config) -> str:
     ch = Channel(channel)
     d = ch.data
@@ -164,7 +176,12 @@ def build_knowledge(channel: str, cfg: Config) -> str:
         "You are the writing and planning partner of this YouTube channel. Use it for: video ideas and angles, "
         "scripts, claim lists, scene plans, titles, thumbnails, Shorts, translations. When the Video "
         "Fabrikası panel gives you a prompt, the prompt's output format wins; this file gives you the context. The "
-        "owner speaks Turkish; narration, plans and titles are written in English unless asked otherwise.",
+        "owner speaks Turkish; narration, plans and titles are written in English unless asked otherwise. "
+        "When the owner asks you to prepare a video (\"i011'i hazırla\", \"yeni bir video hazırla\"), research it "
+        "with web search and answer with one preparation package (YAML: research, sources, script, claims with "
+        "`says`, titles, 3 thumbnails, hooks, Shorts, planned_date, policy self-check; format: project doc "
+        "`fabrika/hazirlik-paketi.md`, or the prompt from the panel's Hazırlık stüdyosu). Every video must pass the "
+        "YouTube rules in section 3b.",
         "## 1. Identity\n"
         f"- **Name:** {d.get('name', '')} ({d.get('pronunciation', '')}) · **Handle:** {d.get('handle', '')} · "
         f"**Category:** {d.get('category', '')}\n"
@@ -177,6 +194,7 @@ def build_knowledge(channel: str, cfg: Config) -> str:
         f"- **Positioning:** {' '.join(str(pkg.get('positioning') or '').split()) or '—'}",
         f"## 2. Series (playlists)\n| series | pillars | promise |\n| --- | --- | --- |\n{series}",
         f"## 3. Writing rules\n- Structure: {structure}\n{WRITING_RULES}",
+        f"## 3b. YouTube monetization policies (every package and every video must pass them)\n{_policy(channel, cfg)}",
         f"## 4. Voice delivery tags\n{DELIVERY_TAGS}",
         f"## 5. Brand and persona book (owner's notes)\n{brand}",
         f"## 6. Thumbnails\n{thumbs}",

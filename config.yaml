@@ -35,6 +35,17 @@ split:                # altyazı/çeviri birimi (shot). Görsel sahne başına: 
   min_chars: 20
   max_chars: 65
 
+# YouTube para kazanma politikaları (docs/POLICY.md). Kanala özel kısım channel.yaml → policy
+policy:
+  max_long_per_week: 3     # bir kanalda haftada en fazla uzun video (seri üretim izlenimi vermemek için)
+  similarity_warn: 0.12    # başka bir videoyla ortak 6 kelimelik dizi oranı: uyarı
+  similarity_block: 0.25   #   engel (YouTube: generic or repetitive content)
+  quote_words: 40          # bundan uzun alıntı = başkasının metnini okumak (reused content)
+
+# Hazırlık stüdyosu (docs/PREP.md): araştırma + senaryo + iddialar + kapak + Shorts + takvim tek pakette
+prep:
+  after_import: [split, plan, motion-auto, check]   # paket içe aktarılınca sırayla çalışan adımlar
+
 # 1) Senaryo → sahne planı ve çeviri
 planner:
   provider: gemini    # gemini (tek tık, görsellerle aynı anahtar, ~0,05 $/video) | anthropic (ücretli API) | manual (Claude sohbetinde kopyala-yapıştır)

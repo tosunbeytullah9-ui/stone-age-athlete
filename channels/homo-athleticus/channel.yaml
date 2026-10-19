@@ -52,6 +52,13 @@ youtube:                         # python -m studio upload <slug>: what goes ont
   api_audited: false             # true once Google approves the API audit (then video.mp4 is uploaded by the API too)
   tags: [human evolution, strength and conditioning, exercise science, sports science, fitness myths, anthropology,
     human body, evolution of exercise]
+policy:                          # YouTube monetization policies (docs/POLICY.md, studio/policy.py)
+  sensitive: [health]            # training and the body are health topics on every video of this channel
+  narrator: fictional            # the painted coach is a character; her lessons rest on sources and the real coach
+  realistic_visuals: false       # museum-style paintings, clearly not footage → no "AI use" label required
+  transparency: >-
+    The coach in the illustrations is a drawn character with a synthetic voice, not a real person. The research and
+    the coach's lessons come from a real, experienced strength and conditioning coach and from the sources below.
 branding:                        # python -m studio branding → build/branding/ (profile, banner, watermark)
   profile_crop: [0.18, 0.0, 0.82, 0.64]   # the face part of raw/profile_art.png (fractions x0 y0 x1 y1)
 brand_doc: docs/BRAND.md          # brand book that goes into the channel bible (default: channels/<id>/BRAND.md)

@@ -21,6 +21,7 @@ publish:
   hook_type: you
   slot: long
   verdict: WRONG
+  planned_date: '2026-11-27'
 shorts:
 - {title: A librarian measured the Earth with a stick, from: s026, to: s050, hook: A librarian measured the Earth
     with a stick}
