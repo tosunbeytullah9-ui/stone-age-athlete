@@ -53,7 +53,7 @@ Every text value may be per language (`{en: "...", tr: "..."}`), or patched for 
 | comp | props | use it for |
 | --- | --- | --- |
 | `case-file` | `number` ("001"), `org`, `label` ("CASE FILE"), `fields: [{label, value, beat?}]`, `stamp` (small, optional) | the case-file opening. Field i appears on beat i+1 by default |
-| `verdict` | `word` ("WRONG"), `label` ("VERDICT"), `belief` (struck through in red), `note` (written after the stamp, from beat 1), `hit` (seconds; set automatically from the word "wrong") | the verdict |
+| `verdict` | `word` ("WRONG"), `label` ("VERDICT"), `belief` (struck through in red), `note` (written after the stamp, from beat 1), `hit` (seconds; set automatically from the word "wrong"), `hit_beat` (the stamp lands when shot N of the scene starts) | the verdict; also a cold open (`label: BELIEF`, `hit_beat: 1`, with a `stamp` sound on that shot) |
 | `bars` | `bars: [{label, value, display?, color?, beat?}]`, `title`, `of` (the whole, e.g. 100 → dashed full length), `max`, `unit` ("%"), `decimals`, `note` | 1–4 quantities compared; part of a whole (`of`). `display` replaces the counted number once the bar is drawn ("< 2%") |
 | `counter` | `value`, `from`, `decimals`, `prefix`, `suffix`, `label` (beat 1), `note` (beat 2), `duration` (s), `thousands` | one big number: a sample size, a count |
 | `timeline` | `events: [{when, text, beat?, highlight?}]`, `title` | 2–5 dated steps (how a myth grew) |

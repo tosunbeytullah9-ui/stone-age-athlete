@@ -434,7 +434,7 @@ function sceneEditor(cid, slug, k) {
   d.innerHTML = `
     <div class="spread"><h2 style="margin:0">Sahne ${k + 1} <span class="muted small">${g.id} · ${g.shots.length} parça · paragraf ${h.para + 1}</span></h2>
       <div class="row"><button class="sm" id="se-prev" ${k ? "" : "disabled"}>←</button><button class="sm" id="se-next" ${k < groups.length - 1 ? "" : "disabled"}>→</button><button class="sm ghost" id="se-x">✕</button></div></div>
-    <div class="preview" style="margin-top:12px" id="se-img">${isMotion && h.motion_preview ? `<video src="${h.motion_preview}?v=${Date.now() % 1e7}" controls autoplay muted loop style="width:100%"></video>` : h.image ? `<img src="${h.image}?v=${Date.now() % 1e7}">` : isChart ? "" : "henüz çizilmedi"}</div>
+    <div class="preview" style="margin-top:12px" id="se-img">${isMotion && h.motion_preview ? `<video src="${h.motion_preview}" controls autoplay muted loop style="width:100%"></video>` : h.image ? `<img src="${h.image}?v=${Date.now() % 1e7}">` : isChart ? "" : "henüz çizilmedi"}</div>
     <p style="font-size:16px;margin:12px 0">“${esc(sceneWords(g))}”</p>
     <div class="row" style="gap:6px;margin-bottom:6px"><button class="sm ${isChart || isMotion ? "" : "on"}" id="se-mode-ai">Resim</button><button class="sm ${isChart ? "on" : ""}" id="se-mode-chart">Grafik</button><button class="sm ${isMotion ? "on" : ""}" id="se-mode-motion">Hareketli</button></div>
     <div id="se-ai" class="${isChart || isMotion ? "hidden" : ""}">

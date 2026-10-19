@@ -15,20 +15,27 @@ const meta: CalculateMetadataFunction<Meta & Record<string, unknown>> = ({props}
   height: Number(props.height ?? 1080),
 });
 
+// `<id>` is what the pipeline renders: no default props, so nothing from the examples can leak into a video.
+// `<id>-example` carries the example props for Remotion Studio (npm run studio).
 export const Root: React.FC = () => (
   <>
-    {Object.entries(COMPS).map(([id, c]) => (
-      <Composition
-        key={id}
-        id={id}
-        component={c.component}
-        durationInFrames={150}
-        fps={30}
-        width={1920}
-        height={1080}
-        defaultProps={c.example}
-        calculateMetadata={meta}
-      />
-    ))}
+    {Object.entries(COMPS).flatMap(([id, c]) =>
+      [
+        [id, {}],
+        [`${id}-example`, c.example],
+      ].map(([cid, props]) => (
+        <Composition
+          key={cid as string}
+          id={cid as string}
+          component={c.component}
+          durationInFrames={150}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={props as Record<string, unknown>}
+          calculateMetadata={meta}
+        />
+      )),
+    )}
   </>
 );

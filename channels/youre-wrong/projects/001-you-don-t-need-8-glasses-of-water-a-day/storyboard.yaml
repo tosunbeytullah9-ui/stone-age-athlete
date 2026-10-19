@@ -6,17 +6,21 @@ shots:
   sent: 0
   text: Eight glasses of water a day.
   visual:
-    prompt: Straight-on front view of exactly eight identical full glasses of water standing side by side in one
-      evenly spaced straight row across a wooden kitchen table, all the same size, every glass fully visible, none
-      overlapping or hidden, counted left to right one to eight, a quiet kitchen behind
-    ledger: true
-  camera: in
+    comp: verdict
+    label: BELIEF
+    word: WRONG
+    belief: Eight glasses of water a day
+    hit_beat: 1
 - id: s002
   para: 0
   sent: 1
   text: You have heard it a thousand times.
   visual:
     same: true
+  sound:
+    sfx:
+    - id: stamp
+      at: You
 - id: s003
   para: 0
   sent: 2
