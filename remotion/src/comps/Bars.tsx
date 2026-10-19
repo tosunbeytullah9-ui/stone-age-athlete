@@ -42,7 +42,13 @@ export const Bars: React.FC<BarsProps> = (p) => {
   }
   const labelSize = (vertical ? 62 : 60) * u;
   const labelW = vertical ? 0 : Math.min(W * 0.3, Math.max(...bars.map((b) => measure(b.label, handF, labelSize))) + 40 * u);
-  const valueSpace = (vertical ? 0 : 260) * u;
+  // room on the right for the widest number ("~270 men"), so no value runs off the page
+  const vSizeBase = (vertical ? 72 : 84) * u;
+  const finalTexts = bars.map((b) => b.display ?? `${fmt(b.value, decimals)}${unit}`);
+  const widest = Math.max(0, ...finalTexts.map((t) => measure(t, typeF, vSizeBase)));
+  const room = right - (left + labelW);
+  const vSize = vertical ? vSizeBase : vSizeBase * Math.min(1, (room * 0.38) / Math.max(1, widest + 28 * u));
+  const valueSpace = vertical ? 0 : Math.max(200 * u, (widest * vSize) / vSizeBase + 28 * u + 20 * u);
   const trackX = left + labelW;
   const trackW = right - trackX - valueSpace;
   const barH = Math.min(rowH * (vertical ? 0.36 : 0.55), 128 * u);
@@ -79,7 +85,6 @@ export const Bars: React.FC<BarsProps> = (p) => {
     nodes.push(<Draw key={`o${i}`} d={handRect(trackX, by, bw, barH, `b${i}`, 2.5 * u)} start={start + 4} dur={grow + 4} width={4.5} />);
     // value: counts while the bar grows, then the display text (if any) is written
     const vx = vertical ? trackX + bw + 26 * u : trackX + bw + 28 * u;
-    const vSize = (vertical ? 72 : 84) * u;
     const vy = by + barH / 2 + vSize * 0.34;
     const done = start + 6 + grow;
     if (frame >= start + 6) {

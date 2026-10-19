@@ -68,15 +68,14 @@ shots:
   sent: 7
   text: Case file zero one zero.
   visual:
-    prompt: the clerk's hands opening a folder containing an old Christmas card with Santa
-    characters:
-    - clerk
-    ledger: true
-  camera: none
-  overlay:
-    kind: label
-    text: CASE FILE 010
-    pos: top
+    comp: case-file
+    number: '010'
+    org: BUREAU OF HUMAN ERROR
+    fields:
+    - label: SUBJECT
+      value: you, and everyone at that party
+    - label: BELIEF
+      value: Coca-Cola invented the red Santa Claus
 - id: s011
   para: 2
   sent: 8
@@ -504,8 +503,15 @@ shots:
   sent: 49
   text: Eighteen eighty-one.
   visual:
-    prompt: a 1886 pharmacy soda fountain counter with glass bottles and a pharmacist, no labels, no text
-    ledger: true
+    comp: timeline
+    events:
+    - when: '1881'
+      text: Nast's Santa in a red suit
+      beat: 0
+    - when: '1886'
+      text: Coca-Cola is invented
+      beat: 1
+      highlight: true
   camera: right
 - id: s072
   para: 10
@@ -513,10 +519,6 @@ shots:
   text: Coca-Cola was invented in eighteen eighty-six.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 'Coca-Cola: 1886'
-    pos: bottom
 - id: s073
   para: 10
   sent: 51
@@ -605,9 +607,10 @@ shots:
   sent: 58
   text: By the nineteen twenties,
   visual:
-    prompt: 1920s New York department store window with a row of identical Santas greeting children, snowy street,
-      people drawn as simple expressive ink figures
-    ledger: true
+    comp: quote
+    text: A standardized Santa Claus appears to New York children
+    source: The New York Times, 1927
+    highlight: standardized
   camera: left
 - id: s086
   para: 12
@@ -627,10 +630,6 @@ shots:
   text: that a standardised Santa Claus appears to New York children.
   visual:
     same: true
-  overlay:
-    kind: label
-    text: “A standardized Santa Claus” — 1927
-    pos: bottom
 - id: s089
   para: 12
   sent: 59
@@ -1167,9 +1166,11 @@ shots:
   sent: 100
   text: His first model was a friend of his, named Lou Prentice.
   visual:
-    prompt: an artist in a 1930s studio drawing a jovial older man posing in a red Santa costume, people drawn as
-      simple expressive ink figures
-    ledger: true
+    comp: counter
+    value: 33
+    suffix: ' years'
+    label: of Sundblom's Santas for Coca-Cola
+    note: 1931 – 1964
   camera: in
 - id: s166
   para: 21
@@ -1189,10 +1190,6 @@ shots:
   text: until nineteen sixty-four.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 1931 – 1964
-    pos: bottom
 - id: s169
   para: 21
   sent: 102
@@ -1324,16 +1321,9 @@ shots:
   sent: 117
   text: 'Verdict: mostly wrong.'
   visual:
-    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: label
-    text: MOSTLY WRONG
-    pos: center
-    color: '#e8402f'
+    comp: verdict
+    word: MOSTLY WRONG
+    belief: Coca-Cola invented the red Santa Claus
 - id: s189
   para: 25
   sent: 118

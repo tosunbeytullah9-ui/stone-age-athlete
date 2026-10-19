@@ -44,15 +44,12 @@ shots:
   sent: 5
   text: Case file zero zero three.
   visual:
-    prompt: Overhead close-up of the clerk's ink-stained hands untying the string of a thick blank cardboard case
-      folder on the wooden archive desk, brass rubber stamp beside it
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: label
-    text: CASE FILE 003
+    comp: case-file
+    number: '003'
+    org: BUREAU OF HUMAN ERROR
+    fields:
+    - label: SUBJECT
+      value: you
 - id: s007
   para: 1
   sent: 6
@@ -477,28 +474,18 @@ shots:
   sent: 45
   text: it usually becomes noticeable six
   visual:
-    bg: plain_cool
-    props:
-    - type: line_chart
-      x: 960
-      y: 860
-      scale: 1.2
-      values:
-      - 0.1
-      - 0.95
-      - 0.15
-      - 0.05
-      - 0.05
-      - 0.05
-      values2:
-      - 0.0
-      - 0.0
-      - 0.25
-      - 0.65
-      - 1.0
-      - 0.5
-      color: bad
-      color2: water
+    comp: bars
+    title: Muscle soreness after a hard session
+    max: 52
+    bars:
+    - label: Noticeable
+      value: 8
+      display: 6–8 hours
+      beat: 1
+    - label: Peaks
+      value: 48
+      display: ~48 hours
+      beat: 2
 - id: s065
   para: 10
   sent: 45
@@ -511,9 +498,6 @@ shots:
   text: and peaks at around forty-eight hours.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 'soreness: ~48 hours'
 - id: s067
   para: 10
   sent: 46
@@ -1313,28 +1297,18 @@ shots:
   sent: 122
   text: The lactate is gone in about an hour.
   visual:
-    bg: plain_cool
-    props:
-    - type: line_chart
-      x: 960
-      y: 860
-      scale: 1.2
-      values:
-      - 0.1
-      - 0.95
-      - 0.15
-      - 0.05
-      - 0.05
-      - 0.05
-      values2:
-      - 0.0
-      - 0.0
-      - 0.25
-      - 0.65
-      - 1.0
-      - 0.5
-      color: bad
-      color2: water
+    comp: bars
+    title: After a hard session
+    max: 52
+    bars:
+    - label: Lactate back to rest
+      value: 1
+      display: ~1 hour
+      beat: 0
+    - label: Soreness peaks
+      value: 48
+      display: ~48 hours
+      beat: 1
 - id: s179
   para: 26
   sent: 123
@@ -1377,17 +1351,10 @@ shots:
   sent: 126
   text: 'Verdict: wrong.'
   visual:
-    prompt: Dramatic close-up of the clerk's hand slamming a heavy brass rubber stamp down onto the case folder,
-      a burst of red ink and dust flying up, the green lamp shaking
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: stat
-    text: WRONG
-    pos: center
-    color: '#e8402f'
+    comp: verdict
+    word: WRONG
+    belief: Lactic acid builds up in your muscles and makes them sore for days
+    note: Wrong molecule. Wrong timing. And technically, wrong name.
 - id: s185
   para: 27
   sent: 127
@@ -1547,13 +1514,11 @@ shots:
   sent: 143
   text: In a twenty eighteen review of ninety-nine studies,
   visual:
-    prompt: 'A sports clinic: a therapist massaging an athlete''s thigh on a treatment table, towels and oil bottles
-      without labels, people drawn as simple expressive ink figures'
-    ledger: true
+    comp: counter
+    value: 99
+    label: studies in one 2018 review
+    note: 'most effective for soreness: massage'
   camera: left
-  overlay:
-    kind: stat
-    text: 99 studies
 - id: s208
   para: 31
   sent: 143

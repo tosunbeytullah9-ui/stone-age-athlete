@@ -32,6 +32,12 @@ the owner's machine; packages install on first use. Use 4–8 per long video (ca
 After writing one: `python -m studio images <slug> --only sNNN` (poster) and
 `python -m studio motion-scenes <slug> --only sNNN` (clip → build/remotion_preview/) and **look at them**.
 Changing a component: `npx tsc --noEmit` in `remotion/`, then `python -m pytest -q`.
+**Channel rules** (`channel.yaml → remotion.scenes`, docs/REMOTION.md → Rules per channel; `studio/motion_rules.py`):
+the cold open, case file and verdict are applied automatically after every plan (`motion-plan`, idempotent); the
+data scenes (bars/counter/timeline/quote) come from the planner or `motion-prompt` and are rejected unless every
+number is in a claim linked to the scene's shots (a quote must be a claim's quote). `motion-auto <slug>` does both.
+When you plan a video by hand, leave the signature beats to the engine and add 2–6 data scenes from claims.yaml.
+Never put the motion rules under `remotion.rules` (that name is the paper's ruled lines, `paper_rules`).
 
 ## Living pictures (motion inside the paintings)
 Renders can animate the scene paintings locally and for free (`studio/motion.py`, `studio/stillmotion`;

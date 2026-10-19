@@ -40,7 +40,8 @@ painting cannot carry well: the recurring brand beats (case file, verdict) and t
 ```yaml
 remotion:
   theme: ledger        # ledger (ruled paper, typewriter + handwriting, red pen, rubber stamp) | museum (painted paper)
-  # optional: ink, accent, wash, wash2, muted, bg, boil (line wobble in px), paper (default: chart_paper)
+  # optional: ink, accent, wash, wash2, muted, bg, boil (line wobble in px), paper (default: chart_paper),
+  # paper_rules: {first, step, margin} (the ruled lines of the paper in 1920×1080 px; ledger knows its own)
 ```
 Ink and accent default to `thumbnails.ink` / `thumbnails.accent`; the paper is the channel's `chart_paper`.
 Fonts are local and licence-checked (`remotion/public/fonts`): Special Elite (Apache-2.0, typewriter),
@@ -67,6 +68,38 @@ Every text value may be per language (`{en: "...", tr: "..."}`), or patched for 
 4. 4–8 motion scenes in a long video. The case file and the verdict are the channel's signature beats; the rest are
    numbers. Never two motion scenes in a row unless the narration really moves from one number to the next.
 5. After changing props, look at the poster (`images --only sNNN`, panel) and the clip (`motion-scenes --only sNNN`).
+
+## Rules per channel (every video gets its motion scenes by itself)
+Which scenes are motion scenes is decided by the channel, the same way in every video, so nobody chooses them by
+hand (`studio/motion_rules.py`):
+
+```yaml
+remotion:
+  theme: ledger
+  scenes:                          # off when missing (the channel then has only hand-placed motion scenes)
+    cold_open: true                # the first sentence restates the belief → "BELIEF: …" struck through, stamp after it
+    case_file: {org: BUREAU OF HUMAN ERROR}   # "Case file zero zero N." + "Subject: …" (+ "Belief: …") → typed card
+    verdict: {note: true}          # "Verdict: wrong." → stamp on the word, the rest of that scene written under it
+    data: {min: 2, max: 6}         # key numbers / quotes / dated steps, taken from the claims
+```
+
+- **Signature beats** (cold open, case file, verdict) are read from the script's fixed structure: deterministic, free,
+  idempotent. They run after every `plan` / `apply-plan` / panel "Planı uygula", and with `motion-plan`. The cold open
+  is used only when the opening sentence really says the belief (≥ 2 shared words and ≥ 35 % of the belief's words);
+  otherwise the opening painting stays.
+- **Data scenes** (`bars`, `counter`, `timeline`, `quote`) are chosen by the planner (Gemini/Anthropic) inside `plan`,
+  or by `motion-prompt` (manual provider: a prompt file for Claude, the answer goes into "Planı uygula"). Every number
+  must appear in a claim linked to the scene's shots (a timeline may use any claim of the video), a quote must be a
+  claim's `quote` (or words quoted inside the claim text). Anything else is **skipped** by `apply-plan` and blocks the
+  quality gate, so an invented or rounded number never reaches a video.
+- `python -m studio motion-auto <slug>` = signature beats + data scenes when the video has fewer than `data.min`.
+  Panel: 2 · Sahneler → **Hareketli sahneleri kur**.
+- Per video (`project.yaml`): `motion: {cold_open: false | true, case_file: false, verdict: false, belief: "…"}`
+  (`cold_open: true` forces it; `belief` replaces the belief read from "Belief: …").
+- The gate (`check`) warns when a signature beat is missing or the number of data scenes is outside `data`.
+
+New video: write script → `split` → `plan` (signature + data scenes come with it) → `check` → `images` (posters are
+free; only the paintings cost) → `render`.
 
 ## Installation (once per computer)
 Node.js LTS: `winget install OpenJS.NodeJS.LTS`, then reopen the window. The npm packages are installed on the

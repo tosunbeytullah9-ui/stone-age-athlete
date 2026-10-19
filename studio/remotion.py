@@ -38,6 +38,8 @@ COMPS = ("case-file", "verdict", "bars", "counter", "timeline", "quote")
 CHARTLIKE = ("bars", "counter", "timeline")        # get the channel's "chart" sound (pen)
 ENGINE_VERSION = "rm1"
 POSTER_SECONDS = 7.0
+POSTER_HOLD = 4.0  # posters: the shots are spread over POSTER_SECONDS, the still is taken after this much more time,
+                   # so the last field / note is fully written in the picture
 NODE_HINT = ("Hareketli sahneler için Node.js gerekli. Kur: winget install OpenJS.NodeJS.LTS "
              "(sonra bu pencereyi kapatıp yeniden aç).")
 
@@ -177,7 +179,7 @@ PRESETS = ("ledger", "museum")             # remotion/src/lib/theme.ts
 
 
 def theme(cfg: Config, copy_assets: bool = True) -> dict:
-    """channel.yaml → remotion: {theme: ledger|museum, ink, accent, wash, wash2, muted, boil, paper, rules}
+    """channel.yaml → remotion: {theme: ledger|museum, ink, accent, wash, wash2, muted, boil, paper, paper_rules, scenes}
     Defaults: ink/accent from the thumbnail look, paper from chart_paper."""
     ch = cfg.get_path("channel") or {}
     rm = dict(ch.get("remotion") or {})
@@ -189,9 +191,13 @@ def theme(cfg: Config, copy_assets: bool = True) -> dict:
     if th.get("accent"):
         out["accent"] = th["accent"]
     paper_rel = rm.pop("paper", None) or ch.get("chart_paper")
-    for k in ("ink", "accent", "wash", "wash2", "muted", "bg", "boil", "rules", "fonts"):
+    for k in ("ink", "accent", "wash", "wash2", "muted", "bg", "boil", "fonts"):
         if k in rm:
             out[k] = rm[k]
+    # `paper_rules` = the paper's ruled lines in 1920×1080 px ({first, step, margin}); `scenes` is the motion rules
+    pr = rm.get("paper_rules")
+    if isinstance(pr, dict) and "step" in pr:
+        out["rules"] = pr
     out["paper"] = None
     if paper_rel:
         src = CHANNELS / str(ch.get("id", "")) / str(paper_rel)
@@ -353,7 +359,7 @@ def render_posters(project, cfg: Config, items: list[tuple[dict, str]], out_dir:
     jobs, keys = [], {}
     for head, key in items:
         n = sum(1 for s in shots if heads[s["id"]] == head["id"])
-        frames = round(POSTER_SECONDS * fps)
+        frames = round((POSTER_SECONDS + POSTER_HOLD) * fps)
         jobs.append(_job(head["id"], head["visual"], primary, primary, th, out_dir / f"{head['id']}.png", "still",
                          frames, fps, size, even_beats(n, fps), frame=frames - 1, seed=_seed(head["id"])))
         keys[head["id"]] = key
@@ -368,7 +374,7 @@ def render_vertical(project, cfg: Config, head: dict, out: Path, lang: str | Non
         return False
     fps = int(cfg.get_path("video.fps", 30))
     primary = project.primary_lang()
-    frames = round(POSTER_SECONDS * fps)
+    frames = round((POSTER_SECONDS + POSTER_HOLD) * fps)
     j = _job(head["id"], head["visual"], lang or primary, primary, theme(cfg), out, "still", frames, fps,
              (1080, 1920), even_beats(1, fps), frame=frames - 1, seed=_seed(head["id"]))
     return not _run([j], cfg, project.build / "remotion") and out.exists()
@@ -391,7 +397,7 @@ def preview(project, cfg: Config, only: set[str] | None, lang: str | None = None
         if all(s["id"] in timing for s in g):
             items.append(scene_item(g, timing, fps, tail))     # exactly the clip `render` will use (cached)
         else:
-            items.append({"head": head, "beats": even_beats(len(g), fps), "frames": round(POSTER_SECONDS * fps),
+            items.append({"head": head, "beats": even_beats(len(g), fps), "frames": round((POSTER_SECONDS + 2) * fps),
                           "tail": tail})
     if not items:
         raise SystemExit("Seçilen sahnelerde hareketli sahne yok (visual: {comp: ...}).")

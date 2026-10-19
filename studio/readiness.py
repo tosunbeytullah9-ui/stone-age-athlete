@@ -79,6 +79,24 @@ def check(project: Project, lang: str | None = None) -> dict:
             else f"Hareketli sahne hatası: {bad_m[0]}" + (f" (+{len(bad_m) - 1})" if len(bad_m) > 1 else ""))
         ok, msg = status()
         add("remotion", ok, "warn", f"Remotion: {msg}")
+    from .config import load_config
+    from .motion_rules import SIGNATURE_COMPS, data_scenes, rules_for, signature_plan, validate_data
+    cfg = load_config(project.channel)
+    rules = rules_for(cfg, project)
+    if rules:
+        planned, _ = signature_plan(project, cfg, shots)
+        want = {s["id"] for s in planned if (s.get("visual") or {}).get("comp") in SIGNATURE_COMPS}
+        have = {s["id"] for s in shots if (s.get("visual") or {}).get("comp") in SIGNATURE_COMPS}
+        add("signature", want <= have, "warn", "İmza sahneleri (açılış, dosya kartı, hüküm) yerinde" if want <= have
+            else f"İmza sahnesi eksik: {', '.join(sorted(want - have))} → 'Hareketli sahneleri kur'")
+        ds = data_scenes(shots)
+        d = rules.get("data") or {}
+        bad_d = validate_data(project, {s["id"]: s["visual"] for s in shots if s["id"] in ds}, shots)
+        add("data_scenes", not bad_d, "block", f"Rakam sahnesi: {len(ds)}, sayıları iddialarda" if not bad_d
+            else f"Rakam sahnesi {next(iter(bad_d))}: {next(iter(bad_d.values()))}")
+        if not bad_d:
+            add("data_count", d.get("min", 2) <= len(ds) <= d.get("max", 5), "warn",
+                f"Rakam sahnesi sayısı: {len(ds)} (hedef {d.get('min', 2)}–{d.get('max', 5)})")
 
     paid = sum(1 for g in groups if g[0].get("visual") and engine_name(g[0], {}) == "gemini")
     add("cost", True, "info", f"AI resmi: {paid} sahne (yaklaşık {paid * 0.05:.2f} $; değişmeyen sahne tekrar ödenmez)")

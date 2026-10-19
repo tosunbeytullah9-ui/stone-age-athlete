@@ -74,6 +74,11 @@ branding:                        # python -m studio branding / panel: Kanal ayar
 chart_paper: refs/paper.png      # blank ledger page: charts are inked onto the same paper as the drawings
 remotion:                        # motion scenes (docs/REMOTION.md): typed and inked onto the same ledger page
   theme: ledger                  # ruled lines, typewriter + handwriting, red pen, rubber stamp; colours from `thumbnails`
+  scenes:                        # every video, from the script's fixed structure (motion-plan; also after `plan`)
+    cold_open: true              # the first sentence restates the belief → BELIEF struck through + stamp after it
+    case_file: {org: BUREAU OF HUMAN ERROR}   # "Case file zero zero N. Subject: …" → typed card
+    verdict: {note: true}        # "Verdict: wrong." → stamp on the word, the rest of the scene written under it
+    data: {min: 2, max: 6}       # key numbers / quotes / timelines from the claims (motion-prompt; numbers checked)
 sound:                           # the channel's sound language (docs/SOUND.md); beds and effects are automatic
   transition: page_turn          # new paragraph on a new picture: Mortimer turns a page of the ledger
   chart: pen                     # charts are inked into the ledger

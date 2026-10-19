@@ -116,15 +116,14 @@ shots:
   sent: 13
   text: Case file zero zero seven.
   visual:
-    prompt: the clerk's hands opening a folder containing a sketch of a person touching their toes
-    characters:
-    - clerk
-    ledger: true
-  camera: none
-  overlay:
-    kind: label
-    text: CASE FILE 007
-    pos: top
+    comp: case-file
+    number: '007'
+    org: BUREAU OF HUMAN ERROR
+    fields:
+    - label: SUBJECT
+      value: you, and every PE teacher you ever had
+    - label: BELIEF
+      value: stretching before exercise stops you getting injured
 - id: s018
   para: 2
   sent: 14
@@ -258,8 +257,12 @@ shots:
   sent: 27
   text: It was an immediate hit.
   visual:
-    prompt: stacks of the same small paperback book piled high in a bookshop window, crowds browsing
-    ledger: true
+    comp: counter
+    value: 3.5
+    decimals: 1
+    suffix: ' million'
+    label: copies sold
+    note: 29 foreign editions
   camera: right
 - id: s038
   para: 4
@@ -267,10 +270,6 @@ shots:
   text: It went on to sell more than three and a half million copies,
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 3,500,000+ copies
-    pos: bottom
 - id: s039
   para: 4
   sent: 28
@@ -490,21 +489,15 @@ shots:
   sent: 51
   text: The stretching group had one hundred and fifty-eight.
   visual:
-    bg: plain_warm
-    props:
-    - type: bar_chart
-      x: 960
-      y: 860
-      values:
-      - 0.9
-      - 1.0
-      colors:
-      - water
-      - stone
-  overlay:
-    kind: stat
-    text: 158 vs 175 injuries
-    pos: top
+    comp: bars
+    title: Lower-limb injuries in 12 weeks
+    bars:
+    - label: Stretched
+      value: 158
+      beat: 0
+    - label: Did not stretch
+      value: 175
+      beat: 1
 - id: s069
   para: 9
   sent: 52
@@ -781,9 +774,13 @@ shots:
   sent: 79
   text: A two thousand nineteen review of fifteen studies,
   visual:
-    prompt: a sports science conference poster session, researchers comparing charts, no legible text, people drawn
-      as simple expressive ink figures
-    ledger: true
+    comp: counter
+    value: 51
+    prefix: −
+    suffix: '%'
+    duration: 2.5
+    label: hamstring injuries, at best
+    note: 15 studies · 8,459 athletes
   camera: left
 - id: s107
   para: 14
@@ -803,10 +800,6 @@ shots:
   text: by up to fifty-one per cent.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: hamstring injuries −51%
-    pos: bottom
 - id: s110
   para: 14
   sent: 80
@@ -870,27 +863,24 @@ shots:
   sent: 85
   text: On average, a static stretch before exercise reduced
   visual:
-    bg: plain_warm
-    props:
-    - type: bar_chart
-      x: 960
-      y: 860
-      values:
-      - 1.0
-      - 0.946
-      colors:
-      - stone
-      - bad
+    comp: bars
+    title: Right after a static stretch
+    max: 6
+    bars:
+    - label: Maximal strength
+      value: 5.4
+      display: −5.4%
+      beat: 1
+    - label: Explosive power
+      value: 2.0
+      display: −2%
+      beat: 4
 - id: s119
   para: 16
   sent: 85
   text: maximal strength by around five per cent.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: strength −5.4%
-    pos: top
 - id: s120
   para: 16
   sent: 86
@@ -909,10 +899,6 @@ shots:
   text: dropped by about two per cent.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: explosive −2%
-    pos: top
 - id: s123
   para: 17
   sent: 87
@@ -1635,16 +1621,9 @@ shots:
   sent: 148
   text: 'Verdict: wrong.'
   visual:
-    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: label
-    text: WRONG
-    pos: center
-    color: '#e8402f'
+    comp: verdict
+    word: WRONG
+    belief: Stretching before exercise stops you getting injured
   tone:
   - pause
 - id: s225

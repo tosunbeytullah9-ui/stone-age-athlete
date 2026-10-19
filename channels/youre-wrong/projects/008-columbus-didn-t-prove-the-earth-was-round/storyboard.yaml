@@ -94,15 +94,12 @@ shots:
   sent: 10
   text: Case file zero zero eight.
   visual:
-    prompt: the clerk's hands opening a folder containing an old sketch of a flat world map
-    characters:
-    - clerk
-    ledger: true
-  camera: none
-  overlay:
-    kind: label
-    text: CASE FILE 008
-    pos: top
+    comp: case-file
+    number: 008
+    org: BUREAU OF HUMAN ERROR
+    fields:
+    - label: SUBJECT
+      value: you, and most school textbooks
 - id: s014
   para: 2
   sent: 11
@@ -315,26 +312,16 @@ shots:
   sent: 32
   text: So the whole Earth, he reasoned, must be fifty times that.
   visual:
-    bg: plain_warm
-    props:
-    - type: pie
-      x: 960
-      y: 520
-      scale: 2.2
-      value: 0.02
-      colors:
-      - ochre
-      - stone
+    comp: counter
+    value: 250000
+    suffix: ' stadia'
+    label: 'the whole Earth: 50 × 5,000 stadia'
 - id: s045
   para: 7
   sent: 33
   text: Around two hundred and fifty thousand stadia.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 5,000 × 50 = 250,000 stadia
-    pos: top
 - id: s046
   para: 8
   sent: 34
@@ -630,10 +617,10 @@ shots:
   sent: 58
   text: The historian Stephen Jay Gould put it bluntly.
   visual:
-    prompt: the clerk's hand underlining a sentence in a modern essay with a red pencil
-    characters:
-    - clerk
-    ledger: true
+    comp: quote
+    text: There never was a period of flat Earth darkness among scholars
+    source: Stephen Jay Gould
+    highlight: never
   camera: none
 - id: s087
   para: 13
@@ -641,10 +628,6 @@ shots:
   text: There never was a period of flat Earth darkness among scholars.
   visual:
     same: true
-  overlay:
-    kind: label
-    text: “There never was a period of flat Earth darkness”
-    pos: bottom
 - id: s088
   para: 14
   sent: 60
@@ -885,27 +868,23 @@ shots:
   sent: 83
   text: The real distance is
   visual:
-    bg: plain_cool
-    props:
-    - type: bar_chart
-      x: 960
-      y: 860
-      values:
-      - 0.23
-      - 1.0
-      colors:
-      - bad
-      - good
+    comp: bars
+    title: Canary Islands to Japan
+    bars:
+    - label: Columbus's estimate
+      value: 2400
+      display: ~2,400 nmi
+      beat: 0
+    - label: Real distance
+      value: 10600
+      display: ~10,600 nmi
+      beat: 1
 - id: s122
   para: 20
   sent: 83
   text: about ten thousand six hundred nautical miles.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: ~10,600 nautical miles
-    pos: top
 - id: s123
   para: 20
   sent: 84
@@ -1227,9 +1206,17 @@ shots:
   sent: 112
   text: Three years later, one ship came home,
   visual:
-    prompt: a single battered ship sailing home into harbour, ragged sailors on deck, people drawn as simple expressive
-      ink figures
-    ledger: true
+    comp: bars
+    title: Magellan's expedition
+    bars:
+    - label: Set out, 1519
+      value: 270
+      display: ~270 men
+      beat: 0
+    - label: Came home, 1522
+      value: 18
+      display: 18 men
+      beat: 2
   camera: out
 - id: s169
   para: 25
@@ -1243,10 +1230,6 @@ shots:
   text: Eighteen men were on board.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: ~270 left · 18 returned
-    pos: bottom
 - id: s171
   para: 25
   sent: 114
@@ -1509,16 +1492,9 @@ shots:
   sent: 136
   text: 'Verdict: wrong.'
   visual:
-    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: label
-    text: WRONG
-    pos: center
-    color: '#e8402f'
+    comp: verdict
+    word: WRONG
+    belief: People in fourteen ninety-two thought the Earth was flat
 - id: s209
   para: 33
   sent: 137

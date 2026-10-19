@@ -96,15 +96,12 @@ shots:
   sent: 9
   text: Case file zero zero nine.
   visual:
-    prompt: the clerk's hands opening a folder containing a sketch of a Roman tombstone
-    characters:
-    - clerk
-    ledger: true
-  camera: none
-  overlay:
-    kind: label
-    text: CASE FILE 009
-    pos: top
+    comp: case-file
+    number: 009
+    org: BUREAU OF HUMAN ERROR
+    fields:
+    - label: SUBJECT
+      value: you, and your great-great-great-grandparents
 - id: s015
   para: 2
   sent: 10
@@ -358,23 +355,19 @@ shots:
   sent: 37
   text: somewhere between a quarter and a third
   visual:
-    bg: plain_warm
-    props:
-    - type: line_chart
-      x: 960
-      y: 860
-      values:
-      - 1.0
-      - 0.7
-      - 0.6
-      - 0.5
-      - 0.45
-      - 0.4
-      - 0.33
-      - 0.24
-      - 0.12
-      - 0.03
-      color: bad
+    comp: bars
+    title: Babies in the Roman world
+    of: 100
+    bars:
+    - label: Died in first year
+      value: 33
+      display: 25–33%
+      beat: 1
+    - label: Survived to 5
+      value: 65
+      display: 55–65%
+      beat: 3
+    note: Perhaps half had died by age 10
 - id: s050
   para: 8
   sent: 37
@@ -399,10 +392,6 @@ shots:
   text: Perhaps half of everyone born had died by the age of ten.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: ~1 in 2 dead by age 10
-    pos: top
 - id: s054
   para: 8
   sent: 40
@@ -729,14 +718,11 @@ shots:
   sent: 70
   text: The answer was about seventy-two.
   visual:
-    prompt: a white-haired hunter-gatherer elder telling stories to children around a fire, firelight, dignified,
-      people drawn as simple expressive ink figures
-    ledger: true
+    comp: counter
+    value: 72
+    label: most common age of adult death
+    note: 'range: 68 to 78'
   camera: in
-  overlay:
-    kind: stat
-    text: 'most common adult death: ~72'
-    pos: bottom
 - id: s101
   para: 15
   sent: 71
@@ -813,8 +799,10 @@ shots:
   sent: 77
   text: Long before the Roman Empire,
   visual:
-    prompt: an ancient Hebrew scribe writing on a parchment scroll by an oil lamp, Middle Eastern setting
-    ledger: true
+    comp: quote
+    text: The days of our years are threescore years and ten
+    source: Psalm 90:10
+    highlight: threescore years and ten
   camera: in
 - id: s112
   para: 18
@@ -828,10 +816,6 @@ shots:
   text: The days of our years are threescore years and ten.
   visual:
     same: true
-  overlay:
-    kind: label
-    text: “threescore years and ten”
-    pos: bottom
 - id: s114
   para: 18
   sent: 79
@@ -1188,26 +1172,25 @@ shots:
   sent: 111
   text: In the hunter-gatherer data,
   visual:
-    bg: plain_cool
-    props:
-    - type: pie
-      x: 960
-      y: 520
-      scale: 2.2
-      value: 0.7
-      colors:
-      - bad
-      - stone
+    comp: bars
+    title: Causes of death among hunter-gatherers
+    of: 100
+    unit: '%'
+    bars:
+    - label: Illness
+      value: 70
+      display: ~70%
+      beat: 1
+    - label: Violence, accidents
+      value: 20
+      display: ~20%
+      beat: 3
 - id: s165
   para: 25
   sent: 111
   text: illness accounted for about seventy per cent of all deaths.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: illness ~70% · violence/accidents ~20%
-    pos: top
 - id: s166
   para: 25
   sent: 112
@@ -1339,17 +1322,17 @@ shots:
   sent: 127
   text: In about two hundred years,
   visual:
-    bg: plain_cool
-    props:
-    - type: bar_chart
-      x: 960
-      y: 860
-      values:
-      - 0.4
-      - 1.0
-      colors:
-      - stone
-      - good
+    comp: bars
+    title: Global life expectancy
+    bars:
+    - label: Two centuries ago
+      value: 30
+      display: under 30
+      beat: 0
+    - label: Today
+      value: 72
+      display: 72+
+      beat: 2
 - id: s186
   para: 27
   sent: 127
@@ -1362,10 +1345,6 @@ shots:
   text: from under thirty to over seventy.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: < 30 → 72+
-    pos: top
 - id: s188
   para: 27
   sent: 128
@@ -1472,16 +1451,9 @@ shots:
   sent: 140
   text: 'Verdict: wrong.'
   visual:
-    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: label
-    text: WRONG
-    pos: center
-    color: '#e8402f'
+    comp: verdict
+    word: WRONG
+    belief: In the ancient world, people were old at thirty, and dead soon after
 - id: s204
   para: 30
   sent: 141

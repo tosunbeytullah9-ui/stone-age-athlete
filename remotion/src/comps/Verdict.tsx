@@ -9,7 +9,7 @@ export type VerdictProps = BaseProps & {
   belief?: string | null; // the sentence that gets struck through
   note?: string | null; // handwritten line under the stamp, appears at beat 1 (e.g. what is true instead)
   hit?: number | null; // seconds from the scene start when the stamp lands (default ~0.9 s, after the strike)
-  hit_beat?: number | null; // or: the stamp lands when shot N of the scene starts (e.g. 1 = right after the first sentence)
+  hit_beat?: number | null; // or: the stamp lands when shot N of the scene starts (1 = after the first sentence; ≥ number of shots = at the end)
 };
 
 export const Verdict: React.FC<VerdictProps> = (p) => {
@@ -29,7 +29,13 @@ export const Verdict: React.FC<VerdictProps> = (p) => {
   const sDur = 9;
   const hitDefault = t0 + Math.round(fps * 0.9);
   const hit =
-    p.hit != null ? Math.max(t0 + 4, Math.round(p.hit * fps)) : p.hit_beat != null ? Math.max(t0 + 4, beat(p.hit_beat)) : hitDefault;
+    p.hit != null
+      ? Math.max(t0 + 4, Math.round(p.hit * fps))
+      : p.hit_beat != null
+        ? p.hit_beat < (p.beats?.length ?? 1)
+          ? Math.max(t0 + 4, beat(p.hit_beat))
+          : Math.max(t0 + 4, sc.total - Math.round(fps * 0.35)) // after the scene's last words
+        : hitDefault;
   if (p.belief) {
     const maxW = W * (vertical ? 0.8 : 0.7);
     const size = fit(p.belief, handF, (vertical ? 84 : 100) * u, maxW, vertical ? 4 : 2);

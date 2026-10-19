@@ -50,8 +50,27 @@ def build_prompt(project: Project, only: list[dict] | None = None) -> str:
 
 
 def apply_plan(project: Project, plan: dict) -> int:
+    """Writes planned visuals. Data motion scenes (comp: bars/counter/timeline/quote) are checked first: a number
+    that is not in a claim linked to the scene, or a quote that is no claim's quote, is skipped with the reason
+    (and the `same` shots that would continue it)."""
     from ..images import forget_image
+    from ..motion_rules import DATA_COMPS, validate_data
+    from ..remotion import comp_of
     sb = project.load_storyboard()
+    bad = validate_data(project, plan, sb["shots"])
+    if bad:
+        ids = [s["id"] for s in sb["shots"]]
+        for sid, why in list(bad.items()):
+            print(f"  hareketli sahne {sid} atlandı: {why}")
+            if sid in ids:                                     # its continuation goes with it
+                for s in sb["shots"][ids.index(sid) + 1:]:
+                    e = plan.get(s["id"])
+                    v = e.get("visual") if isinstance(e, dict) and "visual" in e else e
+                    if isinstance(v, dict) and v.get("same"):
+                        bad.setdefault(s["id"], "atlanan sahnenin devamı")
+                    else:
+                        break
+        plan = {k: v for k, v in plan.items() if k not in bad}
     n = 0
     for s in sb["shots"]:
         entry = plan.get(s["id"])
@@ -68,7 +87,14 @@ def apply_plan(project: Project, plan: dict) -> int:
         if s["visual"] != old:
             forget_image(project, s["id"])
         n += 1
-    from ..images import drop_orphans
+    from ..images import drop_orphans, scene_map
+    heads = scene_map(sb["shots"])
+    by_id = {x["id"]: x for x in sb["shots"]}
+    for s in sb["shots"]:                                        # a data scene already writes its numbers
+        h = heads[s["id"]]
+        if (h in plan and comp_of(by_id[h].get("visual")) in DATA_COMPS
+                and (s.get("overlay") or {}).get("kind") in ("stat", "label")):
+            s.pop("overlay", None)
     drop_orphans(sb["shots"])
     project.save_storyboard(sb)
     return n
@@ -101,9 +127,20 @@ def plan(project: Project, cfg: Config) -> None:
     if provider in ("gemini", "anthropic"):
         from .api_planner import run
         run(project, cfg, todo, provider)
+        signature(project, cfg)
         return
     raise SystemExit(f"Bilinmeyen planner.provider: {provider}")
 
 
 def apply_plan_file(project: Project, path: Path) -> int:
-    return apply_plan(project, parse_yaml_reply(path.read_text(encoding="utf-8")))
+    n = apply_plan(project, parse_yaml_reply(path.read_text(encoding="utf-8")))
+    from ..config import load_config
+    signature(project, load_config(project.channel))
+    return n
+
+
+def signature(project: Project, cfg: Config) -> None:
+    """The channel's signature motion scenes (case file, verdict, cold open) after every plan (idempotent)."""
+    from ..motion_rules import apply_signature
+    for ln in apply_signature(project, cfg):
+        print(f"  {ln}")

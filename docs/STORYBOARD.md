@@ -92,6 +92,9 @@ s179:
   visual: {comp: verdict, word: WRONG, belief: Eight glasses of water a day}
 ```
 Props of every component: docs/REMOTION.md (Catalogue).
+When the channel has motion rules (`channel.yaml → remotion.scenes`), the case file, the verdict and the cold open
+are added by the factory after the plan: do not plan them. Plan the data scenes only — every number copied from a
+claim whose `shots` include the scene's shots (a quote: the claim's `quote`), or the entry is skipped.
 
 ## Motion inside the picture (`motion.yaml`, optional — docs/MOTION.md)
 With `video.motion: auto` every painting moves a little on screen (depth camera, or line boil on ledger pages). After the pictures are

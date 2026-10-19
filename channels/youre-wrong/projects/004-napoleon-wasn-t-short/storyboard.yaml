@@ -79,16 +79,14 @@ shots:
   sent: 9
   text: Case file zero zero four.
   visual:
-    prompt: the clerk's hands opening a worn folder that contains a small pen-and-ink portrait of Napoleon in a
-      bicorne hat
-    characters:
-    - clerk
-    ledger: true
-  camera: none
-  overlay:
-    kind: label
-    text: CASE FILE 004
-    pos: top
+    comp: case-file
+    number: '004'
+    org: BUREAU OF HUMAN ERROR
+    fields:
+    - label: SUBJECT
+      value: an emperor, and everyone who ever laughed at his height
+    - label: BELIEF
+      value: Napoleon was a tiny man with a temper to match
 - id: s012
   para: 2
   sent: 10
@@ -274,9 +272,18 @@ shots:
   sent: 32
   text: And a French inch, a pouce,
   visual:
-    prompt: extreme close-up of two inch marks on two old rulers, the French mark clearly wider than the English
-      one, ink and ink diagram style, no numbers
-    ledger: true
+    comp: bars
+    title: One inch, two countries
+    max: 3
+    bars:
+    - label: French pouce
+      value: 2.7
+      display: ≈ 2.7 cm
+      beat: 1
+    - label: English inch
+      value: 2.54
+      display: 2.54 cm
+      beat: 2
   camera: none
 - id: s038
   para: 7
@@ -284,10 +291,6 @@ shots:
   text: was about two point seven centimetres.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 1 pouce ≈ 2.71 cm  |  1 inch = 2.54 cm
-    pos: bottom
 - id: s039
   para: 7
   sent: 33
@@ -387,13 +390,12 @@ shots:
   sent: 41
   text: He wrote down five feet seven inches.
   visual:
-    prompt: a stiff British officer in a red coat, arms folded, reluctantly nodding at a measuring tape
-    ledger: true
+    comp: counter
+    value: 1.7
+    decimals: 2
+    suffix: ' m'
+    label: 5 ft 7 in, measured by an Englishman
   camera: in
-  overlay:
-    kind: stat
-    text: 5 ft 7 in ≈ 170 cm
-    pos: bottom
 - id: s053
   para: 9
   sent: 42
@@ -476,10 +478,13 @@ shots:
   sent: 49
   text: A typo.
   visual:
-    prompt: the clerk's hands filing two thin scholarly pamphlets side by side into a drawer
-    characters:
-    - clerk
-    ledger: true
+    comp: counter
+    value: 1.68
+    from: 1.64
+    decimals: 2
+    suffix: ' m'
+    label: the next issue's correction
+    note: 'printed in 1963: 1.64 m'
   camera: none
 - id: s065
   para: 11
@@ -1503,16 +1508,9 @@ shots:
   sent: 149
   text: 'Verdict: wrong.'
   visual:
-    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: label
-    text: WRONG
-    pos: center
-    color: '#e8402f'
+    comp: verdict
+    word: WRONG
+    belief: Napoleon was a tiny man with a temper to match
   tone:
   - pause
 - id: s207

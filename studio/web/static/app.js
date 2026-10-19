@@ -393,7 +393,7 @@ function projScenes(cid, slug, el) {
       <textarea id="apply-text" class="code" rows="5" placeholder="YAML cevabı"></textarea><div class="row" style="margin-top:6px"><button class="primary sm" id="apply-go">Planı uygula</button></div></div>` : ""}
     <div id="live-box" class="hidden" style="margin-bottom:12px"><div id="live-status" class="small muted"></div><div class="log" id="live-log" style="height:140px"></div></div>
     <div class="spread" style="margin:6px 0 10px"><span class="small muted">${P.shots.length} cümle parçası → ${groups.length} sahne. Bir resim ekranda 5–9 sn kalır, kamera üzerinde yavaşça hareket eder.</span>
-      <span class="row"><button class="sm ghost" id="b-split">Senaryoyu yeniden böl</button>${P.sheet ? `<a class="btn sm ghost" href="${P.sheet}" target="_blank">Kontak sayfası</a>` : ""}<button class="sm ghost" id="b-sheet">Kontak sayfasını yenile</button></span></div>
+      <span class="row">${P.motion_rules ? `<button class="sm ghost" id="b-motion" title="Kanal kuralları: açılış damgası, dosya kartı, hüküm + iddialardaki rakamlar (ücretsiz, Remotion)">Hareketli sahneleri kur</button>` : ""}<button class="sm ghost" id="b-split">Senaryoyu yeniden böl</button>${P.sheet ? `<a class="btn sm ghost" href="${P.sheet}" target="_blank">Kontak sayfası</a>` : ""}<button class="sm ghost" id="b-sheet">Kontak sayfasını yenile</button></span></div>
     <div class="scenes" id="scenes"></div>`;
   let lastPara = -1;
   $("#scenes").innerHTML = groups.map((g, k) => {
@@ -413,6 +413,14 @@ function projScenes(cid, slug, el) {
   $("#b-split").onclick = () => confirm("Senaryo yeniden bölünsün mü? Metni değişmeyen cümlelerin planı korunur.") && run("split");
   $("#b-images").onclick = () => run("images");
   $("#b-sheet").onclick = async () => { await run("sheet"); state.onJobsDone = async () => { await loadProject(cid, slug); if (P.sheet) window.open(P.sheet, "_blank"); viewProject(cid, slug, "board"); }; };
+  if (P.motion_rules) $("#b-motion").onclick = async () => {
+    await run("motion-auto");
+    if (manual) state.onJobsDone = async () => {
+      await viewProject(cid, slug, "board");
+      const n = sceneGroups().filter((g) => ["bars", "counter", "timeline", "quote"].includes((g.head.visual || {}).comp)).length;
+      if (n < 2) { copyText(await api(`/api/projects/${cid}/${slug}/prompt/motion`)); toast("Rakam sahnesi istemi kopyalandı: Claude'a yapıştır, cevabı 'Planı uygula' kutusuna yapıştır"); }
+    };
+  };
   $("#b-plan").onclick = async () => (manual ? copyText(await api(`/api/projects/${cid}/${slug}/prompt/plan`)) : run("plan"));
   if (manual) $("#apply-go").onclick = async () => {
     try { const r = await api(`/api/projects/${cid}/${slug}/apply/plan`, { method: "POST", body: { text: $("#apply-text").value } }); toast(`${r.updated} shot planlandı`); viewProject(cid, slug, "board"); }

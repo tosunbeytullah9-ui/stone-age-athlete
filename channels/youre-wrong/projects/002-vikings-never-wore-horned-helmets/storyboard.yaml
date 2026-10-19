@@ -53,15 +53,14 @@ shots:
   sent: 6
   text: Case file zero zero two.
   visual:
-    prompt: Overhead close-up of the clerk's ink-stained hands untying the string of a thick blank cardboard case
-      folder on the wooden archive desk, brass rubber stamp beside it
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: label
-    text: CASE FILE 002
+    comp: case-file
+    number: '002'
+    org: BUREAU OF HUMAN ERROR
+    fields:
+    - label: SUBJECT
+      value: you, and roughly everyone else on Earth
+    - label: BELIEF
+      value: Vikings went into battle wearing horned helmets
 - id: s008
   para: 1
   sent: 7
@@ -623,13 +622,13 @@ shots:
   sent: 56
   text: 'The year the trees were cut: one thousand and twenty-one.'
   visual:
-    prompt: Reconstructed Norse sod-walled houses on a grassy coastal meadow at L'Anse aux Meadows in Newfoundland,
-      a calm bay and low cliffs
-    ledger: true
+    comp: counter
+    value: 1021
+    from: 2021
+    thousands: false
+    label: the year the trees were cut
+    note: dated by a 2021 tree-ring study
   camera: left
-  overlay:
-    kind: stat
-    text: '1021'
 - id: s087
   para: 10
   sent: 57
@@ -930,14 +929,16 @@ shots:
   sent: 83
   text: One popular British adventure novel had shown its Vikings
   visual:
-    bg: plain_warm
-    props:
-    - type: timeline
-      x: 960
-      y: 560
-      scale: 1.3
-      n: 9
-      highlight: 8
+    comp: timeline
+    title: One adventure novel, edition by edition
+    events:
+    - when: 8 editions
+      text: Vikings in winged hats
+      beat: 1
+    - when: 9th · 1890
+      text: suddenly, horns
+      beat: 2
+      highlight: true
 - id: s128
   para: 17
   sent: 83
@@ -950,9 +951,6 @@ shots:
   text: In the ninth, in eighteen ninety, they suddenly grew horns.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 9th edition, 1890
 - id: s130
   para: 17
   sent: 85
@@ -1136,17 +1134,15 @@ shots:
   sent: 102
   text: They had been placed in that bog around nine hundred BC.
   visual:
-    bg: plain_warm
-    props:
-    - type: timeline
-      x: 960
-      y: 560
-      scale: 1.3
-      n: 10
-      highlight: 0
-  overlay:
-    kind: stat
-    text: c. 900 BC
+    comp: timeline
+    events:
+    - when: c. 900 BC
+      text: the Veksø helmets go into the bog
+      beat: 0
+    - when: AD 793
+      text: the Viking Age begins
+      beat: 2
+      highlight: true
 - id: s156
   para: 21
   sent: 103
@@ -1513,17 +1509,10 @@ shots:
   sent: 138
   text: 'Verdict: wrong.'
   visual:
-    prompt: Dramatic close-up of the clerk's hand slamming a heavy brass rubber stamp down onto the case folder,
-      a burst of red ink and dust flying up, the green lamp shaking
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: stat
-    text: WRONG
-    pos: center
-    color: '#e8402f'
+    comp: verdict
+    word: WRONG
+    belief: Vikings went into battle wearing horned helmets
+    note: Wrong helmet. Wrong century. Wrong millennium. Right opera.
 - id: s207
   para: 27
   sent: 139

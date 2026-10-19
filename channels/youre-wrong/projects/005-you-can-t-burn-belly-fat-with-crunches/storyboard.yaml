@@ -91,15 +91,12 @@ shots:
   sent: 9
   text: Case file zero zero five.
   visual:
-    prompt: the clerk's hands opening a folder containing a sketch of a person pointing at their own belly
-    characters:
-    - clerk
-    ledger: true
-  camera: none
-  overlay:
-    kind: label
-    text: CASE FILE 005
-    pos: top
+    comp: case-file
+    number: '005'
+    org: BUREAU OF HUMAN ERROR
+    fields:
+    - label: SUBJECT
+      value: you, and your stomach
 - id: s014
   para: 2
   sent: 10
@@ -212,11 +209,11 @@ shots:
   sent: 20
   text: and total sales eventually passed three hundred million dollars.
   visual:
-    same: true
-  overlay:
-    kind: stat
-    text: $300,000,000+
-    pos: center
+    comp: counter
+    value: 300
+    prefix: $
+    suffix: ' million'
+    label: total ThighMaster sales
 - id: s029
   para: 5
   sent: 21
@@ -291,10 +288,10 @@ shots:
   sent: 26
   text: Its chairman said, and I have this one framed,
   visual:
-    prompt: the clerk's hands hanging a small framed certificate on the archive wall
-    characters:
-    - clerk
-    ledger: true
+    comp: quote
+    text: No magic pills, potions, or pulsators
+    source: FTC chairman, 2002
+    highlight: pulsators
   camera: none
 - id: s039
   para: 6
@@ -308,10 +305,6 @@ shots:
   text: potions or pulsators for losing weight.
   visual:
     same: true
-  overlay:
-    kind: label
-    text: “No magic pills, potions, or pulsators” — FTC, 2002
-    pos: bottom
 - id: s041
   para: 7
   sent: 27
@@ -455,9 +448,10 @@ shots:
   sent: 44
   text: One group did sit-ups.
   visual:
-    prompt: a wall calendar with days crossed off one by one, a tally of thousands of marks on a chalkboard beside
-      it
-    ledger: true
+    comp: counter
+    value: 5004
+    duration: 4
+    label: sit-ups in 27 days
   camera: in
 - id: s061
   para: 10
@@ -477,10 +471,6 @@ shots:
   text: By the end, each of them had done five thousand and four sit-ups.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 5,004 sit-ups
-    pos: center
 - id: s064
   para: 11
   sent: 48
@@ -566,27 +556,21 @@ shots:
   sent: 58
   text: After six weeks, the exercise group could do far more curl-ups.
   visual:
-    bg: plain_cool
-    props:
-    - type: bar_chart
-      x: 960
-      y: 860
-      values:
-      - 0.68
-      - 1.0
-      colors:
-      - stone
-      - good
+    comp: bars
+    title: Curl-ups after 6 weeks
+    bars:
+    - label: No exercise
+      value: 32
+      beat: 1
+    - label: Ab exercises
+      value: 47
+      beat: 1
 - id: s077
   para: 13
   sent: 59
   text: Forty-seven on average, against thirty-two for the do-nothings.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 32 vs 47 curl-ups
-    pos: top
 - id: s078
   para: 13
   sent: 60
@@ -888,27 +872,22 @@ shots:
   sent: 90
   text: Seventeen comparisons favoured the trained side.
   visual:
-    bg: plain_warm
-    props:
-    - type: bar_chart
-      x: 960
-      y: 860
-      values:
-      - 0.85
-      - 1.0
-      colors:
-      - good
-      - bad
+    comp: bars
+    title: 37 comparisons of trained and untrained sides
+    bars:
+    - label: Trained side
+      value: 17
+      beat: 0
+    - label: Untrained side
+      value: 20
+      beat: 1
+    note: 'pooled effect: g = -0.03'
 - id: s118
   para: 19
   sent: 91
   text: Twenty favoured the untrained side.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 17 vs 20
-    pos: top
 - id: s119
   para: 19
   sent: 92
@@ -1504,16 +1483,9 @@ shots:
   sent: 152
   text: 'Verdict: wrong.'
   visual:
-    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: label
-    text: WRONG
-    pos: center
-    color: '#e8402f'
+    comp: verdict
+    word: WRONG
+    belief: Work a muscle hard enough, and the fat on top of it burns away
   tone:
   - pause
 - id: s204

@@ -20,6 +20,9 @@ steps:
   sheet        contact sheet: one tile per scene
   motion       living pictures: build/motion_sheet.png (pictures with a 0..1 grid, to plan motion.yaml) + plan status
   motion-preview  --only s020,s107: strip.png, motion.png (red = what moves), preview.mp4 → build/motion_preview/
+  motion-plan  signature motion scenes from the channel rules (cold open, case file, verdict; runs after `plan` too)
+  motion-prompt  data motion scenes (key numbers, quotes, timelines) via planner.provider or a prompt for Claude
+  motion-auto  motion-plan, then motion-prompt when the video has fewer data scenes than the channel asks for
   motion-scenes  --only s004,s179: motion scenes (Remotion) with the real timing → build/remotion_preview/<id>.mp4
   sound        sound plan for --lang (ambience beds + effects; needs voice + align) → build/<lang>/sound_plan.json
   check        quality gate (research, sources, variety)
@@ -238,6 +241,22 @@ def main(argv=None) -> None:
         print(f"  {motion_sheet(p)}")
         print(f"  plan: {plan_path(p)} — {sum(1 for g in groups if g[0]['id'] in plan)}/{len(groups)} sahne planlı "
               f"(planı olmayanlar '{cfg.get_path('video.motion_preset', 'painterly')}' ön ayarıyla hareket eder)")
+    elif cmd in ("motion-plan", "motion-auto"):
+        from .motion_rules import apply_signature, data_scenes, rules_for, run_data
+        if not rules_for(cfg, p):
+            sys.exit("Bu kanalda hareketli sahne kuralı yok (channel.yaml → remotion.scenes).")
+        for ln in apply_signature(p, cfg):
+            print(f"  {ln}")
+        d = (rules_for(cfg, p).get("data") or {})
+        n = len(data_scenes(p.load_storyboard()["shots"]))
+        short = n < d.get("min", 2)
+        print(f"  rakam sahnesi: {n} (hedef {d.get('min', 2)}–{d.get('max', 5)})"
+              + (" → 'motion-prompt' ile ekle" if short and cmd == "motion-plan" else ""))
+        if short and cmd == "motion-auto":
+            print(f"  {run_data(p, cfg)}")
+    elif cmd == "motion-prompt":
+        from .motion_rules import run_data
+        print(f"  {run_data(p, cfg)}")
     elif cmd == "motion-scenes":
         from .remotion import preview as remotion_preview
         for out in remotion_preview(p, cfg, only, lang):

@@ -86,15 +86,14 @@ shots:
   sent: 11
   text: Case file zero zero six.
   visual:
-    prompt: the clerk's hands opening a folder containing a sketch of a gladiator helmet
-    characters:
-    - clerk
-    ledger: true
-  camera: none
-  overlay:
-    kind: label
-    text: CASE FILE 006
-    pos: top
+    comp: case-file
+    number: '006'
+    org: BUREAU OF HUMAN ERROR
+    fields:
+    - label: SUBJECT
+      value: you, and every film you have ever seen about Rome
+    - label: BELIEF
+      value: gladiators fought to the death
 - id: s013
   para: 2
   sent: 12
@@ -349,21 +348,16 @@ shots:
   sent: 37
   text: Twenty, against one thousand.
   visual:
-    bg: plain_warm
-    props:
-    - type: bar_chart
-      x: 960
-      y: 860
-      values:
-      - 0.02
-      - 1.0
-      colors:
-      - good
-      - bad
-  overlay:
-    kind: stat
-    text: 20 vs 1,000
-    pos: top
+    comp: bars
+    title: What the show's sponsor paid, per gladiator
+    bars:
+    - label: Returned unharmed
+      value: 20
+      beat: 0
+    - label: Killed or maimed
+      value: 1000
+      display: 1,000
+      beat: 0
 - id: s050
   para: 7
   sent: 38
@@ -547,29 +541,24 @@ shots:
   sent: 54
   text: Thirty-four bouts.
   visual:
-    bg: plain_warm
-    props:
-    - type: bar_chart
-      x: 960
-      y: 860
-      values:
-      - 1.0
-      - 0.43
-      - 0.19
-      colors:
-      - good
-      - stone
-      - bad
+    comp: bars
+    title: 'Flamma: 34 bouts'
+    bars:
+    - label: Wins
+      value: 21
+      beat: 1
+    - label: Draws
+      value: 9
+      beat: 2
+    - label: Defeats, spared
+      value: 4
+      beat: 3
 - id: s075
   para: 10
   sent: 55
   text: Twenty-one wins.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 21 wins · 9 draws · 4 defeats
-    pos: top
 - id: s076
   para: 10
   sent: 56
@@ -778,13 +767,11 @@ shots:
   sent: 76
   text: Eleven of them had old head wounds that had healed well.
   visual:
-    prompt: close-up of an ancient skull showing a smooth healed depression
-    ledger: true
+    comp: counter
+    value: 11
+    label: skeletons with healed head wounds
+    note: of at least 68 buried at Ephesus
   camera: in
-  overlay:
-    kind: stat
-    text: 11 healed head wounds
-    pos: bottom
 - id: s105
   para: 15
   sent: 77
@@ -974,27 +961,21 @@ shots:
   sent: 96
   text: Under his predecessor, the figure was sixty.
   visual:
-    bg: plain_cool
-    props:
-    - type: bar_chart
-      x: 960
-      y: 860
-      values:
-      - 0.08
-      - 1.0
-      colors:
-      - good
-      - bad
+    comp: bars
+    title: Gladiator deaths at Pergamon
+    bars:
+    - label: Before Galen
+      value: 60
+      beat: 0
+    - label: Under Galen
+      value: 5
+      beat: 1
 - id: s132
   para: 19
   sent: 97
   text: Five, against sixty.
   visual:
     same: true
-  overlay:
-    kind: stat
-    text: 5 vs 60
-    pos: top
 - id: s133
   para: 19
   sent: 98
@@ -1565,16 +1546,9 @@ shots:
   sent: 158
   text: 'Verdict: wrong.'
   visual:
-    prompt: the clerk's hand slamming a heavy rubber stamp down onto a case file, ink splashing
-    characters:
-    - clerk
-    ledger: true
-  camera: in
-  overlay:
-    kind: label
-    text: WRONG
-    pos: center
-    color: '#e8402f'
+    comp: verdict
+    word: WRONG
+    belief: Gladiators fought to the death
 - id: s213
   para: 34
   sent: 159

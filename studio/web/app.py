@@ -328,7 +328,8 @@ def get_project(cid: str, slug: str):
              "series": ch_data.get("series") or {}, "thumbs": thumbs,
              "thumbnails_yaml": yaml.safe_dump(p.meta.get("thumbnails") or [], allow_unicode=True, sort_keys=False,
                                                default_flow_style=None, width=110) if p.meta.get("thumbnails") else "",
-             "retention": {lg: analyze(p, lg) for lg in langs}}
+             "retention": {lg: analyze(p, lg) for lg in langs},
+             "motion_rules": bool(((ch_data.get("remotion") or {}).get("scenes")))}
     return {**extra, "channel": cid, "slug": slug, "meta": p.meta, "meta_yaml": p.meta_path.read_text(encoding="utf-8")
             if p.meta_path.exists() else "", "script": p.script_path.read_text(encoding="utf-8"),
             "sources": p.sources_path.read_text(encoding="utf-8") if p.sources_path.exists() else "",
@@ -491,6 +492,9 @@ def get_prompt(cid: str, slug: str, kind: str, lang: str = "tr"):
     if kind == "plan":
         from ..planner import build_prompt
         return build_prompt(p)
+    if kind == "motion":
+        from ..motion_rules import build_data_prompt
+        return build_data_prompt(p, load_config(cid))
     if kind == "translate":
         from ..translate import build_prompt as tprompt
         return tprompt(p, lang)
@@ -512,7 +516,10 @@ def apply(cid: str, slug: str, kind: str, body: dict = Body(...)):
     except Exception as e:
         raise HTTPException(400, f"YAML okunamadı: {e}")
     if kind == "plan":
-        return {"updated": apply_plan(p, data)}
+        n = apply_plan(p, data)
+        from ..motion_rules import apply_signature
+        apply_signature(p, load_config(cid))       # the channel's signature motion scenes, after every plan
+        return {"updated": n}
     if kind == "translation":
         from ..translate import apply_translation
         return {"updated": apply_translation(p, body.get("lang", "tr"), data)}
