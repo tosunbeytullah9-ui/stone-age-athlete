@@ -270,6 +270,34 @@ def _seed(sid: str, default: int = 1) -> int:
     return int(sid[1:]) % 97 + 1 if sid[1:].isdigit() else default
 
 
+def scene_item(group: list[dict], timing: dict[str, dict], fps: int, tail: int) -> dict:
+    """One motion scene as render and preview both see it: frames per shot exactly as the render cuts them,
+    beats = where each shot starts, and the verdict stamp on the spoken word "wrong" (or "right")."""
+    per = [max(1, round(timing[s["id"]]["end"] * fps) - round(timing[s["id"]]["start"] * fps)) for s in group]
+    beats, acc = [], 0
+    for f in per:
+        beats.append(acc)
+        acc += f
+    item = {"head": group[0], "beats": beats, "frames": acc, "tail": tail}
+    v = group[0].get("visual") or {}
+    if v.get("comp") == "verdict" and "hit" not in v and "hit_beat" not in v:
+        from .sound.designer import _word_time      # the stamp lands with the word, like its sound
+        for s in group:
+            if re.match(r"\s*verdict\b", s.get("text") or "", re.I):
+                t0, t1 = timing[s["id"]]["start"], timing[s["id"]]["end"]
+                said = _word_time(s, t0, t1, "wrong") or _word_time(s, t0, t1, "right")
+                if said is not None:
+                    item["extra"] = {"hit": round(said - timing[group[0]["id"]]["start"], 3)}
+                break
+    return item
+
+
+def render_settings(cfg: Config) -> tuple[int, int]:
+    """(crf, tail) the long-video render uses, so a preview clip is the very clip the render reuses."""
+    xfade = int(cfg.get_path("video.xfade_frames", 10)) if cfg.get_path("video.transitions", True) else 0
+    return int(cfg.get_path("video.crf", 20)), xfade + 2
+
+
 def even_beats(n_shots: int, fps: int, seconds: float = POSTER_SECONDS) -> list[int]:
     """Without timing (before voice/align): shots spread evenly over a nominal scene."""
     n = max(1, n_shots)
@@ -359,17 +387,17 @@ def preview(project, cfg: Config, only: set[str] | None, lang: str | None = None
         head = g[0]
         if not is_motion_shot(head) or (only and head["id"] not in only):
             continue
+        crf, tail = render_settings(cfg)
         if all(s["id"] in timing for s in g):
-            t0 = timing[g[0]["id"]]["start"]
-            beats = [round((timing[s["id"]]["start"] - t0) * fps) for s in g]
-            frames = max(1, round((timing[g[-1]["id"]]["end"] - t0) * fps))
+            items.append(scene_item(g, timing, fps, tail))     # exactly the clip `render` will use (cached)
         else:
-            beats, frames = even_beats(len(g), fps), round(POSTER_SECONDS * fps)
-        items.append({"head": head, "beats": beats, "frames": frames, "tail": 12})
+            items.append({"head": head, "beats": even_beats(len(g), fps), "frames": round(POSTER_SECONDS * fps),
+                          "tail": tail})
     if not items:
         raise SystemExit("Seçilen sahnelerde hareketli sahne yok (visual: {comp: ...}).")
+    crf, _ = render_settings(cfg)
     clips = render_scene_clips(project, cfg, items, fps, (int(cfg.get_path("video.width", 1920)),
-                                                          int(cfg.get_path("video.height", 1080))), 18, lang)
+                                                          int(cfg.get_path("video.height", 1080))), crf, lang)
     out_dir = project.build / "remotion_preview"
     out_dir.mkdir(parents=True, exist_ok=True)
     outs = []

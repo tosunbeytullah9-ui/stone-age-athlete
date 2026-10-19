@@ -287,25 +287,9 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
     # motion scenes (Remotion): case file, verdict, charts… one clip per scene, timed by its shots
     from .images import engine_name
     motion_clips: dict[str, Path] = {}
-    rm_scenes = []
+    from .remotion import scene_item
     tmap = {t["id"]: t for t in timing}
-    for g in groups:
-        if engine_name(g[0], cfg) == "remotion":
-            starts, acc = [], 0
-            for s in g:
-                starts.append(acc)
-                acc += frames_of[s["id"]]
-            item = {"head": g[0], "beats": starts, "frames": acc, "tail": xfade + 2}
-            if (g[0].get("visual") or {}).get("comp") == "verdict" and "hit" not in g[0]["visual"]:
-                from .sound.designer import _word_time    # the stamp lands with the word, like its sound
-                for s in g:
-                    if re.match(r"\s*verdict\b", s.get("text") or "", re.I) and s["id"] in tmap:
-                        t0, t1 = tmap[s["id"]]["start"], tmap[s["id"]]["end"]
-                        said = _word_time(s, t0, t1, "wrong") or _word_time(s, t0, t1, "right")
-                        if said is not None:
-                            item["extra"] = {"hit": round(said - tmap[g[0]["id"]]["start"], 3)}
-                        break
-            rm_scenes.append(item)
+    rm_scenes = [scene_item(g, tmap, fps, xfade + 2) for g in groups if engine_name(g[0], cfg) == "remotion"]
     if rm_scenes:
         from .remotion import render_scene_clips as render_remotion
         motion_clips.update(render_remotion(project, cfg, rm_scenes, fps, (w, h), crf, lang))
