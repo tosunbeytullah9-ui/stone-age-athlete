@@ -20,6 +20,7 @@ steps:
   sheet        contact sheet: one tile per scene
   motion       living pictures: build/motion_sheet.png (pictures with a 0..1 grid, to plan motion.yaml) + plan status
   motion-preview  --only s020,s107: strip.png, motion.png (red = what moves), preview.mp4 → build/motion_preview/
+  motion-scenes  --only s004,s179: motion scenes (Remotion) with the real timing → build/remotion_preview/<id>.mp4
   sound        sound plan for --lang (ambience beds + effects; needs voice + align) → build/<lang>/sound_plan.json
   check        quality gate (research, sources, variety)
   upload       publish on YouTube [VIDEO_ID|URL] [--at "YYYY-MM-DD HH:MM" | --at now]: metadata, thumbnail,
@@ -39,6 +40,7 @@ other:
   youtube-login [--channel C]                             connect the channel to the YouTube API (browser consent)
   sounds-demo                                             every sound in one file to listen to (build/sounds_demo.wav)
   sounds-fetch [--only id1,id2]                           download the library's free sound files (library/sounds)
+  remotion-setup                                          install the motion-scene packages (needs Node.js)
 """
 from __future__ import annotations
 
@@ -73,6 +75,11 @@ def main(argv=None) -> None:
     from .channel import resolve_channel_id
     channel = resolve_channel_id(a.channel) if a.channel else default_channel()
 
+    if cmd == "remotion-setup":
+        from .remotion import install, status
+        ok = install()
+        print(f"  {status()[1]}")
+        sys.exit(0 if ok else 1)
     if cmd == "update":
         from .updater import update
         sys.exit(update())
@@ -231,6 +238,10 @@ def main(argv=None) -> None:
         print(f"  {motion_sheet(p)}")
         print(f"  plan: {plan_path(p)} — {sum(1 for g in groups if g[0]['id'] in plan)}/{len(groups)} sahne planlı "
               f"(planı olmayanlar '{cfg.get_path('video.motion_preset', 'painterly')}' ön ayarıyla hareket eder)")
+    elif cmd == "motion-scenes":
+        from .remotion import preview as remotion_preview
+        for out in remotion_preview(p, cfg, only, lang):
+            print(f"  {out}")
     elif cmd == "motion-preview":
         from .motion import preview_scenes
         for out in preview_scenes(p, cfg, only):

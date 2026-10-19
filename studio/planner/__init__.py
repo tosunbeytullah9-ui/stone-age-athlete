@@ -22,8 +22,9 @@ INSTRUCTIONS = """You are the director of a YouTube documentary channel ("{chann
 Every picture is a painting in the channel's style: {style}
 Recurring characters: {characters}
 Plan the pictures for the shots listed at the end, following the spec below exactly: one painting per scene of
-5-9 seconds, `{same: true}` for the shots that continue a scene, charts for numbers, the coach when the narration
-speaks to the viewer. Reply with ONLY the YAML mapping.
+5-9 seconds, `{same: true}` for the shots that continue a scene, motion scenes (`comp`) for the case file, the
+verdict, quoted documents and the key numbers, the coach when the narration speaks to the viewer.
+Reply with ONLY the YAML mapping.
 """
 
 

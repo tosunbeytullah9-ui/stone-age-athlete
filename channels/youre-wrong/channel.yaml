@@ -72,6 +72,8 @@ branding:                        # python -m studio branding / panel: Kanal ayar
   name_color: "#ffffff"
   accent: "#ff7a5c"              # tagline in the stamp's red, lightened for contrast on the dark band
 chart_paper: refs/paper.png      # blank ledger page: charts are inked onto the same paper as the drawings
+remotion:                        # motion scenes (docs/REMOTION.md): typed and inked onto the same ledger page
+  theme: ledger                  # ruled lines, typewriter + handwriting, red pen, rubber stamp; colours from `thumbnails`
 sound:                           # the channel's sound language (docs/SOUND.md); beds and effects are automatic
   transition: page_turn          # new paragraph on a new picture: Mortimer turns a page of the ledger
   chart: pen                     # charts are inked into the ledger

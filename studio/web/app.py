@@ -297,8 +297,11 @@ def get_project(cid: str, slug: str):
         img = p.shots_dir / f"{head}.png"
         t = timings.get(langs[0], {}).get(s["id"])
         v = s.get("visual")
-        kind = "none" if not v else "same" if head != s["id"] else ("chart" if engine_name(s, {}) == "svg" else "ai")
+        eng = engine_name(s, {}) if v and head == s["id"] else ""
+        kind = "none" if not v else "same" if head != s["id"] else {"svg": "chart", "remotion": "motion"}.get(eng, "ai")
+        mprev = p.build / "remotion_preview" / f"{head}.mp4"
         shots.append({**s, "scene": head, "kind": kind, "image": _file_url(img) if kind != "none" else None, "start": t["start"] if t else None,
+                      "motion_preview": _file_url(mprev) if kind == "motion" and mprev.exists() else None,
                       "visual_yaml": yaml.safe_dump(s.get("visual"), allow_unicode=True, sort_keys=False,
                                                     default_flow_style=None, width=100) if s.get("visual") else ""})
     outputs = {}
@@ -401,7 +404,16 @@ def put_scene(cid: str, slug: str, sid: str, body: dict = Body(...)):
     i = _shot_index(sb, sid)
     shot = sb["shots"][i]
     old = shot.get("visual")
-    if body.get("chart_yaml", "").strip():
+    if body.get("motion_yaml", "").strip():
+        from ..remotion import validate
+        v = _yaml(body["motion_yaml"])
+        if not isinstance(v, dict) or not v.get("comp"):
+            raise HTTPException(400, "Hareketli sahne tarifi 'comp:' ile başlamalı (docs/REMOTION.md)")
+        err = validate(v)
+        if err:
+            raise HTTPException(400, err)
+        shot["visual"] = v
+    elif body.get("chart_yaml", "").strip():
         v = _yaml(body["chart_yaml"])
         if not isinstance(v, dict) or not v.get("props"):
             raise HTTPException(400, "Grafik tarifi bg + props içermeli")
@@ -426,7 +438,10 @@ def put_scene(cid: str, slug: str, sid: str, body: dict = Body(...)):
         from ..images import forget_image
         forget_image(p, sid)
     job = None
-    if body.get("render"):
+    if body.get("preview") and body.get("motion_yaml"):
+        job = manager.submit(["motion-scenes", slug, "--channel", cid, "--only", sid],
+                             f"Hareketli sahne {sid}", cid, slug).id
+    elif body.get("render"):
         job = manager.submit(["images", slug, "--channel", cid, "--only", sid, "--force"],
                              f"Resim {sid}", cid, slug).id
     return {"ok": True, "job": job}

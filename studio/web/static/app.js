@@ -401,7 +401,7 @@ function projScenes(cid, slug, el) {
     const sep = h.para !== lastPara ? `<div class="para-sep">Paragraf ${h.para + 1}</div>` : "";
     lastPara = h.para;
     const v = h.visual || {};
-    const badges = [h.kind === "chart" ? "grafik" : "", (v.characters || []).includes("coach") ? "koç" : "", v.ref ? "devam" : "", h.camera ? "kamera: " + h.camera : "",
+    const badges = [h.kind === "chart" ? "grafik" : h.kind === "motion" ? "hareketli" : "", (v.characters || []).includes("coach") ? "koç" : "", v.ref ? "devam" : "", h.camera ? "kamera: " + h.camera : "",
       g.shots.some((s) => s.overlay) ? "ekran yazısı" : ""].filter(Boolean);
     return `${sep}<div class="scene ${h.kind === "none" ? "unplanned" : ""}" data-k="${k}">
       <div class="img" style="${h.image ? `background-image:url('${h.image}?v=${Date.now() % 1e7}')` : ""}">${h.image ? "" : h.kind === "none" ? "plan yok" : "çizilmedi"}</div>
@@ -426,6 +426,7 @@ function sceneEditor(cid, slug, k) {
   const groups = sceneGroups();
   const g = groups[k], h = g.head, v = h.visual || {};
   const isChart = h.kind === "chart";
+  const isMotion = h.kind === "motion";
   const prevHead = k > 0 ? groups[k - 1].head : null;
   const others = P.languages.slice(1);
   const d = $("#drawer");
@@ -433,10 +434,10 @@ function sceneEditor(cid, slug, k) {
   d.innerHTML = `
     <div class="spread"><h2 style="margin:0">Sahne ${k + 1} <span class="muted small">${g.id} · ${g.shots.length} parça · paragraf ${h.para + 1}</span></h2>
       <div class="row"><button class="sm" id="se-prev" ${k ? "" : "disabled"}>←</button><button class="sm" id="se-next" ${k < groups.length - 1 ? "" : "disabled"}>→</button><button class="sm ghost" id="se-x">✕</button></div></div>
-    <div class="preview" style="margin-top:12px" id="se-img">${h.image ? `<img src="${h.image}?v=${Date.now() % 1e7}">` : isChart ? "" : "henüz çizilmedi"}</div>
+    <div class="preview" style="margin-top:12px" id="se-img">${isMotion && h.motion_preview ? `<video src="${h.motion_preview}?v=${Date.now() % 1e7}" controls autoplay muted loop style="width:100%"></video>` : h.image ? `<img src="${h.image}?v=${Date.now() % 1e7}">` : isChart ? "" : "henüz çizilmedi"}</div>
     <p style="font-size:16px;margin:12px 0">“${esc(sceneWords(g))}”</p>
-    <div class="row" style="gap:6px;margin-bottom:6px"><button class="sm ${isChart ? "" : "on"}" id="se-mode-ai">Resim</button><button class="sm ${isChart ? "on" : ""}" id="se-mode-chart">Grafik</button></div>
-    <div id="se-ai" class="${isChart ? "hidden" : ""}">
+    <div class="row" style="gap:6px;margin-bottom:6px"><button class="sm ${isChart || isMotion ? "" : "on"}" id="se-mode-ai">Resim</button><button class="sm ${isChart ? "on" : ""}" id="se-mode-chart">Grafik</button><button class="sm ${isMotion ? "on" : ""}" id="se-mode-motion">Hareketli</button></div>
+    <div id="se-ai" class="${isChart || isMotion ? "hidden" : ""}">
       <label class="f">Ne görünsün? (sahneyi İngilizce anlat: kim, ne yapıyor, nerede, ışık, çekim mesafesi — yazı/rakam isteme)</label>
       <textarea id="se-p" rows="5" spellcheck="false">${esc(v.prompt || "")}</textarea>
       <div class="row" style="margin-top:8px;gap:16px">
@@ -446,6 +447,10 @@ function sceneEditor(cid, slug, k) {
     <div id="se-chart" class="${isChart ? "" : "hidden"}">
       <label class="f">Grafik tarifi (YAML) — sayıları resim olarak gösterir; biçim: docs/STORYBOARD.md → Charts</label>
       <textarea id="se-c" class="code" rows="6" spellcheck="false">${esc(isChart ? h.visual_yaml : "bg: plain_warm\nprops:\n  - {type: bar_chart, x: 960, y: 860, values: [1.0, 0.4], colors: [ochre, water]}")}</textarea><div id="se-err" class="err"></div></div>
+    <div id="se-motion" class="${isMotion ? "" : "hidden"}">
+      <label class="f">Hareketli sahne (YAML): dosya kartı, hüküm damgası, kendini çizen grafik, sayaç, zaman çizelgesi, alıntı. Ücretsiz; yazılar sahnenin cümleleriyle eş zamanlı belirir. Biçim: docs/REMOTION.md</label>
+      <textarea id="se-m" class="code" rows="7" spellcheck="false">${esc(isMotion ? h.visual_yaml : "comp: verdict\nword: WRONG\nbelief: Eight glasses of water a day")}</textarea>
+      <div class="row" style="margin-top:6px"><button class="sm" id="se-mprev">Hareketi önizle</button><span class="small muted">poster karesi "Kaydet ve yeniden çiz" ile, hareketli klip burada</span></div></div>
     <div class="row" style="margin-top:12px"><button class="accent" id="se-render">Kaydet ve yeniden çiz</button><button id="se-save">Sadece kaydet</button>
       ${k > 0 ? `<button class="ghost" id="se-merge" title="Bu sahnenin resmi silinir, önceki resim devam eder">Öncekiyle birleştir</button>` : ""}</div>
     <h3 style="margin-top:22px">Bu sahnedeki cümle parçaları</h3>
@@ -458,8 +463,8 @@ function sceneEditor(cid, slug, k) {
       ${others.map((l) => `<input class="tr-i" data-l="${l}" style="width:100%;margin-top:6px" placeholder="${LANG_TR[l] || l} metni" value="${esc((s.i18n || {})[l] || "")}">`).join("")}
     </div>`).join("")}
     <div class="row" style="margin-top:10px"><button class="primary sm" id="se-lines">Parçaları kaydet</button></div>`;
-  let mode = isChart ? "chart" : "ai";
-  const setMode = (m) => { mode = m; $("#se-ai").classList.toggle("hidden", m !== "ai"); $("#se-chart").classList.toggle("hidden", m !== "chart"); $("#se-mode-ai").classList.toggle("on", m === "ai"); $("#se-mode-chart").classList.toggle("on", m === "chart"); if (m === "chart") prev(); };
+  let mode = isChart ? "chart" : isMotion ? "motion" : "ai";
+  const setMode = (m) => { mode = m; $("#se-ai").classList.toggle("hidden", m !== "ai"); $("#se-chart").classList.toggle("hidden", m !== "chart"); $("#se-motion").classList.toggle("hidden", m !== "motion"); $("#se-mode-ai").classList.toggle("on", m === "ai"); $("#se-mode-chart").classList.toggle("on", m === "chart"); $("#se-mode-motion").classList.toggle("on", m === "motion"); if (m === "chart") prev(); };
   const prev = async () => {
     try { $("#se-img").innerHTML = await api("/api/preview-svg", { method: "POST", body: { visual: $("#se-c").value, channel: cid } }); $("#se-err").textContent = ""; }
     catch (e) { $("#se-err").textContent = e.message; }
@@ -468,21 +473,24 @@ function sceneEditor(cid, slug, k) {
   if (isChart) prev();
   $("#se-mode-ai").onclick = () => setMode("ai");
   $("#se-mode-chart").onclick = () => setMode("chart");
+  $("#se-mode-motion").onclick = () => setMode("motion");
   $("#se-x").onclick = closeDrawer;
   $("#se-prev").onclick = () => sceneEditor(cid, slug, k - 1);
   $("#se-next").onclick = () => sceneEditor(cid, slug, k + 1);
   const reopen = async () => { await loadProject(cid, slug); projScenes(cid, slug, $("#tab")); sceneEditor(cid, slug, Math.min(k, sceneGroups().length - 1)); };
-  const save = async (render) => {
-    const body = mode === "chart" ? { chart_yaml: $("#se-c").value, render }
+  const save = async (render, preview = false) => {
+    const body = mode === "motion" ? { motion_yaml: $("#se-m").value, render, preview }
+      : mode === "chart" ? { chart_yaml: $("#se-c").value, render }
       : { prompt: $("#se-p").value, characters: $("#se-coach").checked ? ["coach"] : [], ref: $("#se-ref") && $("#se-ref").checked ? prevHead.id : null, camera: $("#se-cam").value, render };
     try {
       await api(`/api/projects/${cid}/${slug}/scenes/${g.id}`, { method: "PUT", body });
-      toast(render ? "Kaydedildi, resim çiziliyor…" : "Kaydedildi");
-      if (render) state.onJobsDone = reopen; else reopen();
+      toast(preview ? "Kaydedildi, hareketli sahne hazırlanıyor…" : render ? "Kaydedildi, resim çiziliyor…" : "Kaydedildi");
+      if (render || preview) state.onJobsDone = reopen; else reopen();
     } catch (e) { toast(e.message, true); }
   };
   $("#se-save").onclick = () => save(false);
   $("#se-render").onclick = () => save(true);
+  $("#se-mprev").onclick = () => save(false, true);
   if ($("#se-merge")) $("#se-merge").onclick = async () => { await api(`/api/projects/${cid}/${slug}/scenes/${g.id}/merge`, { method: "POST" }); toast("Önceki sahneyle birleştirildi"); await loadProject(cid, slug); projScenes(cid, slug, $("#tab")); sceneEditor(cid, slug, k - 1); };
   $$("[data-split]").forEach((b) => (b.onclick = async () => { await api(`/api/projects/${cid}/${slug}/scenes/${b.dataset.split}/split`, { method: "POST" }); toast("Yeni sahne açıldı: istemini düzenle ve çiz"); await loadProject(cid, slug); projScenes(cid, slug, $("#tab")); sceneEditor(cid, slug, k + 1); }));
   $("#se-lines").onclick = async () => {

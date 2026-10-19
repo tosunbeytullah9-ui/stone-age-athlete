@@ -25,6 +25,12 @@ video:
                              #   (düz kamera + çizgi titreşimi) | flat = düz kamera
   motion_workers: 3   # aynı anda hareketlendirilen sahne sayısı (bilgisayar yavaşlarsa azalt)
 
+remotion:             # hareketli sahneler (docs/REMOTION.md): dosya kartı, hüküm damgası, kendini çizen grafikler,
+                      #   sayaç, zaman çizelgesi, daktilo alıntı. Storyboard'da: visual: {comp: verdict, word: WRONG}
+                      #   Ücretsiz, yerel. Node.js gerekir (winget install OpenJS.NodeJS.LTS); paketler ilk kullanımda kurulur
+  concurrency: 0      # aynı anda çizilen kare sayısı (0 = otomatik; bilgisayar yavaşlarsa 2 yap)
+  browser: ""         # boş = Remotion kendi Chrome'unu bir kez indirir
+
 split:                # altyazı/çeviri birimi (shot). Görsel sahne başına: bir resim 2–4 shot boyunca kalır
   min_chars: 20
   max_chars: 65

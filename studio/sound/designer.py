@@ -116,8 +116,8 @@ def _pick_amb(head: dict, brand: dict) -> str:
         if sid == "street_old" and re.search(MODERN, pic):
             return "city"
         return sid
-    if isinstance(v, dict) and ("props" in v or "bg" in v) and "prompt" not in v:
-        return brand["clerk_amb"]             # charts are drawn on Mortimer's desk / paper
+    if isinstance(v, dict) and ("props" in v or "bg" in v or "comp" in v) and "prompt" not in v:
+        return brand["clerk_amb"]             # charts and motion scenes are drawn on Mortimer's desk / paper
     return brand["default_amb"]
 
 
@@ -175,7 +175,8 @@ def plan(groups: list[list[dict]], timing: list[dict], brand: dict | None = None
             continue
         # ---- brand cues at the scene start
         v = head.get("visual")
-        is_chart = isinstance(v, dict) and "props" in v and "prompt" not in v
+        is_chart = isinstance(v, dict) and "prompt" not in v and (
+            "props" in v or v.get("comp") in ("bars", "counter", "timeline", "quote"))
         if is_chart:
             add(t0 + 0.04, brand["chart"], "chart", -2, 0, force=True)
         elif (gi and head.get("para") != prev_para and t0 - last_transition >= brand["transition_gap"]

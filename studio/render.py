@@ -2,8 +2,9 @@
 
   render_video     long video (16:9): one picture per scene with one continuous camera move across all of the
                    scene's shots — a living picture (studio/motion.py: depth camera, swaying grass, fire, embers…)
-                   or the classic zoompan when video.motion is off —, cross-fades between scenes →
-                   narration + music → -14 LUFS
+                   or the classic zoompan when video.motion is off —, or a motion scene (studio/remotion.py:
+                   case file, verdict stamp, charts, timelines… animated in sync with the shots),
+                   cross-fades between scenes → narration + music → -14 LUFS
   render_shorts    vertical 9:16 cut-downs: a shot range, blurred backdrop, title band
   describe         description.txt with chapters (from paragraph timing) + sources
   contact_sheet    grid of shot thumbnails for review
@@ -67,7 +68,7 @@ def _scene_modes(groups: list[list[dict]]) -> list[str]:
         v = head.get("visual")
         if cam in ("in", "out", "left", "right", "none"):
             modes.append(cam)
-        elif animated_visuals(v) or (isinstance(v, dict) and engine_name(head, Config()) == "svg"):
+        elif animated_visuals(v) or (isinstance(v, dict) and engine_name(head, Config()) in ("svg", "remotion")):
             modes.append("none")
         else:
             modes.append(CAMERA_CYCLE[k % len(CAMERA_CYCLE)])
@@ -283,20 +284,45 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
     reveal_n = int(cfg.get_path("video.reveal_frames", 14))
     reveal_on = str(cfg.get_path("video.reveal_on", "paragraph"))
 
-    # living pictures: one moving clip per painted scene (charts and SVG scenes keep the classic camera)
+    # motion scenes (Remotion): case file, verdict, charts… one clip per scene, timed by its shots
+    from .images import engine_name
     motion_clips: dict[str, Path] = {}
+    rm_scenes = []
+    tmap = {t["id"]: t for t in timing}
+    for g in groups:
+        if engine_name(g[0], cfg) == "remotion":
+            starts, acc = [], 0
+            for s in g:
+                starts.append(acc)
+                acc += frames_of[s["id"]]
+            item = {"head": g[0], "beats": starts, "frames": acc, "tail": xfade + 2}
+            if (g[0].get("visual") or {}).get("comp") == "verdict" and "hit" not in g[0]["visual"]:
+                from .sound.designer import _word_time    # the stamp lands with the word, like its sound
+                for s in g:
+                    if re.match(r"\s*verdict\b", s.get("text") or "", re.I) and s["id"] in tmap:
+                        t0, t1 = tmap[s["id"]]["start"], tmap[s["id"]]["end"]
+                        said = _word_time(s, t0, t1, "wrong") or _word_time(s, t0, t1, "right")
+                        if said is not None:
+                            item["extra"] = {"hit": round(said - tmap[g[0]["id"]]["start"], 3)}
+                        break
+            rm_scenes.append(item)
+    if rm_scenes:
+        from .remotion import render_scene_clips as render_remotion
+        motion_clips.update(render_remotion(project, cfg, rm_scenes, fps, (w, h), crf, lang))
+    rm_ids = {s["head"]["id"] for s in rm_scenes}
+
+    # living pictures: one moving clip per painted scene (charts and SVG scenes keep the classic camera)
     from .motion import enabled as motion_enabled
     if motion_enabled(cfg):
-        from .images import engine_name
         from .motion import load_plan, render_scene_clips, scene_spec
         plan = load_plan(project)
         mjobs = []
         for gi, (g, mode) in enumerate(zip(groups, modes)):
             img = project.shots_dir / f"{g[0]['id']}.png"
-            if img.exists() and engine_name(g[0], cfg) != "svg":
+            if img.exists() and engine_name(g[0], cfg) not in ("svg", "remotion"):
                 mjobs.append(dict(id=g[0]["id"], img=img, spec=scene_spec(g[0], gi, mode, cfg, plan),
                                   frames=sum(frames_of[s["id"]] for s in g), tail=xfade + 2))
-        motion_clips = render_scene_clips(project, cfg, mjobs, fps, (w, h), crf)
+        motion_clips.update(render_scene_clips(project, cfg, mjobs, fps, (w, h), crf))
 
     jobs, prev_src, n, prev_para = [], None, 0, None
     for gi, (g, mode) in enumerate(zip(groups, modes)):
@@ -313,7 +339,7 @@ def render_video(project: Project, cfg: Config, lang: str | None = None) -> Path
             anim = (sorted(project.shots_dir.glob(f"{head['id']}_a[0-9][0-9].png"))
                     if k == 0 and animated_visuals(head.get("visual")) else [])
             if (k == 0 and not anim and reveal == "ink" and (reveal_on == "scene" or new_para)
-                    and img.exists() and frames_of[shot["id"]] > reveal_n + 6):
+                    and head["id"] not in rm_ids and img.exists() and frames_of[shot["id"]] > reveal_n + 6):
                 anim = reveal_frames(img, work / "reveal", reveal_n, mode, zoom, seed=gi, size=(w, h))
             if mclip:
                 layer = overlay_layer(ov, lang, primary, work / f"{shot['id']}_ovl.png", (w, h)) if ov else None
@@ -413,6 +439,10 @@ def render_shorts(project: Project, cfg: Config, lang: str | None = None) -> lis
         if vert.exists() and src.exists() and vert.stat().st_mtime >= src.stat().st_mtime:
             return vert
         v = head.get("visual")
+        if isinstance(v, dict) and engine_name(head, cfg) == "remotion":
+            from .remotion import render_vertical
+            if render_vertical(project, cfg, head, vert, lang):     # laid out again for a tall page
+                return vert
         if isinstance(v, dict) and engine_name(head, cfg) == "svg":
             from .images.svg_engine import SvgEngine
             from .svgkit import crop_vertical, render_svg

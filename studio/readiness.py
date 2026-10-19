@@ -71,6 +71,15 @@ def check(project: Project, lang: str | None = None) -> dict:
     add("sound", not bad, "warn", "Ses: storyboard'daki ses adları geçerli" if not bad
         else f"Ses: bilinmeyen ses adı {', '.join(bad[:4])} (liste: python -m studio sounds-demo)")
 
+    motion = [g[0] for g in groups if g[0].get("visual") and engine_name(g[0], {}) == "remotion"]
+    if motion:
+        from .remotion import status, validate
+        bad_m = [f"{h['id']}: {e}" for h in motion for e in [validate(h["visual"])] if e]
+        add("motion_scenes", not bad_m, "block", f"Hareketli sahne: {len(motion)} (ücretsiz)" if not bad_m
+            else f"Hareketli sahne hatası: {bad_m[0]}" + (f" (+{len(bad_m) - 1})" if len(bad_m) > 1 else ""))
+        ok, msg = status()
+        add("remotion", ok, "warn", f"Remotion: {msg}")
+
     paid = sum(1 for g in groups if g[0].get("visual") and engine_name(g[0], {}) == "gemini")
     add("cost", True, "info", f"AI resmi: {paid} sahne (yaklaşık {paid * 0.05:.2f} $; değişmeyen sahne tekrar ödenmez)")
 

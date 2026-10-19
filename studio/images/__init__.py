@@ -4,7 +4,8 @@ A scene starts at a shot with its own visual and runs over the following shots w
 `{same: true}`: they share the image while the camera keeps moving (6-8 s per picture instead of 2 s).
 
   gemini  AI illustration from visual.prompt (+ characters, + ref)  — the default
-  svg     code-drawn chart from a recipe {bg, props: [{type: bar_chart, ...}]} — numbers as pictures
+  svg       code-drawn chart from a recipe {bg, props: [{type: bar_chart, ...}]} — numbers as pictures
+  remotion  motion scene {comp: verdict, ...} (studio/remotion.py): here only its poster frame; `render` animates it
 
 Results are cached by content hash: a scene is only re-rendered when its prompt/recipe or the engine
 settings change, so re-running never re-spends money on unchanged scenes.
@@ -64,10 +65,13 @@ def scenes(shots: list[dict]) -> list[list[dict]]:
 
 
 def engine_name(shot: dict, cfg: Config) -> str:
-    """Explicit shot.engine wins; a chart recipe (bg/props) is svg; a prompt is gemini."""
+    """Explicit shot.engine wins; a motion scene (comp) is remotion; a chart recipe (bg/props) is svg;
+    a prompt is gemini."""
     if shot.get("engine"):
         return shot["engine"]
     v = shot.get("visual")
+    if isinstance(v, dict) and v.get("comp") and "prompt" not in v:
+        return "remotion"
     if isinstance(v, dict) and any(k in v for k in ("bg", "props", "figures")) and "prompt" not in v:
         return "svg"
     return "gemini"
@@ -78,6 +82,9 @@ def _key(shot: dict, engine: str, cfg: Config) -> str:
     if engine == "svg":
         payload["palette"] = cfg.get_path("channel.style.palette") or {}
         payload["paper"] = cfg.get_path("channel.chart_paper") or ""
+    if engine == "remotion":
+        from ..remotion import cache_key
+        payload.update(cache_key(shot.get("visual"), cfg))
     if engine == "gemini":
         payload["model"] = cfg.get_path("images.gemini.model")
         payload["size"] = cfg.get_path("images.gemini.image_size", "")
@@ -121,7 +128,7 @@ def render_images(project: Project, cfg: Config, only: set[str] | None = None, f
     if only:                                   # asking for any shot of a scene re-renders the scene image
         only = {heads.get(i, i) for i in only}
 
-    todo: dict[str, list[tuple[dict, str]]] = {"svg": [], "gemini": []}
+    todo: dict[str, list[tuple[dict, str]]] = {"svg": [], "gemini": [], "remotion": []}
     missing = []
     for shot in shots:
         if heads[shot["id"]] != shot["id"]:
@@ -150,6 +157,14 @@ def render_images(project: Project, cfg: Config, only: set[str] | None = None, f
                 index[shot["id"]] = key
                 done += 1
                 project.write_json(index_path, index)
+    if todo.get("remotion"):
+        from ..remotion import render_posters
+        made = render_posters(project, cfg, todo["remotion"], out_dir)
+        for sid, key in made.items():
+            index[sid] = key
+            done += 1
+        project.write_json(index_path, index)
+        failed += [f"{s['id']}: hareketli sahne posteri üretilemedi" for s, _ in todo["remotion"] if s["id"] not in made]
     if todo.get("gemini"):
         from .gemini_engine import GeminiEngine
         eng = GeminiEngine(cfg)

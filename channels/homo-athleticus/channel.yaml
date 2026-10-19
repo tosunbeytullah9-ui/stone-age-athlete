@@ -71,6 +71,8 @@ thumbnails:                      # look of the three thumbnail kinds (docs/THUMB
   stamp: MYTH                    # default rubber-stamp word
   paper: false                   # paintings: the words sit on a torn paper slip
 chart_paper: refs/paper.png       # charts are printed on this painted paper (same world as the AI scenes)
+remotion:                         # motion scenes (docs/REMOTION.md) on the same painted paper
+  theme: museum
 style:
   palette: {}                    # chart colours, e.g. {ochre: "#e3a447"}
 overrides:

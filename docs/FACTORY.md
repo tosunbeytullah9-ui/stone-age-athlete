@@ -24,6 +24,8 @@ Sağlayıcılar
    tts:      kokoro (yerel) · edge (çevrimiçi) | gemini · elevenlabs
    align:    proportional · whisper            | sağlayıcıdan kesin zaman (ElevenLabs, Edge)
    images:   gemini (Nano Banana, kanal stili + karakter referansı) · grafikler: svg (kodla, kanalın kâğıdına basılı)
+   motion:   remotion (hareketli sahneler: dosya kartı, hüküm damgası, grafik, sayaç, zaman çizelgesi, alıntı;
+             Node.js, yerel, ücretsiz, cümlelerle eş zamanlı; docs/REMOTION.md)
 Veri (Git'te, güncellemede değer değer birleştirilir)
    library/sources.yaml   channels/<kanal>/{channel.yaml, ideas.yaml, projects/<video>/{script.md, claims.yaml,
    storyboard.yaml, project.yaml, analytics/}}   ·   build/ (üretilenler, Git dışı, içerik hash'iyle önbellekli)

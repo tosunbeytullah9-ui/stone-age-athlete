@@ -114,8 +114,25 @@ def restore(stash: str | None = None) -> int:
     report += migrate_renamed_channels(verbose=False)
     for ln in report:
         print(f"  · {ln}")
+    _motion_packages()
     print("  Güncelleme tamam. Paneli start.bat ile açabilirsin.")
     return 0
+
+
+def _motion_packages() -> None:
+    """Motion scenes (remotion/): install or refresh the npm packages when Node.js is there."""
+    if not (ROOT / "remotion" / "package.json").exists():
+        return
+    try:
+        from .remotion import install, needs_install, node_bin
+    except Exception:          # noqa: BLE001 — an update must never fail because of an optional part
+        return
+    if not node_bin():
+        print("  · Hareketli sahneler için Node.js kurulu değil (winget install OpenJS.NodeJS.LTS); "
+              "kurulana kadar bu sahneler videoda metin kartı olarak görünür.")
+        return
+    if needs_install():
+        install()
 
 
 def _manual_stashes(st: dict) -> list[str]:

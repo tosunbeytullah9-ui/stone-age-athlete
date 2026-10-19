@@ -58,9 +58,9 @@ Every prompt is automatically prefixed with the channel's `visual_style` (channe
    anatomical cut-aways painted like a museum plate.
 8. **Anatomy and science.** For "how it works" moments use painted anatomical illustrations: "a cut-away
    painting of a human shoulder showing the tendons and ligaments stretched like a slingshot band".
-9. **Numbers become charts.** When the words compare quantities (twice as fast, 92%, 35 → 64), use a chart
-   recipe (`bg` + `props`, below) or a picture that shows the size difference (a small and a large spleen side by
-   side). Charts animate in automatically. Use 2–5 charts per video, not more.
+9. **Numbers become charts.** When the words compare quantities (twice as fast, 92%, 35 → 64), use a motion scene
+   (`comp: bars | counter | timeline`, below), a chart recipe (`bg` + `props`) or a picture that shows the size
+   difference (a small and a large spleen side by side). Use 2–5 charts per video, not more.
 10. **No text inside paintings.** Never ask for words, numbers, signs, labels, scoreboards or book pages that can be
     read. Numbers go into `overlay` (drawn by the factory, translated per language).
 11. **Safe prompts.** No gore or blood, injuries are shown as a hand holding a shoulder or a red glow on a joint;
@@ -74,6 +74,24 @@ Every prompt is automatically prefixed with the channel's `visual_style` (channe
 0..1. Canvas 1920 × 1080; baseline ≈ 900; bar/line charts stand on `y`, dials and people are centred on (x, y).
 Colours: `ochre` (ancient/us), `water` (modern/them), `good` (green), `bad` (red), `clay`, `stone`, `night`.
 Add `overlay` with the real numbers. Charts hold still (no camera move) and grow in.
+
+## Motion scenes (code-drawn and animated, free — docs/REMOTION.md)
+Instead of a painting, a scene can be a motion scene: `visual: {comp: <id>, ...props}`. Its words are written,
+typed or stamped on the channel's paper exactly when the shots say them (each shot of the scene is a beat).
+Use 4–8 per long video, for: the case-file line (`case-file`), the verdict (`verdict`), a document quoted word for
+word (`quote`), 1–4 numbers compared (`bars`; `of: 100` for "a share of"), one big count (`counter`), 2–5 dated
+steps (`timeline`). Numbers must match the claim; no `overlay` that repeats the scene.
+
+```yaml
+s004:
+  visual: {comp: case-file, number: "001", org: BUREAU OF HUMAN ERROR, fields: [{label: SUBJECT, value: you}]}
+s065:
+  visual: {comp: bars, title: "Plain water, as a share of all the water adults consume", of: 100, unit: "%",
+           bars: [{label: Men, value: 30, beat: 1}, {label: Women, value: 34, beat: 2}]}
+s179:
+  visual: {comp: verdict, word: WRONG, belief: Eight glasses of water a day}
+```
+Props of every component: docs/REMOTION.md (Catalogue).
 
 ## Motion inside the picture (`motion.yaml`, optional — docs/MOTION.md)
 With `video.motion: auto` every painting moves a little on screen (depth camera, or line boil on ledger pages). After the pictures are

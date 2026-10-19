@@ -24,6 +24,15 @@ When asked to "plan" a project (e.g. "002'yi planla"):
    text that slipped into a painting, the coach looking different. Fix the prompt and re-paint with `--only sNNN`.
    Unchanged scenes are cached and never paid twice.
 
+## Motion scenes (Remotion: case file, verdict stamp, charts, counters, timelines, quotes)
+Scenes can be code-drawn and animated instead of painted: `visual: {comp: verdict, word: WRONG, belief: "..."}`
+(docs/REMOTION.md: catalogue, props, rules; components in `remotion/src/comps/`, bridge `studio/remotion.py`).
+Free, local, in sync with the shots (each shot of the scene is a beat), re-rendered per language. Needs Node.js on
+the owner's machine; packages install on first use. Use 4–8 per long video (case file, verdict, key numbers).
+After writing one: `python -m studio images <slug> --only sNNN` (poster) and
+`python -m studio motion-scenes <slug> --only sNNN` (clip → build/remotion_preview/) and **look at them**.
+Changing a component: `npx tsc --noEmit` in `remotion/`, then `python -m pytest -q`.
+
 ## Living pictures (motion inside the paintings)
 Renders can animate the scene paintings locally and for free (`studio/motion.py`, `studio/stillmotion`;
 docs/MOTION.md). Off by default; the owner turns it on with `video.motion: auto` (config.yaml, or one channel via
