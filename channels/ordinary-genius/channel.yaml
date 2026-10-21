@@ -125,3 +125,16 @@ overrides:
         them, smile on the metaphors. Never sleepy, never shouting, never salesy.
     kokoro: {voice: af_heart, lang_code: a}   # free fallback: American female
     edge: {voice_by_lang: {en: en-US-AriaNeural}}
+
+# YouTube taraması (panel: Kanal → YouTube taraması; python -m studio scan yeni-kanallar). Yeni kanallar bu
+# aramaların en yeni videolarından bulunur; boşsa kanalın etiketleri ve önce gelen fikirler kullanılır.
+research:
+  scan_queries:
+    - how everyday things work
+    - how does it work everyday objects
+    - physics of everyday things
+    - engineering of everyday objects
+    - why is it designed this way
+    - how a kitchen tool works
+    - how things work animation
+    - design you never noticed

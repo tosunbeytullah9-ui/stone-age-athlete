@@ -715,10 +715,46 @@ def run_signals(cid: str, body: dict = Body(default={})):
     if body.get("limit"):
         args += ["--limit", str(int(body["limit"]))]
     if body.get("ids"):
-        args += ["--only", ",".join(i for i in body["ids"] if re.match(r"^i\d+$", i))]
+        args += ["--only", ",".join(i for i in body["ids"] if re.match(r"^[a-z]+\d+$", i))]
     if body.get("force"):
         args.append("--force")
     return {"job": manager.submit(args, STEP_LABELS["signals"], ch.id, None).id}
+
+
+@app.get("/api/channels/{cid}/scan")
+def get_scan(cid: str):
+    """The newest YouTube scan reports of the channel (studio/ytscan.py)."""
+    from ..ytscan import latest, seed_queries
+    ch = _ch(cid)
+    out = latest(ch.id)
+    if out.get("thumbs"):
+        out["thumbs"]["url"] = f"/files/{out['thumbs']['path']}?v={out['thumbs']['mtime']}"
+    for k in ("topics", "channels"):
+        if out.get(k):
+            out[k]["md_url"] = f"/files/{out[k]['md']}"
+    try:
+        import yt_dlp  # noqa: F401
+        out["ytdlp"] = True
+    except ImportError:
+        out["ytdlp"] = False
+    out["queries"] = seed_queries(ch)
+    return out
+
+
+@app.post("/api/channels/{cid}/scan")
+def run_scan(cid: str, body: dict = Body(default={})):
+    from ..ytscan import MODES
+    ch = _ch(cid)
+    mode = body.get("mode", "konular")
+    if mode not in MODES:
+        raise HTTPException(400, f"tarama türü: {', '.join(MODES)}")
+    args = ["scan", mode, "--channel", ch.id]
+    ids = [i for i in (body.get("ids") or []) if re.match(r"^[a-z]+\d+$", i)]
+    if ids:
+        args += ["--only", ",".join(ids)]
+    if body.get("limit"):
+        args += ["--limit", str(int(body["limit"]))]
+    return {"job": manager.submit(args, f"{STEP_LABELS['scan']} · {mode}", ch.id, None).id}
 
 
 @app.get("/api/library")

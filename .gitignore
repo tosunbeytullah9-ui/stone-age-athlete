@@ -18,3 +18,5 @@ backups/
 channels/*/build/
 /build/
 library/sounds/files/
+# competitor thumbnails from the YouTube scan: for study only, never in the repo
+channels/*/research/kapaklar/

@@ -66,14 +66,32 @@ def _ideas(ch: Channel) -> str:
         if not items:
             continue
         rows.append(f"\n**{pid} {p.get('name', '')}**: {p.get('promise', '')}\n")
-        rows.append("| id | title | prio | status | demand/comp/gap | gut |\n| --- | --- | --- | --- | --- | --- |")
+        rows.append("| id | title | prio | status | demand/comp/gap | scan: median views · strong · recent long · gap | gut |\n"
+                    "| --- | --- | --- | --- | --- | --- | --- |")
         for i in items:
             sg = i.get("signals") or {}
             dcg = "/".join(str(sg.get(k, "–")) for k in ("demand", "competition", "gap")) if sg else "–"
             title = str(i.get("title", "")).replace("|", "/")
-            rows.append(f"| {i['id']} | {title} | {i.get('priority', '')} | {i.get('status', '')} | {dcg} | "
+            sc = i.get("scan") or {}
+            scan = (f"{sc.get('median_views', 0):,} · {sc.get('strong', 0)} · {sc.get('recent_strong_long', 0)}"
+                    f"{' · GAP' if sc.get('gap') else ''}") if sc else "–"
+            rows.append(f"| {i['id']} | {title} | {i.get('priority', '')} | {i.get('status', '')} | {dcg} | {scan} | "
                         f"{i.get('gut', '') or ''} |")
     return "\n".join(rows) if rows else "(no ideas yet)"
+
+
+def _scan(ch: Channel) -> str:
+    """Newest yt-dlp scan of new, fast-growing channels (studio/ytscan.py), so claude.ai chats see it too."""
+    from .ytscan import latest
+    got = latest(ch.id).get("channels")
+    if not got:
+        return ""
+    rows = [f"Scanned {got['date']}. New channels (first video within 24 months) ranked by subscribers per month:", "",
+            "| channel | first video | subs | subs/month | best video (views) |", "| --- | --- | --- | --- | --- |"]
+    for r in got["rows"][:12]:
+        rows.append(f"| {str(r['channel']).replace('|', '/')} | {r['first_upload']} | {r['subs']:,} | "
+                    f"{r['subs_per_month']:,} | {str(r['best_title'])[:60].replace('|', '/')} ({r['best_views']:,}) |")
+    return "\n".join(rows) if got["rows"] else f"Scanned {got['date']}: no new channel matched."
 
 
 def _projects(ch: Channel) -> tuple[str, str]:
@@ -201,7 +219,9 @@ def build_knowledge(channel: str, cfg: Config) -> str:
         f"## 7. Scene plan (storyboard) format\nThis channel's recurring characters: {char_ids}. Where the spec "
         f"below says `coach`, use this channel's character ids instead.\n\n{storyboard}",
         f"## 8. Videos so far and how they performed\n{projects}",
-        f"## 9. Idea bank (demand/competition/gap = YouTube signals 1–5)\n{_ideas(ch)}",
+        f"## 9. Idea bank (demand/competition/gap = YouTube signals 1–5; scan = yt-dlp search of the topic: GAP means "
+        f"watched, but no strong long video in the last two years)\n{_ideas(ch)}",
+        (f"## 9b. New channels in this niche (YouTube scan)\n{scan}" if (scan := _scan(ch)) else ""),
         f"## 10. Source library (sources this channel cites; cite by id, never invent new ones)\n{_sources(ch)}",
     ]
     if ref_script:

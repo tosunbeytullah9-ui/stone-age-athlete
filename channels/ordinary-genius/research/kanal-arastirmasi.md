@@ -1,7 +1,7 @@
 # Ordinary Genius: kanal araştırması ve kararların dayanağı (21 Ekim 2026)
 
 Bu belge kanalın kimliğinin, kapak dilinin ve konu sırasının neye dayandığını gösterir. YouTube'un kendisi bu
-oturumdan taranamadı (youtube.com bağlantısı ağ politikasıyla kapalıydı); o kısım `tools/yt_tara.py` ile sahibin
+oturumdan taranamadı (youtube.com bağlantısı ağ politikasıyla kapalıydı); o kısım panelde Kanal → **YouTube taraması** (ya da `python -m studio scan`) ile sahibin
 bilgisayarında yapılacak ve sonuçlar `research/` klasörüne yazılacak.
 
 ## 1. Pazar: "nasıl çalışır" nişi
@@ -20,7 +20,7 @@ Gelir: Eğitim ve Bilim, 300 kanallık Studio verisinde medyan RPM 10,22 $ ile e
 Kanal "Education" kategorisinde, ders tonunda ve 8 dakika üstünde tutulur.
 
 **Yeni açılıp hızla büyüyen kanallar:** Web kaynaklarında kanal açılış tarihi ve büyüme hızı güvenilir biçimde yok.
-Bunun için `tools/yt_tara.py yeni-kanallar` yazıldı: son 12 ayın videolarından, ilk videosu son 24 ay içinde olup
+Bunun için "Yeni kanalları bul" taraması yazıldı: kanalın arama ifadelerinin en yeni videolarından, ilk videosu son 24 ay içinde olup
 10 bin aboneye ya da 100 bin izlenmeli bir videoya ulaşmış kanalları listeler.
 
 ## 2. Kapak araştırması
@@ -35,7 +35,7 @@ Bunun için `tools/yt_tara.py yeni-kanallar` yazıldı: son 12 ayın videoların
 **Karar:** Yüz yok (kanal yüzsüz), yerine kodla çizilmiş dev, kusursuz bir nesne; gizli parça sarı parlar;
 koyu çivit sahne üstünde doygun renkler; beyaz Anton yazı, kalın lacivert kontur, 2–4 kelime. Üç tür (Sahne,
 Düzeltme, Damga "SOLVED") Test & Compare'de yarışır. Yüzsüzlük bir dezavantaj: 10 videodan sonra veriye göre bir
-"el" ya da basit bir karakter yüzü denenebilir. `tools/yt_tara.py kapaklar` rakiplerin kapaklarını tek sayfada toplar.
+"el" ya da basit bir karakter yüzü denenebilir. "Rakip kapaklarını topla" taraması rakiplerin kapaklarını tek sayfada toplar.
 
 ## 3. Amerikan evinde ne var (konu seçimi)
 | Eşya | ABD'de yaygınlık | Kaynak |
@@ -48,7 +48,7 @@ Düzeltme, Damga "SOLVED") Test & Compare'de yarışır. Yüzsüzlük bir dezava
 | Biftek bıçağı, kesme tahtası, çırpıcı, soyacak, maşa | %80'in üstü | YouGov, Kas 2023 |
 
 Fikir havuzu (`ideas.yaml`, 37 fikir) bu listeyle ve Amerikan evine özgü eşyalarla (çöp öğütücü, garaj kapısı,
-duman dedektörü) kuruldu. Rekabet: `tools/yt_tara.py konular` her fikir için ilk 20 videoyu, güçlü videoları ve
+duman dedektörü) kuruldu. Rekabet: "Konuları tara" her fikir için ilk 20 videoyu, güçlü videoları ve
 "son iki yılda güçlü, uzun video yok" boşluğunu yazar. Talep bantları için ayrıca `python -m studio signals`.
 
 ## 4. Üretim modeli

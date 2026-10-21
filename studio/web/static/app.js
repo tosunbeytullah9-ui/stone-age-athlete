@@ -171,6 +171,7 @@ async function viewChannel(cid, tab = "ideas") {
     <div class="tabs">
       <a href="#/c/${cid}/prep" class="${tab === "prep" ? "active" : ""}">Hazırlık stüdyosu</a>
       <a href="#/c/${cid}/ideas" class="${tab === "ideas" ? "active" : ""}">Fikir havuzu</a>
+      <a href="#/c/${cid}/scan" class="${tab === "scan" ? "active" : ""}">YouTube taraması</a>
       <a href="#/c/${cid}/calendar" class="${tab === "calendar" ? "active" : ""}">Takvim</a>
       <a href="#/c/${cid}/projects" class="${tab === "projects" ? "active" : ""}">Projeler</a>
       <a href="#/c/${cid}/settings" class="${tab === "settings" ? "active" : ""}">Kanal ayarları</a>
@@ -178,6 +179,7 @@ async function viewChannel(cid, tab = "ideas") {
   const el = $("#tab");
   if (tab === "prep") return channelPrep(cid, el);
   if (tab === "ideas") return channelIdeas(cid, el);
+  if (tab === "scan") return channelScan(cid, el);
   if (tab === "projects") return channelProjects(cid, el);
   if (tab === "calendar") return channelCalendar(cid, el, d);
   if (tab === "settings") return channelSettings(cid, el, ch);
@@ -194,7 +196,7 @@ async function channelIdeas(cid, el) {
         <select id="fi-pillar"><option value="">Tüm sütunlar</option>${Object.entries(pillars).map(([k, v]) => `<option value="${k}">${k} · ${esc(v.name)}</option>`).join("")}</select>
         <select id="fi-pri"><option value="">Tüm öncelikler</option><option>A</option><option>B</option><option>C</option></select>
         <select id="fi-status"><option value="">Tüm durumlar</option>${data.statuses.map((s) => `<option value="${s}">${STATUS_TR[s]}</option>`).join("")}</select>
-        <select id="fi-sort"><option value="priority">Sıra: öncelik</option><option value="demand">Sıra: talep</option><option value="gap">Sıra: boşluk (küçük kanal kazanıyor)</option><option value="competition">Sıra: en az rekabet</option><option value="gut">Sıra: sezgi puanım</option></select>
+        <select id="fi-sort"><option value="priority">Sıra: öncelik</option><option value="demand">Sıra: talep</option><option value="gap">Sıra: boşluk (küçük kanal kazanıyor)</option><option value="competition">Sıra: en az rekabet</option><option value="gut">Sıra: sezgi puanım</option><option value="scan">Sıra: YouTube taraması (boşluk önce)</option></select>
       </div>
       <div class="row"><button id="fi-sig" title="YouTube Data API ile arama sonuçlarını ölçer (ücretsiz anahtar, günlük ~95 fikir)">Sinyalleri güncelle</button><button id="fi-add">+ Fikir ekle</button></div>
     </div>
@@ -217,6 +219,7 @@ async function channelIdeas(cid, el) {
       gap: (a, b) => sg(b, "outlier") - sg(a, "outlier"),
       competition: (a, b) => (sg(a, "competition") < 0 ? 99 : sg(a, "competition")) - (sg(b, "competition") < 0 ? 99 : sg(b, "competition")),
       gut: (a, b) => (b.gut || 0) - (a.gut || 0),
+      scan: (a, b) => ((b.scan?.gap ? 1 : 0) - (a.scan?.gap ? 1 : 0)) || ((b.scan?.median_views || 0) - (a.scan?.median_views || 0)),
     };
     const rows = data.ideas.slice().sort(sorters[f.sort || "priority"]).filter((i) => (!f.q || (i.title + " " + (i.angle || "")).toLowerCase().includes(f.q)) && (!f.pillar || i.pillar === f.pillar) && (!f.priority || i.priority === f.priority) && (!f.status || i.status === f.status));
     $("#fi-count").textContent = `${rows.length} / ${data.ideas.length} fikir`;
@@ -224,7 +227,7 @@ async function channelIdeas(cid, el) {
       <td>${pill(i.priority || "B", i.priority || "B")}</td>
       <td><div class="t">${esc(i.title)}</div><div class="a">${esc(i.angle || "")}${i.demand ? ` <span class="pill info">talep: ${esc(i.demand)}</span>` : ""}</div></td>
       <td class="small">${esc(i.pillar)} ${pillars[i.pillar] ? `<div class="muted">${esc(pillars[i.pillar].name)}</div>` : ""}</td>
-      <td class="small">${signalCell(i.signals)}</td>
+      <td class="small">${signalCell(i.signals)}${scanCell(i.scan)}</td>
       <td><select class="fi-gut" data-id="${i.id}"><option value="">–</option>${[1, 2, 3, 4, 5].map((n) => `<option ${i.gut == n ? "selected" : ""}>${n}</option>`).join("")}</select></td>
       <td><select data-id="${i.id}" class="fi-st">${data.statuses.map((s) => `<option value="${s}" ${i.status === s ? "selected" : ""}>${STATUS_TR[s]}</option>`).join("")}</select></td>
       <td>${i.project ? `<a class="btn sm" href="#/p/${cid}/${i.project}">Projeyi aç →</a>` : `<button class="sm fi-go" data-id="${i.id}">Projeye dönüştür</button>`}</td></tr>`).join("");

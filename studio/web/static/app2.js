@@ -10,6 +10,50 @@ function signalCell(s) {
     <div class="muted" title="${esc(s.query)} · ${s.results} sonuç · ${s.checked}">medyan ${fmtN(s.median_views)} · en iyi ${fmtN(s.top_views)} · son 12 ay ${s.recent_12m}</div>`;
 }
 
+/* ------------------------------------------------------------ YouTube scan (yt-dlp) */
+function scanCell(s) {
+  if (!s) return "";
+  return `<div class="muted" title="${esc(s.query)} · tarandı ${esc(s.checked || "")}">tarama: güçlü ${s.strong} · son 2 yıl ${s.recent_strong_long}${s.gap ? ` ${pill("BOŞLUK", "ok")}` : ""}</div>`;
+}
+
+async function channelScan(cid, el) {
+  const d = await api(`/api/channels/${cid}/scan`);
+  const t = d.topics, c = d.channels;
+  const btn = (mode, label, help) => `<div class="card" style="flex:1;min-width:240px">
+      <button class="primary sc-go" data-mode="${mode}" data-no-help>${label}</button>
+      <div class="small muted" style="margin-top:8px">${help}</div></div>`;
+  el.innerHTML = `
+    <p class="small muted" style="margin-top:0">YouTube'u <b>yt-dlp</b> ile tarar: API kotası harcamaz, ücretsizdir; sadece internet ister. Sonuçlar
+      <code>channels/${esc(cid)}/research/</code> klasörüne yazılır ve aşağıda görünür. Claude konu sırasını, videonun açısını ve kapak dilini bu sonuçlara göre seçer.
+      ${d.ytdlp ? "" : `<br><span class="pill err">yt-dlp kurulu değil</span> <code>guncelle.bat</code> çalıştır ya da <code>.venv\\Scripts\\pip install yt-dlp</code>`}</p>
+    <div class="row" style="align-items:stretch;gap:12px;margin-bottom:12px">
+      ${btn("konular", "Konuları tara", "Fikir havuzundaki her konu için YouTube aramasının ilk 20 videosuna bakar: izlenme, yıl, süre, kanal. Her fikrin <b>Sinyal</b> sütununa \"tarama\" satırı eklenir. <b>BOŞLUK</b>: konu izleniyor ama son iki yılda 8 dakikadan uzun güçlü (≥100 bin) video yok. Konu başına ~30 sn.")}
+      ${btn("yeni-kanallar", "Yeni kanalları bul", `Kanalın arama ifadelerinden son videoları toplar; ilk videosu son 24 ayda olup 10 bin aboneye ya da 100 bin izlenmeli bir videoya ulaşan kanalları aylık abone hızına göre sıralar. 10–20 dk. Arama ifadeleri: <i>${esc((d.queries || []).join(" · "))}</i> (Kanal ayarları → <code>research.scan_queries</code>).`)}
+      ${btn("kapaklar", "Rakip kapaklarını topla", "En çok izlenen rakip videoların kapaklarını tek sayfada toplar (sadece incelemek için, yeniden kullanılmaz). Önce \"Konuları tara\" çalıştıysa onun sonuçlarını kullanır, daha hızlıdır.")}
+    </div>
+    <div class="row" style="margin-bottom:12px"><label class="small">Sadece şu fikirler (boş = hepsi): <input id="sc-ids" placeholder="g001,g002" style="width:200px"></label></div>
+    <div id="live-box" class="hidden" style="margin-bottom:12px"><div id="live-status" class="small muted"></div><div class="log" id="live-log" style="height:160px"></div></div>
+    <h3 style="margin-top:22px">Konular ${t ? `<span class="small muted">${esc(t.date)} · <a href="${t.md_url}" target="_blank">tam rapor</a></span>` : ""}</h3>
+    ${t ? `<table><thead><tr><th>Fikir</th><th style="width:110px">Medyan izlenme</th><th style="width:110px">En büyük</th><th style="width:80px">Güçlü</th><th style="width:110px">Son 2 yıl güçlü+uzun</th><th style="width:90px"></th></tr></thead><tbody>
+      ${t.rows.slice().sort((a, b) => (b.gap - a.gap) || (b.median_views - a.median_views)).map((r) => `<tr><td><b>${esc(r.id)}</b> ${esc(r.title)}<div class="muted small">${esc(r.query)}</div></td><td>${fmtN(r.median_views)}</td><td>${fmtN(r.top_views)}</td><td>${r.strong}</td><td>${r.recent_strong_long}</td><td>${r.gap ? pill("BOŞLUK", "ok") : ""}</td></tr>`).join("")}</tbody></table>`
+      : '<p class="muted">Henüz tarama yok.</p>'}
+    <h3 style="margin-top:22px">Yeni ve hızlı büyüyen kanallar ${c ? `<span class="small muted">${esc(c.date)} · <a href="${c.md_url}" target="_blank">tam rapor</a></span>` : ""}</h3>
+    ${c ? (c.rows.length ? `<table><thead><tr><th>Kanal</th><th style="width:100px">İlk video</th><th style="width:60px">Ay</th><th style="width:100px">Abone</th><th style="width:90px">Abone/ay</th><th>En iyi video</th></tr></thead><tbody>
+      ${c.rows.map((r) => `<tr><td><a href="${esc(r.url)}" target="_blank">${esc(r.channel)}</a></td><td style="white-space:nowrap">${esc(String(r.first_upload || "").replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3"))}</td><td>${r.age_months}</td><td>${fmtN(r.subs)}</td><td>${fmtN(r.subs_per_month)}</td><td><a href="${esc(r.best_url)}" target="_blank">${esc(r.best_title)}</a> <span class="muted small">${fmtN(r.best_views)}</span></td></tr>`).join("")}</tbody></table>`
+      : '<p class="muted">Ölçütlere uyan yeni kanal bulunamadı.</p>') : '<p class="muted">Henüz tarama yok.</p>'}
+    <h3 style="margin-top:22px">Rakip kapakları</h3>
+    ${d.thumbs ? `<a href="${d.thumbs.url}" target="_blank"><img src="${d.thumbs.url}" style="max-width:100%;border-radius:8px"></a>` : '<p class="muted">Henüz toplanmadı.</p>'}`;
+  $$(".sc-go").forEach((b) => (b.onclick = async () => {
+    const ids = $("#sc-ids").value.split(",").map((x) => x.trim()).filter(Boolean);
+    try {
+      const r = await api(`/api/channels/${cid}/scan`, { method: "POST", body: { mode: b.dataset.mode, ids } });
+      watch(r.job, `YouTube taraması · ${b.dataset.mode}`);
+      state.onJobsDone = () => viewChannel(cid, "scan");
+      toast("Tarama başladı; bitince sonuçlar burada görünür");
+    } catch (e) { toast(e.message, true); }
+  }));
+}
+
 /* ------------------------------------------------------------ claims (script tab) */
 function renderClaims(cid, slug, el) {
   const claims = P.claims || [];

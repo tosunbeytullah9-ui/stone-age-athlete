@@ -56,7 +56,10 @@ written in the storyboard, each movement on a spoken word (`at: "@valve"`, word 
 AI paintings only for people, places and history. Write a video's scenes as code with drawing helpers
 (`channels/ordinary-genius/projects/001-*/scenes.py`), apply them, render posters and **look at the contact sheet**.
 Numbers on a `mech` scene come from claims or the scene's own words; illustrative maths gets `example: true`.
-Competition and new-channel scans: `tools/yt_tara.py` (yt-dlp; runs on the owner's machine).
+YouTube scans (yt-dlp, free, no API key; studio/ytscan.py; panel: Kanal → YouTube taraması; youtube.com is closed to
+cloud sessions, so they run on the owner's machine): `python -m studio scan konular|yeni-kanallar|kapaklar --channel <c>
+[--only g001,g002]` → `idea.scan` + `channels/<c>/research/` (queries: `channel.yaml → research.scan_queries`).
+Read the newest `research/rakip-*.md` and `yeni-kanallar-*.md` before choosing a topic or a thumbnail.
 
 ## Living pictures (motion inside the paintings)
 Renders can animate the scene paintings locally and for free (`studio/motion.py`, `studio/stillmotion`;

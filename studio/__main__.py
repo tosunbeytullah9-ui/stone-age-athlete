@@ -34,6 +34,8 @@ steps:
 other:
   update                                                  safe update from GitHub (keeps local changes)
   signals [--channel C] [--limit N] [--only i001,i002] [--force]   YouTube demand/competition for ideas
+  scan konular|yeni-kanallar|kapaklar [--channel C] [--only g001,g002] [--limit N]
+                                                          YouTube scan with yt-dlp (no API quota) → channels/C/research/
   check-links                                             check every URL in library/sources.yaml
   new-channel <id> --name "Name" [--langs en,tr]
   new <title> [--channel C]                               create a project
@@ -151,6 +153,10 @@ def main(argv=None) -> None:
     if cmd == "signals":
         from .signals import update_signals
         update_signals(channel, limit=a.limit, ids=[x for x in (a.only or "").split(",") if x] or None, force=a.force)
+        return
+    if cmd == "scan":
+        from .ytscan import run
+        run(a.target or "konular", channel, ids=[x for x in (a.only or "").split(",") if x] or None, limit=a.limit)
         return
     if cmd == "check-links":
         from .claims import check_links
