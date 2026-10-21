@@ -60,7 +60,24 @@ def _file_url(path: Path) -> str | None:
 # ------------------------------------------------------------------ pages & files
 @app.get("/", response_class=HTMLResponse)
 def index():
-    return (STATIC / "index.html").read_text(encoding="utf-8")
+    """The page, with every /static file stamped by its modification time: after an update the browser loads the
+    new scripts instead of its cached copies."""
+    html = (STATIC / "index.html").read_text(encoding="utf-8")
+    html = re.sub(r'(/static/[\w./-]+\.(?:js|css))"', lambda m: f'{m.group(1)}?v={_stamp(m.group(1))}"', html)
+    return HTMLResponse(html, headers={"Cache-Control": "no-cache"})
+
+
+def _stamp(url: str) -> int:
+    f = STATIC / url[len("/static/"):]
+    return int(f.stat().st_mtime) if f.is_file() else 0
+
+
+@app.middleware("http")
+async def _revalidate_static(request, call_next):
+    resp = await call_next(request)
+    if request.url.path.startswith("/static/"):
+        resp.headers["Cache-Control"] = "no-cache"      # always ask the server (304 when unchanged)
+    return resp
 
 
 @app.get("/files/{path:path}")

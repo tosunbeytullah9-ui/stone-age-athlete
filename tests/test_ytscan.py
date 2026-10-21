@@ -80,3 +80,13 @@ def test_scan_api(demo, monkeypatch):
     assert c.post("/api/channels/demo/scan", json={"mode": "rm -rf"}).status_code == 400
     assert c.post("/api/channels/demo/scan", json={"mode": "konular", "ids": ["g001", "x;y"]}).json()["job"] == "j1"
     assert calls[-1] == ["scan", "konular", "--channel", "demo", "--only", "g001"]
+
+
+def test_panel_scripts_are_cache_busted():
+    from fastapi.testclient import TestClient
+
+    from studio.web.app import app
+    c = TestClient(app)
+    html = c.get("/").text
+    assert "/static/app.js?v=" in html and "/static/style.css?v=" in html
+    assert c.get("/static/app2.js").headers["cache-control"] == "no-cache"
