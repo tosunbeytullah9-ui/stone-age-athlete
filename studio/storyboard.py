@@ -9,8 +9,19 @@ from .project import Project
 from .splitter import paragraphs, split_script
 
 
+def _refresh_chapters(project: Project, script: str) -> None:
+    """Chapters follow the script's `<!-- chapter: … -->` lines: a longer script shifts the paragraph numbers."""
+    from .prep import chapters_from_script
+    chaps = chapters_from_script(script)
+    meta = project.meta
+    if chaps and project.meta_path.exists() and meta.get("chapters") != chaps:
+        meta["chapters"] = chaps
+        project.save_meta(meta)
+
+
 def build_storyboard(project: Project, cfg: Config) -> dict[str, Any]:
     script = project.script_path.read_text(encoding="utf-8")
+    _refresh_chapters(project, script)
     beats = split_script(script, cfg.get_path("split.min_chars", 20), cfg.get_path("split.max_chars", 65))
 
     old_shots: list[dict] = []

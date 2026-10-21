@@ -1,5 +1,5 @@
 title: 001-how-your-can-opener-cuts-steel-with-one
-paragraphs: 29
+paragraphs: 33
 shots:
 - id: s001
   para: 0
@@ -3952,6 +3952,721 @@ shots:
 - id: s114
   para: 22
   sent: 74
+  text: Why is the rim such a good place to grab?
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: rim-lid
+      x: 330
+      y: 600
+      w: 1000
+      h: 26
+      ax: 0
+      fill: steel
+    - kind: rect
+      id: rim-wall
+      x: 1352
+      y: 860
+      w: 26
+      h: 440
+      fill: steel
+    - kind: rect
+      id: rim-seam
+      x: 1352
+      y: 600
+      w: 110
+      h: 90
+      r: 36
+      fill: steel2
+    - kind: circle
+      id: ring
+      x: 1352
+      y: 600
+      r: 95
+      fill: none
+      stroke: yellow
+      sw: 10
+      glow: yellow
+      in: '@rim'
+      pulse:
+        amount: 0.12
+        period: 0.9
+        from: '@rim'
+    - kind: text
+      text: '?'
+      x: 820
+      y: 400
+      size: 200
+      in: '@grab'
+      fill: yellow
+    - kind: text
+      text: not one sheet
+      x: 1352
+      y: 880
+      size: 60
+      in: '@single'
+    camera:
+    - at: '@rim'
+      x: 1150
+      y: 600
+      zoom: 1.15
+      dur: 1.6
+- id: s115
+  para: 22
+  sent: 75
+  text: Because it is not a single sheet of metal.
+  visual:
+    same: true
+- id: s116
+  para: 22
+  sent: 76
+  text: At the factory, the curled edge of the lid and the flange
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: path
+        id: seam-body
+        d: M-60 440 L-60 -60 Q-60 -110 -10 -110 Q40 -110 40 -60 L40 40
+        stroke: coral
+        sw: 30
+        fill: none
+      - kind: group
+        items:
+        - kind: path
+          d: M-900 140 L-110 140 L-110 -140 Q-110 -190 -60 -190 L60 -190 Q110 -190 110 -140 L110 80 Q110 120 70
+            120
+          stroke: teal
+          sw: 30
+          fill: none
+        id: seam-lid
+        y: -260
+        keys:
+        - at: '@hooked'
+          y: 0
+          dur: 1.1
+          ease: back
+      id: seam
+      keys:
+      - at: '@pressed'
+        sx: 0.62
+        sy: 0.9
+        dur: 0.7
+        ease: in
+      x: 1100
+      y: 560
+    - kind: label
+      text: lid
+      x: 520
+      y: 700
+      to:
+      - -120
+      - 150
+      in: '@lid'
+    - kind: label
+      text: can body
+      x: 1040
+      y: 960
+      to:
+      - -330
+      - 40
+      in: '@flange'
+    - kind: text
+      text: double seam
+      x: 1100
+      y: 150
+      size: 84
+      in: '@seam'
+      fill: yellow
+- id: s117
+  para: 22
+  sent: 76
+  text: of the can body are hooked together and pressed flat.
+  visual:
+    same: true
+- id: s118
+  para: 22
+  sent: 77
+  text: Food scientists call this the double seam.
+  visual:
+    same: true
+- id: s119
+  para: 22
+  sent: 78
+  text: Two rollers build it in two steps,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: circle
+        r: 110
+        fill: steel
+      - kind: circle
+        r: 30
+        fill: dark
+      id: roll1
+      x: 430
+      y: 330
+      in: '@rollers'
+      spin:
+        speed: 160
+        from: '@rollers'
+    - kind: group
+      items:
+      - kind: circle
+        r: 110
+        fill: steel
+      - kind: circle
+        r: 30
+        fill: dark
+      id: roll2
+      x: 430
+      y: 720
+      in: '@steps'
+      spin:
+        speed: -160
+        from: '@steps'
+    - kind: text
+      text: first
+      x: 430
+      y: 500
+      size: 48
+      in: '@rollers'
+      fill: muted
+    - kind: text
+      text: second
+      x: 430
+      y: 890
+      size: 48
+      in: '@steps'
+      fill: muted
+    - kind: rect
+      id: layer0
+      x: 1200
+      y: 330
+      w: 640
+      h: 58
+      r: 14
+      fill: steel
+      in:
+        at: '@folding+0.00'
+        fx: slide
+        dur: 0.4
+    - kind: rect
+      id: layer1
+      x: 1200
+      y: 422
+      w: 640
+      h: 58
+      r: 14
+      fill: steel2
+      in:
+        at: '@folding+0.15'
+        fx: slide
+        dur: 0.4
+    - kind: rect
+      id: layer2
+      x: 1200
+      y: 514
+      w: 640
+      h: 58
+      r: 14
+      fill: steel
+      in:
+        at: '@folding+0.30'
+        fx: slide
+        dur: 0.4
+    - kind: rect
+      id: layer3
+      x: 1200
+      y: 606
+      w: 640
+      h: 58
+      r: 14
+      fill: steel2
+      in:
+        at: '@folding+0.45'
+        fx: slide
+        dur: 0.4
+    - kind: rect
+      id: layer4
+      x: 1200
+      y: 698
+      w: 640
+      h: 58
+      r: 14
+      fill: steel
+      in:
+        at: '@folding+0.60'
+        fx: slide
+        dur: 0.4
+    - kind: counter
+      id: n
+      x: 1200
+      y: 200
+      size: 110
+      value: 5
+      suffix: ' layers'
+      fill: yellow
+      in: '@five'
+    - kind: rect
+      id: glue0
+      x: 1200
+      y: 376
+      w: 600
+      h: 26
+      r: 10
+      fill: pink
+      in:
+        at: '@compound+0.00'
+        fx: grow
+        dur: 0.4
+    - kind: rect
+      id: glue1
+      x: 1200
+      y: 468
+      w: 600
+      h: 26
+      r: 10
+      fill: pink
+      in:
+        at: '@compound+0.12'
+        fx: grow
+        dur: 0.4
+    - kind: rect
+      id: glue2
+      x: 1200
+      y: 560
+      w: 600
+      h: 26
+      r: 10
+      fill: pink
+      in:
+        at: '@compound+0.24'
+        fx: grow
+        dur: 0.4
+    - kind: rect
+      id: glue3
+      x: 1200
+      y: 652
+      w: 600
+      h: 26
+      r: 10
+      fill: pink
+      in:
+        at: '@compound+0.36'
+        fx: grow
+        dur: 0.4
+    - kind: label
+      text: sealing compound
+      x: 1510
+      y: 560
+      to:
+      - 180
+      - 360
+      in: '@gaps'
+    - kind: particles
+      id: air
+      x: 1720
+      y: 220
+      w: 260
+      h: 160
+      count: 10
+      size: 10
+      mode: gas
+      color: sky
+      in: '@air'
+    drift: 0.03
+- id: s120
+  para: 22
+  sent: 78
+  text: folding the metal into five thicknesses.
+  visual:
+    same: true
+- id: s121
+  para: 22
+  sent: 79
+  text: A rubbery compound tucked into the fold fills the gaps,
+  visual:
+    same: true
+- id: s122
+  para: 22
+  sent: 79
+  text: and that is what keeps the air out.
+  visual:
+    same: true
+- id: s123
+  para: 23
+  sent: 80
+  text: So the rim is the thickest ring on the whole can,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: circle
+        r: 360
+        fill: steel
+      - kind: circle
+        r: 334
+        fill: steel2
+        sw: 4
+      id: lid
+      x: 960
+      y: 560
+      in: 0
+    - kind: circle
+      id: thick
+      x: 960
+      y: 560
+      r: 345
+      fill: none
+      stroke: yellow
+      sw: 42
+      glow: yellow
+      in: '@thickest'
+    - kind: group
+      items:
+      - kind: circle
+        r: 70
+        fill: steel
+      - kind: circle
+        r: 50.4
+        fill: steel2
+        sw: 4
+      - kind: circle
+        r: 14.0
+        fill: dark
+      id: cw
+      x: 960
+      y: 120
+      in: '@tough'
+      shake:
+        at: '@tough+0.4'
+        amount: 12
+      keys:
+      - at: '@tough'
+        y: 160
+        dur: 0.4
+        ease: in
+      - at: '@try'
+        y: 290
+        dur: 0.9
+    - kind: label
+      text: too thick to cut
+      x: 1270
+      y: 300
+      to:
+      - 260
+      - -150
+      in: '@slice'
+- id: s124
+  para: 23
+  sent: 80
+  text: far too tough to slice.
+  visual:
+    same: true
+- id: s125
+  para: 23
+  sent: 81
+  text: The opener doesn't even try.
+  visual:
+    same: true
+- id: s126
+  para: 23
+  sent: 82
+  text: The toothed wheel hooks under
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: rim-lid
+      x: 330
+      y: 600
+      w: 1000
+      h: 26
+      ax: 0
+      fill: steel
+    - kind: rect
+      id: rim-wall
+      x: 1352
+      y: 860
+      w: 26
+      h: 440
+      fill: steel
+    - kind: rect
+      id: rim-seam
+      x: 1352
+      y: 600
+      w: 110
+      h: 90
+      r: 36
+      fill: steel2
+    - kind: line
+      x: 1230
+      y: 588
+      to:
+      - 0
+      - 26
+      stroke: yellow
+      sw: 7
+      glow: yellow
+      in: '@inside'
+    - kind: group
+      items:
+      - kind: circle
+        r: 110
+        fill: steel
+      - kind: circle
+        r: 79.2
+        fill: steel2
+        sw: 4
+      - kind: circle
+        r: 22.0
+        fill: dark
+      id: cw
+      x: 1230
+      y: 470
+      in: 0
+    - kind: gear
+      id: fw
+      x: 1395
+      y: 740
+      r: 100
+      teeth: 22
+      depth: 18
+      hole: 20
+      fill: yellow
+      in: 0
+      spin:
+        speed: -110
+        from: '@hooks'
+      glow: yellow
+    - kind: group
+      items:
+      - kind: circle
+        r: 150
+        fill: steel2
+      - kind: rect
+        x: -260
+        y: 150
+        w: 520
+        h: 50
+        ax: 0
+        ay: 0
+        fill: dark
+      - kind: circle
+        r: 125
+        fill: steel
+      - kind: circle
+        r: 34
+        fill: dark
+      id: train
+      x: 470
+      y: 300
+      scale: 0.85
+      in: '@train'
+      spin:
+        speed: 90
+        from: '@riding'
+    - kind: text
+      text: wheel on a rail
+      x: 470
+      y: 560
+      size: 52
+      in: '@rail'
+      fill: muted
+    - kind: label
+      text: just inside the rim
+      x: 1230
+      y: 600
+      to:
+      - -330
+      - 260
+      in: '@inside+0.3'
+    drift: 0.03
+- id: s127
+  para: 23
+  sent: 82
+  text: that ridge like a train wheel riding a rail,
+  visual:
+    same: true
+- id: s128
+  para: 23
+  sent: 82
+  text: and the cutting wheel opens the thin lid just inside it.
+  visual:
+    same: true
+- id: s129
+  para: 24
+  sent: 83
+  text: And why a wheel instead of a knife?
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: sheet
+      x: 960
+      y: 660
+      w: 1500
+      h: 40
+      fill: steel
+      in: 0
+    - kind: group
+      items:
+      - kind: path
+        d: M0 0 L360 -160
+        stroke: steel2
+        sw: 34
+      - kind: path
+        d: M0 0 Q-50 50 -20 110
+        stroke: steel
+        sw: 20
+      id: blade
+      x: 700
+      y: 560
+      in: '@saw'
+      keys:
+      - at: '@saw'
+        x: 900
+        dur: 0.45
+      - at: '@saw+0.5'
+        x: 760
+        dur: 0.45
+      - at: '@dragging'
+        x: 1000
+        dur: 0.45
+      - at: '@dragging+0.5'
+        x: 860
+        dur: 0.45
+      - at: '@friction'
+        x: 1120
+        dur: 0.45
+      - at: '@friction+0.5'
+        x: 980
+        dur: 0.45
+    - kind: particles
+      id: heat
+      x: 950
+      y: 630
+      w: 420
+      h: 70
+      count: 14
+      size: 8
+      mode: steam
+      color: coral
+      in: '@friction'
+    - kind: text
+      text: '?'
+      x: 960
+      y: 260
+      size: 200
+      in: '@knife'
+      fill: yellow
+    - kind: text
+      text: saws and drags
+      x: 960
+      y: 900
+      size: 60
+      in: '@dragging'
+      fill: coral
+- id: s130
+  para: 24
+  sent: 84
+  text: Warner's blade had to saw,
+  visual:
+    same: true
+- id: s131
+  para: 24
+  sent: 84
+  text: dragging its edge through the metal
+  visual:
+    same: true
+- id: s132
+  para: 24
+  sent: 84
+  text: and fighting friction the whole way round.
+  visual:
+    same: true
+- id: s133
+  para: 24
+  sent: 85
+  text: A wheel doesn't drag.
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: sheet
+      x: 960
+      y: 660
+      w: 1500
+      h: 40
+      fill: steel
+      in: 0
+    - kind: group
+      items:
+      - kind: circle
+        r: 120
+        fill: steel
+      - kind: circle
+        r: 86.39999999999999
+        fill: steel2
+        sw: 4
+      - kind: circle
+        r: 24.0
+        fill: dark
+      id: cw
+      x: 420
+      y: 520
+      in: 0
+      spin:
+        speed: 220
+        from: '@rolls'
+      keys:
+      - at: '@rolls'
+        x: 1500
+        dur: 2.6
+        ease: linear
+    - kind: line
+      id: cut
+      x: 420
+      y: 642
+      to:
+      - 1080
+      - 0
+      stroke: yellow
+      sw: 7
+      glow: yellow
+      in:
+        at: '@rolls'
+        fx: draw
+        dur: 2.6
+    - kind: text
+      text: rolls, doesn't drag
+      x: 960
+      y: 230
+      size: 68
+      in: '@rolls'
+      fill: teal
+    - kind: text
+      text: less lost to friction
+      x: 960
+      y: 900
+      size: 60
+      in: '@friction'
+      fill: muted
+- id: s134
+  para: 24
+  sent: 86
+  text: It rolls, so far less of your effort is lost to friction.
+  visual:
+    same: true
+- id: s135
+  para: 25
+  sent: 87
   text: In many openers, the two wheels are linked by little gears,
   visual:
     comp: mech
@@ -4003,33 +4718,606 @@ shots:
       y: 950
       size: 60
       in: '@opposite'
-- id: s115
-  para: 22
-  sent: 74
+- id: s136
+  para: 25
+  sent: 87
   text: so they spin in opposite directions.
   visual:
     same: true
-- id: s116
-  para: 22
-  sent: 75
+- id: s137
+  para: 25
+  sent: 88
   text: They pinch the rim between them like the rollers
   visual:
     same: true
-- id: s117
-  para: 22
-  sent: 75
+- id: s138
+  para: 25
+  sent: 88
   text: of an old clothes wringer,
   visual:
     same: true
-- id: s118
-  para: 22
-  sent: 75
+- id: s139
+  para: 25
+  sent: 88
   text: pulling the metal through instead of scraping it.
   visual:
     same: true
-- id: s119
-  para: 23
-  sent: 76
+- id: s140
+  para: 26
+  sent: 89
+  text: Here is a small piece of geometry you can test tonight.
+  visual:
+    comp: mech
+    items:
+    - kind: gear
+      id: fw
+      x: 960
+      y: 600
+      r: 110
+      teeth: 22
+      depth: 18
+      hole: 24
+      fill: yellow
+      in: '@geometry'
+      spin:
+        speed: 120
+        from: '@directly'
+    - kind: group
+      items:
+      - kind: rect
+        w: 360
+        h: 40
+        r: 20
+        ax: 0
+        fill: coral
+      - kind: circle
+        x: 360
+        r: 46
+        fill: steel
+      id: arm
+      x: 960
+      y: 600
+      in: '@crank'
+      spin:
+        speed: 120
+        from: '@directly'
+    - kind: circle
+      x: 960
+      y: 600
+      r: 30
+      fill: dark
+      in: '@crank'
+    - kind: text
+      text: a test for tonight
+      x: 960
+      y: 170
+      size: 70
+      in: '@tonight'
+      fill: yellow
+    - kind: label
+      text: same shaft
+      x: 960
+      y: 600
+      to:
+      - -420
+      - 260
+      in: '@directly'
+- id: s141
+  para: 26
+  sent: 90
+  text: Suppose the crank turns the toothed wheel directly.
+  visual:
+    same: true
+- id: s142
+  para: 26
+  sent: 91
+  text: Then every full turn moves the rim along
+  visual:
+    comp: mech
+    items:
+    - kind: line
+      id: ground
+      x: 160
+      y: 760
+      to:
+      - 900
+      - 0
+      stroke: muted
+      sw: 6
+      in: 0
+    - kind: gear
+      id: fw
+      x: 260
+      y: 680
+      r: 80
+      teeth: 18
+      depth: 14
+      hole: 18
+      fill: yellow
+      in: 0
+      spin:
+        speed: 103
+        from: '@turn'
+        to: '@turn+3.5'
+      keys:
+      - at: '@turn'
+        x: 763
+        dur: 3.5
+        ease: linear
+    - kind: line
+      id: lap
+      x: 260
+      y: 760
+      to:
+      - 503
+      - 0
+      stroke: yellow
+      sw: 12
+      glow: yellow
+      in:
+        at: '@turn'
+        fx: draw
+        dur: 3.5
+    - kind: text
+      text: one lap of the wheel
+      x: 510
+      y: 880
+      size: 52
+      in: '@lap'
+    - kind: group
+      items:
+      - kind: circle
+        r: 300
+        fill: steel
+      - kind: circle
+        r: 274
+        fill: steel2
+        sw: 4
+      id: can
+      x: 1450
+      y: 520
+      in: '@open'
+    - kind: path
+      id: canlap
+      x: 1450
+      y: 520
+      d: M0.0 -300.0 A 300 300 0 1 1 -0.0 300.0 A 300 300 0 1 1 0.0 -300.0
+      stroke: coral
+      sw: 12
+      glow: coral
+      in:
+        at: '@travel'
+        fx: draw
+        dur: 2.0
+    - kind: text
+      text: one lap of the can
+      x: 1450
+      y: 900
+      size: 52
+      in: '@travel'
+      fill: coral
+- id: s143
+  para: 26
+  sent: 91
+  text: by one lap of that little wheel.
+  visual:
+    same: true
+- id: s144
+  para: 26
+  sent: 92
+  text: To open the can, the rim has to travel one full lap of the can.
+  visual:
+    same: true
+- id: s145
+  para: 26
+  sent: 93
+  text: Both laps are pi times a diameter, so pi cancels out.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: circle
+        r: 260
+        fill: steel
+      - kind: circle
+        r: 234
+        fill: steel2
+        sw: 4
+      id: can
+      x: 520
+      y: 470
+      in: 0
+    - kind: line
+      id: D
+      x: 260
+      y: 470
+      to:
+      - 520
+      - 0
+      stroke: coral
+      sw: 10
+      in: '@diameter'
+    - kind: text
+      text: D
+      x: 520
+      y: 420
+      size: 64
+      in: '@diameter'
+      fill: coral
+    - kind: gear
+      id: fw
+      x: 960
+      y: 470
+      r: 60
+      teeth: 16
+      depth: 12
+      hole: 14
+      fill: yellow
+      in: 0
+    - kind: line
+      id: d
+      x: 900
+      y: 470
+      to:
+      - 120
+      - 0
+      stroke: teal
+      sw: 8
+      in: '@diameter+0.3'
+    - kind: text
+      text: d
+      x: 960
+      y: 380
+      size: 56
+      in: '@diameter+0.3'
+      fill: teal
+    - kind: formula
+      text: turns = π·D ÷ π·d
+      x: 1480
+      y: 300
+      size: 60
+      bg: bg2
+      in: '@laps'
+    - kind: text
+      text: π cancels
+      x: 1480
+      y: 470
+      size: 64
+      in: '@cancels'
+      fill: coral
+    - kind: formula
+      text: turns = D ÷ d
+      x: 1480
+      y: 640
+      size: 76
+      bg: bg2
+      in: '@divided'
+      glow: yellow
+- id: s146
+  para: 26
+  sent: 94
+  text: The number of turns is simply the width
+  visual:
+    same: true
+- id: s147
+  para: 26
+  sent: 94
+  text: of the can divided by the width of the wheel.
+  visual:
+    same: true
+- id: s148
+  para: 26
+  sent: 95
+  text: Say the can is about eight centimetres across,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: circle
+        r: 330
+        fill: steel
+      - kind: circle
+        r: 304
+        fill: steel2
+        sw: 4
+      id: can
+      x: 620
+      y: 540
+      in: 0
+    - kind: line
+      x: 290
+      y: 540
+      to:
+      - 660
+      - 0
+      stroke: coral
+      sw: 10
+      in: '@across'
+    - kind: text
+      text: ≈ 8 cm
+      x: 620
+      y: 480
+      size: 72
+      in: '@across'
+      fill: coral
+      example: true
+    - kind: gear
+      id: fw
+      x: 1360
+      y: 420
+      r: 60
+      teeth: 16
+      depth: 12
+      hole: 14
+      fill: yellow
+      in: '@wheel'
+      spin:
+        speed: 1200
+        from: '@turns'
+        to: '@turns+2.4'
+    - kind: text
+      text: ≈ 1 cm
+      x: 1360
+      y: 560
+      size: 60
+      in: '@wheel'
+      fill: teal
+      example: true
+    - kind: counter
+      id: n
+      x: 1360
+      y: 760
+      size: 96
+      value: 0
+      prefix: '≈ '
+      suffix: ' turns'
+      fill: yellow
+      example: true
+      in: '@turns'
+      keys:
+      - at: '@turns'
+        value: 8
+        dur: 2.4
+        ease: linear
+    - kind: text
+      text: example
+      x: 1360
+      y: 880
+      size: 44
+      in: '@turns'
+      fill: muted
+- id: s149
+  para: 26
+  sent: 95
+  text: and the wheel about one.
+  visual:
+    same: true
+- id: s150
+  para: 26
+  sent: 96
+  text: That makes roughly eight turns.
+  visual:
+    same: true
+- id: s151
+  para: 26
+  sent: 97
+  text: Count yours, and you can work out the size
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel2
+      - kind: rect
+        w: 340
+        h: 420
+        fill: steel
+      - kind: rect
+        y: 25.2
+        w: 340
+        h: 201.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -158.0
+        y: -159.6
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -158.0
+        y: -126.0
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -158.0
+        y: 155.4
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -158.0
+        y: 184.8
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel
+      - kind: ellipse
+        y: -210.0
+        rx: 152.0
+        ry: 37.2
+        fill: steel2
+        sw: 4
+      id: can
+      x: 820
+      y: 660
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+        spin:
+          speed: 260
+          from: '@count'
+      id: op
+      x: 660
+      y: 452
+      scale: 1.15
+    - kind: line
+      id: tally0
+      x: 1300
+      y: 760
+      to:
+      - 0
+      - 130
+      stroke: yellow
+      sw: 12
+      in: '@count+0.45'
+    - kind: line
+      id: tally1
+      x: 1346
+      y: 760
+      to:
+      - 0
+      - 130
+      stroke: yellow
+      sw: 12
+      in: '@count+0.90'
+    - kind: line
+      id: tally2
+      x: 1392
+      y: 760
+      to:
+      - 0
+      - 130
+      stroke: yellow
+      sw: 12
+      in: '@count+1.35'
+    - kind: line
+      id: tally3
+      x: 1438
+      y: 760
+      to:
+      - 0
+      - 130
+      stroke: yellow
+      sw: 12
+      in: '@count+1.80'
+    - kind: line
+      id: tally4
+      x: 1484
+      y: 760
+      to:
+      - 0
+      - 130
+      stroke: yellow
+      sw: 12
+      in: '@count+2.25'
+    - kind: line
+      id: tally5
+      x: 1530
+      y: 760
+      to:
+      - 0
+      - 130
+      stroke: yellow
+      sw: 12
+      in: '@count+2.70'
+    - kind: label
+      text: a wheel you never see
+      x: 660
+      y: 470
+      to:
+      - 420
+      - -250
+      in: '@looked'
+    drift: 0.03
+- id: s152
+  para: 26
+  sent: 97
+  text: of a wheel you have never even looked at.
+  visual:
+    same: true
+- id: s153
+  para: 27
+  sent: 98
   text: That toothed wheel is the piece
   visual:
     comp: mech
@@ -4054,15 +5342,15 @@ shots:
       y: 940
       size: 72
       in: '@toothed'
-- id: s120
-  para: 23
-  sent: 76
+- id: s154
+  para: 27
+  sent: 98
   text: that made the modern opener possible.
   visual:
     same: true
-- id: s121
-  para: 23
-  sent: 77
+- id: s155
+  para: 27
+  sent: 99
   text: William Lyman of Meriden, Connecticut,
   visual:
     comp: mech
@@ -4113,33 +5401,33 @@ shots:
       y: 110
       size: 64
       in: '@seventy'
-- id: s122
-  para: 23
-  sent: 77
+- id: s156
+  para: 27
+  sent: 99
   text: had patented a cutting wheel in eighteen seventy.
   visual:
     same: true
-- id: s123
-  para: 23
-  sent: 78
+- id: s157
+  para: 27
+  sent: 100
   text: But his design needed a spike pushed
   visual:
     same: true
-- id: s124
-  para: 23
-  sent: 78
+- id: s158
+  para: 27
+  sent: 100
   text: through the middle of the lid,
   visual:
     same: true
-- id: s125
-  para: 23
-  sent: 78
+- id: s159
+  para: 27
+  sent: 100
   text: as a pivot to swing around.
   visual:
     same: true
-- id: s126
-  para: 23
-  sent: 79
+- id: s160
+  para: 27
+  sent: 101
   text: Then, in nineteen twenty-five,
   visual:
     comp: mech
@@ -4221,54 +5509,54 @@ shots:
       x: 1560
       y: 760
       in: '@size+0.3'
-- id: s127
-  para: 23
-  sent: 79
+- id: s161
+  para: 27
+  sent: 101
   text: the Star Can Opener Company
   visual:
     same: true
-- id: s128
-  para: 23
-  sent: 79
+- id: s162
+  para: 27
+  sent: 101
   text: of San Francisco added the serrated feed wheel.
   visual:
     same: true
-- id: s129
-  para: 23
-  sent: 80
+- id: s163
+  para: 27
+  sent: 102
   text: The rim itself became the track.
   visual:
     same: true
-- id: s130
-  para: 23
-  sent: 81
+- id: s164
+  para: 27
+  sent: 103
   text: No spike, no measuring, any size of can.
   visual:
     same: true
-- id: s131
-  para: 24
-  sent: 82
+- id: s165
+  para: 28
+  sent: 104
   text: In nineteen thirty-one,
   visual:
     prompt: A bright 1930s American kitchen, a woman in a patterned apron at the counter opening a food tin with
       a hand-held pliers-style can opener, turning its butterfly key, morning light from a window, simple period
       cabinets
     characters: []
-- id: s132
-  para: 24
-  sent: 82
+- id: s166
+  para: 28
+  sent: 104
   text: the Bunker Clancey Company
   visual:
     same: true
-- id: s133
-  para: 24
-  sent: 82
+- id: s167
+  para: 28
+  sent: 104
   text: 'of Kansas City put the whole system into one hand:'
   visual:
     same: true
-- id: s134
-  para: 24
-  sent: 82
+- id: s168
+  para: 28
+  sent: 104
   text: pliers-style handles to grip, a key to turn,
   visual:
     comp: mech
@@ -4435,41 +5723,41 @@ shots:
       - -330
       - 90
       in: '@geared'
-- id: s135
-  para: 24
-  sent: 82
+- id: s169
+  para: 28
+  sent: 104
   text: and geared wheels to do the rest.
   visual:
     same: true
-- id: s136
-  para: 24
-  sent: 83
+- id: s170
+  para: 28
+  sent: 105
   text: Chances are, the opener in your drawer still follows that plan.
   visual:
     same: true
-- id: s137
-  para: 25
-  sent: 84
+- id: s171
+  para: 29
+  sent: 106
   text: The electric opener followed the same year,
   visual:
     prompt: A cheerful 1950s American kitchen counter with a new white electric can opener next to a toaster, a
       family of three looking at the gadget with curious smiles, pastel cabinets
     characters: []
-- id: s138
-  para: 25
-  sent: 84
+- id: s172
+  para: 29
+  sent: 106
   text: and almost nobody bought it.
   visual:
     same: true
-- id: s139
-  para: 25
-  sent: 85
+- id: s173
+  para: 29
+  sent: 107
   text: It only caught on in the nineteen-fifties.
   visual:
     same: true
-- id: s140
-  para: 25
-  sent: 86
+- id: s174
+  para: 29
+  sent: 108
   text: Inside, it is the same cutting wheel at work,
   visual:
     comp: mech
@@ -4519,15 +5807,15 @@ shots:
       - 300
       - 120
       in: '@motor'
-- id: s141
-  para: 25
-  sent: 86
+- id: s175
+  para: 29
+  sent: 108
   text: with a motor doing the twisting for you.
   visual:
     same: true
-- id: s142
-  para: 26
-  sent: 87
+- id: s176
+  para: 30
+  sent: 109
   text: Newer designs attack from the side.
   visual:
     comp: mech
@@ -4602,27 +5890,27 @@ shots:
       y: 560
       zoom: 1.2
       dur: 1.4
-- id: s143
-  para: 26
-  sent: 88
+- id: s177
+  para: 30
+  sent: 110
   text: Instead of slicing down through the lid,
   visual:
     same: true
-- id: s144
-  para: 26
-  sent: 88
+- id: s178
+  para: 30
+  sent: 110
   text: a cutting wheel and a roller split the seam
   visual:
     same: true
-- id: s145
-  para: 26
-  sent: 88
+- id: s179
+  para: 30
+  sent: 110
   text: where the lid is rolled onto the can.
   visual:
     same: true
-- id: s146
-  para: 26
-  sent: 89
+- id: s180
+  para: 30
+  sent: 111
   text: The edge comes away smooth,
   visual:
     comp: mech
@@ -4736,27 +6024,27 @@ shots:
       size: 64
       in: '@safer'
       fill: teal
-- id: s147
-  para: 26
-  sent: 89
+- id: s181
+  para: 30
+  sent: 111
   text: and the lid can rest back on top as a cover.
   visual:
     same: true
-- id: s148
-  para: 26
-  sent: 90
+- id: s182
+  para: 30
+  sent: 112
   text: It will not seal again, though.
   visual:
     same: true
-- id: s149
-  para: 26
-  sent: 91
+- id: s183
+  para: 30
+  sent: 113
   text: That is the price of a safer edge.
   visual:
     same: true
-- id: s150
-  para: 27
-  sent: 92
+- id: s184
+  para: 31
+  sent: 114
   text: So, next time a lid lifts free in your fingers,
   visual:
     comp: mech
@@ -4822,27 +6110,27 @@ shots:
       y: 820
       size: 60
       in: '@pressure'
-- id: s151
-  para: 27
-  sent: 92
+- id: s185
+  para: 31
+  sent: 114
   text: picture what just happened.
   visual:
     same: true
-- id: s152
-  para: 27
-  sent: 93
+- id: s186
+  para: 31
+  sent: 115
   text: Your grip was amplified by a lever.
   visual:
     same: true
-- id: s153
-  para: 27
-  sent: 94
+- id: s187
+  para: 31
+  sent: 116
   text: A sharp little disc squeezed that grip into enormous pressure.
   visual:
     same: true
-- id: s154
-  para: 27
-  sent: 95
+- id: s188
+  para: 31
+  sent: 117
   text: And a crank, a pair of gears and a toothed wheel
   visual:
     comp: mech
@@ -4915,21 +6203,27 @@ shots:
       h: 20
       fill: steel
       in: '@thin'
-- id: s155
-  para: 27
-  sent: 95
-  text: marched the cut around the rim, one bite at a time.
+- id: s189
+  para: 31
+  sent: 117
+  text: marched the cut around the rim, one bite at a time,
   visual:
     same: true
-- id: s156
-  para: 27
-  sent: 96
+- id: s190
+  para: 31
+  sent: 117
+  text: guided by the folded seam.
+  visual:
+    same: true
+- id: s191
+  para: 31
+  sent: 118
   text: None of it could work until cans learned to be thin.
   visual:
     same: true
-- id: s157
-  para: 28
-  sent: 97
+- id: s192
+  para: 32
+  sent: 119
   text: Which leaves a puzzle.
   visual:
     comp: mech
@@ -5027,21 +6321,21 @@ shots:
       size: 200
       in: '@puzzle'
       fill: yellow
-- id: s158
-  para: 28
-  sent: 98
+- id: s193
+  para: 32
+  sent: 120
   text: If can steel is that thin,
   visual:
     same: true
-- id: s159
-  para: 28
-  sent: 98
+- id: s194
+  para: 32
+  sent: 120
   text: why doesn't the can crumple in your hand?
   visual:
     same: true
-- id: s160
-  para: 28
-  sent: 99
+- id: s195
+  para: 32
+  sent: 121
   text: The answer is pressed into its sides,
   visual:
     comp: mech
@@ -5149,9 +6443,9 @@ shots:
     - at: '@sides'
       zoom: 1.15
       dur: 2
-- id: s161
-  para: 28
-  sent: 99
+- id: s196
+  para: 32
+  sent: 121
   text: in the rings you have seen your whole life.
   visual:
     same: true

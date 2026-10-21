@@ -237,7 +237,12 @@ def restore_stash(stash: str) -> list[str]:
             try:
                 merged = merge_yaml_text(base_b.decode("utf-8") if base_b else None, ours.decode("utf-8"),
                                          theirs.decode("utf-8"), ideas_file=dst.name == "ideas.yaml")
-                dst.write_text(merged, encoding="utf-8")
+                # write the merged text with the file's own line endings (write_text on Windows would turn
+                # an "\r\n" into "\r\r\n" and every line would look changed)
+                crlf = b"\r\n" in theirs
+                merged = merged.replace("\r\n", "\n")
+                with open(dst, "w", encoding="utf-8", newline="\r\n" if crlf else "\n") as fh:
+                    fh.write(merged)
                 report.append(f"birleştirildi: {tgt}")
                 continue
             except (ValueError, UnicodeDecodeError):

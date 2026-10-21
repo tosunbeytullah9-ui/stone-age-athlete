@@ -49,3 +49,22 @@ def test_mech_numbers_skip_examples():
                    {"kind": "group", "items": [{"kind": "label", "text": "0.20 – 0.35 mm"}]},
                    {"kind": "gear", "r": 80}]}
     assert _mech_numbers(v) == {1925.0, 0.2, 0.35}
+
+
+def test_split_refreshes_chapters(tmp_path, monkeypatch):
+    import studio.channel as channel_mod
+    import studio.config as config_mod
+    monkeypatch.setattr(config_mod, "CHANNELS", tmp_path)
+    monkeypatch.setattr(channel_mod, "CHANNELS", tmp_path)
+    from studio.channel import create_channel
+    from studio.project import create_project
+    from studio.storyboard import build_storyboard
+    ch = create_channel("demo", "Demo", ["en"])
+    p = create_project(ch.id, "Chapters")
+    p.script_path.write_text("# t\n<!-- chapter: One -->\nFirst paragraph is here.\n\nA new paragraph.\n\n"
+                             "<!-- chapter: Two -->\nThird paragraph is here.\n", encoding="utf-8")
+    m = p.meta
+    m["chapters"] = {0: "One", 1: "Two"}
+    p.save_meta(m)
+    build_storyboard(p, config_mod.load_config(ch.id))
+    assert p.meta["chapters"] == {0: "One", 2: "Two"}

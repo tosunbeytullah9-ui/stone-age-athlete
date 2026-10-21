@@ -1,0 +1,10 @@
+# Line endings: the repo stores LF; Windows tools (and Python's write_text on Windows) write CRLF. With this file a
+# CRLF-only difference is not a change, so `git status` and guncelle.bat only see real edits.
+* text=auto eol=lf
+*.bat -text
+*.png binary
+*.jpg binary
+*.ttf binary
+*.woff2 binary
+*.mp3 binary
+*.wav binary

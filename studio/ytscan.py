@@ -197,11 +197,14 @@ def scan_new_channels(cid: str, extra: list[str] | None = None, per_query: int =
     queries = seed_queries(ch) + list(extra or [])
     seen: dict[str, dict] = {}
     for q in queries:
-        try:
-            vids = find(q, per_query, by_date=True)
-        except Exception as e:
-            print(f"  arama atlandı: {q} ({str(e)[:80]})")
-            continue
+        vids = []
+        # the newest uploads alone are nearly all small (a few hundred views): take the most relevant ones too,
+        # where the channels that already break through show up
+        for by_date in (False, True):
+            try:
+                vids += find(q, per_query, by_date=by_date)
+            except Exception as e:
+                print(f"  arama atlandı: {q} ({str(e)[:80]})")
         for v in vids:
             if not v["channel_id"]:
                 continue
@@ -211,19 +214,26 @@ def scan_new_channels(cid: str, extra: list[str] | None = None, per_query: int =
         print(f"  arama: {q} → {len(seen)} kanal")
     today = date.today()
     rows = []
-    for ch_id, c in sorted(seen.items(), key=lambda kv: -kv[1]["best"])[:120]:
-        if c["best"] < 20_000:
-            continue
+    stats = {"checked": 0, "old": 0, "small": 0, "failed": 0}
+    candidates = [kv for kv in sorted(seen.items(), key=lambda kv: -kv[1]["best"]) if kv[1]["best"] >= 20_000][:80]
+    print(f"  {len(seen)} kanal bulundu, {len(candidates)} tanesi 20 bin izlenmeyi geçmiş: yaşları kontrol ediliyor")
+    for ch_id, c in candidates:
         try:
             fu = first(ch_id)
             det = more([c["best_id"]]).get(c["best_id"], {})
         except Exception:
-            continue
+            fu = None
         if not fu:
+            stats["failed"] += 1
             continue
+        stats["checked"] += 1
         age = (today.year - int(fu[:4])) * 12 + today.month - int(fu[4:6])
         subs = det.get("subs", 0)
-        if age > max_age or (subs < 10_000 and c["best"] < STRONG):
+        if age > max_age:
+            stats["old"] += 1
+            continue
+        if subs < 10_000 and c["best"] < STRONG:
+            stats["small"] += 1
             continue
         rows.append({"channel": c["channel"], "url": f"https://www.youtube.com/channel/{ch_id}", "first_upload": fu,
                      "age_months": age, "subs": subs, "subs_per_month": round(subs / max(1, age)),
@@ -235,6 +245,8 @@ def scan_new_channels(cid: str, extra: list[str] | None = None, per_query: int =
     md = [f"# Yeni ve hızlı büyüyen kanallar · {cid} · {stamp}", "",
           f"İlk videosu son {max_age} ay içinde olan, 10 bin aboneye ya da 100 bin izlenmeli bir videoya ulaşmış "
           f"kanallar. Aramalar: {', '.join(queries)}", "",
+          f"İncelenen: {stats['checked']} kanal (20 bin izlenmeyi geçmiş bir videosu olan) · {stats['old']} tanesi "
+          f"{max_age} aydan eski · {stats['small']} tanesi küçük · {stats['failed']} tanesi okunamadı.", "",
           "| Kanal | İlk video | Ay | Abone | Abone/ay | En iyi video |", "| --- | --- | --- | --- | --- | --- |"]
     md += [f"| [{r['channel']}]({r['url']}) | {r['first_upload']} | {r['age_months']} | {r['subs']:,} | "
            f"{r['subs_per_month']:,} | [{r['best_title'][:60]}]({r['best_url']}) ({r['best_views']:,}) |" for r in rows]

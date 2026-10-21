@@ -49,7 +49,15 @@ That is the crank's job, and it is a lever too, one that never stops going round
 
 The shaft drives the second wheel, tucked under the rim. Its edge is covered in small teeth. They bite the underside of the rim and drag it along, so the can walks itself through the gap. Up top, the cutting wheel simply rolls, like a pizza cutter riding a moving crust.
 
+Why is the rim such a good place to grab? Because it is not a single sheet of metal. At the factory, the curled edge of the lid and the flange of the can body are hooked together and pressed flat. Food scientists call this the double seam. Two rollers build it in two steps, folding the metal into five thicknesses. A rubbery compound tucked into the fold fills the gaps, and that is what keeps the air out.
+
+So the rim is the thickest ring on the whole can, far too tough to slice. The opener doesn't even try. The toothed wheel hooks under that ridge like a train wheel riding a rail, and the cutting wheel opens the thin lid just inside it.
+
+And why a wheel instead of a knife? Warner's blade had to saw, dragging its edge through the metal and fighting friction the whole way round. A wheel doesn't drag. It rolls, so far less of your effort is lost to friction.
+
 In many openers, the two wheels are linked by little gears, so they spin in opposite directions. They pinch the rim between them like the rollers of an old clothes wringer, pulling the metal through instead of scraping it.
+
+Here is a small piece of geometry you can test tonight. Suppose the crank turns the toothed wheel directly. Then every full turn moves the rim along by one lap of that little wheel. To open the can, the rim has to travel one full lap of the can. Both laps are pi times a diameter, so pi cancels out. The number of turns is simply the width of the can divided by the width of the wheel. Say the can is about eight centimetres across, and the wheel about one. That makes roughly eight turns. Count yours, and you can work out the size of a wheel you have never even looked at.
 
 That toothed wheel is the piece that made the modern opener possible. William Lyman of Meriden, Connecticut, had patented a cutting wheel in eighteen seventy. But his design needed a spike pushed through the middle of the lid, as a pivot to swing around. Then, in nineteen twenty-five, the Star Can Opener Company of San Francisco added the serrated feed wheel. The rim itself became the track. No spike, no measuring, any size of can.
 
@@ -61,6 +69,6 @@ The electric opener followed the same year, and almost nobody bought it. It only
 Newer designs attack from the side. Instead of slicing down through the lid, a cutting wheel and a roller split the seam where the lid is rolled onto the can. The edge comes away smooth, and the lid can rest back on top as a cover. It will not seal again, though. That is the price of a safer edge.
 
 <!-- chapter: Three machines, one hand -->
-So, next time a lid lifts free in your fingers, picture what just happened. Your grip was amplified by a lever. A sharp little disc squeezed that grip into enormous pressure. And a crank, a pair of gears and a toothed wheel marched the cut around the rim, one bite at a time. None of it could work until cans learned to be thin.
+So, next time a lid lifts free in your fingers, picture what just happened. Your grip was amplified by a lever. A sharp little disc squeezed that grip into enormous pressure. And a crank, a pair of gears and a toothed wheel marched the cut around the rim, one bite at a time, guided by the folded seam. None of it could work until cans learned to be thin.
 
 Which leaves a puzzle. If can steel is that thin, why doesn't the can crumple in your hand? The answer is pressed into its sides, in the rings you have seen your whole life.

@@ -57,3 +57,21 @@ duman dedektörü) kuruldu. Rekabet: "Konuları tara" her fikir için ilk 20 vid
 - Ses: Gemini TTS (Zephyr; pilotta Leda ile karşılaştırılacak). Müzik: YouTube Audio Library, enstrümantal.
 - Senaryo: çarpıcı gerçek → nesne → eskiden → fizik (orta bölümün %55–65'i, her fikre bir metafor) → bugün →
   yeni kelimelerle kısa özet ve sonraki nesneye köprü. Tekrar yok (fabrikanın 6 kelimelik örtüşme denetimi).
+
+## 5. İlk YouTube taraması (21 Ekim, sahibin bilgisayarında)
+- **g001 konserve açacağı: BOŞLUK.** `how does a can opener work` aramasının ilk 20 videosu: medyan 148 bin izlenme,
+  11 güçlü video (≥100 bin), ama son iki yılda 8 dakikadan uzun güçlü video yok (`rakip-2026-10-21.md`).
+- **Talep "nasıl kullanılır" tarafında:** en büyük video 2 dakikalık bir kullanım dersi (4,3 milyon, 2016). İnsanlar
+  aleti yüzeyde biliyor, içini bilmiyor: kanalın vaadiyle örtüşüyor.
+- **Tek uzun rakip:** Technology Connections, "Lessons from a Can Opener" (2022, 21 dk, 3 milyon). İzleyici yorumlarına
+  göre ağırlığı yandan kesen güvenli açacak, kullanım ve konserve kültürü. Bizim açımız farklı: üç basit makine,
+  basınç ve gerilme, kenarın içindeki çift dikiş (beş kat metal) ve krank turu geometrisi (π sadeleşir).
+- **Kapaklar** (`research/kapaklar/kontak.jpg`, 16 konunun en çok izlenen 3'er videosu; sadece inceleme, repoya
+  girmez): konserve açacağında üç kapağın üçü de elle tutulan aletin gerçek fotoğrafı, kodla çizilmiş tek nesne bu
+  aramada ayrışıyor. Temiz çizilmiş kesit + büyük kısa yazı başka konularda milyonlar alıyor (Jared Owen: kilit
+  5,1 milyon, tükenmez kalem 0,9 milyon). Rakip olarak en sık çıkan kanal Technology Connections: duman dedektörü,
+  kahve makinesi, perkolatör, hava fritözü ve konserve açacağında ilk üçte. Bu konularda açımızı onun videosundan
+  ayırmak şart; fermuarda Veritasium (9,8 milyon) var.
+- **Yeni kanallar:** ilk tarama boş döndü. Sebep taramanın kendisiydi: sadece en yeni yüklemelere bakıyordu ve yeni
+  yüklemelerin neredeyse hepsi 20 bin izlenmenin altında. Düzeltildi (en alakalı videolar da taranıyor, rapor kaç
+  kanalın neden elendiğini yazıyor); tarama tekrar çalıştırılmalı.
