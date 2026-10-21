@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from ..config import Config
 from ..project import Project
+from ..words import tokens as word_tokens
 
 
 def _weight(text: str) -> float:
@@ -33,6 +34,16 @@ def _exact(u: dict) -> list[float]:
     return [u["offset"] + cs[min(s["start"], len(cs) - 1)] for s in u["spans"]]
 
 
+def _exact_words(u: dict) -> list[list[float]]:
+    """Per-word times from the provider's character times."""
+    cs = u["char_starts"]
+    out = []
+    for s in u["spans"]:
+        seg = u["text"][s["start"]:s["end"]]
+        out.append([round(u["offset"] + cs[min(s["start"] + off, len(cs) - 1)], 3) for _, off in word_tokens(seg)])
+    return out
+
+
 def align(project: Project, cfg: Config, lang: str | None = None) -> list[dict]:
     lang = lang or project.primary_lang()
     mpath = project.audio_manifest_path(lang)
@@ -47,14 +58,22 @@ def align(project: Project, cfg: Config, lang: str | None = None) -> list[dict]:
 
     timeline: list[dict] = []
     for u in manifest["units"]:
+        words = None
         if u.get("char_starts") and mode != "whisper":
             starts, how = _exact(u), "exact"
+            words = _exact_words(u)
         elif whisper is not None:
-            starts, how = whisper.align_unit(project, u, lang), "whisper"
+            starts, words = whisper.align_unit_words(project, u, lang)
+            how = "whisper"
         else:
             starts, how = _proportional(u), "proportional"
-        for s, t in zip(u["spans"], starts):
-            timeline.append({"id": s["id"], "start": round(t, 3), "how": how})
+        for i, (s, t) in enumerate(zip(u["spans"], starts)):
+            row = {"id": s["id"], "start": round(t, 3), "how": how}
+            if words is not None and i < len(words):
+                toks = word_tokens(u["text"][s["start"]:s["end"]])
+                if len(toks) == len(words[i]):
+                    row["words"] = [[w, t] for (w, _), t in zip(toks, words[i])]   # studio/words.py
+            timeline.append(row)
 
     timeline.sort(key=lambda r: r["start"])
     if timeline:

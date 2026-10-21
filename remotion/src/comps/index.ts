@@ -6,6 +6,7 @@ import {Counter} from './Counter';
 import {Quote} from './Quote';
 import {Timeline} from './Timeline';
 import {Verdict} from './Verdict';
+import {Mech} from './Mech';
 
 type Entry = {component: React.FC<any>; example: Record<string, unknown>};
 
@@ -46,6 +47,25 @@ export const COMPS: Record<string, Entry> = {
       ],
       beats: [0, 45, 90],
       frames: 180,
+    },
+  },
+  mech: {
+    component: Mech,
+    example: {
+      theme: {name: 'pop'},
+      frames: 180,
+      beats: [0, 60, 120],
+      cues: {'@crank': 70},
+      items: [
+        {id: 'g1', kind: 'gear', x: 760, y: 560, r: 150, teeth: 16, depth: 26, fill: 'yellow', in: 0, spin: {speed: 90, from: '@crank'}},
+        {id: 'g2', kind: 'gear', x: 1035, y: 560, r: 112, teeth: 12, depth: 26, fill: 'teal', rotate: 15, in: 0, spin: {speed: -120, from: '@crank'}},
+        {id: 'a1', kind: 'arrow', x: 560, y: 300, to: [160, 120], bend: -40, in: '@crank', color: 'coral'},
+        {id: 'l1', kind: 'label', x: 1035, y: 560, to: [180, -200], text: 'feed wheel', in: 1},
+        {id: 't1', kind: 'formula', x: 960, y: 930, text: 'pressure = force ÷ area', in: 2},
+        {id: 'w1', kind: 'wave', x: 1300, y: 300, w: 480, amp: 40, length: 160, standing: true, in: 0},
+        {id: 'gg', kind: 'gauge', x: 300, y: 820, r: 120, value: 0.1, in: 0, keys: [{at: 1, value: 0.85, dur: 1.5}]},
+        {id: 'pp', kind: 'particles', x: 300, y: 330, w: 360, h: 260, count: 22, size: 13, value: 0.2, in: 0, keys: [{at: 1, value: 2.5, dur: 1}]},
+      ],
     },
   },
   quote: {

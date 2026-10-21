@@ -1,0 +1,593 @@
+prep: 1
+channel: ordinary-genius
+idea: g001
+title: How Your Can Opener Cuts Steel With One Hand
+series: inside
+slot: long
+planned_date: '2026-12-03'
+hook_type: cold_open_stat
+research:
+  question: How does an ordinary can opener cut steel with one hand, and why did it arrive decades after the can?
+  answer: A modern rotary opener combines a lever (the handles clamp the wheels onto the rim), a wedge-edged cutting wheel
+    that concentrates force into very high pressure on thin tinplate, and a crank (a lever turning round) that drives a serrated
+    feed wheel under the rim so the can turns itself through the cutter. Early cans were heavy wrought iron and were opened
+    with tools at hand; dedicated openers appeared from 1855 (Yeates) and 1858 (Warner), Lyman's wheel came in 1870 but needed
+    a centre pivot, the 1925 Star feed wheel made the rim the track, and Bunker's 1931 design is the layout most hand openers
+    still use.
+  angle: 'Most can-opener content is either trivia (''cans came first'') or usage tips; this video explains the physics of
+    all three simple machines inside it with exact animated diagrams, and ties the history to the physics: the tool could
+    only work once the can got thin.'
+  competition: 'Not measured yet from YouTube in this session (youtube.com blocked here). Run: tools/yt_tara.py konular --channel
+    ordinary-genius --only g001. Web: ''you are using your can opener wrong'' tips and ''cans came 48 years before the opener''
+    trivia are common.'
+  open_questions:
+  - Check the top YouTube videos for 'how does a can opener work' with yt_tara and sharpen the angle if one already explains
+    the pressure and feed-wheel physics in depth.
+  - Bunker Clancey (1931) rests on one encyclopedia source; a patent number would make it firm.
+sources:
+- id: wohleber2000canopener
+  title: The Can Opener
+  authors: Wohleber C
+  year: 2000
+  venue: Invention & Technology 16(1), Summer 2000
+  url: https://www.inventionandtech.com/content/can-opener-1
+  type: other
+  population: ''
+  method: Magazine history of technology
+  limits: Secondary history; dates checked against patents and a museum account
+- id: tomatomuseum-canopener
+  title: The History of the Can Opener
+  authors: Museo del Pomodoro (Tomato Museum), Google Arts & Culture
+  url: https://artsandculture.google.com/story/EAUxTv3nPqXlLQ
+  type: other
+  method: Museum story with dated patents and objects
+  limits: Spells Yeates as 'Yates'; museum narrative, not a catalogue record
+- id: wiki-canopener
+  title: Can opener
+  authors: Wikipedia contributors
+  year: 2026
+  venue: Wikipedia
+  url: https://en.wikipedia.org/wiki/Can_opener
+  type: other
+  limits: Encyclopedia; every fact used here also has a second source
+- id: us19063warner
+  title: Instrument for Opening Cans (US Patent 19,063)
+  authors: Warner EJ
+  year: 1858
+  venue: US Patent Office, 5 January 1858
+  url: https://patents.google.com/patent/US19063A/en
+  type: primary
+  method: Patent specification
+- id: us105346lyman
+  title: Improvement in Can-Openers (US Patent 105,346)
+  authors: Lyman WW
+  year: 1870
+  venue: US Patent Office, 12 July 1870
+  url: https://patents.google.com/patent/US105346A/en
+  type: primary
+  method: Patent specification
+- id: arcelormittal2017pack
+  title: 'Packaging steels catalogue: typical tinplate strip for DWI food cans'
+  authors: ArcelorMittal
+  year: 2017
+  venue: ArcelorMittal Packaging catalogue
+  url: https://industry.arcelormittal.com/repo/Unassigned/CatPack2017_Sltn%207.pdf
+  type: other
+  method: Manufacturer product specification
+  limits: Typical range 0.20–0.35 mm for drawn-and-wall-ironed food cans; other can types can differ
+- id: openstax2022-9-5
+  title: College Physics 2e, 9.5 Simple Machines
+  authors: Urone PP, Hinrichs R
+  year: 2022
+  venue: OpenStax
+  url: https://openstax.org/books/college-physics-2e/pages/9-5-simple-machines
+  type: book
+- id: openstax2022-11-3
+  title: College Physics 2e, 11.3 Pressure
+  authors: Urone PP, Hinrichs R
+  year: 2022
+  venue: OpenStax
+  url: https://openstax.org/books/college-physics-2e/pages/11-3-pressure
+  type: book
+- id: openstax2022-5-3
+  title: 'College Physics 2e, 5.3 Elasticity: Stress and Strain'
+  authors: Urone PP, Hinrichs R
+  year: 2022
+  venue: OpenStax
+  url: https://openstax.org/books/college-physics-2e/pages/5-3-elasticity-stress-and-strain
+  type: book
+script: '# How Your Can Opener Cuts Steel With One Hand
+
+  <!-- chapter: A dinner you opened with a hammer -->
+
+  In the eighteen-twenties, explorers sailing for the Arctic carried tins of food with a strange instruction printed on them.
+  Cut around the top with a hammer and a chisel. The can had been patented in eighteen ten. America''s first can opener was
+  patented in eighteen fifty-eight.
+
+
+  <!-- chapter: The tool in your drawer -->
+
+  Now open your kitchen drawer. Two handles, a little crank, two tiny wheels. You squeeze, you twist, and a ring of steel
+  comes loose while you barely try.
+
+
+  So here is the question. How does a gadget you hardly notice slice through metal with one hand? The answer is three of the
+  oldest machines in physics, folded into something the size of your fist. And the reason it took so long to invent starts
+  with the can itself.
+
+
+  <!-- chapter: Cans that fought back -->
+
+  The first cans were heavy wrought iron. Many of them weighed more than the food sealed inside. Soldiers opened theirs with
+  bayonets.
+
+
+  Through the eighteen hundreds, can walls got thinner, and only then did real openers appear. Robert Yeates patented one
+  in England in eighteen fifty-five. Ezra Warner of Waterbury, Connecticut, followed three years later.
+
+
+  Warner''s tool had a sharp point to punch the lid, a curved blade to saw around it, and a guard to stop the blade sinking
+  too deep. The Union Army used it during the Civil War. In a family kitchen, it was considered too dangerous.
+
+
+  Stranger shapes followed. One cast-iron opener, shaped like a bull''s head, came packed with tins of salted bully beef.
+  Another was a little slotted key, soldered to the can, that peeled a strip of metal away as you twisted it. Some fish tins
+  still use that idea today.
+
+
+  That is the first secret hiding in your drawer. A tool can only be as clever as its problem allows. The opener had to wait
+  for the can to slim down.
+
+
+  <!-- chapter: Machine one: the squeeze -->
+
+  Start with the handles. When you close them, they clamp the wheels onto the rim of the can. That clamp is a lever.
+
+
+  A lever trades distance for force. Physicists measure the trade with a number called mechanical advantage. It is the force
+  you get out, divided by the force you put in. For a lever, it is simply a ratio of two distances from the pivot: where you
+  push, and where the work happens.
+
+
+  Think of a see-saw. A small child sitting far out on one end can lift a heavy bag resting close to the middle. Distance
+  does half the lifting.
+
+
+  On your opener, your fingers sit far from the hinge, and the wheels sit close to it. Say your hand is five times farther
+  away. Then every pound of squeeze lands on the rim as roughly five pounds. Your hand only feels a firm grip.
+
+
+  But a firm grip doesn''t cut anything. So where does the cutting come from?
+
+
+  <!-- chapter: Machine two: the edge -->
+
+  Look closely at the top wheel. It is a small disc with a bevelled edge, and that edge touches the lid along a tiny sliver
+  of metal.
+
+
+  This is where pressure comes in. Pressure is force divided by the area it pushes on. Keep the force the same, shrink the
+  area, and the pressure climbs.
+
+
+  It is the reason a needle breaks skin while a fingertip pressing just as hard does nothing at all.
+
+
+  The cutting wheel is that needle trick, stretched into a circle. Imagine its edge meets the lid on a patch a hundred times
+  smaller than your fingertip. Then the same push presses a hundred times harder on every speck of steel underneath it.
+
+
+  What happens to the steel under that edge? Engineers call force spread over an area stress, the same idea as pressure inside
+  a solid. Push a little, and the metal springs back. Push harder, and it bends for good. Push harder still, and it fractures.
+  The cutting wheel lives right at that last line, but only along a hairline, never across the whole lid.
+
+
+  And that steel is thin. Steelmakers roll the metal for food cans to somewhere between two and three and a half tenths of
+  a millimetre. Against that, a concentrated edge wins. The bevel works like a wedge, forcing the metal apart as the wheel
+  sinks in.
+
+
+  Still, a single dent doesn''t open a can. Something has to drag that dent all the way around. What does the turning?
+
+
+  <!-- chapter: Machine three: the turning -->
+
+  That is the crank''s job, and it is a lever too, one that never stops going round. Your hand travels a wide circle while
+  the shaft inside spins a tiny one. The difference in those two distances multiplies your twist. Say the knob of the crank
+  sweeps a circle six times wider than the shaft. Then your fingers only need a sixth of the turning force the shaft delivers.
+
+
+  The shaft drives the second wheel, tucked under the rim. Its edge is covered in small teeth. They bite the underside of
+  the rim and drag it along, so the can walks itself through the gap. Up top, the cutting wheel simply rolls, like a pizza
+  cutter riding a moving crust.
+
+
+  In many openers, the two wheels are linked by little gears, so they spin in opposite directions. They pinch the rim between
+  them like the rollers of an old clothes wringer, pulling the metal through instead of scraping it.
+
+
+  That toothed wheel is the piece that made the modern opener possible. William Lyman of Meriden, Connecticut, had patented
+  a cutting wheel in eighteen seventy. But his design needed a spike pushed through the middle of the lid, as a pivot to swing
+  around. Then, in nineteen twenty-five, the Star Can Opener Company of San Francisco added the serrated feed wheel. The rim
+  itself became the track. No spike, no measuring, any size of can.
+
+
+  <!-- chapter: Today''s opener -->
+
+  In nineteen thirty-one, the Bunker Clancey Company of Kansas City put the whole system into one hand: pliers-style handles
+  to grip, a key to turn, and geared wheels to do the rest. Chances are, the opener in your drawer still follows that plan.
+
+
+  The electric opener followed the same year, and almost nobody bought it. It only caught on in the nineteen-fifties. Inside,
+  it is the same cutting wheel at work, with a motor doing the twisting for you.
+
+
+  Newer designs attack from the side. Instead of slicing down through the lid, a cutting wheel and a roller split the seam
+  where the lid is rolled onto the can. The edge comes away smooth, and the lid can rest back on top as a cover. It will not
+  seal again, though. That is the price of a safer edge.
+
+
+  <!-- chapter: Three machines, one hand -->
+
+  So, next time a lid lifts free in your fingers, picture what just happened. Your grip was amplified by a lever. A sharp
+  little disc squeezed that grip into enormous pressure. And a crank, a pair of gears and a toothed wheel marched the cut
+  around the rim, one bite at a time. None of it could work until cans learned to be thin.
+
+
+  Which leaves a puzzle. If can steel is that thin, why doesn''t the can crumple in your hand? The answer is pressed into
+  its sides, in the rings you have seen your whole life.
+
+  '
+claims:
+- id: c01
+  text: Tins carried on Parry's Arctic expeditions in the 1820s told users to cut round the top with a chisel and hammer
+  source: wohleber2000canopener
+  says: Cut around the top with a hammer and a chisel.
+  quote: ''
+  confidence: high
+  caveat: Wording differs between sources (also tomatomuseum-canopener, wiki-canopener); paraphrased, not quoted
+  overclaim: false
+  on_screen: false
+- id: c02
+  text: Peter Durand patented food canning in England in 1810
+  source: tomatomuseum-canopener
+  says: The can had been patented in eighteen ten.
+  quote: ''
+  confidence: high
+  caveat: Also wiki-canopener
+  overclaim: false
+  on_screen: false
+- id: c03
+  text: Ezra J. Warner received the first US can-opener patent on 5 January 1858
+  source: us19063warner
+  says: America's first can opener was patented in eighteen fifty-eight.
+  quote: ''
+  confidence: high
+  caveat: First US patent per tomatomuseum-canopener
+  overclaim: false
+  on_screen: false
+- id: c04
+  text: Early cans were heavy wrought iron, often weighing more than their contents
+  source: wohleber2000canopener
+  says: Many of them weighed more than the food sealed inside.
+  quote: ''
+  confidence: high
+  caveat: Also wiki-canopener
+  overclaim: false
+  on_screen: false
+- id: c05
+  text: Soldiers opened early cans with bayonets
+  source: wohleber2000canopener
+  says: Soldiers opened theirs with bayonets.
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c06
+  text: Can walls became thinner during the 1800s; dedicated openers appeared from the 1850s
+  source: wohleber2000canopener
+  says: can walls got thinner, and only then did real openers appear
+  quote: ''
+  confidence: high
+  caveat: 'I&T: thinner steel cans late 1850s; wiki-canopener: walls thinner during the 1800s'
+  overclaim: false
+  on_screen: false
+- id: c07
+  text: Robert Yeates patented a lever-type can opener in England in 1855
+  source: wiki-canopener
+  says: Robert Yeates patented one in England in eighteen fifty-five.
+  quote: ''
+  confidence: high
+  caveat: tomatomuseum-canopener spells it Yates (UK patent 1,577, 13 July 1855)
+  overclaim: false
+  on_screen: false
+- id: c08
+  text: Warner of Waterbury, Connecticut patented his opener in 1858
+  source: us19063warner
+  says: Ezra Warner of Waterbury, Connecticut, followed three years later.
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c09
+  text: 'Warner''s opener: a piercing point, a removable curved cutter and a guard limiting the depth'
+  source: us19063warner
+  says: a sharp point to punch the lid, a curved blade
+  quote: ''
+  confidence: high
+  caveat: 'Depth guard: wohleber2000canopener'
+  overclaim: false
+  on_screen: false
+- id: c10
+  text: Warner's opener was used by the Union Army in the Civil War
+  source: tomatomuseum-canopener
+  says: The Union Army used it during the Civil War.
+  quote: ''
+  confidence: high
+  caveat: Also wiki-canopener
+  overclaim: false
+  on_screen: false
+- id: c11
+  text: Warner's opener was considered too dangerous for home use
+  source: wiki-canopener
+  says: it was considered too dangerous
+  quote: ''
+  confidence: high
+  caveat: Also tomatomuseum-canopener
+  overclaim: false
+  on_screen: false
+- id: c12
+  text: The cast-iron bull's head opener (1865) was spread with tins of 'Bully' beef
+  source: tomatomuseum-canopener
+  says: shaped like a bull's head, came packed with tins
+  quote: ''
+  confidence: high
+  caveat: Also wiki-canopener
+  overclaim: false
+  on_screen: false
+- id: c13
+  text: Twist keys soldered onto cans (Osterhoudt patent, 1866)
+  source: wiki-canopener
+  says: a little slotted key, soldered to the can
+  quote: ''
+  confidence: high
+  caveat: Also tomatomuseum-canopener (US patent 58,554)
+  overclaim: false
+  on_screen: false
+- id: c14
+  text: The key opener is still used, especially for canned fish
+  source: tomatomuseum-canopener
+  says: Some fish tins still use that idea today.
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c15
+  text: Mechanical advantage is the ratio of output to input force
+  source: openstax2022-9-5
+  says: It is the force you get out, divided by the force you put in.
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c16
+  text: For a lever, MA = l_i / l_o, the ratio of distances from the pivot
+  source: openstax2022-9-5
+  says: simply a ratio of two distances from the pivot
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c17
+  text: Pressure is force divided by the area over which it is applied
+  source: openstax2022-11-3
+  says: Pressure is force divided by the area it pushes on.
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c18
+  text: The same force on the area of a needle tip breaks the skin
+  source: openstax2022-11-3
+  says: a needle breaks skin while a fingertip pressing just as hard
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c19
+  text: The ratio of force to area in a solid is called stress
+  source: openstax2022-5-3
+  says: Engineers call force spread over an area stress
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c20
+  text: Greater forces permanently deform an object until it fractures
+  source: openstax2022-5-3
+  says: Push harder still, and it fractures.
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c21
+  text: Typical tinplate strip for drawn-and-wall-ironed food cans is 0.20–0.35 mm thick
+  source: arcelormittal2017pack
+  says: between two and three and a half tenths of a millimetre
+  quote: ''
+  confidence: high
+  caveat: DWI food cans; other can types can differ
+  overclaim: false
+  on_screen: true
+- id: c22
+  text: The serrated feed wheel grips the can's edge from below the rim and turns the can
+  source: wiki-canopener
+  says: They bite the underside of the rim and drag it along
+  quote: ''
+  confidence: high
+  caveat: Also wohleber2000canopener
+  overclaim: false
+  on_screen: false
+- id: c23
+  text: In the geared design the cutting wheel and feed wheel are coupled by cogwheels and turn in opposite directions
+  source: wiki-canopener
+  says: the two wheels are linked by little gears
+  quote: ''
+  confidence: medium
+  caveat: Bunker 1931 design; 'many openers' is the narrator's generalisation
+  overclaim: false
+  on_screen: false
+- id: c24
+  text: William Lyman of Meriden, Connecticut patented a can opener with a circular cutting wheel in 1870
+  source: us105346lyman
+  says: had patented a cutting wheel in eighteen seventy
+  quote: ''
+  confidence: high
+  caveat: Also wohleber2000canopener
+  overclaim: false
+  on_screen: false
+- id: c25
+  text: Lyman's opener needed its point pushed through the lid as a pivot
+  source: us105346lyman
+  says: his design needed a spike pushed through the middle of the lid
+  quote: ''
+  confidence: high
+  caveat: 'Centre piercing and adjustment for can size: wohleber2000canopener'
+  overclaim: false
+  on_screen: false
+- id: c26
+  text: In 1925 the Star Can Opener Company of San Francisco added a serrated feed wheel
+  source: wohleber2000canopener
+  says: the Star Can Opener Company of San Francisco added the serrated feed wheel
+  quote: ''
+  confidence: high
+  caveat: Also wiki-canopener
+  overclaim: false
+  on_screen: false
+- id: c27
+  text: In 1931 the Bunker Clancey Company of Kansas City patented a can-holding opener with pliers handles, a turning key
+    and geared wheels
+  source: wiki-canopener
+  says: the Bunker Clancey Company of Kansas City put the whole system
+  quote: ''
+  confidence: medium
+  caveat: Single encyclopedia source; spelling Clancey/Clancy varies
+  overclaim: false
+  on_screen: false
+- id: c28
+  text: Electric can openers appeared in 1931 and sold poorly
+  source: wiki-canopener
+  says: The electric opener followed the same year, and almost nobody bought it.
+  quote: ''
+  confidence: high
+  caveat: 'tomatomuseum-canopener: Preston C. West patent, 1 Dec 1931, limited adoption'
+  overclaim: false
+  on_screen: false
+- id: c29
+  text: Electric openers returned successfully in 1956
+  source: wiki-canopener
+  says: It only caught on in the nineteen-fifties.
+  quote: ''
+  confidence: high
+  caveat: Also tomatomuseum-canopener
+  overclaim: false
+  on_screen: false
+- id: c30
+  text: The first electric opener was based on the cutting-wheel principle
+  source: tomatomuseum-canopener
+  says: the same cutting wheel at work
+  quote: ''
+  confidence: medium
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c31
+  text: Side-cutting openers use a roller and a cutting wheel on the outside seam, leaving a smooth edge
+  source: wiki-canopener
+  says: a cutting wheel and a roller split the seam
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+- id: c32
+  text: The lid of a side-cut can can be put back as a cover but does not seal
+  source: wiki-canopener
+  says: It will not seal again, though.
+  quote: ''
+  confidence: high
+  caveat: ''
+  overclaim: false
+  on_screen: false
+description: 'Your can opener is three of the oldest machines in physics folded into one hand: a lever, a wedge and a crank.
+
+  Here is how it cuts steel, and why it was invented decades after the can.'
+titles:
+- How Your Can Opener Cuts Steel With One Hand
+- Your Can Opener Is Three Machines in Disguise
+- The Can Came First. The Opener Took Decades.
+- Why a Can Opener Doesn't Need a Sharp Blade
+- The Hidden Physics of the Can Opener
+- How a Tiny Wheel Slices Through a Steel Can
+- The Can Opener Waited for the Can to Get Thin
+- What Actually Happens When You Open a Can
+- The Genius Inside the Most Boring Kitchen Tool
+- How People Opened Cans Before Can Openers
+thumbnails:
+- kind: scene
+  visual:
+    prompt: A giant can opener clamped on the rim of a tin can, the small cutting wheel glowing yellow
+    characters: []
+  text:
+    en: NOT A BLADE
+  pos: top-left
+- kind: correction
+  visual:
+    prompt: A steel can opener cut open to show its two wheels and gears
+    characters: []
+  myth:
+    en: JUST A BLADE
+  note:
+    en: IT'S PRESSURE
+  pos: top-left
+  claim: c17
+- kind: stamp
+  visual:
+    prompt: A tin can with its lid lifting off, a ring of cut steel
+    characters: []
+  pos: top-left
+hooks:
+- type: cold_open_stat
+  text: In the eighteen-twenties, explorers sailing for the Arctic carried tins of food with a strange instruction printed
+    on them.
+- type: question
+  text: How does a gadget you hardly notice slice through metal with one hand?
+- type: contradiction
+  text: Your can opener barely has a blade. It cuts steel anyway.
+shorts:
+- title: Your Can Opener Isn't Really a Blade
+  hook: Look closely at the top wheel.
+  from: Look closely at the top wheel
+  to: every speck of steel underneath it.
+- title: People Opened Cans With a Hammer
+  hook: In the eighteen-twenties, explorers sailing for the Arctic carried tins of food with a strange instruction.
+  from: In the eighteen-twenties, explorers
+  to: Soldiers opened theirs with bayonets.
+policy:
+  originality: Own explanation of three simple machines with exact code-drawn animations, history tied to the physics; sources
+    are patents, a museum account, a technology-history magazine, a manufacturer specification and a physics textbook.
+  sensitive: false
+  advice_from: []
+  narrator_claims_expertise: false
+  realistic_ai_visuals: false
+  risks:
+  - Civil War and bayonets mentioned briefly and soberly; no violence shown

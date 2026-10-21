@@ -6,12 +6,19 @@ const LATIN =
 const LATIN_EXT =
   'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF';
 
-const FACES: {family: string; file: string; range?: string}[] = [
+const FACES: {family: string; file: string; range?: string; weight?: string}[] = [
   {family: 'Special Elite', file: 'fonts/special-elite-latin-400-normal.woff2', range: LATIN}, // Apache-2.0
   {family: 'Special Elite', file: 'fonts/special-elite-latin-ext-400-normal.woff2', range: LATIN_EXT},
   {family: 'Patrick Hand', file: 'fonts/patrick-hand-latin-400-normal.woff2', range: LATIN}, // OFL-1.1
   {family: 'Patrick Hand', file: 'fonts/patrick-hand-latin-ext-400-normal.woff2', range: LATIN_EXT},
   {family: 'Alfa Slab One', file: 'fonts/AlfaSlabOne-Regular.ttf'}, // OFL-1.1
+  // the 'pop' theme (vivid explainer look): rounded display face + a mono face for formulas, both OFL-1.1
+  {family: 'Fredoka', file: 'fonts/fredoka-latin-600-normal.woff2', range: LATIN, weight: '600'},
+  {family: 'Fredoka', file: 'fonts/fredoka-latin-ext-600-normal.woff2', range: LATIN_EXT, weight: '600'},
+  {family: 'Fredoka', file: 'fonts/fredoka-latin-700-normal.woff2', range: LATIN, weight: '700'},
+  {family: 'Fredoka', file: 'fonts/fredoka-latin-ext-700-normal.woff2', range: LATIN_EXT, weight: '700'},
+  {family: 'JetBrains Mono', file: 'fonts/jetbrains-mono-latin-700-normal.woff2', range: LATIN},
+  {family: 'JetBrains Mono', file: 'fonts/jetbrains-mono-latin-ext-700-normal.woff2', range: LATIN_EXT},
 ];
 
 let started = false;
@@ -22,7 +29,10 @@ export const loadFonts = () => {
   const handle = delayRender('Loading fonts');
   Promise.all(
     FACES.map((f) => {
-      const face = new FontFace(f.family, `url(${staticFile(f.file)})`, f.range ? {unicodeRange: f.range} : {});
+      const face = new FontFace(f.family, `url(${staticFile(f.file)})`, {
+        ...(f.range ? {unicodeRange: f.range} : {}),
+        ...(f.weight ? {weight: f.weight} : {}),
+      });
       (document.fonts as unknown as {add: (f: FontFace) => void}).add(face);
       return face.load();
     }),

@@ -13,6 +13,7 @@ export type Theme = {
   wash2: string;
   muted: string; // secondary ink (labels, ticks)
   fonts: {type: string; hand: string; stamp: string};
+  palette?: Record<string, string>; // named colours for code-drawn scenes (comp `mech`): fill: yellow, teal, ...
   boil: number; // hand-drawn line wobble in px at 1080 p (0 = off)
   rules: Rules | null; // put handwriting on the ruled lines of the paper
 };
@@ -44,7 +45,31 @@ export const MUSEUM: Theme = {
   rules: null,
 };
 
-export const THEMES: Record<string, Theme> = {ledger: LEDGER, museum: MUSEUM};
+// Vivid explainer look (Ordinary Genius): deep indigo stage, saturated flat colours, thick navy outlines,
+// rounded display type. No paper, no line boil. `ink` is the text colour on the dark stage; outlines use palette.line.
+export const POP: Theme = {
+  name: 'pop',
+  paper: null,
+  bg: '#1b1f4b',
+  ink: '#fff8e7',
+  accent: '#ffcc33',
+  wash: '#2ec4b6',
+  wash2: '#ff6b5b',
+  muted: '#aab0e0',
+  fonts: {type: 'JetBrains Mono', hand: 'Fredoka', stamp: 'Fredoka'},
+  boil: 0,
+  rules: null,
+  palette: {
+    bg: '#1b1f4b', bg2: '#2a2f6e', grid: '#323882',
+    line: '#0d1030', ink: '#0d1030', text: '#fff8e7', muted: '#aab0e0',
+    yellow: '#ffcc33', gold: '#f5a623', orange: '#ff8a3d', coral: '#ff6b5b', red: '#ef3e4a', pink: '#ff7eb6',
+    violet: '#9b6bff', blue: '#3d8bff', sky: '#5ad1ff', teal: '#2ec4b6', mint: '#7be3a6', lime: '#b8e04a',
+    steel: '#c9d2e3', steel2: '#8d99b3', dark: '#3a3f6e', white: '#ffffff', cream: '#fff3d6',
+    hot: '#ff4d2e', cold: '#3db8ff', steam: '#e8f1ff', food: '#e8763a',
+  },
+};
+
+export const THEMES: Record<string, Theme> = {ledger: LEDGER, museum: MUSEUM, pop: POP};
 
 export const resolveTheme = (t?: Partial<Theme> | null): Theme => {
   const base = THEMES[t?.name ?? 'ledger'] ?? LEDGER;
@@ -52,6 +77,7 @@ export const resolveTheme = (t?: Partial<Theme> | null): Theme => {
     ...base,
     ...(t ?? {}),
     fonts: {...base.fonts, ...(t?.fonts ?? {})},
+    palette: {...(base.palette ?? {}), ...(t?.palette ?? {})},
     rules: t && 'rules' in t ? (t.rules ?? null) : base.rules,
   } as Theme;
 };

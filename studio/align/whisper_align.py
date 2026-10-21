@@ -51,6 +51,10 @@ class WhisperAligner:
             return None
 
     def align_unit(self, project: Project, u: dict, lang: str = "en") -> list[float]:
+        return self.align_unit_words(project, u, lang)[0]
+
+    def align_unit_words(self, project: Project, u: dict, lang: str = "en") -> tuple[list[float], list[list[float]]]:
+        """(start of every span, time of every spoken word of every span) — the word times feed motion cues."""
         heard: list[tuple[str, float]] = []
         for seg in self._transcribe(str(project.dir / u["file"]), lang):
             for w in seg.words or []:
@@ -83,4 +87,15 @@ class WhisperAligner:
                 prev = starts[i - 1] if i > 0 else u["offset"]
                 nxt = next((x for x in starts[i + 1:] if x == x), u["offset"] + u["duration"])
                 starts[i] = (prev + nxt) / 2
-        return starts
+        # word times: heard where matched, otherwise interpolated between the neighbours inside the unit
+        times = [u["offset"] + time_of[i] if i in time_of else float("nan") for i in range(len(script))]
+        for i, t in enumerate(times):
+            if t != t:
+                prev = next((times[j] for j in range(i - 1, -1, -1) if times[j] == times[j]), u["offset"])
+                nxt = next((times[j] for j in range(i + 1, len(times)) if times[j] == times[j]),
+                           u["offset"] + u["duration"])
+                times[i] = (prev + nxt) / 2
+        words: list[list[float]] = [[] for _ in u["spans"]]
+        for (_, si), t in zip(script, times):
+            words[si].append(round(t, 3))
+        return starts, words

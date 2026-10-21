@@ -1,0 +1,5157 @@
+title: 001-how-your-can-opener-cuts-steel-with-one
+paragraphs: 29
+shots:
+- id: s001
+  para: 0
+  sent: 0
+  text: In the eighteen-twenties,
+  visual:
+    prompt: Wide shot of a wooden sailing ship of the 1820s frozen into Arctic sea ice under a pale sky, two sailors
+      in heavy wool coats and caps on the snowy deck beside an open wooden crate full of plain metal food tins,
+      breath steaming, icebergs on the horizon
+    characters: []
+- id: s002
+  para: 0
+  sent: 0
+  text: explorers sailing for the Arctic carried tins
+  visual:
+    same: true
+- id: s003
+  para: 0
+  sent: 0
+  text: of food with a strange instruction printed on them.
+  visual:
+    same: true
+- id: s004
+  para: 0
+  sent: 1
+  text: Cut around the top with a hammer and a chisel.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel2
+      - kind: rect
+        w: 340
+        h: 420
+        fill: steel
+      - kind: rect
+        y: 25.2
+        w: 340
+        h: 201.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -158.0
+        y: -159.6
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -158.0
+        y: -126.0
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -158.0
+        y: 155.4
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -158.0
+        y: 184.8
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel
+      - kind: ellipse
+        y: -210.0
+        rx: 152.0
+        ry: 37.2
+        fill: steel2
+        sw: 4
+      id: can
+      x: 820
+      y: 600
+    - kind: group
+      items:
+      - kind: rect
+        w: 34
+        h: 230
+        fill: steel
+        ax: 0.5
+        ay: 1
+      - kind: poly
+        points:
+        - - -17
+          - 0
+        - - 17
+          - 0
+        - - 0
+          - 40
+        fill: steel2
+      id: chisel
+      x: 760
+      y: 360
+      rotate: -22
+      in: '@chisel'
+    - kind: group
+      items:
+      - kind: rect
+        w: 36
+        h: 300
+        r: 14
+        fill: gold
+        ay: 0
+      - kind: rect
+        y: -10
+        w: 150
+        h: 70
+        r: 12
+        fill: dark
+      id: hammer
+      x: 1010
+      y: 150
+      rotate: 40
+      pivot:
+      - 0
+      - 300
+      in: '@hammer'
+      keys:
+      - at: '@chisel+0.1'
+        rotate: 8
+        dur: 0.18
+        ease: in
+      - at: '@chisel+0.3'
+        rotate: 30
+        dur: 0.4
+    - kind: particles
+      id: sparks
+      x: 740
+      y: 330
+      w: 120
+      h: 90
+      count: 10
+      size: 7
+      mode: steam
+      color: yellow
+      in: '@chisel+0.28'
+      out: '@chisel+0.9'
+    - kind: text
+      text: Cut around the top
+      x: 1420
+      y: 560
+      size: 58
+      in: 0
+      bg: cream
+      fill: line
+      outline: false
+      rotate: -4
+    drift: 0.04
+  sound:
+    sfx:
+    - id: knock
+      at: chisel
+- id: s005
+  para: 0
+  sent: 2
+  text: The can had been patented in eighteen ten.
+  visual:
+    comp: mech
+    items:
+    - kind: line
+      x: 260
+      y: 640
+      to:
+      - 1400
+      - 0
+      stroke: muted
+      sw: 8
+      in: 0
+    - kind: group
+      items:
+      - kind: group
+        items:
+        - kind: ellipse
+          y: 90.0
+          rx: 75.0
+          ry: 19.5
+          fill: steel2
+        - kind: rect
+          w: 150
+          h: 180
+          fill: steel
+        - kind: rect
+          y: 10.799999999999999
+          w: 150
+          h: 86.39999999999999
+          fill: coral
+        - kind: line
+          id: can1-r0
+          x: -63.0
+          y: -68.4
+          to:
+          - 126
+          - 0
+          stroke: steel2
+          sw: 6
+        - kind: line
+          id: can1-r1
+          x: -63.0
+          y: -54.0
+          to:
+          - 126
+          - 0
+          stroke: steel2
+          sw: 6
+        - kind: line
+          id: can1-r2
+          x: -63.0
+          y: 66.6
+          to:
+          - 126
+          - 0
+          stroke: steel2
+          sw: 6
+        - kind: line
+          id: can1-r3
+          x: -63.0
+          y: 79.2
+          to:
+          - 126
+          - 0
+          stroke: steel2
+          sw: 6
+        - kind: ellipse
+          y: -90.0
+          rx: 75.0
+          ry: 19.5
+          fill: steel
+        - kind: ellipse
+          y: -90.0
+          rx: 57.0
+          ry: 12.5
+          fill: steel2
+          sw: 4
+        id: can1
+        x: 0
+        y: -150
+      - kind: circle
+        r: 18
+        fill: coral
+      x: 360
+      y: 640
+      in: '@patented'
+    - kind: text
+      text: '1810'
+      x: 360
+      y: 760
+      size: 72
+      in: '@ten'
+    - kind: rect
+      id: gap
+      x: 380
+      y: 640
+      w: 1200
+      h: 26
+      r: 13
+      ax: 0
+      fill: coral
+      sx: 0
+      in: '@ten+0.3'
+      keys:
+      - at: '@ten+0.3'
+        sx: 1
+        dur: 2.4
+        ease: linear
+    - kind: group
+      items:
+      - kind: group
+        items:
+        - kind: rect
+          id: op1-lo
+          x: 40
+          y: -22
+          w: 430
+          h: 46
+          r: 23
+          ax: 0
+          ay: 0.5
+          fill: teal
+          rotate: -18
+        - kind: rect
+          id: op1-up
+          x: 40
+          y: -58
+          w: 430
+          h: 46
+          r: 23
+          ax: 0
+          ay: 0.5
+          fill: coral
+          rotate: -36
+        - kind: rect
+          x: 40
+          y: -44
+          w: 170
+          h: 120
+          r: 22
+          fill: dark
+        - kind: group
+          items:
+          - kind: circle
+            r: 34
+            fill: steel
+          - kind: circle
+            r: 12
+            fill: steel2
+            sw: 4
+          id: op1-cw
+          y: -6
+        - kind: group
+          items:
+          - kind: ellipse
+            y: -58
+            rx: 24
+            ry: 56
+            fill: yellow
+          - kind: ellipse
+            y: 58
+            rx: 24
+            ry: 56
+            fill: yellow
+          - kind: circle
+            r: 18
+            fill: dark
+          id: op1-key
+          x: 100
+          y: -46
+        id: op1
+        x: 0
+        y: -110
+        scale: 0.45
+      - kind: circle
+        r: 18
+        fill: teal
+      x: 1580
+      y: 640
+      in: '@opener'
+    - kind: text
+      text: '1858'
+      x: 1580
+      y: 760
+      size: 72
+      in: '@fifty'
+- id: s006
+  para: 0
+  sent: 3
+  text: America's first can opener was patented in eighteen fifty-eight.
+  visual:
+    same: true
+- id: s007
+  para: 1
+  sent: 4
+  text: Now open your kitchen drawer.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel2
+      - kind: rect
+        w: 340
+        h: 420
+        fill: steel
+      - kind: rect
+        y: 25.2
+        w: 340
+        h: 201.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -158.0
+        y: -159.6
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -158.0
+        y: -126.0
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -158.0
+        y: 155.4
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -158.0
+        y: 184.8
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel
+      - kind: ellipse
+        y: -210.0
+        rx: 152.0
+        ry: 37.2
+        fill: steel2
+        sw: 4
+      id: can
+      x: 720
+      y: 640
+      in: 0
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+        keys:
+        - at: '@squeeze'
+          rotate: -27
+          dur: 0.5
+          ease: back
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+        spin:
+          speed: 260
+          from: '@twist'
+      id: op
+      x: 560
+      y: 432
+      scale: 1.15
+      in: '@drawer'
+    - kind: label
+      text: handles
+      x: 1040
+      y: 250
+      to:
+      - 200
+      - -90
+      in: '@handles'
+    - kind: label
+      text: crank
+      x: 700
+      y: 340
+      to:
+      - -260
+      - -120
+      in: '@crank'
+    - kind: label
+      text: wheels
+      x: 560
+      y: 425
+      to:
+      - -300
+      - 60
+      in: '@wheels'
+    - kind: ellipse
+      id: ring
+      x: 720
+      y: 430
+      rx: 152
+      ry: 38
+      fill: none
+      stroke: yellow
+      sw: 10
+      glow: yellow
+      in: '@ring'
+      keys:
+      - at: '@ring'
+        y: 330
+        rotate: -14
+        dur: 1.0
+        ease: back
+    camera:
+    - at: '@squeeze'
+      x: 800
+      y: 520
+      zoom: 1.12
+      dur: 1.5
+  sound:
+    sfx:
+    - id: tick
+      at: twist
+- id: s008
+  para: 1
+  sent: 5
+  text: Two handles, a little crank, two tiny wheels.
+  visual:
+    same: true
+- id: s009
+  para: 1
+  sent: 6
+  text: You squeeze, you twist,
+  visual:
+    same: true
+- id: s010
+  para: 1
+  sent: 6
+  text: and a ring of steel comes loose while you barely try.
+  visual:
+    same: true
+- id: s011
+  para: 2
+  sent: 7
+  text: So here is the question.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel2
+      - kind: rect
+        w: 340
+        h: 420
+        fill: steel
+      - kind: rect
+        y: 25.2
+        w: 340
+        h: 201.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -158.0
+        y: -159.6
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -158.0
+        y: -126.0
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -158.0
+        y: 155.4
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -158.0
+        y: 184.8
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel
+      - kind: ellipse
+        y: -210.0
+        rx: 152.0
+        ry: 37.2
+        fill: steel2
+        sw: 4
+      id: can
+      x: 820
+      y: 660
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+        glow: yellow
+        keys:
+        - at: '@slice'
+          scale: 1.15
+          dur: 0.3
+          ease: back
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+      id: op
+      x: 660
+      y: 452
+      scale: 1.15
+    - kind: text
+      text: '?'
+      x: 1360
+      y: 420
+      size: 260
+      in: '@question'
+      fill: yellow
+    camera:
+    - at: '@slice'
+      x: 700
+      y: 470
+      zoom: 1.6
+      dur: 1.6
+- id: s012
+  para: 2
+  sent: 8
+  text: How does a gadget you hardly notice
+  visual:
+    same: true
+- id: s013
+  para: 2
+  sent: 8
+  text: slice through metal with one hand?
+  visual:
+    same: true
+- id: s014
+  para: 2
+  sent: 9
+  text: The answer is three of the oldest machines in physics,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: group
+        items:
+        - kind: rect
+          x: -420.0
+          w: 600
+          h: 34
+          r: 17
+          ax: 0
+          fill: violet
+        id: i1
+        x: 120.0
+        y: 0
+      - kind: poly
+        id: i1-pv
+        x: 120.0
+        y: 17
+        points:
+        - - 0
+          - 0
+        - - -60
+          - 100
+        - - 60
+          - 100
+        fill: yellow
+      x: 300
+      y: 430
+      scale: 0.7
+      in: '@three'
+      keys:
+      - at: '@folded'
+        x: 760
+        y: 520
+        scale: 0.3
+        opacity: 0
+        dur: 0.8
+    - kind: group
+      items:
+      - kind: poly
+        points:
+        - - 0
+          - -150
+        - - -90
+          - 120
+        - - 90
+          - 120
+        fill: sky
+      x: 960
+      y: 430
+      in: '@oldest'
+      keys:
+      - at: '@folded'
+        y: 520
+        scale: 0.3
+        opacity: 0
+        dur: 0.8
+    - kind: group
+      items:
+      - kind: circle
+        r: 120
+        fill: none
+        stroke: teal
+        sw: 14
+      - kind: circle
+        r: 30
+        fill: teal
+      - kind: rect
+        w: 130
+        h: 26
+        r: 13
+        ax: 0
+        fill: teal
+      x: 1560
+      y: 430
+      spin:
+        speed: 120
+        from: '@machines'
+      in: '@machines'
+      keys:
+      - at: '@folded'
+        x: 1160
+        y: 520
+        scale: 0.3
+        opacity: 0
+        dur: 0.8
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+      id: op
+      x: 840
+      y: 560
+      scale: 1.3
+      in: '@fist'
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 160.0
+        rx: 130.0
+        ry: 33.800000000000004
+        fill: steel2
+      - kind: rect
+        w: 260
+        h: 320
+        fill: steel
+      - kind: rect
+        y: 19.2
+        w: 260
+        h: 153.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -118.0
+        y: -121.6
+        to:
+        - 236
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -118.0
+        y: -96.0
+        to:
+        - 236
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -118.0
+        y: 118.4
+        to:
+        - 236
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -118.0
+        y: 140.8
+        to:
+        - 236
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -160.0
+        rx: 130.0
+        ry: 33.800000000000004
+        fill: steel
+      - kind: ellipse
+        y: -160.0
+        rx: 112.0
+        ry: 26.800000000000004
+        fill: steel2
+        sw: 4
+      id: can
+      x: 1500
+      y: 640
+      in: '@can'
+- id: s015
+  para: 2
+  sent: 9
+  text: folded into something the size of your fist.
+  visual:
+    same: true
+- id: s016
+  para: 2
+  sent: 10
+  text: And the reason it took so long
+  visual:
+    same: true
+- id: s017
+  para: 2
+  sent: 10
+  text: to invent starts with the can itself.
+  visual:
+    same: true
+- id: s018
+  para: 3
+  sent: 11
+  text: The first cans were heavy wrought iron.
+  visual:
+    comp: mech
+    items:
+    - kind: line
+      x: 960
+      y: 300
+      to:
+      - 0
+      - 520
+      stroke: steel2
+      sw: 14
+      in: 0
+    - kind: poly
+      x: 960
+      y: 820
+      points:
+      - - 0
+        - 0
+      - - -80
+        - 120
+      - - 80
+        - 120
+      fill: steel2
+      in: 0
+    - kind: group
+      items:
+      - kind: line
+        x: -420
+        y: 0
+        to:
+        - 840
+        - 0
+        stroke: steel
+        sw: 16
+      - kind: group
+        items:
+        - kind: line
+          to:
+          - 0
+          - 120
+          stroke: steel2
+          sw: 5
+        - kind: rect
+          y: 170
+          w: 200
+          h: 100
+          r: 12
+          fill: dark
+        - kind: group
+          items:
+          - kind: ellipse
+            y: 85.0
+            rx: 75.0
+            ry: 19.5
+            fill: steel2
+          - kind: rect
+            w: 150
+            h: 170
+            fill: steel
+          - kind: rect
+            y: 10.2
+            w: 150
+            h: 81.6
+            fill: dark
+          - kind: ellipse
+            y: -85.0
+            rx: 75.0
+            ry: 19.5
+            fill: steel
+          - kind: ellipse
+            y: -85.0
+            rx: 57.0
+            ry: 12.5
+            fill: steel2
+            sw: 4
+          id: ironcan
+          x: 0
+          y: 105
+        x: -380
+      - kind: group
+        items:
+        - kind: line
+          to:
+          - 0
+          - 120
+          stroke: steel2
+          sw: 5
+        - kind: rect
+          y: 170
+          w: 200
+          h: 100
+          r: 12
+          fill: dark
+        - kind: ellipse
+          y: 190
+          rx: 60
+          ry: 40
+          fill: food
+        x: 380
+      id: beam
+      x: 960
+      y: 300
+      in: 0
+      keys:
+      - at: '@weighed'
+        rotate: -12
+        dur: 1.2
+        ease: back
+    - kind: text
+      text: wrought iron
+      x: 560
+      y: 960
+      size: 56
+      in: '@wrought'
+      fill: muted
+    - kind: text
+      text: food
+      x: 1360
+      y: 960
+      size: 56
+      in: '@food'
+      fill: muted
+- id: s019
+  para: 3
+  sent: 12
+  text: Many of them weighed more than the food sealed inside.
+  visual:
+    same: true
+- id: s020
+  para: 3
+  sent: 13
+  text: Soldiers opened theirs with bayonets.
+  visual:
+    prompt: A soldier of the early 1800s in a plain blue coat sitting on a crate at a field camp, frowning as he
+      pries open a heavy dark iron food tin with a long bayonet, other tins stacked beside him
+    characters: []
+- id: s021
+  para: 4
+  sent: 14
+  text: Through the eighteen hundreds,
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: wall
+      x: 960
+      y: 560
+      w: 300
+      h: 420
+      fill: dark
+      keys:
+      - at: '@thinner'
+        w: 40
+        fill: steel
+        dur: 2.0
+    - kind: text
+      text: can wall
+      x: 960
+      y: 860
+      size: 56
+      in: 0
+      fill: muted
+    - kind: arrow
+      x: 620
+      y: 560
+      to:
+      - 230
+      - 0
+      color: sky
+      in: '@thinner'
+    - kind: arrow
+      x: 1300
+      y: 560
+      to:
+      - -230
+      - 0
+      color: sky
+      in: '@thinner'
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+      id: op
+      x: 1500
+      y: 420
+      scale: 0.8
+      in: '@openers'
+- id: s022
+  para: 4
+  sent: 14
+  text: can walls got thinner,
+  visual:
+    same: true
+- id: s023
+  para: 4
+  sent: 14
+  text: and only then did real openers appear.
+  visual:
+    same: true
+- id: s024
+  para: 4
+  sent: 15
+  text: Robert Yeates patented one in England in eighteen fifty-five.
+  visual:
+    comp: mech
+    items:
+    - kind: line
+      x: 200
+      y: 620
+      to:
+      - 1520
+      - 0
+      stroke: muted
+      sw: 8
+      in: 0
+    - kind: circle
+      x: 600
+      y: 620
+      r: 26
+      fill: coral
+      in: '@yeates'
+    - kind: text
+      text: '1855'
+      x: 600
+      y: 540
+      size: 76
+      in: '@fifty'
+    - kind: text
+      text: Yeates · England
+      x: 600
+      y: 730
+      size: 50
+      in: '@england'
+      fill: muted
+    - kind: circle
+      x: 1320
+      y: 620
+      r: 26
+      fill: teal
+      in: '@warner'
+    - kind: text
+      text: '1858'
+      x: 1320
+      y: 540
+      size: 76
+      in: '@later'
+    - kind: text
+      text: Warner · Connecticut
+      x: 1320
+      y: 730
+      size: 50
+      in: '@connecticut'
+      fill: muted
+- id: s025
+  para: 4
+  sent: 16
+  text: Ezra Warner of Waterbury, Connecticut,
+  visual:
+    same: true
+- id: s026
+  para: 4
+  sent: 16
+  text: followed three years later.
+  visual:
+    same: true
+- id: s027
+  para: 5
+  sent: 17
+  text: Warner's tool had a sharp point to punch the lid,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 180.0
+        rx: 260.0
+        ry: 67.60000000000001
+        fill: steel2
+      - kind: rect
+        w: 520
+        h: 360
+        fill: steel
+      - kind: rect
+        y: 21.599999999999998
+        w: 520
+        h: 172.79999999999998
+        fill: coral
+      - kind: ellipse
+        y: -180.0
+        rx: 260.0
+        ry: 67.60000000000001
+        fill: steel
+      - kind: ellipse
+        y: -180.0
+        rx: 242.0
+        ry: 60.60000000000001
+        fill: steel2
+        sw: 4
+      id: can
+      x: 700
+      y: 700
+    - kind: group
+      items:
+      - kind: path
+        d: M0 0 L380 -120
+        stroke: steel
+        sw: 34
+      - kind: path
+        d: M0 0 Q-60 50 -20 120
+        stroke: steel2
+        sw: 18
+        id: blade
+      - kind: rect
+        x: 60
+        y: -10
+        w: 110
+        h: 26
+        r: 10
+        fill: coral
+        rotate: -18
+        id: guard
+      id: warner
+      x: 600
+      y: 520
+      rotate: -6
+      in: '@warner'
+      keys:
+      - at: '@saw'
+        rotate: 6
+        dur: 0.4
+      - at: '@saw+0.45'
+        rotate: -6
+        dur: 0.4
+      - at: '@saw+0.9'
+        rotate: 4
+        dur: 0.4
+    - kind: label
+      text: point
+      x: 590
+      y: 640
+      to:
+      - -280
+      - 40
+      in: '@point'
+    - kind: label
+      text: curved blade
+      x: 610
+      y: 560
+      to:
+      - -360
+      - -160
+      in: '@curved'
+    - kind: label
+      text: guard
+      x: 720
+      y: 480
+      to:
+      - 260
+      - -170
+      in: '@guard'
+- id: s028
+  para: 5
+  sent: 17
+  text: a curved blade to saw around it,
+  visual:
+    same: true
+- id: s029
+  para: 5
+  sent: 17
+  text: and a guard to stop the blade sinking too deep.
+  visual:
+    same: true
+- id: s030
+  para: 5
+  sent: 18
+  text: The Union Army used it during the Civil War.
+  visual:
+    prompt: An 1860s Civil War army camp beside a campfire, a cook in a blue Union uniform kneeling and levering
+      open a food tin with a curved, sickle-shaped hand tool, canvas tents behind him
+    characters: []
+- id: s031
+  para: 5
+  sent: 19
+  text: In a family kitchen, it was considered too dangerous.
+  visual:
+    prompt: A Victorian family kitchen, a housewife in a long dress and apron holding a curved, sickle-shaped can-opening
+      tool at arm's length with an alarmed face, a small child peeking around the doorway
+    characters: []
+- id: s032
+  para: 6
+  sent: 20
+  text: Stranger shapes followed.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 180.0
+        rx: 150.0
+        ry: 39.0
+        fill: steel2
+      - kind: rect
+        w: 300
+        h: 360
+        fill: steel
+      - kind: rect
+        y: 21.599999999999998
+        w: 300
+        h: 172.79999999999998
+        fill: teal
+      - kind: line
+        id: can-r0
+        x: -138.0
+        y: -136.8
+        to:
+        - 276
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -138.0
+        y: -108.0
+        to:
+        - 276
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -138.0
+        y: 133.2
+        to:
+        - 276
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -138.0
+        y: 158.4
+        to:
+        - 276
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -180.0
+        rx: 150.0
+        ry: 39.0
+        fill: steel
+      - kind: ellipse
+        y: -180.0
+        rx: 132.0
+        ry: 32.0
+        fill: steel2
+        sw: 4
+      id: can
+      x: 1180
+      y: 640
+    - kind: group
+      items:
+      - kind: path
+        d: M-130 -40 Q-200 -140 -150 -200
+        stroke: cream
+        sw: 22
+      - kind: path
+        d: M130 -40 Q200 -140 150 -200
+        stroke: cream
+        sw: 22
+      - kind: ellipse
+        rx: 140
+        ry: 110
+        fill: coral
+      - kind: circle
+        x: -50
+        y: -20
+        r: 12
+        fill: line
+        sw: 0
+      - kind: circle
+        x: 50
+        y: -20
+        r: 12
+        fill: line
+        sw: 0
+      - kind: ellipse
+        y: 55
+        rx: 70
+        ry: 40
+        fill: pink
+      - kind: rect
+        x: 150
+        y: 20
+        w: 260
+        h: 30
+        r: 12
+        ax: 0
+        fill: steel
+      id: bull
+      x: 620
+      y: 520
+      in: '@bull'
+      keys:
+      - at: '@packed'
+        x: 760
+        dur: 0.8
+    - kind: text
+      text: cast iron
+      x: 620
+      y: 840
+      size: 56
+      in: '@cast'
+      fill: muted
+- id: s033
+  para: 6
+  sent: 21
+  text: One cast-iron opener,
+  visual:
+    same: true
+- id: s034
+  para: 6
+  sent: 21
+  text: shaped like a bull's head,
+  visual:
+    same: true
+- id: s035
+  para: 6
+  sent: 21
+  text: came packed with tins of salted bully beef.
+  visual:
+    same: true
+- id: s036
+  para: 6
+  sent: 22
+  text: Another was a little slotted key,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: rect
+        w: 760
+        h: 440
+        r: 90
+        fill: steel
+      - kind: rect
+        w: 700
+        h: 380
+        r: 70
+        fill: steel2
+        sw: 4
+      id: tin
+      x: 960
+      y: 600
+      in: 0
+    - kind: rect
+      id: strip
+      x: 600
+      y: 600
+      w: 720
+      h: 60
+      r: 20
+      ax: 0
+      fill: yellow
+      sx: 0.02
+      in: '@soldered'
+      keys:
+      - at: '@peeled'
+        sx: 1
+        dur: 2.2
+        ease: linear
+    - kind: group
+      items:
+      - kind: rect
+        w: 50
+        h: 240
+        r: 20
+        fill: gold
+      - kind: ellipse
+        y: -150
+        rx: 60
+        ry: 40
+        fill: gold
+      - kind: rect
+        y: -6
+        w: 12
+        h: 200
+        fill: dark
+        sw: 0
+      id: key
+      x: 600
+      y: 600
+      in: '@key'
+      spin:
+        speed: 220
+        from: '@peeled'
+      keys:
+      - at: '@peeled'
+        x: 1320
+        dur: 2.2
+        ease: linear
+    - kind: label
+      text: still used on some fish tins
+      x: 1330
+      y: 380
+      to:
+      - -120
+      - -150
+      in: '@fish'
+- id: s037
+  para: 6
+  sent: 22
+  text: soldered to the can,
+  visual:
+    same: true
+- id: s038
+  para: 6
+  sent: 22
+  text: that peeled a strip of metal away as you twisted it.
+  visual:
+    same: true
+- id: s039
+  para: 6
+  sent: 23
+  text: Some fish tins still use that idea today.
+  visual:
+    same: true
+- id: s040
+  para: 7
+  sent: 24
+  text: That is the first secret hiding in your drawer.
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: wall
+      x: 760
+      y: 560
+      w: 220
+      h: 380
+      fill: dark
+      keys:
+      - at: '@slim'
+        w: 36
+        fill: steel
+        dur: 1.4
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+      id: op
+      x: 1240
+      y: 520
+      scale: 0.9
+      in: '@slim+0.8'
+    - kind: text
+      text: tool
+      x: 1240
+      y: 830
+      size: 60
+      in: '@tool'
+      fill: muted
+    - kind: text
+      text: problem
+      x: 760
+      y: 830
+      size: 60
+      in: '@problem'
+      fill: muted
+- id: s041
+  para: 7
+  sent: 25
+  text: A tool can only be as clever as its problem allows.
+  visual:
+    same: true
+- id: s042
+  para: 7
+  sent: 26
+  text: The opener had to wait for the can to slim down.
+  visual:
+    same: true
+- id: s043
+  para: 8
+  sent: 27
+  text: Start with the handles.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel2
+      - kind: rect
+        w: 340
+        h: 420
+        fill: steel
+      - kind: rect
+        y: 25.2
+        w: 340
+        h: 201.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -158.0
+        y: -159.6
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -158.0
+        y: -126.0
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -158.0
+        y: 155.4
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -158.0
+        y: 184.8
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel
+      - kind: ellipse
+        y: -210.0
+        rx: 152.0
+        ry: 37.2
+        fill: steel2
+        sw: 4
+      id: can
+      x: 720
+      y: 680
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+        glow: yellow
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+        glow: yellow
+        keys:
+        - at: '@close'
+          rotate: -27
+          dur: 0.5
+          ease: back
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+      id: op
+      x: 560
+      y: 472
+      scale: 1.15
+    - kind: arrow
+      x: 1300
+      y: 120
+      to:
+      - -110
+      - 150
+      color: coral
+      in: '@close'
+    - kind: arrow
+      x: 560
+      y: 300
+      to:
+      - 0
+      - 120
+      color: yellow
+      in: '@clamp'
+    - kind: label
+      text: lever
+      x: 1040
+      y: 250
+      to:
+      - 240
+      - -60
+      in: '@lever'
+    camera:
+    - at: '@clamp'
+      x: 700
+      y: 480
+      zoom: 1.3
+      dur: 1.4
+- id: s044
+  para: 8
+  sent: 28
+  text: When you close them,
+  visual:
+    same: true
+- id: s045
+  para: 8
+  sent: 28
+  text: they clamp the wheels onto the rim of the can.
+  visual:
+    same: true
+- id: s046
+  para: 8
+  sent: 29
+  text: That clamp is a lever.
+  visual:
+    same: true
+- id: s047
+  para: 9
+  sent: 30
+  text: A lever trades distance for force.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: rect
+        x: -858.0
+        w: 1100
+        h: 34
+        r: 17
+        ax: 0
+        fill: violet
+      id: lev
+      x: 1218.0
+      y: 560
+      keys:
+      - at: '@trades'
+        rotate: -8
+        dur: 0.9
+        ease: back
+    - kind: poly
+      id: lev-pv
+      x: 1218.0
+      y: 577
+      points:
+      - - 0
+        - 0
+      - - -60
+        - 100
+      - - 60
+        - 100
+      fill: yellow
+    - kind: arrow
+      x: 400
+      y: 260
+      to:
+      - 0
+      - 260
+      color: coral
+      in: '@force#2'
+    - kind: arrow
+      x: 1218
+      y: 760
+      to:
+      - 0
+      - -150
+      color: yellow
+      in: '@out'
+    - kind: formula
+      text: advantage = force out ÷ force in
+      x: 960
+      y: 920
+      size: 64
+      bg: bg2
+      in: '@divided'
+- id: s048
+  para: 9
+  sent: 31
+  text: Physicists measure the trade
+  visual:
+    same: true
+- id: s049
+  para: 9
+  sent: 31
+  text: with a number called mechanical advantage.
+  visual:
+    same: true
+- id: s050
+  para: 9
+  sent: 32
+  text: It is the force you get out, divided by the force you put in.
+  visual:
+    same: true
+- id: s051
+  para: 9
+  sent: 33
+  text: For a lever,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: rect
+        x: -858.0
+        w: 1100
+        h: 34
+        r: 17
+        ax: 0
+        fill: violet
+      id: lev
+      x: 1218.0
+      y: 560
+    - kind: poly
+      id: lev-pv
+      x: 1218.0
+      y: 577
+      points:
+      - - 0
+        - 0
+      - - -60
+        - 100
+      - - 60
+        - 100
+      fill: yellow
+    - kind: line
+      x: 380
+      y: 470
+      to:
+      - 858
+      - 0
+      stroke: coral
+      sw: 8
+      in: '@push'
+    - kind: text
+      text: distance to your push
+      x: 800
+      y: 430
+      size: 48
+      in: '@push'
+      fill: coral
+    - kind: line
+      x: 1238
+      y: 470
+      to:
+      - 200
+      - 0
+      stroke: yellow
+      sw: 8
+      in: '@work'
+    - kind: text
+      text: to the work
+      x: 1340
+      y: 430
+      size: 48
+      in: '@work'
+      fill: yellow
+    - kind: formula
+      text: advantage = long ÷ short
+      x: 960
+      y: 900
+      size: 64
+      bg: bg2
+      in: '@ratio'
+- id: s052
+  para: 9
+  sent: 33
+  text: 'it is simply a ratio of two distances from the pivot:'
+  visual:
+    same: true
+- id: s053
+  para: 9
+  sent: 33
+  text: where you push, and where the work happens.
+  visual:
+    same: true
+- id: s054
+  para: 10
+  sent: 34
+  text: Think of a see-saw.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: rect
+        x: -806.0
+        w: 1300
+        h: 34
+        r: 17
+        ax: 0
+        fill: violet
+      id: saw
+      x: 1106.0
+      y: 700
+      keys:
+      - at: '@lift'
+        rotate: -9
+        dur: 0.9
+        ease: back
+    - kind: poly
+      id: saw-pv
+      x: 1106.0
+      y: 717
+      points:
+      - - 0
+        - 0
+      - - -60
+        - 100
+      - - 60
+        - 100
+      fill: yellow
+    - kind: group
+      items:
+      - kind: group
+        items:
+        - kind: circle
+          y: -120
+          r: 42
+          fill: cream
+        - kind: rect
+          y: -30
+          w: 90
+          h: 120
+          r: 40
+          fill: sky
+        - kind: circle
+          x: -14
+          y: -126
+          r: 5
+          fill: line
+          sw: 0
+        - kind: circle
+          x: 14
+          y: -126
+          r: 5
+          fill: line
+          sw: 0
+        id: kid
+        x: 0
+        y: 0
+        scale: 1.0
+      id: kidg
+      x: 380
+      y: 683
+      in: '@child'
+      keys:
+      - at: '@lift'
+        y: 815
+        dur: 0.9
+        ease: back
+    - kind: group
+      items:
+      - kind: rect
+        w: 220
+        h: 170
+        r: 40
+        fill: gold
+      - kind: rect
+        y: -95
+        w: 80
+        h: 30
+        r: 12
+        fill: dark
+      id: bag
+      x: 1270
+      y: 600
+      in: '@bag'
+      keys:
+      - at: '@lift'
+        y: 560
+        dur: 0.9
+        ease: back
+    - kind: text
+      text: distance does the lifting
+      x: 960
+      y: 220
+      size: 64
+      in: '@distance'
+- id: s055
+  para: 10
+  sent: 35
+  text: A small child sitting far out on one end can
+  visual:
+    same: true
+- id: s056
+  para: 10
+  sent: 35
+  text: lift a heavy bag resting close to the middle.
+  visual:
+    same: true
+- id: s057
+  para: 10
+  sent: 36
+  text: Distance does half the lifting.
+  visual:
+    same: true
+- id: s058
+  para: 11
+  sent: 37
+  text: On your opener, your fingers sit far from the hinge,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel2
+      - kind: rect
+        w: 340
+        h: 420
+        fill: steel
+      - kind: rect
+        y: 25.2
+        w: 340
+        h: 201.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -158.0
+        y: -159.6
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -158.0
+        y: -126.0
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -158.0
+        y: 155.4
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -158.0
+        y: 184.8
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel
+      - kind: ellipse
+        y: -210.0
+        rx: 152.0
+        ry: 37.2
+        fill: steel2
+        sw: 4
+      id: can
+      x: 720
+      y: 680
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+      id: op
+      x: 560
+      y: 472
+      scale: 1.15
+    - kind: line
+      x: 560
+      y: 470
+      to:
+      - 560
+      - -330
+      stroke: coral
+      sw: 8
+      dash:
+      - 18
+      - 14
+      in: '@fingers'
+    - kind: line
+      x: 560
+      y: 470
+      to:
+      - 14
+      - -14
+      stroke: yellow
+      sw: 12
+      in: '@wheels'
+    - kind: text
+      text: ×5
+      x: 1180
+      y: 200
+      size: 110
+      in: '@five'
+      fill: coral
+      example: true
+    - kind: text
+      text: example
+      x: 1180
+      y: 290
+      size: 44
+      in: '@five'
+      fill: muted
+- id: s059
+  para: 11
+  sent: 37
+  text: and the wheels sit close to it.
+  visual:
+    same: true
+- id: s060
+  para: 11
+  sent: 38
+  text: Say your hand is five times farther away.
+  visual:
+    same: true
+- id: s061
+  para: 11
+  sent: 39
+  text: Then every pound of squeeze lands
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel2
+      - kind: rect
+        w: 340
+        h: 420
+        fill: steel
+      - kind: rect
+        y: 25.2
+        w: 340
+        h: 201.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -158.0
+        y: -159.6
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -158.0
+        y: -126.0
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -158.0
+        y: 155.4
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -158.0
+        y: 184.8
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel
+      - kind: ellipse
+        y: -210.0
+        rx: 152.0
+        ry: 37.2
+        fill: steel2
+        sw: 4
+      id: can
+      x: 720
+      y: 680
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+        keys:
+        - at: '@grip'
+          rotate: -27
+          dur: 0.5
+          ease: back
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+      id: op
+      x: 560
+      y: 472
+      scale: 1.15
+    - kind: arrow
+      x: 1130
+      y: 60
+      to:
+      - 0
+      - 90
+      color: coral
+      in: '@pound'
+      sw: 8
+    - kind: text
+      text: 1 lb
+      x: 1240
+      y: 120
+      size: 64
+      in: '@pound'
+      example: true
+    - kind: arrow
+      x: 560
+      y: 120
+      to:
+      - 0
+      - 250
+      color: yellow
+      in: '@five'
+      sw: 24
+    - kind: text
+      text: 5 lb
+      x: 380
+      y: 260
+      size: 90
+      in: '@five'
+      example: true
+    - kind: text
+      text: example
+      x: 960
+      y: 1010
+      size: 44
+      in: '@five'
+      fill: muted
+- id: s062
+  para: 11
+  sent: 39
+  text: on the rim as roughly five pounds.
+  visual:
+    same: true
+- id: s063
+  para: 11
+  sent: 40
+  text: Your hand only feels a firm grip.
+  visual:
+    same: true
+- id: s064
+  para: 12
+  sent: 41
+  text: But a firm grip doesn't cut anything.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel2
+      - kind: rect
+        w: 340
+        h: 420
+        fill: steel
+      - kind: rect
+        y: 25.2
+        w: 340
+        h: 201.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -158.0
+        y: -159.6
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -158.0
+        y: -126.0
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -158.0
+        y: 155.4
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -158.0
+        y: 184.8
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel
+      - kind: ellipse
+        y: -210.0
+        rx: 152.0
+        ry: 37.2
+        fill: steel2
+        sw: 4
+      id: can
+      x: 820
+      y: 660
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+      id: op
+      x: 660
+      y: 452
+      scale: 1.15
+    - kind: text
+      text: '?'
+      x: 1340
+      y: 420
+      size: 260
+      in: '@cutting'
+      fill: yellow
+- id: s065
+  para: 12
+  sent: 42
+  text: So where does the cutting come from?
+  visual:
+    same: true
+- id: s066
+  para: 13
+  sent: 43
+  text: Look closely at the top wheel.
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: rim-lid
+      x: 330
+      y: 600
+      w: 1000
+      h: 26
+      ax: 0
+      fill: steel
+    - kind: rect
+      id: rim-wall
+      x: 1352
+      y: 860
+      w: 26
+      h: 440
+      fill: steel
+    - kind: rect
+      id: rim-seam
+      x: 1352
+      y: 600
+      w: 110
+      h: 90
+      r: 36
+      fill: steel2
+    - kind: group
+      items:
+      - kind: circle
+        r: 110
+        fill: steel
+      - kind: circle
+        r: 79.2
+        fill: steel2
+        sw: 4
+      - kind: circle
+        r: 22.0
+        fill: dark
+      id: cw
+      x: 1230
+      y: 470
+      in: 0
+      glow: yellow
+    - kind: label
+      text: bevelled edge
+      x: 1230
+      y: 575
+      to:
+      - -260
+      - -230
+      in: '@bevelled'
+    - kind: circle
+      id: spot
+      x: 1230
+      y: 587
+      r: 12
+      fill: yellow
+      glow: yellow
+      in: '@sliver'
+      pulse:
+        amount: 0.4
+        period: 0.8
+        from: '@sliver'
+    camera:
+    - at: '@sliver'
+      x: 1180
+      y: 560
+      zoom: 1.5
+      dur: 1.4
+- id: s067
+  para: 13
+  sent: 44
+  text: It is a small disc with a bevelled edge,
+  visual:
+    same: true
+- id: s068
+  para: 13
+  sent: 44
+  text: and that edge touches the lid along a tiny sliver of metal.
+  visual:
+    same: true
+- id: s069
+  para: 14
+  sent: 45
+  text: This is where pressure comes in.
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: block
+      x: 760
+      y: 640
+      w: 420
+      h: 160
+      r: 12
+      fill: sky
+      keys:
+      - at: '@shrink'
+        w: 60
+        dur: 1.2
+    - kind: rect
+      id: floor
+      x: 960
+      y: 740
+      w: 1100
+      h: 40
+      fill: steel2
+    - kind: arrow
+      x: 760
+      y: 340
+      to:
+      - 0
+      - 200
+      color: coral
+      in: '@force'
+    - kind: formula
+      text: pressure = force ÷ area
+      x: 960
+      y: 200
+      size: 70
+      bg: bg2
+      in: '@divided'
+    - kind: gauge
+      id: g
+      x: 1460
+      y: 480
+      r: 150
+      value: 0.15
+      in: '@pressure'
+      keys:
+      - at: '@climbs'
+        value: 0.92
+        dur: 1.2
+- id: s070
+  para: 14
+  sent: 46
+  text: Pressure is force divided by the area it pushes on.
+  visual:
+    same: true
+- id: s071
+  para: 14
+  sent: 47
+  text: Keep the force the same, shrink the area,
+  visual:
+    same: true
+- id: s072
+  para: 14
+  sent: 47
+  text: and the pressure climbs.
+  visual:
+    same: true
+- id: s073
+  para: 15
+  sent: 48
+  text: It is the reason a needle breaks skin
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      x: 960
+      y: 780
+      w: 1500
+      h: 120
+      fill: pink
+    - kind: text
+      text: skin
+      x: 300
+      y: 800
+      size: 50
+      in: 0
+      fill: line
+      outline: false
+    - kind: group
+      items:
+      - kind: poly
+        points:
+        - - 0
+          - 0
+        - - -10
+          - -300
+        - - 10
+          - -300
+        fill: steel
+      id: needle
+      x: 620
+      y: 690
+      in: '@needle'
+      keys:
+      - at: '@breaks'
+        y: 790
+        dur: 0.5
+        ease: in
+    - kind: arrow
+      x: 620
+      y: 220
+      to:
+      - 0
+      - 120
+      color: coral
+      in: '@needle'
+    - kind: group
+      items:
+      - kind: rect
+        w: 160
+        h: 320
+        r: 80
+        fill: cream
+      id: finger
+      x: 1300
+      y: 560
+      in: '@fingertip'
+      keys:
+      - at: '@hard'
+        y: 575
+        dur: 0.4
+    - kind: arrow
+      x: 1300
+      y: 220
+      to:
+      - 0
+      - 120
+      color: coral
+      in: '@fingertip'
+    - kind: text
+      text: same push
+      x: 960
+      y: 140
+      size: 60
+      in: '@pressing'
+- id: s074
+  para: 15
+  sent: 48
+  text: while a fingertip pressing just as hard does nothing at all.
+  visual:
+    same: true
+- id: s075
+  para: 16
+  sent: 49
+  text: The cutting wheel is that needle trick, stretched into a circle.
+  visual:
+    comp: mech
+    items:
+    - kind: circle
+      id: tip
+      x: 560
+      y: 560
+      r: 200
+      fill: cream
+      in: '@fingertip'
+    - kind: circle
+      id: edge
+      x: 1360
+      y: 560
+      r: 20
+      fill: yellow
+      glow: yellow
+      in: '@patch'
+    - kind: text
+      text: fingertip
+      x: 560
+      y: 860
+      size: 56
+      in: '@fingertip'
+      fill: muted
+    - kind: text
+      text: wheel edge
+      x: 1360
+      y: 860
+      size: 56
+      in: '@patch'
+      fill: muted
+    - kind: text
+      text: ×100 pressure
+      x: 960
+      y: 230
+      size: 96
+      in: '@hundred#2'
+      fill: yellow
+      example: true
+    - kind: text
+      text: example
+      x: 960
+      y: 320
+      size: 44
+      in: '@hundred#2'
+      fill: muted
+- id: s076
+  para: 16
+  sent: 50
+  text: Imagine its edge meets the lid
+  visual:
+    same: true
+- id: s077
+  para: 16
+  sent: 50
+  text: on a patch a hundred times smaller than your fingertip.
+  visual:
+    same: true
+- id: s078
+  para: 16
+  sent: 51
+  text: Then the same push presses a hundred times harder
+  visual:
+    same: true
+- id: s079
+  para: 16
+  sent: 51
+  text: on every speck of steel underneath it.
+  visual:
+    same: true
+- id: s080
+  para: 17
+  sent: 52
+  text: What happens to the steel under that edge?
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: strip
+      x: 960
+      y: 560
+      w: 900
+      h: 70
+      r: 10
+      fill: steel
+    - kind: arrow
+      x: 420
+      y: 560
+      to:
+      - -200
+      - 0
+      color: coral
+      in: '@stress'
+    - kind: arrow
+      x: 1500
+      y: 560
+      to:
+      - 200
+      - 0
+      color: coral
+      in: '@stress'
+    - kind: formula
+      text: stress = force ÷ area
+      x: 960
+      y: 820
+      size: 70
+      bg: bg2
+      in: '@stress'
+    - kind: text
+      text: inside a solid
+      x: 960
+      y: 340
+      size: 56
+      in: '@solid'
+      fill: muted
+- id: s081
+  para: 17
+  sent: 53
+  text: Engineers call force spread over an area stress,
+  visual:
+    same: true
+- id: s082
+  para: 17
+  sent: 53
+  text: the same idea as pressure inside a solid.
+  visual:
+    same: true
+- id: s083
+  para: 17
+  sent: 54
+  text: Push a little, and the metal springs back.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: rect
+        w: 400
+        h: 56
+        r: 8
+        fill: steel
+        ax: 1
+      id: left
+      x: 960
+      y: 560
+      pivot:
+      - 0
+      - 0
+      keys:
+      - at: '@springs'
+        rotate: 10
+        dur: 0.35
+      - at: '@springs+0.4'
+        rotate: 0
+        dur: 0.5
+        ease: elastic
+      - at: '@bends'
+        rotate: 18
+        dur: 0.6
+      - at: '@fractures'
+        rotate: 34
+        x: 900
+        y: 600
+        dur: 0.4
+        ease: out
+    - kind: group
+      items:
+      - kind: rect
+        w: 400
+        h: 56
+        r: 8
+        fill: steel
+        ax: 0
+      id: right
+      x: 960
+      y: 560
+      keys:
+      - at: '@springs'
+        rotate: -10
+        dur: 0.35
+      - at: '@springs+0.4'
+        rotate: 0
+        dur: 0.5
+        ease: elastic
+      - at: '@bends'
+        rotate: -18
+        dur: 0.6
+      - at: '@fractures'
+        rotate: -34
+        x: 1020
+        y: 600
+        dur: 0.4
+        ease: out
+    - kind: arrow
+      x: 960
+      y: 300
+      to:
+      - 0
+      - 180
+      color: coral
+      in: '@push'
+    - kind: text
+      text: springs back
+      x: 520
+      y: 860
+      size: 52
+      in: '@springs'
+      fill: teal
+    - kind: text
+      text: bends for good
+      x: 960
+      y: 860
+      size: 52
+      in: '@bends'
+      fill: yellow
+    - kind: text
+      text: fractures
+      x: 1400
+      y: 860
+      size: 52
+      in: '@fractures'
+      fill: coral
+    drift: 0
+- id: s084
+  para: 17
+  sent: 55
+  text: Push harder, and it bends for good.
+  visual:
+    same: true
+- id: s085
+  para: 17
+  sent: 56
+  text: Push harder still, and it fractures.
+  visual:
+    same: true
+- id: s086
+  para: 17
+  sent: 57
+  text: The cutting wheel lives right at that last line,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: circle
+        r: 380
+        fill: steel
+      - kind: circle
+        r: 354
+        fill: steel2
+        sw: 4
+      id: lid
+      x: 960
+      y: 560
+      in: 0
+    - kind: path
+      id: cut
+      x: 960
+      y: 560
+      d: M0.0 -330.0 A 330 330 0 0 1 252.8 212.1
+      stroke: yellow
+      sw: 8
+      glow: yellow
+      in:
+        at: '@hairline'
+        fx: draw
+        dur: 1.6
+    - kind: label
+      text: hairline
+      x: 1215
+      y: 350
+      to:
+      - 220
+      - -120
+      in: '@hairline+0.6'
+    - kind: text
+      text: 'the rest of the lid: untouched'
+      x: 960
+      y: 1000
+      size: 50
+      in: '@never'
+      fill: muted
+- id: s087
+  para: 17
+  sent: 57
+  text: but only along a hairline,
+  visual:
+    same: true
+- id: s088
+  para: 17
+  sent: 57
+  text: never across the whole lid.
+  visual:
+    same: true
+- id: s089
+  para: 18
+  sent: 58
+  text: And that steel is thin.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: rect
+        w: 1400
+        h: 40
+        fill: steel
+      id: sheet
+      x: 960
+      y: 560
+      in: 0
+    - kind: group
+      items:
+      - kind: rect
+        y: -120
+        w: 60
+        h: 200
+        r: 10
+        fill: coral
+      - kind: rect
+        y: 120
+        w: 60
+        h: 200
+        r: 10
+        fill: coral
+      id: caliper
+      x: 960
+      y: 560
+      in: '@roll'
+    - kind: text
+      text: 0.20 – 0.35 mm
+      x: 960
+      y: 860
+      size: 96
+      in: '@millimetre'
+      fill: yellow
+    - kind: text
+      text: food-can steel
+      x: 960
+      y: 250
+      size: 56
+      in: '@steelmakers'
+      fill: muted
+    camera:
+    - at: '@steelmakers'
+      zoom: 1.25
+      dur: 2
+- id: s090
+  para: 18
+  sent: 59
+  text: Steelmakers roll the metal for food cans to somewhere between two
+  visual:
+    same: true
+- id: s091
+  para: 18
+  sent: 59
+  text: and three and a half tenths of a millimetre.
+  visual:
+    same: true
+- id: s092
+  para: 18
+  sent: 60
+  text: Against that, a concentrated edge wins.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: rect
+        x: -20
+        w: 600
+        h: 40
+        fill: steel
+        ax: 1
+      id: left
+      x: 960
+      y: 640
+      keys:
+      - at: '@apart'
+        x: 900
+        rotate: 6
+        dur: 0.8
+    - kind: group
+      items:
+      - kind: rect
+        x: 20
+        w: 600
+        h: 40
+        fill: steel
+        ax: 0
+      id: right
+      x: 960
+      y: 640
+      keys:
+      - at: '@apart'
+        x: 1020
+        rotate: -6
+        dur: 0.8
+    - kind: group
+      items:
+      - kind: poly
+        points:
+        - - 0
+          - 40
+        - - -70
+          - -200
+        - - 70
+          - -200
+        fill: yellow
+      id: wedge
+      x: 960
+      y: 420
+      in: '@wedge'
+      keys:
+      - at: '@apart'
+        y: 600
+        dur: 0.8
+    - kind: arrow
+      x: 880
+      y: 760
+      to:
+      - -220
+      - 0
+      color: sky
+      in: '@apart'
+    - kind: arrow
+      x: 1040
+      y: 760
+      to:
+      - 220
+      - 0
+      color: sky
+      in: '@apart'
+    - kind: text
+      text: wedge
+      x: 960
+      y: 180
+      size: 64
+      in: '@wedge'
+- id: s093
+  para: 18
+  sent: 61
+  text: The bevel works like a wedge,
+  visual:
+    same: true
+- id: s094
+  para: 18
+  sent: 61
+  text: forcing the metal apart as the wheel sinks in.
+  visual:
+    same: true
+- id: s095
+  para: 19
+  sent: 62
+  text: Still, a single dent doesn't open a can.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: circle
+        r: 380
+        fill: steel
+      - kind: circle
+        r: 354
+        fill: steel2
+        sw: 4
+      id: lid
+      x: 960
+      y: 560
+      in: 0
+    - kind: circle
+      id: dent
+      x: 960
+      y: 210
+      r: 14
+      fill: yellow
+      glow: yellow
+      in: '@dent'
+    - kind: path
+      id: route
+      x: 960
+      y: 560
+      d: M0.0 -350.0 A 350 350 0 1 1 -0.0 350.0 A 350 350 0 1 1 0.0 -350.0
+      stroke: yellow
+      sw: 6
+      dash:
+      - 20
+      - 18
+      in:
+        at: '@around'
+        fx: fade
+    - kind: text
+      text: '?'
+      x: 1560
+      y: 420
+      size: 220
+      in: '@turning'
+      fill: yellow
+- id: s096
+  para: 19
+  sent: 63
+  text: Something has to drag that dent all the way around.
+  visual:
+    same: true
+- id: s097
+  para: 19
+  sent: 64
+  text: What does the turning?
+  visual:
+    same: true
+- id: s098
+  para: 20
+  sent: 65
+  text: That is the crank's job,
+  visual:
+    comp: mech
+    items:
+    - kind: circle
+      id: path
+      x: 960
+      y: 560
+      r: 320
+      fill: none
+      stroke: muted
+      sw: 6
+      dash:
+      - 18
+      - 16
+      in: '@crank'
+    - kind: circle
+      id: shaft
+      x: 960
+      y: 560
+      r: 40
+      fill: teal
+      in: '@crank'
+    - kind: group
+      items:
+      - kind: rect
+        w: 320
+        h: 40
+        r: 20
+        ax: 0
+        fill: yellow
+      - kind: circle
+        x: 320
+        r: 46
+        fill: coral
+      id: arm
+      x: 960
+      y: 560
+      in: '@crank'
+      spin:
+        speed: 120
+        from: '@round'
+    - kind: label
+      text: a lever too
+      x: 1280
+      y: 560
+      to:
+      - 160
+      - -260
+      in: '@lever'
+- id: s099
+  para: 20
+  sent: 65
+  text: and it is a lever too,
+  visual:
+    same: true
+- id: s100
+  para: 20
+  sent: 65
+  text: one that never stops going round.
+  visual:
+    same: true
+- id: s101
+  para: 20
+  sent: 66
+  text: Your hand travels a wide circle
+  visual:
+    comp: mech
+    items:
+    - kind: circle
+      id: big
+      x: 960
+      y: 560
+      r: 320
+      fill: none
+      stroke: coral
+      sw: 10
+      in:
+        at: '@wide'
+        fx: pop
+      glow: coral
+    - kind: circle
+      id: small
+      x: 960
+      y: 560
+      r: 40
+      fill: teal
+      glow: teal
+      in: '@tiny'
+    - kind: group
+      items:
+      - kind: rect
+        w: 320
+        h: 40
+        r: 20
+        ax: 0
+        fill: yellow
+      - kind: circle
+        x: 320
+        r: 46
+        fill: coral
+      id: arm
+      x: 960
+      y: 560
+      in: 0
+      spin:
+        speed: 120
+        from: 0
+    - kind: text
+      text: your twist ×
+      x: 960
+      y: 990
+      size: 64
+      in: '@multiplies'
+- id: s102
+  para: 20
+  sent: 66
+  text: while the shaft inside spins a tiny one.
+  visual:
+    same: true
+- id: s103
+  para: 20
+  sent: 67
+  text: The difference in those two distances multiplies your twist.
+  visual:
+    same: true
+- id: s104
+  para: 20
+  sent: 68
+  text: Say the knob of the crank sweeps a
+  visual:
+    comp: mech
+    items:
+    - kind: line
+      x: 960
+      y: 560
+      to:
+      - 320
+      - 0
+      stroke: coral
+      sw: 10
+      in: '@knob'
+    - kind: line
+      x: 960
+      y: 600
+      to:
+      - 54
+      - 0
+      stroke: teal
+      sw: 10
+      in: '@shaft'
+    - kind: text
+      text: ×6
+      x: 1300
+      y: 430
+      size: 120
+      in: '@six'
+      fill: coral
+      example: true
+    - kind: text
+      text: example
+      x: 1300
+      y: 520
+      size: 44
+      in: '@six'
+      fill: muted
+    - kind: arrow
+      x: 1280
+      y: 820
+      to:
+      - 0
+      - -90
+      color: coral
+      in: '@sixth'
+      sw: 8
+    - kind: arrow
+      x: 990
+      y: 940
+      to:
+      - 0
+      - -360
+      color: teal
+      in: '@delivers'
+      sw: 20
+    - kind: circle
+      x: 960
+      y: 560
+      r: 40
+      fill: teal
+      in: 0
+    - kind: circle
+      x: 1280
+      y: 560
+      r: 46
+      fill: coral
+      in: 0
+- id: s105
+  para: 20
+  sent: 68
+  text: circle six times wider than the shaft.
+  visual:
+    same: true
+- id: s106
+  para: 20
+  sent: 69
+  text: Then your fingers only need a sixth
+  visual:
+    same: true
+- id: s107
+  para: 20
+  sent: 69
+  text: of the turning force the shaft delivers.
+  visual:
+    same: true
+- id: s108
+  para: 21
+  sent: 70
+  text: The shaft drives the second wheel, tucked under the rim.
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      id: rim-lid
+      x: 330
+      y: 600
+      w: 1000
+      h: 26
+      ax: 0
+      fill: steel
+    - kind: rect
+      id: rim-wall
+      x: 1352
+      y: 860
+      w: 26
+      h: 440
+      fill: steel
+    - kind: rect
+      id: rim-seam
+      x: 1352
+      y: 600
+      w: 110
+      h: 90
+      r: 36
+      fill: steel2
+    - kind: group
+      items:
+      - kind: circle
+        r: 110
+        fill: steel
+      - kind: circle
+        r: 79.2
+        fill: steel2
+        sw: 4
+      - kind: circle
+        r: 22.0
+        fill: dark
+      id: cw
+      x: 1230
+      y: 470
+      in: 0
+    - kind: gear
+      id: fw
+      x: 1395
+      y: 740
+      r: 100
+      teeth: 22
+      depth: 18
+      hole: 20
+      fill: yellow
+      in: '@second'
+      spin:
+        speed: -110
+        from: '@drives'
+      glow: yellow
+    - kind: label
+      text: small teeth
+      x: 1395
+      y: 640
+      to:
+      - -560
+      - 160
+      in: '@teeth'
+    - kind: arrow
+      x: 1300
+      y: 520
+      to:
+      - -300
+      - 0
+      color: sky
+      in: '@drag'
+      bend: -30
+    - kind: text
+      text: the can walks itself
+      x: 1150
+      y: 300
+      size: 64
+      in: '@walks'
+    camera:
+    - at: '@second'
+      x: 1260
+      y: 640
+      zoom: 1.3
+      dur: 1.4
+- id: s109
+  para: 21
+  sent: 71
+  text: Its edge is covered in small teeth.
+  visual:
+    same: true
+- id: s110
+  para: 21
+  sent: 72
+  text: They bite the underside of the rim and drag it along,
+  visual:
+    same: true
+- id: s111
+  para: 21
+  sent: 72
+  text: so the can walks itself through the gap.
+  visual:
+    same: true
+- id: s112
+  para: 21
+  sent: 73
+  text: Up top, the cutting wheel simply rolls,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: group
+        items:
+        - kind: circle
+          r: 380
+          fill: steel
+        - kind: circle
+          r: 354
+          fill: steel2
+          sw: 4
+        id: lid
+        x: 0
+        y: 0
+      - kind: circle
+        x: 0
+        y: -360
+        r: 10
+        fill: steel2
+      id: can
+      x: 900
+      y: 560
+      spin:
+        speed: -40
+        from: 0
+    - kind: path
+      id: cut
+      x: 900
+      y: 560
+      d: M170.0 -294.4 A 340 340 0 0 1 334.8 59.0
+      stroke: yellow
+      sw: 8
+      glow: yellow
+      in:
+        at: '@rolls'
+        fx: draw
+        dur: 2.5
+    - kind: group
+      items:
+      - kind: circle
+        r: 70
+        fill: steel
+      - kind: circle
+        r: 22
+        fill: dark
+      id: wheel
+      x: 1240
+      y: 560
+      spin:
+        speed: 160
+        from: 0
+      in: 0
+    - kind: label
+      text: cutting wheel
+      x: 1240
+      y: 560
+      to:
+      - 140
+      - -260
+      in: '@cutting'
+- id: s113
+  para: 21
+  sent: 73
+  text: like a pizza cutter riding a moving crust.
+  visual:
+    same: true
+- id: s114
+  para: 22
+  sent: 74
+  text: In many openers, the two wheels are linked by little gears,
+  visual:
+    comp: mech
+    items:
+    - kind: gear
+      id: g1
+      x: 860
+      y: 430
+      r: 150
+      teeth: 20
+      depth: 22
+      fill: steel
+      in: '@gears'
+      spin:
+        speed: 70
+        from: '@opposite'
+    - kind: gear
+      id: g2
+      x: 1118
+      y: 430
+      r: 150
+      teeth: 20
+      depth: 22
+      rotate: 9
+      fill: yellow
+      in: '@gears'
+      spin:
+        speed: -70
+        from: '@opposite'
+    - kind: rect
+      id: rimstrip
+      x: 960
+      y: 760
+      w: 1700
+      h: 40
+      fill: steel2
+      in: '@pinch'
+    - kind: arrow
+      x: 1400
+      y: 700
+      to:
+      - -500
+      - 0
+      color: sky
+      in: '@pulling'
+    - kind: text
+      text: opposite directions
+      x: 960
+      y: 950
+      size: 60
+      in: '@opposite'
+- id: s115
+  para: 22
+  sent: 74
+  text: so they spin in opposite directions.
+  visual:
+    same: true
+- id: s116
+  para: 22
+  sent: 75
+  text: They pinch the rim between them like the rollers
+  visual:
+    same: true
+- id: s117
+  para: 22
+  sent: 75
+  text: of an old clothes wringer,
+  visual:
+    same: true
+- id: s118
+  para: 22
+  sent: 75
+  text: pulling the metal through instead of scraping it.
+  visual:
+    same: true
+- id: s119
+  para: 23
+  sent: 76
+  text: That toothed wheel is the piece
+  visual:
+    comp: mech
+    items:
+    - kind: gear
+      id: fw
+      x: 960
+      y: 540
+      r: 260
+      teeth: 22
+      depth: 18
+      hole: 20
+      fill: yellow
+      in: 0
+      spin:
+        speed: 30
+        from: 0
+      glow: yellow
+    - kind: text
+      text: feed wheel
+      x: 960
+      y: 940
+      size: 72
+      in: '@toothed'
+- id: s120
+  para: 23
+  sent: 76
+  text: that made the modern opener possible.
+  visual:
+    same: true
+- id: s121
+  para: 23
+  sent: 77
+  text: William Lyman of Meriden, Connecticut,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: circle
+        r: 400
+        fill: steel
+      - kind: circle
+        r: 374
+        fill: steel2
+        sw: 4
+      id: lid
+      x: 960
+      y: 560
+      in: 0
+    - kind: circle
+      id: spike
+      x: 960
+      y: 560
+      r: 26
+      fill: coral
+      glow: coral
+      in: '@spike'
+    - kind: group
+      items:
+      - kind: rect
+        w: 360
+        h: 34
+        r: 17
+        ax: 0
+        fill: coral
+      - kind: circle
+        x: 360
+        r: 40
+        fill: steel
+      id: arm
+      x: 960
+      y: 560
+      in: '@cutting'
+      spin:
+        speed: 90
+        from: '@swing'
+    - kind: text
+      text: 1870 · Lyman
+      x: 960
+      y: 110
+      size: 64
+      in: '@seventy'
+- id: s122
+  para: 23
+  sent: 77
+  text: had patented a cutting wheel in eighteen seventy.
+  visual:
+    same: true
+- id: s123
+  para: 23
+  sent: 78
+  text: But his design needed a spike pushed
+  visual:
+    same: true
+- id: s124
+  para: 23
+  sent: 78
+  text: through the middle of the lid,
+  visual:
+    same: true
+- id: s125
+  para: 23
+  sent: 78
+  text: as a pivot to swing around.
+  visual:
+    same: true
+- id: s126
+  para: 23
+  sent: 79
+  text: Then, in nineteen twenty-five,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: circle
+        r: 330
+        fill: steel
+      - kind: circle
+        r: 304
+        fill: steel2
+        sw: 4
+      id: lid
+      x: 800
+      y: 560
+      in: 0
+    - kind: circle
+      id: spike
+      x: 800
+      y: 560
+      r: 26
+      fill: coral
+      in: 0
+      out: '@spike'
+    - kind: gear
+      id: fw
+      x: 1160
+      y: 560
+      r: 70
+      teeth: 22
+      depth: 18
+      hole: 20
+      fill: yellow
+      in: '@serrated'
+      spin:
+        speed: -120
+        from: '@serrated'
+      glow: yellow
+    - kind: circle
+      id: track
+      x: 800
+      y: 560
+      r: 330
+      fill: none
+      stroke: yellow
+      sw: 10
+      glow: yellow
+      in: '@track'
+    - kind: text
+      text: 1925 · feed wheel
+      x: 800
+      y: 110
+      size: 64
+      in: '@twenty'
+    - kind: group
+      items:
+      - kind: circle
+        r: 110
+        fill: steel
+      - kind: circle
+        r: 84
+        fill: steel2
+        sw: 4
+      id: small
+      x: 1560
+      y: 400
+      in: '@size'
+    - kind: group
+      items:
+      - kind: circle
+        r: 170
+        fill: steel
+      - kind: circle
+        r: 144
+        fill: steel2
+        sw: 4
+      id: big
+      x: 1560
+      y: 760
+      in: '@size+0.3'
+- id: s127
+  para: 23
+  sent: 79
+  text: the Star Can Opener Company
+  visual:
+    same: true
+- id: s128
+  para: 23
+  sent: 79
+  text: of San Francisco added the serrated feed wheel.
+  visual:
+    same: true
+- id: s129
+  para: 23
+  sent: 80
+  text: The rim itself became the track.
+  visual:
+    same: true
+- id: s130
+  para: 23
+  sent: 81
+  text: No spike, no measuring, any size of can.
+  visual:
+    same: true
+- id: s131
+  para: 24
+  sent: 82
+  text: In nineteen thirty-one,
+  visual:
+    prompt: A bright 1930s American kitchen, a woman in a patterned apron at the counter opening a food tin with
+      a hand-held pliers-style can opener, turning its butterfly key, morning light from a window, simple period
+      cabinets
+    characters: []
+- id: s132
+  para: 24
+  sent: 82
+  text: the Bunker Clancey Company
+  visual:
+    same: true
+- id: s133
+  para: 24
+  sent: 82
+  text: 'of Kansas City put the whole system into one hand:'
+  visual:
+    same: true
+- id: s134
+  para: 24
+  sent: 82
+  text: pliers-style handles to grip, a key to turn,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel2
+      - kind: rect
+        w: 340
+        h: 420
+        fill: steel
+      - kind: rect
+        y: 25.2
+        w: 340
+        h: 201.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -158.0
+        y: -159.6
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -158.0
+        y: -126.0
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -158.0
+        y: 155.4
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -158.0
+        y: 184.8
+        to:
+        - 316
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -210.0
+        rx: 170.0
+        ry: 44.2
+        fill: steel
+      - kind: ellipse
+        y: -210.0
+        rx: 152.0
+        ry: 37.2
+        fill: steel2
+        sw: 4
+      id: can
+      x: 720
+      y: 680
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+        keys:
+        - at: '@grip'
+          rotate: -27
+          dur: 0.5
+          ease: back
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+        spin:
+          speed: 260
+          from: '@turn'
+      id: op
+      x: 560
+      y: 472
+      scale: 1.15
+    - kind: label
+      text: grip
+      x: 1040
+      y: 260
+      to:
+      - 220
+      - -60
+      in: '@grip'
+    - kind: label
+      text: turn
+      x: 700
+      y: 380
+      to:
+      - -300
+      - -150
+      in: '@turn'
+    - kind: label
+      text: geared wheels
+      x: 560
+      y: 470
+      to:
+      - -330
+      - 90
+      in: '@geared'
+- id: s135
+  para: 24
+  sent: 82
+  text: and geared wheels to do the rest.
+  visual:
+    same: true
+- id: s136
+  para: 24
+  sent: 83
+  text: Chances are, the opener in your drawer still follows that plan.
+  visual:
+    same: true
+- id: s137
+  para: 25
+  sent: 84
+  text: The electric opener followed the same year,
+  visual:
+    prompt: A cheerful 1950s American kitchen counter with a new white electric can opener next to a toaster, a
+      family of three looking at the gadget with curious smiles, pastel cabinets
+    characters: []
+- id: s138
+  para: 25
+  sent: 84
+  text: and almost nobody bought it.
+  visual:
+    same: true
+- id: s139
+  para: 25
+  sent: 85
+  text: It only caught on in the nineteen-fifties.
+  visual:
+    same: true
+- id: s140
+  para: 25
+  sent: 86
+  text: Inside, it is the same cutting wheel at work,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: rect
+        w: 420
+        h: 560
+        r: 60
+        fill: cream
+      - kind: rect
+        y: -120
+        w: 300
+        h: 160
+        r: 30
+        fill: sky
+      id: body
+      x: 960
+      y: 560
+      in: 0
+    - kind: group
+      items:
+      - kind: circle
+        r: 60
+        fill: steel
+      - kind: circle
+        r: 43.199999999999996
+        fill: steel2
+        sw: 4
+      - kind: circle
+        r: 12.0
+        fill: dark
+      id: cw
+      x: 960
+      y: 520
+      in: 0
+      spin:
+        speed: 200
+        from: '@cutting'
+      glow: yellow
+    - kind: label
+      text: motor
+      x: 960
+      y: 700
+      to:
+      - 300
+      - 120
+      in: '@motor'
+- id: s141
+  para: 25
+  sent: 86
+  text: with a motor doing the twisting for you.
+  visual:
+    same: true
+- id: s142
+  para: 26
+  sent: 87
+  text: Newer designs attack from the side.
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      x: 380
+      y: 520
+      w: 900
+      h: 26
+      ax: 0
+      fill: steel
+    - kind: rect
+      x: 1352
+      y: 780
+      w: 26
+      h: 440
+      fill: steel
+    - kind: rect
+      id: seam
+      x: 1352
+      y: 520
+      w: 110
+      h: 90
+      r: 36
+      fill: steel2
+    - kind: group
+      items:
+      - kind: circle
+        r: 90
+        fill: steel
+      - kind: circle
+        r: 24
+        fill: dark
+      id: side
+      x: 1560
+      y: 500
+      in: '@side'
+      spin:
+        speed: 140
+        from: '@split'
+    - kind: circle
+      id: roller
+      x: 1560
+      y: 700
+      r: 60
+      fill: teal
+      in: '@roller'
+      spin:
+        speed: -140
+        from: '@split'
+    - kind: line
+      x: 1400
+      y: 500
+      to:
+      - 0
+      - 40
+      stroke: yellow
+      sw: 8
+      glow: yellow
+      in: '@split'
+    - kind: label
+      text: seam
+      x: 1352
+      y: 520
+      to:
+      - -330
+      - -230
+      in: '@seam'
+    camera:
+    - at: '@side'
+      x: 1300
+      y: 560
+      zoom: 1.2
+      dur: 1.4
+- id: s143
+  para: 26
+  sent: 88
+  text: Instead of slicing down through the lid,
+  visual:
+    same: true
+- id: s144
+  para: 26
+  sent: 88
+  text: a cutting wheel and a roller split the seam
+  visual:
+    same: true
+- id: s145
+  para: 26
+  sent: 88
+  text: where the lid is rolled onto the can.
+  visual:
+    same: true
+- id: s146
+  para: 26
+  sent: 89
+  text: The edge comes away smooth,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 180.0
+        rx: 210.0
+        ry: 54.6
+        fill: steel2
+      - kind: rect
+        w: 420
+        h: 360
+        fill: steel
+      - kind: rect
+        y: 21.599999999999998
+        w: 420
+        h: 172.79999999999998
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -198.0
+        y: -136.8
+        to:
+        - 396
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -198.0
+        y: -108.0
+        to:
+        - 396
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -198.0
+        y: 133.2
+        to:
+        - 396
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -198.0
+        y: 158.4
+        to:
+        - 396
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -180.0
+        rx: 210.0
+        ry: 54.6
+        fill: steel
+      - kind: ellipse
+        y: -180.0
+        rx: 192.0
+        ry: 47.6
+        fill: steel2
+        sw: 4
+      id: can
+      x: 960
+      y: 700
+    - kind: ellipse
+      id: lid
+      x: 960
+      y: 520
+      rx: 210
+      ry: 55
+      fill: steel
+      sw: 6
+      keys:
+      - at: '@smooth'
+        y: 330
+        dur: 0.9
+        ease: back
+      - at: '@rest'
+        y: 515
+        dur: 0.8
+        ease: bounce
+    - kind: particles
+      id: air
+      x: 960
+      y: 470
+      w: 360
+      h: 80
+      count: 12
+      size: 10
+      mode: steam
+      color: sky
+      in: '@seal'
+    - kind: label
+      text: smooth edge
+      x: 1170
+      y: 520
+      to:
+      - 220
+      - -120
+      in: '@smooth'
+    - kind: text
+      text: safer edge
+      x: 960
+      y: 980
+      size: 64
+      in: '@safer'
+      fill: teal
+- id: s147
+  para: 26
+  sent: 89
+  text: and the lid can rest back on top as a cover.
+  visual:
+    same: true
+- id: s148
+  para: 26
+  sent: 90
+  text: It will not seal again, though.
+  visual:
+    same: true
+- id: s149
+  para: 26
+  sent: 91
+  text: That is the price of a safer edge.
+  visual:
+    same: true
+- id: s150
+  para: 27
+  sent: 92
+  text: So, next time a lid lifts free in your fingers,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: group
+        items:
+        - kind: rect
+          x: -420.0
+          w: 600
+          h: 34
+          r: 17
+          ax: 0
+          fill: violet
+        id: i1
+        x: 120.0
+        y: 0
+      - kind: poly
+        id: i1-pv
+        x: 120.0
+        y: 17
+        points:
+        - - 0
+          - 0
+        - - -60
+          - 100
+        - - 60
+          - 100
+        fill: yellow
+      x: 420
+      y: 520
+      scale: 0.7
+      in: '@lever'
+    - kind: group
+      items:
+      - kind: poly
+        points:
+        - - 0
+          - -150
+        - - -90
+          - 120
+        - - 90
+          - 120
+        fill: sky
+      - kind: circle
+        y: -150
+        r: 14
+        fill: yellow
+        glow: yellow
+      x: 960
+      y: 520
+      in: '@pressure'
+    - kind: text
+      text: lever
+      x: 420
+      y: 820
+      size: 60
+      in: '@lever'
+    - kind: text
+      text: pressure
+      x: 960
+      y: 820
+      size: 60
+      in: '@pressure'
+- id: s151
+  para: 27
+  sent: 92
+  text: picture what just happened.
+  visual:
+    same: true
+- id: s152
+  para: 27
+  sent: 93
+  text: Your grip was amplified by a lever.
+  visual:
+    same: true
+- id: s153
+  para: 27
+  sent: 94
+  text: A sharp little disc squeezed that grip into enormous pressure.
+  visual:
+    same: true
+- id: s154
+  para: 27
+  sent: 95
+  text: And a crank, a pair of gears and a toothed wheel
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: group
+        items:
+        - kind: rect
+          x: -420.0
+          w: 600
+          h: 34
+          r: 17
+          ax: 0
+          fill: violet
+        id: i1
+        x: 120.0
+        y: 0
+      - kind: poly
+        id: i1-pv
+        x: 120.0
+        y: 17
+        points:
+        - - 0
+          - 0
+        - - -60
+          - 100
+        - - 60
+          - 100
+        fill: yellow
+      x: 420
+      y: 520
+      scale: 0.7
+    - kind: group
+      items:
+      - kind: poly
+        points:
+        - - 0
+          - -150
+        - - -90
+          - 120
+        - - 90
+          - 120
+        fill: sky
+      x: 960
+      y: 520
+    - kind: gear
+      id: g
+      x: 1500
+      y: 500
+      r: 150
+      teeth: 18
+      depth: 22
+      fill: yellow
+      in: '@crank'
+      spin:
+        speed: 90
+        from: '@marched'
+    - kind: text
+      text: turning
+      x: 1500
+      y: 820
+      size: 60
+      in: '@crank'
+    - kind: rect
+      id: wall
+      x: 960
+      y: 980
+      w: 600
+      h: 20
+      fill: steel
+      in: '@thin'
+- id: s155
+  para: 27
+  sent: 95
+  text: marched the cut around the rim, one bite at a time.
+  visual:
+    same: true
+- id: s156
+  para: 27
+  sent: 96
+  text: None of it could work until cans learned to be thin.
+  visual:
+    same: true
+- id: s157
+  para: 28
+  sent: 97
+  text: Which leaves a puzzle.
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 230.0
+        rx: 190.0
+        ry: 49.4
+        fill: steel2
+      - kind: rect
+        w: 380
+        h: 460
+        fill: steel
+      - kind: rect
+        y: 27.599999999999998
+        w: 380
+        h: 220.79999999999998
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -178.0
+        y: -174.8
+        to:
+        - 356
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -178.0
+        y: -138.0
+        to:
+        - 356
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -178.0
+        y: 170.2
+        to:
+        - 356
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -178.0
+        y: 202.4
+        to:
+        - 356
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -230.0
+        rx: 190.0
+        ry: 49.4
+        fill: steel
+      - kind: ellipse
+        y: -230.0
+        rx: 172.0
+        ry: 42.4
+        fill: steel2
+        sw: 4
+      id: can
+      x: 960
+      y: 600
+      in: 0
+      shake:
+        at: '@crumple'
+        amount: 10
+    - kind: arrow
+      x: 560
+      y: 600
+      to:
+      - 180
+      - 0
+      color: coral
+      in: '@crumple'
+    - kind: arrow
+      x: 1360
+      y: 600
+      to:
+      - -180
+      - 0
+      color: coral
+      in: '@crumple'
+    - kind: text
+      text: '?'
+      x: 960
+      y: 230
+      size: 200
+      in: '@puzzle'
+      fill: yellow
+- id: s158
+  para: 28
+  sent: 98
+  text: If can steel is that thin,
+  visual:
+    same: true
+- id: s159
+  para: 28
+  sent: 98
+  text: why doesn't the can crumple in your hand?
+  visual:
+    same: true
+- id: s160
+  para: 28
+  sent: 99
+  text: The answer is pressed into its sides,
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 260.0
+        rx: 210.0
+        ry: 54.6
+        fill: steel2
+      - kind: rect
+        w: 420
+        h: 520
+        fill: steel
+      - kind: rect
+        y: 31.2
+        w: 420
+        h: 249.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -198.0
+        y: -197.6
+        to:
+        - 396
+        - 0
+        stroke: steel2
+        sw: 6
+        glow: yellow
+        in: '@rings'
+        keys:
+        - at: '@rings'
+          stroke: yellow
+          dur: 0.4
+      - kind: line
+        id: can-r1
+        x: -198.0
+        y: -156.0
+        to:
+        - 396
+        - 0
+        stroke: steel2
+        sw: 6
+        glow: yellow
+        in: '@rings'
+        keys:
+        - at: '@rings'
+          stroke: yellow
+          dur: 0.4
+      - kind: line
+        id: can-r2
+        x: -198.0
+        y: 192.4
+        to:
+        - 396
+        - 0
+        stroke: steel2
+        sw: 6
+        glow: yellow
+        in: '@rings'
+        keys:
+        - at: '@rings'
+          stroke: yellow
+          dur: 0.4
+      - kind: line
+        id: can-r3
+        x: -198.0
+        y: 228.8
+        to:
+        - 396
+        - 0
+        stroke: steel2
+        sw: 6
+        glow: yellow
+        in: '@rings'
+        keys:
+        - at: '@rings'
+          stroke: yellow
+          dur: 0.4
+      - kind: ellipse
+        y: -260.0
+        rx: 210.0
+        ry: 54.6
+        fill: steel
+      - kind: ellipse
+        y: -260.0
+        rx: 192.0
+        ry: 47.6
+        fill: steel2
+        sw: 4
+      id: can
+      x: 960
+      y: 600
+      in: 0
+    - kind: label
+      text: 'next: the rings'
+      x: 1170
+      y: 380
+      to:
+      - 230
+      - -160
+      in: '@rings+0.4'
+    camera:
+    - at: '@sides'
+      zoom: 1.15
+      dur: 2
+- id: s161
+  para: 28
+  sent: 99
+  text: in the rings you have seen your whole life.
+  visual:
+    same: true

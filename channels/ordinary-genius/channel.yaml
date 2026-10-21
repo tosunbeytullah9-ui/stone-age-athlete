@@ -1,0 +1,127 @@
+# Channel identity + overrides of config.yaml (edit in the panel: Kanal → Kanal ayarları)
+# Persona and rules: BRAND.md. Research behind the choices: research/kanal-arastirmasi.md
+name: Ordinary Genius
+handle: "@OrdinaryGeniusHQ"      # check availability on YouTube before creating the channel (@OrdinaryGenius first)
+tagline: "The hidden physics of the things you use every day."
+category: Education
+languages: [en]
+description: >
+  The can opener in your drawer, the lock on your door, the toilet down the hall: every everyday object is a solved
+  physics problem. Each video opens one of them up, shows the maths and science working inside, and how it used to
+  be. Every claim sourced.
+pronunciation: ""
+visual_style: >-                 # every AI picture starts with this sentence; it must look like the code-drawn scenes
+  Flat vector illustration in a bold, playful explainer style: every shape has a thick dark navy outline of even
+  weight, flat saturated fills with no gradients, no texture and no realistic lighting, in sunflower yellow, coral
+  red, teal, violet, sky blue and cream. People are simple geometric figures with round heads, dot eyes and small
+  simple mouths, clear body language; objects are clean simplified shapes, slightly chunky, like a well-made
+  infographic. Deep indigo background with a faint square grid. One clear idea, centred, with generous empty space.
+  No text, letters or numbers anywhere in the picture.
+characters: {}                   # no recurring character: the objects are the stars (narrator is a voice only)
+series:                          # playlists; colour = the index tab on thumbnails
+  inside:    {name: "Inside the Mechanism",      pillars: [P1], promise: "What actually happens inside an everyday object when you use it", color: "#2ec4b6"}
+  shaped:    {name: "Why It's Shaped Like That", pillars: [P2], promise: "One design detail you never noticed, solved with maths", color: "#ffcc33"}
+  then-now:  {name: "Then & Now",                pillars: [P3], promise: "How an everyday object worked before, and the idea that changed it", color: "#ff6b5b"}
+schedule:
+  per_week: 1                    # start slow: You're Wrong! already publishes twice a week
+  days: [Thu]
+  slot_types: [long]
+  hours_per_video: 6
+outro:
+  seconds: 16
+  text: {en: "Next object"}
+  sub: {en: "Ordinary Genius · every claim sourced"}
+youtube:
+  credit: "Every claim in this video is linked to its source below."
+  footer: |-
+    Ordinary Genius opens up the everyday objects you never think about: the physics, the maths and the history
+    inside them. Narrated with a synthetic voice; the diagrams are drawn with code and a few illustrations are made
+    with AI tools. Every claim is checked against the sources above.
+  category: 27
+  language: en
+  made_for_kids: false
+  synthetic_media: false         # flat diagrams and cartoons, nothing that could be mistaken for real footage
+  publish_time: "22:00"          # Türkiye saati = 15:00 US Eastern
+  privacy: private
+  api_audited: false
+  tags: [how it works, everyday objects, physics, engineering, science explained, how things work, design,
+    history of inventions, kitchen gadgets, simple machines]
+policy:                          # YouTube monetization policies (docs/POLICY.md, studio/policy.py)
+  sensitive: []                  # objects, physics and history: no health, money or legal advice
+  narrator: fictional            # a plain synthetic narrator voice (no persona, never an expert); fictional | owner
+  realistic_visuals: false       # vector diagrams and flat cartoons → YouTube's "AI use" label is not required
+  transparency: >-
+    The narration uses a synthetic voice. The diagrams are drawn with code and a few illustrations are made with AI
+    tools. Every claim is checked against the sources below.
+branding:                        # python -m studio branding / panel: Kanal ayarları → Marka görsellerini üret
+  profile_prompt: >-
+    A single bright yellow light bulb whose glowing filament is a tiny gear, drawn large and centred, thick dark
+    navy outline, flat colours, on a plain deep indigo background. Readable at a tiny size. Nothing else.
+  banner_prompt: >-
+    One wide panoramic flat-vector scene, a single horizon at the vertical middle: a long kitchen counter seen from
+    the front with everyday objects spaced along it — a can opener, a toaster, a ballpoint pen, a door key, a pair
+    of scissors, a coffee maker — each one shown half-transparent so its gears, springs and levers glow yellow
+    inside. Deep indigo wall with a faint square grid. The middle band is calm and uncluttered.
+  name_color: "#ffffff"
+  accent: "#ffcc33"
+chart_paper: ""                  # no paper: charts and motion scenes are drawn on the indigo stage
+remotion:                        # motion scenes (docs/REMOTION.md): most of this channel's pictures are code-drawn
+  theme: pop                     # deep indigo stage, saturated flat colours, thick navy outlines, Fredoka + JetBrains Mono
+sound:                           # the channel's sound language (docs/SOUND.md); beds and effects are automatic
+  transition: whoosh
+  chart: pop
+  default_amb: home
+style:
+  palette: {}
+package:                         # what the packaging prompt and the channel bible are told about the channel
+  script_structure: >-
+    STRIKING FACT (0–15 s: the first two or three sentences state a surprising, sourced fact about the object; no
+    greeting, no channel name) → THE OBJECT (what it is, the moment the viewer uses it; one question the video will
+    answer) → THEN (how people did this before, briefly, only what makes the mechanism easier to understand) → THE
+    PHYSICS (the long middle, 55–65 %: the maths, physics, chemistry or geometry inside, one idea at a time, each
+    idea shown on screen by a code-drawn diagram that moves on the exact words; every idea gets one everyday
+    metaphor; one re-hook question about every 90 s) → NOW (why today's design looks the way it does, the trade-off
+    it makes) → CLOSE (a short summary in new words, never a repeat of earlier sentences, then a one-sentence bridge
+    to the next object). 1,200–1,500 words, 8–10 min. Persona and language rules: BRAND.md.
+  positioning: >-
+    Ordinary Genius explains the hidden physics, maths and history of the everyday objects people use without
+    thinking (mostly the American home: kitchen, bathroom, door, desk). A warm, curious narrator voice, vivid
+    code-drawn diagrams that move on the exact word, plain language with everyday metaphors, every claim sourced.
+    The viewer should feel smarter about something they touch every day.
+  thumbnail_rules:
+    - "One everyday object drawn huge and exact by code (comp: mech), shown cut open or mid-action; the hidden part glows yellow."
+    - "Bright, saturated colours on the indigo stage; at most one arrow or circle; 2–4 words; no faces, no brands, no logos."
+    - "Bottom-right corner stays empty (duration stamp). Never the same object, angle and words twice."
+thumbnails:                      # look of the three thumbnail kinds (docs/THUMBNAILS.md)
+  ink: "#0d1030"
+  accent: "#ffcc33"
+  stamp: SOLVED
+  paper: false
+  outline: "#0d1030"             # words in white with a thick navy outline (pop look), no paper slip
+  text_fill: "#ffffff"
+  ink_boost: 0
+  fonts: {title: Anton-Regular.ttf, hand: Anton-Regular.ttf, stamp: AlfaSlabOne-Regular.ttf}
+  direction: >-
+    Thumbnail: one everyday object drawn very large, filling about half of the frame, shown cut open so the hidden
+    mechanism is visible, the key part glowing sunflower yellow; flat vector, thick navy outlines, saturated colours
+    on deep indigo.
+overrides:
+  video:
+    reveal: ""                   # code-drawn scenes animate themselves
+    motion_preset: flat
+  audio:
+    music_licence: YouTube Audio Library, no attribution required   # checked by the policy gate
+    music_tracks: []             # add upbeat instrumental tracks to assets/music/ordinary-genius/ (no vocals)
+  tts:
+    provider: gemini
+    paragraph_pause: 0.3
+    question_tag: ""
+    gemini:
+      voice: Zephyr              # audition in the pilot: Zephyr (bright) vs Leda (youthful); chosen once, then fixed
+      style: >-
+        A warm, curious and energetic American science explainer, like a favourite teacher who just noticed
+        something amazing in an ordinary object. Bright, clear and friendly, at a lively conversational pace of
+        about 160 words per minute. Lean in on questions, let the surprising numbers land with a tiny pause before
+        them, smile on the metaphors. Never sleepy, never shouting, never salesy.
+    kokoro: {voice: af_heart, lang_code: a}   # free fallback: American female
+    edge: {voice_by_lang: {en: en-US-AriaNeural}}

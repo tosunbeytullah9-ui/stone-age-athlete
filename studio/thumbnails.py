@@ -191,16 +191,24 @@ def render_thumbnails(project: Project, cfg: Config, lang: str | None = None) ->
         visual = v.get("visual")
         if isinstance(visual, str):
             visual = {"prompt": visual}
-        if not isinstance(visual, dict) or not visual.get("prompt"):
+        from . import remotion
+        if isinstance(visual, dict) and remotion.comp_of(visual):
+            # drawn by code (Remotion), e.g. `comp: mech`: free, exact, the same look as the video
+            raw = raw_dir / f"thumb{n}_code_{remotion.still_key(visual, cfg)}.png"
+            if not raw.exists() and not remotion.render_still(project, cfg, visual, raw):
+                print(f"  kapak {n}: kodla çizilen resim üretilemedi, atlandı")
+                continue
+        elif not isinstance(visual, dict) or not visual.get("prompt"):
             print(f"  kapak {n}: visual.prompt yok, atlandı")
             continue
-        scene = {**visual, "prompt": f"{_direction(v, ch)} {visual['prompt']}"}
-        eng = eng or GeminiEngine(cfg)
-        prompt = build_prompt(scene, eng.style, eng.characters)
-        key = hashlib.sha1(json.dumps([prompt, eng.model], ensure_ascii=False).encode()).hexdigest()[:10]
-        raw = raw_dir / f"thumb{n}_{key}.png"
-        if not raw.exists():
-            eng.generate(prompt, raw, eng.char_refs(visual.get("characters")))
+        else:
+            scene = {**visual, "prompt": f"{_direction(v, ch)} {visual['prompt']}"}
+            eng = eng or GeminiEngine(cfg)
+            prompt = build_prompt(scene, eng.style, eng.characters)
+            key = hashlib.sha1(json.dumps([prompt, eng.model], ensure_ascii=False).encode()).hexdigest()[:10]
+            raw = raw_dir / f"thumb{n}_{key}.png"
+            if not raw.exists():
+                eng.generate(prompt, raw, eng.char_refs(visual.get("characters")))
         base = _frame_crop(Image.open(raw).convert("RGB"), v.get("frame"))
         for lg in langs:
             if v.get("kind") in thumbkit.KINDS:

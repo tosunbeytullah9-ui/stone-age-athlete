@@ -32,6 +32,8 @@ DEFAULT_THEME = {
     "slip_color": "#f3ead8",
     "series_tab": True,
     "size": [1920, 1080],
+    "outline": None,         # vivid channels (pop look): words in `text_fill` with a thick outline in this colour,
+    "text_fill": None,       # no paper slip (e.g. outline "#0d1030", text_fill "#ffffff")
 }
 POSITIONS = ("top-left", "top", "top-right", "left", "right", "bottom-left", "bottom")
 
@@ -40,8 +42,17 @@ def theme_of(channel_data: dict) -> dict:
     t = {**DEFAULT_THEME, **((channel_data or {}).get("thumbnails") or {})}
     t["fonts"] = {**DEFAULT_THEME["fonts"], **(t.get("fonts") or {})}
     if "slip" not in ((channel_data or {}).get("thumbnails") or {}):
-        t["slip"] = not t["paper"]
+        t["slip"] = not t["paper"] and not t.get("outline")
     return t
+
+
+def _txt(d: ImageDraw.ImageDraw, xy, text: str, f, fill, theme: dict, size: float) -> None:
+    """Text, with the channel's thick outline when it has one (pop look) — readable on any colour at 168 px."""
+    if theme.get("outline"):
+        d.text(xy, text, font=f, fill=rgb(theme.get("text_fill") or "#ffffff") + (255,),
+               stroke_width=max(3, int(size * 0.09)), stroke_fill=rgb(theme["outline"]) + (255,))
+    else:
+        d.text(xy, text, font=f, fill=fill)
 
 
 def rgb(c) -> tuple[int, int, int]:
@@ -196,7 +207,7 @@ def correction(base: Image.Image, myth: str, note: str, theme: dict, pos: str = 
     base = _slip(base, (x, y, x + bw, y + bh), theme, s)
     lay = _layer(base.size)
     d = ImageDraw.Draw(lay)
-    d.text((x - mb[0], y - mb[1]), myth.upper(), font=fm, fill=ink + (255,))
+    _txt(d, (x - mb[0], y - mb[1]), myth.upper(), fm, ink + (255,), theme, sm)
     mid = y + (mb[3] - mb[1]) * 0.52
     _rough_line(d, (x - 16 * s, mid + 10 * s), (x + mb[2] - mb[0] + 20 * s, mid - 14 * s), max(10 * s, sm / 9),
                 acc + (240,), seed=3)
@@ -204,7 +215,11 @@ def correction(base: Image.Image, myth: str, note: str, theme: dict, pos: str = 
     if note:
         nl = _layer(base.size)
         ny = y + (mb[3] - mb[1]) + gap
-        ImageDraw.Draw(nl).text((x + 10 * s - nb[0], ny - nb[1]), note, font=fn, fill=acc + (248,))
+        if theme.get("outline"):
+            ImageDraw.Draw(nl).text((x + 10 * s - nb[0], ny - nb[1]), note, font=fn, fill=acc + (255,),
+                                    stroke_width=max(3, int(sn * 0.09)), stroke_fill=rgb(theme["outline"]) + (255,))
+        else:
+            ImageDraw.Draw(nl).text((x + 10 * s - nb[0], ny - nb[1]), note, font=fn, fill=acc + (248,))
         out = _ink(out, nl.rotate(3, resample=Image.BICUBIC, center=(x, ny)), theme)
     return out
 
@@ -275,7 +290,7 @@ def scene(base: Image.Image, text: str, theme: dict, pos: str = "top") -> Image.
     lay = _layer(base.size)
     d = ImageDraw.Draw(lay)
     for i, (ln, b) in enumerate(zip(lines, boxes)):
-        d.text((x - b[0], y + i * 1.15 * lh - b[1]), ln, font=f, fill=rgb(theme["ink"]) + (250,))
+        _txt(d, (x - b[0], y + i * 1.15 * lh - b[1]), ln, f, rgb(theme["ink"]) + (250,), theme, size)
     return _ink(base, lay.rotate(1.5, resample=Image.BICUBIC, center=(x, y)), theme)
 
 

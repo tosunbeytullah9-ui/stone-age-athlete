@@ -34,7 +34,7 @@ from .config import CHANNELS, Config
 
 ROOT = Path(__file__).resolve().parent.parent
 RDIR = ROOT / "remotion"
-COMPS = ("case-file", "verdict", "bars", "counter", "timeline", "quote")
+COMPS = ("case-file", "verdict", "bars", "counter", "timeline", "quote", "mech")
 CHARTLIKE = ("bars", "counter", "timeline")        # get the channel's "chart" sound (pen)
 ENGINE_VERSION = "rm1"
 POSTER_SECONDS = 7.0
@@ -96,9 +96,42 @@ def validate(visual) -> str | None:
     if c not in COMPS:
         return f"bilinmeyen hareketli sahne '{c}' (seçenekler: {', '.join(COMPS)})"
     need = {"case-file": ["number"], "bars": ["bars"], "counter": ["value"], "timeline": ["events"],
-            "quote": ["text"]}.get(c, [])
+            "quote": ["text"], "mech": ["items"]}.get(c, [])
     missing = [k for k in need if k not in visual]
-    return f"{c}: eksik alan {', '.join(missing)}" if missing else None
+    if missing:
+        return f"{c}: eksik alan {', '.join(missing)}"
+    if c == "mech":
+        return mech_problem(visual)
+    return None
+
+
+MECH_KINDS = ("group", "use", "rect", "circle", "ellipse", "path", "poly", "line", "arrow", "spring", "gear", "wave",
+              "gauge", "particles", "text", "formula", "counter", "label")
+
+
+def mech_problem(visual: dict) -> str | None:
+    """A `mech` scene's items: known kinds, `use` points at a def (docs/REMOTION.md → mech)."""
+    defs = visual.get("defs") or {}
+    bad: list[str] = []
+
+    def walk(items, path):
+        if not isinstance(items, list):
+            bad.append(f"{path}: items bir liste olmalı")
+            return
+        for i, it in enumerate(items):
+            if not isinstance(it, dict) or "kind" not in it:
+                bad.append(f"{path}[{i}]: kind yok")
+                continue
+            k = it["kind"]
+            if k not in MECH_KINDS:
+                bad.append(f"{path}[{i}]: bilinmeyen kind '{k}'")
+            if k == "use" and it.get("def") not in defs:
+                bad.append(f"{path}[{i}]: tanımsız def '{it.get('def')}'")
+            if "items" in it:
+                walk(it["items"], f"{path}[{i}].items")
+
+    walk(visual.get("items"), "items")
+    return "mech: " + "; ".join(bad[:4]) if bad else None
 
 
 # ------------------------------------------------------------------ installation
@@ -175,7 +208,7 @@ def src_hash() -> str:
 
 
 # ------------------------------------------------------------------ the channel's look
-PRESETS = ("ledger", "museum")             # remotion/src/lib/theme.ts
+PRESETS = ("ledger", "museum", "pop")      # remotion/src/lib/theme.ts
 
 
 def theme(cfg: Config, copy_assets: bool = True) -> dict:
@@ -191,7 +224,7 @@ def theme(cfg: Config, copy_assets: bool = True) -> dict:
     if th.get("accent"):
         out["accent"] = th["accent"]
     paper_rel = rm.pop("paper", None) or ch.get("chart_paper")
-    for k in ("ink", "accent", "wash", "wash2", "muted", "bg", "boil", "fonts"):
+    for k in ("ink", "accent", "wash", "wash2", "muted", "bg", "boil", "fonts", "palette"):
         if k in rm:
             out[k] = rm[k]
     # `paper_rules` = the paper's ruled lines in 1920×1080 px ({first, step, margin}); `scenes` is the motion rules
@@ -286,6 +319,9 @@ def scene_item(group: list[dict], timing: dict[str, dict], fps: int, tail: int) 
         acc += f
     item = {"head": group[0], "beats": beats, "frames": acc, "tail": tail}
     v = group[0].get("visual") or {}
+    cues = word_cues(group, timing, fps, v)
+    if cues is not None:
+        item["extra"] = {"cues": cues}
     if v.get("comp") == "verdict" and "hit" not in v and "hit_beat" not in v:
         from .sound.designer import _word_time      # the stamp lands with the word, like its sound
         for s in group:
@@ -293,9 +329,31 @@ def scene_item(group: list[dict], timing: dict[str, dict], fps: int, tail: int) 
                 t0, t1 = timing[s["id"]]["start"], timing[s["id"]]["end"]
                 said = _word_time(s, t0, t1, "wrong") or _word_time(s, t0, t1, "right")
                 if said is not None:
-                    item["extra"] = {"hit": round(said - timing[group[0]["id"]]["start"], 3)}
+                    item["extra"] = {**item.get("extra", {}), "hit": round(said - timing[group[0]["id"]]["start"], 3)}
                 break
     return item
+
+
+def word_cues(group: list[dict], timing: dict[str, dict], fps: int, visual: dict) -> dict | None:
+    """{"@valve": frame} for the "@word" cues of a motion visual (studio/words.py), or None when it has none."""
+    from . import words
+    keys = words.cue_keys({k: v for k, v in (visual or {}).items() if k != "i18n"})
+    if not keys:
+        return None
+    table, missing = words.cue_table(group, timing, fps, keys)
+    for k in missing:
+        print(f"  uyarı {group[0]['id']}: '{k}' sahnenin cümlelerinde geçmiyor (hareket sahne başında başlar)")
+    return table
+
+
+def beat_timing(group: list[dict], beats: list[int], fps: int, frames: int) -> dict[str, dict]:
+    """Timing in seconds that matches given beats (posters and previews before the voice exists)."""
+    out = {}
+    for i, s in enumerate(group):
+        a = beats[i] if i < len(beats) else beats[-1]
+        b = beats[i + 1] if i + 1 < len(beats) else frames
+        out[s["id"]] = {"start": a / fps, "end": max(a + 1, b) / fps}
+    return out
 
 
 def render_settings(cfg: Config) -> tuple[int, int]:
@@ -358,14 +416,37 @@ def render_posters(project, cfg: Config, items: list[tuple[dict, str]], out_dir:
     heads = scene_map(shots)
     jobs, keys = [], {}
     for head, key in items:
-        n = sum(1 for s in shots if heads[s["id"]] == head["id"])
+        group = [s for s in shots if heads[s["id"]] == head["id"]]
+        n = len(group)
         frames = round((POSTER_SECONDS + POSTER_HOLD) * fps)
+        beats = even_beats(n, fps)
+        cues = word_cues(group, beat_timing(group, beats, fps, round(POSTER_SECONDS * fps)), fps, head["visual"])
         jobs.append(_job(head["id"], head["visual"], primary, primary, th, out_dir / f"{head['id']}.png", "still",
-                         frames, fps, size, even_beats(n, fps), frame=frames - 1, seed=_seed(head["id"])))
+                         frames, fps, size, beats, frame=frames - 1, seed=_seed(head["id"]),
+                         extra={"cues": cues} if cues is not None else None))
         keys[head["id"]] = key
     print(f"  hareketli sahneler: {len(jobs)} poster karesi")
     failed = _run(jobs, cfg, project.build / "remotion")
     return {k: v for k, v in keys.items() if k not in failed and (out_dir / f"{k}.png").exists()}
+
+
+def render_still(project, cfg: Config, visual: dict, out: Path, size: tuple[int, int] = (1920, 1080),
+                 lang: str | None = None) -> bool:
+    """The final state of a code-drawn visual as a picture (thumbnails drawn by code instead of an AI painting)."""
+    if not ensure():
+        print(f"  [!] {NODE_HINT}")
+        return False
+    fps = int(cfg.get_path("video.fps", 30))
+    primary = project.primary_lang()
+    frames = round((POSTER_SECONDS + POSTER_HOLD) * fps)
+    j = _job("still", visual, lang or primary, primary, theme(cfg), out, "still", frames, fps, size,
+             even_beats(1, fps), frame=frames - 1, seed=int(visual.get("seed", 7)))
+    return not _run([j], cfg, project.build / "remotion") and out.exists()
+
+
+def still_key(visual: dict, cfg: Config) -> str:
+    return hashlib.sha1((json.dumps(visual, sort_keys=True, ensure_ascii=False) + json.dumps(theme(cfg, False))
+                         + src_hash()).encode()).hexdigest()[:10]
 
 
 def render_vertical(project, cfg: Config, head: dict, out: Path, lang: str | None = None) -> bool:
@@ -397,8 +478,13 @@ def preview(project, cfg: Config, only: set[str] | None, lang: str | None = None
         if all(s["id"] in timing for s in g):
             items.append(scene_item(g, timing, fps, tail))     # exactly the clip `render` will use (cached)
         else:
-            items.append({"head": head, "beats": even_beats(len(g), fps), "frames": round((POSTER_SECONDS + 2) * fps),
-                          "tail": tail})
+            beats = even_beats(len(g), fps)
+            frames = round((POSTER_SECONDS + 2) * fps)
+            it = {"head": head, "beats": beats, "frames": frames, "tail": tail}
+            cues = word_cues(g, beat_timing(g, beats, fps, round(POSTER_SECONDS * fps)), fps, head.get("visual") or {})
+            if cues is not None:
+                it["extra"] = {"cues": cues}
+            items.append(it)
     if not items:
         raise SystemExit("Seçilen sahnelerde hareketli sahne yok (visual: {comp: ...}).")
     crf, _ = render_settings(cfg)

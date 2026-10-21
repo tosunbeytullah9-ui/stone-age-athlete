@@ -40,6 +40,7 @@ painting cannot carry well: the recurring brand beats (case file, verdict) and t
 ```yaml
 remotion:
   theme: ledger        # ledger (ruled paper, typewriter + handwriting, red pen, rubber stamp) | museum (painted paper)
+                       # | pop (deep indigo stage, saturated flat colours, thick outlines, Fredoka + JetBrains Mono)
   # optional: ink, accent, wash, wash2, muted, bg, boil (line wobble in px), paper (default: chart_paper),
   # paper_rules: {first, step, margin} (the ruled lines of the paper in 1920×1080 px; ledger knows its own)
 ```
@@ -59,6 +60,64 @@ Every text value may be per language (`{en: "...", tr: "..."}`), or patched for 
 | `counter` | `value`, `from`, `decimals`, `prefix`, `suffix`, `label` (beat 1), `note` (beat 2), `duration` (s), `thousands` | one big number: a sample size, a count |
 | `timeline` | `events: [{when, text, beat?, highlight?}]`, `title` | 2–5 dated steps (how a myth grew) |
 | `quote` | `text`, `source`, `highlight` (part of the text, underlined in red) | a document quoted word for word |
+| `mech` | `items`, `defs`, `camera`, `drift`, `bg` (see below) | a mechanism, force, wave or formula drawn by code, moving on spoken words |
+
+## `mech`: code-drawn mechanisms that move on the exact word
+A whole scene drawn by code on a 1920×1080 design canvas (fitted to any output size): shapes, gears, springs,
+arrows, waves, gauges, particles, labels and formulas. Built for channels whose pictures are mostly diagrams
+(Ordinary Genius, theme `pop`). Every movement is tied to the narration:
+
+| cue (`at`, `in`, `out`, `spin.from`…) | starts |
+| --- | --- |
+| `2` | when shot 2 of the scene starts (0 = the scene's first shot) |
+| `"@valve"` | when the word "valve" is said in the scene (`@valve#2` = the second time, `@valve+0.3` = 0.3 s later, `@spring*` = any word starting with "spring"; plurals match) |
+| `"t1.5"` / `"b2+0.4"` | 1.5 s after the scene start / 0.4 s after shot 2 starts |
+
+Word times come from `align` (studio/words.py): exact with ElevenLabs/estimate, from faster-whisper word
+timestamps when installed, otherwise split by character weight inside the shot. A cue whose word is not in the
+scene's shots starts at the scene start and `render` prints a warning.
+
+```yaml
+visual:
+  comp: mech
+  camera: [{at: "@sliver", x: 1180, y: 560, zoom: 1.5, dur: 1.4}]   # optional; a slow push-in is on by default (drift)
+  items:
+    - {kind: gear, id: fw, x: 1395, y: 740, r: 100, teeth: 22, fill: yellow, in: "@second", spin: {speed: -110, from: "@drives"}, glow: yellow}
+    - {kind: arrow, x: 1300, y: 520, to: [-300, 0], color: sky, bend: -30, in: "@drag"}
+    - {kind: label, x: 1395, y: 640, to: [-560, 160], text: small teeth, in: "@teeth"}
+    - {kind: formula, x: 960, y: 200, text: "pressure = force ÷ area", in: "@divided", bg: bg2}
+    - {kind: rect, x: 760, y: 640, w: 420, h: 160, fill: sky, keys: [{at: "@shrink", w: 60, dur: 1.2}]}
+```
+
+**Every item:** `x, y` (origin), `rotate`, `scale`, `sx`, `sy`, `opacity`, `pivot: [x, y]` (rotation centre, local),
+`fill`, `stroke` (default the outline colour), `sw`, `dash`, `glow` (a coloured halo: the part being talked about),
+`in` (cue, or `{at, fx: pop|fade|draw|grow|slide|type|none, dur}`; lines/arrows draw, text types, the rest pops),
+`out` (cue), `keys: [{at, dur, ease, <any numeric or colour prop>}]` (eases: inOut, out, in, linear, back, bounce,
+elastic), `spin: {speed °/s, from, to}`, `bob`, `pulse: {amount, period, from, to}`, `shake: {at, amount}`.
+Colours are palette names of the theme (`yellow, gold, orange, coral, red, pink, violet, blue, sky, teal, mint, lime,
+steel, steel2, dark, cream, white, hot, cold, steam, food, line, text, muted, bg, bg2`) or any CSS colour.
+
+| kind | props |
+| --- | --- |
+| `group` | `items`, `clip: [x, y, w, h]` — children move with it (a blade with its handle around the pivot) |
+| `use` | `def: name` + overrides — a drawing from the scene's `defs` |
+| `rect` / `circle` / `ellipse` | `w, h, r (corner), ax, ay (anchor 0..1, default centre)` / `r` / `rx, ry` |
+| `path` / `poly` | `d` (SVG path, local) / `points: [[x, y]…]`, `closed` |
+| `line` / `arrow` | `to: [dx, dy]`; arrow: `color`, `bend`, `head` |
+| `spring` | `to`, `coils`, `width`, `value` (length factor: 1 rest, 0.5 squeezed) |
+| `gear` | `r, teeth, depth, hole` (spin it) |
+| `wave` | `w, amp, length (wavelength), speed (Hz), standing: true, value (amplitude factor), color` |
+| `gauge` | `r, value 0..1` (needle; animate `value`) |
+| `particles` | `w, h, count, size, speed, mode: gas \| steam \| bubbles, value (energy: animate it = heat up), color` |
+| `text` / `formula` / `counter` | `text`, `size`, `align`, `bg` (pill), `maxW`; formula uses the mono face; counter: `value, decimals, prefix, suffix` |
+| `label` | a callout: dot at (x, y), leader line to `to`, the words in a pill (`text, size, bg, color`) |
+
+**Numbers on a `mech` scene** must be in a claim of the video or said in the scene's own sentences; illustrative
+maths ("say your hand is five times farther") is marked `example: true` on the item and labelled "example" on
+screen (`apply-plan` and `check` enforce it). Top-level text and labels are kept inside the canvas.
+Thumbnails can be code-drawn too: `thumbnails[n].visual: {comp: mech, items: [...]}` (rendered as a still, free).
+A long video's scenes are best written as code (helpers for the recurring objects): see
+`channels/ordinary-genius/projects/001-*/scenes.py` → `python scenes.py > plan.yaml` → `apply-plan`.
 
 ## Rules
 1. One idea per scene, words short: titles ≤ 10 words, bar labels 1–3 words, timeline notes ≤ 8 words.

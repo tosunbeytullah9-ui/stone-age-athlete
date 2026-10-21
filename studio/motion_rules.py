@@ -310,6 +310,11 @@ def validate_data(project: Project, plan: dict, shots: list[dict] | None = None)
         c = comp_of(v)
         if c is None or c in SIGNATURE_COMPS:
             continue
+        if c == "mech":
+            why = _check_mech(v, sid, shots, entries, claims)
+            if why:
+                problems[sid] = why
+            continue
         if c not in DATA_COMPS:
             problems[sid] = f"bilinmeyen rakam sahnesi '{c}'"
             continue
@@ -347,6 +352,52 @@ def validate_data(project: Project, plan: dict, shots: list[dict] | None = None)
             if not any(q and q in _norm(x) for x in quoted):
                 problems[sid] = "alıntı, bağlı iddiaların hiçbirinde kelimesi kelimesine yok"
     return problems
+
+
+def _mech_numbers(v: dict) -> set[float]:
+    """Numbers a `mech` scene writes on screen (text, formulas, labels, counters), except items marked `example: true`
+    (illustrative maths that the narration frames as an example, labelled "example" on screen)."""
+    out: set[float] = set()
+
+    def walk(items):
+        for it in items or []:
+            if not isinstance(it, dict) or it.get("example"):
+                continue
+            if it.get("kind") in ("text", "formula", "label"):
+                out.update(_numbers(str(it.get("text", ""))))
+            elif it.get("kind") == "counter":
+                out.update(_prop_numbers({k: it.get(k) for k in ("value", "prefix", "suffix")}))
+            walk(it.get("items"))
+
+    walk(v.get("items"))
+    walk(list((v.get("defs") or {}).values()))
+    return out
+
+
+def _check_mech(v: dict, sid: str, shots: list[dict], entries: dict, claims: list[dict]) -> str | None:
+    """A code-drawn scene: valid items, and every number it writes is in a claim of the video or said in the scene."""
+    from .remotion import validate
+    err = validate(v)
+    if err:
+        return err
+    ids = [s["id"] for s in shots]
+    if sid not in ids:
+        return "böyle bir shot yok"
+    i = ids.index(sid)
+    said = shots[i].get("text", "")
+    for s in shots[i + 1:]:
+        nv = entries.get(s["id"], s.get("visual"))
+        if isinstance(nv, dict) and nv.get("same"):
+            said += " " + s.get("text", "")
+        else:
+            break
+    have = set().union(_numbers(said, words=True),
+                       *[_numbers(f"{cl.get('text', '')} {cl.get('quote', '')}", words=True) for cl in claims])
+    missing = sorted(n for n in _mech_numbers(v) if n not in have)
+    if missing:
+        return (f"mech: ekrandaki sayı ne bir iddiada ne de sahnenin cümlelerinde: "
+                f"{', '.join(f'{m:g}' for m in missing)} (örnek hesapsa öğeye example: true yaz)")
+    return None
 
 
 def data_scenes(shots: list[dict]) -> list[str]:

@@ -3,6 +3,7 @@ pyyaml>=6.0
 ruamel.yaml>=0.18    # güncellemede ayar dosyalarının yorumlarını korur
 python-dotenv>=1.0
 requests>=2.31
+yt-dlp>=2025.1     # tools/yt_tara.py: rakip ve yeni kanal taraması (API kotası harcamaz)
 pillow>=10.0
 playwright>=1.44
 numpy>=1.26

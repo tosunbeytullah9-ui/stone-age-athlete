@@ -1,0 +1,373 @@
+title: How Your Can Opener Cuts Steel With One Hand
+idea: g001
+status: scripting
+description: 'Your can opener is three of the oldest machines in physics folded into one hand: a lever, a wedge and a crank. Here is how it cuts
+  steel, and why it was invented decades after the can.'
+chapters:
+  0: A dinner you opened with a hammer
+  1: The tool in your drawer
+  3: Cans that fought back
+  8: 'Machine one: the squeeze'
+  13: 'Machine two: the edge'
+  20: 'Machine three: the turning'
+  24: Today's opener
+  27: Three machines, one hand
+thumbnails:
+- kind: scene
+  visual:
+    comp: mech
+    items:
+    - kind: rect
+      x: 200
+      y: 700
+      w: 1250
+      h: 40
+      ax: 0
+      fill: steel
+    - kind: rect
+      x: 1500
+      y: 980
+      w: 40
+      h: 520
+      fill: steel
+    - kind: rect
+      x: 1500
+      y: 700
+      w: 170
+      h: 140
+      r: 50
+      fill: steel2
+    - kind: group
+      items:
+      - kind: circle
+        r: 230
+        fill: steel
+      - kind: circle
+        r: 165
+        fill: steel2
+        sw: 5
+      - kind: circle
+        r: 46
+        fill: dark
+      x: 1290
+      y: 455
+      glow: yellow
+    - kind: gear
+      x: 1530
+      y: 930
+      r: 150
+      teeth: 24
+      depth: 26
+      hole: 30
+      fill: yellow
+    - kind: line
+      x: 1290
+      y: 682
+      to:
+      - 0
+      - 40
+      stroke: yellow
+      sw: 12
+      glow: yellow
+    drift: 0
+  text:
+    en: NOT A BLADE
+  pos: top-left
+- kind: correction
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 260.0
+        rx: 240.0
+        ry: 62.400000000000006
+        fill: steel2
+      - kind: rect
+        w: 480
+        h: 520
+        fill: steel
+      - kind: rect
+        y: 31.2
+        w: 480
+        h: 249.6
+        fill: coral
+      - kind: line
+        id: can-r0
+        x: -228.0
+        y: -197.6
+        to:
+        - 456
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -228.0
+        y: -156.0
+        to:
+        - 456
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -228.0
+        y: 192.4
+        to:
+        - 456
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -228.0
+        y: 228.8
+        to:
+        - 456
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -260.0
+        rx: 240.0
+        ry: 62.400000000000006
+        fill: steel
+      - kind: ellipse
+        y: -260.0
+        rx: 222.0
+        ry: 55.400000000000006
+        fill: steel2
+        sw: 4
+      id: can
+      x: 1480
+      y: 800
+    - kind: group
+      items:
+      - kind: rect
+        id: op-lo
+        x: 40
+        y: -22
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: teal
+        rotate: -18
+      - kind: rect
+        id: op-up
+        x: 40
+        y: -58
+        w: 430
+        h: 46
+        r: 23
+        ax: 0
+        ay: 0.5
+        fill: coral
+        rotate: -36
+      - kind: rect
+        x: 40
+        y: -44
+        w: 170
+        h: 120
+        r: 22
+        fill: dark
+      - kind: group
+        items:
+        - kind: circle
+          r: 34
+          fill: steel
+        - kind: circle
+          r: 12
+          fill: steel2
+          sw: 4
+        id: op-cw
+        y: -6
+      - kind: group
+        items:
+        - kind: ellipse
+          y: -58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: ellipse
+          y: 58
+          rx: 24
+          ry: 56
+          fill: yellow
+        - kind: circle
+          r: 18
+          fill: dark
+        id: op-key
+        x: 100
+        y: -46
+      id: op
+      x: 1260
+      y: 545
+      scale: 1.45
+    drift: 0
+  myth:
+    en: JUST A BLADE
+  note:
+    en: IT'S PRESSURE
+  pos: top-left
+  claim: c17
+- kind: stamp
+  visual:
+    comp: mech
+    items:
+    - kind: group
+      items:
+      - kind: ellipse
+        y: 280.0
+        rx: 280.0
+        ry: 72.8
+        fill: steel2
+      - kind: rect
+        w: 560
+        h: 560
+        fill: steel
+      - kind: rect
+        y: 33.6
+        w: 560
+        h: 268.8
+        fill: teal
+      - kind: line
+        id: can-r0
+        x: -268.0
+        y: -212.8
+        to:
+        - 536
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r1
+        x: -268.0
+        y: -168.0
+        to:
+        - 536
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r2
+        x: -268.0
+        y: 207.2
+        to:
+        - 536
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: line
+        id: can-r3
+        x: -268.0
+        y: 246.4
+        to:
+        - 536
+        - 0
+        stroke: steel2
+        sw: 6
+      - kind: ellipse
+        y: -280.0
+        rx: 280.0
+        ry: 72.8
+        fill: steel
+      - kind: ellipse
+        y: -280.0
+        rx: 262.0
+        ry: 65.8
+        fill: steel2
+        sw: 4
+      id: can
+      x: 1340
+      y: 720
+    - kind: ellipse
+      x: 1340
+      y: 330
+      rx: 250
+      ry: 64
+      fill: steel
+      rotate: -12
+      glow: yellow
+    - kind: ellipse
+      x: 1340
+      y: 330
+      rx: 210
+      ry: 48
+      fill: steel2
+      rotate: -12
+      sw: 4
+    drift: 0
+  pos: top-left
+prep:
+  imported: '2026-10-21'
+  file: ''
+  research:
+    question: How does an ordinary can opener cut steel with one hand, and why did it arrive decades after the can?
+    answer: A modern rotary opener combines a lever (the handles clamp the wheels onto the rim), a wedge-edged cutting wheel that concentrates
+      force into very high pressure on thin tinplate, and a crank (a lever turning round) that drives a serrated feed wheel under the rim so the
+      can turns itself through the cutter. Early cans were heavy wrought iron and were opened with tools at hand; dedicated openers appeared from
+      1855 (Yeates) and 1858 (Warner), Lyman's wheel came in 1870 but needed a centre pivot, the 1925 Star feed wheel made the rim the track,
+      and Bunker's 1931 design is the layout most hand openers still use.
+    angle: 'Most can-opener content is either trivia (''cans came first'') or usage tips; this video explains the physics of all three simple
+      machines inside it with exact animated diagrams, and ties the history to the physics: the tool could only work once the can got thin.'
+    competition: 'Not measured yet from YouTube in this session (youtube.com blocked here). Run: tools/yt_tara.py konular --channel ordinary-genius
+      --only g001. Web: ''you are using your can opener wrong'' tips and ''cans came 48 years before the opener'' trivia are common.'
+    open_questions:
+    - Check the top YouTube videos for 'how does a can opener work' with yt_tara and sharpen the angle if one already explains the pressure and
+      feed-wheel physics in depth.
+    - Bunker Clancey (1931) rests on one encyclopedia source; a patent number would make it firm.
+  policy:
+    originality: Own explanation of three simple machines with exact code-drawn animations, history tied to the physics; sources are patents,
+      a museum account, a technology-history magazine, a manufacturer specification and a physics textbook.
+    sensitive: false
+    advice_from: []
+    narrator_claims_expertise: false
+    realistic_ai_visuals: false
+    risks:
+    - Civil War and bayonets mentioned briefly and soberly; no violence shown
+  shorts_plan:
+  - title: Your Can Opener Isn't Really a Blade
+    hook: Look closely at the top wheel.
+    from: Look closely at the top wheel
+    to: every speck of steel underneath it.
+  - title: People Opened Cans With a Hammer
+    hook: In the eighteen-twenties, explorers sailing for the Arctic carried tins of food with a strange instruction.
+    from: In the eighteen-twenties, explorers
+    to: Soldiers opened theirs with bayonets.
+publish:
+  series: inside
+  slot: long
+  hook_type: cold_open_stat
+  planned_date: '2026-12-03'
+  title_used: How Your Can Opener Cuts Steel With One Hand
+  title_variants:
+  - How Your Can Opener Cuts Steel With One Hand
+  - Your Can Opener Is Three Machines in Disguise
+  - The Can Came First. The Opener Took Decades.
+  - Why a Can Opener Doesn't Need a Sharp Blade
+  - The Hidden Physics of the Can Opener
+  - How a Tiny Wheel Slices Through a Steel Can
+  - The Can Opener Waited for the Can to Get Thin
+  - What Actually Happens When You Open a Can
+  - The Genius Inside the Most Boring Kitchen Tool
+  - How People Opened Cans Before Can Openers
+  hook_options:
+  - type: cold_open_stat
+    text: In the eighteen-twenties, explorers sailing for the Arctic carried tins of food with a strange instruction printed on them.
+  - type: question
+    text: How does a gadget you hardly notice slice through metal with one hand?
+  - type: contradiction
+    text: Your can opener barely has a blade. It cuts steel anyway.
+shorts:
+- title: Your Can Opener Isn't Really a Blade
+  from: s066
+  to: s079
+  hook: Look closely at the top wheel.
+- title: People Opened Cans With a Hammer
+  from: s001
+  to: s020
+  hook: In the eighteen-twenties, explorers sailing for the Arctic carried tins of food with a strange instruction.
