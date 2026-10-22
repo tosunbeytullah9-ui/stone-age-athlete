@@ -78,17 +78,28 @@ def details(video_ids: list[str]) -> dict[str, dict]:
             if info:
                 out[vid] = {"upload_date": info.get("upload_date"), "subs": int(info.get("channel_follower_count") or 0),
                             "views": int(info.get("view_count") or 0), "duration": int(info.get("duration") or 0),
-                            "channel_id": info.get("channel_id")}
+                            "channel_id": info.get("channel_id"), "categories": list(info.get("categories") or [])}
             time.sleep(0.4)
     return out
 
 
 def first_upload(channel_id: str) -> str | None:
-    """Date of a channel's oldest video (its uploads reversed, first item)."""
-    with _ydl(flat=False, playlistreverse=True, playlist_items="1") as y:
+    """Date of a channel's oldest long video: the whole uploads list is read flat (one request per ~30 videos),
+    then only the last (oldest) entry is opened. yt-dlp applies `playlist_items` before `playlistreverse`, so
+    reversing and taking item 1 returned the NEWEST upload (the 22 Oct 2026 report dated every channel to that week)."""
+    with _ydl(flat=True) as y:
         info = y.extract_info(f"https://www.youtube.com/channel/{channel_id}/videos", download=False) or {}
-    entries = [e for e in (info.get("entries") or []) if e]
-    return entries[0].get("upload_date") if entries else None
+    ids = [e["id"] for e in (info.get("entries") or []) if e and len(str(e.get("id") or "")) == 11]
+    if not ids:
+        return None
+    return details([ids[-1]]).get(ids[-1], {}).get("upload_date")
+
+
+def months_between(d: str | None, today: date) -> int | None:
+    """Whole months from a yt-dlp date (YYYYMMDD) to today; None when the date is missing."""
+    if not d or len(d) < 6 or not d[:6].isdigit():
+        return None
+    return (today.year - int(d[:4])) * 12 + today.month - int(d[4:6])
 
 
 def _year(d: str | None) -> int | None:
@@ -214,20 +225,38 @@ def scan_new_channels(cid: str, extra: list[str] | None = None, per_query: int =
         print(f"  arama: {q} → {len(seen)} kanal")
     today = date.today()
     rows = []
-    stats = {"checked": 0, "old": 0, "small": 0, "failed": 0}
+    stats = {"checked": 0, "old": 0, "small": 0, "offtopic": 0, "failed": 0}
     candidates = [kv for kv in sorted(seen.items(), key=lambda kv: -kv[1]["best"]) if kv[1]["best"] >= 20_000][:80]
     print(f"  {len(seen)} kanal bulundu, {len(candidates)} tanesi 20 bin izlenmeyi geçmiş: yaşları kontrol ediliyor")
     for ch_id, c in candidates:
         try:
-            fu = first(ch_id)
             det = more([c["best_id"]]).get(c["best_id"], {})
         except Exception:
-            fu = None
-        if not fu:
+            det = {}
+        if not det:
             stats["failed"] += 1
             continue
         stats["checked"] += 1
-        age = (today.year - int(fu[:4])) * 12 + today.month - int(fu[4:6])
+        # music channels answer queries like "why is it designed this way" with "Made A Way": not our niche
+        if "Music" in (det.get("categories") or []):
+            stats["offtopic"] += 1
+            continue
+        # cheap test first: a channel whose best video is already older than max_age is not new
+        best_age = months_between(det.get("upload_date"), today)
+        if best_age is not None and best_age > max_age:
+            stats["old"] += 1
+            continue
+        try:
+            fu = first(ch_id)
+        except Exception:
+            fu = None
+        # the oldest upload can never be newer than a video we have seen from the same channel
+        if det.get("upload_date") and (not fu or det["upload_date"] < fu):
+            fu = det["upload_date"]
+        age = months_between(fu, today)
+        if age is None:
+            stats["failed"] += 1
+            continue
         subs = det.get("subs", 0)
         if age > max_age:
             stats["old"] += 1
@@ -246,7 +275,8 @@ def scan_new_channels(cid: str, extra: list[str] | None = None, per_query: int =
           f"İlk videosu son {max_age} ay içinde olan, 10 bin aboneye ya da 100 bin izlenmeli bir videoya ulaşmış "
           f"kanallar. Aramalar: {', '.join(queries)}", "",
           f"İncelenen: {stats['checked']} kanal (20 bin izlenmeyi geçmiş bir videosu olan) · {stats['old']} tanesi "
-          f"{max_age} aydan eski · {stats['small']} tanesi küçük · {stats['failed']} tanesi okunamadı.", "",
+          f"{max_age} aydan eski · {stats['small']} tanesi küçük · {stats['offtopic']} tanesi müzik (konu dışı) · "
+          f"{stats['failed']} tanesi okunamadı. İlk video = kanalın en eski uzun videosu (Shorts sayılmaz).", "",
           "| Kanal | İlk video | Ay | Abone | Abone/ay | En iyi video |", "| --- | --- | --- | --- | --- | --- |"]
     md += [f"| [{r['channel']}]({r['url']}) | {r['first_upload']} | {r['age_months']} | {r['subs']:,} | "
            f"{r['subs_per_month']:,} | [{r['best_title'][:60]}]({r['best_url']}) ({r['best_views']:,}) |" for r in rows]

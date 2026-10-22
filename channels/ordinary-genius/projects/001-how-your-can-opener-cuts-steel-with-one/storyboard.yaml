@@ -6228,92 +6228,57 @@ shots:
   visual:
     comp: mech
     items:
+    - kind: gear
+      id: g
+      x: 700
+      y: 540
+      r: 150
+      teeth: 18
+      depth: 22
+      fill: yellow
+      at: 0
+      spin:
+        speed: 60
+        to: '@crank'
+    - kind: line
+      x: 560
+      y: 400
+      to:
+      - 280
+      - 280
+      stroke: coral
+      sw: 16
+      in: '@gears'
+    - kind: line
+      x: 840
+      y: 400
+      to:
+      - -280
+      - 280
+      stroke: coral
+      sw: 16
+      in: '@gears'
     - kind: group
       items:
-      - kind: ellipse
-        y: 230.0
-        rx: 190.0
-        ry: 49.4
-        fill: steel2
       - kind: rect
-        w: 380
-        h: 460
-        fill: steel
+        w: 150
+        h: 150
+        r: 40
+        fill: cream
       - kind: rect
-        y: 27.599999999999998
-        w: 380
-        h: 220.79999999999998
-        fill: coral
-      - kind: line
-        id: can-r0
-        x: -178.0
-        y: -174.8
-        to:
-        - 356
-        - 0
-        stroke: steel2
-        sw: 6
-      - kind: line
-        id: can-r1
-        x: -178.0
-        y: -138.0
-        to:
-        - 356
-        - 0
-        stroke: steel2
-        sw: 6
-      - kind: line
-        id: can-r2
-        x: -178.0
-        y: 170.2
-        to:
-        - 356
-        - 0
-        stroke: steel2
-        sw: 6
-      - kind: line
-        id: can-r3
-        x: -178.0
-        y: 202.4
-        to:
-        - 356
-        - 0
-        stroke: steel2
-        sw: 6
-      - kind: ellipse
-        y: -230.0
-        rx: 190.0
-        ry: 49.4
-        fill: steel
-      - kind: ellipse
-        y: -230.0
-        rx: 172.0
-        ry: 42.4
-        fill: steel2
-        sw: 4
-      id: can
-      x: 960
-      y: 600
-      in: 0
-      shake:
-        at: '@crumple'
-        amount: 10
-    - kind: arrow
-      x: 560
-      y: 600
-      to:
-      - 180
-      - 0
-      color: coral
-      in: '@crumple'
-    - kind: arrow
-      x: 1360
-      y: 600
-      to:
-      - -180
-      - 0
-      color: coral
-      in: '@crumple'
+        x: 0
+        y: -110
+        w: 42
+        h: 110
+        r: 20
+        fill: cream
+      x: 1260
+      y: 560
+      in: '@hand'
+      keys:
+      - at: '@hand+0.5'
+        opacity: 0.25
+        dur: 0.8
     - kind: text
       text: '?'
       x: 960
@@ -6324,128 +6289,97 @@ shots:
 - id: s193
   para: 32
   sent: 120
-  text: If can steel is that thin,
+  text: Some machines in your home have no crank and no gears,
   visual:
     same: true
 - id: s194
   para: 32
   sent: 120
-  text: why doesn't the can crumple in your hand?
+  text: and barely need your hand at all.
   visual:
     same: true
 - id: s195
   para: 32
   sent: 121
-  text: The answer is pressed into its sides,
+  text: In the smallest room of the house,
   visual:
     comp: mech
     items:
+    - kind: rect
+      id: tank
+      x: 1250
+      y: 420
+      w: 250
+      h: 300
+      r: 24
+      fill: cream
+      in: '@room'
     - kind: group
       items:
+      - kind: path
+        d: M -250 0 A 250 240 0 0 0 250 0 Z
+        fill: cream
       - kind: ellipse
-        y: 260.0
-        rx: 210.0
-        ry: 54.6
-        fill: steel2
+        id: water
+        y: 70
+        rx: 180
+        ry: 70
+        fill: sky
+        keys:
+        - at: '@empties'
+          ry: 18
+          y: 150
+          dur: 1.6
       - kind: rect
-        w: 420
-        h: 520
-        fill: steel
-      - kind: rect
-        y: 31.2
-        w: 420
-        h: 249.6
-        fill: coral
-      - kind: line
-        id: can-r0
-        x: -198.0
-        y: -197.6
-        to:
-        - 396
-        - 0
-        stroke: steel2
-        sw: 6
+        x: 60
+        y: 330
+        w: 260
+        h: 180
+        r: 24
+        fill: cream
+      - kind: path
+        id: trap
+        d: M 40 190 C 140 190 170 90 240 90 C 320 90 330 220 350 330
+        fill: none
+        stroke: yellow
+        sw: 30
         glow: yellow
-        in: '@rings'
-        keys:
-        - at: '@rings'
-          stroke: yellow
-          dur: 0.4
-      - kind: line
-        id: can-r1
-        x: -198.0
-        y: -156.0
-        to:
-        - 396
-        - 0
-        stroke: steel2
-        sw: 6
-        glow: yellow
-        in: '@rings'
-        keys:
-        - at: '@rings'
-          stroke: yellow
-          dur: 0.4
-      - kind: line
-        id: can-r2
-        x: -198.0
-        y: 192.4
-        to:
-        - 396
-        - 0
-        stroke: steel2
-        sw: 6
-        glow: yellow
-        in: '@rings'
-        keys:
-        - at: '@rings'
-          stroke: yellow
-          dur: 0.4
-      - kind: line
-        id: can-r3
-        x: -198.0
-        y: 228.8
-        to:
-        - 396
-        - 0
-        stroke: steel2
-        sw: 6
-        glow: yellow
-        in: '@rings'
-        keys:
-        - at: '@rings'
-          stroke: yellow
-          dur: 0.4
-      - kind: ellipse
-        y: -260.0
-        rx: 210.0
-        ry: 54.6
-        fill: steel
-      - kind: ellipse
-        y: -260.0
-        rx: 192.0
-        ry: 47.6
-        fill: steel2
-        sw: 4
-      id: can
-      x: 960
+        in: '@pipe'
+      x: 860
+      y: 500
+      in: '@room'
+    - kind: arrow
+      x: 1180
       y: 600
-      in: 0
-    - kind: label
-      text: 'next: the rings'
-      x: 1170
-      y: 380
       to:
-      - 230
-      - -160
-      in: '@rings+0.4'
+      - 50
+      - 180
+      color: sky
+      in: '@pulling'
+      bend: -20
+    - kind: label
+      text: 'next: the siphon'
+      x: 1210
+      y: 820
+      to:
+      - 260
+      - 60
+      in: '@pulling+0.4'
     camera:
-    - at: '@sides'
+    - at: '@pipe'
+      x: 1020
+      y: 620
       zoom: 1.15
-      dur: 2
+      dur: 1.6
 - id: s196
   para: 32
   sent: 121
-  text: in the rings you have seen your whole life.
+  text: one curved pipe empties a whole bowl.
+  visual:
+    same: true
+- id: s197
+  para: 32
+  sent: 122
+  text: And it does that by pulling the water out, not by pushing it.
   visual:
     same: true

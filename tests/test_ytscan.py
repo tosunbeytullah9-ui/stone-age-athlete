@@ -58,6 +58,41 @@ def test_new_channels_filters_age_and_size(demo):
     assert [r["channel"] for r in rows] == ["Chan young"] and rows[0]["subs"] == 50_000
 
 
+def test_new_channels_old_best_video_music_and_newest_upload_bug(demo):
+    # 22 Oct 2026 report: every giant channel came out "0 months old" because first_upload returned the newest upload
+    vids = [_v(1, 9_000_000, "giant"), _v(2, 500_000, "hymns"), _v(3, 400_000, "fresh"), _v(4, 300_000, "liar")]
+    meta = {"v1": {"subs": 44_000_000, "upload_date": "20170301"},             # best video 9 years old: not new
+            "v2": {"subs": 2_000_000, "upload_date": "20260901", "categories": ["Music"]},
+            "v3": {"subs": 80_000, "upload_date": "20260501"},
+            "v4": {"subs": 90_000, "upload_date": "20230101"}}
+    asked = []
+    def first(ch):
+        asked.append(ch)
+        return {"fresh": "20260101", "liar": "20261020"}.get(ch)              # "liar": a wrong, too-new date
+    ytscan.scan_new_channels("demo", find=lambda q, n, by_date=False: vids, first=first,
+                             more=lambda ids: {i: meta[i] for i in ids})
+    rows = ytscan.latest("demo")["channels"]["rows"]
+    assert [r["channel"] for r in rows] == ["Chan fresh"] and rows[0]["first_upload"] == "20260101"
+    assert "giant" not in asked and "hymns" not in asked                  # filtered before the slow uploads read
+    assert ytscan.months_between("20261020", date(2026, 10, 22)) == 0 and ytscan.months_between(None, date.today()) is None
+
+
+def test_first_upload_takes_the_oldest(monkeypatch):
+    class FakeYDL:
+        def __init__(self, opts):
+            self.opts = opts
+        def __enter__(self):
+            return self
+        def __exit__(self, *a):
+            return False
+        def extract_info(self, url, download=False):
+            assert self.opts.get("extract_flat") and "playlistreverse" not in self.opts
+            return {"entries": [{"id": "newestAAAAA"}, {"id": "middleBBBBB"}, {"id": "oldestCCCCC"}]}
+    monkeypatch.setattr(ytscan, "_ydl", lambda flat=True, **kw: FakeYDL({"extract_flat": flat, **kw}))
+    monkeypatch.setattr(ytscan, "details", lambda ids: {i: {"upload_date": "20190101"} for i in ids if i == "oldestCCCCC"})
+    assert ytscan.first_upload("UCx") == "20190101"
+
+
 def test_seed_queries_from_channel_yaml(demo):
     assert ytscan.seed_queries(demo) == ["how a can opener works", "Zipper"]   # no queries: tags + top ideas
     d = demo.data

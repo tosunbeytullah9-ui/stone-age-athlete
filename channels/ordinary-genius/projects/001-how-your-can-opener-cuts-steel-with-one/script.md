@@ -71,4 +71,4 @@ Newer designs attack from the side. Instead of slicing down through the lid, a c
 <!-- chapter: Three machines, one hand -->
 So, next time a lid lifts free in your fingers, picture what just happened. Your grip was amplified by a lever. A sharp little disc squeezed that grip into enormous pressure. And a crank, a pair of gears and a toothed wheel marched the cut around the rim, one bite at a time, guided by the folded seam. None of it could work until cans learned to be thin.
 
-Which leaves a puzzle. If can steel is that thin, why doesn't the can crumple in your hand? The answer is pressed into its sides, in the rings you have seen your whole life.
+Which leaves a puzzle. Some machines in your home have no crank and no gears, and barely need your hand at all. In the smallest room of the house, one curved pipe empties a whole bowl. And it does that by pulling the water out, not by pushing it.

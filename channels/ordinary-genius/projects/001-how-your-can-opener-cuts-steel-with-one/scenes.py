@@ -686,15 +686,27 @@ scene("And a crank, a pair of gears and a toothed wheel", 4, mech([
     it("rect", id="wall", x=960, y=980, w=600, h=20, fill="steel", **{"in": "@thin"}),
 ]))
 scene("Which leaves a puzzle.", 3, mech([
-    can_side(960, 600, w=380, h=460, id="can", at=0, shake={"at": "@crumple", "amount": 10}),
-    arrow(560, 600, (180, 0), color="coral", at="@crumple"),
-    arrow(1360, 600, (-180, 0), color="coral", at="@crumple"),
+    it("gear", id="g", x=700, y=540, r=150, teeth=18, depth=22, fill="yellow", at=0, spin={"speed": 60, "to": "@crank"}),
+    it("line", x=560, y=400, to=[280, 280], stroke="coral", sw=16, **{"in": "@gears"}),
+    it("line", x=840, y=400, to=[-280, 280], stroke="coral", sw=16, **{"in": "@gears"}),
+    grp([it("rect", w=150, h=150, r=40, fill="cream"), it("rect", x=0, y=-110, w=42, h=110, r=20, fill="cream")],
+        x=1260, y=560, **{"in": "@hand", "keys": [{"at": "@hand+0.5", "opacity": 0.25, "dur": 0.8}]}),
     text("?", 960, 230, 200, at="@puzzle", fill="yellow"),
 ]))
-scene("The answer is pressed into its sides,", 2, mech([
-    can_side(960, 600, w=420, h=520, id="can", at=0, glow_ridges="@rings"),
-    label("next: the rings", 1170, 380, (230, -160), at="@rings+0.4"),
-], camera=[{"at": "@sides", "zoom": 1.15, "dur": 2}]))
+scene("In the smallest room of the house,", 3, mech([
+    # a side cut-away of a toilet: tank, bowl with its water, and the curved pipe (trapway) glowing on "pipe"
+    it("rect", id="tank", x=1250, y=420, w=250, h=300, r=24, fill="cream", **{"in": "@room"}),
+    grp([
+        it("path", d="M -250 0 A 250 240 0 0 0 250 0 Z", fill="cream"),
+        it("ellipse", id="water", y=70, rx=180, ry=70, fill="sky",
+           keys=[{"at": "@empties", "ry": 18, "y": 150, "dur": 1.6}]),
+        it("rect", x=60, y=330, w=260, h=180, r=24, fill="cream"),
+        it("path", id="trap", d="M 40 190 C 140 190 170 90 240 90 C 320 90 330 220 350 330", fill="none",
+           stroke="yellow", sw=30, glow="yellow", **{"in": "@pipe"}),
+    ], x=860, y=500, **{"in": "@room"}),
+    arrow(1180, 600, (50, 180), color="sky", bend=-20, at="@pulling"),
+    label("next: the siphon", 1210, 820, (260, 60), at="@pulling+0.4"),
+], camera=[{"at": "@pipe", "x": 1020, "y": 620, "zoom": 1.15, "dur": 1.6}]))
 
 
 def build(shots: list[dict]) -> dict:
