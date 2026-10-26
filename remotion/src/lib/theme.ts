@@ -45,7 +45,7 @@ export const MUSEUM: Theme = {
   rules: null,
 };
 
-// Vivid explainer look (Ordinary Genius): deep indigo stage, saturated flat colours, thick navy outlines,
+// Vivid explainer look (Drawer Physics): deep indigo stage, saturated flat colours, thick navy outlines,
 // rounded display type. No paper, no line boil. `ink` is the text colour on the dark stage; outlines use palette.line.
 export const POP: Theme = {
   name: 'pop',

@@ -1,5 +1,5 @@
 prep: 1
-channel: ordinary-genius
+channel: drawer-physics
 idea: g001
 title: How Your Can Opener Cuts Steel With One Hand
 series: inside
@@ -18,7 +18,7 @@ research:
     all three simple machines inside it with exact animated diagrams, and ties the history to the physics: the tool could
     only work once the can got thin.'
   competition: 'Not measured yet from YouTube in this session (youtube.com blocked here). Run: tools/yt_tara.py konular --channel
-    ordinary-genius --only g001. Web: ''you are using your can opener wrong'' tips and ''cans came 48 years before the opener''
+    drawer-physics --only g001. Web: ''you are using your can opener wrong'' tips and ''cans came 48 years before the opener''
     trivia are common.'
   open_questions:
   - Check the top YouTube videos for 'how does a can opener work' with yt_tara and sharpen the angle if one already explains

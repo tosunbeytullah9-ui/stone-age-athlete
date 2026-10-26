@@ -34,7 +34,7 @@ series:                          # recurring formats = playlists; each maps to i
   # Myth Autopsy (P7) is closed: debunking a fitness myth is You're Wrong!'s job (2.0 rule, 26 Oct 2026)
   what-if-coach:    {name: "What If, Coach?",  pillars: [P8],     promise: "Body thought experiments grounded in real research", color: "#b98b52"}
 schedule:                        # publishing rhythm (Kanal → Takvim)
-  per_week: 1                    # 2.0 rule: one long video a week (You're Wrong! Tue+Fri, Ordinary Genius Thu)
+  per_week: 1                    # 2.0 rule: one long video a week (You're Wrong! Tue+Fri, Drawer Physics Thu)
   days: [Mon]                    # Mon Tue Wed Thu Fri Sat Sun
   slot_types: [long]             # long | short (a purpose-written Short)
   hours_per_video: 6.5           # your measured hours per long video (update after the first 10)
@@ -81,7 +81,7 @@ package:                         # what the packaging prompt and the channel bib
     body design, where fitness habits came from); every claim is sourced; each video ends with a practical
     "coach's lesson" in the real coach's own voice. No myth-debunking: that is You're Wrong!.
   thumbnail_rules:
-    - "Homo Athleticus 2.0 needs its own thumbnail grammar before relaunch (thumbnails.kinds): never You're Wrong!'s struck-through myth, stamp or handwritten note, never Ordinary Genius's lens, scan line or part tag."
+    - "Homo Athleticus 2.0 needs its own thumbnail grammar before relaunch (thumbnails.kinds): never You're Wrong!'s struck-through myth, stamp or handwritten note, never Drawer Physics's lens, scan line or part tag."
     - "No drawn coach in thumbnails or scenes (2.0 rule)."
 thumbnails:                      # look of the three thumbnail kinds (docs/THUMBNAILS.md)
   ink: "#151311"

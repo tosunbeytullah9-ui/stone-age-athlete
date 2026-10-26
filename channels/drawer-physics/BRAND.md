@@ -1,8 +1,13 @@
-# Ordinary Genius: brand and writing book
+# Drawer Physics: brand and writing book
 
 **Promise:** every everyday object is a solved physics problem. Each video opens one object the viewer touches
 without thinking — mostly in an American home: kitchen, bathroom, door, desk, garage — and shows the maths, physics,
 chemistry or geometry working inside it, and how it was done before.
+
+**The name (26 Oct 2026):** *Drawer Physics*. The drawer is the junk drawer and the kitchen drawer: the small
+things within reach that nobody thinks about. It is a starting point, not a fence: doors, toilets, smoke detectors and
+garage doors are "drawer physics" too. The old name, Ordinary Genius, was dropped because dozens of YouTube channels
+already use it. The narration never says the channel name in the opening (no greeting, no "welcome to").
 
 **Who it is for:** curious adults (US first, any English speaker) who like "how it works" videos but find most of them
 either too technical or too shallow. They should leave feeling smarter about something they will use tomorrow.
@@ -60,7 +65,7 @@ Length: 1,200–1,500 words, 8–10 minutes (mid-roll ads start at 8 min).
 ## Thumbnails
 The object is the hero and the hidden part is the question. A viewer sees a thing from their own kitchen drawn
 bigger and cleaner than they have ever looked at it, and one small part of it singled out: "wait, what is that?"
-Nothing on an Ordinary Genius thumbnail is struck through, stamped or handwritten; that grammar belongs to
+Nothing on an Drawer Physics thumbnail is struck through, stamped or handwritten; that grammar belongs to
 You're Wrong!, and two channels of one owner must never look like one template (YouTube spam policy: coordinated
 channels, repetitive imagery).
 

@@ -23,8 +23,8 @@ kurallar bu belgenin geri kalanından önce gelir.
    sahnesi Remotion ile kodla çizilir (`comp: mech`, `museum` temasında müze levhası görünümü; temaya müze paleti
    eklenmesi gerekiyor). Gemini yalnızca insan, mekân ve dönem için. Hedef video başına 20–30 resim (~1–1,5 $) ve 4–8
    ücretsiz hareketli sahne.
-4. **Haftada 1 video** (Pazartesi; You're Wrong! Salı ve Cuma, Ordinary Genius Perşembe).
-5. **Kanala ait kapak dili.** You're Wrong!'un üstü çizili inanışı, damgası ve el yazısı notu; Ordinary Genius'un
+4. **Haftada 1 video** (Pazartesi; You're Wrong! Salı ve Cuma, Drawer Physics Perşembe).
+5. **Kanala ait kapak dili.** You're Wrong!'un üstü çizili inanışı, damgası ve el yazısı notu; Drawer Physics'un
    büyüteci, tarama çizgisi ve parça etiketi kullanılmaz. Yeniden açılıştan önce kanalın üç kapak türü tasarlanır ve
    `channel.yaml → thumbnails.kinds`'a yazılır (öneri: müze vitrin etiketi, "ata / bugünkü insan" yan yana, sahne).
 

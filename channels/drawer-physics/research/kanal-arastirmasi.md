@@ -1,4 +1,4 @@
-# Ordinary Genius: kanal araştırması ve kararların dayanağı (21 Ekim 2026)
+# Drawer Physics (eski adıyla Ordinary Genius): kanal araştırması ve kararların dayanağı (21 Ekim 2026)
 
 Bu belge kanalın kimliğinin, kapak dilinin ve konu sırasının neye dayandığını gösterir. YouTube'un kendisi bu
 oturumdan taranamadı (youtube.com bağlantısı ağ politikasıyla kapalıydı); o kısım panelde Kanal → **YouTube taraması** (ya da `python -m studio scan`) ile sahibin

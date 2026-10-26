@@ -23,7 +23,7 @@ channel bible, the panel and the preview all follow it.
 | channel | kinds | grammar |
 |---|---|---|
 | You're Wrong! (default set) | `correction`, `stamp`, `scene` | a myth struck through, stamped, handwritten |
-| Ordinary Genius | `loupe`, `xray`, `tag` | the object is the hero, the hidden part is the question |
+| Drawer Physics | `loupe`, `xray`, `tag` | the object is the hero, the hidden part is the question |
 
 ```yaml
 # object kinds (coordinates on the 1920×1080 design canvas, after `frame`)

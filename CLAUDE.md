@@ -51,10 +51,10 @@ data scenes (bars/counter/timeline/quote) come from the planner or `motion-promp
 number is in a claim linked to the scene's shots (a quote must be a claim's quote). `motion-auto <slug>` does both.
 When you plan a video by hand, leave the signature beats to the engine and add 2–6 data scenes from claims.yaml.
 Never put the motion rules under `remotion.rules` (that name is the paper's ruled lines, `paper_rules`).
-**Code-drawn channels** (`comp: mech`, docs/REMOTION.md → mech; Ordinary Genius): most scenes are vector mechanisms
+**Code-drawn channels** (`comp: mech`, docs/REMOTION.md → mech; Drawer Physics): most scenes are vector mechanisms
 written in the storyboard, each movement on a spoken word (`at: "@valve"`, word times from `align`, studio/words.py);
 AI paintings only for people, places and history. Write a video's scenes as code with drawing helpers
-(`channels/ordinary-genius/projects/001-*/scenes.py`), apply them, render posters and **look at the contact sheet**.
+(`channels/drawer-physics/projects/001-*/scenes.py`), apply them, render posters and **look at the contact sheet**.
 Numbers on a `mech` scene come from claims or the scene's own words; illustrative maths gets `example: true`.
 YouTube scans (yt-dlp, free, no API key; studio/ytscan.py; panel: Kanal → YouTube taraması; youtube.com is closed to
 cloud sessions, so they run on the owner's machine): `python -m studio scan konular|yeni-kanallar|kapaklar|isimler --channel <c>

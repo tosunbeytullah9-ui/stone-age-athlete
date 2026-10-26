@@ -65,7 +65,7 @@ Every text value may be per language (`{en: "...", tr: "..."}`), or patched for 
 ## `mech`: code-drawn mechanisms that move on the exact word
 A whole scene drawn by code on a 1920×1080 design canvas (fitted to any output size): shapes, gears, springs,
 arrows, waves, gauges, particles, labels and formulas. Built for channels whose pictures are mostly diagrams
-(Ordinary Genius, theme `pop`). Every movement is tied to the narration:
+(Drawer Physics, theme `pop`). Every movement is tied to the narration:
 
 | cue (`at`, `in`, `out`, `spin.from`…) | starts |
 | --- | --- |
@@ -117,7 +117,7 @@ maths ("say your hand is five times farther") is marked `example: true` on the i
 screen (`apply-plan` and `check` enforce it). Top-level text and labels are kept inside the canvas.
 Thumbnails can be code-drawn too: `thumbnails[n].visual: {comp: mech, items: [...]}` (rendered as a still, free).
 A long video's scenes are best written as code (helpers for the recurring objects): see
-`channels/ordinary-genius/projects/001-*/scenes.py` → `python scenes.py > plan.yaml` → `apply-plan`.
+`channels/drawer-physics/projects/001-*/scenes.py` → `python scenes.py > plan.yaml` → `apply-plan`.
 
 ## Rules
 1. One idea per scene, words short: titles ≤ 10 words, bar labels 1–3 words, timeline notes ≤ 8 words.

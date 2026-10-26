@@ -365,7 +365,7 @@ prep:
       physics of all three simple machines inside it with exact animated diagrams, and ties the history to the physics:
       the tool could only work once the can got thin.'
     competition: 'Not measured yet from YouTube in this session (youtube.com blocked here). Run: tools/yt_tara.py
-      konular --channel ordinary-genius --only g001. Web: ''you are using your can opener wrong'' tips and ''cans
+      konular --channel drawer-physics --only g001. Web: ''you are using your can opener wrong'' tips and ''cans
       came 48 years before the opener'' trivia are common.'
     open_questions: [Check the top YouTube videos for 'how does a can opener work' with yt_tara and sharpen the
         angle if one already explains the pressure and feed-wheel physics in depth., Bunker Clancey (1931) rests

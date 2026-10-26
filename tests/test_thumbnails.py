@@ -191,6 +191,6 @@ def test_name_check_verdicts(tmp_path, monkeypatch):
     assert ytscan.check_name("Tinkerwise", None, fh, fc)["verdict"] == "BOŞ"
     assert ytscan.handles_for("Lever & Lid") == ["LeverAndLid"]
     monkeypatch.setattr(ytscan, "research_dir", lambda cid: tmp_path)
-    out = ytscan.scan_names("ordinary-genius", ["Tinkerwise", "Ordinary Genius"], fh, fc)
+    out = ytscan.scan_names("drawer-physics", ["Tinkerwise", "Ordinary Genius"], fh, fc)
     md = out.read_text(encoding="utf-8")
     assert md.index("| Tinkerwise |") < md.index("| Ordinary Genius |") and "**DOLU**" in md

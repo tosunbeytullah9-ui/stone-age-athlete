@@ -1,9 +1,9 @@
-# Idea bank — Ordinary Genius. Never change or reuse an id.
+# Idea bank — Drawer Physics. Never change or reuse an id.
 # pillar: P1 Inside the Mechanism | P2 Why It's Shaped Like That | P3 Then & Now
 # us: how common the object is in US homes (source in research/kanal-arastirmasi.md; "?" = not measured yet)
 # physics: the idea the middle of the video explains · then: history LEADS (verify with two sources before scripting) · status: idea | researching |
 # scripting | production | published | dropped. Competition: tools/yt_tara.py konular → research/rakip-*.md,
-# demand bands: python -m studio signals --channel ordinary-genius
+# demand bands: python -m studio signals --channel drawer-physics
 pillars:
   P1: {name: Inside the Mechanism, promise: What actually happens inside an everyday object when you use it}
   P2: {name: Why It's Shaped Like That, promise: 'One design detail you never noticed, solved with maths'}

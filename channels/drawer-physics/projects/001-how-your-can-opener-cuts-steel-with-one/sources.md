@@ -7,7 +7,7 @@
 
 **This video's angle:** Most can-opener content is either trivia ('cans came first') or usage tips; this video explains the physics of all three simple machines inside it with exact animated diagrams, and ties the history to the physics: the tool could only work once the can got thin.
 
-**What other videos say:** Not measured yet from YouTube in this session (youtube.com blocked here). Run: tools/yt_tara.py konular --channel ordinary-genius --only g001. Web: 'you are using your can opener wrong' tips and 'cans came 48 years before the opener' trivia are common.
+**What other videos say:** Not measured yet from YouTube in this session (youtube.com blocked here). Run: tools/yt_tara.py konular --channel drawer-physics --only g001. Web: 'you are using your can opener wrong' tips and 'cans came 48 years before the opener' trivia are common.
 
 **Open questions (check before publishing):**
 - Check the top YouTube videos for 'how does a can opener work' with yt_tara and sharpen the angle if one already explains the pressure and feed-wheel physics in depth.

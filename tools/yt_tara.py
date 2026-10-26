@@ -1,7 +1,7 @@
 """Eski giriş noktası: tarama artık fabrikanın içinde (studio/ytscan.py; panel: Kanal → YouTube taraması).
 
-  .venv\\Scripts\\python tools\\yt_tara.py konular --channel ordinary-genius [--only g001,g002]
-  = python -m studio scan konular --channel ordinary-genius [--only g001,g002]
+  .venv\\Scripts\\python tools\\yt_tara.py konular --channel drawer-physics [--only g001,g002]
+  = python -m studio scan konular --channel drawer-physics [--only g001,g002]
 """
 import argparse
 import sys

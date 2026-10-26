@@ -5,7 +5,7 @@ Myth channels (default set: You're Wrong!, Homo Athleticus):
   correction  the belief in big letters, struck through by hand in the accent colour, a short handwritten note under it
   stamp       one picture, one rubber stamp ("WRONG", "MYTH", ...) on its empty side, no other words
   scene       a moment from the video with at most three handwritten words
-Object channels (Ordinary Genius): the object is the hero, the hidden part is the question
+Object channels (Drawer Physics): the object is the hero, the hidden part is the question
   loupe       the object drawn huge; a magnifying lens blows up the one small part that does the trick
   xray        the object split by a glowing scan line: outside on one side, its mechanism on the other
   tag         the object drawn huge; one thick arrow and a part tag point at the part the video explains
@@ -335,7 +335,7 @@ def scene(base: Image.Image, text: str, theme: dict, pos: str = "top") -> Image.
     return _ink(base, lay.rotate(1.5, resample=Image.BICUBIC, center=(x, y)), theme)
 
 
-# ---- object kinds (Ordinary Genius): the object is the hero, the hidden part is the question ------------------------
+# ---- object kinds (Drawer Physics): the object is the hero, the hidden part is the question ------------------------
 
 def _headline(base: Image.Image, text: str, theme: dict, pos: str, avoid=None) -> Image.Image:
     """Big bold words (title font; the channel's outline look when it has one), one or two lines."""

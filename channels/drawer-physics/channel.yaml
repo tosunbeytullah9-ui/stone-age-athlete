@@ -1,7 +1,8 @@
 # Channel identity + overrides of config.yaml (edit in the panel: Kanal → Kanal ayarları)
 # Persona and rules: BRAND.md. Research behind the choices: research/kanal-arastirmasi.md
-name: Ordinary Genius
-handle: "@OrdinaryGeniusHQ"      # check availability on YouTube before creating the channel (@OrdinaryGenius first)
+name: Drawer Physics
+aliases: [ordinary-genius]       # old id and name "Ordinary Genius" (renamed 26 Oct 2026: that name is used by dozens of channels)
+handle: "@DrawerPhysics"        # chosen 26 Oct 2026; take it on YouTube, Instagram and TikTok the same day
 tagline: "The hidden physics of the things you use every day."
 category: Education
 languages: [en]
@@ -30,11 +31,11 @@ schedule:
 outro:
   seconds: 16
   text: {en: "Next object"}
-  sub: {en: "Ordinary Genius · every claim sourced"}
+  sub: {en: "Drawer Physics · every claim sourced"}
 youtube:
   credit: "Every claim in this video is linked to its source below."
   footer: |-
-    Ordinary Genius opens up the everyday objects you never think about: the physics, the maths and the history
+    Drawer Physics opens up the everyday objects you never think about: the physics, the maths and the history
     inside them. Narrated with a synthetic voice; the diagrams are drawn with code and a few illustrations are made
     with AI tools. Every claim is checked against the sources above.
   category: 27
@@ -55,8 +56,9 @@ policy:                          # YouTube monetization policies (docs/POLICY.md
     tools. Every claim is checked against the sources below.
 branding:                        # python -m studio branding / panel: Kanal ayarları → Marka görsellerini üret
   profile_prompt: >-
-    A single bright yellow light bulb whose glowing filament is a tiny gear, drawn large and centred, thick dark
-    navy outline, flat colours, on a plain deep indigo background. Readable at a tiny size. Nothing else.
+    A single half-open drawer seen from the front, drawn large and centred, with one bright sunflower-yellow gear
+    rising out of it and glowing, thick dark navy outline, flat colours, on a plain deep indigo background.
+    Readable at a tiny size. Nothing else.
   banner_prompt: >-
     One wide panoramic flat-vector scene, a single horizon at the vertical middle: a long kitchen counter seen from
     the front with everyday objects spaced along it — a can opener, a toaster, a ballpoint pen, a door key, a pair
@@ -84,7 +86,7 @@ package:                         # what the packaging prompt and the channel bib
     it makes) → CLOSE (a short summary in new words, never a repeat of earlier sentences, then a one-sentence bridge
     to the next object). 1,200–1,500 words, 8–10 min. Persona and language rules: BRAND.md.
   positioning: >-
-    Ordinary Genius explains the hidden physics, maths and history of the everyday objects people use without
+    Drawer Physics explains the hidden physics, maths and history of the everyday objects people use without
     thinking (mostly the American home: kitchen, bathroom, door, desk). A warm, curious narrator voice, vivid
     code-drawn diagrams that move on the exact word, plain language with everyday metaphors, every claim sourced.
     The viewer should feel smarter about something they touch every day.
@@ -114,7 +116,7 @@ overrides:
     motion_preset: flat
   audio:
     music_licence: YouTube Audio Library, no attribution required   # checked by the policy gate
-    music_tracks: []             # add upbeat instrumental tracks to assets/music/ordinary-genius/ (no vocals)
+    music_tracks: []             # add upbeat instrumental tracks to assets/music/drawer-physics/ (no vocals)
   tts:
     provider: gemini
     paragraph_pause: 0.3
@@ -132,8 +134,9 @@ overrides:
 # YouTube taraması (panel: Kanal → YouTube taraması; python -m studio scan yeni-kanallar). Yeni kanallar bu
 # aramaların en yeni videolarından bulunur; boşsa kanalın etiketleri ve önce gelen fikirler kullanılır.
 research:
-  name_candidates:               # 26 Oct 2026: "Ordinary Genius" is taken by dozens of channels → new name.
-                                 # Check: Kanal → YouTube taraması → "Kanal adı adaylarını kontrol et" (scan isimler)
+  name_candidates:               # 26 Oct 2026: the owner chose Drawer Physics (old name Ordinary Genius was taken by
+                                 # dozens of channels). Kept for the record and for a re-check: scan isimler
+    - {name: Drawer Physics, handles: [DrawerPhysicsHQ], note: "CHOSEN 26 Oct 2026"}
     - {name: Inside Every Thing, handles: [InsideEveryThingHQ], note: "the promise in three words; pun on everything; fits the x-ray covers"}
     - {name: How It Clicks, handles: [HowItClicksHQ], note: "the moment the mechanism works; short, a verb"}
     - {name: Hidden Gears, handles: [HiddenGearsHQ], note: "plain and clear; risk: common words"}

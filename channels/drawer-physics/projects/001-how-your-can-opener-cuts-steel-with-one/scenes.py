@@ -1,5 +1,5 @@
-"""Scene plan of 001 (Ordinary Genius), written as code: python scenes.py > plan.yaml, then
-python -m studio apply-plan 001-how-your-can-opener-cuts-steel-with-one plan.yaml --channel ordinary-genius
+"""Scene plan of 001 (Drawer Physics), written as code: python scenes.py > plan.yaml, then
+python -m studio apply-plan 001-how-your-can-opener-cuts-steel-with-one plan.yaml --channel drawer-physics
 
 Most scenes are code-drawn (`comp: mech`, docs/REMOTION.md → mech); every movement starts on a spoken word
 ("@crank" = when "crank" is said in the scene). Six scenes are AI pictures (people and history only).
