@@ -4,6 +4,7 @@ API kotası harcamaz (YouTube Data API ile ölçülen talep bantları ayrıca `s
   python -m studio scan konular --channel C [--only g001,g002] [--limit N]
   python -m studio scan yeni-kanallar --channel C
   python -m studio scan kapaklar --channel C [--only ...]
+  python -m studio scan isimler --channel C [--only "Name One,Name Two"]
 Panel: Kanal → YouTube taraması (üç düğme ve son sonuçlar).
 
 konular        Her fikir için YouTube aramasının ilk 20 videosu: izlenme, yükleme yılı, kanal, süre. Sonuç fikrin
@@ -15,6 +16,9 @@ yeni-kanallar  Kanalın arama ifadelerinden (channel.yaml → research.scan_quer
                ulaşan kanallar aylık abone hızına göre listelenir.
 kapaklar       En çok izlenen rakip videoların kapakları indirilir (yalnızca incelemek için) ve tek bir kontak sayfası
                (research/kapaklar/kontak.jpg) yapılır.
+isimler        Kanal adı adayları (channel.yaml → research.name_candidates, ya da --only "Ad Bir,Ad İki"): her adın
+               handle'ları (@AdBir …) dolu mu boş mu, YouTube'un kanal aramasında aynı ya da çok benzer adlı kanal var
+               mı. Sonuç: BOŞ (handle boş, aynı adlı kanal yok) · DİKKAT (benzer adlı kanallar var) · DOLU.
 
 Çıktılar: channels/<kanal>/research/ (Markdown + CSV + JSON). Gerekenler: yt-dlp (requirements.txt), internet.
 """
@@ -22,6 +26,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import statistics
 import sys
 import time
@@ -34,7 +39,7 @@ from .config import CHANNELS
 
 STRONG = 100_000
 LONG = 480                       # saniye: 8 dakikadan uzun = ara reklam alabilen, ayrıntılı video
-MODES = ("konular", "yeni-kanallar", "kapaklar")
+MODES = ("konular", "yeni-kanallar", "kapaklar", "isimler")
 
 
 def research_dir(cid: str) -> Path:
@@ -338,14 +343,122 @@ def grab_thumbnails(cid: str, ids: list[str] | None = None, per_topic: int = 3, 
     return path
 
 
+# ------------------------------------------------------------------ isimler (channel name candidates)
+CHANNEL_FILTER = "EgIQAg%3D%3D"   # YouTube search filter: channels only
+
+
+def norm(name: str) -> str:
+    """Lower case letters and digits only: "Ordinary Genius!" and "@ordinary_genius" compare equal."""
+    return "".join(ch for ch in str(name or "").lower() if ch.isalnum())
+
+
+def handles_for(name: str, extra: list[str] | None = None) -> list[str]:
+    """@NameOne (each word capitalised, "&" read as "and") plus the given extras (without @)."""
+    words = re.findall(r"[^\W_]+", str(name).replace("&", " and "))
+    base = "".join(w[:1].upper() + w[1:] for w in words)
+    out = [base] + [str(h).lstrip("@") for h in (extra or [])]
+    return list(dict.fromkeys(h for h in out if h))
+
+
+def handle_status(handle: str) -> dict | None:
+    """The channel behind https://www.youtube.com/@handle, or None when no channel answers to it."""
+    with _ydl(flat=True, playlist_items="1") as y:
+        info = y.extract_info(f"https://www.youtube.com/@{handle}", download=False)
+    if not info:
+        return None
+    return {"channel": info.get("channel") or info.get("uploader") or info.get("title") or "",
+            "subs": int(info.get("channel_follower_count") or 0),
+            "url": info.get("channel_url") or f"https://www.youtube.com/@{handle}"}
+
+
+def channel_search(query: str, n: int = 20) -> list[dict]:
+    """YouTube's channel search (the "Channels" filter): names, handles and subscribers of the first n channels."""
+    from urllib.parse import quote_plus
+    with _ydl(flat=True, playlist_items=f"1-{n}") as y:
+        info = y.extract_info(f"https://www.youtube.com/results?search_query={quote_plus(query)}&sp={CHANNEL_FILTER}",
+                              download=False) or {}
+    out = []
+    for e in info.get("entries") or []:
+        if not e:
+            continue
+        out.append({"channel": e.get("channel") or e.get("title") or e.get("uploader") or "",
+                    "handle": str(e.get("uploader_id") or "").lstrip("@"),
+                    "subs": int(e.get("channel_follower_count") or 0),
+                    "url": e.get("url") or e.get("channel_url") or ""})
+    return out
+
+
+def check_name(name: str, extra_handles: list[str] | None = None, find_handle: Callable = handle_status,
+               find_channels: Callable = channel_search) -> dict:
+    """One candidate: its handles (free or taken) and the channels with the same or a very similar name."""
+    key = norm(name)
+    hs = [{"handle": h, "taken": find_handle(h)} for h in handles_for(name, extra_handles)]
+    same, similar = [], []
+    for c in find_channels(name):
+        k, kh = norm(c["channel"]), norm(c.get("handle"))
+        if key and (k == key or kh == key):
+            same.append(c)
+        elif key and (key in k or key in kh or (len(k) >= 5 and k in key)):
+            similar.append(c)
+    free = [h["handle"] for h in hs if not h["taken"]]
+    verdict = "DOLU" if same or not free else ("DİKKAT" if similar else "BOŞ")
+    return {"name": name, "verdict": verdict, "free_handles": free,
+            "taken_handles": [{"handle": h["handle"], **h["taken"]} for h in hs if h["taken"]],
+            "same": same, "similar": similar[:8]}
+
+
+def name_candidates(ch: Channel) -> list[dict]:
+    """channel.yaml → research.name_candidates: names, or {name, handles: [...], note}."""
+    out = []
+    for c in ((ch.data.get("research") or {}).get("name_candidates") or []):
+        out.append(c if isinstance(c, dict) else {"name": str(c)})
+    return [c for c in out if c.get("name")]
+
+
+def scan_names(cid: str, names: list[str] | None = None, find_handle: Callable = handle_status,
+               find_channels: Callable = channel_search) -> Path:
+    ch = Channel(cid)
+    cands = [{"name": n} for n in names] if names else name_candidates(ch)
+    if not cands:
+        raise SystemExit("İsim adayı yok: channel.yaml → research.name_candidates ya da --only \"Ad Bir,Ad İki\"")
+    if find_handle is handle_status and handle_status("YouTube") is None:
+        raise SystemExit("YouTube'a ulaşılamadı (internet ya da yt-dlp). Bağlantıyı kontrol edip tekrar dene.")
+    rows = []
+    for i, c in enumerate(cands, 1):
+        print(f"  isim {i}/{len(cands)}: {c['name']}")
+        r = check_name(c["name"], c.get("handles"), find_handle, find_channels)
+        r["note"] = c.get("note", "")
+        rows.append(r)
+        time.sleep(0.3)
+    order = {"BOŞ": 0, "DİKKAT": 1, "DOLU": 2}
+    rows.sort(key=lambda r: (order[r["verdict"]], -len(r["free_handles"]), len(r["similar"])))
+    d = research_dir(cid)
+    stamp = date.today().isoformat()
+    (d / f"isimler-{stamp}.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
+    fmt = lambda cs: "; ".join(f"[{x['channel']}]({x['url']}) {x['subs']:,}" for x in cs[:4]) or "—"  # noqa: E731
+    lines = [f"# Kanal adı adayları: {ch.data.get('name', cid)} ({stamp})", "",
+             "BOŞ = handle boş ve aynı adlı kanal yok · DİKKAT = benzer adlı kanallar var · DOLU = aynı adlı kanal var "
+             "ya da handle'ların hepsi alınmış. Instagram, TikTok ve marka (USPTO, EUIPO, TÜRKPATENT) ayrıca bakılır.", "",
+             "| Ad | Sonuç | Boş handle | Alınmış handle | Aynı adlı kanal | Benzer adlı kanal | Not |",
+             "| --- | --- | --- | --- | --- | --- | --- |"]
+    for r in rows:
+        taken = "; ".join(f"@{t['handle']} ({t['channel']}, {t['subs']:,})" for t in r["taken_handles"]) or "—"
+        lines.append(f"| {r['name']} | **{r['verdict']}** | {', '.join('@' + h for h in r['free_handles']) or '—'} | "
+                     f"{taken} | {fmt(r['same'])} | {fmt(r['similar'])} | {r['note']} |")
+    out = d / f"isimler-{stamp}.md"
+    out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"  rapor: {out}")
+    return out
+
+
 # ------------------------------------------------------------------ panel
 def latest(cid: str) -> dict:
     """What the panel shows: the newest report of each kind."""
     d = CHANNELS / cid / "research"
-    res: dict = {"topics": None, "channels": None, "thumbs": None}
+    res: dict = {"topics": None, "channels": None, "thumbs": None, "names": None}
     if not d.exists():
         return res
-    for key, prefix in (("topics", "rakip-"), ("channels", "yeni-kanallar-")):
+    for key, prefix in (("topics", "rakip-"), ("channels", "yeni-kanallar-"), ("names", "isimler-")):
         files = sorted(d.glob(f"{prefix}*.json"))
         if files:
             f = files[-1]
@@ -365,6 +478,8 @@ def run(mode: str, cid: str, ids: list[str] | None = None, limit: int | None = N
         return scan_topics(cid, ids, limit)
     if mode == "yeni-kanallar":
         return scan_new_channels(cid, extra)
+    if mode == "isimler":
+        return scan_names(cid, extra or ids)
     return grab_thumbnails(cid, ids, limit=limit or 24)
 
 

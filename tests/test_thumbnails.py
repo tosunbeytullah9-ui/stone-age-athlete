@@ -175,3 +175,22 @@ def test_object_kinds_lint():
     assert any("inside" in w for w in tk.lint({"kind": "xray"}, {}))
     assert any("point" in w for w in tk.lint({"kind": "tag"}, {"text": "one two three four"}))
     assert any("claim" in w for w in tk.lint({"kind": "tag", "point": {"x": 1, "y": 1}}, {"text": "5 LAYERS"}))
+
+
+def test_name_check_verdicts(tmp_path, monkeypatch):
+    from studio import ytscan
+    taken = {"OrdinaryGenius": {"channel": "Ordinary Genius", "subs": 900, "url": "u"}}
+    found = {"Ordinary Genius": [{"channel": "Ordinary Genius Lab", "handle": "OrdinaryGeniusLab", "subs": 10, "url": "a"},
+                                 {"channel": "Ordinary Genius", "handle": "ordinary_genius", "subs": 5, "url": "b"}],
+             "How It Clicks": [{"channel": "How It Clicks Studio", "handle": "x", "subs": 3, "url": "c"}],
+             "Tinkerwise": [{"channel": "Something Else", "handle": "y", "subs": 1, "url": "d"}]}
+    fh, fc = (lambda h: taken.get(h)), (lambda q: found.get(q, []))
+    assert ytscan.check_name("Ordinary Genius", None, fh, fc)["verdict"] == "DOLU"
+    r = ytscan.check_name("How It Clicks", ["HowItClicksHQ"], fh, fc)
+    assert r["verdict"] == "DİKKAT" and r["free_handles"] == ["HowItClicks", "HowItClicksHQ"]
+    assert ytscan.check_name("Tinkerwise", None, fh, fc)["verdict"] == "BOŞ"
+    assert ytscan.handles_for("Lever & Lid") == ["LeverAndLid"]
+    monkeypatch.setattr(ytscan, "research_dir", lambda cid: tmp_path)
+    out = ytscan.scan_names("ordinary-genius", ["Tinkerwise", "Ordinary Genius"], fh, fc)
+    md = out.read_text(encoding="utf-8")
+    assert md.index("| Tinkerwise |") < md.index("| Ordinary Genius |") and "**DOLU**" in md

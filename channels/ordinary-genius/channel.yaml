@@ -132,6 +132,20 @@ overrides:
 # YouTube taraması (panel: Kanal → YouTube taraması; python -m studio scan yeni-kanallar). Yeni kanallar bu
 # aramaların en yeni videolarından bulunur; boşsa kanalın etiketleri ve önce gelen fikirler kullanılır.
 research:
+  name_candidates:               # 26 Oct 2026: "Ordinary Genius" is taken by dozens of channels → new name.
+                                 # Check: Kanal → YouTube taraması → "Kanal adı adaylarını kontrol et" (scan isimler)
+    - {name: Inside Every Thing, handles: [InsideEveryThingHQ], note: "the promise in three words; pun on everything; fits the x-ray covers"}
+    - {name: How It Clicks, handles: [HowItClicksHQ], note: "the moment the mechanism works; short, a verb"}
+    - {name: Hidden Gears, handles: [HiddenGearsHQ], note: "plain and clear; risk: common words"}
+    - {name: Lever & Lid, handles: [LeverLid], note: "kitchen-drawer feel, very distinctive; narrower for doors and bathrooms"}
+    - {name: The Inner Workings, handles: [InnerWorkingsHQ], note: "classic phrase; likely crowded"}
+    - {name: Thingsplained, note: "playful coined word; close to the book title Thing Explainer"}
+    - {name: Under the Lid, handles: [UnderTheLidHQ], note: "opening objects up; could read as cooking"}
+    - {name: Drawer Physics, note: "says physics; narrow to the kitchen drawer"}
+    - {name: Cutaway Physics, note: "the x-ray look as a name"}
+    - {name: Household Mechanics, note: "descriptive, search friendly, less brandable"}
+    - {name: Tinkerwise, note: "coined, brandable; says less about the topic"}
+    - {name: Gizmology, note: "coined; may exist as a tech blog"}
   scan_queries:
     - how everyday things work
     - how does it work everyday objects

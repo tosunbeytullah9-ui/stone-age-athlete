@@ -1,6 +1,10 @@
 # Channel identity + overrides of config.yaml (edit in the panel: Kanal → Kanal ayarları)
 # Brand architecture: docs/BRAND.md
 name: Homo Athleticus
+status: paused                   # 26 Oct 2026: frozen until the You're Wrong! checkpoint (end of Jan 2027); paid steps
+paused_note: >-                  #   (images, thumbnails, package, plan, tts, render) stop unless --force is given
+  Donduruldu (26 Ekim 2026). Karar Ocak 2027 sonunda, You're Wrong!'un ~20 videosundan sonra. Kanal dönerse
+  "Homo Athleticus 2.0" kurallarıyla döner: docs/BRAND.md → bölüm 0.
 handle: "@HomoAthleticus"
 aliases: [stone-age-athlete]     # old channel id; projects from the old folder are moved here automatically
 tagline: "Your body has a 2-million-year training log. Let's read it."
@@ -8,8 +12,8 @@ category: Education
 languages: [en]                  # English only (decided 2026-10-07); add tr back for a dubbed audio track
 description: >
   The story of the human body, told by a strength coach. How our ancestors moved, how warriors trained,
-  why your body is built the way it is, and which fitness "facts" are myths. Every claim sourced.
-  Every video ends with a coach's lesson you can use today.
+  which living peoples adapted to the impossible, and why your body is built the way it is. Every claim sourced.
+  Every video ends with a coach's lesson, in the coach's own voice.
 pronunciation: "HOH-moh ath-LET-ih-kus"
 visual_style: >-                 # every AI picture starts with this sentence (the channel's look)
   Hand-painted gouache illustration in the style of a natural-history museum mural: rich warm light, visible brush
@@ -26,12 +30,13 @@ series:                          # recurring formats = playlists; each maps to i
   human-limits:     {name: "Human Limits",     pillars: [P3],     promise: "Living peoples whose bodies adapted to the impossible", color: "#3f7fa6"}
   human-vs:         {name: "Human vs.",        pillars: [P4],     promise: "How the human body stacks up against animals and other humans", color: "#6f9a52"}
   body-blueprints:  {name: "Body Blueprints",  pillars: [P5],     promise: "Why your body is built the way it is: evolution's wins and bugs", color: "#8a6fb3"}
-  myth-autopsy:     {name: "Myth Autopsy",     pillars: [P6, P7], promise: "Fitness facts, traced to where they came from and tested", color: "#37474f"}
+  fitness-origins:  {name: "Fitness Origins",  pillars: [P6],     promise: "Where the things you do at the gym really came from", color: "#37474f"}
+  # Myth Autopsy (P7) is closed: debunking a fitness myth is You're Wrong!'s job (2.0 rule, 26 Oct 2026)
   what-if-coach:    {name: "What If, Coach?",  pillars: [P8],     promise: "Body thought experiments grounded in real research", color: "#b98b52"}
 schedule:                        # publishing rhythm (Kanal → Takvim)
-  per_week: 3
-  days: [Mon, Wed, Fri]          # Mon Tue Wed Thu Fri Sat Sun
-  slot_types: [long, long, long] # long | short (a purpose-written Short)
+  per_week: 1                    # 2.0 rule: one long video a week (You're Wrong! Tue+Fri, Ordinary Genius Thu)
+  days: [Mon]                    # Mon Tue Wed Thu Fri Sat Sun
+  slot_types: [long]             # long | short (a purpose-written Short)
   hours_per_video: 6.5           # your measured hours per long video (update after the first 10)
 outro:                           # end-screen scene after the narration (YouTube end-screen elements go on the boxes)
   seconds: 18
@@ -57,8 +62,9 @@ policy:                          # YouTube monetization policies (docs/POLICY.md
   narrator: fictional            # the painted coach is a character; her lessons rest on sources and the real coach
   realistic_visuals: false       # museum-style paintings, clearly not footage → no "AI use" label required
   transparency: >-
-    The coach in the illustrations is a drawn character with a synthetic voice, not a real person. The research and
-    the coach's lessons come from a real, experienced strength and conditioning coach and from the sources below.
+    The narration uses a synthetic voice and the illustrations are made with AI tools and code. The coach's lesson at
+    the end is read by the real strength and conditioning coach who made this video; the research comes from the
+    sources below.
 branding:                        # python -m studio branding → build/branding/ (profile, banner, watermark)
   profile_crop: [0.18, 0.0, 0.82, 0.64]   # the face part of raw/profile_art.png (fractions x0 y0 x1 y1)
 brand_doc: docs/BRAND.md          # brand book that goes into the channel bible (default: channels/<id>/BRAND.md)
@@ -66,17 +72,30 @@ package:                         # what the packaging prompt and the channel bib
   script_structure: >-
     HOOK (0–8 s, the most surprising *sourced* fact or stake) → SETUP → EVIDENCE (one study at a time: who was
     measured, what was found) → TURN ("but here is where the story gets complicated": what the evidence cannot tell
-    us) → COACH'S LESSON (60–90 s, safe, usable today). About 1,300–1,600 words ≈ 9–11 min.
+    us) → COACH'S LESSON (60–90 s, safe, usable today, written as a separate paragraph the owner records in his own
+    voice; general and attributed to the evidence and health authorities, ending with "talk to a qualified
+    professional" where it matters). About 1,300–1,600 words ≈ 9–11 min. Never a myth-debunking video (that is
+    You're Wrong!'s format).
   positioning: >-
-    Education, not fitness-influencer. A strength & conditioning coach tells the story of the human body; every claim
-    is sourced; each video ends with a practical "coach's lesson".
+    Education, not fitness-influencer. The story of the human body (ancestors, warriors, extreme humans, human vs.,
+    body design, where fitness habits came from); every claim is sourced; each video ends with a practical
+    "coach's lesson" in the real coach's own voice. No myth-debunking: that is You're Wrong!.
   thumbnail_rules:
-    - "`characters: [coach]` only if the coach appears in the picture."
+    - "Homo Athleticus 2.0 needs its own thumbnail grammar before relaunch (thumbnails.kinds): never You're Wrong!'s struck-through myth, stamp or handwritten note, never Ordinary Genius's lens, scan line or part tag."
+    - "No drawn coach in thumbnails or scenes (2.0 rule)."
 thumbnails:                      # look of the three thumbnail kinds (docs/THUMBNAILS.md)
   ink: "#151311"
   accent: "#d8342c"              # strike-through, note and stamp colour
   stamp: MYTH                    # default rubber-stamp word
   paper: false                   # paintings: the words sit on a torn paper slip
+relaunch:                        # Homo Athleticus 2.0: the rules the channel comes back with (docs/BRAND.md → 0)
+  no_myths: true                 # myth topics belong to You're Wrong! (ideas moved 26 Oct 2026: i010 i025 i078 i081 i110 i120 i132)
+  no_drawn_coach: true           # characters.coach stays only so the three old projects still open
+  lesson_voice: owner            # the coach's lesson is recorded by the owner himself
+  code_drawn_anatomy: true       # anatomy and biomechanics as code-drawn museum plates; Gemini only for people and places
+  images_per_video: [20, 30]     # target ~1–1.5 $ per video
+  per_week: 1
+  own_thumbnail_kinds: true      # its own thumbnail grammar, designed before relaunch
 chart_paper: refs/paper.png       # charts are printed on this painted paper (same world as the AI scenes)
 remotion:                         # motion scenes (docs/REMOTION.md) on the same painted paper
   theme: museum

@@ -66,6 +66,22 @@ from .config import default_channel, load_config
 from .project import Project, create_project
 
 
+PAID_STEPS = {"images", "thumbnails", "package", "plan", "prep-import", "tts", "render", "dub"}
+
+
+def stop_if_paused(channel: str) -> None:
+    """A paused channel (channel.yaml → status: paused) spends nothing: paid steps stop unless --force is given."""
+    from .channel import Channel
+    try:
+        d = Channel(channel).data
+    except Exception:  # noqa: BLE001  (an unknown channel fails later with its own message)
+        return
+    if str(d.get("status") or "").lower() == "paused":
+        why = " ".join(str(d.get("paused_note") or "").split())
+        sys.exit(f"  {d.get('name', channel)} donduruldu (channel.yaml → status: paused). Ücretli adımlar çalışmaz."
+                 + (f"\n  {why}" if why else "") + "\n  Yine de çalıştırmak için: --force")
+
+
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser(prog="studio", description="Video factory", add_help=True)
     ap.add_argument("command")
@@ -86,6 +102,8 @@ def main(argv=None) -> None:
     cmd = a.command
     from .channel import resolve_channel_id
     channel = resolve_channel_id(a.channel) if a.channel else default_channel()
+    if cmd in PAID_STEPS and not a.force:
+        stop_if_paused(channel)
 
     if cmd == "remotion-setup":
         from .remotion import install, status

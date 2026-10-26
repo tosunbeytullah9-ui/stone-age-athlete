@@ -746,7 +746,7 @@ def get_scan(cid: str):
     out = latest(ch.id)
     if out.get("thumbs"):
         out["thumbs"]["url"] = f"/files/{out['thumbs']['path']}?v={out['thumbs']['mtime']}"
-    for k in ("topics", "channels"):
+    for k in ("topics", "channels", "names"):
         if out.get(k):
             out[k]["md_url"] = f"/files/{out[k]['md']}"
     try:
@@ -755,6 +755,8 @@ def get_scan(cid: str):
     except ImportError:
         out["ytdlp"] = False
     out["queries"] = seed_queries(ch)
+    from ..ytscan import name_candidates
+    out["name_candidates"] = [c["name"] for c in name_candidates(ch)]
     return out
 
 
@@ -769,6 +771,9 @@ def run_scan(cid: str, body: dict = Body(default={})):
     ids = [i for i in (body.get("ids") or []) if re.match(r"^[a-z]+\d+$", i)]
     if ids:
         args += ["--only", ",".join(ids)]
+    names = [n.strip() for n in (body.get("names") or []) if re.match(r"^[\w &'.-]{2,40}$", str(n).strip())]
+    if mode == "isimler" and names:
+        args += ["--only", ",".join(names)]
     if body.get("limit"):
         args += ["--limit", str(int(body["limit"]))]
     return {"job": manager.submit(args, f"{STEP_LABELS['scan']} · {mode}", ch.id, None).id}

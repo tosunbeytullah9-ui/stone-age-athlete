@@ -3,7 +3,7 @@
 # gerekli API anahtarını .env dosyasına ekle. Kodda değişiklik gerekmez.
 
 factory:
-  default_channel: homo-athleticus
+  default_channel: youre-wrong
   host: 127.0.0.1
   port: 8765
 

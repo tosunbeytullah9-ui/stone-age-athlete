@@ -6,7 +6,7 @@ Turkish; write narration, storyboards and planner output in English (translation
 
 Layout: `channels/<channel>/{channel.yaml, ideas.yaml, projects/<slug>/}` + the shared `library/sources.yaml`.
 Every CLI step takes `<slug> --channel <channel> [--lang xx]`; the default channel is `factory.default_channel`
-(`homo-athleticus`, brand: docs/BRAND.md; old id `stone-age-athlete` still resolves via `aliases`).
+(`youre-wrong`; Homo Athleticus is paused since 26 Oct 2026, `channel.yaml → status: paused` stops its paid steps; its brand book is docs/BRAND.md and its old id `stone-age-athlete` still resolves via `aliases`).
 
 ## Preparing a new video (preparation package) and YouTube policies
 A new video starts as a **preparation package** (docs/PREP.md, `studio/prep.py`; panel: Kanal → Hazırlık stüdyosu):

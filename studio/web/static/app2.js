@@ -18,7 +18,7 @@ function scanCell(s) {
 
 async function channelScan(cid, el) {
   const d = await api(`/api/channels/${cid}/scan`);
-  const t = d.topics, c = d.channels;
+  const t = d.topics, c = d.channels, nm = d.names;
   const btn = (mode, label, help) => `<div class="card" style="flex:1;min-width:240px">
       <button class="primary sc-go" data-mode="${mode}" data-no-help>${label}</button>
       <div class="small muted" style="margin-top:8px">${help}</div></div>`;
@@ -32,6 +32,10 @@ async function channelScan(cid, el) {
       ${btn("kapaklar", "Rakip kapaklarını topla", "En çok izlenen rakip videoların kapaklarını tek sayfada toplar (sadece incelemek için, yeniden kullanılmaz). Önce \"Konuları tara\" çalıştıysa onun sonuçlarını kullanır, daha hızlıdır.")}
     </div>
     <div class="row" style="margin-bottom:12px"><label class="small">Sadece şu fikirler (boş = hepsi): <input id="sc-ids" placeholder="g001,g002" style="width:200px"></label></div>
+    <div class="card" style="margin-bottom:12px"><div class="row" style="gap:10px;align-items:center;flex-wrap:wrap">
+      <button class="primary" id="sc-names" data-no-help>Kanal adı adaylarını kontrol et</button>
+      <input id="sc-name-list" style="flex:1;min-width:320px" value="${esc((d.name_candidates || []).join(", "))}" placeholder="Ad Bir, Ad İki">
+      </div><div class="small muted" style="margin-top:8px">Her ad için handle (@AdBir) dolu mu ve YouTube'un kanal aramasında aynı ya da benzer adlı kanal var mı bakar. <b>BOŞ</b>: handle boş, aynı adlı kanal yok · <b>DİKKAT</b>: benzer adlı kanallar var · <b>DOLU</b>. Ad başına ~10 sn. Adaylar: <code>research.name_candidates</code>.</div></div>
     <div id="live-box" class="hidden" style="margin-bottom:12px"><div id="live-status" class="small muted"></div><div class="log" id="live-log" style="height:160px"></div></div>
     <h3 style="margin-top:22px">Konular ${t ? `<span class="small muted">${esc(t.date)} · <a href="${t.md_url}" target="_blank">tam rapor</a></span>` : ""}</h3>
     ${t ? `<table><thead><tr><th>Fikir</th><th style="width:110px">Medyan izlenme</th><th style="width:110px">En büyük</th><th style="width:80px">Güçlü</th><th style="width:110px">Son 2 yıl güçlü+uzun</th><th style="width:90px"></th></tr></thead><tbody>
@@ -41,8 +45,20 @@ async function channelScan(cid, el) {
     ${c ? (c.rows.length ? `<table><thead><tr><th>Kanal</th><th style="width:100px">İlk video</th><th style="width:60px">Ay</th><th style="width:100px">Abone</th><th style="width:90px">Abone/ay</th><th>En iyi video</th></tr></thead><tbody>
       ${c.rows.map((r) => `<tr><td><a href="${esc(r.url)}" target="_blank">${esc(r.channel)}</a></td><td style="white-space:nowrap">${esc(String(r.first_upload || "").replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3"))}</td><td>${r.age_months}</td><td>${fmtN(r.subs)}</td><td>${fmtN(r.subs_per_month)}</td><td><a href="${esc(r.best_url)}" target="_blank">${esc(r.best_title)}</a> <span class="muted small">${fmtN(r.best_views)}</span></td></tr>`).join("")}</tbody></table>`
       : '<p class="muted">Ölçütlere uyan yeni kanal bulunamadı.</p>') : '<p class="muted">Henüz tarama yok.</p>'}
+    ${nm ? `<h3 style="margin-top:22px">Kanal adı adayları <span class="small muted">${esc(nm.date)} · <a href="${nm.md_url}" target="_blank">tam rapor</a></span></h3>
+      <table><thead><tr><th>Ad</th><th style="width:90px">Sonuç</th><th>Boş handle</th><th>Aynı ya da benzer adlı kanallar</th></tr></thead><tbody>
+      ${nm.rows.map((r) => `<tr><td><b>${esc(r.name)}</b>${r.note ? `<div class="muted small">${esc(r.note)}</div>` : ""}</td><td>${pill(r.verdict, r.verdict === "BOŞ" ? "ok" : r.verdict === "DİKKAT" ? "warn" : "err")}</td><td>${(r.free_handles || []).map((h) => "@" + esc(h)).join(", ") || "—"}</td><td class="small">${[...(r.same || []), ...(r.similar || [])].slice(0, 5).map((x) => `<a href="${esc(x.url)}" target="_blank">${esc(x.channel)}</a> ${fmtN(x.subs)}`).join(" · ") || "—"}</td></tr>`).join("")}</tbody></table>` : ""}
     <h3 style="margin-top:22px">Rakip kapakları</h3>
     ${d.thumbs ? `<a href="${d.thumbs.url}" target="_blank"><img src="${d.thumbs.url}" style="max-width:100%;border-radius:8px"></a>` : '<p class="muted">Henüz toplanmadı.</p>'}`;
+  $("#sc-names").onclick = async () => {
+    const names = $("#sc-name-list").value.split(",").map((x) => x.trim()).filter(Boolean);
+    try {
+      const r = await api(`/api/channels/${cid}/scan`, { method: "POST", body: { mode: "isimler", names } });
+      watch(r.job, "YouTube taraması · isimler");
+      state.onJobsDone = () => viewChannel(cid, "scan");
+      toast("İsim kontrolü başladı; bitince sonuçlar burada görünür");
+    } catch (e) { toast(e.message, true); }
+  };
   $$(".sc-go").forEach((b) => (b.onclick = async () => {
     const ids = $("#sc-ids").value.split(",").map((x) => x.trim()).filter(Boolean);
     try {

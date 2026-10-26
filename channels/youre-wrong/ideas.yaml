@@ -2,6 +2,7 @@
 # pillar: P1 body files (Tuesday) | P2 history files (Friday) | P3 cross files (body x history)
 # verdict: WRONG | PARTIALLY WRONG | annoyingly correct
 # status: idea | researching | scripting | production | published | dropped
+# merged_from / from: ideas taken over from Homo Athleticus (26 Oct 2026: every myth topic of the owner's channels lives here).
 pillars:
   P1: {name: Body Files, promise: 'Fitness and health ''facts'', traced to where they came from and tested'}
   P2: {name: History Files, promise: 'History everyone learned wrong, and who started the rumor'}
@@ -10,9 +11,9 @@ pillars:
 ideas:
 # ---- P1 ----
 - {id: i001, title: You Don't Need 8 Glasses of Water a Day, pillar: P1, priority: A, angle: 1945 report misread; water turnover 1-6 L (Yamada 2022); food and all drinks count; overdrinking risk, verdict: WRONG, case: 1, status: production, project: 001-you-don-t-need-8-glasses-of-water-a-day}
-- {id: i003, title: Lactic Acid Isn't Why You're Sore, pillar: P1, priority: A, angle: 'Lactate clears in ~1 h, DOMS peaks 24-72 h; downhill running; lactate is fuel', verdict: WRONG, case: 3, status: production, project: 003-lactic-acid-isn-t-why-you-re-sore}
-- {id: i005, title: Crunches Don't Burn Belly Fat, pillar: P1, priority: A, angle: 'Ramirez-Campillo meta-analysis: 13 studies, 1,158 people, no spot reduction', verdict: WRONG, case: 5, status: production, project: 005-you-can-t-burn-belly-fat-with-crunches}
-- {id: i007, title: Stretching Doesn't Prevent Injuries. This Does., pillar: P1, priority: A, angle: 'Lauersen 2014: stretching RR 0.963, strength RR 0.315', verdict: WRONG, case: 7, status: production, project: 007-stretching-won-t-stop-you-getting-injured}
+- {id: i003, title: Lactic Acid Isn't Why You're Sore, pillar: P1, priority: A, angle: 'Lactate clears in ~1 h, DOMS peaks 24-72 h; downhill running; lactate is fuel', verdict: WRONG, case: 3, status: production, project: 003-lactic-acid-isn-t-why-you-re-sore, merged_from: [homo-athleticus/i078, homo-athleticus/i120]}
+- {id: i005, title: Crunches Don't Burn Belly Fat, pillar: P1, priority: A, angle: 'Ramirez-Campillo meta-analysis: 13 studies, 1,158 people, no spot reduction', verdict: WRONG, case: 5, status: production, project: 005-you-can-t-burn-belly-fat-with-crunches, merged_from: [homo-athleticus/i081]}
+- {id: i007, title: Stretching Doesn't Prevent Injuries. This Does., pillar: P1, priority: A, angle: 'Lauersen 2014: stretching RR 0.963, strength RR 0.315', verdict: WRONG, case: 7, status: production, project: 007-stretching-won-t-stop-you-getting-injured, merged_from: [homo-athleticus/i132]}
 # ---- P2 ----
 - {id: i002, title: Vikings Never Wore Horned Helmets. An Opera Did., pillar: P2, priority: A, angle: Doepler 1876 Wagner costumes; Gjermundbu helmet; Veksø helmets ~900 BC, verdict: WRONG, case: 2, status: production, project: 002-vikings-never-wore-horned-helmets}
 - {id: i004, title: Napoleon Wasn't Short, pillar: P2, priority: A, angle: French pouce 2.7 cm vs inch 2.54 cm; ~1.67-1.69 m; Gillray caricatures, verdict: WRONG, case: 4, status: production, project: 004-napoleon-wasn-t-short}
@@ -21,4 +22,14 @@ ideas:
 - {id: i011, title: 300 Spartans Didn't Hold Off Persia Alone, pillar: P2, priority: B, angle: '~7,000 Greeks; final stand with 700 Thespians and 400 Thebans (Herodotus)', verdict: WRONG, status: idea}
 - {id: i006, title: Gladiators Rarely Fought to the Death, pillar: P2, priority: A, angle: 'Gaius: 20 vs 1,000 lease fee; 1 in 5-10 bouts fatal; Flamma 34 fights; Ephesus bones; Galen 5 vs 60; Gérôme 1872 thumbs; barley men', verdict: WRONG, case: 6, status: production, project: 006-gladiators-rarely-fought-to-the-death}
 # ---- P3 ----
-- {id: i009, title: Ancient People Didn't Die at 30, pillar: P3, priority: A, angle: Child mortality drags the average; modal adult age at death ~72 (Gurven & Kaplan 2007), verdict: WRONG, case: 9, status: production, project: 009-ancient-people-didn-t-die-at-30}
+- {id: i009, title: Ancient People Didn't Die at 30, pillar: P3, priority: A, angle: Child mortality drags the average; modal adult age at death ~72 (Gurven & Kaplan 2007), verdict: WRONG, case: 9, status: production, project: 009-ancient-people-didn-t-die-at-30, merged_from: [homo-athleticus/i010]}
+- {id: i012, title: Why Everyone Started Stretching Before Sport, pillar: P3, priority: B, angle: 'Working title. The history of the pre-game stretch: where the habit came from and how it became a rule before it was tested. Must not repeat 007 (the injury evidence); research the origin first, verdict open', status: idea, from: homo-athleticus/i110}
+- {id: i013, title: Spartans Didn't Train the Way the Movies Show, pillar: P3, priority: B, angle: 'Working title. The agoge as the sources describe it (Xenophon, Plutarch: late and romanticised) vs the film image; separate from i011 (Thermopylae numbers), schedule them apart', status: idea, from: homo-athleticus/i025}
+- {id: i014, title: 'Where Did 10,000 Steps Come From? (A Marketing Slogan)', pillar: P3, priority: A, angle: 'Working title (from Homo Athleticus, reword as a myth). 1965 Japanese ''manpo-kei'' pedometer; Lee 2019 study', status: idea, from: homo-athleticus/i096}
+- {id: i015, title: Why the First Marathon Is (Probably) a Myth, pillar: P2, priority: A, angle: 'Working title (from Homo Athleticus, reword as a myth). Pheidippides story sources', status: idea, from: homo-athleticus/i103}
+- {id: i016, title: 'Is Sitting Really the New Smoking?', pillar: P1, priority: A, angle: 'Working title (from Homo Athleticus, reword as a myth). Leisure vs work sitting; breaks matter (Lieberman)', status: idea, from: homo-athleticus/i115}
+- {id: i017, title: 'Does Running Ruin Your Knees? What 50 Years of Data Say', pillar: P1, priority: A, angle: 'Working title (from Homo Athleticus, reword as a myth). Runners not at higher OA risk', status: idea, from: homo-athleticus/i116}
+- {id: i018, title: 'Is Breakfast Really the Most Important Meal? (A History)', pillar: P3, priority: B, angle: 'Working title (from Homo Athleticus, reword as a myth). Kellogg marketing, fasting research', status: idea, from: homo-athleticus/i119}
+- {id: i019, title: 'Is ''No Pain, No Gain'' True?', pillar: P1, priority: B, angle: 'Working title (from Homo Athleticus, reword as a myth). Soreness vs adaptation', status: idea, from: homo-athleticus/i125}
+- {id: i020, title: 'Do You Really Need 8 Hours of Sleep?', pillar: P1, priority: B, angle: 'Working title (from Homo Athleticus, reword as a myth). Forager sleep studies (Yetish 2015)', status: idea, from: homo-athleticus/i129}
+- {id: i021, title: 'How Did Ninjas Really Train? (Almost Everything You Know Is Wrong)', pillar: P2, priority: C, angle: 'Working title (from Homo Athleticus, reword as a myth). Shinobi sources vs pop culture', status: idea, from: homo-athleticus/i046}
