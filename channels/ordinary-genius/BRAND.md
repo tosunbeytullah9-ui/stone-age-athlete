@@ -58,10 +58,26 @@ Length: 1,200–1,500 words, 8–10 minutes (mid-roll ads start at 8 min).
 - One clear subject per scene; the camera moves in when detail matters (`camera` keys), never for decoration.
 
 ## Thumbnails
-- One everyday object drawn huge and exact by code, cut open or mid-action, the hidden part glowing yellow.
-- 2–4 words in white Anton with a thick navy outline (theme `outline`), never repeating the title.
-- At most one arrow or circle. No faces, no brands, no logos. Bottom-right corner empty.
-- Three kinds per video (correction / stamp / scene) for Test & Compare; `stamp` word default `SOLVED`.
+The object is the hero and the hidden part is the question. A viewer sees a thing from their own kitchen drawn
+bigger and cleaner than they have ever looked at it, and one small part of it singled out: "wait, what is that?"
+Nothing on an Ordinary Genius thumbnail is struck through, stamped or handwritten; that grammar belongs to
+You're Wrong!, and two channels of one owner must never look like one template (YouTube spam policy: coordinated
+channels, repetitive imagery).
+
+Three kinds per video, one of each, for Test & Compare (`channel.yaml → thumbnails.kinds`; upload `loupe` first):
+- **loupe (Büyüteç):** the object huge; a big magnifying lens (yellow rim, coral handle) shows the one small part
+  that does the trick, enlarged, joined to it by a light cone. 0–3 words that ask.
+- **xray (Röntgen):** the same object twice on one canvas, split by a glowing scan line: the outside everyone knows
+  on one side, the mechanism glowing yellow on the other. 0–3 words.
+- **tag (Etiket):** the object huge; rings around the small part and one thick yellow arrow from a yellow part tag
+  with ≤ 3 navy words: a question ("WHY TEETH?") or a number that is a claim.
+
+Rules:
+- Drawn by code (`visual: {comp: mech}`), free and exact; the object fills 45–60 % of the frame and its silhouette
+  reads at 168 px. Write the drawings with the project's `scenes.py` helpers so the thumbnail object is the video's
+  object.
+- Words: white Anton, navy outline and drop shadow; never the title again; a number only with its `claim`.
+- No faces, no brands, no logos. Bottom-right corner empty (duration). Never the same object, angle and words twice.
 
 ## Accuracy protocol
 1. Primary sources first: patents (Google Patents), museum collections, standards and government agencies (EIA,

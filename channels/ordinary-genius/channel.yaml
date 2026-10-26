@@ -89,22 +89,25 @@ package:                         # what the packaging prompt and the channel bib
     code-drawn diagrams that move on the exact word, plain language with everyday metaphors, every claim sourced.
     The viewer should feel smarter about something they touch every day.
   thumbnail_rules:
-    - "One everyday object drawn huge and exact by code (comp: mech), shown cut open or mid-action; the hidden part glows yellow."
-    - "Bright, saturated colours on the indigo stage; at most one arrow or circle; 2–4 words; no faces, no brands, no logos."
-    - "Bottom-right corner stays empty (duration stamp). Never the same object, angle and words twice."
+    - "The object is the hero: the everyday object itself, drawn huge and exact by code (comp: mech), fills 45–60 % of the frame and is recognisable at 168 px from its silhouette alone."
+    - "One question per thumbnail: the small hidden part that does the trick (a toothed wheel, a curved pipe, a speck inside) is the thing the lens, the scan line or the arrow points at; it glows yellow."
+    - "Words ask, never answer: at most 3 words in white Anton with a navy outline (loupe, xray) or on the yellow part tag (tag); never the title again; a number only with its claim."
+    - "No struck-through words, no rubber stamps, no handwriting, no paper slips: that is another channel's grammar (You're Wrong!)."
+    - "No faces, no brands, no logos. Bottom-right corner stays empty (duration). Never the same object, angle and words twice."
 thumbnails:                      # look of the three thumbnail kinds (docs/THUMBNAILS.md)
+  kinds: [loupe, xray, tag]      # the object kinds: magnifying lens / cut open by a scan line / part tag + arrow
   ink: "#0d1030"
   accent: "#ffcc33"
-  stamp: SOLVED
   paper: false
-  outline: "#0d1030"             # words in white with a thick navy outline (pop look), no paper slip
+  outline: "#0d1030"             # words in white with a thick navy outline and a navy drop shadow, no paper slip
   text_fill: "#ffffff"
+  handle_color: "#ff6b5b"        # the lens handle (coral)
   ink_boost: 0
+  series_tab: false              # no index tab: that belongs to the ledger look
   fonts: {title: Anton-Regular.ttf, hand: Anton-Regular.ttf, stamp: AlfaSlabOne-Regular.ttf}
   direction: >-
-    Thumbnail: one everyday object drawn very large, filling about half of the frame, shown cut open so the hidden
-    mechanism is visible, the key part glowing sunflower yellow; flat vector, thick navy outlines, saturated colours
-    on deep indigo.
+    Thumbnail: one everyday object drawn very large, filling about half of the frame, the hidden part that does the
+    trick glowing sunflower yellow; flat vector, thick navy outlines, saturated colours on deep indigo.
 overrides:
   video:
     reveal: ""                   # code-drawn scenes animate themselves

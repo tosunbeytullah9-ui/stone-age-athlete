@@ -1,6 +1,7 @@
-# Thumbnails (three kinds, every channel)
+# Thumbnails (three kinds per channel)
 
-Every video gets three thumbnails, one of each kind, and all three go into YouTube Studio's **Test & Compare**.
+Every video gets three thumbnails, one of each of its channel's kinds, and all three go into YouTube Studio's
+**Test & Compare**.
 It picks the winner by watch-time share, not clicks, so a misleading thumbnail loses. After about ten videos per
 channel, the kind that wins most often becomes that channel's default.
 
@@ -9,6 +10,43 @@ channel, the kind that wins most often becomes that channel's default.
 | `correction` | the belief in big letters, struck through by hand in the accent colour; a handwritten note under it | `myth` ≤ 3 short words or one number, `note` ≤ 3 words |
 | `stamp` | one object drawn large, a rubber stamp on its empty side | none (the stamp word: channel default or `stamp`) |
 | `scene` | a moment that really happens in the video | `text` ≤ 3 words |
+| `loupe` | the object huge; a magnifying lens shows the one small part that does the trick, enlarged | `text` ≤ 3 words |
+| `xray` | the object split by a glowing scan line: the outside on one side, its mechanism on the other | `text` ≤ 3 words |
+| `tag` | the object huge; rings around one small part and a thick arrow from a yellow part tag | `text` ≤ 3 words (on the tag) |
+
+## Each channel has its own three kinds
+Two channels of the same owner must not share one thumbnail grammar: a viewer (and YouTube's spam review, which looks
+at "coordinated networks of channels" and "repetitive AI-generated imagery") should never feel two channels are one
+template. `channel.yaml → thumbnails.kinds` picks the set; the packaging and preparation prompts, `prep-check`, the
+channel bible, the panel and the preview all follow it.
+
+| channel | kinds | grammar |
+|---|---|---|
+| You're Wrong! (default set) | `correction`, `stamp`, `scene` | a myth struck through, stamped, handwritten |
+| Ordinary Genius | `loupe`, `xray`, `tag` | the object is the hero, the hidden part is the question |
+
+```yaml
+# object kinds (coordinates on the 1920×1080 design canvas, after `frame`)
+- kind: loupe
+  visual: {comp: mech, items: [...]}
+  focus: {x: 1013, y: 573, r: 130}     # the small part
+  lens: {x: 480, y: 395, r: 235}       # where the enlarged lens goes (empty side)
+  handle: 225                          # lens handle angle in degrees (false = no handle)
+  text: {en: TWO TINY WHEELS}
+  pos: top-right
+- kind: xray
+  visual: {comp: mech, items: [...]}   # the outside
+  inside: {comp: mech, items: [...], bg: {color: "#0d1b45"}}   # the same drawing cut open, same place and size
+  split: {x: 790, angle: 7}            # the scan line; `side: left` shows the inside on the left; `tint: true`
+  text: {en: WHAT'S INSIDE?}           #   turns an AI-painted inside into a blueprint
+  pos: top-left
+- kind: tag
+  visual: {comp: mech, items: [...]}
+  point: {x: 1069, y: 757, r: 110}     # the part the arrow points at
+  text: {en: WHY TEETH?}               # a question, or a number with its claim
+  pos: top-left
+```
+An `xray` thumbnail costs two pictures when painted by Gemini (both are free when drawn by code).
 
 The factory prints every word. The AI picture never contains text: its prompt is told to leave the `pos` area
 empty.
@@ -42,6 +80,7 @@ there: if the words do not read at 168 px, they are too long.
 The renderer warns about these rules:
 - `myth` longer than 3 words
 - `note` or `text` longer than 3 words
+- a `loupe` without `focus`/`lens`, an `xray` without `inside`, a `tag` without `point`
 - a number with no `claim`
 - `pos: bottom-right`
 
@@ -54,6 +93,8 @@ thumbnails:
   paper: true                # the pictures are paper pages: warm the page, darken the edges (light-mode feed),
                              # ink multiplied into the paper; false = paintings: words sit on a torn paper slip
   ink_boost: 1               # thicken thin drawn lines (0 for paintings)
+  kinds: [correction, stamp, scene]   # this channel's three kinds (see above)
+  outline: null              # vivid look: words in `text_fill` with a thick outline in this colour, no paper slip
   series_tab: true           # coloured index tab on the top edge = the series colour (channel.yaml → series)
   direction: "..."           # optional: how this channel's thumbnail pictures are drawn
   fonts: {title: Anton-Regular.ttf, hand: PermanentMarker-Regular.ttf, stamp: AlfaSlabOne-Regular.ttf}

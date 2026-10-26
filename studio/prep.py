@@ -126,8 +126,8 @@ video: it paints the pictures (Gemini), voices the script (TTS), animates the ca
 4. **Claims.** Every factual statement (numbers, dates, study results, "researchers found") is a claim with its
    source and `says`: the exact words of the script that state it (copied, 3–12 words, unique in the script). If the
    script says more than the source supports, fix the script; never round a number up.
-5. **Packaging:** 10 titles (≤ 60 characters, true to the claims), exactly 3 thumbnails (one `correction`, one
-   `stamp`, one `scene`; the picture never contains text; at most 3 words; `claim:` for any number), 3 hooks,
+5. **Packaging:** 10 titles (≤ 60 characters, true to the claims), exactly 3 thumbnails (one of each of the channel's
+   kinds below; the picture never contains text; at most 3 words; `claim:` for any number), 3 hooks,
    a 2-line description.
 6. **Shorts:** 2 vertical cut-downs taken from the script itself: `from` = the first words, `to` = the last words of
    a passage of {short_min}–{short_max} words that works alone (a hook in its first line, a payoff at its end).
@@ -151,9 +151,10 @@ Target length: {words}.
 `[curious]` `[excited]` `[whispers]` `[pause]` `[serious]` `[warm]` before the words; they are not shown in captions.
 
 ## Thumbnails
-Kinds: correction (the belief struck through + a handwritten note), stamp (one object + the rubber stamp
-"{stamp}"), scene (a moment that really happens in the video + ≤ 3 words). `pos` = where the words go (top-left |
-top | top-right | left | right | bottom-left | bottom; never bottom-right). Pictures in the channel's look:
+Kinds of this channel (one of each):
+{kinds_block}
+`pos` = where the words go (top-left | top | top-right | left | right | bottom-left | bottom; never bottom-right).
+Pictures in the channel's look:
 {style}
 {thumb_rules}
 ## YouTube monetization policies (the package must pass all of them)
@@ -194,9 +195,7 @@ claims:
 description: "two lines for the top of the YouTube description, no hashtags"
 titles: ["...", "..."]
 thumbnails:
-  - {{kind: correction, visual: {{prompt: "...", characters: []}}, myth: {{en: "..."}}, note: {{en: "..."}}, pos: top-left, claim: c01}}
-  - {{kind: stamp, visual: {{prompt: "...", characters: []}}, pos: top-left}}
-  - {{kind: scene, visual: {{prompt: "...", characters: []}}, text: {{en: "..."}}, pos: top}}
+{kinds_yaml}
 hooks:
   - {{type: cold_open_stat, text: "..."}}
 shorts:
@@ -286,7 +285,6 @@ def build_prompt(cid: str, idea_id: str | None = None, topic: str | None = None,
     from .claims import library_index
     from .policy import ai_label, settings
     from .publish import HOOK_TYPES
-    from .thumbkit import theme_of
     cfg = cfg or load_config(cid)
     ch = Channel(cid)
     d = ch.data
@@ -340,7 +338,7 @@ def policy_text(cfg: Config, sensitive: bool = True) -> str:
 def _fill(cid, cfg, ch, d, pkg, series, series_id, video, idea_line, idea, policy, sensitive, slots, lib=None) -> str:
     from .claims import library_index
     from .publish import HOOK_TYPES
-    from .thumbkit import theme_of
+    from .thumbnails import kinds_block, kinds_yaml
     planned = slots[0]["date"] if slots else ""
     words = "1,300–1,600 words (8–11 minutes)"
     m = re.search(r"(\d[\d,.]*)\s*[–-]\s*(\d[\d,.]*)\s*words", str(pkg.get("script_structure") or ""))
@@ -375,7 +373,7 @@ def _fill(cid, cfg, ch, d, pkg, series, series_id, video, idea_line, idea, polic
         structure=" ".join(str(pkg.get("script_structure") or "Hook (0–8 s) → setup → evidence → turn → ending")
                            .split()),
         words=words, signature=("\n".join(sig) + "\n") if sig else "", brand=_brand(ch, d),
-        stamp=theme_of(d).get("stamp", "WRONG"), style=" ".join(str(d.get("visual_style") or "").split()),
+        kinds_block=kinds_block(d), kinds_yaml=kinds_yaml(d), style=" ".join(str(d.get("visual_style") or "").split()),
         thumb_rules="".join(f"- {r}\n" for r in (rules if isinstance(rules, list) else [rules])),
         policy=policy, made=_made(ch),
         library="\n".join(f"- {k}: {v.get('authors', '')} {v.get('year', '')}, {v.get('title', '')}"
@@ -448,6 +446,7 @@ def _words_between(script: str, a: str, b: str) -> int | None:
 # ------------------------------------------------------------------ check
 def check(cid: str, data: dict, cfg: Config | None = None) -> dict:
     """{ok, errors: [...], checks: [{key, ok, level, message, section}], summary}. Errors stop the import."""
+    from .thumbkit import kinds_of
     from .claims import SOURCE_TYPES, library_index
     from .policy import channel_checks, is_sensitive, metadata_checks, pace_check, script_checks, settings
     cfg = cfg or load_config(cid)
@@ -538,9 +537,10 @@ def check(cid: str, data: dict, cfg: Config | None = None) -> dict:
         + (f" · 60 karakteri aşan: {len(long_t)}" if long_t else ""))
     th = [t for t in data.get("thumbnails") or [] if isinstance(t, dict)]
     kinds = sorted(t.get("kind", "?") for t in th)
-    add("package", "thumbnails", kinds == ["correction", "scene", "stamp"], "warn",
-        f"Kapak: {len(th)} ({', '.join(kinds) or '—'})" + ("" if kinds == ["correction", "scene", "stamp"]
-                                                          else " — her türden bir tane gerekli"))
+    want = sorted(kinds_of(ch.data if ch else {}))
+    add("package", "thumbnails", kinds == want, "warn",
+        f"Kapak: {len(th)} ({', '.join(kinds) or '—'})" + ("" if kinds == want
+                                                          else f" — kanalın her türünden bir tane gerekli ({', '.join(want)})"))
     ids = {c.get("id") for c in claims}
     loose = [t.get("kind") for t in th if t.get("claim") and t["claim"] not in ids]
     if loose:

@@ -24,8 +24,8 @@ WRITING_RULES = """- Narration in English, short sentences, second-person hook. 
 - Title, thumbnail and hook may not promise more than the claims support.
 - Images never contain text; numbers become pictures (charts, gauges, two sizes). Text only on thumbnails and in
   the on-screen overlay layer.
-- Thumbnails: three per video, one of each kind (correction: the belief struck through + a note; stamp: one object
-  + a rubber stamp; scene: a moment from the video), at most three words, tested with Test & Compare."""
+- Thumbnails: three per video, one of each of the channel's kinds (section 6), at most three words, tested with
+  Test & Compare."""
 
 DEFAULT_STRUCTURE = """HOOK (0–8 s, the most surprising *sourced* fact or stake) → SETUP → EVIDENCE (one study at a time: who was
 measured, what was found) → TURN (what the evidence cannot tell us) → ENDING (what it means for the viewer).
@@ -172,15 +172,20 @@ def build_knowledge(channel: str, cfg: Config) -> str:
     brand = _demote(_strip_title(_read(brand_file)), 1) or "(no brand book yet: channels/<channel>/BRAND.md)"
     pkg = d.get("package") or {}
     structure = " ".join(str(pkg.get("script_structure") or DEFAULT_STRUCTURE).split())
-    from .thumbkit import theme_of
+    from .thumbkit import KIND_INFO, kinds_of, theme_of
     th = theme_of(d)
+    kinds = kinds_of(d)
     trules = pkg.get("thumbnail_rules") or []
     trules = [trules] if isinstance(trules, str) else trules
-    thumbs = (f"- Look: ink {th['ink']}, accent {th['accent']}, default stamp word \"{th['stamp']}\", "
-              f"{'paper page (words inked onto the page)' if th['paper'] else 'painting (words on a paper slip)'}.\n"
+    look = ('paper page (words inked onto the page)' if th['paper'] else
+            'words in white with a thick outline, no paper slip' if th.get('outline') else 'painting (words on a paper slip)')
+    stamp = f", default stamp word \"{th['stamp']}\"" if "stamp" in kinds else ""
+    thumbs = (f"- Look: ink {th['ink']}, accent {th['accent']}{stamp}, {look}.\n"
+              f"- This channel's three kinds (one of each per video, upload `{kinds[0]}` first):\n"
+              + "".join(f"  - `{k}` ({KIND_INFO[k][0]}): {KIND_INFO[k][1].replace('{stamp}', th['stamp'])}\n" for k in kinds)
               + "".join(f"- {r}\n" for r in trules)
-              + "- Format and rules: `project.yaml → thumbnails` (kind, visual, myth/note/stamp/text, pos, claim); "
-                "upload the correction kind first.")
+              + "- Format and rules: `project.yaml → thumbnails` (kind, visual, text and the kind's fields, pos, claim); "
+                "docs/THUMBNAILS.md.")
     char_ids = ", ".join(f"`{k}`" for k in (d.get("characters") or {})) or "none"
     tts = (d.get("overrides") or {}).get("tts") or {}
     voice = (f"{tts.get('provider')}" + (f" ({(tts.get(tts.get('provider')) or {}).get('voice', '')})"

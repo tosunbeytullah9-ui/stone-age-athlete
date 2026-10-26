@@ -129,6 +129,9 @@ KIND_SPACE = {        # what the picture must leave free for the words the facto
     "stamp": "Leave a large completely empty area in the {area} of the frame (plain background, nothing drawn there) "
              "for a rubber stamp.",
     "scene": "Leave the {area} of the frame completely empty (plain background) for three handwritten words.",
+    "loupe": "Leave the {area} of the frame completely empty (plain background) for a magnifying lens and three words.",
+    "xray": "Leave the {area} of the frame completely empty (plain background) for three big words.",
+    "tag": "Leave the {area} of the frame completely empty (plain background) for a label and an arrow.",
 }
 AREA = {"top-left": "upper left", "top": "top third", "top-right": "upper right", "left": "left half",
         "right": "right half", "bottom-left": "lower left", "bottom": "bottom third"}
@@ -187,35 +190,46 @@ def render_thumbnails(project: Project, cfg: Config, lang: str | None = None) ->
     raw_dir.mkdir(parents=True, exist_ok=True)
     made: list[Path] = []
     eng = None
-    for n, v in enumerate(variants[:3], 1):
-        visual = v.get("visual")
+    def picture(n: int, v: dict, visual, tag: str = "") -> Path | None:
+        """The raw picture of one thumbnail: drawn by code (free) or painted by Gemini (cached by prompt)."""
+        nonlocal eng
         if isinstance(visual, str):
             visual = {"prompt": visual}
         from . import remotion
         if isinstance(visual, dict) and remotion.comp_of(visual):
             # drawn by code (Remotion), e.g. `comp: mech`: free, exact, the same look as the video
-            raw = raw_dir / f"thumb{n}_code_{remotion.still_key(visual, cfg)}.png"
+            raw = raw_dir / f"thumb{n}{tag}_code_{remotion.still_key(visual, cfg)}.png"
             if not raw.exists() and not remotion.render_still(project, cfg, visual, raw):
-                print(f"  kapak {n}: kodla çizilen resim üretilemedi, atlandı")
-                continue
-        elif not isinstance(visual, dict) or not visual.get("prompt"):
-            print(f"  kapak {n}: visual.prompt yok, atlandı")
+                print(f"  kapak {n}{tag}: kodla çizilen resim üretilemedi, atlandı")
+                return None
+            return raw
+        if not isinstance(visual, dict) or not visual.get("prompt"):
+            print(f"  kapak {n}{tag}: visual.prompt yok, atlandı")
+            return None
+        scene = {**visual, "prompt": f"{_direction(v, ch)} {visual['prompt']}"}
+        eng = eng or GeminiEngine(cfg)
+        prompt = build_prompt(scene, eng.style, eng.characters)
+        key = hashlib.sha1(json.dumps([prompt, eng.model], ensure_ascii=False).encode()).hexdigest()[:10]
+        raw = raw_dir / f"thumb{n}{tag}_{key}.png"
+        if not raw.exists():
+            eng.generate(prompt, raw, eng.char_refs(visual.get("characters")))
+        return raw
+
+    for n, v in enumerate(variants[:3], 1):
+        raw = picture(n, v, v.get("visual"))
+        if raw is None:
             continue
-        else:
-            scene = {**visual, "prompt": f"{_direction(v, ch)} {visual['prompt']}"}
-            eng = eng or GeminiEngine(cfg)
-            prompt = build_prompt(scene, eng.style, eng.characters)
-            key = hashlib.sha1(json.dumps([prompt, eng.model], ensure_ascii=False).encode()).hexdigest()[:10]
-            raw = raw_dir / f"thumb{n}_{key}.png"
-            if not raw.exists():
-                eng.generate(prompt, raw, eng.char_refs(visual.get("characters")))
+        inside = None
+        if v.get("kind") == "xray" and v.get("inside"):
+            iraw = picture(n, v, v.get("inside"), "_inside")
+            inside = _frame_crop(Image.open(iraw).convert("RGB"), v.get("frame")) if iraw else None
         base = _frame_crop(Image.open(raw).convert("RGB"), v.get("frame"))
         for lg in langs:
             if v.get("kind") in thumbkit.KINDS:
                 texts = {k: _field(v, k, lg, primary) for k in ("myth", "note", "stamp", "text")}
                 for w in thumbkit.lint(v, texts):
                     print(f"  uyarı kapak {n} ({v['kind']}): {w}")
-                img = thumbkit.compose_kind(base, v, texts, theme, color)
+                img = thumbkit.compose_kind(base, v, texts, theme, color, inside)
             else:
                 img = compose(base, _text_for(v, lg, primary), v.get("text_pos", "left"),
                               v.get("text_color", "#ffd84d"), v.get("highlight"), None)
@@ -240,7 +254,8 @@ def preview(project: Project, lang: str) -> Path | None:
     variants = project.meta.get("thumbnails") or []
     kinds = [(variants[i] if i < len(variants) and isinstance(variants[i], dict) else {}).get("kind", "")
              for i in range(len(thumbs))]
-    names = {"correction": "Düzeltme", "stamp": "Damga", "scene": "Sahne"}
+    from .thumbkit import KIND_INFO
+    names = {k: v[0] for k, v in KIND_INFO.items()}
     title = project.meta.get("title", project.slug)
     channel = project.ch.data.get("name", project.channel)
     col_w, half = 470, 490
@@ -279,18 +294,14 @@ Series: {series}
 Create packaging. Rules:
 - Titles: ≤ 60 characters, curiosity without lying: the title must stay true to the claims listed below (no bigger
   numbers, no "all humans" if the study is one group). Mix styles: question, surprising fact, "why", contrast.
-- Thumbnails: exactly 3, one of each kind, so YouTube's Test & Compare can tell which kind works for this channel.
-  The factory prints every word itself; the picture never contains text.
-  1. kind: correction. `myth`: the belief the video overturns, at most 3 short words or one number, printed big
-     and struck through by hand. `note`: at most 3 handwritten words under it that open a curiosity gap without giving the
-     answer away. Picture: the object of the belief, large.
-  2. kind: stamp. One iconic object of the belief drawn large; a rubber stamp goes on the empty side. `stamp` only if
-     a word other than "{stamp}" fits much better. No other words.
-  3. kind: scene. A funny or tense moment that really happens in the video; `text`: at most 3 words.
-  For each: `visual: {{prompt, characters}}` (one subject filling about half of the frame, what it is and does,
-  emotion, framing; no text in the picture), `pos` = where the words go and the picture stays empty (top-left | top |
-  top-right | left | right | bottom-left | bottom; never bottom-right, where YouTube shows the duration), and `claim`
-  = the id of the claim that any number or fact on the thumbnail rests on. The words add to the title, never repeat it.
+- Thumbnails: exactly 3, one of each of this channel's kinds, so YouTube's Test & Compare can tell which kind works
+  for this channel. The factory prints every word itself; the picture never contains text.
+{kinds_block}
+  For each: `visual` (one subject filling about half of the frame, what it is and does, emotion, framing; no text in
+  the picture: `{{prompt, characters}}` for a painting, or `{{comp: mech, items: [...]}}` drawn by code), `pos` = where
+  the words go and the picture stays empty (top-left | top | top-right | left | right | bottom-left | bottom; never
+  bottom-right, where YouTube shows the duration), and `claim` = the id of the claim that any number or fact on the
+  thumbnail rests on. The words add to the title, never repeat it.
 {thumb_rules}- Hooks: 3 alternative first 8 seconds (≤ 25 words) that put the most surprising sourced fact or stake up front.
 - Shorts: 2 ideas for purpose-written Shorts from this research (hook line + what it shows + loop ending).
 
@@ -298,19 +309,7 @@ Reply with ONLY this YAML:
 
 titles: ["...", "..."]            # 10
 thumbnails:
-  - kind: correction
-    visual: {{prompt: "...", characters: []}}
-    myth: {{en: "..."}}
-    note: {{en: "..."}}
-    pos: top-left
-    claim: c03
-  - kind: stamp
-    visual: {{prompt: "...", characters: []}}
-    pos: top-left
-  - kind: scene
-    visual: {{prompt: "...", characters: []}}
-    text: {{en: "..."}}
-    pos: top
+{kinds_yaml}
 hooks:
   - {{type: cold_open_stat, text: "..."}}    # types: {hook_types}
 description: "first two lines of the YouTube description (≤ 200 chars), no hashtags"
@@ -323,6 +322,20 @@ shorts_ideas:
 ## Script
 {script}
 """
+
+
+def kinds_block(ch: dict, indent: str = "  ") -> str:
+    """The channel's three thumbnail kinds, numbered and explained (packaging and preparation prompts)."""
+    from . import thumbkit
+    stamp = thumbkit.theme_of(ch).get("stamp", "WRONG")
+    return "\n".join(f"{indent}{i}. kind: {k}. " + thumbkit.KIND_INFO[k][1].replace("{stamp}", stamp)
+                     for i, k in enumerate(thumbkit.kinds_of(ch), 1))
+
+
+def kinds_yaml(ch: dict, indent: str = "  - ") -> str:
+    from . import thumbkit
+    return "\n".join(indent + thumbkit.KIND_EXAMPLE[k].replace("{{", "{").replace("}}", "}")
+                     for k in thumbkit.kinds_of(ch))
 
 
 def build_package_prompt(project: Project) -> str:
@@ -347,7 +360,7 @@ def build_package_prompt(project: Project) -> str:
         characters="; ".join(f"{k}: {(v or {}).get('description', '')}" for k, v in (ch.get("characters") or {}).items())
         or "none", title=project.meta.get("title", project.slug),
         series=f"{series.get('name', '—')}: {series.get('promise', '')}", hook_types=", ".join(HOOK_TYPES),
-        stamp=thumbkit.theme_of(ch).get("stamp", "WRONG"), thumb_rules=thumb_rules, claims=claims, script=script)
+        kinds_block=kinds_block(ch), kinds_yaml=kinds_yaml(ch), thumb_rules=thumb_rules, claims=claims, script=script)
 
 
 def apply_package(project: Project, data: dict) -> dict:

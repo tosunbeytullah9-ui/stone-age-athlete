@@ -735,30 +735,87 @@ def build(shots: list[dict]) -> dict:
     return plan
 
 
+# ------------------------------------------------------------------ thumbnails (code-drawn, words printed by the factory)
+# The channel's object kinds (channel.yaml → thumbnails.kinds): loupe / xray / tag. The opener is drawn bigger and with
+# more detail than in the scenes (it is the hero of the picture); `python scenes.py --thumbnails` prints the YAML for
+# project.yaml → thumbnails.
+def _tcan(x, y, w, h, inside=False):
+    hw, ry = w / 2, w * 0.12
+    if inside:   # cut open: thin wall, lid as a section, food inside
+        return grp([
+            it("rect", w=w, h=h, fill="bg2", stroke="sky", sw=6, dash=[18, 12]),
+            it("rect", x=-hw, y=-h / 2, w=16, h=h, ax=0, ay=0, fill="sky", sw=4),
+            it("rect", x=hw - 16, y=-h / 2, w=16, h=h, ax=0, ay=0, fill="sky", sw=4),
+            it("rect", x=-hw - 10, y=-h / 2 - 10, w=w + 20, h=22, ax=0, ay=0, fill="sky", sw=4),
+            it("rect", x=-hw - 26, y=-h / 2 - 18, w=50, h=44, r=16, ax=0, ay=0, fill="steel2"),
+        ], x=x, y=y)
+    return grp([
+        it("rect", w=w, h=h, fill="steel"),
+        it("rect", y=h * 0.12, w=w, h=h * 0.5, fill="coral"),
+        it("rect", x=-hw + 40, y=h * 0.12, w=70, h=h * 0.5, ax=0, fill="white", opacity=0.35, sw=0),
+        *[it("line", x=-hw + 14, y=dy, to=[w - 28, 0], stroke="steel2", sw=7) for dy in (-h * 0.40, -h * 0.33)],
+        it("ellipse", y=-h / 2, rx=hw, ry=ry, fill="steel"),
+        it("ellipse", y=-h / 2, rx=hw - 22, ry=ry - 8, fill="steel2", sw=5),
+        it("rect", x=-hw - 26, y=-h / 2 - 18, w=50, h=44, r=16, ax=0, ay=0, fill="steel2"),
+    ], x=x, y=y)
+
+def _topener(x, y, inside=False):
+    """Origin = the rim point the wheels pinch. Handles run down-left, the butterfly key sits on top."""
+    if inside:
+        body = dict(fill="bg2", stroke="sky", sw=6, dash=[16, 10])
+    else:
+        body = dict(fill="dark")
+    handles = [
+        grp([it("rect", x=0, w=760, h=70, r=35, ax=1, ay=0.5, fill="steel" if not inside else "bg2",
+                **({"stroke": "sky", "sw": 5, "dash": [16, 10]} if inside else {})),
+             it("rect", x=-300, w=470, h=82, r=41, ax=1, ay=0.5, fill="teal" if not inside else "bg2",
+                **({"stroke": "sky", "sw": 5, "dash": [16, 10]} if inside else {}))], x=-60, y=40, rotate=-38),
+        grp([it("rect", x=0, w=760, h=70, r=35, ax=1, ay=0.5, fill="steel" if not inside else "bg2",
+                **({"stroke": "sky", "sw": 5, "dash": [16, 10]} if inside else {})),
+             it("rect", x=-300, w=470, h=82, r=41, ax=1, ay=0.5, fill="coral" if not inside else "bg2",
+                **({"stroke": "sky", "sw": 5, "dash": [16, 10]} if inside else {}))], x=-60, y=-10, rotate=-25),
+    ]
+    head = [it("rect", x=-40, y=-30, w=250, h=210, r=40, **body)]
+    wheels = [
+        grp([it("circle", r=56, fill="steel"), it("circle", r=38, fill="steel2", sw=4), it("circle", r=12, fill="dark")],
+            x=66, y=-34, glow="yellow"),                                          # cutting wheel on the lid
+        it("gear", x=-46, y=56, r=60, teeth=18, depth=16, hole=14, fill="yellow", glow="yellow"),   # feed wheel under the rim
+    ]
+    key = grp([it("ellipse", x=-70, rx=88, ry=34, fill="yellow"), it("ellipse", x=70, rx=88, ry=34, fill="yellow"),
+               it("circle", r=30, fill="dark"), it("circle", r=11, fill="steel2")], x=20, y=-165, rotate=-12)
+    extra = []
+    if inside:   # what the side plate hides: the two wheels geared together, the crank shaft, the hinge pivot
+        extra = [
+            it("gear", x=66, y=-34, r=58, teeth=16, depth=13, hole=12, fill="yellow", glow="yellow"),
+            it("gear", x=-22, y=46, r=58, teeth=16, depth=13, hole=12, fill="yellow", rotate=11, glow="yellow"),
+            it("line", x=20, y=-165, to=[-42, 211], stroke="yellow", sw=14),
+            it("poly", x=-60, y=20, points=[[0, -34], [-30, 22], [30, 22]], fill="yellow"),
+            it("line", x=66, y=22, to=[0, 26], stroke="yellow", sw=10, glow="yellow"),   # the cut into the lid
+        ]
+        wheels = []
+    return grp(handles + head + wheels + extra + [key], x=x, y=y)
+
+def _tscene(op, s, can_w=560, inside=False):
+    """op = where the wheels pinch the rim; the can's left rim sits there."""
+    ox, oy = op
+    return [_tcan(ox + can_w / 2, oy + 450, can_w, 900, inside), grp([_topener(0, 0, inside)], x=ox, y=oy, scale=s)]
+
+BG_IN = {"color": "#0d1b45", "color2": "#173a7a"}
+def thumbnails() -> list[dict]:
+    return [
+        {"kind": "loupe", "visual": mech(_tscene((1000, 560), 1.3), drift=0), "focus": {"x": 1013, "y": 573, "r": 130},
+         "lens": {"x": 480, "y": 395, "r": 235}, "handle": 225, "text": {"en": "TWO TINY WHEELS"}, "pos": "top-right"},
+        {"kind": "xray", "visual": mech(_tscene((880, 650), 1.55, 440), drift=0),
+         "inside": mech(_tscene((880, 650), 1.55, 440, True), drift=0, bg=BG_IN),
+         "split": {"x": 790, "angle": 7}, "text": {"en": "WHAT'S INSIDE?"}, "pos": "top-left"},
+        {"kind": "tag", "visual": mech(_tscene((1140, 670), 1.55, 900), drift=0), "point": {"x": 1069, "y": 757, "r": 110},
+         "text": {"en": "WHY TEETH?"}, "pos": "top-left"},
+    ]
+
+
+if __name__ == "__main__" and "--thumbnails" in sys.argv:
+    yaml.safe_dump(thumbnails(), sys.stdout, sort_keys=False, allow_unicode=True, width=140)
+    sys.exit()
 if __name__ == "__main__":
     sb = yaml.safe_load(open("storyboard.yaml", encoding="utf-8"))
     yaml.safe_dump(build(sb["shots"]), sys.stdout, sort_keys=False, allow_unicode=True, width=140)
-
-
-# ------------------------------------------------------------------ thumbnails (code-drawn, words printed by the factory)
-def thumbnails() -> list[dict]:
-    rim = [
-        it("rect", x=200, y=700, w=1250, h=40, ax=0, fill="steel"),
-        it("rect", x=1500, y=980, w=40, h=520, fill="steel"),
-        it("rect", x=1500, y=700, w=170, h=140, r=50, fill="steel2"),
-        grp([it("circle", r=230, fill="steel"), it("circle", r=165, fill="steel2", sw=5), it("circle", r=46, fill="dark")],
-            x=1290, y=455, glow="yellow"),
-        it("gear", x=1530, y=930, r=150, teeth=24, depth=26, hole=30, fill="yellow"),
-        it("line", x=1290, y=682, to=[0, 40], stroke="yellow", sw=12, glow="yellow"),
-    ]
-    big_opener = [can_side(1480, 800, w=480, h=520, id="can"),
-                  opener(1260, 545, s=1.45, id="op", glow_wheel=0)]
-    lid_lift = [can_side(1340, 720, w=560, h=560, id="can", band="teal"),
-                it("ellipse", x=1340, y=330, rx=250, ry=64, fill="steel", rotate=-12, glow="yellow"),
-                it("ellipse", x=1340, y=330, rx=210, ry=48, fill="steel2", rotate=-12, sw=4)]
-    return [
-        {"kind": "scene", "visual": mech(rim, drift=0), "text": {"en": "NOT A BLADE"}, "pos": "top-left"},
-        {"kind": "correction", "visual": mech(big_opener, drift=0), "myth": {"en": "JUST A BLADE"},
-         "note": {"en": "IT'S PRESSURE"}, "pos": "top-left", "claim": "c17"},
-        {"kind": "stamp", "visual": mech(lid_lift, drift=0), "pos": "top-left"},
-    ]

@@ -135,3 +135,43 @@ def test_render_thumbnails_end_to_end(proj, monkeypatch):  # noqa: F811
     assert (p.build / "thumbnails" / "en" / "preview.png").exists()
     th.render_thumbnails(p, load_config(proj.channel), "en")       # words only changed → no new pictures
     assert len(prompts) == 3
+
+
+POP = {"thumbnails": {"kinds": ["loupe", "xray", "tag"], "ink": "#0d1030", "accent": "#ffcc33", "outline": "#0d1030",
+                      "text_fill": "#ffffff", "series_tab": False, "fonts": {"hand": "Anton-Regular.ttf"}}}
+
+
+def test_channel_picks_its_own_kinds():
+    assert tk.kinds_of({}) == ["correction", "stamp", "scene"]
+    assert tk.kinds_of(POP) == ["loupe", "xray", "tag"]
+    assert tk.kinds_of({"thumbnails": {"kinds": ["nope"]}}) == ["correction", "stamp", "scene"]
+    block = th.kinds_block(POP)
+    assert "kind: loupe" in block and "kind: tag" in block and "struck through" not in block
+    assert "kind: correction" in th.kinds_block({}) and "\"WRONG\"" in th.kinds_block({})
+    assert th.kinds_yaml(POP).count("- {kind:") == 3 and "{{" not in th.kinds_yaml(POP)
+
+
+def test_object_kinds_render_and_change_the_picture():
+    theme = tk.theme_of(POP)
+    base = _picture(True)
+    inside = Image.new("RGB", (1920, 1080), (10, 30, 80))
+    for v, ins in (({"kind": "loupe", "focus": {"x": 1300, "y": 650, "r": 80}, "lens": {"x": 500, "y": 450, "r": 240},
+                     "pos": "top-right"}, None),
+                   ({"kind": "xray", "inside": {"comp": "mech"}, "split": {"x": 960, "angle": 8}}, inside),
+                   ({"kind": "tag", "point": {"x": 1300, "y": 650}, "pos": "top-left"}, None)):
+        out = tk.compose_kind(base, v, {"text": "why teeth?"}, theme, None, ins)
+        assert out.size == (1920, 1080)
+        diff = np.abs(np.asarray(out).astype(int) - np.asarray(tk.prepare(base, theme, (1920, 1080))).astype(int))
+        assert diff.sum(axis=2).mean() > 3, v["kind"]
+        assert tk.lint(v, {"text": "why teeth?"}) == []
+    # the right half of an xray is the inside picture
+    out = tk.compose_kind(base, {"kind": "xray", "inside": {"comp": "mech"}, "split": {"x": 700, "angle": 0}},
+                          {"text": ""}, theme, None, inside)
+    assert tuple(np.asarray(out)[900, 1700]) == tuple(np.asarray(tk.prepare(inside, theme, (1920, 1080)))[900, 1700])
+
+
+def test_object_kinds_lint():
+    assert any("focus" in w for w in tk.lint({"kind": "loupe"}, {"text": "a b"}))
+    assert any("inside" in w for w in tk.lint({"kind": "xray"}, {}))
+    assert any("point" in w for w in tk.lint({"kind": "tag"}, {"text": "one two three four"}))
+    assert any("claim" in w for w in tk.lint({"kind": "tag", "point": {"x": 1, "y": 1}}, {"text": "5 LAYERS"}))

@@ -171,10 +171,10 @@ function prepSection(cid, st, el) {
       ${fld("Başlık adayları (her satır bir başlık)", "titles", d.titles || [], { rows: 6, kind: "lines" })}
       ${fld("Açıklamanın ilk iki satırı", "description", d.description, { rows: 2 })}
       <h3 style="margin-top:14px">Kapaklar (Test & Compare için üç tür)</h3>
-      <div class="grid g3">${th.map((t, i) => `<div class="card" style="padding:12px"><div class="spread"><b>${String.fromCharCode(65 + i)} · ${esc({ correction: "Düzeltme", stamp: "Damga", scene: "Sahne" }[t.kind] || t.kind || "?")}</b>${t.claim ? pill("iddia " + esc(t.claim), "info") : ""}</div>
-        ${fld("Resim tarifi (yazısız)", `thumbnails.${i}.visual.prompt`, (t.visual || {}).prompt, { rows: 4 })}
+      <div class="grid g3">${th.map((t, i) => `<div class="card" style="padding:12px"><div class="spread"><b>${String.fromCharCode(65 + i)} · ${esc({ correction: "Düzeltme", stamp: "Damga", scene: "Sahne", loupe: "Büyüteç", xray: "Röntgen", tag: "Etiket" }[t.kind] || t.kind || "?")}</b>${t.claim ? pill("iddia " + esc(t.claim), "info") : ""}</div>
+        ${(t.visual || {}).comp ? `<p class="small muted">Resim kodla çiziliyor (${esc((t.visual || {}).comp)}); düzenlemek için ham YAML.</p>` : fld("Resim tarifi (yazısız)", `thumbnails.${i}.visual.prompt`, (t.visual || {}).prompt, { rows: 4 })}
         ${t.kind === "correction" ? fld("İnanış (üstü çizilir)", `thumbnails.${i}.myth.en`, (t.myth || {}).en) + fld("El yazısı not", `thumbnails.${i}.note.en`, (t.note || {}).en) : ""}
-        ${t.kind === "scene" ? fld("Yazı (≤ 3 kelime)", `thumbnails.${i}.text.en`, (t.text || {}).en) : ""}
+        ${["scene", "loupe", "xray", "tag"].includes(t.kind) ? fld("Yazı (≤ 3 kelime)", `thumbnails.${i}.text.en`, (t.text || {}).en) : ""}
         ${fld("Yazının yeri", `thumbnails.${i}.pos`, t.pos)}</div>`).join("")}</div>
       <h3 style="margin-top:14px">Açılış önerileri</h3>${(d.hooks || []).map((h) => `<div class="hook">${pill(h.type || "")} ${esc(h.text || "")}</div>`).join("") || '<p class="muted small">yok</p>'}`;
     return;
