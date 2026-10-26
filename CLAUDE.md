@@ -57,7 +57,7 @@ AI paintings only for people, places and history. Write a video's scenes as code
 (`channels/ordinary-genius/projects/001-*/scenes.py`), apply them, render posters and **look at the contact sheet**.
 Numbers on a `mech` scene come from claims or the scene's own words; illustrative maths gets `example: true`.
 YouTube scans (yt-dlp, free, no API key; studio/ytscan.py; panel: Kanal → YouTube taraması; youtube.com is closed to
-cloud sessions, so they run on the owner's machine): `python -m studio scan konular|yeni-kanallar|kapaklar --channel <c>
+cloud sessions, so they run on the owner's machine): `python -m studio scan konular|yeni-kanallar|kapaklar|isimler --channel <c>
 [--only g001,g002]` → `idea.scan` + `channels/<c>/research/` (queries: `channel.yaml → research.scan_queries`).
 Read the newest `research/rakip-*.md` and `yeni-kanallar-*.md` before choosing a topic or a thumbnail.
 
